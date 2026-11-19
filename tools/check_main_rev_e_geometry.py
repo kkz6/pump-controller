@@ -119,6 +119,10 @@ def required_clearance(a, b):
     voltage_gap = 0
     if domains == {'LIVE', 'SELV'}:
         rule, gap = 'live_selv', LIMITS['live_selv']
+    elif domains == {'LIVE', 'CABINET'}:
+        rule, gap = 'live_cabinet', 8.0
+    elif domains == {'SELV', 'CABINET'}:
+        rule, gap = 'logic_cabinet', 3.0
     elif domains == {'LIVE'}:
         if nets & FIELD_CONTACTS:
             if not nets <= FIELD_CONTACTS:
@@ -151,13 +155,16 @@ def audit(args):
     components = {c['ref']: c for sheet in source['sheets'] for c in sheet['components']
                   if c.get('on_board', True)}
     variant = source['board'].get('variant')
-    dual = variant == 'compact-dual'
-    usb_service = source.get('revision') == 'COMPACT-DUAL-GUARD-R3'
-    has_indicators = variant in ('compact-led', 'compact-dual')
+    integrated = variant == 'integrated'
+    dual = variant in ('compact-dual', 'integrated')
+    usb_service = source.get('revision') in ('COMPACT-DUAL-GUARD-R3', 'INTEGRATED-R4')
+    has_indicators = variant in ('compact-led', 'compact-dual', 'integrated')
     compact = variant == 'compact' or has_indicators
     original = json.loads((BASE / 'design/circuit.json').read_text())
     original_parts = {c['ref']: c for sheet in original['sheets'] for c in sheet['components']
                       if c.get('on_board', True) and c['ref'] not in {'SW3', 'SW4', 'J33', 'J34'}}
+    if integrated:
+        del original_parts['J31']
     footprints = {f.GetReference(): f for f in b.GetFootprints()}
     violations, source_issues, unqualified = [], [], []
     if dual:
@@ -291,6 +298,24 @@ def audit(args):
             'R244': {'1':'+3V3','2':'CMD_ALLOWED'}, 'C240': {'1':'+5V','2':'GND'},
             'C241': {'1':'+3V3','2':'GND'}, 'C242': {'1':'+5V_CMD','2':'GND'},
         })
+    if integrated:
+        del expected_additions['J36']
+        # Cross-check every retained receiver pin against the independently exported
+        # previous PCB netlist, including unused contacts and input protection pins.
+        prior = ET.parse(BASE / 'hardware/guard-receiver/checks/source.xml')
+        renamed = {'ISO_0':'GND', 'ISO_5':'+5V', 'PANEL_MON':'PANEL_OK_MON',
+                   'J31_1':'STOP_RETURN','J31_2':'K1_COIL_PLUS'}
+        for net in prior.findall('./nets/net'):
+            old = net.get('name')
+            for node in net.findall('node'):
+                old_ref = node.get('ref')
+                if old_ref.startswith(('J','H')):
+                    continue
+                ref = 'KFB1' if old_ref == 'KFB1' else old_ref[0] + str(300 + int(old_ref[1:]))
+                expected_additions.setdefault(ref, {})[node.get('pin')] = (
+                    '' if old.startswith('unconnected-') else renamed.get(old, old))
+        expected_additions['J52'] = {'1':'GND','2':'HOST_AUX_N','3':'LOCAL_AUX_N'}
+        expected_additions['J54'] = {'1':'FUSED_24','2':'CAB_0','3':'HB_24','4':'PANEL_24','5':'KFB_A1'}
     for ref, expected in expected_additions.items():
         actual = {str(x['num']): x.get('net') or '' for x in components.get(ref, {}).get('pins', [])}
         if actual != expected:
@@ -365,10 +390,19 @@ def audit(args):
     if usb_service:
         domains.update(dict.fromkeys(('USB_CC1','USB_CC2','USB_CONN_DP','USB_CONN_DM','USB_PROT_DP','USB_PROT_DM','USB_PRESENT',
                                       'USB_VBUS','USB_ESD_REF','CMD_ALLOWED','+5V_CMD','PSU_5V_RAW'), 'SELV'))
+    if integrated:
+        for prefix in ('HB', 'PANEL'):
+            for suffix in ('DIODE','IN','REF','GATE','LED_A','LED_K'):
+                domains[prefix + '_' + suffix] = 'SELV'
+        for net in ('FUSED_24','CAB_0','HB_24','PANEL_24','HB_BASE','PANEL_BASE',
+                    'HB_OPTO_C','PANEL_OPTO_C','KFB_A1'):
+            domains[net] = 'CABINET'
     domain_issues = []
 
     def domain(net, ref=None, pin=None):
         expected = domains.get(net)
+        if integrated and ref == 'KFB1' and net.startswith('unconnected-'):
+            expected = 'SELV'  # unused changeover contacts remain on the logic side
         if expected is None and ref in components:
             known = {domains.get(x.get('net')) for x in components[ref]['pins'] if x.get('net')}
             known.discard(None)
@@ -379,7 +413,7 @@ def audit(args):
         if expected:
             n = b.FindNet(net) if net else None
             classes = {x.strip() for x in str(n.GetNetClassName()).split(',')} if n else set()
-            if classes & {'LIVE', 'SELV'} != {expected}:
+            if classes & {'LIVE', 'SELV', 'CABINET'} != {expected}:
                 domain_issues.append({'net': net, 'ref': ref, 'pin': pin,
                                       'expected': expected, 'native_classes': sorted(classes)})
             return expected
@@ -610,6 +644,17 @@ def audit(args):
             issue('all_layer_projected_starter_field_to_board_mains', field_gap['gap_mm'],
                   LIMITS['live_selv'], a=field_gap['starter_contact'], b=field_gap['board_mains'])
 
+    cabinet_gaps = {}
+    if integrated:
+        cabinet = [part for part in copper if part['domain'] == 'CABINET']
+        for group, limit in [('SELV', 3.0), ('LIVE', 8.0)]:
+            others = (part for part in copper if part['domain'] == group)
+            gap = closest_groups(cabinet, others, 'cabinet', group.lower())
+            cabinet_gaps[group] = gap
+            if gap['gap_mm'] + EPS < limit:
+                issue('all_layer_projected_cabinet_' + group.lower(), gap['gap_mm'], limit,
+                      a=gap['cabinet'], b=gap[group.lower()])
+
     # Bounded sweep: every skipped pair has a bounding-box separation already
     # larger than the applicable rule. Detailed shape clearance covers curves,
     # rounded rectangles and stored filled zones using KiCad native geometry.
@@ -678,8 +723,9 @@ def audit(args):
     if compact:
         mounting_targets = {(16.0, 8.8), (96.0, 8.8), (96.0, 76.0), (4.0, 76.0)}
     if dual:
+        bottom = source['board']['height'] - 21.0 if integrated else 76.0
         mounting_targets = {(4.0, -13.0), (50.0, -12.8), (96.0, -13.0),
-                            (96.0, 76.0), (4.0, 76.0)}
+                            (96.0, bottom), (4.0, bottom)}
     mounting = [h for h in all_holes if h.get('ref') and re.fullmatch(r'H\d+', h['ref'])]
     actual_mounting = {tuple(h['xy_mm']) for h in mounting}
     if actual_mounting != mounting_targets:
@@ -803,6 +849,8 @@ def audit(args):
             'No simulation, functional hardware, thermal, EMC or installation test is implied.',
         ],
     }
+    if integrated:
+        result['cabinet_projected'] = cabinet_gaps
     if dual:
         result['starter_field_to_board_mains_projected'] = field_gap
     if usb_service:

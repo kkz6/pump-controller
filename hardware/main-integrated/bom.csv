@@ -1,0 +1,278 @@
+Reference,Value,MPN,Description,Footprint,Datasheet,Sheet,DNP
+J1,AC INPUT L/N,31171102 (RT13702HBWC),"METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral.",CompactGuard:TerminalBlock_MetzConnect_Type171_RT13702HBWC_1x02_P7.50mm_Horizontal,https://www.metz-connect.com/externalfiles/311711/863694.PDF,power,False
+F1,T1A 600VAC,0ADKP1000-RE,Bel 1 A time-delay axial pigtail fuse; 200 A interrupting capacity at 600 VAC; coordinate with upstream protection,Pump:Fuse_Axial_5x20_P27.94,https://www.belfuse.com/media/datasheets/products/circuit-protection/ds-cp-0adkx-series.pdf,power,False
+R1,22R 3W FUSIBLE,AC03000002209JACCS,Vishay AC03-CS 22 ohm 3 W 5% fusible safety resistor; keep heat away from MCU and capacitors,Pump:R_Axial_L13_D6_P20.32,https://www.vishay.com/docs/28909/acxxcs.pdf,power,False
+RV1,TMOV 320VAC,TMOV14RP320EL2B7,"Thermally protected 14 mm MOV, 320 VAC continuous; INLINE crimped L2B7 lead option required for footprint; surge coordination unverified",Pump:TMOV14_Inline_P7.5,https://www.littelfuse.com/assetdocs/tmov-itmov?assetguid=bd475732-1071-4352-b8aa-f78b0007eb05,power,False
+U1,5V 1.2A ISOLATED,RACM06E-05SK/277,"6 W reinforced-isolation AC/DC module, 25.4 x 25.4 x 16.7 mm; 5 V model delivers 6 W to 50 C at 115-277 VAC; keep output floating",Pump:RACM06E,https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf,power,False
+C1,47uF 25V 105C,EEUFR1E470,"Panasonic FR, 47 uF, 25 V, 105 C. Front mounted on 2 mm lead pitch. Allow a 5.5 mm maximum diameter and 12.5 mm maximum length, up to 1 mm seating gap and up to 3 mm lead projection on the rear.",PumpRevE:CP_Radial_D5_P2_Pads1p5,https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1259.pdf,power,False
+C2,100nF 50V X7R,Generic 100nF 50V X7R 0805,Local ceramic bypass; X7R dielectric; verify effective capacitance at bias,Capacitor_SMD:C_0805_2012Metric,,power,False
+C3,22uF 16V X7R,C3225X7R1C226M250AC,"TDK 1210, 22 uF, 16 V X7R, 20%. Buck VIN bypass. Verify at least 10 uF effective at operating bias and temperature.",Capacitor_SMD:C_1210_3225Metric,https://product.tdk.com/info/en/documents/chara_sheet/c3225x7r1c226m250ac.pdf,power,False
+C4,100nF 50V X7R,Generic 100nF 50V X7R 0805,Buck high-frequency input bypass directly at VIN/PGND,Capacitor_SMD:C_0805_2012Metric,,power,False
+U2,TPS62162 3V3 1A,TPS62162DSGR,"Fixed3.3V buck; FB to AGND, VOS Kelvin to output capacitor. Solder EP to GND; two external0.65/0.30mm GND vias, no holes in SMT land.",Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm,https://www.ti.com/lit/ds/symlink/tps62160.pdf,power,False
+L1,2.2uH,74438357022,"Wuerth WE-MAPI 4030; 4.1x4.1x3.1 mm, 2.2 uH, 4.6 A saturation at 10% drop, max 26 mOhm DCR",Inductor_SMD:L_Wuerth_MAPI-4030,https://www.we-online.com/components/products/datasheet/74438357022.pdf,power,False
+C5,22uF 16V X7R,C3225X7R1C226M250AC,"TDK 1210, 22 uF, 16 V X7R, 20%. Buck output bypass at the VOS sense point. Verify filter stability and rail load steps.",Capacitor_SMD:C_1210_3225Metric,https://product.tdk.com/info/en/documents/chara_sheet/c3225x7r1c226m250ac.pdf,power,False
+C6,100nF 50V X7R,Generic 100nF 50V X7R 0805,Local 3.3 V rail bypass,Capacitor_SMD:C_0805_2012Metric,,power,False
+R2,33R 1% 2W MINIMUM LOAD,CRM2512-FX-33R0ELF,"Bourns 2512 thick-film 33 ohm 1%, 2 W at 70 C with 300 mm2 combined solder-pad/trace copper per datasheet; permanent 5 V minimum-load resistor, 0.677-0.844 W at 4.75-5.25 V including 1% tolerance. Reserve copper area and keep away from probes, precision meter components, antenna module and electrolytics. Revised module local ambient limit 50 C.",Resistor_SMD:R_2512_6332Metric,https://www.bourns.com/docs/product-datasheets/crm.pdf,power,False
+U3,ESP32-C6-MINI-1U-H8,ESP32-C6-MINI-1U-H8,8 MB flash; external antenna; hardware supports Matter over Wi-Fi or Thread. Antenna must be outside metal starter enclosure. GPIO17 drives ARM_CMD interlock rearm; GPIO16 UART TX logs only; GPIO4/5/15 unused; strap levels preserved.,Pump:ESP32-C6-MINI-1U,https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf,mcu,False
+C20,22uF 10V X7R,Generic 22uF 10V X7R 1210,Module bulk capacitor adjacent to pin 3; effective capacitance >=10 uF at 3.3 V,Capacitor_SMD:C_1210_3225Metric,,mcu,False
+C21,100nF 50V X7R,Generic 100nF 50V X7R 0805,Module bypass immediately at pin 3 and ground pads,Capacitor_SMD:C_0805_2012Metric,,mcu,False
+C22,1uF 10V X7R,Generic 1uF 10V X7R 0805,Enable RC delay with R20; watchdog/supervisor uses open-drain reset only,Capacitor_SMD:C_0805_2012Metric,,mcu,False
+R20,10k,Generic 10k 1% 0.125 W 0805,Module EN pull-up; 10 ms nominal RC with C22,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R21,10k,Generic 10k 1% 0.125 W 0805,GPIO9 boot strap pull-up. An isolated programmer may pull J2.6 low during reset through J2.5 for USB download.,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R22,10k,Generic 10k 1% 0.125 W 0805,GPIO8 must be high while GPIO9 is low to enter serial download mode,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R24,3.3k,Generic 3.3k 1% 0.125 W 0805,I2C SDA pull-up; populate one pull-up set on assembled controller,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R25,3.3k,Generic 3.3k 1% 0.125 W 0805,I2C SCL pull-up; verify bus capacitance/rise time at selected clock,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R26,10k,Generic 10k 1% 0.125 W 0805,Keep metering IC deselected while ESP32 is resetting,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R27,22R,Generic 22R 1% 0.125 W 0805,Optional internal USB service path; series resistor adjacent to module,Resistor_SMD:R_0805_2012Metric,,mcu,False
+R28,22R,Generic 22R 1% 0.125 W 0805,Optional internal USB service path; route D+/D- as 90-ohm differential pair,Resistor_SMD:R_0805_2012Metric,,mcu,False
+J2,SERVICE 2x3,Samtec TSW-103-07-G-D,SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40.,CompactGuard:PinHeader_2x03_P2.54mm_Vertical,,mcu,False
+U10,ADE7953ACPZ,ADE7953ACPZ,Single phase metering IC; poll registers through SPI at 1MHz,Package_CSP:LFCSP-28-1EP_5x5mm_P0.5mm_EP3.14x3.14mm,https://www.analog.com/media/en/technical-documentation/data-sheets/ade7953.pdf,meter_ic,False
+C40,4.7uF,"SPEC: 4.7uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_ic,False
+C41,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+C42,4.7uF,"SPEC: 4.7uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_ic,False
+C43,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+C44,4.7uF,"SPEC: 4.7uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_ic,False
+C45,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+C46,10uF,"SPEC: 10uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_ic,False
+C47,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+R40,10k,"SPEC: 10k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_ic,False
+C48,1uF,"SPEC: 1uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+R41,10k,"SPEC: 10k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_ic,False
+Y1,3.579545MHz / CL18pF,ABLS-3.579545MHZ-B2-T,18pF load; 27pF caps assume 4.5pF total stray; confirm oscillator start/accuracy,Crystal:Crystal_SMD_HC49-SD,https://abracon.com/Resonators/ABLS.pdf,meter_ic,False
+C49,27pF,"SPEC: 27pF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+C50,27pF,"SPEC: 27pF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
+R42,0R,RC0603JR-070RL,Neutral bond inside live domain only,Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
+R43,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
+R44,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
+R45,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
+R46,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
+R47,1k,RT0603BRD071KL,"0.1%, 25ppm/K, 0603 voltage-divider low leg",Resistor_SMD:R_0603_1608Metric,https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL,meter_inputs,False
+C51,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
+R48,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
+C52,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
+J10,LIVE CT / FIXED,"Phoenix Contact 1727010 / MKDS 1/2-3,81","Fixed CT-secondary terminal; factory-captive mains-referenced lead, no removable plug. 1 M_CT_HI, 2 M_GND. Support housing during 0.22-0.25 Nm tightening; 5 mm strip; separate strain relief. Disconnect only with pump supply isolated.",TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1-2-3.81_1x02_P3.81mm_Horizontal,https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-1-2-381-1727010,meter_inputs,False
+R49,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
+C53,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
+R50,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
+C54,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
+D10,BAV99W,"BAV99W,115",Antiparallel input limiting across CT secondary; not a substitute for the external burden,Package_TO_SOT_SMD:SOT-323_SC-70,https://assets.nexperia.com/documents/data-sheet/BAV99W.pdf,meter_inputs,False
+U11,ADuM6421ABRNZ5,ADUM6421ABRNZ5,"Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage",CompactGuard:ADuM6421A_RN28_Dense,https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf,meter_isolation,False
+FB1,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=,meter_isolation,False
+FB2,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=,meter_isolation,False
+C55,10uF,"SPEC: 10uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_isolation,False
+C56,100nF,GRM155R71C104KA88D,"Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",CompactGuard:C_0402_1005Metric,https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23,meter_isolation,False
+C57,100nF,GRM155R71C104KA88D,"Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",CompactGuard:C_0402_1005Metric,https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23,meter_isolation,False
+C58,10uF,"SPEC: 10uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_isolation,False
+C59,100nF,GRM155R71C104KA88D,"Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",CompactGuard:C_0402_1005Metric,https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23,meter_isolation,False
+C60,100nF,GRM155R71C104KA88D,"Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",CompactGuard:C_0402_1005Metric,https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23,meter_isolation,False
+U30,STWD100NYWY3F / 1.6s,STWD100NYWY3F,1.6s nominal / 2.24s maximum watchdog; heartbeat generated only after successful control-loop checks,Package_TO_SOT_SMD:SOT-23-5,https://www.st.com/resource/en/datasheet/stwd100.pdf,relay_protection_1,False
+U31,SN74LVC1G74DCUR,SN74LVC1G74DCUR,Fault/STOP clears arm latch. Only a fresh user re-arm clocks it high; heartbeat never clocks this latch,PumpRevE:SN74LVC1G74_DCU_TI,https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf,relay_protection_1,False
+U32,STM1001TWX6F,STM1001TWX6F,"3.08V nominal reset threshold,3.00-3.15V over -40..85C;140-280ms release delay. ST pin1=RESET,2=VCC,3=GND",Package_TO_SOT_SMD:SOT-23,https://www.st.com/resource/en/datasheet/stm1001.pdf,relay_protection_1,False
+C70,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,relay_protection_1,False
+C71,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,relay_protection_1,False
+C72,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,relay_protection_1,False
+R70,47k,"SPEC: 47k 1%, 0.1W, 0603",Raw clear pullup; limits D35 diode sink current below 100 uA for improved LOW margin at U36.,Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+R71,2.2k,"SPEC: 2.2k 1%, 0.1W, 0603",HEARTBEAT reset pulldown; overrides the typical MCU weak pullup; verify all reset modes.,Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+R72,2.2k,"SPEC: 2.2k 1%, 0.1W, 0603",PERMIT_D reset pulldown; overrides the typical MCU weak pullup; verify all reset modes.,Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+R78,2.2k,"SPEC: 2.2k 1%, 0.1W, 0603",ARM_CMD reset pulldown; overrides the typical UART RX pullup; no boot edge may re-arm.,Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+U34,SN74LVC1G08DBVR,SN74LVC1G08DBVR,Hardware-armed AND software-healthy gating of K1,Package_TO_SOT_SMD:SOT-23-5,https://www.ti.com/lit/ds/symlink/sn74lvc1g08.pdf,relay_protection_1,False
+U35,SN74LVC1G17DBVR,SN74LVC1G17DBVR,K1 coil-positive Schmitt detector. Opening panel STOP or the KFB1 normally open permit contact clears ARM in hardware.,Package_TO_SOT_SMD:SOT-23-5,https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf,relay_protection_1,False
+C75,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,relay_protection_1,False
+C76,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,relay_protection_1,False
+D35,BAT54WS,BAT54WS-7-F,Physical interlock low asynchronously clears arm latch; prevents restart on STOP release,Diode_SMD:D_SOD-323,https://www.diodes.com/part/view/BAT54WS,relay_protection_1,False
+D30,BAT54WS,BAT54WS-7-F,MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop,Diode_SMD:D_SOD-323,https://www.diodes.com/part/view/BAT54WS,relay_protection_1,False
+R74,100R,"SPEC: 100R 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+R75,100k,"SPEC: 100k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+Q30,AO3400A,AO3400A,30V N-MOSFET; specified at 2.5V gate drive,Package_TO_SOT_SMD:SOT-23,https://www.aosmd.com/sites/default/files/res/datasheets/AO3400A.pdf,relay_protection_1,False
+K1,G5Q-1A4 DC5,G5Q-1A4 DC5,"5 V 40 mA coil. Separate normally open starter command contact. Verify actual pilot load, including low-level reliability and inductive inrush. Omron reference for contact failure rate: 10 mA at 5 VDC.",Pump:Relay_G5Q_8mm,https://components.omron.com/sg-en/products/relays/G5Q,relay_protection_1,False
+D31,1N4148W,1N4148W-7-F,Flyback directly across relay coil,Diode_SMD:D_SOD-123,https://www.diodes.com/part/view/1N4148W,relay_protection_1,False
+R76,22R,"SPEC: 22R 1%, 0.1W, 0603",K2 gate series resistor; reduced with 2.2k R77 to retain HIGH gate voltage; qualify switching waveform.,Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+R77,2.2k,"SPEC: 2.2k 1%, 0.1W, 0603",K2 gate reset pulldown; overrides the typical RUN_CMD reset pullup; verify hot leakage and gate levels.,Resistor_SMD:R_0603_1608Metric,,relay_protection_1,False
+Q31,AO3400A,AO3400A,30V N-MOSFET; specified at 2.5V gate drive,Package_TO_SOT_SMD:SOT-23,https://www.aosmd.com/sites/default/files/res/datasheets/AO3400A.pdf,relay_protection_1,False
+K2,G5Q-1A4 DC5,G5Q-1A4 DC5,"5 V 40 mA coil. Separate normally open starter command contact. Verify actual pilot load, including low-level reliability and inductive inrush. Omron reference for contact failure rate: 10 mA at 5 VDC.",Pump:Relay_G5Q_8mm,https://components.omron.com/sg-en/products/relays/G5Q,relay_protection_2,False
+D32,1N4148W,1N4148W-7-F,Flyback directly across relay coil,Diode_SMD:D_SOD-123,https://www.diodes.com/part/view/1N4148W,relay_protection_2,False
+J30,OUT A / COM-NO,1836189,"Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.","Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal",https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf,relay_protection_2,False
+U36,SN74LVC1G17DBVR,SN74LVC1G17DBVR,"Schmitt buffer converts the slow wired-OR clear release into a clean U31 CLR edge; input SAFE_CLEAR_N, output ARM_CLEAR_N.",Package_TO_SOT_SMD:SOT-23-5,https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf,relay_protection_2,False
+C77,100nF,"SPEC: 100nF X7R, 10%, 16V",Local bypass for U36; connect directly between pins 5 and 3.,Capacitor_SMD:C_0603_1608Metric,,relay_protection_2,False
+R190,1k,RC0603FR-071KL,"Command LED current limit, 1 kΩ 1%, 0.1 W.",Resistor_SMD:R_0603_1608Metric,https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-071KL,relay_protection_2,False
+D40,START CMD GREEN,APTD1608LCGCK,Green START command indication driven by U33 GPB7; isolated logic domain.,LED_SMD:Kingbright_1608_LowCurrent,https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LCGCK.pdf,relay_protection_2,False
+R191,1k,RC0603FR-071KL,"Command LED current limit, 1 kΩ 1%, 0.1 W.",Resistor_SMD:R_0603_1608Metric,https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-071KL,relay_protection_2,False
+D41,STOP CMD RED,APT1608LSECK/J3-PRV,Red STOP command indication driven by U33 GPA7; isolated logic domain.,LED_SMD:Kingbright_1608_LowCurrent,https://www.kingbrightusa.com/images/catalog/SPEC/APT1608LSECK-J3-PRV.pdf,relay_protection_2,False
+J35,OUT B / COM-NO,1836189,"Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.","Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal",https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf,relay_protection_2,False
+J32,PANEL / GH12,SM12B-GHS-TB(LF)(SN),Keyed1:1 twelve-way harness to panelJ1. Isolated low voltage only. STOP opens hardware permit; no mains contacts on this harness. Not hot-pluggable.,Connector_JST:JST_GH_SM12B-GHS-TB_1x12-1MP_P1.25mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eGH.pdf,local_controls_1,False
+U33,MCP23017-E/SS,MCP23017-E/SS,"MCP23017 at I2C address 0x20, 400 kHz. Use GPB0 through GPB6 and GPA0 as control inputs. AUTO key on GPA0. GPB7 drives START CMD and GPA7 drives STOP CMD. Clear both output latches before configuring these pins as outputs. Disable pull-ups on both key inputs. HOST_N and LOCAL_N read the seated transfer plug through separate isolated-side position contacts.",Package_SO:SSOP-28_5.3x10.2mm_P0.65mm,https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP23017-Data-Sheet-DS20001952.pdf,local_controls_1,False
+C73,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+C74,1uF,"SPEC: 1uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R92,100k,"SPEC: 100k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R93,100k,"SPEC: 100k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R80,10k,"SPEC: 10k 1%, 0.1W, 0603",Series input resistor for 10k/33k raw divider into U37 Schmitt buffer; not a direct U33 input.,Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R81,33k,"SPEC: 33k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+C80,10nF,"SPEC: 10nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R82,10k,"SPEC: 10k 1%, 0.1W, 0603",Series input resistor for 10k/33k raw divider into U37 Schmitt buffer; not a direct U33 input.,Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R83,33k,"SPEC: 33k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+C82,10nF,"SPEC: 10nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R84,10k,"SPEC: 10k 1%, 0.1W, 0603",Series input resistor for 10k/33k raw divider into U37 Schmitt buffer; not a direct U33 input.,Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R85,33k,"SPEC: 33k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+C84,10nF,"SPEC: 10nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R86,22k,"SPEC: 22k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R87,100k,"SPEC: 100k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+C86,10nF,"SPEC: 10nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R88,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R89,10k,"SPEC: 10k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+C88,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R90,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+R91,10k,"SPEC: 10k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,local_controls_1,False
+C90,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,local_controls_1,False
+R192,1k,RC0603FR-071KL,"Transfer-position input series protection, internal SELV harness.",Resistor_SMD:R_0603_1608Metric,https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors,local_controls_2,False
+R193,1k,RC0603FR-071KL,"Transfer-position input series protection, internal SELV harness.",Resistor_SMD:R_0603_1608Metric,https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors,local_controls_2,False
+R194,10k,RC0603FR-0710KL,Transfer-position input pull-up. An open contact reads high.,Resistor_SMD:R_0603_1608Metric,https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors,local_controls_2,False
+R195,10k,RC0603FR-0710KL,Transfer-position input pull-up. An open contact reads high.,Resistor_SMD:R_0603_1608Metric,https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors,local_controls_2,False
+R196,1k,RC0603FR-071KL,1 kΩ series resistor from HEARTBEAT to the integrated guard comparator input channel.,Resistor_SMD:R_0603_1608Metric,https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors,local_controls_2,False
+R197,1k,RC0603FR-071KL,1 kΩ series resistor from the raw panel STOP return to the integrated guard comparator input channel.,Resistor_SMD:R_0603_1608Metric,https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors,local_controls_2,False
+U20,TLV9004,TLV9004IPWR,"Quad RRIO op-amp; reference, two excitation drivers, mux buffer",Package_SO:TSSOP-14_4.4x5mm_P0.65mm,https://www.ti.com/lit/ds/symlink/tlv9004.pdf,probes_1,False
+U21,TMUX1208,TMUX1208PWR,"8:1 analog multiplexer; EN tied high, firmware reads only valid fresh samples",Package_SO:TSSOP-16_4.4x5mm_P0.65mm,https://www.ti.com/lit/ds/symlink/tmux1208.pdf,probes_1,False
+U22,ADS1115,ADS1115IDGSR,"16-bit ADC at 860 SPS, differential AIN0-AIN1, +/-2.048V range; I2C address 0x48",Package_SO:TSSOP-10_3x3mm_P0.5mm,https://www.ti.com/lit/ds/symlink/ads1115.pdf,probes_1,False
+R100,10k,"SPEC: 10k 0.1%, >=0.1 W 0603","0.1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R101,10k,"SPEC: 10k 0.1%, >=0.1 W 0603","0.1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R102,47,"SPEC: 47 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R103,27k,"SPEC: 27k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R104,43k,"SPEC: 43k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R105,100k,"SPEC: 100k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R106,100k,"SPEC: 100k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R107,100k,"SPEC: 100k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R108,100k,"SPEC: 100k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R109,10k,"SPEC: 10k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+R110,100,"SPEC: 100 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+C110,10nF,SPEC: 10nF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_1,False
+R111,100,"SPEC: 100 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+C111,10nF,SPEC: 10nF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_1,False
+R112,100,"SPEC: 100 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+C112,10nF,SPEC: 10nF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_1,False
+R113,100,"SPEC: 100 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+C113,10nF,SPEC: 10nF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_1,False
+R114,1M,"SPEC: 1M 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_1,False
+C100,100nF,SPEC: 100nF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_1,False
+C101,1uF,SPEC: 1uF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_1,False
+C102,100nF,SPEC: 100nF X7R 16V 10%,"Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%.",Capacitor_SMD:C_0603_1608Metric,,probes_2,False
+C103,100nF,SPEC: 100nF X7R 16V 10%,"Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%.",Capacitor_SMD:C_0603_1608Metric,,probes_2,False
+C104,100nF,SPEC: 100nF X7R 16V 10%,"Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%.",Capacitor_SMD:C_0603_1608Metric,,probes_2,False
+C105,4.7uF,SPEC: 4.7uF X7R 16V 10%,X7R 16V 10%,Capacitor_SMD:C_0603_1608Metric,,probes_2,False
+R115,2.2k,"SPEC: 2.2k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+D102,BAT54S,"BAT54S,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAT54S.pdf,probes_2,False
+C106,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_2,False
+C108,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_2,False
+D100,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_2,False
+R116,4.99k,CRCW12064K99FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+R117,4.99k,CRCW12064K99FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+R118,2.2k,"SPEC: 2.2k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+D103,BAT54S,"BAT54S,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAT54S.pdf,probes_2,False
+C107,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_2,False
+C109,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_2,False
+D101,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_2,False
+R119,4.99k,CRCW12064K99FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+R120,4.99k,CRCW12064K99FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+R130,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+R131,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+D110,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_2,False
+C120,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_2,False
+R132,47k,"SPEC: 47k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+R133,22k,"SPEC: 22k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_2,False
+D111,BAS70-04,"BAS70-04,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf,probes_3,False
+C121,1nF,SPEC: 1nF C0G 50V 5%,C0G 50V 5%,Capacitor_SMD:C_0603_1608Metric,,probes_3,False
+R140,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+R141,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+D112,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_3,False
+C122,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_3,False
+R142,47k,"SPEC: 47k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+R143,22k,"SPEC: 22k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+D113,BAS70-04,"BAS70-04,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf,probes_3,False
+C123,1nF,SPEC: 1nF C0G 50V 5%,C0G 50V 5%,Capacitor_SMD:C_0603_1608Metric,,probes_3,False
+R150,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+R151,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+D114,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_3,False
+C124,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_3,False
+R152,47k,"SPEC: 47k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+R153,22k,"SPEC: 22k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+D115,BAS70-04,"BAS70-04,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf,probes_3,False
+C125,1nF,SPEC: 1nF C0G 50V 5%,C0G 50V 5%,Capacitor_SMD:C_0603_1608Metric,,probes_3,False
+R160,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+R161,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+D116,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_3,False
+C126,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_3,False
+R162,47k,"SPEC: 47k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+R163,22k,"SPEC: 22k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_3,False
+D117,BAS70-04,"BAS70-04,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf,probes_4,False
+C127,1nF,SPEC: 1nF C0G 50V 5%,C0G 50V 5%,Capacitor_SMD:C_0603_1608Metric,,probes_4,False
+R170,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_4,False
+R171,10k,CRCW120610K0FKEA,"1%, 0.25W; surge qualification required",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_4,False
+D118,PESD5V0S1BA,"PESD5V0S1BA,115",Bidirectional low-leakage 5V ESD diode; primary field clamp,Diode_SMD:D_SOD-323,https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf,probes_4,False
+C128,1uF,C2012X7R1H105K125AB,"1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB,probes_4,False
+R172,47k,"SPEC: 47k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_4,False
+R173,22k,"SPEC: 22k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metric,https://www.vishay.com/docs/20035/dcrcwe3.pdf,probes_4,False
+D119,BAS70-04,"BAS70-04,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf,probes_4,False
+C129,1nF,SPEC: 1nF C0G 50V 5%,C0G 50V 5%,Capacitor_SMD:C_0603_1608Metric,,probes_4,False
+J20,TANK PROBES,1803303,"Phoenix MC 1,5/5-G-3,81 header; mating screw plug 1803604, verify fit","Connector_Phoenix_MC:PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal",https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-5-g-381-1803303,probes_4,False
+J21,INLET / RETURN,S2B-XH-A(LF)(SN),"Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.",Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,probes_4,False
+H1,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
+H2,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
+H3,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
+H4,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
+H5,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
+U37,SN74LVC3G17DCUR,SN74LVC3G17DCUR,Three non-inverting Schmitt inputs; 5.5V-tolerant raw inputs and Ioff support. Outputs use U33 supply; STOP/MODE/NEXT polarity unchanged.,PumpRevE:SN74LVC3G17_DCU_TI,https://www.ti.com/lit/ds/symlink/sn74lvc3g17.pdf,controls_conditioning,False
+C78,100nF,"SPEC: 100nF X7R, 10%, 16V",Local U37 bypass; short direct connection between pins8 and4.,Capacitor_SMD:C_0603_1608Metric,,controls_conditioning,False
+J40,USB-C DATA / SERVICE,USB4110-GF-A,GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover.,CompactGuard:USB_C_GCT_USB4110_12Lands,https://gct.co/files/drawings/usb4110.pdf,usb_service,False
+U41,USB DATA SWITCH,TS3USB30EDGSR,TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths.,CompactGuard:MSOP-10_3x3mm_P0.5mm,https://www.ti.com/lit/ds/symlink/ts3usb30e.pdf,usb_service,False
+D42,USB ESD,USBLC6-2SC6,"ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device.",CompactGuard:SOT-23-6,https://www.st.com/resource/en/datasheet/usblc6-2.pdf,usb_service,False
+R240,5.1k 1%,RC0603FR-075K1L,CC1 termination,Resistor_SMD:R_0603_1608Metric,,usb_service,False
+R241,5.1k 1%,RC0603FR-075K1L,CC2 termination,Resistor_SMD:R_0603_1608Metric,,usb_service,False
+C241,100nF 16V X7R,GRM188R71C104KA01D,Local supply decoupling.,Capacitor_SMD:C_0603_1608Metric,,usb_service,False
+D43,CLAMP REFERENCE BLOCK,"BAS116H,115","Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug.",CompactGuard:D_SOD-123F,https://assets.nexperia.com/documents/data-sheet/BAS116H.pdf,usb_service,False
+D44,VBUS TVS 6V,SMF6.0A,"Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40.",CompactGuard:D_SOD-123F,https://www.littelfuse.com/products/overvoltage-protection/tvs-diodes/surface-mount/smf/smf6-0a,usb_service,False
+J41,RUN LINK / BENCH 5V,B3B-XH-A(LF)(SN),JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6.,CompactGuard:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,service_inhibit,False
+U40,USB MOTOR INHIBIT,TPS22919DCKR,VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT.,CompactGuard:SOT-363_SC-70-6,https://www.ti.com/lit/ds/symlink/tps22919.pdf,service_inhibit,False
+Q40,VBUS INHIBIT,PMV16XNR,Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V.,CompactGuard:SOT-23,https://assets.nexperia.com/documents/data-sheet/PMV16XN.pdf,service_inhibit,False
+R242,1k 1%,RC0603FR-071KL,Gate series,Resistor_SMD:R_0603_1608Metric,,service_inhibit,False
+R243,47k 1%,RC0603FR-0747KL,Gate pulldown,Resistor_SMD:R_0603_1608Metric,,service_inhibit,False
+R244,10k 1%,RC0603FR-0710KL,Inhibit pull-up,Resistor_SMD:R_0603_1608Metric,,service_inhibit,False
+C240,1uF 16V X7R,GRM188R71C105KA12D,Local supply decoupling.,Capacitor_SMD:C_0603_1608Metric,,service_inhibit,False
+C242,100nF 16V X7R,GRM188R71C104KA01D,Local supply decoupling.,Capacitor_SMD:C_0603_1608Metric,,service_inhibit,False
+D301,BAV199W blocking diode,"BAV199W,115",Use diode 1 only. SC-70 pin 2 open.,Package_TO_SOT_SMD:SOT-323_SC-70,https://assets.nexperia.com/documents/data-sheet/BAV199W.pdf,guard_inputs,False
+D302,BAV199W blocking diode,"BAV199W,115",Use diode 1 only. SC-70 pin 2 open.,Package_TO_SOT_SMD:SOT-323_SC-70,https://assets.nexperia.com/documents/data-sheet/BAV199W.pdf,guard_inputs,False
+R311,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R312,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+C303,10nF,GRM21BR71H103KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,guard_inputs,False
+R313,115k,RC0805FR-07115KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R314,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R315,4.7k,RC0805FR-074K7L,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R316,100k,RC0805FR-07100KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+Q301,2N7002 / optical LED driver,"2N7002,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/2N7002.pdf,guard_inputs,False
+R317,560R,RC0805FR-07560RL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+U302,VO617A-3 / isolation,VO617A-3,Phototransistor DIP-4. Keep galvanic domains separate.,Package_DIP:DIP-4_W7.62mm,https://www.vishay.com/docs/83430/vo617a.pdf,guard_inputs,False
+U301,HB and PANEL comparators,LM393BDR,"TI dual comparator, SOIC-8.",Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,https://www.ti.com/lit/ds/symlink/lm393b.pdf,guard_inputs,False
+C301,100nF,GRM21BR71H104KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,guard_inputs,False
+C302,1uF,GRM21BR71C105KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,guard_inputs,False
+R321,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R322,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+C304,10nF,GRM21BR71H103KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,guard_inputs,False
+R323,33k,RC0805FR-0733KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R324,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R325,4.7k,RC0805FR-074K7L,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+R326,100k,RC0805FR-07100KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+Q302,2N7002 / optical LED driver,"2N7002,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/2N7002.pdf,guard_inputs,False
+R327,560R,RC0805FR-07560RL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_inputs,False
+U303,VO617A-3 / isolation,VO617A-3,Phototransistor DIP-4. Keep galvanic domains separate.,Package_DIP:DIP-4_W7.62mm,https://www.vishay.com/docs/83430/vo617a.pdf,guard_inputs,False
+R318,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_field,False
+R319,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_field,False
+Q303,BC807-40 / 24V driver,"BC807-40,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BC807_SER.pdf,guard_field,False
+R330,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_field,False
+R328,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_field,False
+R329,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,guard_field,False
+Q304,BC807-40 / 24V driver,"BC807-40,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BC807_SER.pdf,guard_field,False
+KFB1,HOST guard feedback,G5V-2-H1 DC24,Guard permission relay. The cabinet drives coil 1/16. Normally open contact 4/8 gates the main K1 coil supply. The other contacts remain open-circuit.,Relay_THT:Relay_DPDT_Omron_G5V-2,https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5v_2.pdf,guard_field,False
+D303,S1M,S1M-E3/61T,SMA suppression diode. Band to coil positive.,Diode_SMD:D_SMA,https://www.vishay.com/docs/88711/s1a.pdf,guard_field,False
+D306,S1M,S1M-E3/61T,SMA suppression diode. Band to coil positive.,Diode_SMD:D_SMA,https://www.vishay.com/docs/88711/s1a.pdf,guard_field,False
+D307,24V SELV transient clamp,SMBJ26A-E3/52,"Unidirectional 26 V TVS, use a regulated 24 V rail.",Diode_SMD:D_SMB,https://www.vishay.com/docs/88392/smbj.pdf,guard_field,False
+C305,100nF,GRM21BR71H104KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,guard_field,False
+C306,4.7uF / 50V,GRM32ER71H475KA88L,Murata X7R ceramic 1210; nonpolar.,Capacitor_SMD:C_1210_3225Metric,,guard_field,False
+J52,Position aux,B3B-PH-K-S(LF)(SN),"Position auxiliary contacts only. Pin 1 logic GND, 2 HOST return, 3 LOCAL return. JST PHR-3 housing.",Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,https://www.jst-mfg.com/product/pdf/eng/ePH.pdf,guard_ports,False
+J54,Cabinet 24 V I/O,S5P-VH(LF)(SN),"Independent cabinet guard interface. Pin 1 fused regulated 24 V, 2 cabinet 0 V, 3 sourced watchdog pulse to WD1, 4 sourced panel permission to KPS1, 5 permission relay coil feed from the cabinet auxiliaries. JST VHR-5N housing.",Connector_JST:JST_VH_S5P-VH_1x05_P3.96mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eVH.pdf,guard_ports,False

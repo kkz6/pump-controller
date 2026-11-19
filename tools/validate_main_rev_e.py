@@ -32,10 +32,13 @@ def run(command, allowed=(0, 5)):
 def isolation_pairs(source):
     design = json.loads(source.read_text())
     pairs = [('M_GND', 'GND', 8.0)]
-    if design['board'].get('variant') == 'compact-dual':
+    if design['board'].get('variant') in ('compact-dual', 'integrated'):
         for field in ('CTRL_A_COM', 'CTRL_A_NO', 'CTRL_B_COM', 'CTRL_B_NO'):
             pairs.extend([(field, 'M_GND', 8.0), (field, 'GND', 8.0)])
-    if design.get('revision') == 'COMPACT-DUAL-GUARD-R3':
+    if design['board'].get('variant') == 'integrated':
+        pairs.extend([('CAB_0', 'GND', 3.0), ('FUSED_24', 'M_GND', 8.0),
+                      ('CAB_0', 'CTRL_A_NO', 8.0), ('HB_24', 'CTRL_B_COM', 8.0)])
+    if design.get('revision') in ('COMPACT-DUAL-GUARD-R3', 'INTEGRATED-R4'):
         pairs.extend((phase, 'MAINS_N', 3.2) for phase in ('MAINS_L', 'L_FUSED', 'L_PROTECTED'))
     return pairs
 

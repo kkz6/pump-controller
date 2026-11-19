@@ -1,0 +1,442 @@
+{
+  "pcb_sha256": "c041664134cc75b10818be919da3220458ef4f13a12b604214b683884fbeae8d",
+  "source_sha256": "69457dedc0e356bc0992c6007a51390ac9c87752f1bd9415a0eca62c6dd4b865",
+  "native_inventory_sha256": "045d82810a8c0f618818d91de855c1cb4c84febe40ebbb25b9d69670f4db1b01",
+  "parser_versions": {
+    "gerbonara": "0.13.0",
+    "shapely": "2.1.2"
+  },
+  "aperture_macros_required_disabled": true,
+  "macro_rotation_reference": "https://www.ucamco.com/en/guest/downloads/gerber-format",
+  "gerber_files_parsed": 13,
+  "outline_centerline_size_mm": [
+    100.0,
+    115.5
+  ],
+  "outline_bounds_mm": [
+    [
+      0.0,
+      -98.5
+    ],
+    [
+      100.0,
+      17.0
+    ]
+  ],
+  "drills": {
+    "PTH": {
+      "count": 655,
+      "expected": 655,
+      "missing": [],
+      "extra": [],
+      "max_coordinate_rounding_error_mm": 0.0005000000000023874
+    },
+    "NPTH": {
+      "count": 7,
+      "expected": 7,
+      "missing": [],
+      "extra": [],
+      "max_coordinate_rounding_error_mm": 0
+    }
+  },
+  "ipc_d356": {
+    "records": 1435,
+    "connected_source_pins_checked": 787,
+    "unconnected_source_pins_checked": 42,
+    "source_inventory_pin_maps_identical": true,
+    "nc_alias_policy": "Exact reference + source pin name + pad number only; no prefix wildcard. Missing NC records and mixed net names fail.",
+    "normalized_nc_aliases": [
+      {
+        "ref": "U2",
+        "pin": "8",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U2-PG-Pad8)"
+      },
+      {
+        "ref": "U3",
+        "pin": "4",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad4)"
+      },
+      {
+        "ref": "U3",
+        "pin": "7",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad7)"
+      },
+      {
+        "ref": "U3",
+        "pin": "9",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-GPIO4-Pad9)"
+      },
+      {
+        "ref": "U3",
+        "pin": "10",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-GPIO5-Pad10)"
+      },
+      {
+        "ref": "U3",
+        "pin": "20",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-GPIO15-Pad20)"
+      },
+      {
+        "ref": "U3",
+        "pin": "21",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad21)"
+      },
+      {
+        "ref": "U3",
+        "pin": "32",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad32)"
+      },
+      {
+        "ref": "U3",
+        "pin": "33",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad33)"
+      },
+      {
+        "ref": "U3",
+        "pin": "34",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad34)"
+      },
+      {
+        "ref": "U3",
+        "pin": "35",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U3-NC-Pad35)"
+      },
+      {
+        "ref": "U10",
+        "pin": "1",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U10-ZX-Pad1)"
+      },
+      {
+        "ref": "U10",
+        "pin": "20",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U10-REVP-Pad20)"
+      },
+      {
+        "ref": "U10",
+        "pin": "21",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U10-ZX_I-Pad21)"
+      },
+      {
+        "ref": "U10",
+        "pin": "22",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U10-IRQ-Pad22)"
+      },
+      {
+        "ref": "U10",
+        "pin": "23",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U10-CF1-Pad23)"
+      },
+      {
+        "ref": "U10",
+        "pin": "24",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U10-CF2-Pad24)"
+      },
+      {
+        "ref": "U11",
+        "pin": "13",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U11-NIC-Pad13)"
+      },
+      {
+        "ref": "U11",
+        "pin": "16",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U11-NIC-Pad16)"
+      },
+      {
+        "ref": "U31",
+        "pin": "3",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U31-Q_N-Pad3)"
+      },
+      {
+        "ref": "U35",
+        "pin": "1",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U35-NC-Pad1)"
+      },
+      {
+        "ref": "U36",
+        "pin": "1",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U36-NC-Pad1)"
+      },
+      {
+        "ref": "U33",
+        "pin": "11",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-NC-Pad11)"
+      },
+      {
+        "ref": "U33",
+        "pin": "14",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-NC-Pad14)"
+      },
+      {
+        "ref": "U33",
+        "pin": "19",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-INTB-Pad19)"
+      },
+      {
+        "ref": "U33",
+        "pin": "20",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-INTA-Pad20)"
+      },
+      {
+        "ref": "U33",
+        "pin": "22",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-GPA1-Pad22)"
+      },
+      {
+        "ref": "U33",
+        "pin": "25",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-GPA4-Pad25)"
+      },
+      {
+        "ref": "U33",
+        "pin": "26",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-GPA5-Pad26)"
+      },
+      {
+        "ref": "U33",
+        "pin": "27",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U33-GPA6-Pad27)"
+      },
+      {
+        "ref": "U21",
+        "pin": "3",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U21-NC-Pad3)"
+      },
+      {
+        "ref": "J40",
+        "pin": "A8",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(J40-SBU1-PadA8)"
+      },
+      {
+        "ref": "J40",
+        "pin": "B8",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(J40-SBU2-PadB8)"
+      },
+      {
+        "ref": "U41",
+        "pin": "3",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U41-D2+-Pad3)"
+      },
+      {
+        "ref": "U41",
+        "pin": "7",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U41-D2--Pad7)"
+      },
+      {
+        "ref": "U40",
+        "pin": "4",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U40-NC-Pad4)"
+      },
+      {
+        "ref": "D301",
+        "pin": "2",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(D301-K2-Pad2)"
+      },
+      {
+        "ref": "D302",
+        "pin": "2",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(D302-K2-Pad2)"
+      },
+      {
+        "ref": "KFB1",
+        "pin": "6",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(KFB1-NC-Pad6)"
+      },
+      {
+        "ref": "KFB1",
+        "pin": "9",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(KFB1-NO2-Pad9)"
+      },
+      {
+        "ref": "KFB1",
+        "pin": "13",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(KFB1-COM2-Pad13)"
+      },
+      {
+        "ref": "KFB1",
+        "pin": "11",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(KFB1-NC2-Pad11)"
+      }
+    ],
+    "pin_net_differences": [],
+    "unexpected_pins": [],
+    "nonconductive_locators_matched": [
+      "7c57e5cb-03f5-4ec4-88cf-4640f10e1af4",
+      "a7eaf17b-1b5a-4a84-a487-7809490a3fa2"
+    ]
+  },
+  "mask_geometry": {
+    "F.Mask": {
+      "passed": true,
+      "parsed_primitive_count": 474,
+      "actual_connected_openings": 474,
+      "expected_physical_pin_groups": 461,
+      "unmatched_native_pins": [],
+      "merged_distinct_pin_openings": [],
+      "extra_area_outside_native_tolerance_mm2": 0.0,
+      "missing_area_outside_native_tolerance_mm2": 0.0,
+      "minimum_web_within_0p11mm_search": 0.09999999999999432,
+      "mask_web_violations": [],
+      "holes_overlapping_actual_smt_openings": []
+    },
+    "B.Mask": {
+      "passed": true,
+      "parsed_primitive_count": 449,
+      "actual_connected_openings": 449,
+      "expected_physical_pin_groups": 448,
+      "unmatched_native_pins": [],
+      "merged_distinct_pin_openings": [],
+      "extra_area_outside_native_tolerance_mm2": 0.0,
+      "missing_area_outside_native_tolerance_mm2": 0.0,
+      "minimum_web_within_0p11mm_search": 0.09999999999999432,
+      "mask_web_violations": [],
+      "holes_overlapping_actual_smt_openings": []
+    }
+  },
+  "mask_minimum_web_mm": 0.1,
+  "curve_chord_error_mm": 1e-06,
+  "mask_web_rounding_mm": 1e-05,
+  "native_contour_registration_tolerance_mm": 0.01,
+  "file_checks": {
+    "hardware/main-integrated/gerber/pump-controller-integrated.GTL": {
+      "sha256": "a2b4299bb204ebfd9541945a15b3ce79b69895537fdbb77d9ad297fa2e727976",
+      "objects": 4828,
+      "layer_function": "Copper,L1,Top"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.G2L": {
+      "sha256": "7b3ed50aff70373f6947624d8ccd7a32568c7f25ebf86b2de04e5b8dc5dba7a6",
+      "objects": 657,
+      "layer_function": "Copper,L2,Inr"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.G3L": {
+      "sha256": "ea3ef2b4c2d819bbeea283aabb3102a83e2ce8b148114bf68f7149367ac54870",
+      "objects": 1623,
+      "layer_function": "Copper,L3,Inr"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.G4L": {
+      "sha256": "d5bdb65585b034ef6cefcc2062475d2271ca9d8775a5c24555a07d2a08fd5f1f",
+      "objects": 2707,
+      "layer_function": "Copper,L4,Inr"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.G5L": {
+      "sha256": "4146d4e6d3ae07e27835955d4bf766a5691cbd38a2666446ec4a6cd45163e678",
+      "objects": 657,
+      "layer_function": "Copper,L5,Inr"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.GBL": {
+      "sha256": "dc3cb29f0194be49e907d5e4ca774bf9ef75f604f4f57fce913ae9607de8060b",
+      "objects": 4526,
+      "layer_function": "Copper,L6,Bot"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.GTS": {
+      "sha256": "0607ccc59be22a7c8362dbee1a5edeb49ab38d7c71c14ed808aae922f7a0e988",
+      "objects": 474,
+      "layer_function": "Soldermask,Top"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.GBS": {
+      "sha256": "bcbcf93f1ef779ef6e52633081283b10c8ce65f617074c76c9c3e86bfec111db",
+      "objects": 449,
+      "layer_function": "Soldermask,Bot"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.GTO": {
+      "sha256": "ba78b24021a448468a5551457966d4a9788bb74cabc549f4fda2f1b8159a58aa",
+      "objects": 1426,
+      "layer_function": "Legend,Top"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.GBO": {
+      "sha256": "3678400e3a070156699611a556ea1828ae1637dcafee547015c9929ffe16e023",
+      "objects": 628,
+      "layer_function": "Legend,Bot"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.GKO": {
+      "sha256": "b80a79cb54c842a77edd47abf579ae1455968033cf5969ef6a7db3386254a90a",
+      "objects": 4,
+      "layer_function": "Profile,NP"
+    },
+    "hardware/main-integrated/exports/stencil/pump-controller-integrated.GTP": {
+      "sha256": "e9c6330d43464ffce720e1cbae4e051aa0b540ea81212eb6cfd135b0dd12c84f",
+      "objects": 400,
+      "layer_function": "Paste,Top"
+    },
+    "hardware/main-integrated/exports/stencil/pump-controller-integrated.GBP": {
+      "sha256": "245055fec6566402d022efe3e96e39efe130c954121bbb84af5b828d494c18df",
+      "objects": 377,
+      "layer_function": "Paste,Bot"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated-PTH.XLN": {
+      "sha256": "e645e7ca98b22af3a23e254023a4be84015c6bbc65187708f47fd1c73985eda8"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated-NPTH.XLN": {
+      "sha256": "87361a319cc43f56bac7580a7d51f3f71c6bf84890adc15dd27c52471bff67bb"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.d356": {
+      "sha256": "8dcb9530dd88a38804fc84bb2466b6f771989c47073d18575e99868d7828304a"
+    },
+    "hardware/main-integrated/gerber/pump-controller-integrated.gbrjob": {
+      "sha256": "e3f4f5a42cd40fa127932999747057595d18fb834fcbe541bdc14140910d9068"
+    }
+  },
+  "parser_warnings": [
+    {
+      "file": "pump-controller-integrated-PTH.XLN",
+      "message": "hardware/main-integrated/gerber/pump-controller-integrated-PTH.XLN:32 \"G90\": G90 header statement found after end of header"
+    },
+    {
+      "file": "pump-controller-integrated-NPTH.XLN",
+      "message": "hardware/main-integrated/gerber/pump-controller-integrated-NPTH.XLN:14 \"G90\": G90 header statement found after end of header"
+    }
+  ],
+  "serialization_registration_and_mask_passed": true,
+  "errors": [],
+  "gerber_conductive_netlist_extracted": false,
+  "manufacturer_accepted": false,
+  "hardware_tested": false,
+  "release_ready": false,
+  "limitations": [
+    "IPC-D-356 is a native-board reference, not extracted Gerber connectivity.",
+    "Nominal mask web/drill geometry does not prove process registration tolerances.",
+    "Preview bottom layers retain unmirrored manufacturing coordinates."
+  ],
+  "x2_project_revision": "INTEGRATED-R4"
+}

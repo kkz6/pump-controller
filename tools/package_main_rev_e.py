@@ -36,14 +36,21 @@ class BoardVariant(NamedTuple):
 
     @property
     def archive_name(self):
+        if self.directory == 'main-integrated':
+            return self.cam_name + '-r4'
         if self.directory == 'main-compact-dual':
             return self.cam_name + '-guard-r3'
         return self.cam_name
 
 
-def board_variant(compact=False, compact_dual=False):
-    if compact and compact_dual:
+def board_variant(compact=False, compact_dual=False, integrated=False):
+    if sum((compact, compact_dual, integrated)) > 1:
         raise ValueError('Select one main PCB variant')
+    if integrated:
+        source = 'design/main-integrated.json'
+        board = json.loads((BASE / source).read_text())['board']
+        return BoardVariant('main-integrated', 'pump-controller-integrated', 'pump-controller-integrated',
+                            source, (board['width'], board['height']), 'INTEGRATED-R4')
     if compact_dual:
         return BoardVariant('main-compact-dual', 'pump-controller-compact', 'pump-controller-compact-dual',
                             'design/main-compact-dual.json', (100, 97), 'COMPACT-DUAL-GUARD-R3')
@@ -55,6 +62,7 @@ def board_variant(compact=False, compact_dual=False):
 
 def add_board_options(parser):
     group = parser.add_mutually_exclusive_group()
+    group.add_argument('--integrated', action='store_true', help='main board with onboard guard receiver')
     group.add_argument('--compact', action='store_true', help='100 x 75 mm compact board')
     group.add_argument('--compact-dual', action='store_true', help='100 x 97 mm dual-output compact board')
 
@@ -75,8 +83,8 @@ def invalidate_packages(output, variant):
     (output / 'package-manifest.json').unlink(missing_ok=True)
 
 
-def package(base=BASE, *, compact=False, compact_dual=False):
-    variant = board_variant(compact, compact_dual)
+def package(base=BASE, *, compact=False, compact_dual=False, integrated=False):
+    variant = board_variant(compact, compact_dual, integrated)
     output = base / 'hardware' / variant.directory
     name = variant.cam_name
     source_path = variant.design
@@ -120,7 +128,38 @@ def package(base=BASE, *, compact=False, compact_dual=False):
             and geometry['geometry_and_source_passed'] is True
             and set(geometry['copper_layers']) == {'F.Cu', 'In1.Cu', 'In2.Cu', 'In3.Cu', 'In4.Cu', 'B.Cu'},
             'Native geometry is stale or failed')
-    if compact_dual:
+    if integrated:
+        receiver = read(checks / 'receiver-routing.json')
+        require(receiver['board_sha256'] == pcb_hash and receiver['missing_routes'] == [],
+                'Integrated receiver surge, clamp or bypass routing evidence is stale or incomplete')
+        equivalence = read(checks / 'net-equivalence.json')
+        require(equivalence['result'] == 'pass' and equivalence['receiver_pin_assignments_mapped'] == 106,
+                'Integrated receiver terminal comparison failed')
+        for relative, digest in equivalence['sha256'].items():
+            require(sha(watch(base / relative)) == digest, 'Stale schematic comparison: ' + relative)
+        field = base / 'hardware/starter-guard-r4'
+        faults = read(field / 'checks/faults.json')
+        cabinet_sources = faults['source_sha256']
+        required = [*output.glob('*.kicad_sch'), *field.glob('*.kicad_sch'),
+                    checks / 'source.xml', field / 'checks/guard-netlist.xml',
+                    field / 'contacts.csv', base / 'tools/check_integrated_cabinet.py']
+        require(all(str(p.relative_to(base)) in cabinet_sources for p in required),
+                'Independent guard checks omit current cabinet or controller inputs')
+        for relative, digest in cabinet_sources.items():
+            require(sha(watch(base / relative)) == digest, 'Stale cabinet evidence: ' + relative)
+        trips = faults['independent_stop_and_float']['fault_demand_and_single_power_contactor_weld_cases']
+        require(set(trips) == {'HOST', 'LOCAL'} and all(count >= 45 for count in trips.values())
+                and faults['input_combinations'] == 2048
+                and faults['interfaces']['safety_nets_on_main_board'] == [],
+                'Independent STOP, float or cabinet fault coverage incomplete')
+        panel = read(checks / 'panel-integration.json')
+        require(panel['integration_passed'] and panel['main_board_routing_frozen_at_review']
+                and panel['source_sha256']['main_board'] == pcb_hash
+                and panel['source_sha256']['panel_board'] == sha(watch(base / 'hardware/panel-rev-f/pump-panel-rev-f.kicad_pcb')),
+                'Main and OLED panel integration evidence is stale or failed')
+        for group, limit in [('LIVE', 8.0), ('SELV', 3.0)]:
+            require(geometry['cabinet_projected'][group]['gap_mm'] >= limit, 'Cabinet isolation gap below limit')
+    if compact_dual or integrated:
         bypass = read(checks / 'bypass-routing.json')
         require(bypass['board_sha256'] == pcb_hash and bypass['passed'] is True and not bypass['failures']
                 and set(bypass['measurements']) == {'C56','C57','C59','C60','C102','C103','C104'},
@@ -151,7 +190,7 @@ def package(base=BASE, *, compact=False, compact_dual=False):
         require(set(usb['usb_orientations']) == {'normal','flipped'} and usb['negative_controls_rejected'],
                 'USB orientation or fault evidence missing')
     export = read(output / 'fabrication-manifest.json')
-    if compact_dual:
+    if compact_dual or integrated:
         require(export['revision'] == variant.revision, 'CAM export variant mismatch')
     require(export['source_sha256'] == frozen, 'CAM export refers to stale sources')
     require(all(export[key] == value for key, value in settings.items()),
@@ -182,7 +221,7 @@ def package(base=BASE, *, compact=False, compact_dual=False):
             and set(parsed['mask_geometry']) == {'F.Mask', 'B.Mask'}
             and all(x['passed'] is True for x in parsed['mask_geometry'].values()),
             'Parsed CAM checks failed or are incomplete')
-    if compact_dual:
+    if compact_dual or integrated:
         require(parsed['x2_project_revision'] == variant.revision, 'Gerber X2 variant mismatch')
     require(set(parsed['file_checks']) == expected_paths, 'Parsed CAM file inventory differs from package')
     for relative, details in parsed['file_checks'].items():
@@ -207,9 +246,12 @@ def package(base=BASE, *, compact=False, compact_dual=False):
         'The IPC netlist is a native reference, not connectivity extracted from Gerber copper.\n'
         'Paste files are supplied in a separate stencil archive.\n'
     )
+    if integrated:
+        notes += 'R4 integrates the receiver. J54 connects the 24 V guard cabinet. Retain independent shutdown hardware.\n'
     if compact_dual:
-        notes += ('Guard R3 requires the separate cabinet shutdown assembly. J31 accepts isolated guard feedback only.\n'
-                  'J40: confirm both 0.65 mm NPTH locating holes finish at 0.60 to 0.70 mm, with positions to GCT USB4110 drawing tolerance.\n'
+        notes += 'Guard R3 requires the separate cabinet shutdown assembly. J31 accepts isolated guard feedback only.\n'
+    if compact_dual or integrated:
+        notes += ('J40: confirm both 0.65 mm NPTH locating holes finish at 0.60 to 0.70 mm, with positions to GCT USB4110 drawing tolerance.\n'
                   'General +/-0.20 mm NPTH tolerance is insufficient. Confirm local pad corner relief and mask in DFM before accepting the order.\n'
                   'Maintain at least 3.20 mm finished copper separation between the incoming pre-fuse line (MAINS_L) and MAINS_N.\n'
                   'Maintain at least 8.00 mm finished copper separation from both starter pairs to '
@@ -221,7 +263,7 @@ def package(base=BASE, *, compact=False, compact_dual=False):
         'assembled_product_qualified': False, 'gerber_conductive_netlist_extracted': False,
         'source_sha256': frozen,
         'evidence_sha256': {str(p.relative_to(base.resolve())): digest for p, digest in tracked.items()
-                            if p.parent == checks.resolve() or p.name == 'fabrication-manifest.json'},
+                            if p.parent == checks.resolve() or p.name in {'fabrication-manifest.json', 'faults.json'}},
         'fabrication_settings': {key: export[key] for key in
                                  ['outline_mm', 'layer_order', 'thickness_mm', 'solder_mask',
                                   'outer_copper_oz', 'inner_copper_oz', 'finish', 'material',

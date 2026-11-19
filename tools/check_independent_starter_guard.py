@@ -12,9 +12,9 @@ SOURCE = ROOT / "hardware/starter-guard/contacts.csv"
 REPORT = ROOT / "hardware/main-compact-dual/checks/independent-starter-guard.json"
 
 
-def edges():
+def edges(source=SOURCE):
     circuits = defaultdict(list)
-    with SOURCE.open(newline="") as stream:
+    with source.open(newline="") as stream:
         for row in csv.DictReader(stream):
             circuits[row["circuit"]].append((row["from"], row["to"], row["conducts_when"]))
     return circuits
@@ -37,9 +37,9 @@ def conducts(circuit, start, end, states):
     return False
 
 
-def check_native(circuits):
+def check_native(circuits, cabinet_xml=None, main_xml=None):
     """Independently resolve every functional contact to its KiCad terminal pair."""
-    xml = ET.parse(ROOT / "hardware/starter-guard/checks/guard-netlist.xml")
+    xml = ET.parse(cabinet_xml or ROOT / "hardware/starter-guard/checks/guard-netlist.xml")
     pins = {(n.get("ref"), n.get("pin")): net.get("name") for net in xml.findall(".//nets/net")
             for n in net.findall("node") if not net.get("name").startswith("unconnected-")}
     terminals = {
@@ -78,7 +78,8 @@ def check_native(circuits):
     def pinmap(ref):
         return {pin: net for (component,pin),net in pins.items() if component==ref}
 
-    for relay, source, suppressors in (("KPS1","PANEL_24",("D3","D9")),
+    panel_diodes = ("D9",) if main_xml else ("D3","D9")
+    for relay, source, suppressors in (("KPS1","PANEL_24",panel_diodes),
                                       ("KCA1","KCA_COIL",("D4",)), ("KCB1","KCB_COIL",("D5",))):
         assert pins[relay,"0"] == source and pins[relay,"1"] == "CAB_0"
         for suppressor in suppressors:
@@ -92,6 +93,19 @@ def check_native(circuits):
         assert pins["SR2",pin] == "SR2_" + pin
     assert pinmap("QISO1") == {"L-IN":"BRANCH_LINE","L-OUT":"PROTECTED_LINE","N-IN":"BRANCH_NEUTRAL","N-OUT":"MOTOR_RETURN"}
     assert xml.find('.//components/comp[@ref="AL1"]') is not None
+    if main_xml:
+        terminals.update({
+            "MAIN_KFB": terminals.pop("J31"),
+            "PILOT_SUPPLY": {"OEM_STOP_RELEASED": "S3 OEM-IN OEM-OUT", "OVERLOAD_HEALTHY": "S4 OEM-IN OEM-OUT"},
+            "PILOT_PICKUP": {"OEM_START_NO": "S5 OEM-IN OEM-OUT", "OEM_SEAL_NO": "KHL1 53 54",
+                             "H_P1": "XPF1 F1 H1", "H_P2": "XPF1 H2 F2", "KCB_NO": "KCB1 33 34"},
+            "PILOT_RETURN": {"H_P3": "XPF1 F3 H3", "H_P4": "XPF1 H4 F4", "KCA_NO": "KCA1 33 34",
+                             "L_P34": "XPF1 L3 L4"}})
+        main = ET.parse(main_xml)
+        feedback = {(n.get("ref"), n.get("pin")): net.get("name") for net in main.findall(".//nets/net")
+                    for n in net.findall("node") if n.get("ref") == "KFB1"}
+        assert not (pins.keys() & feedback.keys())
+        pins.update(feedback)
     count=0
     for circuit, wire_list in circuits.items():
         for left, right, condition in wire_list:
@@ -181,7 +195,7 @@ def check_cascade_faults(c):
             "dual_bypass_sensitivity_control_reproduced":True}
 
 
-def check_sequences(c):
+def check_sequences(c, feedback_path=("J31","J31.1","J31.2")):
     """Ideal Pilz monitored rising-edge behavior after each input has settled."""
     counts = defaultdict(int)
     for host, fault, weld_a, weld_b, weld_ks1, weld_ks2 in itertools.product(
@@ -228,7 +242,8 @@ def check_sequences(c):
             state["KFB_NO"] = state["CABINET_24"] and conducts(c["HOST_FEEDBACK"], "FUSED_24", "KFB.A1", state)
             live = (conducts(c["OEM_FEED"], "BRANCH_LINE", "OEM_LINE", state)
                     and conducts(c["OEM_RETURN"], "BRANCH_NEUTRAL", "MOTOR_RETURN", state))
-            fb = conducts(c["J31"], "J31.1", "J31.2", state)
+            circuit, left, right = feedback_path
+            fb = conducts(c[circuit], left, right, state)
             return live, fb
 
         # Each step represents a settled interval. A held button on cold

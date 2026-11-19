@@ -17,6 +17,7 @@ from gerbonara.utils import MM
 
 ROOT = Path(__file__).resolve().parents[2]
 FILES = {
+    "integrated": "hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip",
     "main": "hardware/main-compact-dual/pump-controller-compact-dual-guard-r3-gerber-prototype.zip",
     "panel": "hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip",
     "receiver": "hardware/guard-receiver/guard-receiver-rev-a-gerber-prototype.zip",
@@ -81,14 +82,14 @@ def compare(driver, directory, layers, count, expect_fault=False):
 def check(name, driver):
     relative = FILES[name]
     archive = ROOT / relative
-    layers = 6 if name == "main" else 2
+    layers = 6 if name in ("main", "integrated") else 2
     with tempfile.TemporaryDirectory() as temporary:
         directory = Path(temporary)
         extract(archive, directory, layers)
         pads, counts = witnesses(directory, layers)
         compare(driver, directory, layers, counts["layer_witnesses"])
         # Bridge two unlike nets using the independently exported connector pad centres.
-        ref = {"main": "J1", "panel": "J2", "receiver": "J4"}[name]
+        ref = {"integrated": "J1", "main": "J1", "panel": "J2", "receiver": "J4"}[name]
         a, b = [pads[ref, pin] for pin in ("1", "2")]
         face = next(iter(sorted(set(a[2]) & set(b[2]), reverse=True)))
         plot = directory / f"L{face}.gbr"
@@ -104,7 +105,7 @@ def check(name, driver):
             raise ValueError(f"Incorrect fault diagnostic: {findings}")
         controls = [dict(board=name, injected=f"Bridge {ref}.1 and {ref}.2 on layer {face} (bottom = 0)",
                          findings=findings)]
-        if name == "main":
+        if name in ("main", "integrated"):
             # Retain the R2 inner-layer open control as well as the inlet short.
             plot.write_text(original)
             inner = directory / "L2.gbr"  # G4L / In3.Cu in a six-layer board
@@ -145,7 +146,7 @@ def check(name, driver):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("driver", type=Path)
-    parser.add_argument("--boards", nargs="+", choices=FILES, default=list(FILES))
+    parser.add_argument("--boards", nargs="+", choices=FILES, default=["main","panel","receiver"])
     parser.add_argument("--output", type=Path)
     options = parser.parse_args()
     result = dict(tool="jvanstraten/gerbertools", upstream_commit=UPSTREAM,

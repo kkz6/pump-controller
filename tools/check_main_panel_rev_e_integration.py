@@ -10,7 +10,7 @@ ap.add_argument('--main-source',type=Path,default=B/'design/main-rev-e.json')
 ap.add_argument('--output',type=Path,default=B/'hardware/panel-rev-e/checks')
 ap.add_argument('--main-summary',type=Path,default=B/'hardware/main-rev-e/checks/independent-summary.json')
 ap.add_argument('--require-frozen-main',action='store_true')
-ap.add_argument('--control-variant',choices=['rev-e','compact','compact-dual'],default='rev-e')
+ap.add_argument('--control-variant',choices=['rev-e','compact','compact-dual','integrated'],default='rev-e')
 args=ap.parse_args()
 boardpath=args.panel_board.resolve();mainpath=args.main_board.resolve();O=boardpath.parent
 CHECKS=args.output.resolve();CHECKS.mkdir(parents=True,exist_ok=True)
@@ -66,7 +66,7 @@ expected_host=['+5V','STOP_RETURN','MAN_RETURN','AUTO_RETURN','START_N','RESET_N
 for i,n in enumerate(expected_host,1):
  if net('J1',i)!=n:issues.append('host pin mismatch '+str(i))
 host_map=[]
-service_interlock = main_source.get('revision') == 'COMPACT-DUAL-GUARD-R3'
+service_interlock = main_source.get('revision') in ('COMPACT-DUAL-GUARD-R3','INTEGRATED-R4')
 for pin,(ref,num)in enumerate([('J32',i)for i in range(1,13)],1):
  mn=mainnet(ref,num);pn=net('J1',pin);expect= {'KEY_MAN_N':'SPARE_B6','KEY_AUTO_N':'SPARE_B7'}.get(pn,pn)
  if pin==1 and service_interlock:expect='+5V_CMD'
@@ -151,23 +151,34 @@ for q,jpin,raw,bn,out,refs in [('Q1',2,'KEY_MAN_RAW','KEY_MAN_B','KEY_MAN_N',['R
  for ref,val,pair in zip(refs,['2.2k','10k','100k','10k','10nF'],[(raw,'GND'),(raw,bn),(bn,'GND'),('+3V3',out),(out,'GND')]):
   if cs[ref]['value']!=val or {net(ref,1),net(ref,2)}!=set(pair):issues.append('key conditioning mismatch '+ref)
  keychecks.append({'transistor':q,'raw_net':raw,'conditioned_net':out,'active_level':'LOW','pins_B_E_C':[1,2,3]})
-compact = args.control_variant in ('compact', 'compact-dual')
+compact = args.control_variant in ('compact', 'compact-dual', 'integrated')
 if compact:
  if mainfps['U33'].GetValue()!='MCP23017-E/SS':issues.append('Compact expander must match the checked MCP23017 pin map')
  if mainnet('U33',7)!='SPARE_B6' or mainnet('U33',21)!='SPARE_B7':issues.append('Compact key inputs must use GPB6/GPA0')
  sp={str(q['num']):q for q in main_components['U33']['pins']}
- if args.control_variant == 'compact-dual':
-  legends = {item.GetText() for item in m.GetDrawings() if isinstance(item,p.PCB_TEXT)
-             and item.GetLayer() in (p.F_SilkS,p.B_SilkS)}
-  if 'PERMIT NO' not in legends or 'HH NC' in legends:
-   issues.append('J31 must be marked for the external NO guard feedback contact.')
-  connector_keys = [('J21',mainfps,'JST_XH_S2B-XH-A_1x02'),('J31',mainfps,'MC_1,5_2-G-3.81'),
-                    ('J36',mainfps,'JST_ZE_SM05B-ZESS-TB_1x05'),('J8',fps,'JST_GH_SM03B-GHS-TB_1x03')]
+ if args.control_variant in ('compact-dual','integrated'):
+  connector_keys = [('J21',mainfps,'JST_XH_S2B-XH-A_1x02'),('J8',fps,'JST_GH_SM03B-GHS-TB_1x03')]
+  if args.control_variant == 'integrated':
+   connector_keys.extend([('J52',mainfps,'JST_PH_B3B-PH-K_1x03'),('J54',mainfps,'JST_VH_S5P-VH_1x05')])
+   if 'J31' in mainfps or 'J36' in mainfps:
+    issues.append('Superseded receiver headers still on integrated main PCB')
+   if [mainnet('J52',i) for i in range(1,4)] != ['GND','HOST_AUX_N','LOCAL_AUX_N']:
+    issues.append('Transfer selector cavity assignments differ')
+   if [mainnet('J54',i) for i in range(1,6)] != ['FUSED_24','CAB_0','HB_24','PANEL_24','KFB_A1']:
+    issues.append('24 V guard cabinet cavity assignments differ')
+   permit = [mainnet('KFB1', i) for i in (4,8)]
+  else:
+   legends = {item.GetText() for item in m.GetDrawings() if isinstance(item,p.PCB_TEXT)
+              and item.GetLayer() in (p.F_SilkS,p.B_SilkS)}
+   if 'PERMIT NO' not in legends or 'HH NC' in legends:
+    issues.append('J31 must be marked for the external NO guard feedback contact.')
+   connector_keys.extend([('J31',mainfps,'MC_1,5_2-G-3.81'),('J36',mainfps,'JST_ZE_SM05B-ZESS-TB_1x05')])
+   if [mainnet('J36',i) for i in range(1,6)] != ['GND','HOST_AUX_N','LOCAL_AUX_N','HB_MON','PANEL_OK_MON']:
+    issues.append('Guard receiver and transfer cavity assignments differ.')
+   permit = [mainnet('J31', i) for i in (1,2)]
   for ref, board_fps, key in connector_keys:
    if key not in str(board_fps[ref].GetFPID().GetLibItemName()):
     issues.append('Mechanically keyed connector footprint mismatch: ' + ref)
-  if [mainnet('J36',i) for i in range(1,6)] != ['GND','HOST_AUX_N','LOCAL_AUX_N','HB_MON','PANEL_OK_MON']:
-   issues.append('Guard receiver and transfer cavity assignments differ.')
   if any(ref.startswith('SW') for ref in mainfps):issues.append('Physical switch footprint on button-free main PCB')
   for pin, name in [('8', 'START_CMD_LED'), ('28', 'STOP_CMD_LED')]:
    if mainnet('U33', pin) != name or sp[pin].get('type') != 'output':
@@ -175,7 +186,7 @@ if compact:
   for ref in ('SW1','SW2','SW3','SW4','SW5'):
    if cs[ref].get('dnp') or fps[ref].IsDNP():
     issues.append('Operator button omitted on panel: ' + ref)
-  if [mainnet('J31', i) for i in (1,2)] != ['STOP_RETURN','K1_COIL_PLUS'] or mainnet('K1',1) != 'K1_COIL_PLUS':
+  if permit != ['STOP_RETURN','K1_COIL_PLUS'] or mainnet('K1',1) != 'K1_COIL_PLUS':
    issues.append('Panel STOP does not directly remove K1 coil power.')
  if args.control_variant == 'compact':
   for pin in ['8','28']:
@@ -187,7 +198,7 @@ key_firmware = 'Configure MCP23017 GPB6/GPB7 as inputs with internal pull-ups di
 if compact:
  key_firmware = 'Configure MCP23017 GPB6/GPA0 as key inputs with pull-ups disabled.'
  key_firmware += (' Drive GPB7/GPA7 as the START and STOP command LED outputs.'
-                  if args.control_variant == 'compact-dual' else ' Keep NC GPB7/GPA7 configured as outputs.')
+                  if args.control_variant in ('compact-dual','integrated') else ' Keep NC GPB7/GPA7 configured as outputs.')
 drc=json.load(open(CHECKS/'integration-drc.json'));erc=json.load(open(CHECKS/'integration-erc.json'))
 report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'GPB6 / U33.7','auto':'GPA0 / U33.21' if compact else 'GPB7 / U33.8'},'review_scope':'Independent native pin/net and interface topology check; no electrical hardware or firmware test.',
  'source_sha256':{'panel_board':before,'main_board':sha(mainpath),'panel_source':sha(args.panel_source),'main_source':sha(args.main_source),'independently_exported_main_netlist':sha(CHECKS/'integration-main-netlist.xml'),'independently_exported_panel_netlist':sha((CHECKS/'integration-netlist.xml'))},
@@ -206,6 +217,8 @@ report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'
  'remaining_checks':['Purchased switch/connector contact orientation and harness continuity.','STOP actuator travel/height and OLED/enclosure spacing.','Gold/low-level dry-contact key suitability for approximately 2.7 mA at 5 V.','Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.','Robu fabrication acceptance and assembled-board functional/thermal/EMC tests.']}
 if keyed_station:
  report['stop_path'] = mainnet('J32',1) + ' at main J32.1 -> panel J1.1 -> SW1 NC -> J2.3 -> remote NC or fixed local-only loop -> J2.4 -> STOP_RETURN at J1.2 -> main J32.2 and guard monitor'
+ if args.control_variant == 'integrated':
+  report['stop_path'] += ' -> on-board KFB1 NO (4 to 8) -> K1 coil pin 1'
  report['stop_shunt_rule'] = 'Only a single keyed station or local-only plug fits J2. Unplugging it opens STOP, and the factory loop always remains in series with local STOP.'
  report['host_loom_stop_bridge_negative_control'] = {
   'fault': 'Direct short between panel J1.1 and J1.2, equivalent to main J32.1 and J32.2 on the straight loom.',
@@ -214,7 +227,7 @@ if keyed_station:
   'cases': host_bridge_cases,
  }
  report['remote_button_harness'] = 'One GH10 with permanent switch-end terminations; optional unused NO branches remain empty.'
-if args.control_variant == 'compact-dual':
+if args.control_variant in ('compact-dual','integrated'):
  report['main_assembly_variant'] = 'All five physical operator switches on the panel. No switch footprints on the main PCB. Twelve cavities one-to-one from panel J1 to main J32.'
  report.pop('firmware_implemented')
  report['firmware_scope'] = 'Native hardware integration check only. Target application and live switching were not exercised.'

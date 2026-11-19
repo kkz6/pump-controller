@@ -257,7 +257,7 @@ def audit(args):
     if native['pcb_sha256'] != before or native['source_sha256'] != sha(args.source):
         raise ValueError('Native inventory is stale for this PCB/source')
     source = json.loads(args.source.read_text())
-    expected_revision = source['revision'] if source['board'].get('variant') == 'compact-dual' else None
+    expected_revision = source['revision'] if source['board'].get('variant') in ('compact-dual', 'integrated') else None
     errors, caught_warnings, parsed, files, layers = [], [], {}, {}, {}
     roles = {'GTL': ('Copper,L1,Top', ('top', 'copper')),
              'G2L': ('Copper,L2,Inr', ('inner1', 'copper')),
@@ -433,7 +433,7 @@ if __name__ == '__main__':
         ap.add_argument('--' + option, type=Path)
     ap.add_argument('--name')
     args = ap.parse_args()
-    variant = board_variant(args.compact, args.compact_dual)
+    variant = board_variant(args.compact, args.compact_dual, args.integrated)
     folder = BASE / 'hardware' / variant.directory
     args.board = args.board or folder / (variant.native_name + '.kicad_pcb')
     args.source = args.source or BASE / variant.design
