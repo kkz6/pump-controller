@@ -1,6 +1,11 @@
 Compact single-phase pump controller
 ====================================
 
+**Main PCB order on hold.** The electrical review found faults that can
+leave the pump running or filling, interchangeable field plugs and a
+metering-isolator layout that needs revision. See the
+`findings and first-article tests <design/compact-dual-electrical-audit.rst>`_.
+
 The current `dual-output main board <hardware/main-compact-dual/README.rst>`_
 supports one RUN contact or separate START and STOP inputs on a single-phase
 starter. The 100 × 97 mm six-layer PCB has two removable output plugs, a
