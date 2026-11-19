@@ -5,6 +5,7 @@ Compact single-phase pump controller
 
 * `R4 main board, plug assignments and schematic <hardware/main-integrated/README.rst>`_
 * `Robu main Gerbers <hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip>`_ and `OLED panel Gerbers <hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip>`_
+* `JLCPCB factory assembly package and sourcing for two complete prototype sets <output/jlc-r4/README.md>`_
 * `R4 cabinet wiring drawing <hardware/starter-guard-r4/starter-wiring.pdf>`_ and `fault results <hardware/starter-guard-r4/checks/faults.json>`_
 * `OLED/button panel F <hardware/panel-rev-f/README.rst>`_
 

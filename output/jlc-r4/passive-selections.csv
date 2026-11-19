@@ -1,0 +1,112 @@
+Board,Designator,Original procurement specification,Quoted manufacturer part number,Footprint,Qualification
+main,C2,Generic 100nF 50V X7R 0805,GRM21BR71H104KA01L,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C4,Generic 100nF 50V X7R 0805,GRM21BR71H104KA01L,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C6,Generic 100nF 50V X7R 0805,GRM21BR71H104KA01L,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C20,Generic 22uF 10V X7R 1210,C3225X7R1C226M250AC,C_1210_3225Metric,Verify >=10 uF under bias before assembly
+main,C21,Generic 100nF 50V X7R 0805,GRM21BR71H104KA01L,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C22,Generic 1uF 10V X7R 0805,GRM21BR71C105KA01L,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C40,"SPEC: 4.7uF X7R, 10%, 16V",EMK212AB7475KGHT,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C41,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C42,"SPEC: 4.7uF X7R, 10%, 16V",EMK212AB7475KGHT,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C43,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C44,"SPEC: 4.7uF X7R, 10%, 16V",EMK212AB7475KGHT,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C45,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C46,"SPEC: 10uF X7R, 10%, 16V",TCC0805X7R106K160FT,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C47,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C48,"SPEC: 1uF X7R, 10%, 16V",GRM188R71C105KA12D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C49,"SPEC: 27pF C0G, 5%, 50V",GRM1885C1H270JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C50,"SPEC: 27pF C0G, 5%, 50V",GRM1885C1H270JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C55,"SPEC: 10uF X7R, 10%, 16V",TCC0805X7R106K160FT,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C58,"SPEC: 10uF X7R, 10%, 16V",TCC0805X7R106K160FT,C_0805_2012Metric,Nominal ratings and package selected for quote
+main,C70,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C71,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C72,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C73,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C74,"SPEC: 1uF X7R, 10%, 16V",GRM188R71C105KA12D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C75,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C76,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C77,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C78,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C80,"SPEC: 10nF X7R, 10%, 16V",GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C82,"SPEC: 10nF X7R, 10%, 16V",GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C84,"SPEC: 10nF X7R, 10%, 16V",GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C86,"SPEC: 10nF X7R, 10%, 16V",GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C88,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C90,"SPEC: 100nF X7R, 10%, 16V",GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C100,SPEC: 100nF X7R 16V 10%,GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C101,SPEC: 1uF X7R 16V 10%,GRM188R71C105KA12D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C102,SPEC: 100nF X7R 16V 10%,GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C103,SPEC: 100nF X7R 16V 10%,GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C104,SPEC: 100nF X7R 16V 10%,GRM188R71C104KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C105,SPEC: 4.7uF X7R 16V 10%,TCC0603X7R475K160CT,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C110,SPEC: 10nF X7R 16V 10%,GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C111,SPEC: 10nF X7R 16V 10%,GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C112,SPEC: 10nF X7R 16V 10%,GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C113,SPEC: 10nF X7R 16V 10%,GRM188R71C103KA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C121,SPEC: 1nF C0G 50V 5%,GRM1885C1H102JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C123,SPEC: 1nF C0G 50V 5%,GRM1885C1H102JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C125,SPEC: 1nF C0G 50V 5%,GRM1885C1H102JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C127,SPEC: 1nF C0G 50V 5%,GRM1885C1H102JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,C129,SPEC: 1nF C0G 50V 5%,GRM1885C1H102JA01D,C_0603_1608Metric,Nominal ratings and package selected for quote
+main,R20,Generic 10k 1% 0.125 W 0805,RC0805FR-0710KL,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R21,Generic 10k 1% 0.125 W 0805,RC0805FR-0710KL,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R22,Generic 10k 1% 0.125 W 0805,RC0805FR-0710KL,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R24,Generic 3.3k 1% 0.125 W 0805,RC0805FR-073K3L,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R25,Generic 3.3k 1% 0.125 W 0805,RC0805FR-073K3L,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R26,Generic 10k 1% 0.125 W 0805,RC0805FR-0710KL,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R27,Generic 22R 1% 0.125 W 0805,RC0805FR-0722RL,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R28,Generic 22R 1% 0.125 W 0805,RC0805FR-0722RL,R_0805_2012Metric,Nominal ratings and package selected for quote
+main,R40,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R41,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R48,"SPEC: 1k 1%, 0.1W, 0603",RC0603FR-071KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R49,"SPEC: 1k 1%, 0.1W, 0603",RC0603FR-071KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R50,"SPEC: 1k 1%, 0.1W, 0603",RC0603FR-071KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R70,"SPEC: 47k 1%, 0.1W, 0603",RC0603FR-0747KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R71,"SPEC: 2.2k 1%, 0.1W, 0603",RC0603FR-072K2L,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R72,"SPEC: 2.2k 1%, 0.1W, 0603",RC0603FR-072K2L,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R74,"SPEC: 100R 1%, 0.1W, 0603",RC0603FR-07100RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R75,"SPEC: 100k 1%, 0.1W, 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R76,"SPEC: 22R 1%, 0.1W, 0603",RC0603FR-0722RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R77,"SPEC: 2.2k 1%, 0.1W, 0603",RC0603FR-072K2L,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R78,"SPEC: 2.2k 1%, 0.1W, 0603",RC0603FR-072K2L,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R80,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R81,"SPEC: 33k 1%, 0.1W, 0603",RC0603FR-0733KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R82,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R83,"SPEC: 33k 1%, 0.1W, 0603",RC0603FR-0733KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R84,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R85,"SPEC: 33k 1%, 0.1W, 0603",RC0603FR-0733KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R86,"SPEC: 22k 1%, 0.1W, 0603",RC0603FR-0722KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R87,"SPEC: 100k 1%, 0.1W, 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R88,"SPEC: 1k 1%, 0.1W, 0603",RC0603FR-071KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R89,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R90,"SPEC: 1k 1%, 0.1W, 0603",RC0603FR-071KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R91,"SPEC: 10k 1%, 0.1W, 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R92,"SPEC: 100k 1%, 0.1W, 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R93,"SPEC: 100k 1%, 0.1W, 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R100,"SPEC: 10k 0.1%, >=0.1 W 0603",RT0603BRD0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R101,"SPEC: 10k 0.1%, >=0.1 W 0603",RT0603BRD0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R102,"SPEC: 47 1%, >=0.1 W 0603",RC0603FR-0747RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R103,"SPEC: 27k 1%, >=0.1 W 0603",RC0603FR-0727KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R104,"SPEC: 43k 1%, >=0.1 W 0603",RC0603FR-0743KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R105,"SPEC: 100k 1%, >=0.1 W 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R106,"SPEC: 100k 1%, >=0.1 W 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R107,"SPEC: 100k 1%, >=0.1 W 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R108,"SPEC: 100k 1%, >=0.1 W 0603",RC0603FR-07100KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R109,"SPEC: 10k 1%, >=0.1 W 0603",RC0603FR-0710KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R110,"SPEC: 100 1%, >=0.1 W 0603",RC0603FR-07100RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R111,"SPEC: 100 1%, >=0.1 W 0603",RC0603FR-07100RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R112,"SPEC: 100 1%, >=0.1 W 0603",RC0603FR-07100RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R113,"SPEC: 100 1%, >=0.1 W 0603",RC0603FR-07100RL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R114,"SPEC: 1M 1%, >=0.1 W 0603",RC0603FR-071ML,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R115,"SPEC: 2.2k 1%, >=0.1 W 0603",RC0603FR-072K2L,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R118,"SPEC: 2.2k 1%, >=0.1 W 0603",RC0603FR-072K2L,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R132,"SPEC: 47k 1%, >=0.1 W 0603",RC0603FR-0747KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R133,"SPEC: 22k 1%, >=0.1 W 0603",RC0603FR-0722KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R142,"SPEC: 47k 1%, >=0.1 W 0603",RC0603FR-0747KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R143,"SPEC: 22k 1%, >=0.1 W 0603",RC0603FR-0722KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R152,"SPEC: 47k 1%, >=0.1 W 0603",RC0603FR-0747KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R153,"SPEC: 22k 1%, >=0.1 W 0603",RC0603FR-0722KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R162,"SPEC: 47k 1%, >=0.1 W 0603",RC0603FR-0747KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R163,"SPEC: 22k 1%, >=0.1 W 0603",RC0603FR-0722KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R172,"SPEC: 47k 1%, >=0.1 W 0603",RC0603FR-0747KL,R_0603_1608Metric,Nominal ratings and package selected for quote
+main,R173,"SPEC: 22k 1%, >=0.1 W 0603",RC0603FR-0722KL,R_0603_1608Metric,Nominal ratings and package selected for quote
