@@ -60,6 +60,12 @@
     "sha256": "e1dae516e079b70c4736d001fb81bfb4ef5f9c2a37c8175223a44f83a04ff75f"
   },
   {
+    "library": "Button_Switch_SMD",
+    "footprint": "SW_SPST_B3U-1000P",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "d24fc396b98fa262d6010f2ad81156242d03adfd5f80dfb1eff19093e59bc2ea"
+  },
+  {
     "library": "Package_SO",
     "footprint": "SSOP-28_5.3x10.2mm_P0.65mm",
     "source": "KiCad 10.0.8 official macOS distribution",
@@ -154,12 +160,6 @@
     "footprint": "SW_SPST_TL3305A",
     "source": "KiCad 10.0.8 official macOS distribution",
     "sha256": "55e7939eef6d5d849fc03bfe68b2c3dbdbcab5f8584fc1dc94bacb180c959461"
-  },
-  {
-    "library": "Diode_SMD",
-    "footprint": "D_SMA",
-    "source": "KiCad 10.0.8 official macOS distribution",
-    "sha256": "f7cba3b52ed8b34dce89170722de58324eac04e9e61a095e0eab37b9ca93cb7f"
   },
   {
     "library": "Package_SO",

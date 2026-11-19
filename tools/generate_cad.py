@@ -37,12 +37,15 @@ def geometry(component):
     """Library coordinates: +y upward; pin ends and their facing direction."""
     pins = component.get('pins',[])
     kind = component.get('kind','ic').lower()
-    simple = len(pins)==2 and kind in ('r','resistor','c','capacitor','capacitor_polarized','fuse','inductor','diode','led')
+    simple = len(pins)==2 and kind in ('r','resistor','c','capacitor','capacitor_polarized','fuse','inductor','diode','led','switch')
     if simple:
         end = [(-5.08,0,0),(5.08,0,180)]
         if kind in ('c','capacitor','capacitor_polarized'):
             draw = [shape_line(-.762,-2.54,-.762,2.54,.508),shape_line(.762,-2.54,.762,2.54,.508),shape_line(-2.54,0,-.762,0),shape_line(.762,0,2.54,0)]
             if kind=='capacitor_polarized': draw += [shape_line(-2,-4,-2,-2.8),shape_line(-2.6,-3.4,-1.4,-3.4)]
+        elif kind=='switch':
+            draw=[shape_line(-2.54,0,1.9,1.9)]
+            for cx in [-2.54,2.54]:draw.append('(circle (center '+num(cx)+' 0) (radius 0.35) (stroke (width 0.2) (type default)) (fill (type none)))')
         elif kind in ('diode','led'):
             # Anode on pin 2, cathode pin 1; symbol polarity follows pin names.
             flip = -1 if str(pins[0].get('name','')).upper() in ('A','ANODE') else 1
@@ -98,8 +101,8 @@ def instance(c,x,y,project,hierarchy):
         lines.append('(global_label %s (shape passive) (at %s %s %d) %s (uuid %s) %s)'%(q(net),num(ex),num(py),angle,effects(.95,justify),q(uid('label:'+ref+':'+str(i))),prop('Intersheetrefs','${INTERSHEET_REFS}',ex,py,hide=True)))
     return '\n'.join(lines)
 
-def schematic_header(sheet_uid,title,page='A3',project='pump-controller'):
-    return ['(kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")', '(uuid '+q(sheet_uid)+')', '(paper '+q(page)+')','(title_block (title '+q(title)+') (rev "B-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))']
+def schematic_header(sheet_uid,title,page='A3',project='pump-controller',revision='B'):
+    return ['(kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")', '(uuid '+q(sheet_uid)+')', '(paper '+q(page)+')','(title_block (title '+q(title)+') (rev '+q(revision+'-DRAFT')+') (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))']
 
 def page_layout(comps):
     # A3: 4 columns, automatic rows with pin count-dependent heights.
@@ -114,12 +117,12 @@ def page_layout(comps):
     return placements
 
 def write_schematics(data,out,project):
-    rootuid=uid(project+':root'); definitions=[]; root=schematic_header(rootuid,data.get('title','Pump controller - detailed circuit'))
-    root += ['(lib_symbols)',text('REV B / ENGINEERING PROTOTYPE',20,20,2),text('Functional sheets below. Global net labels connect between sheets.',20,27,1.27)]
+    rootuid=uid(project+':root'); definitions=[]; root=schematic_header(rootuid,data.get('title','Pump controller - detailed circuit'),revision=data.get('revision','B'))
+    root += ['(lib_symbols)',text('REV '+data.get('revision','B')+' / ENGINEERING PROTOTYPE',20,20,2),text('Functional sheets below. Global net labels connect between sheets.',20,27,1.27)]
     for n,s in enumerate(data['sheets'],2):
         sid=safe(s['id']); sheetuid=uid(project+':sheet:'+sid); fileuid=uid(project+':file:'+sid)
         filename=sid+'.kicad_sch'; path='/'+rootuid+'/'+sheetuid
-        lines=schematic_header(fileuid,s['title'])
+        lines=schematic_header(fileuid,s['title'],revision=data.get('revision','B'))
         lines += ['(lib_symbols']+[symbol_definition(c) for c in s['components']]+[')']
         lines += [text(s['title'],15.24,15.24,2.0)]
         if s.get('notes'): lines += [text(str(s['notes']),15.24,22.86,1.0)]
@@ -137,7 +140,7 @@ def write_schematics(data,out,project):
 def write_bom(data,out):
     fields=['Reference','Value','MPN','Description','Footprint','Datasheet','Sheet','DNP']
     with (out/'bom.csv').open('w',newline='') as stream:
-        w=csv.DictWriter(stream,fieldnames=fields); w.writeheader()
+        w=csv.DictWriter(stream,fieldnames=fields,lineterminator='\n'); w.writeheader()
         for s in data['sheets']:
             for c in s['components']:
                 if not c.get('on_board',True):continue

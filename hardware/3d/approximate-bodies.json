@@ -1,0 +1,111 @@
+{
+  "RACM06E": {
+    "references": [
+      "U1"
+    ],
+    "body_dimensions_mm": [
+      25.4,
+      25.4,
+      16.7
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Manufacturer nominal body dimensions; footprint origin/pin layout from current RACM06E footprint."
+  },
+  "ESP32_C6_MINI_1U": {
+    "references": [
+      "U3"
+    ],
+    "body_dimensions_mm": [
+      13.2,
+      12.5,
+      2.4
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Manufacturer module outline; shield and antenna socket are simplified. Not an RF/mechanical clearance model."
+  },
+  "G5Q_1A": {
+    "references": [
+      "K1",
+      "K2"
+    ],
+    "body_dimensions_mm": [
+      20.3,
+      10.3,
+      15.8
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Omron G5Q nominal maximum body; aligned with the current footprint body. Pins simplified."
+  },
+  "Fuse_5x20": {
+    "references": [
+      "F1"
+    ],
+    "body_dimensions_mm": [
+      21,
+      5.5,
+      5.5
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Current footprint body envelope. 4mm center height is an illustrative lead-forming assumption."
+  },
+  "Fusible_resistor": {
+    "references": [
+      "R1"
+    ],
+    "body_dimensions_mm": [
+      13.5,
+      6.5,
+      6.5
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Current footprint body envelope. 4.5mm center height is an illustrative lead-forming assumption."
+  },
+  "TMOV14": {
+    "references": [
+      "RV1"
+    ],
+    "body_dimensions_mm": [
+      17,
+      11,
+      20
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Current 17x11mm footprint envelope. 20mm installed height is a visualization allowance pending purchased-part measurement."
+  },
+  "ADuM6421_RN28": {
+    "references": [
+      "U11"
+    ],
+    "body_dimensions_mm": [
+      7.5,
+      10.2,
+      2.65
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Current footprint body outline; nominal SOIC body height and simplified leads; verify against the RN-28-1 drawing."
+  },
+  "WSON_2x2": {
+    "references": [
+      "U2"
+    ],
+    "body_dimensions_mm": [
+      2,
+      2,
+      0.8
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Generic WSON 2x2 body with approximate 0.8mm height; not a thermal or solder-joint model."
+  },
+  "LFCSP_5x5": {
+    "references": [
+      "U10"
+    ],
+    "body_dimensions_mm": [
+      5,
+      5,
+      0.85
+    ],
+    "status": "Approximate visualization envelope; not a manufacturer model",
+    "basis": "Generic 5x5 LFCSP body with approximate 0.85mm height; not a thermal or solder-joint model."
+  }
+}

@@ -1,5 +1,7 @@
 {
+  "pcb_sha256": "6f991556083c578a128364c8498850fce7301d18344051a5d814eb829f6d0b85",
   "board": "pump-controller-rev-b",
+  "revision": "C",
   "dimensions_mm": [
     90,
     70
@@ -7,7 +9,7 @@
   "layers": 4,
   "component_count": 208,
   "mounting_hole_count": 2,
-  "bottom_side_components": 117,
+  "bottom_side_components": 115,
   "remaining_unrouted": 0,
   "native_drc_errors": 0,
   "native_drc_warnings": 0,
@@ -19,6 +21,5 @@
   "release_status": "Engineering prototype; independent circuit/land-pattern review, electrical and thermal validation remain required.",
   "via_in_pad_unique_vias": 16,
   "via_in_pad_pad_overlaps": 19,
-  "via_in_pad_process": "Filled and plated-over vias for every listed SMT-pad drill overlap, or reroute before fabrication. Tenting alone is not accepted.",
-  "pcb_sha256": "7d5b673c80b85336321920ecac454928ebdc92d13bcde9e29b882098c60659b7"
+  "via_in_pad_process": "Filled and plated-over vias for every listed SMT-pad drill overlap, or reroute before fabrication. Tenting alone is not accepted."
 }

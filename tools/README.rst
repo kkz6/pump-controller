@@ -73,3 +73,21 @@ success is not a DRC or manufacturing acceptance result.
 ``design/pcb-placement.json`` and ``hardware/placement.json`` and refreshes
 the DSN from the native board. Run it after ``import_routing.py --check-only``
 so its routed status comes from the latest native connectivity result.
+
+Rev C control change
+--------------------
+
+The active native filenames retain their original basename; title blocks and
+``design/circuit.json`` identify revision C. ``apply_rev_c_controls.py`` is a
+one-time incremental ECO helper for a Rev B board after generating the Rev C
+source. It removes D33/D34 and merges their former coil-feed rail into
+STOP_RETURN. ``design/rev-c-control-route.json`` records the separately
+checked added connection. Both changes are already present in the final
+board; do not replay the ECO or route patch on it.
+
+The final Rev C interface also adds SW3 SET/RESET and SW4 NEXT/+ on the top
+of the isolated PCB area. ``add_rev_c_settings.py`` adds their footprints to
+the existing routed design after the coil-feed ECO; the checked settings
+connections are recorded in ``design/rev-c-settings-route.json``. Those
+additions are already incorporated in the final native board. External
+wiring uses STOP, START and one MODE button; J32 pins4 and6 are reserved.

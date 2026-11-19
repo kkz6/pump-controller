@@ -1,4 +1,4 @@
-"""Source netlists for Rev B metering, controls and compact OLED interface."""
+"""Source netlists for Rev C metering, momentary controls and compact OLED interface."""
 import json
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
@@ -84,7 +84,7 @@ add(s,'U32','STM1001TWX6F','Package_TO_SOT_SMD:SOT-23',[(1,'RESET_N','SAFE_CLEAR
 for i in range(3):c(s,f'C{70+i}','100nF','+3V3','GND')
 r(s,'R70','10k','+3V3','SAFE_CLEAR_N');r(s,'R71','100k','HEARTBEAT','GND');r(s,'R72','100k','PERMIT_D','GND');r(s,'R78','100k','ARM_CMD','GND')
 add(s,'U34','SN74LVC1G08DBVR','Package_TO_SOT_SMD:SOT-23-5',[(1,'A','ARM_Q','input'),(2,'B','PERMIT_D','input'),(3,'GND','GND','power_in'),(4,'Y','PERMIT_Q','output'),(5,'VCC','+3V3','power_in')],mpn='SN74LVC1G08DBVR',desc='Hardware-armed AND software-healthy gating of K1',url='https://www.ti.com/lit/ds/symlink/sn74lvc1g08.pdf')
-add(s,'U35','SN74LVC1G17DBVR','Package_TO_SOT_SMD:SOT-23-5',[(1,'NC',None,'no_connect'),(2,'A','HH_SENSE','input'),(3,'GND','GND','power_in'),(4,'Y','INTERLOCK_OK','output'),(5,'VCC','+3V3','power_in')],mpn='SN74LVC1G17DBVR',desc='Schmitt detector of K1 coil positive rail; opens after STOP/OFF/high-high loop break',url='https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf')
+add(s,'U35','SN74LVC1G17DBVR','Package_TO_SOT_SMD:SOT-23-5',[(1,'NC',None,'no_connect'),(2,'A','HH_SENSE','input'),(3,'GND','GND','power_in'),(4,'Y','INTERLOCK_OK','output'),(5,'VCC','+3V3','power_in')],mpn='SN74LVC1G17DBVR',desc='Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software',url='https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf')
 c(s,'C75','100nF','+3V3','GND');c(s,'C76','100nF','+3V3','GND')
 add(s,'D35','BAT54WS','Diode_SMD:D_SOD-323',[(1,'K','INTERLOCK_OK'),(2,'A','SAFE_CLEAR_N')],'diode','BAT54WS-7-F','Physical interlock low asynchronously clears arm latch; prevents restart on STOP release')
 # Manual MCU reset also clears permission, but watchdog does not repeatedly reboot the MCU.
@@ -98,12 +98,12 @@ for k,g,drain,plus,ca,cb in [(1,'PERMIT_Q','K1_LOW','K1_COIL_PLUS','CTRL_IN','CT
 j30=conn(s,'J30',['CTRL_IN','CTRL_OUT'],'Coil control series contacts - mains')
 j30['footprint']='Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal'
 j30['mpn']='1836189';j30['description']='Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required'
-conn(s,'J31',['MODE_COIL_5V','K1_COIL_PLUS'],'High-high NC float loop / fitted shorting link')
+conn(s,'J31',['STOP_RETURN','K1_COIL_PLUS'],'STOP-fed high-high NC float loop / fitted shorting link')
 
-s=sheet('local_controls','Low-voltage physical controls and OLED interface','All J32 controls are isolated low voltage. Existing mains button wiring must be removed before reusing buttons here.')
-conn(s,'J32',['+5V','STOP_RETURN','MAN_RETURN','AUTO_RETURN','START_N','RESET_N','GND'],'STOP + selector + START + RESET')
-for idx,net in [(33,'MAN_RETURN'),(34,'AUTO_RETURN')]:
-    add(s,f'D{idx}','B140','Diode_SMD:D_SMA',[(1,'K','MODE_COIL_5V'),(2,'A',net)],'diode','B140-13-F','OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C')
+s=sheet('local_controls','External MODE and onboard settings controls','Rev C: existing START/STOP actuators plus one external MODE button. SW3 SET and SW4 NEXT are on the PCB. STOP/HH clear ARM; mode/settings require STOP event, release and unarmed state.')
+j32=conn(s,'J32',['+5V','STOP_RETURN','MAN_RETURN','AUTO_RETURN','START_N','RESET_N','GND'],'External STOP / START / MODE; pins4,6 reserved')
+for pin,name in zip(j32['pins'],['STOP_NC_SUPPLY','STOP_NC_RETURN','MODE_NO_RETURN','RESERVED_NEXT','START_NO','RESERVED_SET','BUTTON_GND']):pin['name']=name
+j32['description']='External STOP NC1-2, MODE NO2-3, START NO5-7. Pins4 and6 remain internally connected but are RESERVED: do not wire externally. Reuse existing START/STOP actuators only through verified isolated auxiliary contacts; retain any required capacitor-start contacts. MODE toggles MAN/AUTO only unarmed after physical STOP acknowledgement.'
 # MCP23017 port A is spare, B reads contacts. 0x20 at 400 kHz.
 p=[]
 bnet=['START_FILTER','RESET_FILTER','STOP_SENSE','MAN_SENSE','AUTO_SENSE','INTERLOCK_OK','SPARE_B6','SPARE_B7']
@@ -121,6 +121,10 @@ add(s,'J33','OLED I2C 3V3','Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_
 
 add(s,'J34','EXPANSION 3V3 I2C + 2 GPIO','Connector_PinHeader_1.27mm:PinHeader_2x03_P1.27mm_Vertical_SMD',[(1,'3V3_25mA','+3V3'),(2,'GND','GND'),(3,'SDA','I2C_SDA'),(4,'SCL','I2C_SCL'),(5,'EXT_IO1','SPARE_B6'),(6,'EXT_IO2','SPARE_B7')],'connector','SPEC: 2x3 1.27mm vertical SMD header; match KiCad land pattern','Internal short-cable expansion only;3.3V logic,25mA maximum allocated;not hot-pluggable;MCP GPIO defaults input with100k pulldown;reserve I2C0x20 and0x48')
 
+switch_url='https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf'
+add(s,'SW3','SET / RESET','Button_Switch_SMD:SW_SPST_B3U-1000P',[(1,'NO','RESET_N'),(2,'COM','GND')],'switch','B3U-1000P','Onboard top-actuated SPST-NO;3x2.5x1.6mm;1.5N;5ms max bounce;minimum applicable load reference10uA at1V. Approx300uA at3.3V here. Short select/save or fault acknowledge; long enter/back. Contact reliability and insulated access require prototype validation.',switch_url)
+add(s,'SW4','NEXT / +','Button_Switch_SMD:SW_SPST_B3U-1000P',[(1,'NO','AUTO_RETURN'),(2,'COM','STOP_RETURN')],'switch','B3U-1000P','Onboard top-actuated SPST-NO;minimum applicable load reference10uA at1V;approx91uA at5V here. Active-high through existing divider. Short next/increment; long decrement. STOP must be released after clearing ARM before NEXT can operate.',switch_url)
+
 add(s,'OLED1','0.91 inch OLED 128x32 SSD1306','',[(1,'SCL','I2C_SCL','input'),(2,'SDA','I2C_SDA','bidirectional'),(3,'GND','GND','power_in'),(4,'VCC','+3V3','power_in')],mpn='Waveshare 14657 / 0.91inch OLED Module',desc='External36x12.5mm PCB;3.3V supply;PH2.0 4pin;modulePH2.0 numericpins1SCL2SDA3GND4VCC;J33->OLED mapping1->4,2->3,3->2,4->1;0x3C default;100mA reserved,not datasheet maximum',url='https://www.waveshare.com/0.91inch-oled-module.htm',on_board=False)
 
 # Verified manufacturer sources; this lookup changes documentation only.
@@ -129,8 +133,6 @@ source_urls = {
     'D35': 'https://www.diodes.com/part/view/BAT54WS',
     'D31': 'https://www.diodes.com/part/view/1N4148W',
     'D32': 'https://www.diodes.com/part/view/1N4148W',
-    'D33': 'https://www.diodes.com/datasheet/download/B140.pdf',
-    'D34': 'https://www.diodes.com/datasheet/download/B140.pdf',
     'R43': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',
     'R44': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',
     'R45': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',

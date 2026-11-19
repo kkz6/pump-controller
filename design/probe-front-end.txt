@@ -146,7 +146,7 @@ acquisition continue. An OLED holding SDA/SCL low compromises the shared
 protection bus and therefore requires fail-off. Perform bounded bus recovery
 with permission off, reinitialize the affected devices, discard incomplete
 averages and require fresh sensing plus user re-arm. Display failure must
-not suppress hardware STOP/OFF/high-high action or convert invalid sensing
+not suppress hardware STOP/high-high action or convert invalid sensing
 into a displayed/stored valid level.
 
 Pullups and physical bus limits:

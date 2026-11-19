@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "1c07c40c-c0bc-57e6-9f1a-c9ff728bd9bf")
 (paper "A3")
-(title_block (title "AC conductive probe interface - prototype Rev B / 1") (rev "B-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "AC conductive probe interface - prototype / 1") (rev "C-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:U20"
 (pin_names (offset 0.508))
@@ -316,7 +316,7 @@
 (symbol "C101_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 0.95 0.95)))) (number "1" (effects (font (size 0.95 0.95))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 0.95 0.95)))) (number "2" (effects (font (size 0.95 0.95))))))
 )
 )
-(text "AC conductive probe interface - prototype Rev B / 1" (at 15.24 15.24 0) (effects (font (size 2 2)) (justify left)) (uuid "caffc4d0-e376-5185-8145-e91decc0f36f"))
+(text "AC conductive probe interface - prototype / 1" (at 15.24 15.24 0) (effects (font (size 2 2)) (justify left)) (uuid "6b91ac28-5353-5c17-af06-7209e66e4c19"))
 (symbol (lib_id "Pump:U20") (at 50.8 50.8 0) (unit 1)
 (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
 (uuid "173f9f93-5965-515e-80ab-ccbf74c3e6cd")

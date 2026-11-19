@@ -60,3 +60,10 @@ THERMAL AND ASSEMBLY
 Use the exact final native DRC, unconnected-item and source-net comparison
 reports. Zero CAD violations does not establish mains, EMC, thermal or pump
 protection performance.
+
+REV C USER-CONTROL ACCESS
+SW3 SET/RESET and SW4 NEXT/+ are internal low-voltage service keys. Their
+placement does not make an open mains starter safe to touch. Provide verified
+insulated access/barriers, or operate under isolated bench/service power with
+mains and the coil circuit disconnected. Check contactor/capacitor/loom depth
+against the photographed starter; no enclosure dimensions have been measured.

@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "cad7b40f-bb08-5f1a-a4d4-c0eb6784e0bb")
 (paper "A3")
-(title_block (title "Meter isolation - power and SPI") (rev "B-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Meter isolation - power and SPI") (rev "C-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:U11"
 (pin_names (offset 0.508))

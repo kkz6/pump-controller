@@ -21,7 +21,7 @@ flags=[]
 for i,net in enumerate(['L_PROTECTED','MAINS_N','M_GND','M_3V3','M_ISO_GND','+3V3']):
     flags.append({'ref':'#FLG'+str(i+1),'value':'PWR_FLAG '+net,'kind':'power_flag','footprint':'','on_board':False,'in_bom':False,'pins':[{'num':'1','name':'pwr','net':net,'type':'power_out'}]})
 sheets.append({'id':'power_flags','title':'Power-source declarations for electrical-rule checking','components':flags})
-d={'project':'pump-controller-rev-b','title':'1 HP single-phase pump controller - detailed prototype circuit','board':{'width':90,'height':70,'layers':4},'sheets':sheets}
+d={'project':'pump-controller-rev-b','revision':'C','title':'Rev C - 1 HP pump controller','board':{'width':90,'height':70,'layers':4},'sheets':sheets}
 refs=[c['ref'] for s in sheets for c in s['components']]
 assert len(refs)==len(set(refs))
 (P/'circuit.json').write_text(json.dumps(d,indent=2))
@@ -31,6 +31,6 @@ with (P/'parts-complete.csv').open('w',newline='') as f:
         for c in s['components']:
             if c['ref'].startswith('#'):continue
             w.writerow([c['ref'],c.get('value',''),c.get('mpn',''),c.get('description',''),c.get('footprint',''),'main' if c.get('on_board',True) else 'external',c.get('datasheet','')])
-    for ref,value,spec in [('S_STOP','SPST-NC STOP','Panel mount; gold contacts; suitable for 5V DC / 0.1A minimum rated capability'),('S_MODE','MAN-OFF-AUTO selector','Maintained center-off; two independent NO contacts, break-before-make; gold contacts for 5V DC / 0.1A'),('S_START','SPST-NO START','Momentary, gold low-level contacts suitable for 3.3V / 0.3mA'),('S_RESET','SPST-NO RESET','Momentary, gold low-level contacts suitable for 3.3V / 0.3mA'),('S_HH','Optional independent high-high float','NC healthy; opens on high-high or wire break; suitable5V /40mA; fitted local shorting link if absent'),('ANT1','External 2.4GHz antenna','50ohm antenna with mating connector for MINI-1U; verify module antenna connector type'),('HARNESS1','4-wire OLED cable','Board JST GH1.25mm 4ways to module PH2.0mm 4ways; J33->OLED numeric map1->4,2->3,3->2,4->1; short internal harness,3.3V only')]:
+    for ref,value,spec in [('S_STOP','SPST-NC STOP','Reuse existing STOP actuator with verified isolated NC auxiliary contact;5V /0.1A capability; preserve original starter safety contacts'),('S_MODE','SPST-NO MODE','One external momentary button; low-level contacts suitable for5V /0.1mA; toggles MAN/AUTO only unarmed'),('S_START','SPST-NO START','Reuse existing START actuator with verified isolated NO auxiliary contact;3.3V /0.3mA; preserve any capacitor-start contacts'),('S_HH','Optional independent high-high float','NC healthy; opens on high-high or wire break; suitable5V /40mA; fitted local shorting link if absent'),('ANT1','External 2.4GHz antenna','50ohm antenna with mating connector for MINI-1U; verify module antenna connector type'),('HARNESS1','4-wire OLED cable','Board JST GH1.25mm 4ways to module PH2.0mm 4ways; J33->OLED numeric map1->4,2->3,3->2,4->1; short internal harness,3.3V only')]:
         w.writerow([ref,value,spec,'External installation item','','external',''])
 print(len(sheets),'sheets;',sum(c.get('on_board',True) for s in sheets for c in s['components']),'main PCB parts')

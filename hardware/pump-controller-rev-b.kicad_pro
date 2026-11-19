@@ -502,10 +502,6 @@
       },
       {
         "netclass": "SELV",
-        "pattern": "MODE_COIL_5V"
-      },
-      {
-        "netclass": "SELV",
         "pattern": "MUX_A0"
       },
       {

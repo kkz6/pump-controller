@@ -1,5 +1,5 @@
 PUMP CONTROLLER — OPERATING CONTRACT AND BRING-UP PLAN
-Revision: 2026-11-19 / engineering prototype
+Revision: 2026-11-19 / Rev C three-front-button engineering prototype
 
 STATUS
 
@@ -15,6 +15,30 @@ two series relay contacts control the contactor coil circuit. They do not
 switch the motor power conductors. Confirm actual coil voltage, pickup VA,
 holding VA and suppression before connecting it. Retain protective earth,
 upstream disconnection, circuit protection and the motor overload device.
+
+STARTER-SPECIFIC INTEGRATION HOLD
+
+The supplied reference box is a capacitor-equipped single-phase submersible
+starter with two large capacitors, a two-pole contactor, lid meters/MCB and an
+external RMG controller. Recorded existing operation confirms that RMG AUTO starts the pump without
+pressing the green START button. The automatic capacitor-start engagement/
+disconnection circuit and its location have not been identified. A START button may operate that circuit as well as
+the contactor. J30 only switches the contactor-coil command; it must not be
+assumed to replace an automatic starting-capacitor sequence. Preserve all
+motor/capacitor power wiring until the actual sequence is traced and verified.
+
+A related RMG DFAWLC-044 manual uses separate starter relay pairs, and the
+catalogue distinguishes start/stop from start/run/stop relay variants. The
+installed variant is unconfirmed; this board is not yet a verified drop-in
+replacement. Related sources, not proof of installed model identity:
+https://rmgautomation.com/Downloads/Manual/DFAWLC-044-100101.pdf
+https://rmgautomation.com/Wired_Automatic_Water_Level_Controller
+
+Identify the existing RMG output/starting arrangement and actual coil voltage,
+and verify motor overload protection; the visible MCB alone is not evidence
+of the required overload function. No photo-derived wire colour or apparent
+terminal position is an approved wiring mapping. These findings are an
+integration hold, not a claim that the existing installation is defective.
 
 LOCAL CONNECTION AND APP BEHAVIOR
 
@@ -58,52 +82,115 @@ must never be presented as proof that the motor is running.
 
 OFF from any accepted local/app command cancels the enabled request and keeps
 it cancelled until a fresh ON/START. AUTO must not undo a user OFF on its next
-scan. App ON never overrides the physical OFF selector, STOP, open high-high
-loop, latched fault or the need for physical re-arm.
+scan. App ON never overrides physical STOP, an open high-high loop, a latched
+fault, configuration mode or the need for physical re-arm.
 
-PHYSICAL CONTROLS AND RE-ARM
+PHYSICAL CONTROLS, MODE BUTTON AND RE-ARM
 
-OFF: selector opens both MAN and AUTO returns. K1 coil power is interrupted,
-and the hardware interlock clears the arm latch. Software commands both
-relays off and clears the enabled request. Do not rely on software to detect
-OFF before the coil is released.
+Rev C has three external momentary controls: existing STOP and START actuators,
+plus one new MODE button. It has no rotary selector or physical OFF position.
+Two small internal keys provide settings: SW3 SET/RESET and SW4 NEXT/+. The
+external J32 harness uses:
 
-MAN: a fresh local START arms the healthy controller and requests running.
-Manual operation still obeys STOP, high-high, destination-full stop, source
-availability, dry-run, metering/sensor validity and electrical protections.
-MAN is not a bypass of the protective contactor-coil chain.
+  STOP NC:   J32.1 (+5 V) to J32.2 (STOP_RETURN)
+  MODE NO:   J32.2 to J32.3 (legacy MAN_RETURN net, sense-only)
+  START NO:  J32.5 (START_N) to J32.7 (isolated GND)
+  J32.4:     reserved for internal NEXT signal; leave externally unwired
+  J32.6:     reserved for internal SET/RESET signal; leave externally unwired
 
-AUTO: a fresh local START arms the healthy controller and enables normal tank
-filling. Start below the commissioned low threshold and stop at the high
-threshold. Normal full-tank stops may retain the arm latch and enabled request
-for the next fill cycle; a protective trip may not.
+SW3 connects RESET_N to isolated GND. SW4 connects AUTO_RETURN to STOP_RETURN.
+Those are internal PCB keys, not additional front-panel buttons or external
+wires. Existing legacy net names do not imply separate MANUAL/AUTO buttons.
 
-STOP is a normally closed contact in the 5 V coil-permission circuit. Opening
-it removes K1 coil power and clears the arm latch. Closing STOP, changing the
-selector back from OFF, or reclosing a high-high float must not restart the
-pump. The next START must be a new press after the input has been released.
-A button held through boot or a fault is not a new START.
+Retain the original START/STOP actuators and necessary power/capacitor-start
+contacts. Where mechanically and electrically compatible, fit separate isolated
+auxiliary contacts on those same actuators for J32: NC for STOP, NO for START.
+Do not connect J32 to a contact still carrying mains or a capacitor-start feed.
+If the actual actuators cannot accept suitable separate contacts, the mechanical
+control arrangement needs revision before installation; shared contacts are not
+an acceptable substitute. The original power/capacitor function must be traced
+and preserved without allowing any START/holding path to bypass J30.
 
-RESET acknowledges a latched fault only after its cause is gone and the
-required healthy observations have completed. RESET does not start or re-arm.
-A separate, fresh local START is required. A power cycle is not a fault reset
-or an instruction to resume. Network restoration must not re-arm a stopped controller. A healthy local
-automatic cycle does not require the network and must not be disabled merely
-by a Wi-Fi/WAN outage. Firmware reboot leaves the pump off and unarmed. Automatic dry-run retries default to zero.
+STOP_RETURN directly supplies J31.1 and the independent high-high loop. D33
+and D34 are removed. MODE and internal NEXT are sense-only inputs; neither
+supplies relay-coil power. STOP opens the hardware permission supply and clears
+ARM. Closing STOP or reclosing a high-high float must not itself restart the
+pump. A held START through boot or fault recovery is not a fresh START.
 
-The SN74LVC1G74 arm latch is clocked by a deliberate ARM_CMD pulse after a
-valid START; HEARTBEAT must never clock it. Supervisor, watchdog, MCU reset
-and physical interlock clear permission. The MCU must also drop PERMIT_D and
-RUN_CMD on every software fault, clear the run request, and never pulse ARM_CMD
-merely because the loop starts working again. Heartbeat may advance only after
-a complete healthy control cycle; a free-running interrupt must not conceal
-a stalled control/sensor task. Use firmware brownout reset as another layer,
-and test the complete rail-collapse response with the chosen supervisor.
+Press AND RELEASE physical STOP before changing mode or entering settings.
+This clears ARM. Releasing STOP restores the low-voltage supply used by MODE
+and NEXT, while ARM remains clear. Do not require STOP to remain held during
+mode selection or menu navigation: those inputs would be unpowered.
 
-The proposed default requires physical START after a hardware/protective
-trip. Once locally armed, ordinary app OFF/ON can stop and request operation
-without clearing a healthy arm latch. A deliberate mode transition between
-MAN and AUTO should cancel the request and require START again.
+A fresh MODE press toggles MANUAL/AUTO only while stopped and unarmed. Display
+the selected mode explicitly. MODE never arms or starts. A subsequent fresh
+START arms a healthy controller and operates the selected mode. MANUAL obeys
+STOP, high-high, destination-full stop, source availability, dry-run, metering/
+sensor validity and electrical protections. AUTO fills below the commissioned
+low band and stops at the high band. A normal full-tank stop may retain healthy
+ARM for the next fill; a protective trip may not. AUTO-selected/unarmed must
+look distinct from AUTO-enabled/waiting-for-low.
+
+If MODE is pressed while armed, cancel the run/enable request, command outputs
+off and show PRESS STOP. Do not toggle mode until a fresh physical STOP cycle
+has cleared ARM and a fresh MODE press follows. A software response to MODE is
+not claimed to clear the hardware ARM latch. Never derive ARM_CMD from MODE,
+NEXT, SET, menu exit, or release of STOP.
+
+Require all NO inputs to be released before accepting a new event after boot,
+menu exit or a fault. Reject stuck inputs, ambiguous simultaneous button events
+and stale control data; cancel requests and require release plus the normal
+fresh STOP/START sequence. Debounce must not delay physical STOP/high-high.
+
+INTERNAL SETTINGS KEYS AND OLED MENU
+
+SW3 SET/RESET short press acknowledges a displayed fault only after its cause
+is gone and required healthy observations have completed. It never re-arms.
+Hold SET to enter settings only after physical STOP press/release, with the
+motor confirmed stopped, ARM clear and no unresolved fault. An armed/full-tank
+standby or running state must instead show PRESS STOP and reject editing.
+
+Inside settings:
+  SW4 NEXT short press = next item or increase the selected value.
+  SW4 NEXT held press  = previous item or decrease the selected value.
+  SW3 SET short press  = select/edit, or validate and save the edited value.
+  SW3 SET held press   = back/exit; do not save an unconfirmed edit.
+
+One press must never generate both short and held actions. Consume the short
+event once a hold is recognized; emit a short event only after release below
+the hold threshold. Fault acknowledgement has priority over ordinary menu/page
+actions. Front MODE does not navigate a menu; reject a mode change until the
+menu is exited. START never navigates or runs from a menu. After exit require
+all button releases and a fresh START; saving or exiting never resumes pumping.
+STOP remains a physical stop in every screen state.
+
+Show one setting/value with clear edit state, validation feedback and saved
+confirmation. Use the same bounds as the local dashboard. No setting can
+disable STOP, high-high, watchdog, fresh re-arm or mandatory protection checks.
+Incomplete commissioning inhibits run. Loss of the display while editing
+cancels the edit and leaves the controller unarmed; a stuck shared bus remains
+a protective fault.
+
+The small PCB keys are internal service controls. Use the isolated low-voltage
+service/bench procedure with mains and coil supplies disconnected. Operation
+inside a powered starter would require a separately verified insulated access
+and cover arrangement; exposed mains components are not a normal user-access
+area. The front MODE/START/STOP and OLED remain the normal closed-lid interface.
+
+The SN74LVC1G74 ARM latch is clocked only by a deliberate ARM_CMD pulse after
+a valid START. HEARTBEAT never clocks it. Supervisor, watchdog, MCU reset and
+physical interlock clear permission. Drop PERMIT_D and RUN_CMD on every
+software fault, clear the request, and never pulse ARM_CMD merely because the
+loop recovers. Heartbeat advances only after a complete healthy control cycle;
+a free-running interrupt must not conceal stalled control or stale sensors.
+Test firmware brownout plus the complete rail-collapse response.
+
+A power cycle is not a fault reset or instruction to resume. Network restoration
+must not re-arm a stopped controller. Healthy automatic operation continues
+without Wi-Fi/WAN; firmware reboot leaves the pump off/unarmed. Dry-run retries
+default to zero. Once locally armed, ordinary app OFF/ON can stop/request
+operation without clearing a healthy ARM latch, but cannot clear faults, exit
+configuration or satisfy physical re-arm requirements.
 
 PROBES, WATER DISPLAY AND AUTOMATIC FILLING
 
@@ -233,7 +320,8 @@ unattended MAN operation remain disabled until the installation is validated.
   Sustained underload time:  3 s after grace, subject to allowed damage time.
   Initial threshold study:   0.65 x measured normal wet power is a trial
                              candidate only; do not enable without validation.
-  Automatic fault retries:  0; RESET then fresh START after fault clearance.
+  Automatic fault retries:  0; SET/RESET acknowledgement then fresh START
+                             after fault clearance.
 
 Set a maximum continuous fill time from measured worst-case legitimate fill
 time and pump duty limits. A provisional study value is 1.5 times the longest
@@ -274,9 +362,12 @@ ORDERED BRING-UP AND ACCEPTANCE CHECKS
    watchdog timing and actual relay pickup/release at temperature. The
    nominal voltage/tolerance calculation does not replace those tests.
 
-4. Hardware stop chain without a motor. Use actual low-voltage selector,
-   STOP and high-high float contacts. Test each individually while running
-   dummy relay loads, then close it again and confirm a new START is needed.
+4. Hardware stop chain without a motor. Use the actual three-button front panel, internal keys and
+   high-high float. Test STOP and high-high independently with dummy relay
+   loads; restore each and confirm a fresh START is needed. Verify that mode
+   inputs are sense-only and cannot energize or clear ARM. Test ambiguous
+   simultaneous events, MODE while armed, STOP press/release before navigation,
+   short/held SET and NEXT event exclusion, invalid saves and no resume on menu exit.
    Hold START through boot and fault recovery. Force the MCU to reset, stall
    the control task and stop sensor updates while a timer still runs. None
    may leave K1 permitted beyond the documented protective deadline. Verify
@@ -292,7 +383,8 @@ ORDERED BRING-UP AND ACCEPTANCE CHECKS
    setup to calibrate the metering chain and confirm CT orientation and
    burden. Never open the CT secondary while its primary carries current.
    Simulate calibrated underload/overcurrent/voltage faults before involving
-   a pump. Verify every timeout, output state, RESET/START distinction,
+   a pump. Verify every timeout, output state, SET/RESET versus START distinction,
+   short/hold exclusion,
    history timestamp and unknown-data indication.
 
 7. Network acceptance with relay dummy loads. Pair with the actual Apple

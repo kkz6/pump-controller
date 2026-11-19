@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1400" height="900" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1400" height="900"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-900)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="30" y="850" style="font-family: Helvetica-Bold; font-size: 31px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1700) scale(1,-1)">POWER AND COIL CONTROL / FUNCTIONAL CONNECTIONS</text>
+			<text x="30" y="810" style="font-family: Helvetica; font-size: 22px;fill: rgb(36%,41%,44%); stroke:none;" transform="translate(0,1620) scale(1,-1)">Capacitor-start sequence and actual coil voltage must be identified before using the coil example.</text>
+			<rect x="30" y="610" width="230" height="150" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="44" y="732" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,1464) scale(1,-1)">L / N SUPPLY</text>
+			<text x="44" y="707" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1414) scale(1,-1)">After upstream isolator</text>
+			<text x="44" y="684" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1368) scale(1,-1)">and appropriate</text>
+			<text x="44" y="661" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1322) scale(1,-1)">circuit protection</text>
+			<rect x="560" y="575" width="390" height="190" rx="10" ry="10" style="stroke: rgb(36%,41%,44%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,95%,95%); fill-rule: evenodd;"/>
+			<text x="580" y="735" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1470) scale(1,-1)">EXISTING CAPACITOR STARTER</text>
+			<rect x="605" y="595" width="55" height="110" rx="12" ry="12" style="stroke: rgb(36%,41%,44%); stroke-linecap: butt; stroke-width: 2; fill: rgb(85%,79%,38%); fill-rule: evenodd;"/>
+			<rect x="690" y="595" width="55" height="110" rx="12" ry="12" style="stroke: rgb(36%,41%,44%); stroke-linecap: butt; stroke-width: 2; fill: rgb(78%,81%,82%); fill-rule: evenodd;"/>
+			<rect x="775" y="595" width="145" height="110" rx="5" ry="5" style="stroke: rgb(36%,41%,44%); stroke-linecap: butt; stroke-width: 2; fill: rgb(88%,90%,90%); fill-rule: evenodd;"/>
+			<text x="783" y="640" style="font-family: Helvetica; font-size: 20px;fill: rgb(36%,41%,44%); stroke:none;" transform="translate(0,1280) scale(1,-1)">Contactor</text>
+			<circle cx="800" cy="610" r="6" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(36%,41%,44%); fill-rule: evenodd;"/>
+			<circle cx="800" cy="690" r="6" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(36%,41%,44%); fill-rule: evenodd;"/>
+			<circle cx="895" cy="610" r="6" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(36%,41%,44%); fill-rule: evenodd;"/>
+			<circle cx="895" cy="690" r="6" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(36%,41%,44%); fill-rule: evenodd;"/>
+			<text x="570" y="550" style="font-family: Helvetica; font-size: 20px;fill: rgb(36%,41%,44%); stroke:none;" transform="translate(0,1100) scale(1,-1)">Keep motor/capacitor wiring; verify overload.</text>
+			<rect x="1170" y="635" width="195" height="125" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="1184" y="732" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,1464) scale(1,-1)">1 HP MOTOR</text>
+			<text x="1184" y="707" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1414) scale(1,-1)">Existing motor</text>
+			<text x="1184" y="684" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,1368) scale(1,-1)">cable/leads</text>
+			<polyline points="260 725, 560 725" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<polyline points="260 670, 560 670" style="stroke: rgb(19%,37%,59%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<text x="285" y="739" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,1478) scale(1,-1)">L</text>
+			<text x="285" y="683" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(19%,37%,59%); stroke:none;" transform="translate(0,1366) scale(1,-1)">N</text>
+			<polyline points="950 700, 1170 700" style="stroke: rgb(36%,41%,44%); stroke-linecap: butt; stroke-width: 13; fill: None; fill-rule: evenodd;"/>
+			<text x="972" y="735" style="font-family: Helvetica; font-size: 20px;fill: rgb(36%,41%,44%); stroke:none;" transform="translate(0,1470) scale(1,-1)">Existing cable</text>
+			<circle cx="345" cy="725" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(65%,24%,17%); fill-rule: evenodd;"/>
+			<circle cx="410" cy="670" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,37%,59%); fill-rule: evenodd;"/>
+			<polyline points="345 725, 345 495, 560 495" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<polyline points="410 670, 410 450, 560 450" style="stroke: rgb(19%,37%,59%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<rect x="560" y="415" width="390" height="105" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="574" y="492" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,984) scale(1,-1)">J1 / CONTROLLER POWER</text>
+			<text x="574" y="467" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,934) scale(1,-1)">1 = L / 2 = N</text>
+			<text x="990" y="490" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,980) scale(1,-1)">No motor current</text>
+			<text x="990" y="460" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,920) scale(1,-1)">through J1 or J30.</text>
+			<text x="30" y="385" style="font-family: Helvetica; font-size: 20px;fill: rgb(36%,41%,44%); stroke:none;" transform="translate(0,770) scale(1,-1)">PE stays bonded to motor/enclosure. Trace the total-current CT location; do not pick an arbitrary winding lead.</text>
+			<rect x="20" y="25" width="1360" height="330" rx="12" ry="12" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="45" y="310" style="font-family: Helvetica-Bold; font-size: 25px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,620) scale(1,-1)">COIL EXAMPLE ONLY: VERIFIED 230 VAC COIL + WORKING CAPACITOR-START CIRCUIT</text>
+			<rect x="45" y="180" width="190" height="80" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="59" y="232" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,464) scale(1,-1)">Control L</text>
+			<text x="59" y="207" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,414) scale(1,-1)">Protected feed</text>
+			<rect x="285" y="180" width="235" height="80" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="299" y="232" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,464) scale(1,-1)">Overload NC</text>
+			<text x="299" y="207" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,414) scale(1,-1)">95-96 common; verify</text>
+			<rect x="580" y="165" width="340" height="110" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="594" y="247" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,494) scale(1,-1)">J30 / BOARD RELAYS</text>
+			<text x="594" y="222" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,444) scale(1,-1)">1 IN -&gt; K1 -&gt; K2 -&gt; 2 OUT</text>
+			<text x="594" y="199" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,398) scale(1,-1)">Series NO contacts</text>
+			<rect x="1120" y="165" width="220" height="110" rx="8" ry="8" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 2; fill: rgb(98%,93%,91%); fill-rule: evenodd;"/>
+			<text x="1134" y="247" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,494) scale(1,-1)">KM COIL</text>
+			<text x="1134" y="222" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,444) scale(1,-1)">A1 switched feed</text>
+			<text x="1134" y="199" style="font-family: Helvetica; font-size: 18px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,398) scale(1,-1)">A2 control return</text>
+			<polyline points="235 220, 285 220" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<polyline points="520 220, 580 220" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<polyline points="920 220, 1120 220" style="stroke: rgb(65%,24%,17%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<text x="955" y="238" style="font-family: Helvetica; font-size: 20px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,476) scale(1,-1)">to A1</text>
+			<polyline points="1230 165, 1230 120, 165 120" style="stroke: rgb(19%,37%,59%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<text x="50" y="112" style="font-family: Helvetica-Bold; font-size: 20px;fill: rgb(19%,37%,59%); stroke:none;" transform="translate(0,224) scale(1,-1)">Control N</text>
+			<text x="45" y="67" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(65%,24%,17%); stroke:none;" transform="translate(0,134) scale(1,-1)">J30 cannot replace an unknown start-capacitor switch. No old START/holding path may bypass J30.</text>
+		</g>
+	</g>
+</svg>

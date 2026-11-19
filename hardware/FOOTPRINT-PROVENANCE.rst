@@ -27,5 +27,8 @@ Project-specific ``Pump.pretty`` footprints:
   Confirm package variant, pin numbering, lead tolerance and recommended
   land patterns against purchase samples before manufacture.
 
-No standard-library 3D models are redistributed in this package. Optional
-model paths resolve against an installed KiCad standard 3D-model library.
+Standard-library 3D models are not redistributed as a raw model collection.
+Optional footprint model paths resolve against an installed KiCad library.
+The generated 3D assembly exports embed standard package geometry alongside
+the project-created approximate bodies; see ``hardware/3d/README.rst`` for
+coverage, provenance and the limits of those visualization models.

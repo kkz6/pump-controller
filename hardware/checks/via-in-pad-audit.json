@@ -1,5 +1,5 @@
 {
-  "pcb_sha256": "7d5b673c80b85336321920ecac454928ebdc92d13bcde9e29b882098c60659b7",
+  "pcb_sha256": "6f991556083c578a128364c8498850fce7301d18344051a5d814eb829f6d0b85",
   "method": "Native effective copper pad geometry intersects finished-drill nominal disk; includes edge intersections. Does not substitute for CAM/assembly review.",
   "mandatory_process": "Filled and plated-over vias for every listed SMT-pad drill overlap, or reroute before fabrication. Tenting alone is not accepted.",
   "overlap_count": 19,
