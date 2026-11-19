@@ -1,0 +1,37 @@
+{
+  "host_test_runner": "firmware/components/starter_outputs/tests/run-host.sh",
+  "strict_c11_host_tests": {
+    "panel_controls_test": "passed",
+    "starter_outputs_test": "passed",
+    "command_leds_test": "passed"
+  },
+  "panel_controls_address_and_undefined_behavior_sanitizers": "passed",
+  "tested_source_sha256": {
+    "firmware/components/starter_outputs/panel_controls.c": "47d006743e2c9e5c32f4a0ace1732f7b514601d88d1303f463f7f5412bef132c",
+    "firmware/components/starter_outputs/starter_outputs.c": "b5c94da4f1f9f7136f75d5e9b14436597521ef82cea6f3264b5bddc2c1394188",
+    "firmware/components/starter_outputs/include/panel_controls.h": "82fc5bff9302b50ebd24ff2e36481f80ecf7e74bf8fbd7f55e8b117b37a7029e",
+    "firmware/components/starter_outputs/include/starter_outputs.h": "73565c952da133360965f88acf5448b8bb3a057be28f15899372d4bfbff9127a",
+    "firmware/components/starter_outputs/tests/panel_controls_test.c": "1378f31dd30fd2590b3cb1c02b2fffa4f932e82eb884d9727ef0ab634ec8d97a",
+    "firmware/components/starter_outputs/tests/run-host.sh": "974957ce794c2dec23b223671d72826bf34378fc9e5d913e87ecf8b363eb3067",
+    "firmware/components/starter_outputs/tests/starter_outputs_test.c": "31292565ace6caeaa7f68299e39de8b30f738994d2c8a646c7a237c05981f1d7",
+    "firmware/components/command_leds/command_leds.c": "68e4e14f0caf6431331bd07b524602b78baefa52f66f4a7fe1ddf07a3f8a5809",
+    "firmware/components/command_leds/include/command_leds.h": "a96a92ce3aba43d85499ca353c93e920293c500b50e95a2ca5b456a2e5388235",
+    "firmware/components/command_leds/tests/command_leds_test.c": "f3ccc5a126d3c5e78b676a283ddf02e5d1aecc97ea79f5eee5d32cf8c64ebd76"
+  },
+  "panel_pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+  "panel_archives": {
+    "gerber": {
+      "archive": "hardware/panel-rev-e/pump-panel-rev-e-gerber-review.zip",
+      "sha256": "8bf7a5d787d260ce5185a3bb440b7821ad91e05cc2926098c2e292282e0f3abf",
+      "matching_fresh_exports_excluding_timestamp": 12
+    },
+    "stencil": {
+      "archive": "hardware/panel-rev-e/pump-panel-rev-e-stencil-review.zip",
+      "sha256": "a90fbf087df7c17552b6e589b6f2644a67d7a32a531dc54377e8a95925e55309",
+      "matching_fresh_exports_excluding_timestamp": 3
+    }
+  },
+  "archive_comparison": "Native KiCad regeneration of fabrication plots, drill files, job files and IPC netlist. All file contents matched after normalizing creation timestamps. Archive CRCs and exact file equality against checked-in export directories also passed.",
+  "hardware_tested": false,
+  "target_application_tested": false
+}

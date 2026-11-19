@@ -1,6 +1,11 @@
 Compact controller review for an existing pushbutton starter
 ============================================================
 
+The `dual-output main board <../hardware/main-compact-dual/README.rst>`_
+implements two independent relay contacts and external profile-specific
+harnesses. The single-output purchase hold below applies to the original
+compact board and the command LED revision.
+
 **Hold the compact main PCB purchase for this retrofit.** The installation
 requires the automatic controller to operate the existing START and STOP
 circuit. The 100 x 75 mm main board exposes one maintained contact path.

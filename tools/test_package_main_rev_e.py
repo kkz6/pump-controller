@@ -24,16 +24,19 @@ def digest(path):
 
 
 class PackageGate(unittest.TestCase):
+    compact_dual = False
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='synthetic-pcb-package-test-')
         self.base = Path(self.temp.name)
-        self.out = self.base / 'hardware/main-rev-e'
+        self.variant = gate.board_variant(compact_dual=self.compact_dual)
+        self.out = self.base / 'hardware' / self.variant.directory
         self.checks = self.out / 'checks'
         self.checks.mkdir(parents=True)
-        name = gate.NAME
-        inputs = [self.out / (name + ext) for ext in
+        name = self.variant.cam_name
+        inputs = [self.out / (self.variant.native_name + ext) for ext in
                   ['.kicad_pcb', '.kicad_pro', '.kicad_dru', '.kicad_sch']]
-        inputs.append(self.base / 'design/main-rev-e.json')
+        inputs.append(self.base / self.variant.design)
         for path in inputs:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text('synthetic fixture: ' + path.name)
@@ -45,7 +48,8 @@ class PackageGate(unittest.TestCase):
         dump(self.checks / 'independent-geometry.json',
              {'pcb_sha256': board_hash, 'source_sha256': source_hash,
               'copper_layers': ['F.Cu', 'In1.Cu', 'In2.Cu', 'In3.Cu', 'In4.Cu', 'B.Cu'],
-              'geometry_and_source_passed': True})
+              'geometry_and_source_passed': True,
+              'starter_field_to_board_mains_projected': {'gap_mm': 8.5}})
         dump(self.checks / 'independent-summary.json', {
             'source_sha256': sources, 'independent_native_checks_passed': True,
             'native_sources_unchanged': True, 'geometry_and_source_passed': True,
@@ -65,14 +69,15 @@ class PackageGate(unittest.TestCase):
         drill.parent.mkdir()
         drill.write_text('synthetic drill report')
         dump(self.out / 'fabrication-manifest.json', {
-            **gate.SETTINGS, 'origin': 'absolute, metric, unmirrored across all CAM and drill files',
+            **gate.SETTINGS, 'revision': self.variant.revision, 'outline_mm': list(self.variant.size), 'origin': 'absolute, metric, unmirrored across all CAM and drill files',
             'source_sha256': sources,
             'output_sha256': {str(p.relative_to(self.out)): digest(p) for p in paths + [drill]}})
         dump(self.checks / 'independent-gerbers.json', {
             'pcb_sha256': board_hash, 'source_sha256': source_hash,
             'native_inventory_sha256': digest(self.checks / 'independent-geometry.json'),
             'serialization_registration_and_mask_passed': True, 'errors': [],
-            'gerber_files_parsed': 13, 'outline_centerline_size_mm': [100, 80],
+            'gerber_files_parsed': 13, 'outline_centerline_size_mm': list(self.variant.size),
+            'x2_project_revision': self.variant.revision,
             'mask_geometry': {'F.Mask': {'passed': True}, 'B.Mask': {'passed': True}},
             'file_checks': {str(p.relative_to(self.base)): {'sha256': digest(p)} for p in paths},
             'gerber_conductive_netlist_extracted': False})
@@ -88,15 +93,15 @@ class PackageGate(unittest.TestCase):
     def refused(self):
         # A failed retry must remove earlier archives, not leave stale uploads.
         for suffix in gate.SUFFIXES:
-            (self.out / (gate.NAME + suffix)).write_text('obsolete upload')
+            (self.out / (self.variant.cam_name + suffix)).write_text('obsolete upload')
         with self.assertRaises((ValueError, KeyError, OSError)):
-            gate.package(self.base)
+            gate.package(self.base, compact_dual=self.compact_dual)
         for suffix in gate.SUFFIXES:
-            self.assertFalse((self.out / (gate.NAME + suffix)).exists())
+            self.assertFalse((self.out / (self.variant.cam_name + suffix)).exists())
         self.assertFalse((self.out / 'package-manifest.json').exists())
 
     def test_packages_only_matching_artifacts_and_separates_stencil(self):
-        result = gate.package(self.base)
+        result = gate.package(self.base, compact_dual=self.compact_dual)
         self.assertTrue(result['pcb_prototype_order_package'])
         self.assertFalse(result['assembled_product_qualified'])
         self.assertFalse(result['manufacturer_accepted'])
@@ -113,7 +118,7 @@ class PackageGate(unittest.TestCase):
         self.assertEqual(counts, [18, 4])
 
     def test_stale_pcb(self):
-        (self.out / (gate.NAME + '.kicad_pcb')).write_text('changed PCB')
+        (self.out / (self.variant.native_name + '.kicad_pcb')).write_text('changed PCB')
         self.refused()
 
     def test_altered_native_report(self):
@@ -129,11 +134,11 @@ class PackageGate(unittest.TestCase):
         self.refused()
 
     def test_modified_copper(self):
-        (self.out / 'gerber' / (gate.NAME + '.GTL')).write_text('changed copper')
+        (self.out / 'gerber' / (self.variant.cam_name + '.GTL')).write_text('changed copper')
         self.refused()
 
     def test_modified_stencil(self):
-        (self.out / 'exports/stencil' / (gate.NAME + '.GBP')).write_text('changed paste')
+        (self.out / 'exports/stencil' / (self.variant.cam_name + '.GBP')).write_text('changed paste')
         self.refused()
 
     def test_extra_unchecked_copper(self):
@@ -154,6 +159,32 @@ class PackageGate(unittest.TestCase):
 
     def test_old_four_layer_cam_count(self):
         self.update(self.checks / 'independent-gerbers.json', 'gerber_files_parsed', 11)
+        self.refused()
+
+
+class DualPackageGate(PackageGate):
+    compact_dual = True
+
+    def test_variant_uses_its_own_archive_and_copper_names(self):
+        result = gate.package(self.base, compact_dual=True)
+        filename = 'pump-controller-compact-dual-gerber-prototype.zip'
+        self.assertEqual(result['revision'], 'COMPACT-DUAL-PROTOTYPE')
+        self.assertEqual(result['fabrication_settings']['outline_mm'], [100, 97])
+        self.assertIn(filename, result['archives'])
+        with zipfile.ZipFile(self.out / filename) as archive:
+            self.assertIn('pump-controller-compact-dual.GTL', archive.namelist())
+
+    def test_wrong_embedded_gerber_revision(self):
+        self.update(self.checks / 'independent-gerbers.json', 'x2_project_revision', 'COMPACT-PROTOTYPE')
+        self.refused()
+
+    def test_field_clearance_below_target(self):
+        geometry = self.checks / 'independent-geometry.json'
+        self.update(geometry, 'starter_field_to_board_mains_projected', {'gap_mm': 7.95})
+        summary = self.checks / 'independent-summary.json'
+        hashes = json.loads(summary.read_text())['report_sha256']
+        hashes[geometry.name] = digest(geometry)
+        self.update(summary, 'report_sha256', hashes)
         self.refused()
 
 

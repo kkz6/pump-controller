@@ -1,0 +1,34 @@
+{
+  "source_pcb_sha256": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
+  "populated_STEP_solids_checked": 271,
+  "native_export_missing_model_refs": [],
+  "populated_bounds_case_xyzxyz_mm": [
+    32.0,
+    25.0,
+    19.915,
+    129.0,
+    125.0,
+    45.595
+  ],
+  "min_clearance_to_floor_plane_mm": 15.915,
+  "min_clearance_to_guard_roof_plane_mm": 5.405,
+  "nominal_step_intersections": [],
+  "volume_tolerance_mm3": 0.005,
+  "measurement_scope": "Modeled solids only. Mating plugs and gland reserves are checked separately in fit-checks.json. Measure real electronics and dressed cables.",
+  "approximate_project_body_refs": [
+    "F1",
+    "K1",
+    "K2",
+    "R1",
+    "RV1",
+    "U1",
+    "U10",
+    "U11",
+    "U2",
+    "U3"
+  ],
+  "component_footprints_represented": 216,
+  "installed_envelope_refs": [
+    "C1"
+  ]
+}

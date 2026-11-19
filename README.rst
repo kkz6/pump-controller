@@ -1,7 +1,18 @@
 Compact single-phase pump controller
 ====================================
 
-The current **compact main board measures 100 x 75 mm**, with a modeled
+The current `dual-output main board <hardware/main-compact-dual/README.rst>`_
+supports one RUN contact or separate START and STOP inputs on a single-phase
+starter. The 100 × 97 mm six-layer PCB has two removable output plugs, a
+keyed manual-transfer interface and two command LEDs. The `starter wiring drawing
+<hardware/main-compact-dual/exports/starter-wiring.pdf>`_ shows the two-,
+three- and four-wire harnesses.
+The `secondary OLED panel <hardware/panel-rev-e/README.rst>`_ carries
+START, STOP, MODE, SET/RESET and NEXT/+, and accepts an optional maintained
+AUTO/MANUAL key. All five controls are accessible through the
+`standalone enclosure lid <mechanical/compact-dual/README.rst>`_.
+
+The earlier **compact main board measures 100 x 75 mm**, with a modeled
 populated thickness of 25.68 mm and a separate 60 x 45 mm OLED/button panel.
 The compact version moves the power capacitor to the front and corrects
 the optional AUTO-key input. See the

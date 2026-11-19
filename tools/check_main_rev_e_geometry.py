@@ -28,6 +28,7 @@ LIMITS = {
     'copper_edge': .30, 'live_selv': 8.0,
 }
 EPS = .00001  # ten native integer units: rounding only, not a DFM allowance
+FIELD_CONTACTS = frozenset({'CTRL_A_COM', 'CTRL_A_NO', 'CTRL_B_COM', 'CTRL_B_NO'})
 
 
 def sha(path):
@@ -65,12 +66,10 @@ def label(record):
 
 
 
-def closest_domains(objects):
+def closest_groups(first, second, first_label, second_label):
     """Find the minimum planar copper gap, including curved lands and filled zones."""
-    live = sorted((obj for obj in objects if obj['domain'] == 'LIVE'),
-                  key=lambda obj: -obj['_bbox'][2])
-    isolated = sorted((obj for obj in objects if obj['domain'] == 'SELV'),
-                      key=lambda obj: obj['_bbox'][0])
+    live = sorted(first, key=lambda obj: -obj['_bbox'][2])
+    isolated = sorted(second, key=lambda obj: obj['_bbox'][0])
     if not live or not isolated:
         raise ValueError('Missing copper domain during separation measurement')
     minimum = math.inf
@@ -87,8 +86,13 @@ def closest_domains(objects):
             gap = mm(a['_shape'].GetClearance(b['_shape']))
             if gap < minimum:
                 minimum = gap
-                result = {'gap_mm': gap, 'live': label(a), 'isolated': label(b)}
+                result = {'gap_mm': gap, first_label: label(a), second_label: label(b)}
     return result
+
+
+def closest_domains(objects):
+    return closest_groups((o for o in objects if o['domain'] == 'LIVE'),
+                          (o for o in objects if o['domain'] == 'SELV'), 'live', 'isolated')
 
 
 def required_clearance(a, b):
@@ -116,6 +120,10 @@ def required_clearance(a, b):
     if domains == {'LIVE', 'SELV'}:
         rule, gap = 'live_selv', LIMITS['live_selv']
     elif domains == {'LIVE'}:
+        if nets & FIELD_CONTACTS:
+            if not nets <= FIELD_CONTACTS:
+                return 'starter_field_to_board_mains', LIMITS['live_selv']
+            return 'starter_field_differential', 2.0
         if nets & {'MAINS_L', 'L_FUSED', 'L_PROTECTED', 'CTRL_IN', 'CTRL_MID', 'CTRL_OUT'}:
             voltage_gap = 2.0
         elif 'M_VDIV_0' in nets:
@@ -143,12 +151,20 @@ def audit(args):
     components = {c['ref']: c for sheet in source['sheets'] for c in sheet['components']
                   if c.get('on_board', True)}
     variant = source['board'].get('variant')
-    compact = variant in ('compact', 'compact-led')
+    dual = variant == 'compact-dual'
+    has_indicators = variant in ('compact-led', 'compact-dual')
+    compact = variant == 'compact' or has_indicators
     original = json.loads((BASE / 'design/circuit.json').read_text())
     original_parts = {c['ref']: c for sheet in original['sheets'] for c in sheet['components']
                       if c.get('on_board', True) and c['ref'] not in {'SW3', 'SW4', 'J33', 'J34'}}
     footprints = {f.GetReference(): f for f in b.GetFootprints()}
     violations, source_issues, unqualified = [], [], []
+    if dual:
+        for ref in ('SW1', 'SW2'):
+            del original_parts[ref]
+        for ref in set(components) | set(footprints):
+            if ref.startswith('SW'):
+                source_issues.append({'ref': ref, 'issue': 'all buttons must be on the OLED panel'})
     inventory = {'tracks': [], 'vias': [], 'pth_pads': [], 'npth_pads': [], 'mask_pads': [],
                  'silk': [], 'zones': [], 'copper_graphics': []}
     all_holes, copper, smd = [], [], []
@@ -181,12 +197,14 @@ def audit(args):
             old_pins['6'] = 'ARM_CLEAR_N'
         if compact and ref == 'U33':
             old_pins.update({'8': '', '21': 'SPARE_B7'})
-            if variant == 'compact-led':
+            if has_indicators:
                 old_pins.update({'8': 'START_CMD_LED', '28': 'STOP_CMD_LED'})
+            if dual:
+                old_pins.update({'24': 'HOST_SENSE_N', '23': 'LOCAL_SENSE_N'})
             pin_types = {str(pin['num']): pin['type'] for pin in new['pins']}
             if new['mpn'] != 'MCP23017-E/SS' or any(pin_types.get(i) != 'output' for i in ['8', '28']):
                 message = 'compact key requires two unconnected output-only pins on the MCP23017'
-                if variant == 'compact-led':
+                if has_indicators:
                     message = 'command indicators require GPB7 and GPA7 as output-only MCP23017 pins'
                 source_issues.append({'ref': ref, 'issue': message})
         if ref == 'J32':
@@ -197,6 +215,12 @@ def audit(args):
                                 'START_N', 'RESET_N', 'GND', '+3V3', 'I2C_SDA',
                                 'I2C_SCL', 'SPARE_B6', 'SPARE_B7']))
             old_pins['MP'] = 'GND'
+        if dual and ref == 'K1':
+            old_pins.update({'2': 'CTRL_A_COM', '3': 'CTRL_A_NO'})
+        if dual and ref == 'K2':
+            old_pins.update({'2': 'CTRL_B_COM', '3': 'CTRL_B_NO'})
+        if dual and ref == 'J30':
+            old_pins = {'1': 'CTRL_A_COM', '2': 'CTRL_A_NO'}
         new_pins = {str(x['num']): x.get('net') or '' for x in new['pins']}
         if old_pins != new_pins:
             source_issues.append({'ref': ref, 'issue': 'functional pin/net map changed',
@@ -208,7 +232,19 @@ def audit(args):
                 '5':'MAN_SENSE','6':'AUTO_SENSE_RAW','7':'STOP_SENSE','8':'+3V3'},
         'C78': {'1': '+3V3', '2': 'GND'},
     }
-    if variant == 'compact-led':
+    if dual:
+        expected_additions.update({
+            'J35': {'1': 'CTRL_B_COM', '2': 'CTRL_B_NO'},
+            'J36': {'1': 'GND', '2': 'HOST_AUX_N', '3': 'LOCAL_AUX_N', 'MP': 'GND'},
+            'R192': {'1': 'HOST_AUX_N', '2': 'HOST_SENSE_N'},
+            'R193': {'1': 'LOCAL_AUX_N', '2': 'LOCAL_SENSE_N'},
+            'R194': {'1': '+3V3', '2': 'HOST_SENSE_N'},
+            'R195': {'1': '+3V3', '2': 'LOCAL_SENSE_N'},
+        })
+        for ref, value in {'R192':'1k', 'R193':'1k', 'R194':'10k', 'R195':'10k'}.items():
+            if components.get(ref, {}).get('value') != value:
+                source_issues.append({'ref': ref, 'issue': 'transfer input resistor mismatch', 'expected': value})
+    if has_indicators:
         expected_additions.update({
             'R190': {'1': 'START_CMD_LED', '2': 'START_LED_A'},
             'D40': {'1': 'GND', '2': 'START_LED_A'},
@@ -233,8 +269,10 @@ def audit(args):
         actual = {str(x['num']): x.get('net') or '' for x in components.get(ref, {}).get('pins', [])}
         if actual != expected:
             message = 'safety buffer pin/net map mismatch'
-            if variant == 'compact-led' and ref in indicator_parts:
+            if has_indicators and ref in indicator_parts:
                 message = 'command indicator pin/net map mismatch'
+            if dual and ref == 'J35':
+                message = 'output B pin/net map mismatch'
             source_issues.append({'ref': ref, 'issue': message, 'expected': expected, 'actual': actual})
     for ref, c in components.items():
         if ref not in original_parts and ref not in expected_additions and c.get('pins'):
@@ -293,7 +331,10 @@ def audit(args):
     domains = {x['pattern']: x['netclass'] for x in old_project['net_settings']['netclass_patterns']
                if x['netclass'] in {'LIVE', 'SELV'}}
     domains.update({net: 'SELV' for net in ('ARM_CLEAR_N','STOP_SENSE_RAW','MAN_SENSE_RAW','AUTO_SENSE_RAW')})
-    if variant == 'compact-led':
+    if dual:
+        domains.update(dict.fromkeys(FIELD_CONTACTS, 'LIVE'))
+        domains.update(dict.fromkeys(('HOST_AUX_N','LOCAL_AUX_N','HOST_SENSE_N','LOCAL_SENSE_N'), 'SELV'))
+    if has_indicators:
         domains.update({net: 'SELV' for net in ('START_CMD_LED', 'START_LED_A', 'STOP_CMD_LED', 'STOP_LED_A')})
     domain_issues = []
 
@@ -495,6 +536,14 @@ def audit(args):
         issue('all_layer_projected_live_selv', projected_gap['gap_mm'], LIMITS['live_selv'],
               a=projected_gap['live'], b=projected_gap['isolated'])
 
+    if dual:
+        field = [o for o in copper if o['net'] in FIELD_CONTACTS]
+        board_mains = [o for o in copper if o['domain'] == 'LIVE' and o['net'] not in FIELD_CONTACTS]
+        field_gap = closest_groups(field, board_mains, 'starter_contact', 'board_mains')
+        if field_gap['gap_mm'] + EPS < LIMITS['live_selv']:
+            issue('all_layer_projected_starter_field_to_board_mains', field_gap['gap_mm'],
+                  LIMITS['live_selv'], a=field_gap['starter_contact'], b=field_gap['board_mains'])
+
     # Bounded sweep: every skipped pair has a bounding-box separation already
     # larger than the applicable rule. Detailed shape clearance covers curves,
     # rounded rectangles and stored filled zones using KiCad native geometry.
@@ -562,6 +611,9 @@ def audit(args):
     mounting_targets = {(4.0, 4.0), (96.0, 4.0), (96.0, 76.0), (4.0, 76.0)}
     if compact:
         mounting_targets = {(16.0, 8.8), (96.0, 8.8), (96.0, 76.0), (4.0, 76.0)}
+    if dual:
+        mounting_targets = {(4.0, -13.0), (50.0, -12.8), (96.0, -13.0),
+                            (96.0, 76.0), (4.0, 76.0)}
     mounting = [h for h in all_holes if h.get('ref') and re.fullmatch(r'H\d+', h['ref'])]
     actual_mounting = {tuple(h['xy_mm']) for h in mounting}
     if actual_mounting != mounting_targets:
@@ -685,6 +737,8 @@ def audit(args):
             'No simulation, functional hardware, thermal, EMC or installation test is implied.',
         ],
     }
+    if dual:
+        result['starter_field_to_board_mains_projected'] = field_gap
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps({'passed': result['geometry_and_source_passed'],

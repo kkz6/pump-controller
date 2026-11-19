@@ -1,0 +1,163 @@
+{
+  "source_pcb_sha256": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
+  "packed_stl_count": 17,
+  "print_file_sha256": "a62bab73342431a39255da81f527a6f0f81d1a0147fd0c69a626410a7592ae1b",
+  "print_part_sha256": {
+    "base.stl": "a416493c170f335e71976d8bb9828be3bba0c8df84124cb2913e4ae6406a2fbd",
+    "display_retainer.stl": "8e02e03d2567346f213629124a204c72213fc2e0d13da791372b4ff9350477af",
+    "key_22p5_adapter_OPTIONAL.stl": "1fa3f0c232997c2b5cb80beb6b5222f9b4fa80ae0922c1444d0db0ff51318385",
+    "key_blank_plate.stl": "d1a104c7d9c7d572f9de4bcc8826e29e1079f01bea66c0af4f43d755e3a22228",
+    "lid.stl": "b6a5b2933f96d7ce4a2c404dc2fbd6ff923f4a3a8865bc4e7087e08acc85576a",
+    "main_board_guard.stl": "4078b4f89603cd5b5bf583c27422b44089d50c3dda1bd95dfc41e1c94206a326",
+    "mode_cap.stl": "28dedd2a1837503f7f83937e7e8c87fd135ae7d5c3861daca02336335f63aa3f",
+    "mode_stem.stl": "029e729df6415981b749c7d40bc6affc4f30e1d42c20275d213c1e7d8a6357f8",
+    "next_cap.stl": "9667a73ccedd90d4fbd9f907b8dd9852988a3a14f9165d8d4ca38d1fe584c4ad",
+    "next_stem.stl": "7618a492fa87e41b0846cb8ccd9aacd40af5de1a499474957746ae2139aa8a14",
+    "panel_carrier.stl": "c317c0a653626b8bba44a20cc87b6c742239311ef7707ab15201d34e8c7052a7",
+    "set_cap.stl": "73c78e5a0b916056b155e7ae84e467f68289dbdd84d5d6c717cbf29cb28b979f",
+    "set_stem.stl": "6df748762a370588a0f62092f79ae84bf5d73bbdc68110254710caeca9b0214a",
+    "start_cap.stl": "79a6861a2dff6e1278764841b07f56f328bbf6d5aa30e7455b501e5f3e817664",
+    "start_stem.stl": "2cbb4562a6dedc14a3bd53d9ddc0fccc68b903d2c3a8f4d66dc1bba12fbd2597",
+    "stop_cap.stl": "28dedd2a1837503f7f83937e7e8c87fd135ae7d5c3861daca02336335f63aa3f",
+    "stop_stem.stl": "99329a907684728ef08e033ce6e4e55308867babae84a1a882d3380346a3a79f"
+  },
+  "lid_subset_source_sha256": "2b1d6af0277f348d9376bb52dc28e817915a0e6ed594216e7aa1e097d3454553",
+  "panel": {
+    "panel_pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+    "actuators_native_mm": {
+      "SW4": [
+        45.0,
+        30.0
+      ],
+      "SW3": [
+        34.5,
+        30.0
+      ],
+      "SW1": [
+        20.0,
+        30.0
+      ],
+      "SW5": [
+        54.0,
+        30.0
+      ],
+      "SW2": [
+        7.5,
+        30.0
+      ]
+    },
+    "mounting_holes_native_mm": {
+      "H1": [
+        3.0,
+        3.0
+      ],
+      "H4": [
+        57.0,
+        42.0
+      ],
+      "H3": [
+        3.0,
+        42.0
+      ],
+      "H2": [
+        57.0,
+        3.0
+      ]
+    },
+    "J8_pins": {
+      "1": "+5V",
+      "2": "KEY_MAN_RAW",
+      "3": "KEY_AUTO_RAW"
+    }
+  },
+  "five_button_fits": {
+    "START": {
+      "switch": "SW2",
+      "case_xy_mm": [
+        62.5,
+        60.0
+      ],
+      "actuator_rest_gap_mm": 0.15,
+      "nominal_stroke_stop_mm": 0.4,
+      "nominal_switch_travel_after_rest_gap_mm": 0.25,
+      "stem_tip_z_mm": 76.25
+    },
+    "STOP": {
+      "switch": "SW1",
+      "case_xy_mm": [
+        75.0,
+        60.0
+      ],
+      "actuator_rest_gap_mm": 0.15,
+      "nominal_stroke_stop_mm": 0.85,
+      "nominal_switch_travel_after_rest_gap_mm": 0.7,
+      "stem_tip_z_mm": 82.15
+    },
+    "MODE": {
+      "switch": "SW3",
+      "case_xy_mm": [
+        89.5,
+        60.0
+      ],
+      "actuator_rest_gap_mm": 0.15,
+      "nominal_stroke_stop_mm": 0.4,
+      "nominal_switch_travel_after_rest_gap_mm": 0.25,
+      "stem_tip_z_mm": 76.25
+    },
+    "SET": {
+      "switch": "SW4",
+      "case_xy_mm": [
+        100.0,
+        60.0
+      ],
+      "actuator_rest_gap_mm": 0.15,
+      "nominal_stroke_stop_mm": 0.4,
+      "nominal_switch_travel_after_rest_gap_mm": 0.25,
+      "stem_tip_z_mm": 76.25
+    },
+    "NEXT": {
+      "switch": "SW5",
+      "case_xy_mm": [
+        109.0,
+        60.0
+      ],
+      "actuator_rest_gap_mm": 0.15,
+      "nominal_stroke_stop_mm": 0.4,
+      "nominal_switch_travel_after_rest_gap_mm": 0.25,
+      "stem_tip_z_mm": 76.25
+    }
+  },
+  "optional_key_fit": {
+    "adapter_hole_mm": 22.5,
+    "plate_thickness_at_bore_mm": 5.2,
+    "reserved_below_lid_xyz_mm": [
+      35.0,
+      35.0,
+      25.0
+    ],
+    "reserved_body_to_guard_roof_mm": 7.8,
+    "external_panel_key_entry": "dedicated M12 MODE KEY"
+  },
+  "retained_lid_parts_checked": [
+    "lid",
+    "panel_carrier",
+    "display_retainer",
+    "key_blank_plate",
+    "key_22p5_adapter_OPTIONAL"
+  ],
+  "parts_per_assembly": 16,
+  "interchangeable_key_plates": [
+    "key_blank_plate.stl",
+    "key_22p5_adapter_OPTIONAL.stl"
+  ],
+  "lid_base_guard_nominal_intersections": 0,
+  "hardware_excluded": [
+    "fasteners",
+    "window",
+    "glands, locknuts and blanks",
+    "connector hardware",
+    "electronics",
+    "wired looms"
+  ],
+  "front_label_sha256": "3bd46054c26ddbe65e693d21066d03a467124b5efc017e85c3e01d6c13ae8d98"
+}

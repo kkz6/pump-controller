@@ -1,0 +1,3164 @@
+{
+  "source_sha256": {
+    "hardware/main-compact-dual/pump-controller-compact.kicad_pcb": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
+    "hardware/main-compact-dual/pump-controller-compact.kicad_pro": "354dd9e90e92e9b7e7c6b2884bf4abab2f3a51744248e7524a8ba3133c57ca4d",
+    "hardware/main-compact-dual/pump-controller-compact.kicad_dru": "81daa90cb2da38395bcb0ce0b39a60bb2cb50b5d44b195905a39945d70c5226b",
+    "design/main-compact-dual.json": "2fc1d1f6eebf79ccbc0ffada3c5c3ef5bd347e4e062675b11bcfea8c97a0ffd8",
+    "hardware/main-compact-dual/controls_conditioning.kicad_sch": "c3632e54c7ecac20fb12ac945288a0b418d71652fafd981b578c67b9edd3ea4b",
+    "hardware/main-compact-dual/local_controls_1.kicad_sch": "25a9196398992825b7bb6ecdf4a912b99c1f63bee51bf90465b460b31d3b6fa7",
+    "hardware/main-compact-dual/local_controls_2.kicad_sch": "a2c21e7957e0c1ce51b55f2c3740d0457e0d4ad72487e36eaf900c3e5106bcca",
+    "hardware/main-compact-dual/mcu.kicad_sch": "d3fe5fbf7132ac7dec88da6ec69e46efd03c89aed8caaa432037e0996b7eb90a",
+    "hardware/main-compact-dual/mechanical.kicad_sch": "0688a0a4040127176edf1807afce9bae3c28dad3142515fff23422dfca42f2c9",
+    "hardware/main-compact-dual/meter_ic.kicad_sch": "3b16d72c1f3062c03d5623241dcd5f10681fb24da73ee0b365b80e9c40eb8989",
+    "hardware/main-compact-dual/meter_inputs.kicad_sch": "d1878eba40bac376493820b9f0e5d0929be54659c84c90700902c5ad8c2313da",
+    "hardware/main-compact-dual/meter_isolation.kicad_sch": "4f910c6dd8d65752d664cb060ba13f146fba83fb78edad740b517435f258dca6",
+    "hardware/main-compact-dual/power.kicad_sch": "80e5b0b5744423ee5f2cb34c19ef61f5728254e5e4b07c828c2b5d34cfbd8a8c",
+    "hardware/main-compact-dual/power_flags.kicad_sch": "a2842610cfc77cd9a72a7817ac715ec338edd1b999df4cdcb6204e561bad6098",
+    "hardware/main-compact-dual/probes_1.kicad_sch": "cee02a7b0bb1959eb9fe86bf771b636bf4e8160d85792b6eaf0f40ab5d8bdbca",
+    "hardware/main-compact-dual/probes_2.kicad_sch": "a2845589017bd7a8df9f4a4aac3395dc40e7312c023ad078cd43b155bf6cb6e6",
+    "hardware/main-compact-dual/probes_3.kicad_sch": "cec7d9a59a7651c07f3c3b36d54f29cc5cd092e052d1aad35d3d1cdb59fb8fc0",
+    "hardware/main-compact-dual/probes_4.kicad_sch": "766c74311fb485180f327f95ec009f36af894b4569e4aa074f05b0811f23f8f4",
+    "hardware/main-compact-dual/pump-controller-compact.kicad_sch": "05a46bcc5bef31eebdf67f993b8d12a273bab8b42384b519420337281b2307c6",
+    "hardware/main-compact-dual/relay_protection_1.kicad_sch": "ba0e78feb1320bb411b1857028ca39aa21653ff1b466c8e781d1288175fdfbdd",
+    "hardware/main-compact-dual/relay_protection_2.kicad_sch": "a3927d4831a23a18429f8bfdf7584682234fad7df357e18d0554f45f9d248a25"
+  },
+  "cases": [
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "f6b1e182-ae16-4155-8be4-26aa2c5ee7b2",
+        "4b21c2cb-5251-4566-aba6-0b52dd994afa"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 108.175
+              },
+              "uuid": "4b21c2cb-5251-4566-aba6-0b52dd994afa"
+            },
+            {
+              "description": "Track [M_GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 100.025
+              },
+              "uuid": "f6b1e182-ae16-4155-8be4-26aa2c5ee7b2"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "9cdbd66c-6759-4a56-97d6-39bc31747354",
+        "d6616ff1-5b8a-4a8a-8441-7a2e17ce2a68"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 100.025
+              },
+              "uuid": "9cdbd66c-6759-4a56-97d6-39bc31747354"
+            },
+            {
+              "description": "Track [GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 108.175
+              },
+              "uuid": "d6616ff1-5b8a-4a8a-8441-7a2e17ce2a68"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "d2901086-e0dd-4192-8de6-47b96100ed3f",
+        "e0212830-ce05-408d-b043-bd01bbc56c30"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 100.025
+              },
+              "uuid": "d2901086-e0dd-4192-8de6-47b96100ed3f"
+            },
+            {
+              "description": "Track [GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 108.175
+              },
+              "uuid": "e0212830-ce05-408d-b043-bd01bbc56c30"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "e405262e-9c4a-471e-aa68-3af3ff80f9e3",
+        "753d69e8-d6e6-4618-a63b-a58439f5b137"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 108.175
+              },
+              "uuid": "753d69e8-d6e6-4618-a63b-a58439f5b137"
+            },
+            {
+              "description": "Track [M_GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 100.025
+              },
+              "uuid": "e405262e-9c4a-471e-aa68-3af3ff80f9e3"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "98fa68a4-7de4-42c8-bb66-4d4195d15374",
+        "465d8f0a-9089-4b85-b426-3cf68c75dc5a"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 108.175
+              },
+              "uuid": "465d8f0a-9089-4b85-b426-3cf68c75dc5a"
+            },
+            {
+              "description": "Track [M_GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 100.025
+              },
+              "uuid": "98fa68a4-7de4-42c8-bb66-4d4195d15374"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "481a29db-c9a9-435c-932f-8d7fc653d174",
+        "fbea7ef0-26f3-498c-80f7-a6dd6f6c3fa7"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 100.025
+              },
+              "uuid": "481a29db-c9a9-435c-932f-8d7fc653d174"
+            },
+            {
+              "description": "Track [GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 108.175
+              },
+              "uuid": "fbea7ef0-26f3-498c-80f7-a6dd6f6c3fa7"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "3268a781-8028-4cc3-8507-caefc73dfc7a",
+        "a5d5cd8d-3356-42da-9332-3f4aafcf419e"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_COM] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 124.025
+              },
+              "uuid": "3268a781-8028-4cc3-8507-caefc73dfc7a"
+            },
+            {
+              "description": "Track [M_GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 132.175
+              },
+              "uuid": "a5d5cd8d-3356-42da-9332-3f4aafcf419e"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "93a849f0-4c9c-4fa8-a768-74de0d15b18c",
+        "ceb4e772-823a-4ad5-9e4a-69450de9bde4"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_COM] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 124.025
+              },
+              "uuid": "93a849f0-4c9c-4fa8-a768-74de0d15b18c"
+            },
+            {
+              "description": "Track [M_GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 132.175
+              },
+              "uuid": "ceb4e772-823a-4ad5-9e4a-69450de9bde4"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "99fca83a-57cb-4848-b928-7ac4cf32f667",
+        "7fdd8ed5-3f09-47cf-b21c-1aa7fe600ef6"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 132.175
+              },
+              "uuid": "7fdd8ed5-3f09-47cf-b21c-1aa7fe600ef6"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 124.025
+              },
+              "uuid": "99fca83a-57cb-4848-b928-7ac4cf32f667"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "e9c073b7-a2cb-46b1-8923-faea44c2f455",
+        "3fe947f5-5186-4fe2-8cd1-a00e162372f7"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 132.175
+              },
+              "uuid": "3fe947f5-5186-4fe2-8cd1-a00e162372f7"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 124.025
+              },
+              "uuid": "e9c073b7-a2cb-46b1-8923-faea44c2f455"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "f3f10468-4b97-4c15-9e13-fac4df7fb621",
+        "faaf5eac-637a-4476-b914-089e5a4ca448"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_COM] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 124.025
+              },
+              "uuid": "f3f10468-4b97-4c15-9e13-fac4df7fb621"
+            },
+            {
+              "description": "Track [M_GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 132.175
+              },
+              "uuid": "faaf5eac-637a-4476-b914-089e5a4ca448"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "dde26d3f-2d94-49cc-a5c6-ea792bab9ae5",
+        "d8577cd7-6925-4a7f-bbad-0d0dfd1a7b08"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 132.175
+              },
+              "uuid": "d8577cd7-6925-4a7f-bbad-0d0dfd1a7b08"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 124.025
+              },
+              "uuid": "dde26d3f-2d94-49cc-a5c6-ea792bab9ae5"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "18eb013a-202d-4a81-9425-ad91bf2fd36f",
+        "caf686cb-d2bf-4381-8c8d-c995f2ab5e8f"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_COM] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 148.025
+              },
+              "uuid": "18eb013a-202d-4a81-9425-ad91bf2fd36f"
+            },
+            {
+              "description": "Track [GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 156.175
+              },
+              "uuid": "caf686cb-d2bf-4381-8c8d-c995f2ab5e8f"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "c9cd22f1-3d26-43b3-aea7-8e7bcf042394",
+        "8d7aaef3-c26e-45a9-8856-672a5a5791eb"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 156.175
+              },
+              "uuid": "8d7aaef3-c26e-45a9-8856-672a5a5791eb"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 148.025
+              },
+              "uuid": "c9cd22f1-3d26-43b3-aea7-8e7bcf042394"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "e2cb8f9d-4ddc-4b0a-9230-399b03d36c22",
+        "8fa9067b-a8ad-4cbf-ade5-c1693b4fda95"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 156.175
+              },
+              "uuid": "8fa9067b-a8ad-4cbf-ade5-c1693b4fda95"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 148.025
+              },
+              "uuid": "e2cb8f9d-4ddc-4b0a-9230-399b03d36c22"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "d64d98ba-15c0-4f1e-a456-8ac2dbc4c26d",
+        "1d3e5c6a-7ce1-4e45-a7ca-5b3e02579f3d"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 156.175
+              },
+              "uuid": "1d3e5c6a-7ce1-4e45-a7ca-5b3e02579f3d"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 148.025
+              },
+              "uuid": "d64d98ba-15c0-4f1e-a456-8ac2dbc4c26d"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "86a619d0-80fd-4854-8ef4-edd6415edcb4",
+        "0edfa431-8213-48ad-83c3-a0bac62d9703"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 156.175
+              },
+              "uuid": "0edfa431-8213-48ad-83c3-a0bac62d9703"
+            },
+            {
+              "description": "Track [CTRL_A_COM] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 148.025
+              },
+              "uuid": "86a619d0-80fd-4854-8ef4-edd6415edcb4"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "1d2c593d-2af5-4170-92b9-a7c7491ff89e",
+        "d4ef5aa1-db05-4eed-a96b-ee315d793d30"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_COM] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 148.025
+              },
+              "uuid": "1d2c593d-2af5-4170-92b9-a7c7491ff89e"
+            },
+            {
+              "description": "Track [GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 156.175
+              },
+              "uuid": "d4ef5aa1-db05-4eed-a96b-ee315d793d30"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "8e02e38a-405d-4aca-8499-70e274b78f18",
+        "ecc8b28c-3c22-4e82-b170-6ddfcf4f1d44"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 172.025
+              },
+              "uuid": "8e02e38a-405d-4aca-8499-70e274b78f18"
+            },
+            {
+              "description": "Track [M_GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 180.175
+              },
+              "uuid": "ecc8b28c-3c22-4e82-b170-6ddfcf4f1d44"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "73ae5bf2-1cac-4a3b-a80f-f936ffbb3fc0",
+        "db5676e9-e958-44aa-98a9-0dba1edb1fbf"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 172.025
+              },
+              "uuid": "73ae5bf2-1cac-4a3b-a80f-f936ffbb3fc0"
+            },
+            {
+              "description": "Track [M_GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 180.175
+              },
+              "uuid": "db5676e9-e958-44aa-98a9-0dba1edb1fbf"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "e1ce22f2-53db-4470-969a-c1668cd1c9b0",
+        "c76043d5-b6ef-4f2d-9b2e-111f51d798f7"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 180.175
+              },
+              "uuid": "c76043d5-b6ef-4f2d-9b2e-111f51d798f7"
+            },
+            {
+              "description": "Track [CTRL_A_NO] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 172.025
+              },
+              "uuid": "e1ce22f2-53db-4470-969a-c1668cd1c9b0"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "7bc6efd2-439f-4ff8-bc57-ef97950b6209",
+        "2c5b4dff-da8e-49d4-b4c0-8f0f3048beca"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 180.175
+              },
+              "uuid": "2c5b4dff-da8e-49d4-b4c0-8f0f3048beca"
+            },
+            {
+              "description": "Track [CTRL_A_NO] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 172.025
+              },
+              "uuid": "7bc6efd2-439f-4ff8-bc57-ef97950b6209"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "1f64aabd-45fc-419a-b9ae-844ba23ab2fe",
+        "b06036b9-a1a1-4c17-ab2e-aebdf2053b69"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 172.025
+              },
+              "uuid": "1f64aabd-45fc-419a-b9ae-844ba23ab2fe"
+            },
+            {
+              "description": "Track [M_GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 180.175
+              },
+              "uuid": "b06036b9-a1a1-4c17-ab2e-aebdf2053b69"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "1ced6825-1952-4a58-8015-a8b1c8248b44",
+        "52edc064-f3f7-4a8a-833e-b6b9fb9d9ff4"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 172.025
+              },
+              "uuid": "1ced6825-1952-4a58-8015-a8b1c8248b44"
+            },
+            {
+              "description": "Track [M_GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 180.175
+              },
+              "uuid": "52edc064-f3f7-4a8a-833e-b6b9fb9d9ff4"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "253e2ac6-7f1f-48d6-866f-e69b4b3b6580",
+        "73b9f168-8f69-4565-b649-1e24491bbd05"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 196.025
+              },
+              "uuid": "253e2ac6-7f1f-48d6-866f-e69b4b3b6580"
+            },
+            {
+              "description": "Track [GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 204.175
+              },
+              "uuid": "73b9f168-8f69-4565-b649-1e24491bbd05"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "01487985-de9c-44cc-818c-fc7f10855525",
+        "fc2cdd07-6354-4e85-9290-dbc814dc1d52"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 196.025
+              },
+              "uuid": "01487985-de9c-44cc-818c-fc7f10855525"
+            },
+            {
+              "description": "Track [GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 204.175
+              },
+              "uuid": "fc2cdd07-6354-4e85-9290-dbc814dc1d52"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "809af5cd-c2de-45f8-aded-b5a6b0867bdb",
+        "1b0f447d-c670-4e1c-85bb-aef01d9e12be"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 204.175
+              },
+              "uuid": "1b0f447d-c670-4e1c-85bb-aef01d9e12be"
+            },
+            {
+              "description": "Track [CTRL_A_NO] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 196.025
+              },
+              "uuid": "809af5cd-c2de-45f8-aded-b5a6b0867bdb"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "e794275d-62cb-4852-bbcf-bc3ea2c9adbb",
+        "9775c4e4-f231-4b7d-bcd9-9e408313c630"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 204.175
+              },
+              "uuid": "9775c4e4-f231-4b7d-bcd9-9e408313c630"
+            },
+            {
+              "description": "Track [CTRL_A_NO] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 196.025
+              },
+              "uuid": "e794275d-62cb-4852-bbcf-bc3ea2c9adbb"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "e151af62-dbb9-4eb9-a72b-816d48deaf4d",
+        "342131ff-0622-4122-bd0f-4de0ef4813ae"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 204.175
+              },
+              "uuid": "342131ff-0622-4122-bd0f-4de0ef4813ae"
+            },
+            {
+              "description": "Track [CTRL_A_NO] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 196.025
+              },
+              "uuid": "e151af62-dbb9-4eb9-a72b-816d48deaf4d"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "925e1e4a-a406-49bc-87c6-3c3d856ee5f6",
+        "fdc9260d-0f00-4021-aa87-57df5db7bb3d"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_A_NO] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 196.025
+              },
+              "uuid": "925e1e4a-a406-49bc-87c6-3c3d856ee5f6"
+            },
+            {
+              "description": "Track [GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 204.175
+              },
+              "uuid": "fdc9260d-0f00-4021-aa87-57df5db7bb3d"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "61728ab3-f179-4552-bb17-2a2ab9c22929",
+        "cb591d21-18e4-43f6-ae93-f0673615a72f"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 220.025
+              },
+              "uuid": "61728ab3-f179-4552-bb17-2a2ab9c22929"
+            },
+            {
+              "description": "Track [M_GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 228.175
+              },
+              "uuid": "cb591d21-18e4-43f6-ae93-f0673615a72f"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "7a5eec40-015e-4f58-9903-da7f3d98356f",
+        "068e9faf-a9ff-4a1e-8b2f-98ee5d217f53"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 228.175
+              },
+              "uuid": "068e9faf-a9ff-4a1e-8b2f-98ee5d217f53"
+            },
+            {
+              "description": "Track [CTRL_B_COM] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 220.025
+              },
+              "uuid": "7a5eec40-015e-4f58-9903-da7f3d98356f"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "21c9c678-b9dd-45e2-a85b-72408a969dc2",
+        "074b5a8f-6a94-4306-a206-db98009eab60"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 228.175
+              },
+              "uuid": "074b5a8f-6a94-4306-a206-db98009eab60"
+            },
+            {
+              "description": "Track [CTRL_B_COM] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 220.025
+              },
+              "uuid": "21c9c678-b9dd-45e2-a85b-72408a969dc2"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "eda7809d-06df-4fe9-a495-397e3a6b3379",
+        "2f3d6efc-298f-4bd3-915b-a18ae1b0e8f9"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 228.175
+              },
+              "uuid": "2f3d6efc-298f-4bd3-915b-a18ae1b0e8f9"
+            },
+            {
+              "description": "Track [CTRL_B_COM] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 220.025
+              },
+              "uuid": "eda7809d-06df-4fe9-a495-397e3a6b3379"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "cdcf1a4c-e7a0-4a13-89d7-5e6a2c0c5f01",
+        "d207d6d0-becb-4a35-88e1-948ccfcdec12"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 220.025
+              },
+              "uuid": "cdcf1a4c-e7a0-4a13-89d7-5e6a2c0c5f01"
+            },
+            {
+              "description": "Track [M_GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 228.175
+              },
+              "uuid": "d207d6d0-becb-4a35-88e1-948ccfcdec12"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "6a4c7277-c470-4ce1-aa4d-64868448b4eb",
+        "836fa89f-5f06-452f-b729-790c0a6ee2f4"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 220.025
+              },
+              "uuid": "6a4c7277-c470-4ce1-aa4d-64868448b4eb"
+            },
+            {
+              "description": "Track [M_GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 228.175
+              },
+              "uuid": "836fa89f-5f06-452f-b729-790c0a6ee2f4"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "e2060284-ba60-4c80-878b-f889c79a3889",
+        "5c1d6d2d-68d7-4af0-a469-1337e7a9175a"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 252.175
+              },
+              "uuid": "5c1d6d2d-68d7-4af0-a469-1337e7a9175a"
+            },
+            {
+              "description": "Track [CTRL_B_COM] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 244.025
+              },
+              "uuid": "e2060284-ba60-4c80-878b-f889c79a3889"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "150c6d01-6e78-4bf5-857f-26185206c0ce",
+        "673f6761-7c72-40ce-8217-1ee8e4de69b5"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 244.025
+              },
+              "uuid": "150c6d01-6e78-4bf5-857f-26185206c0ce"
+            },
+            {
+              "description": "Track [GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 252.175
+              },
+              "uuid": "673f6761-7c72-40ce-8217-1ee8e4de69b5"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "2da2c841-a731-4b51-9801-34ff2db65137",
+        "e5b32a5c-9ec6-42b2-a5b5-ba9568df2d55"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 244.025
+              },
+              "uuid": "2da2c841-a731-4b51-9801-34ff2db65137"
+            },
+            {
+              "description": "Track [GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 252.175
+              },
+              "uuid": "e5b32a5c-9ec6-42b2-a5b5-ba9568df2d55"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "1142a8ae-4556-487f-ba63-0c64cc9040e7",
+        "13572ea4-ec18-4f24-aece-64aa140cca0d"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 244.025
+              },
+              "uuid": "1142a8ae-4556-487f-ba63-0c64cc9040e7"
+            },
+            {
+              "description": "Track [GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 252.175
+              },
+              "uuid": "13572ea4-ec18-4f24-aece-64aa140cca0d"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "c1aa9772-a7a2-40e5-acd1-b2a8c2dfa43d",
+        "7da6b57b-b096-480a-819a-384432074732"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 252.175
+              },
+              "uuid": "7da6b57b-b096-480a-819a-384432074732"
+            },
+            {
+              "description": "Track [CTRL_B_COM] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 244.025
+              },
+              "uuid": "c1aa9772-a7a2-40e5-acd1-b2a8c2dfa43d"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "799fb6d3-30b8-4476-aa6c-858fb3222a64",
+        "d637439d-3a44-42a1-8cc1-0ea88b2129be"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_COM] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 244.025
+              },
+              "uuid": "799fb6d3-30b8-4476-aa6c-858fb3222a64"
+            },
+            {
+              "description": "Track [GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 252.175
+              },
+              "uuid": "d637439d-3a44-42a1-8cc1-0ea88b2129be"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "dbd4e010-4cb6-41d7-b53c-18284ea0d043",
+        "42402862-78fa-49b3-ab6a-c847ecfbc02f"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 276.175
+              },
+              "uuid": "42402862-78fa-49b3-ab6a-c847ecfbc02f"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 268.024999
+              },
+              "uuid": "dbd4e010-4cb6-41d7-b53c-18284ea0d043"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "614c9dc9-783f-4488-8a0d-8285fd812703",
+        "9b829d7f-9b2a-474c-911d-cf48e6f29386"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_NO] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 268.024999
+              },
+              "uuid": "614c9dc9-783f-4488-8a0d-8285fd812703"
+            },
+            {
+              "description": "Track [M_GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 276.175
+              },
+              "uuid": "9b829d7f-9b2a-474c-911d-cf48e6f29386"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "7caa59ab-1131-4b46-9c13-29f9b97ae695",
+        "bb17a216-f367-414e-9395-d7305d7b38c9"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_NO] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 268.024999
+              },
+              "uuid": "7caa59ab-1131-4b46-9c13-29f9b97ae695"
+            },
+            {
+              "description": "Track [M_GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 276.175
+              },
+              "uuid": "bb17a216-f367-414e-9395-d7305d7b38c9"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "f713eb2e-525a-40a0-b07d-59dd170a548b",
+        "85292abc-841b-40ee-aabb-b3347e05bef5"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 276.175
+              },
+              "uuid": "85292abc-841b-40ee-aabb-b3347e05bef5"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 268.024999
+              },
+              "uuid": "f713eb2e-525a-40a0-b07d-59dd170a548b"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "de26f03b-8749-4fc3-b49b-5c0b0ce0a044",
+        "b70220dc-b098-4847-98c7-276e8dbf6a97"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 276.175
+              },
+              "uuid": "b70220dc-b098-4847-98c7-276e8dbf6a97"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 268.024999
+              },
+              "uuid": "de26f03b-8749-4fc3-b49b-5c0b0ce0a044"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "9e3091ae-a5e0-44b4-a506-e4c5442bc1fa",
+        "2aa0fb5d-b9d7-4ea0-9d2e-e086b2067ed2"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Field contacts to controller mains and meter' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [M_GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 276.175
+              },
+              "uuid": "2aa0fb5d-b9d7-4ea0-9d2e-e086b2067ed2"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 268.024999
+              },
+              "uuid": "9e3091ae-a5e0-44b4-a506-e4c5442bc1fa"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "d6555061-0281-49ae-af61-894a4ee335ec",
+        "36670791-b7e4-4ac8-84a8-7cea845255ac"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 300.175
+              },
+              "uuid": "36670791-b7e4-4ac8-84a8-7cea845255ac"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on F.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 9.975,
+                "y": 292.025
+              },
+              "uuid": "d6555061-0281-49ae-af61-894a4ee335ec"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "3a62fb19-b998-45df-a8cb-fb85c05b48a3",
+        "289a9818-f5c5-4d0a-9673-ceabd206a2a5"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 300.175
+              },
+              "uuid": "289a9818-f5c5-4d0a-9673-ceabd206a2a5"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on B.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 29.975,
+                "y": 292.025
+              },
+              "uuid": "3a62fb19-b998-45df-a8cb-fb85c05b48a3"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "93943015-a826-4fdb-8149-0ee97ba75340",
+        "75d5dec1-8bdc-44ec-b7fb-4511857dac22"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 300.175
+              },
+              "uuid": "75d5dec1-8bdc-44ec-b7fb-4511857dac22"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on In1.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 49.975,
+                "y": 292.025
+              },
+              "uuid": "93943015-a826-4fdb-8149-0ee97ba75340"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "3976cd2c-d556-4e94-878f-9928cf7fd261",
+        "eef6c165-ca39-4851-b021-b6fb07c5f60d"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_NO] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 292.025
+              },
+              "uuid": "3976cd2c-d556-4e94-878f-9928cf7fd261"
+            },
+            {
+              "description": "Track [GND] on In2.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 69.975,
+                "y": 300.175
+              },
+              "uuid": "eef6c165-ca39-4851-b021-b6fb07c5f60d"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "9e326cfd-2b61-47a1-aa20-426bc5d8638e",
+        "6588ac4b-d33b-4182-9ed7-a63f8ec118c7"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 300.175
+              },
+              "uuid": "6588ac4b-d33b-4182-9ed7-a63f8ec118c7"
+            },
+            {
+              "description": "Track [CTRL_B_NO] on In3.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 89.975,
+                "y": 292.025
+              },
+              "uuid": "9e326cfd-2b61-47a1-aa20-426bc5d8638e"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "fd6ce188-243f-4ffc-abb3-3c98e3c56e2c",
+        "ff687437-5ae2-440d-9df3-823bf59df98b"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 7.9,
+      "expected_8mm_violation": true,
+      "reported_clearances_mm": [
+        8.0
+      ],
+      "matching_findings": [
+        {
+          "description": "Clearance violation (rule 'Reinforced live to isolated control separation' clearance 8.0000 mm; actual 7.9000 mm)",
+          "items": [
+            {
+              "description": "Track [CTRL_B_NO] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 292.025
+              },
+              "uuid": "fd6ce188-243f-4ffc-abb3-3c98e3c56e2c"
+            },
+            {
+              "description": "Track [GND] on In4.Cu, length 1.0000 mm",
+              "pos": {
+                "x": 109.975,
+                "y": 300.175
+              },
+              "uuid": "ff687437-5ae2-440d-9df3-823bf59df98b"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "35032924-58fa-46e9-9b17-392af7c0738d",
+        "1a452313-663a-4111-a596-6ef118e27813"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "7b76b4c2-8a7a-4fa6-a05a-1a15805142b2",
+        "0a51de4a-76e7-467f-815d-567cd5e5167d"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "8e69fb52-0a29-4c81-98b8-46788301e581",
+        "6d3c639f-f498-4689-b270-376fd3dccbe2"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "847bb682-cad5-4c8b-8893-cf27a430f0f2",
+        "18d7358c-394a-498b-a93b-5b66db5e2022"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "d8dbe804-9466-4916-80a0-8202cd032632",
+        "c0c3bfba-a9f9-4564-8b22-4d9b3e229b9a"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "a0c178a5-8911-4586-9163-7a571700c474",
+        "d83dcee8-c05a-4b0d-98d4-e3a4b671a554"
+      ],
+      "nets": [
+        "M_GND",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "98745eb0-65ee-4a5c-93ee-98a335fef0db",
+        "d6fc1c22-e8ca-49d9-ab9f-8a5a2ccead44"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "e8092289-12bc-4770-a146-3183705cf8db",
+        "90516d23-df85-4c14-990a-606caeb88709"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "2f393f87-5f1b-487a-b57c-7cbb64c15b2c",
+        "507976de-7d1d-4078-b064-5ac5acdc9591"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "2656af04-4cd5-4d4c-a6fb-5efb1a4a6562",
+        "9679d160-804e-4a67-ba48-07bc4bb417de"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "8802ad72-97b0-4c61-a7a0-5466843daac3",
+        "b94b077f-faa7-435c-b499-5fe550d20dd4"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "96793829-bc01-4971-8fc1-41de0bb28046",
+        "a78e54b6-56b0-4089-b629-5de13a31132f"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "0dda8b7a-533d-4b42-8d5f-ae8f932976b7",
+        "9eafce7f-841d-4b42-9847-84bd438bf045"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "035281c8-4b6d-4d8c-ab57-59656971bced",
+        "cb8beda8-31f0-453d-9907-c1b1b1b534ef"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "9ddfd7be-5e62-440c-bcc9-4ae15ae31bdb",
+        "1649c909-d3b4-43c4-9d85-522cf3e0e3f9"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "d3b69196-10cf-4658-ab38-ddf6470993b8",
+        "e3e6c624-c323-4749-bd3a-6cb48e0f306d"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "5be436a5-2852-485c-8ee8-a2bb79c04dd3",
+        "9d331dbe-b6f4-4511-adef-5ff6cbfc15f0"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "994e6d31-2901-4871-8297-a574416b0058",
+        "0e223ad7-9dcb-4d7c-939e-24391957bac8"
+      ],
+      "nets": [
+        "CTRL_A_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "3f8bba0f-e54b-4170-8403-255d424915bc",
+        "f7c68e84-dc53-456a-8743-8a43591dbc3e"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "493d297c-bc09-488b-ac80-238c28549e0d",
+        "a46190ce-4516-43fa-89fb-01a2f2e7e7ba"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "d595815a-c2a6-4be0-bec0-5b1967a27431",
+        "2d11550f-0676-40da-9606-a4046adc681f"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "03a676dc-e481-4d12-819d-cf3ecf7e599d",
+        "e7973e3c-b30d-44ec-9580-88354a6c7339"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "c5cf84ce-dfe6-43e3-a213-5bd18dcd51c0",
+        "6cd1f1c2-0118-47de-abfe-0d8d005f30a5"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "fcaaa63b-31c5-48e8-a549-7b685dd2a892",
+        "9ca9c95a-5b26-4aa2-9c27-3efe1a8b8df1"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "2c01a083-bf70-46a4-ab65-b7576edd9a8d",
+        "62f67faa-5c99-4795-beab-7b5bd3e91649"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "bb1b3372-501d-42a8-9b82-2191490b6437",
+        "8834012c-7958-4306-a764-2a23ae2c5444"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "ab36c4e8-186e-4ec3-875b-b6c54f124233",
+        "95c504d6-cee7-4bb0-83c1-9fa702cb651c"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "8af3ceee-111e-4bb1-ac7f-cda082bf5456",
+        "739a327e-d528-4522-8c02-222051d4ef39"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "5b4b7c9b-7bf3-4213-8328-3ba2b2f49c6a",
+        "79fb80a2-21ca-4ee2-9a87-bf65341ec813"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "674e25c6-715a-4d4e-a2ad-99d97bbdab84",
+        "f990231b-f285-4b4c-9d39-b05d5a0b9d6c"
+      ],
+      "nets": [
+        "CTRL_A_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "fa2e2029-7445-4632-b095-6875766044f5",
+        "0efdcf1d-7b49-4fe0-881c-bcc89ca59292"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "c4a5df01-3f68-4600-9dfc-f1e620701f22",
+        "b27b56e7-9b83-4121-b140-1fcd9fc9b7f6"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "2cd75a29-f1ab-4ac1-aefe-58e945a8be5c",
+        "ea39b522-cbff-4de1-949b-7ac85fc09475"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "fc415b2c-6507-4d6a-a681-c00c40785fbd",
+        "1c29ea95-9450-4572-a7a6-bdd62942a51b"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "2e339781-09a5-4fa8-b85f-28b4e70a66b0",
+        "ae3cccfd-a536-4886-abf1-e0869371c88c"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "81dd4153-2421-42f1-8b13-0dc5790095b5",
+        "ea65c9f8-c9a1-4737-a532-1ee4455bc639"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "b2cac69c-a8fd-4070-9fc2-416d7f63e022",
+        "99fae302-1ed7-41a3-9ec8-f274ac3a82bb"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "711c4089-ea89-4625-ba9e-4562b78dcc96",
+        "967bf769-2d6e-4352-92d5-1e67df01798c"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "01176c89-b26e-4c61-890a-d3b7b56cfdec",
+        "f3d34933-72d7-4f2d-8414-cd060135bd3f"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "237d3054-7112-4cae-8eba-5cf2e8a25748",
+        "d384c876-bbd7-4480-95a1-ffba6efa8b7a"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "a9df999b-0bfd-45de-9988-f991c646e7c0",
+        "c432fdb3-ed57-4392-b20d-bd95a8f46c73"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "a4f62bc0-7187-4146-a2f0-d8b14928c98d",
+        "96b4045b-3002-40f9-85be-638f3d30f679"
+      ],
+      "nets": [
+        "CTRL_B_COM",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "e16daba9-2e2b-4a7e-bfd1-7e40167ca1ab",
+        "97cffd8e-d716-4281-b218-8171c04e2fbb"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "c530431d-7d5a-431d-b58b-9a20fe32efaf",
+        "4bba4ff2-33d3-4914-a12b-72eab10663f9"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "1fd277ca-0797-4b0f-bd82-07a6de4a2767",
+        "5b3730cd-1762-44f5-911e-7519e950e187"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "aca5abea-3a8e-4384-b542-a3b13a28e8b5",
+        "d6e217af-0385-422c-8316-06785e31af1b"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "37e5e4cf-0b8c-452f-a5da-62fa02a4c3ee",
+        "1e9d15c8-2586-40e1-9cf8-ae8dfc7a133b"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "1ec5b933-1866-4d73-ab22-ecb7009b9fc6",
+        "f0c40747-5805-48af-9046-63db9bad40ae"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "M_GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "F.Cu",
+      "pair_uuids": [
+        "b099651f-3e6c-4dd9-b383-710ec33b1e3e",
+        "46bd62c3-94f5-4267-bc37-b1986f84a2a9"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "B.Cu",
+      "pair_uuids": [
+        "bb6a614a-f344-4a7d-aa00-13ea3e23267b",
+        "6ce8ec82-42a9-4dc6-8bc4-ec0e42a6af11"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In1.Cu",
+      "pair_uuids": [
+        "567e1b51-46dd-4b94-8681-2b6a0ce6d339",
+        "67fb34ed-2188-413b-827e-a15c61478df2"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In2.Cu",
+      "pair_uuids": [
+        "4cf89b20-daea-4b10-a019-4e82cfc81401",
+        "bb16e479-e5d8-4085-a237-39ccd01835b3"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In3.Cu",
+      "pair_uuids": [
+        "f0aaee80-61e6-4b1e-ac50-2b8a5fd51807",
+        "ceb46b96-313f-4bc5-9c33-9499485be3ee"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    },
+    {
+      "layer": "In4.Cu",
+      "pair_uuids": [
+        "cdf4965c-907f-4e8b-968c-c49444161652",
+        "c8efc7fc-beb3-4bcd-b2d9-b054a0d41d92"
+      ],
+      "nets": [
+        "CTRL_B_NO",
+        "GND"
+      ],
+      "copper_edge_gap_mm": 8.1,
+      "expected_8mm_violation": false,
+      "reported_clearances_mm": [],
+      "matching_findings": [],
+      "passed": true
+    }
+  ],
+  "expected_cases": 108,
+  "passed": true,
+  "method": "Injected pairs 7.9 and 8.1 mm apart on every copper layer in copies of the actual board/project/rules. Only findings identifying both injected UUIDs determine the result. Other outside-outline/unconnected test artifacts are not interpreted as isolation evidence.",
+  "test_copies_retained": false,
+  "native_board_changed": false
+}

@@ -16,6 +16,8 @@ from pathlib import Path
 import re
 import warnings
 
+from package_main_rev_e import add_board_options, board_variant
+
 from gerbonara import ExcellonFile, GerberFile
 from gerbonara import graphic_primitives as gp
 from gerbonara.apertures import ApertureMacroInstance
@@ -254,6 +256,8 @@ def audit(args):
     before = sha(args.board)
     if native['pcb_sha256'] != before or native['source_sha256'] != sha(args.source):
         raise ValueError('Native inventory is stale for this PCB/source')
+    source = json.loads(args.source.read_text())
+    expected_revision = source['revision'] if source['board'].get('variant') == 'compact-dual' else None
     errors, caught_warnings, parsed, files, layers = [], [], {}, {}, {}
     roles = {'GTL': ('Copper,L1,Top', ('top', 'copper')),
              'G2L': ('Copper,L2,Inr', ('inner1', 'copper')),
@@ -284,6 +288,10 @@ def audit(args):
         content = path.read_text()
         if '%TF.FileFunction,' + role + '*%' not in content or '%MOMM*%' not in content:
             errors.append('Unexpected layer role/units: ' + ext)
+        if expected_revision:
+            project_ids = re.findall(r'^%TF\.ProjectId,([^*]+)\*%$', content, re.MULTILINE)
+            if len(project_ids) != 1 or project_ids[0].split(',')[-1] != expected_revision:
+                errors.append('Incorrect embedded Gerber project revision: ' + ext)
         if not content.rstrip().endswith('M02*'):
             errors.append('Gerber end marker absent: ' + ext)
         parsed[ext] = parse(path, GerberFile)
@@ -345,7 +353,7 @@ def audit(args):
         if record.ref_des and not re.fullmatch(r'H\d+', record.ref_des):
             actual[(record.ref_des, str(getattr(record, 'pin', record.pin_num)))].add(
                 aliases.get(record.net_name, record.net_name) or '')
-    ipc_review = ipc_pin_review(native['source_pins'], json.loads(args.source.read_text()), actual)
+    ipc_review = ipc_pin_review(native['source_pins'], source, actual)
     if ipc_review['pin_net_differences'] or ipc_review['unexpected_pins']:
         errors.append('IPC-D-356 pin/net assignments differ from source')
     job_candidates = list(args.cam.glob('*.gbrjob'))
@@ -388,6 +396,8 @@ def audit(args):
               'limitations': ['IPC-D-356 is a native-board reference, not extracted Gerber connectivity.',
                               'Nominal mask web/drill geometry does not prove process registration tolerances.',
                               'Preview bottom layers retain unmirrored manufacturing coordinates.']}
+    if expected_revision:
+        report['x2_project_revision'] = expected_revision
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({'passed': not errors, 'errors': errors, 'drill_counts': {k: v['count'] for k, v in drill_checks.items()},
@@ -397,12 +407,19 @@ def audit(args):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--board', type=Path, default=BASE / 'hardware/main-rev-e/pump-controller-main-rev-e.kicad_pcb')
-    ap.add_argument('--source', type=Path, default=BASE / 'design/main-rev-e.json')
-    ap.add_argument('--native', type=Path, default=BASE / 'hardware/main-rev-e/checks/independent-geometry.json')
-    ap.add_argument('--cam', type=Path, required=True)
-    ap.add_argument('--stencil', type=Path, required=True)
-    ap.add_argument('--name', default='pump-controller-main-rev-e')
-    ap.add_argument('--previews', type=Path, default=BASE / 'hardware/main-rev-e/checks/cam-previews')
-    ap.add_argument('--output', type=Path, default=BASE / 'hardware/main-rev-e/checks/independent-gerbers.json')
-    raise SystemExit(audit(ap.parse_args()))
+    add_board_options(ap)
+    for option in ('board', 'source', 'native', 'cam', 'stencil', 'previews', 'output'):
+        ap.add_argument('--' + option, type=Path)
+    ap.add_argument('--name')
+    args = ap.parse_args()
+    variant = board_variant(args.compact, args.compact_dual)
+    folder = BASE / 'hardware' / variant.directory
+    args.board = args.board or folder / (variant.native_name + '.kicad_pcb')
+    args.source = args.source or BASE / variant.design
+    args.native = args.native or folder / 'checks/independent-geometry.json'
+    args.cam = args.cam or folder / 'gerber'
+    args.stencil = args.stencil or folder / 'exports/stencil'
+    args.previews = args.previews or folder / 'checks/cam-previews'
+    args.output = args.output or folder / 'checks/independent-gerbers.json'
+    args.name = args.name or variant.cam_name
+    raise SystemExit(audit(args))
