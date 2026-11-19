@@ -42,6 +42,10 @@ path. The panel can remain a prototype candidate once the required physical
 controls are settled. See the `panel contact diagram
 <../hardware/panel-rev-e/README.rst>`_.
 
+The `manual transfer plug <manual-transfer.rst>`_ physically returns control
+to the starter's original buttons for attended operation if the controller
+or its command relays fail. It takes priority over every electronic mode.
+
 Electronic starters with separate START and STOP buttons
 --------------------------------------------------------
 
