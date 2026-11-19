@@ -1,0 +1,306 @@
+{
+  "pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+  "electrical_components": 29,
+  "components_with_available_models": 27,
+  "missing_component_models": [
+    "SW1",
+    "J7"
+  ],
+  "external_items_not_modelled": [
+    "OLED module",
+    "mating plugs",
+    "cables",
+    "JP1 shunt",
+    "key switch",
+    "standoffs",
+    "lid"
+  ],
+  "fit_verified": false,
+  "components": [
+    {
+      "reference": "SW4",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_B3U-1000P.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "SW3",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_B3U-1000P.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "SW1",
+      "models": [],
+      "available": false
+    },
+    {
+      "reference": "SW5",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_B3U-1000P.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "SW2",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_B3U-1000P.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R9",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R7",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R1",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J2",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R5",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "Q1",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J4",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R3",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R2",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R6",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J8",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "JP1",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "Q2",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "C1",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "C4",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R4",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J5",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "R8",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J3",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J7",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_PH_S4B-PH-SM4-TB_1x04-1MP_P2.00mm_Horizontal.step",
+          "exists": false
+        }
+      ],
+      "available": false
+    },
+    {
+      "reference": "J1",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM12B-GHS-TB_1x12-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "C3",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "J6",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    },
+    {
+      "reference": "C2",
+      "models": [
+        {
+          "path": "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+          "exists": true
+        }
+      ],
+      "available": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+  "rules_sha256": "221177c8e3c714c06e929063386ccdfe17b9fc024e3fcbf13aed4b1d79d89802",
+  "method": "Native effective copper shape clearances, nominal round-hole edges and merged pad contour annuli.",
+  "copper_clearance_and_geometry_violations": [],
+  "close_pairs_measured": {
+    "track_track": 99,
+    "via_track_copper": 35,
+    "general_copper": 2,
+    "pad_track": 40,
+    "pth_track_copper": 7
+  },
+  "minimum_via_annulus_mm": 0.3,
+  "minimum_component_pth_annulus_mm": 0.34590600000000005,
+  "project_drc_exclusions": [],
+  "nominal_copper_checks_passed": true,
+  "hardware_tested": false,
+  "release_ready": false
+}
