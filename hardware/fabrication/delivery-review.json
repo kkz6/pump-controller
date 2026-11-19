@@ -1,0 +1,42 @@
+{
+  "assembly_revision": "D",
+  "main_pcb_revision": "C",
+  "panel_pcb_revision": "D",
+  "main_fitted_parts": 206,
+  "main_omitted_parts": [
+    "SW3",
+    "SW4"
+  ],
+  "panel_electrical_parts": 29,
+  "panel_all_native_checks_pass": true,
+  "main_electrical_and_routing_checks_pass": true,
+  "main_raw_native_schematic_parity_findings": 235,
+  "main_connected_source_pins": 606,
+  "panel_connected_source_pins": 81,
+  "panel_harness_signals": 12,
+  "main_robu_manufacturing_accepted": false,
+  "panel_robu_manufacturing_accepted": false,
+  "firmware_implemented": false,
+  "physical_hardware_tested": false,
+  "release_ready": false,
+  "sha256": {
+    "hardware/pump-controller-rev-b.kicad_pcb": "6f991556083c578a128364c8498850fce7301d18344051a5d814eb829f6d0b85",
+    "hardware/panel-rev-d/pump-panel-rev-d.kicad_pcb": "6b85b968fdaa5b8524018d4f0972232ee2e1979a254ebbc7d08e5de322ee4418",
+    "design/panel-rev-d.json": "734be338d7f36912cc4f9ec78887d03be5caa9f8ceb64d4c2e587a9da639b466",
+    "design/panel-rev-d-main-assembly.json": "c2ccf06762c161afec640da97f3be3312bd589265298759ffbb3c2c7a67de07b",
+    "design/panel-rev-d-integration.rst": "75a4ea2fc34312a0f587be0913683f38a3892a11c46114b5217dbae2be03d14a",
+    "hardware/fabrication/rev-c/manifest.json": "75842731196ae0413d1715bad5062619fafa476dcd5c8c1d4dc6f8804587fa2a",
+    "hardware/fabrication/rev-c/checks/summary.json": "45789a947bde11f879db0e2bda80478d7a838da1fa9563f898e074a72a11ef0b",
+    "hardware/fabrication/rev-c/checks/gerber-validation.json": "8453ea21d9728c077e0a9040fd0bb2ce6c5edaf36625cd9e5af021653fc280ea",
+    "hardware/fabrication/robu-dfm-audit.json": "0a1a52b201585ad4759b90cec3e8a60390544d9bab9ca092535be99201d474d2",
+    "hardware/panel-rev-d/checks/integration-review.json": "6d306920d5801111d08e42e0f7efb10c4c311cf219c5e1f00f4bb0d87c1a6c2e",
+    "hardware/panel-rev-d/checks/gerber-parser-review.json": "c023743af58c4ee850a74f55f97ea01ee0ed2d6ddeda50a1c2066806063970b1",
+    "hardware/panel-rev-d/checks/model-coverage.json": "ee824baa789551b791e697ec0a303232310acb3cbe4a3388cc66a10b7353a9b4",
+    "output/panel-rev-d/connection-overview.svg": "0740bc02b07438ad842a765d9ee901e61b01423bd1d396b1ec4894ba6d8f57d7",
+    "output/panel-rev-d/connection-overview.png": "b52a418e25fdc26b45e9f1e1c62d0fe24d5258e54182947bb505452c1dec20db",
+    "output/gerber/pump-controller-rev-c-robu-REVIEW-ONLY.zip": "c4b9a1749915c8282865e2b3b7ca67eddd869e56d5bfd4393f9b718be2f678e9",
+    "output/gerber/pump-controller-rev-c-stencil-REVIEW-ONLY.zip": "14e58c88fd26531dd6d54221fb5f8d9995a98e7ee16d357b71dc2ff9f237d654",
+    "hardware/panel-rev-d/pump-panel-rev-d-gerber-review.zip": "08dacecba220be177e022e25f59cb25855f4c72e83d453d896e31155496cf818",
+    "hardware/panel-rev-d/pump-panel-rev-d-stencil-review.zip": "623b9233865e280c1d119451f6ba31f625ce0e263fca52488fa4e2598ffa70a5"
+  }
+}

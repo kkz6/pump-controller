@@ -1,0 +1,20 @@
+{
+  "assembly_revision": "D",
+  "main_pcb_revision": "C",
+  "main_pcb": "hardware/pump-controller-rev-b.kicad_pcb",
+  "main_pcb_sha256": "6f991556083c578a128364c8498850fce7301d18344051a5d814eb829f6d0b85",
+  "main_do_not_populate": ["SW3", "SW4"],
+  "main_fitted_electrical_component_count": 206,
+  "reason": "All five user controls and OLED are on the separate Rev D panel; original SET/NEXT footprints remain unused.",
+  "panel_directory": "hardware/panel-rev-d",
+  "panel_pin_to_main": {
+    "1": "J32.1", "2": "J32.2", "3": "J32.3", "4": "J32.4",
+    "5": "J32.5", "6": "J32.6", "7": "J32.7", "8": "J33.1",
+    "9": "J33.3", "10": "J33.4", "11": "J34.5", "12": "J34.6"
+  },
+  "unused_main_harness_cavities": ["J33.2", "J34.1", "J34.2", "J34.3", "J34.4"],
+  "default_mode_source": "button",
+  "key_switch_optional": true,
+  "firmware_implemented": false,
+  "release_ready": false
+}

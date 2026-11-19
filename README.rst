@@ -1,10 +1,10 @@
 Compact single-phase pump controller
 ===================================
 
-Rev C is a component-value engineering prototype for a 1 HP single-phase
-pump operated through an existing DOL contactor. It combines local water-level
-control, motor metering, load-based dry-run protection, physical controls and
-planned Matter connectivity.
+The current Rev D assembly combines the Rev C main controller with a separate
+low-voltage OLED/button panel for a 1 HP single-phase pump operated through an
+existing DOL contactor. It combines local water-level control, motor metering,
+load-based dry-run protection, physical controls and planned Matter connectivity.
 
 **Status: detailed schematic and routed prototype PCB complete. Not released
 for fabrication or mains installation. Firmware and physical validation are
@@ -18,13 +18,29 @@ these checks cover the CAD design, not an assembled controller.
 Start here
 ----------
 
-* `Illustrated wiring guide <output/pdf/pump-controller-rev-c-wiring-guide.pdf>`_:
-  actual PCB terminal numbers, START/STOP/MODE wiring, onboard settings keys,
-  OLED harness and the limits of mapping the photographed starter.
+* `Rev D panel and harness <design/panel-rev-d-integration.rst>`_:
+  all five user buttons and OLED on the separate board, optional external
+  buttons, and an optional maintained AUTO/MANUAL key switch. Main-board
+  SW3/SW4 are not populated in this assembly.
+* `Panel KiCad project <hardware/panel-rev-d/pump-panel-rev-d.kicad_pro>`_
+  and `panel parts list <hardware/panel-rev-d/bom.csv>`_.
+* `Panel Gerbers <hardware/panel-rev-d/pump-panel-rev-d-gerber-review.zip>`_,
+  `panel 3D STEP <hardware/panel-rev-d/exports/pump-panel-rev-d.step>`_
+  and `model coverage <hardware/panel-rev-d/checks/model-coverage.json>`_.
+  Physical prototype tests and manufacturer acceptance are still pending.
+* `Current panel connection image <output/panel-rev-d/connection-overview.png>`_:
+  separate panel, optional buttons/key switch, STOP loop and the full cable map.
+* `Robu fabrication review <hardware/fabrication/README.rst>`_:
+  Gerber/drill data, independent export checks and unresolved manufacturer
+  requirements. The archive is for review, not an approved board order.
+* `Rev C wiring reference <output/pdf/pump-controller-rev-c-wiring-guide.pdf>`_:
+  main PCB terminals and the limits of mapping the photographed starter.
+  Use the Rev D panel/harness document above for the new control arrangement.
 * `3D models and offline viewer <output/3d/>`_: native PCB models,
-  a proposed assembly using the photographed starter style, and fit notes.
-* `Starter connection image <output/images/starter-controller-rev-c.png>`_:
-  a visual concept; follow the terminal guide for electrical connections.
+  the earlier Rev C assembly using the photographed starter style, and fit
+  notes. The separate Rev D panel is documented in its own project.
+* `Earlier starter connection image <output/images/starter-controller-rev-c.png>`_:
+  the Rev C visual concept; its panel arrangement is superseded by Rev D.
 
 
 * `Design pack PDF <output/pdf/pump-controller-rev-c-design-pack.pdf>`_:
@@ -34,8 +50,9 @@ Start here
   editable main-board project.
 * `OLED selection <design/oled-selection.txt>`_:
   compact display selection, cable mapping and bus timing.
-* `Complete parts list <design/parts-complete.csv>`_: all main-board and external components,
-  values, procurement requirements and manufacturer source links.
+* `Main-controller parts list <design/parts-complete.csv>`_: Rev C main-board
+  and external components, values, procurement requirements and source links.
+  Use the separate panel BOM above and omit main SW3/SW4 for the Rev D assembly.
 * `Verification records <hardware/checks/>`_: native electrical/layout checks and layout status.
 * ``design/core-review.txt``, ``design/power-budget-review.txt`` and
   ``design/probe-front-end.txt``: calculations, decisions and remaining tests.
@@ -63,12 +80,15 @@ Architecture
   and an optional independent high-high float interrupt the health relay.
 * Separate hardware ARM latch, watchdog and supply supervisor. Normal
   watchdog servicing cannot re-arm a cleared latch.
-* Retained START/STOP button actuators, one new MODE button toggling
-  MANUAL/AUTO, and a small OLED behind a lid cut-out. Suitable isolated
-  auxiliary contacts must preserve the original capacitor-start contacts.
-  Onboard SW3 SET/RESET and SW4 NEXT/+ provide service settings. Manual
-  mode keeps protection and works without the network.
-* Internal J34 expansion: 3.3 V / 25 mA, I2C and two spare MCP23017 GPIO.
+* Separate low-voltage panel carrying START, STOP, MODE, SET/RESET, NEXT/+
+  and OLED. Optional external button connectors can reuse the starter's
+  existing actuators through suitable isolated auxiliary contacts while
+  preserving its capacitor-start circuit. An optional maintained key switch
+  selects MANUAL/AUTO through two independently sensed contacts. The panel
+  uses a single 12-way harness; main-board SW3/SW4 are left unpopulated.
+  Manual mode keeps protection and works without the network.
+* Internal J34 expansion: 3.3 V / 25 mA, I2C and two MCP23017 GPIO. The Rev D
+  key-switch option uses those two GPIO; they are not then spare.
   USB recovery is available at J2; wireless updates and versioned settings
   are required by the firmware specification in ``design/programmability.txt``.
 * Small 0.91-inch OLED, 128 x 32 pixels, Waveshare 14657 module. Its PCB is
@@ -100,7 +120,8 @@ Important retained findings:
 
 * The minimum-load resistor dissipates up to about 0.844 W. Preserve at least
   300 mm2 of specified heat-spreading copper and verify temperature in the
-  closed starter. The current 5.7 W conservative allocation requires no more
+  closed starter. The Rev D panel increases the conservative allocation to
+  5.76 W; the design still requires no more
   than 50 C local ambient around the 5 V PSU.
 * The compact routing includes vias overlapping surface-mount pads. These
   require filled and plated-over vias, or rerouting before fabrication;

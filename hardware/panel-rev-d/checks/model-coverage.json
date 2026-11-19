@@ -1,0 +1,23 @@
+{
+  "pcb_sha256": "6b85b968fdaa5b8524018d4f0972232ee2e1979a254ebbc7d08e5de322ee4418",
+  "native_export": "KiCad10.0.8 STEP/GLB with available standard models",
+  "electrical_component_count": 29,
+  "electrical_bodies_present": 27,
+  "missing_bodies": [
+    "SW1 D2F-01F custom footprint has no3Dbody",
+    "J7 B4B-PH-SM4-TB specificstandardbodyunavailable"
+  ],
+  "external_parts_absent": [
+    "Waveshare14657 OLED",
+    "Matingconnectorplugsandcables",
+    "JP1removableshunt",
+    "Keybarrel",
+    "Standoffs",
+    "Lidandplungers"
+  ],
+  "fit_verified": false,
+  "sha256": {
+    "pump-panel-rev-d.step": "db6909b5ae765cff093d314c9b9b3f30741dd0ef5fe33c8b516b99c799864301",
+    "pump-panel-rev-d.glb": "7771ed88d8bd6bdf0322753f939619efa8457e0fbf060ccdfe788e888cfc555f"
+  }
+}

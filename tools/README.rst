@@ -44,11 +44,27 @@ license, described in ``hardware/FOOTPRINT-PROVENANCE.rst``.
 Checks and local routing repairs
 --------------------------------
 
+For a read-only manufacturing export and checks, use::
+
+    python3 tools/export_fabrication.py
+    python3 tools/validate_gerbers.py
+    python3 tools/package_fabrication.py
+
+The exporter requires KiCad 10 and a Python interpreter with ``pcbnew``;
+set ``KICAD_CLI`` and ``KICAD_PYTHON`` where necessary. The Gerber validator
+requires Python 3.10 or newer and Gerbonara 0.13.0. It creates SVG CAM previews;
+PNG rendering is optional. The package is labelled for Robu engineering review
+and includes the outstanding vendor-rule audit. It does not change the routed
+board, create an order, or waive any manufacturing requirement.
+
 To validate the existing routed board without importing an earlier router
 session, run::
 
     python tools/import_routing.py --check-only
     python tools/audit_vias.py
+
+Unlike the read-only exporter, ``import_routing.py --check-only`` refreshes
+fields, refills zones and saves the PCB. Use it only when that update is intended.
 
 ``audit_vias.py`` uses native pad geometry to inventory via-drill overlap
 with SMT copper. Listed overlaps require filled and plated-over processing
