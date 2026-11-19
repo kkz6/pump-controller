@@ -1,0 +1,7 @@
+assembly,quantity,manufacturer,part number,selection and installation,manufacturer reference
+J30/J35 field plugs,2,Phoenix Contact,1836079,"Removable MC 1,5/ 2-ST-5,08 screw plugs for the two fitted 1836189 headers. Supply one matched pair with each harness.",https://www.phoenixcontact.com/en-gb/products/pcb-plug-mc-15-2-st-508-1836079
+J30/J35 coding,2,Phoenix Contact,1734634 (CP-MSTB),"Two individual coding elements per board. Code A at pole 1 and B at pole 2 following the MC 1,5 procedure. Check intended mating and failed cross-mating with power isolated.",https://www.phoenixcontact.com/en-de/products/coding-profile-cp-mstb-1734634
+J36 housing,1,JST,GHR-03V-S,"Separate SELV-only transfer position cable. 1 GND, 2 HOST, 3 LOCAL.",https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf
+J36 crimp contacts,3,JST,SSHL-002T-P0.2,Buy a finished lead set or terminate 30 to 26 AWG with 0.76 to 1.00 mm insulation outside diameter.,https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf
+Field transfer socket and inserts,1,Installation-specific,,"One fixed touch-protected keyed and retained starter-side socket, matching HOST loom and distinct LOCAL insert. Select insulation, impulse and load ratings for the verified starter control circuit. Keep manual plug physically incompatible between different profiles.",
+Transfer position auxiliary contacts,2,Installation-specific,,HOST and LOCAL full-seat switches. Select contacts rated for dry logic loads at approximately 0.30 mA. Insulate each contact mechanism from every starter-side conductor.,

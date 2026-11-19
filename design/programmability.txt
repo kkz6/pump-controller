@@ -1,6 +1,11 @@
 PUMP CONTROLLER — PROGRAMMABILITY AND FUTURE EXPANSION
 Revision: 2026-11-19 / Rev E hardware provision and firmware specification
 
+The compact dual-output revision removes the main-board BOOT and EN switches.
+It retains both signals on service J2, along with native USB data. All operator
+buttons are on the OLED panel. See hardware/main-compact-dual/README.rst for
+the current programming connector and panel connections.
+
 STATUS AND INTENT
 
 The selected ESP32-C6-MINI-1U-H8 provides a programmable controller with 8 MiB

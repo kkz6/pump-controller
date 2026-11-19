@@ -5,7 +5,7 @@ Never submits an order or claims assembled-product qualification.
 """
 from pathlib import Path
 import argparse,hashlib,json,subprocess,sys,tempfile,shutil,zipfile
-from package_main_rev_e import invalidate_packages
+from package_main_rev_e import add_board_options, board_variant, invalidate_packages
 B=Path(__file__).resolve().parents[1];CLI=B/'.tools/kicad-cli'
 LAYERS={'F_Cu':('GTL','Copper,L1,Top'),'In1_Cu':('G2L','Copper,L2,Inr'),'In2_Cu':('G3L','Copper,L3,Inr'),'In3_Cu':('G4L','Copper,L4,Inr'),'In4_Cu':('G5L','Copper,L5,Inr'),'B_Cu':('GBL','Copper,L6,Bot'),'F_Mask':('GTS','Soldermask,Top'),'B_Mask':('GBS','Soldermask,Bot'),'F_Silkscreen':('GTO','Legend,Top'),'B_Silkscreen':('GBO','Legend,Bot'),'Edge_Cuts':('GKO','Profile,NP')}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -17,12 +17,13 @@ def source_hashes(BOARD, source):
  O=BOARD.parent
  paths=[BOARD,BOARD.with_suffix('.kicad_pro'),BOARD.with_suffix('.kicad_dru'),source]+sorted(O.glob('*.kicad_sch'))
  return{str(p.relative_to(B)):sha(p)for p in paths}
-def export(compact=False):
- O=B/('hardware/main-compact' if compact else 'hardware/main-rev-e')
- P='pump-controller-compact' if compact else 'pump-controller-main-rev-e'
- BOARD=O/(P+'.kicad_pcb')
- source=B/('design/main-compact.json' if compact else 'design/main-rev-e.json')
- size=[100,75] if compact else [100,80]
+def export(compact=False, compact_dual=False):
+ variant=board_variant(compact, compact_dual)
+ O=B/'hardware'/variant.directory
+ P=variant.cam_name
+ BOARD=O/(variant.native_name+'.kicad_pcb')
+ source=B/variant.design
+ size=list(variant.size)
  invalidate_packages(O,P)
  frozen=source_hashes(BOARD, source);checks=O/'checks';checks.mkdir(exist_ok=True)
  run(['sch','erc','--format','json','--severity-all','--exit-code-violations','-o',checks/'export-erc.json',BOARD.with_suffix('.kicad_sch')])
@@ -57,10 +58,10 @@ def export(compact=False):
  run(['pcb','export','pos','--format','csv','--units','mm','--side','both','--exclude-dnp','-o',O/'exports/component-positions.csv',BOARD])
  run(['sch','export','svg','-o',str(O/'exports/schematic-svg')+'/',BOARD.with_suffix('.kicad_sch')])
  if source_hashes(BOARD, source)!=frozen:raise RuntimeError('CAD changed during export')
- manifest={'revision':'Compact' if compact else 'E','purpose':'Bare PCB engineering prototype','pcb_prototype_order_package':False,'assembled_product_qualified':False,'source_sha256':frozen,'outline_mm':size,'layer_order':['GTL','G2L','G3L','G4L','G5L','GBL'],'thickness_mm':1.6,'solder_mask':'green','outer_copper_oz':1,'inner_copper_oz':.5,'finish':'ENIG','material':'FR4 Tg155 or vendor-confirmed equivalent','exact_dielectric_stackup_vendor_confirmation_required':True,'controlled_impedance_specified':False,'origin':'absolute, metric, unmirrored across all CAM and drill files','through_vias_only':True,'via_in_pad':False,'manufacturer_confirmed':False,'hardware_tested':False,'output_sha256':{str(p.relative_to(O)):sha(p)for folder in[fab,paste,maps]for p in sorted(folder.iterdir())if p.is_file()}}
+ manifest={'revision':variant.revision,'purpose':'Bare PCB engineering prototype','pcb_prototype_order_package':False,'assembled_product_qualified':False,'source_sha256':frozen,'outline_mm':size,'layer_order':['GTL','G2L','G3L','G4L','G5L','GBL'],'thickness_mm':1.6,'solder_mask':'green','outer_copper_oz':1,'inner_copper_oz':.5,'finish':'ENIG','material':'FR4 Tg155 or vendor-confirmed equivalent','exact_dielectric_stackup_vendor_confirmation_required':True,'controlled_impedance_specified':False,'origin':'absolute, metric, unmirrored across all CAM and drill files','through_vias_only':True,'via_in_pad':False,'manufacturer_confirmed':False,'hardware_tested':False,'output_sha256':{str(p.relative_to(O)):sha(p)for folder in[fab,paste,maps]for p in sorted(folder.iterdir())if p.is_file()}}
  (O/'fabrication-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
  print('Raw CAM exported. Independent CAM validation required before packaging.')
 if __name__=='__main__':
  parser=argparse.ArgumentParser(description=__doc__)
- parser.add_argument('--compact',action='store_true')
- export(parser.parse_args().compact)
+ add_board_options(parser)
+ export(**vars(parser.parse_args()))

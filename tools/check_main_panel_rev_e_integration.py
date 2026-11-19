@@ -10,7 +10,7 @@ ap.add_argument('--main-source',type=Path,default=B/'design/main-rev-e.json')
 ap.add_argument('--output',type=Path,default=B/'hardware/panel-rev-e/checks')
 ap.add_argument('--main-summary',type=Path,default=B/'hardware/main-rev-e/checks/independent-summary.json')
 ap.add_argument('--require-frozen-main',action='store_true')
-ap.add_argument('--control-variant',choices=['rev-e','compact'],default='rev-e')
+ap.add_argument('--control-variant',choices=['rev-e','compact','compact-dual'],default='rev-e')
 args=ap.parse_args()
 boardpath=args.panel_board.resolve();mainpath=args.main_board.resolve();O=boardpath.parent
 CHECKS=args.output.resolve();CHECKS.mkdir(parents=True,exist_ok=True)
@@ -107,17 +107,34 @@ for q,jpin,raw,bn,out,refs in [('Q1',2,'KEY_MAN_RAW','KEY_MAN_B','KEY_MAN_N',['R
  for ref,val,pair in zip(refs,['2.2k','10k','100k','10k','10nF'],[(raw,'GND'),(raw,bn),(bn,'GND'),('+3V3',out),(out,'GND')]):
   if cs[ref]['value']!=val or {net(ref,1),net(ref,2)}!=set(pair):issues.append('key conditioning mismatch '+ref)
  keychecks.append({'transistor':q,'raw_net':raw,'conditioned_net':out,'active_level':'LOW','pins_B_E_C':[1,2,3]})
-if args.control_variant=='compact':
+compact = args.control_variant in ('compact', 'compact-dual')
+if compact:
  if mainfps['U33'].GetValue()!='MCP23017-E/SS':issues.append('Compact expander must match the checked MCP23017 pin map')
  if mainnet('U33',7)!='SPARE_B6' or mainnet('U33',21)!='SPARE_B7':issues.append('Compact key inputs must use GPB6/GPA0')
  sp={str(q['num']):q for q in main_components['U33']['pins']}
- for pin in ['8','28']:
-  if mainnet('U33',pin) and not mainnet('U33',pin).startswith('unconnected-('):issues.append('Compact port7 pin must be unconnected '+pin)
-  if sp[pin].get('net') or sp[pin].get('type')!='output':issues.append('Compact port7 must be NC/output in source '+pin)
+ if args.control_variant == 'compact-dual':
+  if any(ref.startswith('SW') for ref in mainfps):issues.append('Physical switch footprint on button-free main PCB')
+  for pin, name in [('8', 'START_CMD_LED'), ('28', 'STOP_CMD_LED')]:
+   if mainnet('U33', pin) != name or sp[pin].get('type') != 'output':
+    issues.append('Incorrect compact-dual command LED direction or signal at U33.' + pin)
+  for ref in ('SW1','SW2','SW3','SW4','SW5'):
+   if cs[ref].get('dnp') or fps[ref].IsDNP():
+    issues.append('Operator button omitted on panel: ' + ref)
+  if [mainnet('J31', i) for i in (1,2)] != ['STOP_RETURN','K1_COIL_PLUS'] or mainnet('K1',1) != 'K1_COIL_PLUS':
+   issues.append('Panel STOP does not directly remove K1 coil power.')
+ if args.control_variant == 'compact':
+  for pin in ['8','28']:
+   if mainnet('U33',pin) and not mainnet('U33',pin).startswith('unconnected-('):issues.append('Compact port7 pin must be unconnected '+pin)
+   if sp[pin].get('net') or sp[pin].get('type')!='output':issues.append('Compact port7 must be NC/output in source '+pin)
 for ref,signal in [('R92','SPARE_B6'),('R93','SPARE_B7')]:
  if mainfps[ref].GetValue()!='100k'or{mainnet(ref,1),mainnet(ref,2)}!={signal,'GND'}:issues.append('main key pull-down mismatch '+ref)
+key_firmware = 'Configure MCP23017 GPB6/GPB7 as inputs with internal pull-ups disabled.'
+if compact:
+ key_firmware = 'Configure MCP23017 GPB6/GPA0 as key inputs with pull-ups disabled.'
+ key_firmware += (' Drive GPB7/GPA7 as the START and STOP command LED outputs.'
+                  if args.control_variant == 'compact-dual' else ' Keep NC GPB7/GPA7 configured as outputs.')
 drc=json.load(open(CHECKS/'integration-drc.json'));erc=json.load(open(CHECKS/'integration-erc.json'))
-report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'GPB6 / U33.7','auto':'GPA0 / U33.21' if args.control_variant=='compact' else 'GPB7 / U33.8'},'review_scope':'Independent native pin/net and interface topology check; no electrical hardware or firmware test.',
+report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'GPB6 / U33.7','auto':'GPA0 / U33.21' if compact else 'GPB7 / U33.8'},'review_scope':'Independent native pin/net and interface topology check; no electrical hardware or firmware test.',
  'source_sha256':{'panel_board':before,'main_board':sha(mainpath),'panel_source':sha(args.panel_source),'main_source':sha(args.main_source),'independently_exported_main_netlist':sha(CHECKS/'integration-main-netlist.xml'),'independently_exported_panel_netlist':sha((CHECKS/'integration-netlist.xml'))},
  'main_connected_source_pins_checked':main_checked,'panel_components_including_mounting_holes':len(cs),'panel_connected_source_pins_checked':checked,
  'native_source_comparison_issues':issues,'host_harness':host_map,'common_ground':'Panel J1.7 returns directly through main J32.7. All twelve host cable cavities connect one-to-one; the former fanout cable is incompatible.',
@@ -126,12 +143,16 @@ report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'
  'external_no_buttons':parallel,'oled_pin_order':{'1':'SCL','2':'SDA','3':'GND','4':'+3V3'},'key_channels':keychecks,
  'key_truth_table':{'MAN_contact_only':'KEY_MAN_N=0, KEY_AUTO_N=1','AUTO_contact_only':'KEY_MAN_N=1, KEY_AUTO_N=0','neither_contact':'1,1 invalid when key mode enabled','both_contacts':'0,0 invalid','panel_unplugged':'0,0 from main R92/R93 pull-downs, invalid'},
  'key_calculations':{'nominal_high_V_at_3V3':3.0,'MCP23017_min_VIH_at_3V3':2.64,'nominal_R_C_rise_time_constant_us':round((10000*100000/(10000+100000))*10e-9*1e6,3),'selected_key_raw_input_mA_5V_VBE0p7':round(5/2200*1000+(5-.7)/10000*1000,4),'STOP_added_wetting_mA_at5V':round(5/2200*1000,4),'note':'Nominal calculations; component tolerances, leakage, contact behavior, cable drops and temperature still need validation.'},
- 'required_firmware':[('Configure MCP23017 GPB6/GPA0 as key inputs with pull-ups disabled; keep NC GPB7/GPA7 configured as outputs.' if args.control_variant=='compact' else 'Configure MCP23017 GPB6/GPB7 as inputs with internal pull-ups disabled.'),'Enable key input only when intentionally fitted; do not silently auto-detect or fall back on invalid states.','Debounce mechanical contacts; 10nF filters are not sufficient debounce alone.','Mode/key changes stop and disarm; never start solely from selecting AUTO or MANUAL.','Reject both-high/both-low key states when key mode is enabled, and require a fresh START after fault/mode changes.'],
+ 'required_firmware':[key_firmware,'Enable key input only when intentionally fitted; do not silently auto-detect or fall back on invalid states.','Debounce mechanical contacts; 10nF filters are not sufficient debounce alone.','Mode/key changes stop and disarm; never start solely from selecting AUTO or MANUAL.','Reject both-high/both-low key states when key mode is enabled, and require a fresh START after fault/mode changes.'],
  'main_assembly_variant':'Main board physically removes SW3/SW4 and superseded J33/J34. Panel SW4/SW5 connect through GH12 J32.6/J32.4; all12 host cavities are one-to-one.',
  'native_layout_snapshot':{'drc_violations':len(drc['violations']),'unconnected':len(drc['unconnected_items']),'parity_issues':len(drc.get('schematic_parity',[])),'erc_violations':sum(len(s.get('violations',[]))for s in erc.get('sheets',[]))},
  'primary_references':['https://omronfs.omron.com/en_US/ecb/products/pdf/en-d2f.pdf','https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf','https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf','design/oled-selection.txt'],
  'main_board_routing_frozen_at_review':False,'hardware_tested':False,'firmware_implemented':False,'release_ready':False,
  'remaining_checks':['Purchased switch/connector contact orientation and harness continuity.','STOP actuator travel/height and OLED/enclosure spacing.','Gold/low-level dry-contact key suitability for approximately 2.7 mA at 5 V.','Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.','Robu fabrication acceptance and assembled-board functional/thermal/EMC tests.']}
+if args.control_variant == 'compact-dual':
+ report['main_assembly_variant'] = 'All five physical operator switches on the panel. No switch footprints on the main PCB. Twelve cavities one-to-one from panel J1 to main J32.'
+ report.pop('firmware_implemented')
+ report['firmware_scope'] = 'Native hardware integration check only. Target application and live switching were not exercised.'
 unchanged=frozen=={str(path):sha(path) for path in inputs}
 if not unchanged:raise SystemExit('Native inputs changed during review; rerun.')
 main_frozen=False

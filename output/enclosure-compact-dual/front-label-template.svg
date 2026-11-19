@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170mm" height="150mm" viewBox="0 0 170 150">
+<title>Five-button controller face labels at 1:1</title>
+<rect x="46" y="57" width="79" height="49" rx="2" fill="white" stroke="#707b81" stroke-width="0.2"/>
+<text x="85" y="62.7" text-anchor="middle" font-family="sans-serif" font-size="2.5" fill="#243541">PUMP CONTROLLER</text>
+<rect x="72" y="66.25" width="26" height="8" rx="0.3" fill="white" stroke="#62707a" stroke-width="0.2"/>
+<rect x="57.5" y="85" width="56.5" height="10" rx="5" fill="white" stroke="#62707a" stroke-width="0.2"/>
+<text x="62.5" y="97.4" text-anchor="middle" font-family="sans-serif" font-size="2.0" font-weight="bold" fill="#257451">START</text>
+<text x="75.0" y="97.4" text-anchor="middle" font-family="sans-serif" font-size="2.0" font-weight="bold" fill="#ae3d39">STOP</text>
+<text x="89.5" y="97.4" text-anchor="middle" font-family="sans-serif" font-size="2.0" font-weight="bold" fill="#435666">MODE</text>
+<text x="100.0" y="97.4" text-anchor="middle" font-family="sans-serif" font-size="2.0" font-weight="bold" fill="#435666">SET</text>
+<text x="100.0" y="100.0" text-anchor="middle" font-family="sans-serif" font-size="1.65" fill="#435666">RESET</text>
+<text x="109.0" y="97.4" text-anchor="middle" font-family="sans-serif" font-size="2.0" font-weight="bold" fill="#435666">NEXT</text>
+<rect x="118" y="4" width="38" height="5" rx="1" fill="white" stroke="#707b81" stroke-width="0.2"/>
+<text x="137" y="7.4" text-anchor="middle" font-family="sans-serif" font-size="2.1" fill="#243541">AUTO / MANUAL KEY</text>
+<path d="M46 118h20m-20 -1v2m20 -2v2" fill="none" stroke="#384950" stroke-width="0.2"/>
+<text x="70" y="118.8" font-family="sans-serif" font-size="2.4">20 mm scale check</text>
+<text x="46" y="124" font-family="sans-serif" font-size="2.3">Print at actual size. Trim the two label outlines and the marked apertures.</text>
+</svg>

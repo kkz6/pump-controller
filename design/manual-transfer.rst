@@ -1,6 +1,11 @@
 Manual override for the starter's original buttons
 ==================================================
 
+For the two-relay main board use the current `dual-output wiring drawing
+<../hardware/main-compact-dual/exports/starter-wiring.pdf>`_ and
+`J36 transfer feedback <../hardware/main-compact-dual/README.rst>`_.
+The earlier K3 circuit below documents the three-relay proposal only.
+
 One keyed service socket selects who can command the pump. In **CONTROLLER**
 the replacement controller has access to the starter's command inputs. In
 **LOCAL MANUAL** the original starter buttons operate even with the replacement

@@ -8,6 +8,7 @@ from pathlib import Path
 import hashlib
 import json
 import tempfile
+from typing import NamedTuple
 import zipfile
 
 BASE = Path(__file__).resolve().parents[1]
@@ -25,6 +26,33 @@ SETTINGS = {'outline_mm': [100, 80], 'layer_order': ['GTL', 'G2L', 'G3L', 'G4L',
             'controlled_impedance_specified': False}
 
 
+class BoardVariant(NamedTuple):
+    directory: str
+    native_name: str
+    cam_name: str
+    design: str
+    size: tuple
+    revision: str
+
+
+def board_variant(compact=False, compact_dual=False):
+    if compact and compact_dual:
+        raise ValueError('Select one main PCB variant')
+    if compact_dual:
+        return BoardVariant('main-compact-dual', 'pump-controller-compact', 'pump-controller-compact-dual',
+                            'design/main-compact-dual.json', (100, 97), 'COMPACT-DUAL-PROTOTYPE')
+    if compact:
+        return BoardVariant('main-compact', 'pump-controller-compact', 'pump-controller-compact',
+                            'design/main-compact.json', (100, 75), 'Compact')
+    return BoardVariant('main-rev-e', NAME, NAME, 'design/main-rev-e.json', (100, 80), 'E')
+
+
+def add_board_options(parser):
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--compact', action='store_true', help='100 x 75 mm compact board')
+    group.add_argument('--compact-dual', action='store_true', help='100 x 97 mm dual-output compact board')
+
+
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -40,14 +68,15 @@ def invalidate_packages(output, name=NAME):
     (output / 'package-manifest.json').unlink(missing_ok=True)
 
 
-def package(base=BASE, *, compact=False):
-    output = base / ('hardware/main-compact' if compact else 'hardware/main-rev-e')
-    name = 'pump-controller-compact' if compact else NAME
-    source_path = 'design/main-compact.json' if compact else 'design/main-rev-e.json'
-    size = [100, 75] if compact else [100, 80]
+def package(base=BASE, *, compact=False, compact_dual=False):
+    variant = board_variant(compact, compact_dual)
+    output = base / 'hardware' / variant.directory
+    name = variant.cam_name
+    source_path = variant.design
+    size = list(variant.size)
     settings = dict(SETTINGS, outline_mm=size)
     invalidate_packages(output, name)
-    board = output / (name + '.kicad_pcb')
+    board = output / (variant.native_name + '.kicad_pcb')
     checks = output / 'checks'
     tracked = {}
 
@@ -84,7 +113,12 @@ def package(base=BASE, *, compact=False):
             and geometry['geometry_and_source_passed'] is True
             and set(geometry['copper_layers']) == {'F.Cu', 'In1.Cu', 'In2.Cu', 'In3.Cu', 'In4.Cu', 'B.Cu'},
             'Native geometry is stale or failed')
+    if compact_dual:
+        field_gap = geometry['starter_field_to_board_mains_projected']['gap_mm']
+        require(field_gap >= 8, 'Starter-to-mains projected clearance is below 8 mm')
     export = read(output / 'fabrication-manifest.json')
+    if compact_dual:
+        require(export['revision'] == variant.revision, 'CAM export variant mismatch')
     require(export['source_sha256'] == frozen, 'CAM export refers to stale sources')
     require(all(export[key] == value for key, value in settings.items()),
             'Fabrication settings changed; review package notes and process assumptions')
@@ -114,6 +148,8 @@ def package(base=BASE, *, compact=False):
             and set(parsed['mask_geometry']) == {'F.Mask', 'B.Mask'}
             and all(x['passed'] is True for x in parsed['mask_geometry'].values()),
             'Parsed CAM checks failed or are incomplete')
+    if compact_dual:
+        require(parsed['x2_project_revision'] == variant.revision, 'Gerber X2 variant mismatch')
     require(set(parsed['file_checks']) == expected_paths, 'Parsed CAM file inventory differs from package')
     for relative, details in parsed['file_checks'].items():
         require(sha(watch(base / relative)) == details['sha256'], 'Parsed CAM artifact changed: ' + relative)
@@ -137,8 +173,11 @@ def package(base=BASE, *, compact=False):
         'The IPC netlist is a native reference, not connectivity extracted from Gerber copper.\n'
         'Paste files are supplied in a separate stencil archive.\n'
     )
+    if compact_dual:
+        notes += ('Maintain at least 8.00 mm finished copper separation from both starter pairs to '
+                  'controller mains, metering and isolated logic across all six layers. Report DFM changes.\n')
     common = {
-        'revision': 'Compact' if compact else 'E', 'scope': 'Bare-PCB engineering prototype only',
+        'revision': variant.revision, 'scope': 'Bare-PCB engineering prototype only',
         'native_and_parsed_cam_checks_passed': True,
         'manufacturer_accepted': False, 'hardware_tested': False,
         'assembled_product_qualified': False, 'gerber_conductive_netlist_extracted': False,
@@ -193,8 +232,8 @@ if __name__ == '__main__':
     try:
         import argparse
         parser = argparse.ArgumentParser(description=__doc__)
-        parser.add_argument('--compact', action='store_true')
-        result = package(compact=parser.parse_args().compact)
+        add_board_options(parser)
+        result = package(**vars(parser.parse_args()))
     except (ValueError, KeyError, OSError, json.JSONDecodeError) as error:
         raise SystemExit('Packaging refused; current validated evidence is required: ' + str(error))
     print(json.dumps({'scope': result['scope'], 'archives': {
