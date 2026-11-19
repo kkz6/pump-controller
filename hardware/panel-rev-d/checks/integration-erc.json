@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-19T12:21:15",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/44504791-c1bc-5b64-8a38-6cd49f1863d3",
+            "violations": []
+        },
+        {
+            "path": "/Five local buttons and optional external contacts/",
+            "uuid_path": "/44504791-c1bc-5b64-8a38-6cd49f1863d3/03bcb974-5375-521d-bac7-1608914150ba",
+            "violations": []
+        },
+        {
+            "path": "/OLED power and I2C/",
+            "uuid_path": "/44504791-c1bc-5b64-8a38-6cd49f1863d3/a38f5ef2-55cc-558d-b9df-8619af5a99b4",
+            "violations": []
+        },
+        {
+            "path": "/Optional maintained AUTO/MANUAL key input/",
+            "uuid_path": "/44504791-c1bc-5b64-8a38-6cd49f1863d3/9af68e1d-eec4-5c9e-b878-fe575ca93049",
+            "violations": []
+        },
+        {
+            "path": "/Mechanical mounting/",
+            "uuid_path": "/44504791-c1bc-5b64-8a38-6cd49f1863d3/dce0050b-c893-5cbd-a8ad-b84dc7d09f2d",
+            "violations": []
+        }
+    ],
+    "source": "pump-panel-rev-d.kicad_sch"
+}

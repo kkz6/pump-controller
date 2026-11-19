@@ -1,6 +1,11 @@
 Where every wire connects — Rev C
 =================================
 
+Rev D panel update: this is the earlier control arrangement. For the separate
+OLED/five-button board, optional external buttons and key selector, use
+``design/panel-rev-d-integration.rst``. In that assembly main SW3/SW4 are not
+populated, J32 pins4/6 are used, and J34 pins5/6 carry the optional key inputs.
+
 This guide maps the **proposed controller terminals**. It is not a verified
 wiring drawing for the existing starter: the starter model, coil voltage and
 button construction have not been identified. The PCB is an unbuilt prototype

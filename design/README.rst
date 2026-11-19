@@ -5,6 +5,13 @@ The native KiCad project is the editable hardware deliverable. The JSON
 definitions and Python helpers preserve the component/net source used to
 produce this revision and its review documents.
 
+The current assembly uses the unchanged Rev C main PCB plus the separate
+Rev D panel. ``panel-rev-d.json`` is the panel circuit source;
+``panel-rev-d-main-assembly.json`` records the main-board population and
+12-wire harness. Main SW3/SW4 are omitted. Follow
+``panel-rev-d-integration.rst`` for the current controls; earlier main-board
+documents describe the original Rev C panel arrangement.
+
 Source order
 ------------
 

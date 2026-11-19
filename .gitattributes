@@ -5,3 +5,9 @@
 *.step binary
 *.glb binary
 output/3d/viewer.html -diff
+
+# IPC test records are fixed-width manufacturing data; preserve every byte.
+*.d356 binary
+# Preserve native CAD exporter formatting in drawings and router sessions.
+*.svg whitespace=-blank-at-eol
+*.ses whitespace=-blank-at-eol

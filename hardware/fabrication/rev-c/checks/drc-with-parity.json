@@ -1,0 +1,3563 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-19T11:59:39",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '5 V bulk reservoir near relay branch; select <=5 mm diameter and <=11 mm height')",
+            "items": [
+                {
+                    "description": "Footprint C1",
+                    "pos": {
+                        "x": 52.5,
+                        "y": 20.0
+                    },
+                    "uuid": "b452a676-f505-42d4-958e-5b83fd5a96ac"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Local ceramic bypass; X7R dielectric; verify effective capacitance at bias')",
+            "items": [
+                {
+                    "description": "Footprint C2",
+                    "pos": {
+                        "x": 50.5,
+                        "y": 11.0
+                    },
+                    "uuid": "83e94139-4a36-4264-9a77-8b1fdc938b0f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Buck input capacitor directly at VIN/PGND; 22 uF nominal chosen to retain at least 10 uF effective at 5 V including bias/tolerance; qualify purchased part')",
+            "items": [
+                {
+                    "description": "Footprint C3",
+                    "pos": {
+                        "x": 51.5,
+                        "y": 14.5
+                    },
+                    "uuid": "44353806-4993-47fd-9e40-3d99674c5ba1"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Buck high-frequency input bypass directly at VIN/PGND')",
+            "items": [
+                {
+                    "description": "Footprint C4",
+                    "pos": {
+                        "x": 55.5,
+                        "y": 11.5
+                    },
+                    "uuid": "d3afc258-c2d4-431d-b9d2-e1322f29705b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Buck output capacitor at L1/VOS; select effective capacitance within TI datasheet recommended range after bias/tolerance')",
+            "items": [
+                {
+                    "description": "Footprint C5",
+                    "pos": {
+                        "x": 65.0,
+                        "y": 14.5
+                    },
+                    "uuid": "6e800319-4b7d-4824-aa24-18704056f503"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Local 3.3 V rail bypass')",
+            "items": [
+                {
+                    "description": "Footprint C6",
+                    "pos": {
+                        "x": 65.0,
+                        "y": 11.5
+                    },
+                    "uuid": "4aa28f77-b8b5-4dbb-b786-7009824fef7c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bel 1 A time-delay axial pigtail fuse; 200 A interrupting capacity at 600 VAC per TUV; coordinate with upstream protection')",
+            "items": [
+                {
+                    "description": "Footprint F1",
+                    "pos": {
+                        "x": 5.0,
+                        "y": 28.0
+                    },
+                    "uuid": "5d52c25b-ba7d-4c57-87c2-43c2525d756e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2')",
+            "items": [
+                {
+                    "description": "Footprint J1",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 7.0
+                    },
+                    "uuid": "22b71530-fc19-4d79-9c10-37d9cb741356"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Wuerth WE-MAPI 4030; 4.1x4.1x3.1 mm, 2.2 uH, 4.6 A saturation at 10% drop, max 26 mOhm DCR')",
+            "items": [
+                {
+                    "description": "Footprint L1",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 14.5
+                    },
+                    "uuid": "928912dc-abc3-4bc0-98b9-5fe0281406eb"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Vishay AC03-CS 22 ohm 3 W 5% fusible safety resistor; keep heat away from MCU and capacitors')",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 13.0,
+                        "y": 26.0
+                    },
+                    "uuid": "3902d0c1-7d92-408a-b1d0-c40806a88da6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bourns 2512 thick-film 33 ohm 1%, 2 W at 70 C with 300 mm2 combined solder-pad/trace copper per datasheet; permanent 5 V minimum-load resistor, 0.677-0.844 W at 4.75-5.25 V including 1% tolerance. Reserve copper area and keep away from probes, precision meter components, antenna module and electrolytics. Revised module local ambient limit 50 C.')",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 10.0
+                    },
+                    "uuid": "b9f5caaa-9584-4546-b734-d39e81b7a99c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Thermally protected 14 mm MOV, 320 VAC continuous; INLINE crimped L2B7 lead option required for footprint; surge coordination unverified')",
+            "items": [
+                {
+                    "description": "Footprint RV1",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 56.0
+                    },
+                    "uuid": "ef9d336d-bcd9-44f8-ac28-255b0281e090"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '6 W reinforced-isolation AC/DC module, 25.4 x 25.4 x 16.7 mm; 5 V model delivers 6 W to 50 C at 115-277 VAC; keep output floating')",
+            "items": [
+                {
+                    "description": "Footprint U1",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 5.0
+                    },
+                    "uuid": "d2475ccf-e039-4321-842d-396971a21b32"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Fixed 3.3 V synchronous buck; FB tied to AGND, VOS Kelvin-connected to output capacitor; EP to ground with thermal vias')",
+            "items": [
+                {
+                    "description": "Footprint U2",
+                    "pos": {
+                        "x": 55.75,
+                        "y": 14.5
+                    },
+                    "uuid": "ba5c0642-f64a-470e-abc7-11f645d52972"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U2-PG-Pad8))",
+            "items": [
+                {
+                    "description": "Pad 8 [<no net>] of U2 on F.Cu",
+                    "pos": {
+                        "x": 56.7,
+                        "y": 13.75
+                    },
+                    "uuid": "3a9ea8f8-6687-4224-be93-023ee5ee1503"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Module bulk capacitor adjacent to pin 3; effective capacitance >=10 uF at 3.3 V')",
+            "items": [
+                {
+                    "description": "Footprint C20",
+                    "pos": {
+                        "x": 71.0,
+                        "y": 33.0
+                    },
+                    "uuid": "aefea042-b390-47c3-8095-bc7231d2fc12"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Module bypass immediately at pin 3 and ground pads')",
+            "items": [
+                {
+                    "description": "Footprint C21",
+                    "pos": {
+                        "x": 61.5,
+                        "y": 19.5
+                    },
+                    "uuid": "947c5ef5-a9b9-4a82-86a4-126c58d864ae"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Enable RC delay with R20; watchdog/supervisor uses open-drain reset only')",
+            "items": [
+                {
+                    "description": "Footprint C22",
+                    "pos": {
+                        "x": 57.5,
+                        "y": 20.5
+                    },
+                    "uuid": "125edaa8-e2b9-4093-a0c2-12e6135f2dfb"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Internal service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.')",
+            "items": [
+                {
+                    "description": "Footprint J2",
+                    "pos": {
+                        "x": 85.0,
+                        "y": 25.0
+                    },
+                    "uuid": "8f0cec26-3d7f-4295-8fa5-6da9199272b8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Module EN pull-up; 10 ms nominal RC with C22')",
+            "items": [
+                {
+                    "description": "Footprint R20",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 23.5
+                    },
+                    "uuid": "a3d01c83-2ae4-4145-97ed-0f148cb9c5bd"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'GPIO9 boot strap pull-up; SW2 pulls low for UART/USB download')",
+            "items": [
+                {
+                    "description": "Footprint R21",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 24.5
+                    },
+                    "uuid": "d38ad711-a63d-4c40-bb5f-89f00407511c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'GPIO8 must be high while GPIO9 is low to enter serial download mode')",
+            "items": [
+                {
+                    "description": "Footprint R22",
+                    "pos": {
+                        "x": 59.5,
+                        "y": 23.5
+                    },
+                    "uuid": "23118a43-3597-47c8-b20f-102ad2154b4c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'I2C SDA pull-up; populate one pull-up set on assembled controller')",
+            "items": [
+                {
+                    "description": "Footprint R24",
+                    "pos": {
+                        "x": 65.0,
+                        "y": 35.5
+                    },
+                    "uuid": "96374810-470e-4c6d-b2cb-fe521d7ea37d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'I2C SCL pull-up; verify bus capacitance/rise time at selected clock')",
+            "items": [
+                {
+                    "description": "Footprint R25",
+                    "pos": {
+                        "x": 65.5,
+                        "y": 38.5
+                    },
+                    "uuid": "f05a6731-9a46-4235-88bf-ffb10375d8e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Keep metering IC deselected while ESP32 is resetting')",
+            "items": [
+                {
+                    "description": "Footprint R26",
+                    "pos": {
+                        "x": 50.0,
+                        "y": 21.0
+                    },
+                    "uuid": "8e971521-78c5-44b2-9fc2-48bb326b90ba"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Optional internal USB service path; series resistor adjacent to module')",
+            "items": [
+                {
+                    "description": "Footprint R27",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 20.0
+                    },
+                    "uuid": "122acee2-f5c5-4a4a-a307-a134e0d8e3e2"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Optional internal USB service path; route D+/D- as 90-ohm differential pair')",
+            "items": [
+                {
+                    "description": "Footprint R28",
+                    "pos": {
+                        "x": 72.5,
+                        "y": 30.0
+                    },
+                    "uuid": "0d3893f5-6daf-432c-a92e-65cc6640f790"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Momentary reset button; footprint groups two physically common terminals as each logical pad')",
+            "items": [
+                {
+                    "description": "Footprint SW1",
+                    "pos": {
+                        "x": 71.0,
+                        "y": 13.0
+                    },
+                    "uuid": "a72968d8-6553-4abe-8193-904d0b8dbb32"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Momentary boot/download button; hold low during reset for download')",
+            "items": [
+                {
+                    "description": "Footprint SW2",
+                    "pos": {
+                        "x": 81.5,
+                        "y": 24.5
+                    },
+                    "uuid": "1ae5ba8b-a8b7-4658-9e9a-bbcb2658779a"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '8 MB flash; external antenna; hardware supports Matter over Wi-Fi or Thread. Antenna must be outside metal starter enclosure. GPIO17 drives ARM_CMD interlock rearm; GPIO16 UART TX logs only; GPIO4/5/15 unused; strap levels preserved.')",
+            "items": [
+                {
+                    "description": "Footprint U3",
+                    "pos": {
+                        "x": 61.5,
+                        "y": 24.0
+                    },
+                    "uuid": "1472834c-e0cc-4a2f-9589-4f5025420f4b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad4))",
+            "items": [
+                {
+                    "description": "Pad 4 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 59.9,
+                        "y": 29.9
+                    },
+                    "uuid": "800fb667-e7f1-46cc-ab3b-100bc84e6520"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad7))",
+            "items": [
+                {
+                    "description": "Pad 7 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 62.3,
+                        "y": 29.9
+                    },
+                    "uuid": "d0bccfea-61a4-418b-b5f9-79a1cd7290da"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-GPIO4-Pad9))",
+            "items": [
+                {
+                    "description": "Pad 9 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 63.9,
+                        "y": 29.9
+                    },
+                    "uuid": "287d6f7e-3219-4229-8571-ef17c3adaf1e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-GPIO5-Pad10))",
+            "items": [
+                {
+                    "description": "Pad 10 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 64.7,
+                        "y": 29.9
+                    },
+                    "uuid": "19518c8f-ef39-49cf-b386-8eab6ddd4232"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-GPIO15-Pad20))",
+            "items": [
+                {
+                    "description": "Pad 20 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 66.4,
+                        "y": 22.4
+                    },
+                    "uuid": "cf420058-22ff-4ea6-8adb-8f24837add30"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad21))",
+            "items": [
+                {
+                    "description": "Pad 21 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 66.4,
+                        "y": 21.6
+                    },
+                    "uuid": "39907d1b-30ca-4d31-9510-79a30a838e24"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad32))",
+            "items": [
+                {
+                    "description": "Pad 32 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 59.9,
+                        "y": 18.1
+                    },
+                    "uuid": "9ef9a433-0163-4901-9e27-da0dd3f1929a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad33))",
+            "items": [
+                {
+                    "description": "Pad 33 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 59.1,
+                        "y": 18.1
+                    },
+                    "uuid": "c0ae0abf-8d36-4924-9f79-45057e44e9da"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad34))",
+            "items": [
+                {
+                    "description": "Pad 34 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 58.3,
+                        "y": 18.1
+                    },
+                    "uuid": "53e17859-ba8a-47b7-85ae-060ccf1ced21"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U3-NC-Pad35))",
+            "items": [
+                {
+                    "description": "Pad 35 [<no net>] of U3 on F.Cu",
+                    "pos": {
+                        "x": 57.5,
+                        "y": 18.1
+                    },
+                    "uuid": "e55a558d-c323-45d7-b307-c3f6b994e214"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C40",
+                    "pos": {
+                        "x": 19.0,
+                        "y": 42.5
+                    },
+                    "uuid": "01eeb85c-3ee4-4ea7-9780-15762fbd8d25"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C41",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 44.5
+                    },
+                    "uuid": "f21b09f1-f8b2-46ee-a18d-793ddf408149"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C42",
+                    "pos": {
+                        "x": 18.0,
+                        "y": 46.0
+                    },
+                    "uuid": "acf60719-03e8-4b56-b79d-90adb6fe2502"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C43",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 49.5
+                    },
+                    "uuid": "5aa51009-be2f-4222-aff8-2063fac130b7"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C44",
+                    "pos": {
+                        "x": 13.5,
+                        "y": 41.5
+                    },
+                    "uuid": "69aee242-2244-4851-9fe8-72ad61b0eff9"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C45",
+                    "pos": {
+                        "x": 11.5,
+                        "y": 41.5
+                    },
+                    "uuid": "eda88956-1b08-42c0-84af-0f433e50a4b9"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C46",
+                    "pos": {
+                        "x": 14.5,
+                        "y": 50.5
+                    },
+                    "uuid": "797ec2b0-7a9a-4584-a27e-d64b6440e90b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C47",
+                    "pos": {
+                        "x": 9.5,
+                        "y": 43.0
+                    },
+                    "uuid": "1d07dbd5-e21a-4137-9962-864b59fe6dce"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C48",
+                    "pos": {
+                        "x": 22.525,
+                        "y": 41.5
+                    },
+                    "uuid": "732767b3-3d96-4e05-a502-71540338f430"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G, 5%, 50V')",
+            "items": [
+                {
+                    "description": "Footprint C49",
+                    "pos": {
+                        "x": 18.0,
+                        "y": 38.0
+                    },
+                    "uuid": "6128032f-cbf1-4327-bcaa-06c33fa3c2b2"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G, 5%, 50V')",
+            "items": [
+                {
+                    "description": "Footprint C50",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 40.5
+                    },
+                    "uuid": "a49535b0-e0bd-475a-affe-b609c41bf0a8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R40",
+                    "pos": {
+                        "x": 23.0,
+                        "y": 39.0
+                    },
+                    "uuid": "d9d58387-c73a-46ea-8a79-f5717bc3b261"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R41",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 29.5
+                    },
+                    "uuid": "5a6ccb4b-dd4c-42f6-bc36-3a5d1820cd8f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Single phase metering IC; poll registers through SPI at 1MHz')",
+            "items": [
+                {
+                    "description": "Footprint U10",
+                    "pos": {
+                        "x": 18.0,
+                        "y": 41.5
+                    },
+                    "uuid": "ead2d171-40c8-4ab8-9b9d-86e4cbe552c5"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U10-ZX-Pad1))",
+            "items": [
+                {
+                    "description": "Pad 1 [<no net>] of U10 on B.Cu",
+                    "pos": {
+                        "x": 15.6125,
+                        "y": 43.0
+                    },
+                    "uuid": "104b5518-c9a9-4bf2-9ea3-927e9dac8a9d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U10-REVP-Pad20))",
+            "items": [
+                {
+                    "description": "Pad 20 [<no net>] of U10 on B.Cu",
+                    "pos": {
+                        "x": 20.3875,
+                        "y": 42.5
+                    },
+                    "uuid": "36481637-dd40-4346-851f-fbff4396ffb7"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U10-ZX_I-Pad21))",
+            "items": [
+                {
+                    "description": "Pad 21 [<no net>] of U10 on B.Cu",
+                    "pos": {
+                        "x": 20.3875,
+                        "y": 43.0
+                    },
+                    "uuid": "988e7f69-5f50-4dfc-a81b-d7009c8fcb64"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U10-IRQ-Pad22))",
+            "items": [
+                {
+                    "description": "Pad 22 [<no net>] of U10 on B.Cu",
+                    "pos": {
+                        "x": 19.5,
+                        "y": 43.8875
+                    },
+                    "uuid": "44f43fec-7046-4bd2-8879-f156f6f844b2"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U10-CF1-Pad23))",
+            "items": [
+                {
+                    "description": "Pad 23 [<no net>] of U10 on B.Cu",
+                    "pos": {
+                        "x": 19.0,
+                        "y": 43.8875
+                    },
+                    "uuid": "b3f99998-d7e3-4b85-8a48-3eafda1ff900"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U10-CF2-Pad24))",
+            "items": [
+                {
+                    "description": "Pad 24 [<no net>] of U10 on B.Cu",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 43.8875
+                    },
+                    "uuid": "4e8e5f29-d230-4bdf-9b6b-cdb87b0f2e1c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '18pF load; 27pF caps assume 4.5pF total stray; confirm oscillator start/accuracy')",
+            "items": [
+                {
+                    "description": "Footprint Y1",
+                    "pos": {
+                        "x": 13.5,
+                        "y": 35.0
+                    },
+                    "uuid": "644a39dd-174f-4bbb-b30c-62cfcafded97"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G, 5%, 50V')",
+            "items": [
+                {
+                    "description": "Footprint C51",
+                    "pos": {
+                        "x": 19.0,
+                        "y": 34.0
+                    },
+                    "uuid": "1e476b61-c005-4a86-8253-46395894e040"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G, 5%, 50V')",
+            "items": [
+                {
+                    "description": "Footprint C52",
+                    "pos": {
+                        "x": 23.0,
+                        "y": 44.0
+                    },
+                    "uuid": "306f079c-6aaf-436d-9458-3ad159695277"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G, 5%, 50V')",
+            "items": [
+                {
+                    "description": "Footprint C53",
+                    "pos": {
+                        "x": 19.5,
+                        "y": 47.5
+                    },
+                    "uuid": "4a095be5-264f-415f-a9c4-ccf57ddd6398"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G, 5%, 50V')",
+            "items": [
+                {
+                    "description": "Footprint C54",
+                    "pos": {
+                        "x": 18.0,
+                        "y": 48.0
+                    },
+                    "uuid": "24c39f01-ed27-423f-bc90-53de8c9c566f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Antiparallel input limiting across CT secondary; not a substitute for the external burden')",
+            "items": [
+                {
+                    "description": "Footprint D10",
+                    "pos": {
+                        "x": 22.0,
+                        "y": 60.5
+                    },
+                    "uuid": "62ac432d-8059-4e37-a206-86f5abf66dd7"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'CT secondary - mains-referenced')",
+            "items": [
+                {
+                    "description": "Footprint J10",
+                    "pos": {
+                        "x": 24.5,
+                        "y": 60.5
+                    },
+                    "uuid": "66682b72-8e53-4442-ad3d-828720d5cec6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Neutral bond inside live domain only')",
+            "items": [
+                {
+                    "description": "Footprint R42",
+                    "pos": {
+                        "x": 17.5,
+                        "y": 24.0
+                    },
+                    "uuid": "42f34473-126c-412b-b804-fe44ff68862d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, 25ppm/K, 200V working, 1206; 4 in series')",
+            "items": [
+                {
+                    "description": "Footprint R43",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 29.0
+                    },
+                    "uuid": "e1d85665-0053-4b5b-9255-4b2ddf9e5539"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, 25ppm/K, 200V working, 1206; 4 in series')",
+            "items": [
+                {
+                    "description": "Footprint R44",
+                    "pos": {
+                        "x": 22.5,
+                        "y": 30.0
+                    },
+                    "uuid": "bfb7efd5-ae9f-4294-92dc-9bba8718c136"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, 25ppm/K, 200V working, 1206; 4 in series')",
+            "items": [
+                {
+                    "description": "Footprint R45",
+                    "pos": {
+                        "x": 27.5,
+                        "y": 30.0
+                    },
+                    "uuid": "619a7578-e20f-4894-907b-18420cb6bc43"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, 25ppm/K, 200V working, 1206; 4 in series')",
+            "items": [
+                {
+                    "description": "Footprint R46",
+                    "pos": {
+                        "x": 20.5,
+                        "y": 23.5
+                    },
+                    "uuid": "c6c2b68f-c633-47a1-bd0a-f879116f1129"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, 25ppm/K, 0603 voltage-divider low leg')",
+            "items": [
+                {
+                    "description": "Footprint R47",
+                    "pos": {
+                        "x": 19.0,
+                        "y": 31.0
+                    },
+                    "uuid": "b0196ee4-fe15-45f2-8e01-5b2a45210f7a"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R48",
+                    "pos": {
+                        "x": 24.5,
+                        "y": 41.5
+                    },
+                    "uuid": "0c6ff17c-d771-4957-b2d8-6d5e43c080f1"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R49",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 54.0
+                    },
+                    "uuid": "7c5b4932-7d88-4a7e-88ec-48aee9f59a31"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R50",
+                    "pos": {
+                        "x": 18.0,
+                        "y": 50.0
+                    },
+                    "uuid": "ac7ab2b1-4851-4d67-bdc5-e7436c4908b3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C55",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 23.5
+                    },
+                    "uuid": "68f45dcb-7037-4689-90d6-0475101c1b7f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C56",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 20.275
+                    },
+                    "uuid": "0c17f947-32d9-4b07-a85a-d11cbab26f01"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C57",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 12.5
+                    },
+                    "uuid": "24572c3a-4dfa-42b0-ba31-05d4c97f2c7f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C58",
+                    "pos": {
+                        "x": 27.9,
+                        "y": 23.5
+                    },
+                    "uuid": "72fc11d6-0b6c-4939-8683-81527be62391"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C59",
+                    "pos": {
+                        "x": 28.25,
+                        "y": 20.275
+                    },
+                    "uuid": "816334b7-37da-446c-83cd-7ba0d94a84ec"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C60",
+                    "pos": {
+                        "x": 28.25,
+                        "y": 14.5
+                    },
+                    "uuid": "562bb465-8a02-4ca7-ad46-c30295c4508d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane')",
+            "items": [
+                {
+                    "description": "Footprint FB1",
+                    "pos": {
+                        "x": 26.0,
+                        "y": 17.0
+                    },
+                    "uuid": "0ce52289-c331-4c39-8bf9-15f4368331ea"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane')",
+            "items": [
+                {
+                    "description": "Footprint FB2",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 22.0
+                    },
+                    "uuid": "710915bf-c701-4edb-9e67-0346cc08fc04"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage')",
+            "items": [
+                {
+                    "description": "Footprint U11",
+                    "pos": {
+                        "x": 36.0,
+                        "y": 18.0
+                    },
+                    "uuid": "28a48533-6d37-4e72-b90d-5ab23fb06ab2"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U11-NIC-Pad13))",
+            "items": [
+                {
+                    "description": "Pad 13 [<no net>] of U11 on B.Cu",
+                    "pos": {
+                        "x": 40.95,
+                        "y": 21.575
+                    },
+                    "uuid": "9da47848-b1d2-4e88-8ab1-94bb85456a73"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U11-NIC-Pad16))",
+            "items": [
+                {
+                    "description": "Pad 16 [<no net>] of U11 on B.Cu",
+                    "pos": {
+                        "x": 31.05,
+                        "y": 21.575
+                    },
+                    "uuid": "454c96d2-33c0-4471-b7e5-440aeabdcb53"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C70",
+                    "pos": {
+                        "x": 49.0,
+                        "y": 31.5
+                    },
+                    "uuid": "b3109a33-bfcb-4789-8ba6-1145dd9cb450"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C71",
+                    "pos": {
+                        "x": 49.0,
+                        "y": 29.5
+                    },
+                    "uuid": "e582538f-b975-4d41-9cf6-df859bdc00e7"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C72",
+                    "pos": {
+                        "x": 46.5,
+                        "y": 32.0
+                    },
+                    "uuid": "ad9b9d33-c8e8-46c1-99a1-74d42405dea6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C75",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 35.5
+                    },
+                    "uuid": "a445ed02-5291-4260-95c9-009a18862efc"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C76",
+                    "pos": {
+                        "x": 45.5,
+                        "y": 29.5
+                    },
+                    "uuid": "82509b1e-ec54-4fed-b7b0-94d4110c5e51"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop')",
+            "items": [
+                {
+                    "description": "Footprint D30",
+                    "pos": {
+                        "x": 70.5,
+                        "y": 25.0
+                    },
+                    "uuid": "d2996d00-fa3c-4e2e-b902-56e4dafb9df6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Flyback directly across relay coil')",
+            "items": [
+                {
+                    "description": "Footprint D31",
+                    "pos": {
+                        "x": 44.5,
+                        "y": 43.5
+                    },
+                    "uuid": "643f780e-53c9-4ce0-ac25-81efb1ea6fe2"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Physical interlock low asynchronously clears arm latch; prevents restart on STOP release')",
+            "items": [
+                {
+                    "description": "Footprint D35",
+                    "pos": {
+                        "x": 65.5,
+                        "y": 32.5
+                    },
+                    "uuid": "85f2f9d5-3d79-409b-a8fa-7090dd6d808e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '5V 40mA coil; contactor coil only; verify actual inductive/inrush rating before installation')",
+            "items": [
+                {
+                    "description": "Footprint K1",
+                    "pos": {
+                        "x": 41.1,
+                        "y": 35.0
+                    },
+                    "uuid": "7e2a087a-caa1-4c29-b32a-e52e9c7ffe18"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '30V N-MOSFET; specified at 2.5V gate drive')",
+            "items": [
+                {
+                    "description": "Footprint Q30",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 38.5
+                    },
+                    "uuid": "8defc867-15e5-44db-bd12-fd459a8da20f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '30V N-MOSFET; specified at 2.5V gate drive')",
+            "items": [
+                {
+                    "description": "Footprint Q31",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 49.0
+                    },
+                    "uuid": "16e62179-06d2-4f3e-b577-3ba5c77f63a9"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R70",
+                    "pos": {
+                        "x": 71.0,
+                        "y": 28.0
+                    },
+                    "uuid": "fd11abc1-b9e8-4a9f-ab25-7ef9278daffd"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R71",
+                    "pos": {
+                        "x": 63.5,
+                        "y": 23.5
+                    },
+                    "uuid": "463514cd-0853-4ee5-96a9-997ee0f66bea"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R72",
+                    "pos": {
+                        "x": 61.5,
+                        "y": 26.0
+                    },
+                    "uuid": "71bbd4b8-ddb5-44f2-92ed-005342931b77"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R74",
+                    "pos": {
+                        "x": 53.0,
+                        "y": 31.0
+                    },
+                    "uuid": "5e9ca1b5-a68b-49de-b5de-56e18ae0c22d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R75",
+                    "pos": {
+                        "x": 49.0,
+                        "y": 33.5
+                    },
+                    "uuid": "e4859b65-0d4a-485a-9060-f0a9b3a3c44e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R76",
+                    "pos": {
+                        "x": 53.0,
+                        "y": 36.5
+                    },
+                    "uuid": "c26bc3f0-0a7c-4d0c-9aa5-34ce300d98d1"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R77",
+                    "pos": {
+                        "x": 49.0,
+                        "y": 42.5
+                    },
+                    "uuid": "96e26e94-ac7a-4ae4-aaa4-cce1e01a5b14"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R78",
+                    "pos": {
+                        "x": 74.5,
+                        "y": 28.0
+                    },
+                    "uuid": "33146602-142d-49ab-ad93-dbfe36673ec0"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1.6s nominal / 2.24s maximum watchdog; heartbeat generated only after successful control-loop checks')",
+            "items": [
+                {
+                    "description": "Footprint U30",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 24.0
+                    },
+                    "uuid": "e62d601d-e487-4502-b542-c18ebccf6a68"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Fault/STOP clears arm latch. Only a fresh user re-arm clocks it high; heartbeat never clocks this latch')",
+            "items": [
+                {
+                    "description": "Footprint U31",
+                    "pos": {
+                        "x": 73.0,
+                        "y": 24.5
+                    },
+                    "uuid": "05764187-bb90-465a-b561-1fee123e171c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U31-Q_N-Pad3))",
+            "items": [
+                {
+                    "description": "Pad 3 [<no net>] of U31 on B.Cu",
+                    "pos": {
+                        "x": 72.75,
+                        "y": 25.9
+                    },
+                    "uuid": "d5d5c36b-b6a3-4621-a9e2-285db3462eb8"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '3.08V nominal reset threshold,3.00-3.15V over -40..85C;140-280ms release delay. ST pin1=RESET,2=VCC,3=GND')",
+            "items": [
+                {
+                    "description": "Footprint U32",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 20.0
+                    },
+                    "uuid": "ce03493f-4290-43f0-a819-f4b35e55a544"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Hardware-armed AND software-healthy gating of K1')",
+            "items": [
+                {
+                    "description": "Footprint U34",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 28.0
+                    },
+                    "uuid": "f91c992c-b213-405c-bb8c-47a00071ec64"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software')",
+            "items": [
+                {
+                    "description": "Footprint U35",
+                    "pos": {
+                        "x": 53.5,
+                        "y": 40.0
+                    },
+                    "uuid": "f4e6c92d-480f-41fb-8733-eb1ca460fc83"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U35-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad 1 [<no net>] of U35 on B.Cu",
+                    "pos": {
+                        "x": 52.3625,
+                        "y": 40.95
+                    },
+                    "uuid": "155062ef-d77e-4604-9398-aaf283d18c23"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Flyback directly across relay coil')",
+            "items": [
+                {
+                    "description": "Footprint D32",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 48.5
+                    },
+                    "uuid": "65b54b4d-284b-49da-91b3-fa97527ab382"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required')",
+            "items": [
+                {
+                    "description": "Footprint J30",
+                    "pos": {
+                        "x": 15.5,
+                        "y": 15.5
+                    },
+                    "uuid": "0ea6ffaf-f8bd-4e90-a683-cfd2cecc531d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'STOP-fed high-high NC float loop / fitted shorting link')",
+            "items": [
+                {
+                    "description": "Footprint J31",
+                    "pos": {
+                        "x": 49.0,
+                        "y": 61.0
+                    },
+                    "uuid": "66284f72-8289-4f88-9b5a-a5c156020333"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '5V 40mA coil; contactor coil only; verify actual inductive/inrush rating before installation')",
+            "items": [
+                {
+                    "description": "Footprint K2",
+                    "pos": {
+                        "x": 41.1,
+                        "y": 48.0
+                    },
+                    "uuid": "25f56ad6-6558-46fe-89fa-828baae406b2"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C73",
+                    "pos": {
+                        "x": 59.0,
+                        "y": 41.0
+                    },
+                    "uuid": "f3a4e046-3289-4f69-b005-daee6201d5ba"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C74",
+                    "pos": {
+                        "x": 61.5,
+                        "y": 41.5
+                    },
+                    "uuid": "d0115e24-2ca7-464c-8b83-103b3e24070d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C80",
+                    "pos": {
+                        "x": 59.0,
+                        "y": 30.5
+                    },
+                    "uuid": "0fbef110-4a10-40c1-a521-e149a5632ed4"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C82",
+                    "pos": {
+                        "x": 56.5,
+                        "y": 33.5
+                    },
+                    "uuid": "41ed5dbc-67b3-4e8d-b027-cb361a2cc29d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C84",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 36.0
+                    },
+                    "uuid": "3b957008-21c0-40ac-9ada-d1c98dadd0af"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C86",
+                    "pos": {
+                        "x": 50.0,
+                        "y": 46.5
+                    },
+                    "uuid": "de0b4828-0b70-4556-8ebd-4acd6114be36"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C88",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 31.0
+                    },
+                    "uuid": "9ce6e5df-6405-450a-bef2-fcdc64f074d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R, 10%, 16V')",
+            "items": [
+                {
+                    "description": "Footprint C90",
+                    "pos": {
+                        "x": 59.0,
+                        "y": 26.5
+                    },
+                    "uuid": "b292c9b4-77cf-4f74-b23c-f52e398a6865"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'External STOP NC1-2, MODE NO2-3, START NO5-7. Pins4 and6 remain internally connected but are RESERVED: do not wire externally. Reuse existing START/STOP actuators only through verified isolated auxiliary contacts; retain any required capacitor-start contacts. MODE toggles MAN/AUTO only unarmed after physical STOP acknowledgement.')",
+            "items": [
+                {
+                    "description": "Footprint J32",
+                    "pos": {
+                        "x": 76.5,
+                        "y": 7.0
+                    },
+                    "uuid": "e52d646b-c1d5-44c7-9742-02e8b58d66bc"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R80",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 19.0
+                    },
+                    "uuid": "2bca756b-b02f-45b1-ad02-4837b1bcfef7"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R81",
+                    "pos": {
+                        "x": 59.0,
+                        "y": 28.5
+                    },
+                    "uuid": "55cc0a77-bf26-47ec-a7bc-0415929f6697"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R82",
+                    "pos": {
+                        "x": 63.5,
+                        "y": 27.0
+                    },
+                    "uuid": "a3f52168-5c16-402e-b6f8-6b4f84c33a1c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R83",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 33.5
+                    },
+                    "uuid": "be02fc91-6da6-4c57-a2f5-d1a727b445b3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R84",
+                    "pos": {
+                        "x": 63.0,
+                        "y": 29.5
+                    },
+                    "uuid": "dbe6c05c-2bdf-4307-af92-09b27a2856ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R85",
+                    "pos": {
+                        "x": 53.0,
+                        "y": 33.5
+                    },
+                    "uuid": "d5f2d0a7-5c79-4f6a-a761-935dff67afee"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R86",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 45.0
+                    },
+                    "uuid": "210317c9-7303-4613-b227-f10e38e76961"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R87",
+                    "pos": {
+                        "x": 53.5,
+                        "y": 46.5
+                    },
+                    "uuid": "7332d06b-bfe6-4147-a6dc-1e5813ce7faf"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R88",
+                    "pos": {
+                        "x": 61.5,
+                        "y": 22.5
+                    },
+                    "uuid": "1eec4e9b-5192-4133-8d47-c03cfa18adaa"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R89",
+                    "pos": {
+                        "x": 52.5,
+                        "y": 28.5
+                    },
+                    "uuid": "917bab24-59fd-4933-a152-6d287624640d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R90",
+                    "pos": {
+                        "x": 65.0,
+                        "y": 19.0
+                    },
+                    "uuid": "b7748e06-80e1-4a63-a6f2-95ecbdd65685"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R91",
+                    "pos": {
+                        "x": 56.5,
+                        "y": 27.5
+                    },
+                    "uuid": "1f033a39-3a24-41dc-a2a8-ab27eaab33d8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R92",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 42.0
+                    },
+                    "uuid": "f39420ea-32a8-4787-99dd-516c8da1594b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.1W, 0603')",
+            "items": [
+                {
+                    "description": "Footprint R93",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 38.5
+                    },
+                    "uuid": "2d8fa6e2-789a-4eca-baf8-d8bc13241c4b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'I2C0x20,400kHz. GPA unused: configure inputs with internal pullups, no PCB connections; GPB controls/expansion')",
+            "items": [
+                {
+                    "description": "Footprint U33",
+                    "pos": {
+                        "x": 53.5,
+                        "y": 40.0
+                    },
+                    "uuid": "53223fab-b81e-40cb-b84e-641bcbd72d4e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-NC-Pad11))",
+            "items": [
+                {
+                    "description": "Pad 11 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 50.0,
+                        "y": 42.275
+                    },
+                    "uuid": "7b245e9f-30bd-46af-97aa-74e4a2f0fd1a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-NC-Pad14))",
+            "items": [
+                {
+                    "description": "Pad 14 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 50.0,
+                        "y": 44.225
+                    },
+                    "uuid": "5a75c46a-fa3b-4944-b5de-5aed58c4dd21"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-INTB-Pad19))",
+            "items": [
+                {
+                    "description": "Pad 19 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 41.625
+                    },
+                    "uuid": "723fbe90-747f-461a-9c20-ab58fada1711"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-INTA-Pad20))",
+            "items": [
+                {
+                    "description": "Pad 20 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 40.975
+                    },
+                    "uuid": "7a11b210-2168-4da5-8ff2-49b4e1b8576f"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA0-Pad21))",
+            "items": [
+                {
+                    "description": "Pad 21 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 40.325
+                    },
+                    "uuid": "0ed9566a-6073-4dfa-bb89-67b262776846"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA1-Pad22))",
+            "items": [
+                {
+                    "description": "Pad 22 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 39.675
+                    },
+                    "uuid": "68949a8f-fe80-4163-9d67-713163158a57"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA2-Pad23))",
+            "items": [
+                {
+                    "description": "Pad 23 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 39.025
+                    },
+                    "uuid": "00b7340e-6412-4d1c-ba31-0d4b4c2c4559"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA3-Pad24))",
+            "items": [
+                {
+                    "description": "Pad 24 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 38.375
+                    },
+                    "uuid": "1aede3d3-59cc-4d7b-8847-b3d5584cc281"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA4-Pad25))",
+            "items": [
+                {
+                    "description": "Pad 25 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 37.725
+                    },
+                    "uuid": "0b21dff9-67e0-4ba4-a9dc-51e1df941ad2"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA5-Pad26))",
+            "items": [
+                {
+                    "description": "Pad 26 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 37.075
+                    },
+                    "uuid": "7854fa1a-2fca-4b42-adf6-0d9bba43c5cc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA6-Pad27))",
+            "items": [
+                {
+                    "description": "Pad 27 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 36.425
+                    },
+                    "uuid": "57338fae-bb07-44f4-bed5-8cfd9f3c1a50"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U33-GPA7-Pad28))",
+            "items": [
+                {
+                    "description": "Pad 28 [<no net>] of U33 on F.Cu",
+                    "pos": {
+                        "x": 57.0,
+                        "y": 35.775
+                    },
+                    "uuid": "b571cb35-eec5-4355-bf4d-df397f998a48"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance')",
+            "items": [
+                {
+                    "description": "Footprint J33",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 36.5
+                    },
+                    "uuid": "f953b357-9cc2-4749-8c35-016cd817d3f7"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Internal short-cable expansion only;3.3V logic,25mA maximum allocated;not hot-pluggable;MCP GPIO defaults input with100k pulldown;reserve I2C0x20 and0x48')",
+            "items": [
+                {
+                    "description": "Footprint J34",
+                    "pos": {
+                        "x": 61.0,
+                        "y": 36.5
+                    },
+                    "uuid": "b3443d03-3ddd-4ca8-9147-4fc177f8c76c"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Onboard top-actuated SPST-NO;3x2.5x1.6mm;1.5N;5ms max bounce;minimum applicable load reference10uA at1V. Approx300uA at3.3V here. Short select/save or fault acknowledge; long enter/back. Contact reliability and insulated access require prototype validation.')",
+            "items": [
+                {
+                    "description": "Footprint SW3",
+                    "pos": {
+                        "x": 85.0,
+                        "y": 12.0
+                    },
+                    "uuid": "ae287e0c-5301-44c1-b694-661b17a5b4e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Onboard top-actuated SPST-NO;minimum applicable load reference10uA at1V;approx91uA at5V here. Active-high through existing divider. Short next/increment; long decrement. STOP must be released after clearing ARM before NEXT can operate.')",
+            "items": [
+                {
+                    "description": "Footprint SW4",
+                    "pos": {
+                        "x": 85.0,
+                        "y": 18.0
+                    },
+                    "uuid": "4471ef5a-528d-4c58-8825-0a9171304b5b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C100",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 44.0
+                    },
+                    "uuid": "519c448b-c490-44d9-8fff-86ffdd577b4b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C101",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 54.0
+                    },
+                    "uuid": "60bb61ca-7831-46d7-8469-9affdc105d97"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C110",
+                    "pos": {
+                        "x": 73.0,
+                        "y": 50.0
+                    },
+                    "uuid": "d5857ea7-0644-42c8-ba77-a0a97ab99954"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C111",
+                    "pos": {
+                        "x": 71.5,
+                        "y": 41.5
+                    },
+                    "uuid": "a1a34f26-e986-4a4e-aeeb-4ff318f2c839"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C112",
+                    "pos": {
+                        "x": 71.0,
+                        "y": 45.5
+                    },
+                    "uuid": "a58a7db4-8c90-45d9-8234-9b1cb8bc16d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C113",
+                    "pos": {
+                        "x": 69.5,
+                        "y": 42.0
+                    },
+                    "uuid": "314bddc2-c58a-4798-9a8d-998e613fae4b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R100",
+                    "pos": {
+                        "x": 63.5,
+                        "y": 42.5
+                    },
+                    "uuid": "e379e927-29e6-4221-b116-b9bd8120ef5e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '0.1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R101",
+                    "pos": {
+                        "x": 64.5,
+                        "y": 43.5
+                    },
+                    "uuid": "0d6ecf0b-f08d-4787-be97-d52eb2e36ce3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R102",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 52.0
+                    },
+                    "uuid": "48ed76ad-f349-4c69-9d49-09b00f027f85"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R103",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 35.5
+                    },
+                    "uuid": "d30ab54e-0bae-4270-94d0-cb5d672edefe"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R104",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 41.5
+                    },
+                    "uuid": "25b47884-0b59-4444-85e7-6a9f431343d0"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R105",
+                    "pos": {
+                        "x": 66.5,
+                        "y": 31.0
+                    },
+                    "uuid": "c234dd55-e503-40c7-89f6-5717dd1f8f2d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R106",
+                    "pos": {
+                        "x": 70.5,
+                        "y": 36.0
+                    },
+                    "uuid": "eacaf5fd-829a-4d46-8c31-c9146ffb5f2f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R107",
+                    "pos": {
+                        "x": 69.5,
+                        "y": 38.5
+                    },
+                    "uuid": "0f3e122f-8259-4d6b-98b6-0645a9b4ab1e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R108",
+                    "pos": {
+                        "x": 70.5,
+                        "y": 36.0
+                    },
+                    "uuid": "d33e1cbe-a7af-4625-b54a-115442acef06"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R109",
+                    "pos": {
+                        "x": 75.5,
+                        "y": 39.0
+                    },
+                    "uuid": "1dd6c530-e085-45a6-b421-ce55307df104"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R110",
+                    "pos": {
+                        "x": 70.5,
+                        "y": 49.0
+                    },
+                    "uuid": "c05cc77e-877c-4e9a-8e21-76296d2e333d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R111",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 39.0
+                    },
+                    "uuid": "d4433ad4-cbb2-42e6-b90b-6747ac5e81db"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R112",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 46.0
+                    },
+                    "uuid": "1d8cce6d-b490-4bcf-8b00-7af66336cc72"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R113",
+                    "pos": {
+                        "x": 68.5,
+                        "y": 39.5
+                    },
+                    "uuid": "02ab6997-2379-4a08-93d2-d051040920d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R114",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 52.0
+                    },
+                    "uuid": "0a344bd5-6d34-4bff-a5b8-e60f57d91b9b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Quad RRIO op-amp; reference, two excitation drivers, mux buffer')",
+            "items": [
+                {
+                    "description": "Footprint U20",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 48.0
+                    },
+                    "uuid": "5e1d97ac-3786-4717-9016-5265a59591a6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '8:1 analog multiplexer; EN tied high, firmware reads only valid fresh samples')",
+            "items": [
+                {
+                    "description": "Footprint U21",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 48.0
+                    },
+                    "uuid": "37acd136-4323-443e-9183-6d2d1c8fcbb8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad missing net given by schematic (unconnected-(U21-NC-Pad3))",
+            "items": [
+                {
+                    "description": "Pad 3 [<no net>] of U21 on F.Cu",
+                    "pos": {
+                        "x": 77.1375,
+                        "y": 47.025
+                    },
+                    "uuid": "694defaa-382d-4ea1-8f9b-511d09c205e5"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '16-bit ADC at 860 SPS, differential AIN0-AIN1, +/-2.048V range; I2C address 0x48')",
+            "items": [
+                {
+                    "description": "Footprint U22",
+                    "pos": {
+                        "x": 73.0,
+                        "y": 42.0
+                    },
+                    "uuid": "69c52658-d7ac-47b2-8690-ce98d828b832"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C102",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 42.0
+                    },
+                    "uuid": "ea2dbd2f-6a1f-4308-b000-7565cab6f7dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C103",
+                    "pos": {
+                        "x": 66.5,
+                        "y": 54.5
+                    },
+                    "uuid": "3b25d906-a747-4f1a-91f1-55cf23abc8c5"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C104",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 56.0
+                    },
+                    "uuid": "6861a54c-c3f7-412c-8e26-7d679b419c91"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'X7R 16V 10%')",
+            "items": [
+                {
+                    "description": "Footprint C105",
+                    "pos": {
+                        "x": 62.5,
+                        "y": 52.5
+                    },
+                    "uuid": "cfe5771c-bff8-450c-9a9c-699b78e26cd1"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C106",
+                    "pos": {
+                        "x": 77.5,
+                        "y": 43.0
+                    },
+                    "uuid": "919b18f7-a5fb-4182-9869-ddcdc4c3e7c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C107",
+                    "pos": {
+                        "x": 77.0,
+                        "y": 49.5
+                    },
+                    "uuid": "57101aa6-9f89-46a1-b443-deaa21e90335"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C108",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 43.0
+                    },
+                    "uuid": "d20ca04f-f02a-4c73-9bde-e1b4c845fabc"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C109",
+                    "pos": {
+                        "x": 77.5,
+                        "y": 46.5
+                    },
+                    "uuid": "d7a264c9-0e3e-4caf-892d-efac853c0fd1"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C120",
+                    "pos": {
+                        "x": 73.0,
+                        "y": 57.0
+                    },
+                    "uuid": "196b00be-ca32-449a-9b0c-2fd6f65ae708"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bidirectional low-leakage 5V ESD diode; primary field clamp')",
+            "items": [
+                {
+                    "description": "Footprint D100",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 43.0
+                    },
+                    "uuid": "979fa54c-43df-41d2-8fe7-dd0c66704de9"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bidirectional low-leakage 5V ESD diode; primary field clamp')",
+            "items": [
+                {
+                    "description": "Footprint D101",
+                    "pos": {
+                        "x": 82.0,
+                        "y": 48.5
+                    },
+                    "uuid": "a8c6fd3c-1db5-4171-b72b-71edef8b2bc6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal')",
+            "items": [
+                {
+                    "description": "Footprint D102",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 45.0
+                    },
+                    "uuid": "c3906a7e-71df-410b-8e59-92fafc333b7a"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal')",
+            "items": [
+                {
+                    "description": "Footprint D103",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 51.0
+                    },
+                    "uuid": "3485ddaf-392e-4419-bf89-c37fb712b616"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bidirectional low-leakage 5V ESD diode; primary field clamp')",
+            "items": [
+                {
+                    "description": "Footprint D110",
+                    "pos": {
+                        "x": 71.0,
+                        "y": 62.0
+                    },
+                    "uuid": "35b33c40-04d6-4739-959b-2d7c4769d2e6"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R115",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 48.0
+                    },
+                    "uuid": "1a780d2d-5af0-4c0e-962b-e562008ad2a3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R116",
+                    "pos": {
+                        "x": 82.5,
+                        "y": 42.5
+                    },
+                    "uuid": "c6a15945-b943-4e67-8125-df7cf4abf8e0"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R117",
+                    "pos": {
+                        "x": 72.5,
+                        "y": 54.5
+                    },
+                    "uuid": "71090b74-8388-456f-b6d3-d568f84257c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R118",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 48.0
+                    },
+                    "uuid": "58fca308-c9f2-4361-aa9c-86f99e396769"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R119",
+                    "pos": {
+                        "x": 79.5,
+                        "y": 50.0
+                    },
+                    "uuid": "484351a7-b4e6-4383-8bf1-247b241b2d0f"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R120",
+                    "pos": {
+                        "x": 81.0,
+                        "y": 55.5
+                    },
+                    "uuid": "e7121cc7-60f7-44ff-ac6c-cd4548dec730"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R130",
+                    "pos": {
+                        "x": 61.0,
+                        "y": 67.0
+                    },
+                    "uuid": "645a4204-c588-4783-a6b1-33eb952fd773"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R131",
+                    "pos": {
+                        "x": 61.0,
+                        "y": 67.0
+                    },
+                    "uuid": "ebd74ab2-2dc9-409c-9253-a503de8b41f0"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R132",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 54.5
+                    },
+                    "uuid": "df24f74f-fc48-40d1-9017-b501260867ea"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R133",
+                    "pos": {
+                        "x": 85.5,
+                        "y": 43.0
+                    },
+                    "uuid": "695564a8-1f87-4bad-aa13-c5ff1fe03a0e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G 50V 5%')",
+            "items": [
+                {
+                    "description": "Footprint C121",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 45.0
+                    },
+                    "uuid": "0e6fee79-1ef5-4e40-bd14-a667e2a4361b"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C122",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 60.0
+                    },
+                    "uuid": "bd8dce88-2745-453e-9258-78f8ba62e3b9"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G 50V 5%')",
+            "items": [
+                {
+                    "description": "Footprint C123",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 51.0
+                    },
+                    "uuid": "a9da9e0d-051e-4252-9864-37f70dc08ab3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C124",
+                    "pos": {
+                        "x": 69.5,
+                        "y": 52.0
+                    },
+                    "uuid": "7e2f8b46-a62b-4150-aaa7-caca8315a8da"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G 50V 5%')",
+            "items": [
+                {
+                    "description": "Footprint C125",
+                    "pos": {
+                        "x": 85.5,
+                        "y": 41.0
+                    },
+                    "uuid": "b29e8c68-68f6-413b-a6a4-161863cb4d25"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C126",
+                    "pos": {
+                        "x": 75.5,
+                        "y": 58.0
+                    },
+                    "uuid": "fb1fc53a-1330-4054-8a99-e8b579d54727"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal')",
+            "items": [
+                {
+                    "description": "Footprint D111",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 48.0
+                    },
+                    "uuid": "7b39237a-dd4d-4988-a820-153cd71fbfd0"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bidirectional low-leakage 5V ESD diode; primary field clamp')",
+            "items": [
+                {
+                    "description": "Footprint D112",
+                    "pos": {
+                        "x": 65.5,
+                        "y": 66.5
+                    },
+                    "uuid": "4f9c84bb-5d3d-4cb7-abe2-616fcae068ae"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal')",
+            "items": [
+                {
+                    "description": "Footprint D113",
+                    "pos": {
+                        "x": 85.0,
+                        "y": 48.0
+                    },
+                    "uuid": "b91f0be7-5c42-4337-8965-bf6cb06171ec"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bidirectional low-leakage 5V ESD diode; primary field clamp')",
+            "items": [
+                {
+                    "description": "Footprint D114",
+                    "pos": {
+                        "x": 64.0,
+                        "y": 56.0
+                    },
+                    "uuid": "5be39d56-b883-433a-9c99-c9b652ba0116"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal')",
+            "items": [
+                {
+                    "description": "Footprint D115",
+                    "pos": {
+                        "x": 84.0,
+                        "y": 44.0
+                    },
+                    "uuid": "b9110b5f-2aef-403f-8024-72307605f987"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Bidirectional low-leakage 5V ESD diode; primary field clamp')",
+            "items": [
+                {
+                    "description": "Footprint D116",
+                    "pos": {
+                        "x": 74.0,
+                        "y": 63.0
+                    },
+                    "uuid": "ff76a903-d519-4aa8-b411-4b18747991c8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R140",
+                    "pos": {
+                        "x": 61.0,
+                        "y": 64.5
+                    },
+                    "uuid": "a9ffe6fd-5bb7-44e8-a041-8a1897a2ff5d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R141",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 66.0
+                    },
+                    "uuid": "65e35b89-d470-4003-a602-22a945ff5dd8"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R142",
+                    "pos": {
+                        "x": 79.0,
+                        "y": 58.0
+                    },
+                    "uuid": "b2ca43d9-ca49-448d-b88f-2bbde201305e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R143",
+                    "pos": {
+                        "x": 85.0,
+                        "y": 51.0
+                    },
+                    "uuid": "cd511df5-8a08-4f9d-95ae-f769c0f7f6c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R150",
+                    "pos": {
+                        "x": 57.5,
+                        "y": 60.5
+                    },
+                    "uuid": "bae30657-ae45-497c-a476-846ead888e86"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R151",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 60.5
+                    },
+                    "uuid": "00dacf85-3b49-440b-a62b-a2ebdad71e39"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R152",
+                    "pos": {
+                        "x": 73.5,
+                        "y": 41.5
+                    },
+                    "uuid": "914b6a68-18b7-400a-bca5-b4183d0a2c1d"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R153",
+                    "pos": {
+                        "x": 88.0,
+                        "y": 42.5
+                    },
+                    "uuid": "e80f230f-4e32-493b-8018-d4e3e9ed16eb"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R160",
+                    "pos": {
+                        "x": 64.5,
+                        "y": 60.5
+                    },
+                    "uuid": "0ec63651-6603-43ef-b3c6-2c0465d00a6a"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, 0.25W; surge qualification required')",
+            "items": [
+                {
+                    "description": "Footprint R161",
+                    "pos": {
+                        "x": 67.0,
+                        "y": 60.5
+                    },
+                    "uuid": "c0f264cb-6776-4add-93d7-e02337cbb6cf"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R162",
+                    "pos": {
+                        "x": 82.5,
+                        "y": 58.0
+                    },
+                    "uuid": "1934b82c-48b6-47cb-a39f-6894e24bc560"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1%, >=0.1 W')",
+            "items": [
+                {
+                    "description": "Footprint R163",
+                    "pos": {
+                        "x": 84.5,
+                        "y": 53.0
+                    },
+                    "uuid": "fdd1c26c-a82d-48d6-bbe4-b3e07bd3da7e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G 50V 5%')",
+            "items": [
+                {
+                    "description": "Footprint C127",
+                    "pos": {
+                        "x": 82.0,
+                        "y": 52.0
+                    },
+                    "uuid": "97fe904e-55e2-481a-a0de-8581ecd8e0ec"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: '1uF 50V X7R 10%; DC block, retain >=0.7uF at operating bias/temp')",
+            "items": [
+                {
+                    "description": "Footprint C128",
+                    "pos": {
+                        "x": 85.5,
+                        "y": 55.0
+                    },
+                    "uuid": "20446266-e8fb-47d3-a69c-c3244621cf07"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'C0G 50V 5%')",
+            "items": [
+                {
+                    "description": "Footprint C129",
+                    "pos": {
+                        "x": 77.0,
+                        "y": 43.5
+                    },
+                    "uuid": "b9bd886a-646f-420c-b4dd-d6d698d5215e"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Extra footprint",
+            "items": [
+                {
+                    "description": "Footprint H2",
+                    "pos": {
+                        "x": 87.0,
+                        "y": 67.0
+                    },
+                    "uuid": "e58b80c8-684a-4d3b-b5cf-9e87bdab6d78"
+                }
+            ],
+            "severity": "warning",
+            "type": "extra_footprint"
+        },
+        {
+            "description": "Extra footprint",
+            "items": [
+                {
+                    "description": "Footprint H1",
+                    "pos": {
+                        "x": 87.0,
+                        "y": 3.0
+                    },
+                    "uuid": "eafe2072-bd31-46ab-b709-df827c154b18"
+                }
+            ],
+            "severity": "warning",
+            "type": "extra_footprint"
+        }
+    ],
+    "source": "pump-controller-rev-b.kicad_pcb",
+    "unconnected_items": [],
+    "violations": []
+}

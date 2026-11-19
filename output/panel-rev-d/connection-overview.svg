@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1460" viewBox="0 0 1800 1460">
+<title>Rev D panel and DOL starter connection overview</title>
+<desc>Conceptual mechanical overview with verified panel connector signals. Main board retains guarded mains circuitry. Separate panel uses isolated 3.3 and 5 volt circuits. Local and external STOP contacts are series connected.</desc>
+<defs>
+ <pattern id="hazard" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#fff4dc"/><rect width="4" height="12" fill="#ebcf8c"/></pattern>
+ <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10z" fill="#007f79"/></marker>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#132b3c;font-size:20px} .small{font-size:17px;fill:#526976}.tiny{font-size:15px;fill:#526976}.heading{font-size:26px;font-weight:700} .label{font-weight:700} .mono{font-family:Menlo,Consolas,monospace;font-size:18px} .light{fill:white} .live{fill:#a53935}</style>
+<rect width="1800" height="1460" fill="#f3f5f6"/>
+
+<text x="42" y="63" class="heading" text-anchor="start">A separate control panel, one low-voltage cable</text>
+<text x="42" y="102" class="small" text-anchor="start">Rev D • 1 HP single-phase pump controller • Connection overview, not an installation or enclosure-fit approval</text>
+<rect x="1480" y="34" width="278" height="51" rx="9" fill="#fff3d8" stroke="#ddbc77" stroke-width="1"/>
+<text x="1619" y="66" class="small label" text-anchor="middle" style="fill:#865d17">ENGINEERING PROTOTYPE</text>
+<rect x="40" y="140" width="785" height="600" rx="15" fill="white" stroke="#ccd6dc" stroke-width="1"/>
+<text x="66" y="181" class="heading" text-anchor="start">01  Inside the existing starter</text>
+<text x="66" y="213" class="small" text-anchor="start">Main PCB 90 × 70 mm • guarded power section</text>
+<rect x="65" y="235" width="735" height="425" rx="8" fill="#e9edef" stroke="#aab7bf" stroke-width="2"/>
+<rect x="83" y="254" width="198" height="384" rx="7" fill="#f7e8e4" stroke="#d9a79e" stroke-width="1"/>
+<text x="182" y="283" class="small label" text-anchor="middle" style="fill:#a53935">EXISTING LIVE PARTS</text>
+<rect x="106" y="309" width="57" height="99" rx="14" fill="#d9d8c8" stroke="#8f927e" stroke-width="1"/>
+<rect x="176" y="309" width="69" height="99" rx="14" fill="#d3d6d9" stroke="#8d979e" stroke-width="1"/>
+<text x="176" y="431" class="tiny" text-anchor="middle">Start / run capacitors</text>
+<rect x="112" y="454" width="131" height="89" rx="7" fill="#39464e" stroke="#25353f" stroke-width="1"/>
+<circle cx="130" cy="466" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="130" cy="530" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="163" cy="466" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="163" cy="530" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="196" cy="466" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="196" cy="530" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="228" cy="466" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<circle cx="228" cy="530" r="5" fill="#c7b584" stroke="none" stroke-width="1"/>
+<text x="177" y="503" class="small label light" text-anchor="middle" style="fill:white">CONTACTOR</text>
+<text x="182" y="578" class="tiny" text-anchor="middle" style="fill:#a53935">Mains / meter backs</text>
+<text x="182" y="603" class="tiny" text-anchor="middle" style="fill:#a53935">remain behind guards</text>
+<rect x="310" y="278" width="420" height="327" rx="7" fill="#e3f0e9" stroke="#628d79" stroke-width="2"/>
+<rect x="312" y="280" width="150" height="323" rx="0" fill="#f4e6e0" stroke="none" stroke-width="1"/>
+<rect x="462" y="280" width="37" height="323" rx="0" fill="url(#hazard)" stroke="none" stroke-width="1"/>
+<text x="385" y="305" class="small label" text-anchor="middle" style="fill:#a53935">MAIN / LIVE</text>
+<text x="594" y="305" class="small label" text-anchor="middle" style="fill:#007f79">ISOLATED CONTROL</text>
+<rect x="327" y="326" width="116" height="100" rx="5" fill="#d6d3cf" stroke="#a9b9bf" stroke-width="1"/>
+<text x="385.0" y="383.0" class="label" text-anchor="middle">AC/DC</text>
+<text x="385" y="449" class="tiny" text-anchor="middle" style="fill:#a53935">Fuse • metering</text>
+<rect x="328" y="469" width="116" height="65" rx="5" fill="#e5dbcf" stroke="#a9b9bf" stroke-width="1"/>
+<text x="386.0" y="508.5" class="tiny label" text-anchor="middle">COIL RELAYS</text>
+<text x="385" y="559" class="tiny" text-anchor="middle" style="fill:#a53935">Mains stays here</text>
+<text x="483" y="571" class="tiny label" transform="rotate(-90 483 571)">8 mm copper isolation corridor</text>
+<rect x="510" y="329" width="132" height="66" rx="5" fill="#c6e2d4" stroke="#a9b9bf" stroke-width="1"/>
+<text x="576.0" y="369.0" class="small label" text-anchor="middle">ESP32 + I/O</text>
+<text x="510" y="427" class="tiny label" text-anchor="start">SW3 / SW4: DNP</text>
+<text x="510" y="449" class="tiny" text-anchor="start">Settings move to panel</text>
+<rect x="657" y="447" width="99" height="37" rx="5" fill="#d4e9e6" stroke="#a9b9bf" stroke-width="1"/>
+<text x="706.5" y="472.5" class="small label" text-anchor="middle">J32</text>
+<text x="642" y="471" class="tiny" text-anchor="end">Buttons</text>
+<rect x="657" y="498" width="99" height="37" rx="5" fill="#d4e9e6" stroke="#a9b9bf" stroke-width="1"/>
+<text x="706.5" y="523.5" class="small label" text-anchor="middle">J33</text>
+<text x="642" y="522" class="tiny" text-anchor="end">Display</text>
+<rect x="657" y="549" width="99" height="37" rx="5" fill="#d4e9e6" stroke="#a9b9bf" stroke-width="1"/>
+<text x="706.5" y="574.5" class="small label" text-anchor="middle">J34</text>
+<text x="642" y="573" class="tiny" text-anchor="end">Key I/O</text>
+<text x="66" y="695" class="small" text-anchor="start">Motor power and capacitor-start wiring stay in the starter.</text>
+<text x="66" y="722" class="small" text-anchor="start">Main-board and original meter terminals need insulating covers.</text>
+<rect x="955" y="140" width="805" height="600" rx="15" fill="white" stroke="#ccd6dc" stroke-width="1"/>
+<text x="981" y="181" class="heading" text-anchor="start">02  Separate front-panel PCB</text>
+<text x="981" y="213" class="small" text-anchor="start">60 × 45 mm • only isolated 3.3 V / 5 V circuits</text>
+<rect x="1060" y="247" width="600" height="450" rx="10" fill="#dcf0e6" stroke="#578e77" stroke-width="2"/>
+<circle cx="1090" cy="277" r="9" fill="white" stroke="#6c9c87" stroke-width="2"/>
+<circle cx="1630" cy="277" r="9" fill="white" stroke="#6c9c87" stroke-width="2"/>
+<circle cx="1090" cy="667" r="9" fill="white" stroke="#6c9c87" stroke-width="2"/>
+<circle cx="1630" cy="667" r="9" fill="white" stroke="#6c9c87" stroke-width="2"/>
+<rect x="1180" y="266" width="360" height="125" rx="6" fill="#1a3a3e" stroke="#476f6e" stroke-width="2"/>
+<rect x="1202" y="282" width="315" height="80" rx="4" fill="#091b22" stroke="none" stroke-width="1"/>
+<text x="1217" y="309" class="mono" text-anchor="start" style="fill:#7ee5df">AUTO          READY</text>
+<text x="1217" y="339" class="mono" text-anchor="start" style="fill:#7ee5df">LEVEL 3/4    230 V</text>
+<text x="1360" y="383" class="tiny" text-anchor="middle" style="fill:#c2e5dd">0.91 in OLED • above PCB</text>
+<rect x="1545" y="311" width="92" height="38" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1591.0" y="337.0" class="tiny label" text-anchor="middle">J7 OLED</text>
+<line x1="1540" y1="330" x2="1545" y2="330" stroke="#526976" stroke-width="2"/>
+<rect x="1087" y="312" width="82" height="38" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1128.0" y="338.0" class="tiny label" text-anchor="middle">J8 KEY</text>
+<text x="1128" y="376" class="tiny" text-anchor="middle">Optional</text>
+<text x="1128" y="399" class="tiny" text-anchor="middle">MAN / AUTO</text>
+<rect x="1240" y="427" width="174" height="40" rx="5" fill="#d0e6e2" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1327.0" y="454.0" class="small label" text-anchor="middle">J1 • 12-way</text>
+<text x="1435" y="451" class="tiny" text-anchor="start">Key input circuits</text>
+<rect x="1435" y="476" width="76" height="36" rx="5" fill="#fff1d4" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1473.0" y="501.0" class="tiny label" text-anchor="middle">JP1</text>
+<text x="1524" y="500" class="tiny" text-anchor="start">Ext STOP link</text>
+<rect x="1109" y="535" width="52" height="42" rx="6" fill="#253b47" stroke="none" stroke-width="1"/>
+<circle cx="1135" cy="556" r="15" fill="#007d62" stroke="#f5f6f7" stroke-width="2"/>
+<text x="1135" y="604" class="tiny label" text-anchor="middle">START</text>
+<text x="1135" y="625" class="tiny" text-anchor="middle">SW2</text>
+<rect x="1267" y="535" width="52" height="42" rx="6" fill="#253b47" stroke="none" stroke-width="1"/>
+<circle cx="1293" cy="556" r="15" fill="#a63a36" stroke="#f5f6f7" stroke-width="2"/>
+<text x="1293" y="604" class="tiny label" text-anchor="middle">STOP</text>
+<text x="1293" y="625" class="tiny" text-anchor="middle">SW1 NC</text>
+<rect x="1379" y="535" width="52" height="42" rx="6" fill="#253b47" stroke="none" stroke-width="1"/>
+<circle cx="1405" cy="556" r="15" fill="#24759c" stroke="#f5f6f7" stroke-width="2"/>
+<text x="1405" y="604" class="tiny label" text-anchor="middle">MODE</text>
+<text x="1405" y="625" class="tiny" text-anchor="middle">SW3</text>
+<rect x="1484" y="535" width="52" height="42" rx="6" fill="#253b47" stroke="none" stroke-width="1"/>
+<circle cx="1510" cy="556" r="15" fill="#596e80" stroke="#f5f6f7" stroke-width="2"/>
+<text x="1510" y="604" class="tiny label" text-anchor="middle">SET</text>
+<text x="1510" y="625" class="tiny" text-anchor="middle">SW4</text>
+<rect x="1574" y="535" width="52" height="42" rx="6" fill="#253b47" stroke="none" stroke-width="1"/>
+<circle cx="1600" cy="556" r="15" fill="#596e80" stroke="#f5f6f7" stroke-width="2"/>
+<text x="1600" y="604" class="tiny label" text-anchor="middle">NEXT</text>
+<text x="1600" y="625" class="tiny" text-anchor="middle">SW5</text>
+<rect x="1092" y="647" width="96" height="28" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1140.0" y="668.0" class="tiny label" text-anchor="middle">J2 START</text>
+<rect x="1202" y="647" width="96" height="28" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1250.0" y="668.0" class="tiny label" text-anchor="middle">J3 STOP</text>
+<rect x="1312" y="647" width="96" height="28" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1360.0" y="668.0" class="tiny label" text-anchor="middle">J4 MODE</text>
+<rect x="1422" y="647" width="96" height="28" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1470.0" y="668.0" class="tiny label" text-anchor="middle">J5 SET</text>
+<rect x="1532" y="647" width="96" height="28" rx="5" fill="#f9fbfa" stroke="#a9b9bf" stroke-width="1"/>
+<text x="1580.0" y="668.0" class="tiny label" text-anchor="middle">J6 NEXT</text>
+<text x="981" y="724" class="small" text-anchor="start">Push-caps, OLED mounting and connector clearance require fit checks.</text>
+<path d="M756 466 H785 Q805 466 805 477 V447 H850" fill="none" stroke="#007f79" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M756 517 H785 Q805 517 805 477 V447 H850" fill="none" stroke="#007f79" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M756 568 H785 Q805 568 805 477 V447 H850" fill="none" stroke="#007f79" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M850 447 H1240" fill="none" stroke="#007f79" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M850 447 H1240" fill="none" stroke="#59b7ac" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="891" y="362" class="small label" text-anchor="middle" style="fill:#007f79">ONE CABLE</text>
+<text x="891" y="388" class="tiny" text-anchor="middle">12 conductors</text>
+<text x="891" y="414" class="tiny" text-anchor="middle">J1 at panel</text>
+<text x="891" y="487" class="tiny" text-anchor="middle">Fanout at main</text>
+<text x="891" y="513" class="tiny" text-anchor="middle">J32 + J33 + J34</text>
+<rect x="40" y="778" width="810" height="605" rx="15" fill="white" stroke="#ccd6dc" stroke-width="1"/>
+<text x="66" y="821" class="heading" text-anchor="start">Either STOP opens the hardware permission path</text>
+<text x="66" y="855" class="small" text-anchor="start">The external link substitutes only for an unused external STOP.</text>
+<text x="77" y="956" class="mono label" text-anchor="start">+5V</text>
+<line x1="132" y1="949" x2="202" y2="949" stroke="#a53935" stroke-width="4"/>
+<circle cx="202" cy="949" r="5" fill="white" stroke="#a53935" stroke-width="2"/>
+<circle cx="306" cy="949" r="5" fill="white" stroke="#a53935" stroke-width="2"/>
+<line x1="202" y1="949" x2="306" y2="949" stroke="#a53935" stroke-width="4"/>
+<line x1="254" y1="910" x2="254" y2="939" stroke="#a53935" stroke-width="2" stroke-dasharray="4 3"/>
+<line x1="235" y1="910" x2="273" y2="910" stroke="#a53935" stroke-width="3"/>
+<text x="254" y="889" class="small label" text-anchor="middle">SW1 local STOP</text>
+<text x="254" y="983" class="tiny" text-anchor="middle">NC • opens on press</text>
+<line x1="311" y1="949" x2="435" y2="949" stroke="#a53935" stroke-width="4"/>
+<circle cx="435" cy="949" r="5" fill="white" stroke="#a53935" stroke-width="2"/>
+<circle cx="550" cy="949" r="5" fill="white" stroke="#a53935" stroke-width="2"/>
+<line x1="435" y1="949" x2="550" y2="949" stroke="#a53935" stroke-width="4"/>
+<line x1="492" y1="910" x2="492" y2="939" stroke="#a53935" stroke-width="2" stroke-dasharray="4 3"/>
+<line x1="473" y1="910" x2="511" y2="910" stroke="#a53935" stroke-width="3"/>
+<text x="492" y="889" class="small label" text-anchor="middle">J3 external NC STOP</text>
+<text x="435" y="981" class="tiny" text-anchor="middle">1</text>
+<text x="550" y="981" class="tiny" text-anchor="middle">2</text>
+<path d="M409 949 V1034 H574 V949" fill="none" stroke="#b1802e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<text x="492" y="1066" class="small label" text-anchor="middle" style="fill:#8c621d">JP1 link only if J3 is unused</text>
+<line x1="555" y1="949" x2="792" y2="949" stroke="#a53935" stroke-width="4"/>
+<text x="680" y="924" class="mono label" text-anchor="middle">STOP_RETURN</text>
+<text x="680" y="982" class="tiny" text-anchor="middle">to main J32.2</text>
+<text x="680" y="1005" class="tiny" text-anchor="middle">then high-high loop / K1</text>
+<line x1="66" y1="1090" x2="824" y2="1090" stroke="#dde5e9" stroke-width="1"/>
+<text x="66" y="1126" class="label" text-anchor="start">Reuse or add external momentary buttons</text>
+<text x="66" y="1158" class="small" text-anchor="start">J2 START, J4 MODE, J5 SET and J6 NEXT use NO contacts</text>
+<text x="66" y="1185" class="small" text-anchor="start">in parallel with the corresponding local button.</text>
+<text x="66" y="1229" class="label" text-anchor="start">Optional maintained key selector → J8</text>
+<text x="66" y="1261" class="small" text-anchor="start">1 = +5V common    2 = MAN throw    3 = AUTO throw</text>
+<text x="66" y="1288" class="small" text-anchor="start">Mode request only; it cannot bypass STOP or other protection.</text>
+<rect x="66" y="1311" width="758" height="50" rx="5" fill="#fff2df" stroke="none" stroke-width="1"/>
+<text x="83" y="1343" class="small label" text-anchor="start" style="fill:#835a1e">Existing starter buttons: separate isolated auxiliary contacts only.</text>
+<rect x="880" y="778" width="880" height="605" rx="15" fill="white" stroke="#ccd6dc" stroke-width="1"/>
+<text x="906" y="821" class="heading" text-anchor="start">12-way panel cable: exact signal map</text>
+<text x="906" y="852" class="small" text-anchor="start">One conductor per listed signal; common ground uses J32.7.</text>
+<rect x="906" y="873" width="828" height="36" rx="4" fill="#e8eff1" stroke="none" stroke-width="1"/>
+<text x="926" y="898" class="small label" text-anchor="start">PANEL J1</text>
+<text x="1069" y="898" class="small label" text-anchor="start">SIGNAL / FUNCTION</text>
+<text x="1563" y="898" class="small label" text-anchor="start">MAIN END</text>
+<text x="959" y="933" class="mono" text-anchor="middle">1</text>
+<text x="1069" y="933" class="mono" text-anchor="start">+5V</text>
+<text x="1563" y="933" class="mono" text-anchor="start">J32.1</text>
+<rect x="906" y="942" width="828" height="31" rx="0" fill="#f5f8f9" stroke="none" stroke-width="1"/>
+<text x="959" y="964" class="mono" text-anchor="middle">2</text>
+<text x="1069" y="964" class="mono" text-anchor="start">STOP_RETURN</text>
+<text x="1563" y="964" class="mono" text-anchor="start">J32.2</text>
+<text x="959" y="995" class="mono" text-anchor="middle">3</text>
+<text x="1069" y="995" class="mono" text-anchor="start">MODE  /  MAN_RETURN</text>
+<text x="1563" y="995" class="mono" text-anchor="start">J32.3</text>
+<rect x="906" y="1004" width="828" height="31" rx="0" fill="#f5f8f9" stroke="none" stroke-width="1"/>
+<text x="959" y="1026" class="mono" text-anchor="middle">4</text>
+<text x="1069" y="1026" class="mono" text-anchor="start">NEXT  /  AUTO_RETURN</text>
+<text x="1563" y="1026" class="mono" text-anchor="start">J32.4</text>
+<text x="959" y="1057" class="mono" text-anchor="middle">5</text>
+<text x="1069" y="1057" class="mono" text-anchor="start">START_N</text>
+<text x="1563" y="1057" class="mono" text-anchor="start">J32.5</text>
+<rect x="906" y="1066" width="828" height="31" rx="0" fill="#f5f8f9" stroke="none" stroke-width="1"/>
+<text x="959" y="1088" class="mono" text-anchor="middle">6</text>
+<text x="1069" y="1088" class="mono" text-anchor="start">SET / RESET_N</text>
+<text x="1563" y="1088" class="mono" text-anchor="start">J32.6</text>
+<text x="959" y="1119" class="mono" text-anchor="middle">7</text>
+<text x="1069" y="1119" class="mono" text-anchor="start">GND</text>
+<text x="1563" y="1119" class="mono" text-anchor="start">J32.7</text>
+<rect x="906" y="1128" width="828" height="31" rx="0" fill="#f5f8f9" stroke="none" stroke-width="1"/>
+<text x="959" y="1150" class="mono" text-anchor="middle">8</text>
+<text x="1069" y="1150" class="mono" text-anchor="start">+3V3</text>
+<text x="1563" y="1150" class="mono" text-anchor="start">J33.1</text>
+<text x="959" y="1181" class="mono" text-anchor="middle">9</text>
+<text x="1069" y="1181" class="mono" text-anchor="start">I2C_SDA</text>
+<text x="1563" y="1181" class="mono" text-anchor="start">J33.3</text>
+<rect x="906" y="1190" width="828" height="31" rx="0" fill="#f5f8f9" stroke="none" stroke-width="1"/>
+<text x="959" y="1212" class="mono" text-anchor="middle">10</text>
+<text x="1069" y="1212" class="mono" text-anchor="start">I2C_SCL</text>
+<text x="1563" y="1212" class="mono" text-anchor="start">J33.4</text>
+<text x="959" y="1243" class="mono" text-anchor="middle">11</text>
+<text x="1069" y="1243" class="mono" text-anchor="start">KEY_MAN_N</text>
+<text x="1563" y="1243" class="mono" text-anchor="start">J34.5</text>
+<rect x="906" y="1252" width="828" height="31" rx="0" fill="#f5f8f9" stroke="none" stroke-width="1"/>
+<text x="959" y="1274" class="mono" text-anchor="middle">12</text>
+<text x="1069" y="1274" class="mono" text-anchor="start">KEY_AUTO_N</text>
+<text x="1563" y="1274" class="mono" text-anchor="start">J34.6</text>
+<text x="906" y="1312" class="small" text-anchor="start">J33.2 is the same main-board GND: leave its wire cavity empty</text>
+<text x="906" y="1339" class="small" text-anchor="start">in this fanout. No double-crimped ground terminal is required.</text>
+<text x="906" y="1366" class="small label" text-anchor="start">J7 OLED order: 1 SCL • 2 SDA • 3 GND • 4 +3V3</text>
+<text x="42" y="1422" class="small" text-anchor="start">Conceptual component placement and wiring paths • Not to scale • Wire identities must be verified on the actual starter before installation</text>
+</svg>

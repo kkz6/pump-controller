@@ -1,0 +1,110 @@
+{
+  "pcb_sha256": "6b85b968fdaa5b8524018d4f0972232ee2e1979a254ebbc7d08e5de322ee4418",
+  "parser": "gerbonara0.13.0",
+  "gerber_count": 7,
+  "outline_size_mm": [
+    60.0,
+    45.0
+  ],
+  "drills": {
+    "PTH": {
+      "count": 28,
+      "expected": 28,
+      "missing": [],
+      "extra": [],
+      "max_rounding_mm": 0.0005,
+      "coordinate_tolerance_mm": 0.000501
+    },
+    "NPTH": {
+      "count": 4,
+      "expected": 4,
+      "missing": [],
+      "extra": [],
+      "max_rounding_mm": 0,
+      "coordinate_tolerance_mm": 0.000501
+    }
+  },
+  "ipc_source_connected_pins_checked": 81,
+  "ipc_source_pin_differences": [],
+  "files": {
+    "pump-panel-rev-d-F_Cu.gtl": {
+      "sha256": "5daca55a933b355c1d575c1b69d8e86588d3532df69c42f836144338af2decf5",
+      "objects": 94,
+      "role": "Copper,L1,Top"
+    },
+    "pump-panel-rev-d-B_Cu.gbl": {
+      "sha256": "a212715e9a7c576029ae73cf44cd58a78dd223e5af456338b6f977dea94831d8",
+      "objects": 274,
+      "role": "Copper,L2,Bot"
+    },
+    "pump-panel-rev-d-F_Mask.gts": {
+      "sha256": "e0b2d97b4fbcf56d82c1056dd71a63271e2143dee793dd0f07260365f4114d0a",
+      "objects": 17,
+      "role": "Soldermask,Top"
+    },
+    "pump-panel-rev-d-B_Mask.gbs": {
+      "sha256": "a7d538b4d1956053eea16d049564e40d6ca8ed61d9f2fe49c0771c5a9a5c136a",
+      "objects": 86,
+      "role": "Soldermask,Bot"
+    },
+    "pump-panel-rev-d-F_Silkscreen.gto": {
+      "sha256": "64a9fee84426eb9c298c6cd70a484c642614fed64c12d013123229d9b840b7e1",
+      "objects": 336,
+      "role": "Legend,Top"
+    },
+    "pump-panel-rev-d-B_Silkscreen.gbo": {
+      "sha256": "e85e40cf2753ab1501769f661d80ad8d0824b92e9844cae9710a98bfef76a23f",
+      "objects": 602,
+      "role": "Legend,Bot"
+    },
+    "pump-panel-rev-d-Edge_Cuts.gm1": {
+      "sha256": "0fd300801baac64856412e5f61d45fa2ba697cac4091f45b6c698f4d9d5caa03",
+      "objects": 4,
+      "role": "Profile,NP"
+    },
+    "pump-panel-rev-d-PTH.drl": {
+      "sha256": "d57bfa7a5db2860cb7275ae5a2dd50a0eaceb9436c1b79cb4a761a85d94849fd",
+      "holes": 28
+    },
+    "pump-panel-rev-d-NPTH.drl": {
+      "sha256": "4b0e02696ed2c99baf9eac9e6319b0071f8d3d8853e47c61447bf6154efe9258",
+      "holes": 4
+    },
+    "pump-panel-rev-d.d356": {
+      "sha256": "6bc4ed7c461375cd55b33bff59c2b421aeba2c8905f36b02c04feb1bc1cdb3b3",
+      "records": 117
+    },
+    "pump-panel-rev-d-job.gbrjob": {
+      "sha256": "ac6f1087e836cdeeaa3877556d1cb536aa40643b38c4a6a242ff3b36802119d4"
+    }
+  },
+  "warnings": [
+    "hardware/panel-rev-d/gerber-review/pump-panel-rev-d-PTH.drl:16 \"G90\": G90 header statement found after end of header",
+    "hardware/panel-rev-d/gerber-review/pump-panel-rev-d-NPTH.drl:12 \"G90\": G90 header statement found after end of header"
+  ],
+  "errors": [],
+  "serialization_and_registration_passed": true,
+  "stencil_paste_files_included": false,
+  "native_conductive_gerber_netlist_extracted": false,
+  "manufacturer_accepted": false,
+  "hardware_tested": false,
+  "release_ready": false,
+  "separate_stencil_files": [
+    {
+      "file": "exports/stencil/pump-panel-rev-d-F_Paste.gtp",
+      "role": "Paste,Top",
+      "objects": 8,
+      "sha256": "e1103b9ca177a41bc5e411713dae44a500922738f9fb03b482098fa3ff887791",
+      "warnings": []
+    },
+    {
+      "file": "exports/stencil/pump-panel-rev-d-B_Paste.gbp",
+      "role": "Paste,Bot",
+      "objects": 77,
+      "sha256": "57c1d01de412b180d56575304bbda9273715f72b8c37bd1809481ca871f5f05f",
+      "warnings": []
+    }
+  ],
+  "separate_stencil_parse_passed": true,
+  "stencil_files_outside_bare_board_zip_confirmed": true
+}
