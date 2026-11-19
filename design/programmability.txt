@@ -1,18 +1,17 @@
 PUMP CONTROLLER — PROGRAMMABILITY AND FUTURE EXPANSION
 Revision: 2026-11-19 / Rev E hardware provision and firmware specification
 
-The compact dual-output revision removes the main-board BOOT and EN switches.
-It retains both signals on service J2, along with native USB data. All operator
-buttons are on the OLED panel. See hardware/main-compact-dual/README.rst for
-the current programming connector and panel connections.
+Guarded R2 exposes boot, reset and native USB data on the internal 2 x 4
+header J2. There is no USB-C receptacle on the main, receiver or OLED board.
+R2 uses a bench fixture for boot and reset. Its operator buttons are on the
+OLED panel. See hardware/main-compact-dual/README.rst for the pinout.
 
 STATUS AND INTENT
 
 The selected ESP32-C6-MINI-1U-H8 provides a programmable controller with 8 MiB
-of flash. The circuit provides native USB service access and boot/reset
-buttons. Firmware, OTA update service, configuration editor, Zigbee/Matter adapters
-and dashboard are not implemented. This document specifies their intended
-design; it does not claim the application currently builds, fits or operates.
+of flash. Guard and starter-control components have a target compile test.
+An integrated application, OTA service, configuration editor, Zigbee/Matter
+adapters and dashboard are planned.
 The Rev E GH12 panel connection consolidates the former J32/J33/J34
 interfaces. There is no separate general-purpose expansion connector on Rev E.
 
@@ -25,9 +24,9 @@ SERVICE AND RECOVERY HARDWARE
 
 U3 is ESP32-C6-MINI-1U-H8 with an external antenna connector. GPIO12/13 are
 reserved for native USB D-/D+; GPIO16 supplies UART transmit logs only.
-SW1 pulls MCU_EN low to reset. SW2 pulls GPIO9/BOOT low. For manual ROM
-download entry, hold SW2, press/release SW1, then release SW2. The normal
-GPIO8 strap state must be preserved. Firmware must not repurpose USB pins.
+The historical Rev E main board used SW1 for reset and SW2 for boot.
+The R2 service fixture controls J2.5 (MCU_EN) and J2.6 (GPIO9/BOOT) for ROM
+download entry. Preserve the GPIO8 strap state and dedicate GPIO12/13 to USB.
 Native USB Serial/JTAG supports programming, logging and debugging; it is
 not a general USB host or arbitrary USB peripheral interface. [1, 2]
 

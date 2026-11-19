@@ -1,6 +1,10 @@
 Guarded R2 electrical review
 ============================
 
+The `subsequent system audit <guarded-r2-system-audit.rst>`_ records an
+installation and purchase hold for this revision, with two additional
+reproducible firmware faults and cabinet wiring corrections outstanding.
+
 The R2 prototype consists of the main PCB, the existing five-button OLED
 panel, the two-layer signal receiver and the independent cabinet guard. In AUTO or front-panel MANUAL the
 starter transfer is in HOST. In LOCAL the mechanical transfer isolates the
