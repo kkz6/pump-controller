@@ -1,6 +1,11 @@
 Independent starter guard
 =========================
 
+**R2 cabinet wiring withdrawn from installation use.** The published drawings
+reverse the coil polarity of KPS1, KCA1 and KCB1. The field transfer and
+motor feeder also need distinct terminal schedules. See the
+`system audit and manufacturer terminal drawings <../../design/guarded-r2-system-audit.rst>`_.
+
 Alongside the main PCB and OLED panel, the cabinet uses the isolated receiver PCB
 and an independent 24 V guard assembly.
 The original STOP and the separate high-high float both drop the feed to the whole

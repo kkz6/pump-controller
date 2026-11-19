@@ -1,6 +1,10 @@
 Guarded single-phase pump controller, revision R2
 =================================================
 
+**Installation and purchase hold.** Cabinet relay wiring, motor feedback and
+AC inlet spacing require review before use. See the
+`R2 system audit <../../design/guarded-r2-system-audit.rst>`_.
+
 **Engineering prototype for the bench.** The 100 × 97 mm six-layer main PCB,
 60 × 45 mm OLED panel, isolated signal receiver and external cabinet guard
 work together. The starter
@@ -56,7 +60,8 @@ Connections
   pin 2 MANUAL, pin 3 AUTO. J8 selects the operating mode. The separate
   mechanical service transfer at the starter determines whether the PCB can
   issue commands. See the `panel drawings <../panel-rev-e/README.rst>`_.
-* J2 supports service programming. Pins 7 and 8 are native USB D− and D+,
+* J2 is an eight-pin internal programming header. R2 has no USB-C socket.
+  Pins 7 and 8 are native USB D− and D+,
   pin 1 logic GND, pins 5 and 6 EN and BOOT. Pin 2 is 3.3 V. Leave pin 4
   (ARM_CMD) open for native USB. Use an isolated bench with mains and starter
   wiring disconnected. USB VBUS must stay off the 3.3 V rail.

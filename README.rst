@@ -1,6 +1,11 @@
 Compact single-phase pump controller
 ====================================
 
+**R2 installation and purchase hold.** The cabinet drawing reverses three
+relay coils. Two reproduced software faults affect START and automatic STOP.
+Read the `system audit and USB-C status <design/guarded-r2-system-audit.rst>`_
+before selecting hardware or using the R2 files.
+
 **Current engineering prototype — guarded R2.** The original hardwired STOP,
 overload and separate high-high float trip two external contactors in HOST
 and LOCAL. The actual starter, independent guard assembly, application firmware

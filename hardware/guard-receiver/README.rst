@@ -1,6 +1,10 @@
 Guard receiver PCB
 ==================
 
+**R2 cabinet wiring hold.** The published KPS coil terminal numbers below
+are reversed. See the `system audit <../../design/guarded-r2-system-audit.rst>`_
+before using the receiver wiring instructions.
+
 This 68 × 48 mm, two-layer PCB belongs in the cabinet beside the independent
 guard equipment. J36 brings the controller heartbeat and raw panel STOP to two
 high-impedance comparator inputs. Separate optocouplers convert them to
