@@ -1,6 +1,7 @@
 {
   "project": "pump-controller-rev-b",
-  "title": "1 HP single-phase pump controller - detailed prototype circuit",
+  "revision": "C",
+  "title": "Rev C - 1 HP pump controller",
   "board": {
     "width": 90,
     "height": 70,
@@ -2746,7 +2747,7 @@
           ],
           "kind": "ic",
           "mpn": "SN74LVC1G17DBVR",
-          "description": "Schmitt detector of K1 coil positive rail; opens after STOP/OFF/high-high loop break",
+          "description": "Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software",
           "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf"
         },
         {
@@ -3139,13 +3140,13 @@
         },
         {
           "ref": "J31",
-          "value": "High-high NC float loop / fitted shorting link",
+          "value": "STOP-fed high-high NC float loop / fitted shorting link",
           "footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
           "pins": [
             {
               "num": "1",
-              "name": "MODE_COIL_5V",
-              "net": "MODE_COIL_5V",
+              "name": "STOP_RETURN",
+              "net": "STOP_RETURN",
               "type": "passive"
             },
             {
@@ -3157,114 +3158,68 @@
           ],
           "kind": "connector",
           "mpn": "Phoenix MC 1,5/2-G-3,81",
-          "description": "High-high NC float loop / fitted shorting link",
+          "description": "STOP-fed high-high NC float loop / fitted shorting link",
           "datasheet": ""
         }
       ]
     },
     {
       "id": "local_controls_1",
-      "title": "Low-voltage physical controls and OLED interface / 1",
-      "notes": "All J32 controls are isolated low voltage. Existing mains button wiring must be removed before reusing buttons here.",
+      "title": "External MODE and onboard settings controls / 1",
+      "notes": "Rev C: existing START/STOP actuators plus one external MODE button. SW3 SET and SW4 NEXT are on the PCB. STOP/HH clear ARM; mode/settings require STOP event, release and unarmed state.",
       "components": [
         {
           "ref": "J32",
-          "value": "STOP + selector + START + RESET",
+          "value": "External STOP / START / MODE; pins4,6 reserved",
           "footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_7-G-3.81_1x07_P3.81mm_Horizontal",
           "pins": [
             {
               "num": "1",
-              "name": "+5V",
+              "name": "STOP_NC_SUPPLY",
               "net": "+5V",
               "type": "passive"
             },
             {
               "num": "2",
-              "name": "STOP_RETURN",
+              "name": "STOP_NC_RETURN",
               "net": "STOP_RETURN",
               "type": "passive"
             },
             {
               "num": "3",
-              "name": "MAN_RETURN",
+              "name": "MODE_NO_RETURN",
               "net": "MAN_RETURN",
               "type": "passive"
             },
             {
               "num": "4",
-              "name": "AUTO_RETURN",
+              "name": "RESERVED_NEXT",
               "net": "AUTO_RETURN",
               "type": "passive"
             },
             {
               "num": "5",
-              "name": "START_N",
+              "name": "START_NO",
               "net": "START_N",
               "type": "passive"
             },
             {
               "num": "6",
-              "name": "RESET_N",
+              "name": "RESERVED_SET",
               "net": "RESET_N",
               "type": "passive"
             },
             {
               "num": "7",
-              "name": "GND",
+              "name": "BUTTON_GND",
               "net": "GND",
               "type": "passive"
             }
           ],
           "kind": "connector",
           "mpn": "Phoenix MC 1,5/7-G-3,81",
-          "description": "STOP + selector + START + RESET",
+          "description": "External STOP NC1-2, MODE NO2-3, START NO5-7. Pins4 and6 remain internally connected but are RESERVED: do not wire externally. Reuse existing START/STOP actuators only through verified isolated auxiliary contacts; retain any required capacitor-start contacts. MODE toggles MAN/AUTO only unarmed after physical STOP acknowledgement.",
           "datasheet": ""
-        },
-        {
-          "ref": "D33",
-          "value": "B140",
-          "footprint": "Diode_SMD:D_SMA",
-          "pins": [
-            {
-              "num": "1",
-              "name": "K",
-              "net": "MODE_COIL_5V",
-              "type": "passive"
-            },
-            {
-              "num": "2",
-              "name": "A",
-              "net": "MAN_RETURN",
-              "type": "passive"
-            }
-          ],
-          "kind": "diode",
-          "mpn": "B140-13-F",
-          "description": "OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C",
-          "datasheet": "https://www.diodes.com/datasheet/download/B140.pdf"
-        },
-        {
-          "ref": "D34",
-          "value": "B140",
-          "footprint": "Diode_SMD:D_SMA",
-          "pins": [
-            {
-              "num": "1",
-              "name": "K",
-              "net": "MODE_COIL_5V",
-              "type": "passive"
-            },
-            {
-              "num": "2",
-              "name": "A",
-              "net": "AUTO_RETURN",
-              "type": "passive"
-            }
-          ],
-          "kind": "diode",
-          "mpn": "B140-13-F",
-          "description": "OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C",
-          "datasheet": "https://www.diodes.com/datasheet/download/B140.pdf"
         },
         {
           "ref": "U33",
@@ -3904,14 +3859,7 @@
           "mpn": "SPEC: 1k 1%, 0.1W, 0603",
           "description": "1%, 0.1W, 0603",
           "datasheet": ""
-        }
-      ]
-    },
-    {
-      "id": "local_controls_2",
-      "title": "Low-voltage physical controls and OLED interface / 2",
-      "notes": "All J32 controls are isolated low voltage. Existing mains button wiring must be removed before reusing buttons here.",
-      "components": [
+        },
         {
           "ref": "R91",
           "value": "10k",
@@ -3957,7 +3905,14 @@
           "mpn": "SPEC: 100nF X7R, 10%, 16V",
           "description": "X7R, 10%, 16V",
           "datasheet": ""
-        },
+        }
+      ]
+    },
+    {
+      "id": "local_controls_2",
+      "title": "External MODE and onboard settings controls / 2",
+      "notes": "Rev C: existing START/STOP actuators plus one external MODE button. SW3 SET and SW4 NEXT are on the PCB. STOP/HH clear ARM; mode/settings require STOP event, release and unarmed state.",
+      "components": [
         {
           "ref": "J33",
           "value": "OLED I2C 3V3",
@@ -4047,6 +4002,52 @@
           "datasheet": ""
         },
         {
+          "ref": "SW3",
+          "value": "SET / RESET",
+          "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+          "pins": [
+            {
+              "num": "1",
+              "name": "NO",
+              "net": "RESET_N",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "COM",
+              "net": "GND",
+              "type": "passive"
+            }
+          ],
+          "kind": "switch",
+          "mpn": "B3U-1000P",
+          "description": "Onboard top-actuated SPST-NO;3x2.5x1.6mm;1.5N;5ms max bounce;minimum applicable load reference10uA at1V. Approx300uA at3.3V here. Short select/save or fault acknowledge; long enter/back. Contact reliability and insulated access require prototype validation.",
+          "datasheet": "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf"
+        },
+        {
+          "ref": "SW4",
+          "value": "NEXT / +",
+          "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+          "pins": [
+            {
+              "num": "1",
+              "name": "NO",
+              "net": "AUTO_RETURN",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "COM",
+              "net": "STOP_RETURN",
+              "type": "passive"
+            }
+          ],
+          "kind": "switch",
+          "mpn": "B3U-1000P",
+          "description": "Onboard top-actuated SPST-NO;minimum applicable load reference10uA at1V;approx91uA at5V here. Active-high through existing divider. Short next/increment; long decrement. STOP must be released after clearing ARM before NEXT can operate.",
+          "datasheet": "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf"
+        },
+        {
           "ref": "OLED1",
           "value": "0.91 inch OLED 128x32 SSD1306",
           "footprint": "",
@@ -4086,7 +4087,7 @@
     },
     {
       "id": "probes_1",
-      "title": "AC conductive probe interface - prototype Rev B / 1",
+      "title": "AC conductive probe interface - prototype / 1",
       "components": [
         {
           "ref": "U20",
@@ -4848,7 +4849,7 @@
     },
     {
       "id": "probes_2",
-      "title": "AC conductive probe interface - prototype Rev B / 2",
+      "title": "AC conductive probe interface - prototype / 2",
       "components": [
         {
           "ref": "C102",
@@ -5418,7 +5419,7 @@
     },
     {
       "id": "probes_3",
-      "title": "AC conductive probe interface - prototype Rev B / 3",
+      "title": "AC conductive probe interface - prototype / 3",
       "components": [
         {
           "ref": "D111",
@@ -5994,7 +5995,7 @@
     },
     {
       "id": "probes_4",
-      "title": "AC conductive probe interface - prototype Rev B / 4",
+      "title": "AC conductive probe interface - prototype / 4",
       "components": [
         {
           "ref": "D117",

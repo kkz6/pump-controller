@@ -1832,48 +1832,6 @@
       }
     },
     {
-      "ref": "D33",
-      "value": "B140",
-      "footprint": "Diode_SMD:D_SMA",
-      "x": 62.5,
-      "y": 34.0,
-      "rotation": 0.0,
-      "side": "B",
-      "pads": {
-        "1": {
-          "x": 60.5,
-          "y": 34.0,
-          "net": "MODE_COIL_5V"
-        },
-        "2": {
-          "x": 64.5,
-          "y": 34.0,
-          "net": "MAN_RETURN"
-        }
-      }
-    },
-    {
-      "ref": "D34",
-      "value": "B140",
-      "footprint": "Diode_SMD:D_SMA",
-      "x": 62.5,
-      "y": 38.0,
-      "rotation": 0.0,
-      "side": "B",
-      "pads": {
-        "1": {
-          "x": 60.5,
-          "y": 38.0,
-          "net": "MODE_COIL_5V"
-        },
-        "2": {
-          "x": 64.5,
-          "y": 38.0,
-          "net": "AUTO_RETURN"
-        }
-      }
-    },
-    {
       "ref": "D35",
       "value": "BAT54WS",
       "footprint": "Diode_SMD:D_SOD-323",
@@ -2150,7 +2108,7 @@
     },
     {
       "ref": "J31",
-      "value": "High-high NC float loop / fitted shorting link",
+      "value": "STOP-fed high-high NC float loop / fitted shorting link",
       "footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
       "x": 49.0,
       "y": 61.0,
@@ -2160,7 +2118,7 @@
         "1": {
           "x": 49.0,
           "y": 61.0,
-          "net": "MODE_COIL_5V"
+          "net": "STOP_RETURN"
         },
         "2": {
           "x": 49.0,
@@ -2171,7 +2129,7 @@
     },
     {
       "ref": "J32",
-      "value": "STOP + selector + START + RESET",
+      "value": "External STOP / START / MODE; pins4,6 reserved",
       "footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_7-G-3.81_1x07_P3.81mm_Horizontal",
       "x": 76.5,
       "y": 7.0,
@@ -4251,6 +4209,48 @@
           "x": 80.0,
           "y": 20.9,
           "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "SW3",
+      "value": "SET / RESET",
+      "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "x": 85.0,
+      "y": 12.0,
+      "rotation": 0.0,
+      "side": "F",
+      "pads": {
+        "1": {
+          "x": 83.3,
+          "y": 12.0,
+          "net": "RESET_N"
+        },
+        "2": {
+          "x": 86.7,
+          "y": 12.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "SW4",
+      "value": "NEXT / +",
+      "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "x": 85.0,
+      "y": 18.0,
+      "rotation": 0.0,
+      "side": "F",
+      "pads": {
+        "1": {
+          "x": 83.3,
+          "y": 18.0,
+          "net": "AUTO_RETURN"
+        },
+        "2": {
+          "x": 86.7,
+          "y": 18.0,
+          "net": "STOP_RETURN"
         }
       }
     },

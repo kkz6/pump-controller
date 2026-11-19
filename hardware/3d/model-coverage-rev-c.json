@@ -1,0 +1,860 @@
+{
+  "source_board": "hardware/pump-controller-rev-b.kicad_pcb",
+  "source_board_sha256": "6f991556083c578a128364c8498850fce7301d18344051a5d814eb829f6d0b85",
+  "electrical_board_modified": false,
+  "electrical_components": 208,
+  "standard_library_bodies": 198,
+  "approximate_component_bodies": 10,
+  "mounting_holes_without_fasteners": 2,
+  "coordinate_basis": "Native KiCad footprint position, rotation and side; board units millimetres.",
+  "not_validated": [
+    "Enclosure fit",
+    "Mating terminal plugs and wire bends",
+    "Part tolerance and lead forming",
+    "Fastener clearance",
+    "Insulation covers",
+    "Thermal or electrical safety"
+  ],
+  "coverage": [
+    {
+      "reference": "C1",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C100",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C101",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C102",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C103",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C104",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C105",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C106",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C107",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C108",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C109",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C110",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C111",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C112",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C113",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C120",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C121",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C122",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C123",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C124",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C125",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C126",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C127",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C128",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C129",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C2",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C20",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C21",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C22",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C3",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C4",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C40",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C41",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C42",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C43",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C44",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C45",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C46",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C47",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C48",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C49",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C5",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C50",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C51",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C52",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C53",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C54",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C55",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C56",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C57",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C58",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C59",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C6",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C60",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C70",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C71",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C72",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C73",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C74",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C75",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C76",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C80",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C82",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C84",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C86",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C88",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "C90",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D10",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D100",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D101",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D102",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D103",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D110",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D111",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D112",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D113",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D114",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D115",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D116",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D117",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D118",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D119",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D30",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D31",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D32",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "D35",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "F1",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "FB1",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "FB2",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "H1",
+      "status": "mounting_hole_no_body"
+    },
+    {
+      "reference": "H2",
+      "status": "mounting_hole_no_body"
+    },
+    {
+      "reference": "J1",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J10",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J2",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J20",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J21",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J30",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J31",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J32",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J33",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "J34",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "K1",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "K2",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "L1",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "Q30",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "Q31",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R1",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "R100",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R101",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R102",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R103",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R104",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R105",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R106",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R107",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R108",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R109",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R110",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R111",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R112",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R113",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R114",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R115",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R116",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R117",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R118",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R119",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R120",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R130",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R131",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R132",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R133",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R140",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R141",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R142",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R143",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R150",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R151",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R152",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R153",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R160",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R161",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R162",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R163",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R170",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R171",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R172",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R173",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R2",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R20",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R21",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R22",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R24",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R25",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R26",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R27",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R28",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R40",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R41",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R42",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R43",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R44",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R45",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R46",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R47",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R48",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R49",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R50",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R70",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R71",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R72",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R74",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R75",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R76",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R77",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R78",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R80",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R81",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R82",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R83",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R84",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R85",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R86",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R87",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R88",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R89",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R90",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R91",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R92",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "R93",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "RV1",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "SW1",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "SW2",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "SW3",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "SW4",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U1",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "U10",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "U11",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "U2",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "U20",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U21",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U22",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U3",
+      "status": "approximate_project_body"
+    },
+    {
+      "reference": "U30",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U31",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U32",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U33",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U34",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "U35",
+      "status": "installed_KiCad_standard_body"
+    },
+    {
+      "reference": "Y1",
+      "status": "installed_KiCad_standard_body"
+    }
+  ]
+}

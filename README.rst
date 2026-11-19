@@ -1,7 +1,7 @@
 Compact single-phase pump controller
 ===================================
 
-Rev B is a component-value engineering prototype for a 1 HP single-phase
+Rev C is a component-value engineering prototype for a 1 HP single-phase
 pump operated through an existing DOL contactor. It combines local water-level
 control, motor metering, load-based dry-run protection, physical controls and
 planned Matter connectivity.
@@ -18,7 +18,16 @@ these checks cover the CAD design, not an assembled controller.
 Start here
 ----------
 
-* `Design pack PDF <output/pdf/pump-controller-rev-b-design-pack.pdf>`_:
+* `Illustrated wiring guide <output/pdf/pump-controller-rev-c-wiring-guide.pdf>`_:
+  actual PCB terminal numbers, START/STOP/MODE wiring, onboard settings keys,
+  OLED harness and the limits of mapping the photographed starter.
+* `3D models and offline viewer <output/3d/>`_: native PCB models,
+  a proposed assembly using the photographed starter style, and fit notes.
+* `Starter connection image <output/images/starter-controller-rev-c.png>`_:
+  a visual concept; follow the terminal guide for electrical connections.
+
+
+* `Design pack PDF <output/pdf/pump-controller-rev-c-design-pack.pdf>`_:
   readable overview, integration diagrams, detailed KiCad circuit sheets,
   complete parts list and PCB review drawings.
 * `KiCad project <hardware/pump-controller-rev-b.kicad_pro>`_:
@@ -50,12 +59,15 @@ Architecture
   level bands, not continuous litres. An inlet electrode requires a valid
   reference electrode in the same water body.
 * Two normally open relays in series control the existing contactor coil.
-  Motor power does not pass through the controller PCB. Physical STOP/OFF
+  Motor power does not pass through the controller PCB. Physical STOP
   and an optional independent high-high float interrupt the health relay.
 * Separate hardware ARM latch, watchdog and supply supervisor. Normal
   watchdog servicing cannot re-arm a cleared latch.
-* MANUAL/OFF/AUTO selector, START and fault RESET. Manual mode keeps the
-  controller's protections and works without the network.
+* Retained START/STOP button actuators, one new MODE button toggling
+  MANUAL/AUTO, and a small OLED behind a lid cut-out. Suitable isolated
+  auxiliary contacts must preserve the original capacitor-start contacts.
+  Onboard SW3 SET/RESET and SW4 NEXT/+ provide service settings. Manual
+  mode keeps protection and works without the network.
 * Internal J34 expansion: 3.3 V / 25 mA, I2C and two spare MCP23017 GPIO.
   USB recovery is available at J2; wireless updates and versioned settings
   are required by the firmware specification in ``design/programmability.txt``.
@@ -78,6 +90,12 @@ wiring bends, mounting spacers, antenna and protective covers. The detailed
 layout reports record the checked revision; installation fit still needs
 measurement in the intended starter.
 
+The reference photographs show a capacitor-equipped submersible starter.
+Its present system starts automatically, but the capacitor-start switching
+provider, coil voltage and motor overload path are not yet traced. J30 is a
+coil-loop switch; it is not a proven replacement for every output of the old
+RMG controller. Preserve the verified motor starting circuit.
+
 Important retained findings:
 
 * The minimum-load resistor dissipates up to about 0.844 W. Preserve at least
@@ -93,11 +111,11 @@ Important retained findings:
   fault current and upstream protection need a coordinated assessment.
 * New panel controls are isolated low voltage. Old mains START/holding wiring
   must be disconnected/reworked so it cannot bypass either board relay.
-* Relay pickup after the selector diode and field wiring needs hot-start
-  validation. Room-temperature pickup specifications are insufficient.
+* D33/D34 are removed in Rev C; STOP_RETURN feeds the high-high loop
+  directly. Relay hot pickup and field-wire losses still need validation.
 * Existing overload protection remains in the coil path. There is no direct
   overload or contactor auxiliary feedback. Use a manual-reset overload and
-  STOP/OFF before reset; not every external interruption is hardware-latched.
+  STOP before reset; not every external interruption is hardware-latched.
 * Dry-run thresholds require wet-pump commissioning across the operating head
   range. Startup inrush can exceed the meter's approximately 26 Arms ideal
   unclipped range; it must not be mistaken for valid underload evidence.
@@ -123,5 +141,8 @@ Native KiCad exports are checked against these definitions; ERC success is
 not evidence of correct mains insulation, EMC, thermal behavior or firmware.
 
 Earlier concept material, if present under ``archive/rev-a/``, is superseded
-by Rev B. In particular, use the Rev B control wiring and component values.
+by Rev C. Rev B selector documentation is retained under
+``archive/rev-b-selector`` and commit ``dc09030``. Native KiCad basenames
+retain ``rev-b`` for existing project references; their title metadata and
+current electrical content are Rev C.
 

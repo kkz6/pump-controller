@@ -36,7 +36,7 @@ for side in ['front','back']:
         w,h=float(page.mediabox.width),float(page.mediabox.height)
         stream=io.BytesIO();c=canvas.Canvas(stream,pagesize=(w,h))
         c.setFillColor(INK);c.setFont('Helvetica-Bold',12)
-        c.drawString(15*mm,h-15*mm,'MAIN PCB / '+('FRONT' if side=='front' else 'BOTTOM - MIRRORED VIEW')+' / REV B PROTOTYPE')
+        c.drawString(15*mm,h-15*mm,'MAIN PCB / '+('FRONT' if side=='front' else 'BOTTOM - MIRRORED VIEW')+' / REV C PROTOTYPE')
         c.setFillColor(GRAY);c.setFont('Helvetica',8)
         c.drawString(15*mm,12*mm,f"90 x 70 mm | {D['remaining_unrouted']} unconnected items | DRC {D['native_drc_errors']} errors, {D['native_drc_warnings']} warnings | Not a fabrication release")
         c.save();stream.seek(0);page.merge_page(PdfReader(stream).pages[0]);writer.add_page(page)

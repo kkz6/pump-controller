@@ -27,6 +27,7 @@ different versions of the electrical circuit.
 Review documents
 ----------------
 
+* ``wiring-guide.rst`` explains external wiring and the photographed starter.
 * ``revision-findings.txt`` records corrections and remaining validation.
 * ``core-review.txt``, ``power-budget-review.txt`` and
   ``probe-front-end.txt`` retain electrical decisions and calculations.
@@ -37,7 +38,8 @@ Review documents
 
 The old LED-panel circuit and its completed PCB are superseded and kept under
 ``archive/led-panel-rev-b``. The current design has an OLED and no discrete
-indicator panel.
+indicator panel. Rev C uses one external MODE button and two onboard settings
+keys; the earlier selector documentation is in archive/rev-b-selector.
 
 PDF production
 --------------

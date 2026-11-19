@@ -2,7 +2,7 @@
   "sheets": [
     {
       "id": "probes",
-      "title": "AC conductive probe interface - prototype Rev B",
+      "title": "AC conductive probe interface - prototype",
       "components": [
         {
           "ref": "U20",

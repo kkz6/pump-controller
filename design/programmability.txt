@@ -1,5 +1,5 @@
 PUMP CONTROLLER — PROGRAMMABILITY AND FUTURE EXPANSION
-Revision: 2026-11-19 / hardware provision and firmware specification
+Revision: 2026-11-19 / Rev C hardware provision and firmware specification
 
 STATUS AND INTENT
 
@@ -157,8 +157,37 @@ added without duplicating the pump decision logic.
 The OLED replaces all separate level/status lights. Its page order, text,
 units, water-band graphic, brightness, idle dimming and rotation interval
 can change in firmware/configuration with no new PCB. Fault pages take
-priority. Do not reuse START/RESET as display navigation if that changes
-their safety semantics; automatic page rotation needs no extra buttons.
+priority. Rev C uses three external momentary controls: existing STOP and START
+actuators plus one MODE button. Two small internal PCB keys, SW3 SET/RESET and
+SW4 NEXT/+, provide menu navigation. SW1 MCU RESET and SW2 BOOT remain distinct
+service buttons, not menu keys. There is no rotary selector or physical
+OFF position. Original power/capacitor-start contacts are retained; J32 needs
+separate isolated auxiliary contacts on the same START/STOP actuators where
+compatible, never contacts still carrying mains.
+
+Press and release physical STOP before mode changes or configuration. ARM
+remains clear after release and MODE/NEXT regain their STOP_RETURN supply.
+Do not require STOP to stay held. MODE toggles MANUAL/AUTO only stopped/unarmed;
+it never starts or arms. MODE while armed cancels the request and displays
+PRESS STOP until a fresh physical STOP cycle; it does not claim to clear the
+hardware ARM latch. Fresh START after selection is required to operate.
+
+Hold internal SET to enter settings only when stopped/unarmed after that STOP
+cycle. Internal NEXT short press moves next/increases, held NEXT moves previous/
+decreases. Short SET selects or validates/saves; held SET backs out/exits without
+committing an unconfirmed edit. With a fault displayed, short SET/RESET only
+acknowledges a cleared fault. Consume short events when a hold is recognized,
+so one SET/NEXT press cannot trigger both actions. Front START/MODE do not
+navigate menus. Require button release after boot/exit and a fresh START to run.
+
+Use shared validated, versioned configuration APIs for OLED and web editing.
+Settings cannot override physical protection or remove mandatory checks. Reject
+out-of-range edits, save atomically and show confirmation. Display loss during
+editing cancels the edit and leaves the controller unarmed. Internal keys are
+service controls: use the isolated low-voltage service procedure with mains/
+coil supplies disconnected, unless a verified insulated access/cover arrangement
+is provided. The closed-lid front controls and OLED are the ordinary interface.
+See operation-and-bringup.txt for pin mapping, transitions and fault/re-arm rules.
 Use 1–2 Hz value refresh and a 512-byte framebuffer. An I2C scheduler must
 split writes into at most 16 display-data bytes and admit them only between
 probe deadlines; a blocking full-frame library call is not acceptable.
@@ -207,8 +236,9 @@ below the 6 W PSU limit at no more than 50 degrees C local module ambient.
 
 NON-BYPASSABLE HARDWARE LIMITS
 
-Software changes cannot turn physical STOP, OFF or the independent high-high
-loop into advisory inputs. Preserve their hardware interruption of permission,
+Software changes cannot turn physical STOP or the independent high-high loop
+into advisory inputs. There is no physical OFF selector in Rev C. Preserve
+their hardware interruption of permission,
 the hardware watchdog/re-arm arrangement, and the existing motor overload
 and upstream protection. A configurable product still requires calibration
 and repeat validation after material changes; user scripts or an unrestricted

@@ -88,7 +88,8 @@ water band/estimated volume interval, operating mode and measured running
 state, then voltage/current/real power/power factor. Display source-water and
 sensor validity. Fault text overrides normal page rotation; clear any stale
 numeric value or mark it unknown. A full screen need not show every value at
-once. Larger text and automatic rotation avoid adding navigation buttons.
+once. Larger text and page rotation keep normal readings clear. The front MODE button
+toggles MANUAL/AUTO. Onboard SET/RESET and NEXT/+ provide settings navigation.
 Brightness, page order, units and intervals are configuration choices, subject
 to display power limits. Dim during inactivity and shift/rotate content to
 reduce persistent-image wear; important fault status must remain readable.
@@ -139,3 +140,9 @@ PRIMARY SOURCES
 Module dimensions/pinout are manufacturer information. Harness length,
 100 mA allocation, page behavior and scheduling bounds are design proposals
 requiring physical and firmware verification.
+
+PHOTO-STYLE ENCLOSURE INTEGRATION
+The earlier <=100mm cable length is a provisional electrical assumption. A
+lid-mounted OLED may require a longer loom to open the pictured starter.
+Measure hinge travel and slack, then validate bus rise time/noise and timing
+at the actual length. The assembly image/model is not cable qualification.

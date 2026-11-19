@@ -1,3 +1,7 @@
 *.pdf binary
 *.png binary
 *.csv text eol=lf
+
+*.step binary
+*.glb binary
+output/3d/viewer.html -diff

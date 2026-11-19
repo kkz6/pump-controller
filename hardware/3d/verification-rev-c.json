@@ -1,0 +1,69 @@
+{
+  "checked_at_utc": "2026-11-19T06:11:42.626600+00:00",
+  "revision": "Rev C",
+  "source_board_sha256": "6f991556083c578a128364c8498850fce7301d18344051a5d814eb829f6d0b85",
+  "source_board_unchanged": true,
+  "represented_electrical_components": 208,
+  "standard_bodies": 198,
+  "approximate_bodies": 10,
+  "onboard_settings_switches": [
+    "SW3",
+    "SW4"
+  ],
+  "front_buttons": [
+    "START",
+    "STOP",
+    "MODE"
+  ],
+  "step_reimport": "Passed",
+  "glb_reimport": {
+    "pump-controller-rev-c.glb": {
+      "geometry_count": 15837,
+      "bounds_metres": [
+        [
+          0.0,
+          -0.005084999888241291,
+          0.0
+        ],
+        [
+          0.09000000357627869,
+          0.021594999552965163,
+          0.07000000029802322
+        ]
+      ],
+      "mesh_triangles": 173007
+    },
+    "starter-assembly-concept.glb": {
+      "geometry_count": 15925,
+      "bounds_metres": [
+        [
+          -0.28,
+          -0.028999999999999995,
+          -0.27
+        ],
+        [
+          0.29,
+          0.11000000000000001,
+          0.016
+        ]
+      ],
+      "mesh_triangles": 178751
+    }
+  },
+  "offline_viewer": "Rendered in Chrome from file:// for both model choices; both final screenshots visually reviewed",
+  "native_renders": "Final isometric and underside renders visually reviewed",
+  "physical_fit_verified": false,
+  "mains_installation_validated": false,
+  "sha256": {
+    "hardware/3d/assembly-concept.json": "c3c889a6c2da27f857755f42a2bbdc6a60e48e59ce63ddc07c18e4c08461f67f",
+    "hardware/3d/model-coverage-rev-c.json": "fef5157dd13a57cd072fa25d664bcb8c57a1587476e019de7e2fb7200353c790",
+    "output/3d/pcb-rev-c-isometric.png": "3b31bb2a6eba49d18681d762c3a18362d420ab04bab2cbed10b2afaa9ebbbf66",
+    "output/3d/pcb-rev-c-underside.png": "ac95ebea784e643a5d5b2b2aff4860c0ae87f2a742348922f16a7c4f951cd0ae",
+    "output/3d/pump-controller-rev-c.glb": "190fc51bc456d83949cf67d991b3b8cdd6dd55e6fbd778de886580c7d7d4750c",
+    "output/3d/pump-controller-rev-c.step": "cc0bec7003e2ee9a6810ed96533418a456dbd5b50bbc2ab4f34faa101f033e62",
+    "output/3d/starter-assembly-concept.glb": "08de1f5e80dce557ffef0fcd5a0ef7d0ef12729840c33f78fdf09c0fe5fb91fc",
+    "output/3d/viewer-assembly.png": "f378beda0e1a60e0dedbe1da9d14935fb8a71d0d2a5ceec1819bc08066a460af",
+    "output/3d/viewer-board.png": "269b4460c11be792e441b79abf7cf1c461779253c6163a54b6892a2bcf9777b3",
+    "output/3d/viewer.html": "b4cfc2ceb0e44d02fbc934a745e80749dcbaaa201665f0f755add7918ed291af"
+  }
+}

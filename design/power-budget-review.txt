@@ -1,4 +1,4 @@
-Pump controller Rev B — power allocation and interface review
+Pump controller Rev C — power allocation and interface review
 Reviewed 2026-11-19
 
 POWER ALLOCATION
@@ -100,18 +100,21 @@ PINOUT AND WIRING REVIEW
 - GPIO17/module pad 30 is ARM_CMD. J2 pin 4 is ARM_TEST, not UART receive.
   GPIO16 is UART transmit logging; USB pins 12/13 provide programming/debug.
 - Updated HH sensing passes through SN74LVC1G17 before the MCP23017. This
-  resolves the earlier lack of GPIO input-high margin after the selector diode.
+  retains a defined Schmitt threshold; the Rev C coil feed has no selector diode.
 - J30 has been changed to MC 1,5/2-G-5,08, Phoenix 1836189, rated 320 V under
   III/2. This resolves the original 3.81 mm header's insufficient 160 V III/2
   rating for a 230 V starter. Apply the same rating to its mating plug.
 - Supply J1 from the protected incoming line and neutral, before the contactor
   power contacts. J30 belongs in the existing contactor-coil control path,
   preserving the overload and stop protection; no hold-in branch may bypass it.
-- J32 connections: +5 V -> NC STOP -> STOP_RETURN and selector common;
-  selector MAN/AUTO contacts -> MAN_RETURN/AUTO_RETURN. START and RESET are
-  separate dry NO contacts to GND. Existing mains button connections cannot
-  share these low-voltage contacts. RESET here acknowledges a fault; it is not
-  the ESP32 hardware reset.
+- J32: +5 V -> NC STOP -> STOP_RETURN -> J31 high-high loop. MODE is a
+  momentary NO sensing contact from STOP_RETURN to pin3. START is NO
+  between pins5/7. Pins4/6 are reserved; onboard SW4 NEXT/+ uses the former
+  AUTO input and SW3 SET/RESET uses the former RESET input. Preserve old
+  power/capacitor contacts and use suitable isolated auxiliary contacts on
+  existing button actuators. SET/RESET is not the ESP32 hardware reset.
+  D33/D34 are removed; the 130mA relay reservation already covers both coils
+  at the full supply, so the 5.7W allocation does not increase.
 - J31 is the independent NC high-high float circuit. J10/CT wiring is mains
   referenced and enclosed/insulated; the burden remains permanently attached
   across the CT when unplugged. J20/J21 probes and J33 OLED harness use

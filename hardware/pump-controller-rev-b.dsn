@@ -138,6 +138,10 @@
     (component Capacitor_SMD:C_1210_3225Metric
       (place C3 51500 -14500 front 180 (PN "22uF 16V X7R"))
     )
+    (component "Button_Switch_SMD:SW_SPST_B3U-1000P"
+      (place SW4 85000 -18000 front 0 (PN "NEXT / +"))
+      (place SW3 85000 -12000 front 0 (PN "SET / RESET"))
+    )
     (component Capacitor_SMD:C_0603_1608Metric::1
       (place C53 19500 -47500 front 90 (PN 33nF))
       (place C49 18000 -38000 front 90 (PN 27pF))
@@ -159,7 +163,7 @@
       (place D31 44500 -43500 front 90 (PN 1N4148W))
     )
     (component "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal"
-      (place J31 49000 -61000 front 90 (PN "High-high NC float loop / fitted shorting link"))
+      (place J31 49000 -61000 front 90 (PN "STOP-fed high-high NC float loop / fitted shorting link"))
     )
     (component "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal::1"
       (place J10 24500 -60500 front 0 (PN "CT secondary - mains-referenced"))
@@ -207,7 +211,7 @@
       (place U1 25000 -5000 front 0 (PN "5V 1.2A ISOLATED"))
     )
     (component "Connector_Phoenix_MC:PhoenixContact_MC_1,5_7-G-3.81_1x07_P3.81mm_Horizontal"
-      (place J32 76500 -7000 front -90 (PN "STOP + selector + START + RESET"))
+      (place J32 76500 -7000 front -90 (PN "External STOP / START / MODE; pins4,6 reserved"))
     )
     (component MountingHole:MountingHole_2.7mm_M2.5
       (place H2 87000 -67000 front 0 (PN MountingHole_2.7mm_M2.5))
@@ -338,10 +342,6 @@
       (place D102 73500 -45000 back 180 (PN BAT54S))
       (place U32 70000 -20000 back 180 (PN STM1001TWX6F))
       (place D117 76500 -55000 back 180 (PN "BAS70-04"))
-    )
-    (component Diode_SMD:D_SMA
-      (place D33 62500 -34000 back 180 (PN B140))
-      (place D34 62500 -38000 back 180 (PN B140))
     )
     (component Capacitor_SMD:C_0603_1608Metric::4
       (place C60 28250 -14500 back 0 (PN 100nF))
@@ -678,6 +678,28 @@
       (outline (path signal 100  -1600 1250  1600 1250  1600 -1250  -1600 -1250  -1600 1250))
       (pin RoundRect[T]Pad_1150.000000x2700.000000_250.951000_um_0.000000_0 1 -1475 0)
       (pin RoundRect[T]Pad_1150.000000x2700.000000_250.951000_um_0.000000_0 2 1475 0)
+    )
+    (image "Button_Switch_SMD:SW_SPST_B3U-1000P"
+      (outline (polygon signal 0  2395 -1645  -2395 -1645  -2395 1645  2395 1645))
+      (outline (path signal 120  -1650 1400  1650 1400))
+      (outline (path signal 120  -1650 1100  -1650 1400))
+      (outline (path signal 120  -1650 -1100  -1650 -1400))
+      (outline (path signal 120  -1650 -1400  1650 -1400))
+      (outline (path signal 120  1650 1400  1650 1100))
+      (outline (path signal 120  1650 -1400  1650 -1100))
+      (outline (path signal 100  -1500 1250  1500 1250))
+      (outline (path signal 100  -1500 -1250  -1500 1250))
+      (outline (path signal 100  1500 1250  1500 -1250))
+      (outline (path signal 100  1500 -1250  -1500 -1250))
+      (outline (path signal 100  750 0  731.196 -166.891  675.727 -325.413  586.374 -467.617
+            467.617 -586.374  325.413 -675.727  166.891 -731.196  0 -750
+            -166.891 -731.196  -325.413 -675.727  -467.617 -586.374  -586.374 -467.617
+            -675.727 -325.413  -731.196 -166.891  -750 0  -731.196 166.891
+            -675.727 325.413  -586.374 467.617  -467.617 586.374  -325.413 675.727
+            -166.891 731.196  0 750  166.891 731.196  325.413 675.727  467.617 586.374
+            586.374 467.617  675.727 325.413  731.196 166.891  750 0))
+      (pin Rect[T]Pad_900.000000x1700.000000_um 1 -1700 0)
+      (pin Rect[T]Pad_900.000000x1700.000000_um 2 1700 0)
     )
     (image Capacitor_SMD:C_0603_1608Metric::1
       (outline (polygon signal 0  -1475 -725  -1475 725  1475 725  1475 -725))
@@ -1291,24 +1313,6 @@
       (pin RoundRect[T]Pad_1475.000000x600.000000_150.571000_um_0.000000_0 2 -937.5 -950)
       (pin RoundRect[T]Pad_1475.000000x600.000000_150.571000_um_0.000000_0 3 937.5 0)
     )
-    (image Diode_SMD:D_SMA
-      (outline (polygon signal 0  3495 -1745  -3495 -1745  -3495 1745  3495 1745))
-      (outline (path signal 120  -3510 -1650  2000 -1650))
-      (outline (path signal 120  -3510 1650  -3510 -1650))
-      (outline (path signal 120  -3510 1650  2000 1650))
-      (outline (path signal 100  -2300 -1500  -2300 1500))
-      (outline (path signal 100  -649.44 -1.02  -1551.14 -1.02))
-      (outline (path signal 100  -649.44 -1.02  501.18 -750.32))
-      (outline (path signal 100  -649.44 -1.02  501.18 799.08))
-      (outline (path signal 100  -649.44 799.08  -649.44 -801.12))
-      (outline (path signal 100  501.18 -750.32  501.18 799.08))
-      (outline (path signal 100  501.18 -1.02  1499.4 -1.02))
-      (outline (path signal 100  2300 -1500  -2300 -1500))
-      (outline (path signal 100  2300 1500  -2300 1500))
-      (outline (path signal 100  2300 1500  2300 -1500))
-      (pin RoundRect[T]Pad_2500.000000x1800.000000_250.951000_um_0.000000_0 1 -2000 0)
-      (pin RoundRect[T]Pad_2500.000000x1800.000000_250.951000_um_0.000000_0 2 2000 0)
-    )
     (image Capacitor_SMD:C_0603_1608Metric::4
       (outline (polygon signal 0  -1475 725  1475 725  1475 -725  -1475 -725))
       (outline (path signal 120  -140.58 510  140.58 510))
@@ -1802,15 +1806,6 @@
             -125.238 400))
       (attach off)
     )
-    (padstack RoundRect[T]Pad_2500.000000x1800.000000_250.951000_um_0.000000_0
-      (shape (polygon F.Cu 0  -1250.95 650  -1231.85 746.035  -1177.45 827.449  -1096.04 881.848
-            -999.999 900.95  1000 900.951  1096.04 881.848  1177.45 827.449
-            1231.85 746.035  1250.95 649.999  1250.95 -650  1231.85 -746.035
-            1177.45 -827.449  1096.04 -881.848  999.999 -900.95  -1000 -900.951
-            -1096.04 -881.848  -1177.45 -827.449  -1231.85 -746.035  -1250.95 -649.999
-            -1250.95 650))
-      (attach off)
-    )
     (padstack RoundRect[A]Pad_2600.000000x2600.000000_250.951000_um_0.000000_0
       (shape (polygon F.Cu 0  -1300.95 1050  -1281.85 1146.04  -1227.45 1227.45  -1146.04 1281.85
             -1050 1300.95  1050 1300.95  1146.04 1281.85  1227.45 1227.45
@@ -2163,6 +2158,10 @@
       (shape (rect F.Cu -450 -800 450 800))
       (attach off)
     )
+    (padstack Rect[T]Pad_900.000000x1700.000000_um
+      (shape (rect F.Cu -450 -850 450 850))
+      (attach off)
+    )
     (padstack Rect[A]Pad_1000.000000x1000.000000_um
       (shape (rect F.Cu -500 -500 500 500))
       (shape (rect In1.Cu -500 -500 500 500))
@@ -2233,11 +2232,11 @@
         U3-43 U3-44 U3-45 U3-46 U3-47 U3-48 U3-49 U3-49@1 U3-49@2 U3-49@3 U3-49@4
         U3-49@5 U3-49@6 U3-49@7 U3-49@8 U3-50 U3-51 U3-52 U3-53 Q31-2 D118-2 D110-2
         U21-14 C82-2 C3-2 C6-2 D112-2 U33-10 U33-15 U33-16 U33-17 U22-1 U22-3 C5-2
-        R87-2 D111-1 C76-2 C2-2 Q30-2 J2-1 C75-2 C112-2 C72-2 C70-2 J34-2 U2-1 U2-4
-        U2-5 U2-9 U2-9@1 U2-9@2 U2-9@3 U1-4 C4-2 C110-2 R85-2 C86-2 R75-2 J32-7 C71-2
-        R106-2 R92-2 J33-2 J33-MP J33-MP@1 D116-2 U31-4 C56-2 R101-2 C80-2 C22-2 SW2-2
-        SW2-2@1 C57-2 U11-2 U11-3 U11-8 U11-9 U11-10 U11-12 U11-14 R93-2 C113-2 R78-2
-        D103-1 C103-2 C84-2 R71-2 C100-2 D119-1 R81-2 D114-2 U20-11 C101-2 C104-2
+        R87-2 D111-1 C76-2 C2-2 Q30-2 J2-1 C75-2 C112-2 C72-2 SW3-2 C70-2 J34-2 U2-1
+        U2-4 U2-5 U2-9 U2-9@1 U2-9@2 U2-9@3 U1-4 C4-2 C110-2 R85-2 C86-2 R75-2 J32-7
+        C71-2 R106-2 R92-2 J33-2 J33-MP J33-MP@1 D116-2 U31-4 C56-2 R101-2 C80-2 C22-2
+        SW2-2 SW2-2@1 C57-2 U11-2 U11-3 U11-8 U11-9 U11-10 U11-12 U11-14 R93-2 C113-2
+        R78-2 D103-1 C103-2 C84-2 R71-2 C100-2 D119-1 R81-2 D114-2 U20-11 C101-2 C104-2
         C55-2 R72-2 C21-2 R77-2 D100-2 C88-2 C111-2 SW1-2 SW1-2@1 D101-2 C20-2 C90-2
         C1-2 D115-1 D113-1 R2-2 R83-2 R105-2 D102-1 U32-3 C105-2 C74-2 R108-2 U30-2
         U30-3 D117-1 C102-2 C73-2 U35-3 U34-3)
@@ -2382,6 +2381,12 @@
     (net MAN_SENSE
       (pins C82-1 U33-4 R82-2 R83-1)
     )
+    (net AUTO_RETURN
+      (pins SW4-1 J32-4 R84-1)
+    )
+    (net STOP_RETURN
+      (pins SW4-2 J31-1 J32-2 R80-1)
+    )
     (net M_IAP
       (pins C53-1 R49-2 U10-5)
     )
@@ -2439,9 +2444,6 @@
     (net PROBE_L2_MID
       (pins R141-1 R140-2)
     )
-    (net MODE_COIL_5V
-      (pins J31-1 D33-1 D34-1)
-    )
     (net M_CT_HI
       (pins J10-1 D10-1 D10-2 R49-1)
     )
@@ -2496,6 +2498,9 @@
     (net M_XOUT
       (pins C50-1 Y1-2 U10-19)
     )
+    (net RESET_N
+      (pins SW3-1 J32-6 R90-1)
+    )
     (net PROBE_L2_SENSE
       (pins C122-2 R142-1 R143-1)
     )
@@ -2508,20 +2513,11 @@
     (net PROBE_BIAS_DIV
       (pins R100-2 R101-1 C100-1 U20-3)
     )
-    (net STOP_RETURN
-      (pins J32-2 R80-1)
-    )
     (net MAN_RETURN
-      (pins J32-3 D33-2 R82-1)
-    )
-    (net AUTO_RETURN
-      (pins J32-4 D34-2 R84-1)
+      (pins J32-3 R82-1)
     )
     (net START_N
       (pins J32-5 R88-1)
-    )
-    (net RESET_N
-      (pins J32-6 R90-1)
     )
     (net PROBE_L3_SENSE
       (pins R153-1 C124-2 R152-1)
@@ -2651,9 +2647,9 @@
     (class SELV,Default +3V3 +5V ARM_CMD ARM_Q AUTO_RETURN AUTO_SENSE BOOT
       BUCK_SW GND HEARTBEAT HH_SENSE I2C_SCL I2C_SDA INTERLOCK_OK K1_COIL_PLUS
       K1_GATE K1_LOW K2_GATE K2_LOW MAN_RETURN MAN_SENSE MCU_EN METER_CS METER_MISO
-      METER_MOSI METER_SCLK MODE_COIL_5V MUX_A0 MUX_A1 MUX_A2 PERMIT_D PERMIT_Q
-      PROBE_ADC_BIAS PROBE_ADC_BIAS2 PROBE_ADC_RDY PROBE_ADC_SIGNAL PROBE_ADC_TX
-      PROBE_BIAS PROBE_BIAS_DIV PROBE_BIAS_RAW PROBE_EXC PROBE_ICOM PROBE_ICOM_CLAMP
+      METER_MOSI METER_SCLK MUX_A0 MUX_A1 MUX_A2 PERMIT_D PERMIT_Q PROBE_ADC_BIAS
+      PROBE_ADC_BIAS2 PROBE_ADC_RDY PROBE_ADC_SIGNAL PROBE_ADC_TX PROBE_BIAS
+      PROBE_BIAS_DIV PROBE_BIAS_RAW PROBE_EXC PROBE_ICOM PROBE_ICOM_CLAMP
       PROBE_ICOM_DRIVE PROBE_ICOM_MID PROBE_INLET PROBE_INLET_ADC PROBE_INLET_CLAMP
       PROBE_INLET_MID PROBE_INLET_SENSE PROBE_L1 PROBE_L1_ADC PROBE_L1_CLAMP
       PROBE_L1_MID PROBE_L1_SENSE PROBE_L2 PROBE_L2_ADC PROBE_L2_CLAMP PROBE_L2_MID
@@ -2933,6 +2929,7 @@
     (wire (path F.Cu 200  55505.1 -29506.8  55948.3 -29950)(net GND)(type route))
     (wire (path F.Cu 150  65677.2 -28206.9  65749.8 -28279.5)(net GND)(type route))
     (wire (path F.Cu 200  73775 -50000  73775 -49673)(net GND)(type route))
+    (wire (path F.Cu 200  86700 -12000  87600 -12000)(net GND)(type route))
     (wire (path F.Cu 200  61500 -22025  63475 -22025)(net GND)(type route))
     (wire (path F.Cu 200  70850 -41000  70850 -40799.5)(net GND)(type route))
     (wire (path F.Cu 200  56600 -24800  55948.3 -24800)(net GND)(type route))
@@ -4112,6 +4109,125 @@
     (wire (path B.Cu 200  63500 -26584.9  63500 -26175)(net MAN_SENSE)(type route))
     (wire (path B.Cu 200  56309.1 -34992.9  55725 -34408.8)(net MAN_SENSE)(type route))
     (wire (path B.Cu 200  58998.9 -32630.6  59639.7 -31989.8)(net MAN_SENSE)(type route))
+    (wire (path F.Cu 200  76930 -18000  76500 -18430)(net AUTO_RETURN)(type route))
+    (wire (path F.Cu 200  83300 -18000  76930 -18000)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 200  64500 -38000  66383.1 -36116.9)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 200  62003.4 -33144.6  62175 -32973)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 150  62926.3 -34315.3  62926.3 -34067.5  62003.4 -33144.6)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 200  64500 -38000  62926.3 -36426.3)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 200  62175 -32973  62175 -29500)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 200  62926.3 -36426.3  62926.3 -34315.3)(net AUTO_RETURN)(type route))
+    (wire (path B.Cu 200  66383.1 -36116.9  66383.1 -33823.3  69015.7 -31190.7)(net AUTO_RETURN)(type route))
+    (wire (path In1.Cu 200  69015.7 -31190.7  74448.3 -25758.1  74448.3 -18430)(net AUTO_RETURN)(type route))
+    (wire (path In1.Cu 200  76500 -18430  74448.3 -18430)(net AUTO_RETURN)(type route))
+    (wire (path F.Cu 200  86700 -18000  87600 -18000)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  51846.1 -42810.8  53616.7 -41040.2)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 150  76500 -10800  79150 -13450)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  53616.7 -40399.2  54342.5 -39673.4)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 150  54615.1 -39673.4  55413.6 -40471.9)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  51846.1 -58153.9  51846.1 -42810.8)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  57338.9 -40471.9  59810.8 -38000)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  60350 -33300  60350 -32950)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  60500 -34000  60500 -33450)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 150  76500 -10810  76500 -10800)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 150  79150 -19000  79175 -19000)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  60500 -33450  60350 -33300)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  60500 -38000  60500 -34000)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  49000 -61000  51846.1 -58153.9)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  53616.7 -41040.2  53616.7 -40399.2)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  55413.6 -40471.9  57338.9 -40471.9)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 150  54342.5 -39673.4  54615.1 -39673.4)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 150  79150 -13450  79150 -19000)(net STOP_RETURN)(type route))
+    (wire (path B.Cu 200  59810.8 -38000  60500 -38000)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80000 -21450  80100 -21350)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  60350 -32950  60400 -32950)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80200 -21200  80200 -21150)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  81250 -19900  81250 -19500)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79900 -21600  80000 -21500)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79650 -22000  79650 -21950)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  61300 -33150  63100 -31350)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80550 -20650  81200 -20000)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79550 -22150  79550 -22100)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79450 -22250  79550 -22150)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  81200 -19450  81200 -19400)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  78500 -16700  78500 -15900)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79750 -21800  79900 -21650)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  78600 -15800  78600 -13450)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79200 -22600  79350 -22450)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  61200 -33200  61250 -33150  61300 -33150)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80550 -20700  80550 -20650)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79100 -22800  79100 -22750)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80100 -21300  80200 -21200)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79900 -21650  79900 -21600)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79350 -22400  79450 -22300)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80000 -21500  80000 -21450)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79650 -21950  79750 -21850)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80450 -20850  80450 -20800)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  78600 -13450  76500 -11350)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79350 -22450  79350 -22400)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  60700 -33200  61200 -33200)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  81200 -20000  81200 -19950)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80450 -20800  80550 -20700)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  78500 -15900  78600 -15800)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  76500 -11350  76500 -10800)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79750 -21850  79750 -21800)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  81200 -19400  78500 -16700)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  63100 -31350  63600 -31350)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  60400 -32950  60600 -33150)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79450 -22300  79450 -22250)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79550 -22100  79650 -22000)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80300 -21050  80300 -21000  80450 -20850)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79200 -22650  79200 -22600)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79050 -22850  79100 -22800)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79050 -26350  79050 -22850)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  87600 -18000  85900 -19700  81250 -19700)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80200 -21150  80300 -21050)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  80100 -21350  80100 -21300)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  60650 -33150  60700 -33200)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  81200 -19950  81250 -19900)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  76500 -10800  76500 -10810)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  79100 -22750  79200 -22650)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  81250 -19500  81200 -19450)(net STOP_RETURN)(type route))
+    (wire (path In1.Cu 200  60600 -33150  60650 -33150)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63450 -32350  63500 -32400)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63450 -31600  63400 -31650)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64250 -32400  64300 -32400)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  77500 -27250  78600 -27250  78600 -26800)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  67850 -30300  67900 -30300)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  67950 -30250  68000 -30250)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  78600 -26800  79050 -26350)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64450 -32250  64950 -32250)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63400 -31700  63350 -31750)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63500 -32400  63550 -32400)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63350 -31750  63350 -32150)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63450 -31550  63450 -31600)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  65000 -32200  65100 -32200)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63600 -31350  63600 -31400)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  69900 -28350  76350 -28350)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  65100 -32200  65150 -32150)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  67800 -30350  67850 -30300)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64100 -32500  64150 -32450)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63600 -32450  63650 -32450)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64150 -32450  64200 -32450)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  76450 -28300  77500 -27250)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63400 -31650  63400 -31700)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63700 -32500  64100 -32500)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  67000 -30350  67800 -30350)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63400 -32200  63400 -32250)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64300 -32400  64450 -32250)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  65150 -32150  65200 -32150)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63650 -32450  63700 -32500)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63350 -32150  63400 -32200)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  76350 -28350  76400 -28300  76450 -28300)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63400 -32250  63450 -32300)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  68000 -30250  69900 -28350)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63550 -32400  63600 -32450)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64200 -32450  64250 -32400)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63600 -31400  63450 -31550)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  63450 -32300  63450 -32350)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  64950 -32250  65000 -32200)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  67900 -30300  67950 -30250)(net STOP_RETURN)(type route))
+    (wire (path In2.Cu 200  65200 -32150  67000 -30350)(net STOP_RETURN)(type route))
     (wire (path F.Cu 150  19500 -48300  19500 -48275)(net M_IAP)(type route))
     (wire (path F.Cu 150  19700 -48500  19500 -48300)(net M_IAP)(type route))
     (wire (path B.Cu 150  19800 -48700  19700 -48600)(net M_IAP)(type route))
@@ -4432,17 +4548,6 @@
     (wire (path B.Cu 200  62462.5 -64500  61535.8 -64500)(net PROBE_L2_MID)(type route))
     (wire (path In2.Cu 200  57025.4 -64582  61453.8 -64582)(net PROBE_L2_MID)(type route))
     (wire (path In2.Cu 200  55557.4 -66050  57025.4 -64582)(net PROBE_L2_MID)(type route))
-    (wire (path B.Cu 200  51846.1 -42810.8  53616.7 -41040.2)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  53616.7 -40399.2  54342.5 -39673.4)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 150  54615.1 -39673.4  55413.6 -40471.9)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  51846.1 -58153.9  51846.1 -42810.8)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  57338.9 -40471.9  59810.8 -38000)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  60500 -38000  60500 -34000)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  49000 -61000  51846.1 -58153.9)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  53616.7 -41040.2  53616.7 -40399.2)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  55413.6 -40471.9  57338.9 -40471.9)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 150  54342.5 -39673.4  54615.1 -39673.4)(net MODE_COIL_5V)(type route))
-    (wire (path B.Cu 200  59810.8 -38000  60500 -38000)(net MODE_COIL_5V)(type route))
     (wire (path B.Cu 200  22650 -61387.5  23612.5 -61387.5)(net M_CT_HI)(type route))
     (wire (path B.Cu 200  21350 -61387.5  22650 -61387.5)(net M_CT_HI)(type route))
     (wire (path B.Cu 200  20675 -60712.5  21350 -61387.5)(net M_CT_HI)(type route))
@@ -4585,6 +4690,43 @@
     (wire (path B.Cu 150  17700 -35100  17700 -35500)(net M_XOUT)(type route))
     (wire (path B.Cu 150  20387.5 -42000  20875 -41925)(net M_XOUT)(type route))
     (wire (path B.Cu 150  21575 -41675  21850 -41525)(net M_XOUT)(type route))
+    (wire (path F.Cu 200  83300 -12000  82000 -12000)(net RESET_N)(type route))
+    (wire (path B.Cu 200  82000 -12350  81950 -12400)(net RESET_N)(type route))
+    (wire (path B.Cu 200  64175 -19501.5  64175 -19000)(net RESET_N)(type route))
+    (wire (path B.Cu 200  68037.4 -24193  66936 -23091.6)(net RESET_N)(type route))
+    (wire (path B.Cu 200  81950 -12400  81950 -15200)(net RESET_N)(type route))
+    (wire (path B.Cu 200  81900 -15250  81900 -26250)(net RESET_N)(type route))
+    (wire (path B.Cu 200  66936 -20983.8  66188.9 -20236.7)(net RESET_N)(type route))
+    (wire (path B.Cu 200  82000 -12000  82000 -12350)(net RESET_N)(type route))
+    (wire (path B.Cu 200  64910.2 -20236.7  64175 -19501.5)(net RESET_N)(type route))
+    (wire (path B.Cu 200  81950 -15200  81900 -15250)(net RESET_N)(type route))
+    (wire (path B.Cu 200  66936 -23091.6  66936 -20983.8)(net RESET_N)(type route))
+    (wire (path B.Cu 200  66188.9 -20236.7  64910.2 -20236.7)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80600 -25900  80550 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80700 -25950  80650 -25950)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80500 -25850  80100 -25850)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  76500 -26050  69894.4 -26050)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  81150 -26100  81100 -26050)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  78800 -25900  78750 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80000 -25900  79950 -25950)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  79300 -25900  79250 -25850)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  81300 -26150  81250 -26100)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  81800 -26150  81300 -26150)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80050 -25900  80000 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  79250 -25850  78850 -25850)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80800 -26050  80700 -25950)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80550 -25900  80500 -25850)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80650 -25950  80600 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  81900 -26250  81800 -26150)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  79950 -25950  79400 -25950  79350 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  81100 -26050  80800 -26050)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  80100 -25850  80050 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  81250 -26100  81150 -26100)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  78600 -26050  76500 -26050)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  78850 -25850  78800 -25900)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  78750 -25900  78600 -26050)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  69894.4 -26050  68037.4 -24193)(net RESET_N)(type route))
+    (wire (path In2.Cu 200  79350 -25900  79300 -25900)(net RESET_N)(type route))
     (wire (path F.Cu 200  74446.3 -59050  75500 -57996.3)(net PROBE_L2_SENSE)(type route))
     (wire (path F.Cu 200  73500 -59050  74446.3 -59050)(net PROBE_L2_SENSE)(type route))
     (wire (path B.Cu 200  84175 -51000  83868.9 -51000)(net PROBE_L2_SENSE)(type route))
@@ -4613,25 +4755,10 @@
     (wire (path B.Cu 200  65900 -44325  66225 -44000)(net PROBE_BIAS_DIV)(type route))
     (wire (path B.Cu 200  63801.5 -45023.5  64500 -44325)(net PROBE_BIAS_DIV)(type route))
     (wire (path In1.Cu 200  63801.5 -45023.5  66062.9 -47284.9  66062.9 -48012.5)(net PROBE_BIAS_DIV)(type route))
-    (wire (path B.Cu 150  76500 -10800  79150 -13450)(net STOP_RETURN)(type route))
-    (wire (path B.Cu 150  76500 -10810  76500 -10800)(net STOP_RETURN)(type route))
-    (wire (path B.Cu 150  79150 -19000  79175 -19000)(net STOP_RETURN)(type route))
-    (wire (path B.Cu 150  79150 -13450  79150 -19000)(net STOP_RETURN)(type route))
-    (wire (path B.Cu 200  63125 -32625  63125 -28376.1  62680.4 -28376.1)(net MAN_RETURN)(type route))
-    (wire (path B.Cu 200  63125 -28376.1  63125 -28200)(net MAN_RETURN)(type route))
-    (wire (path B.Cu 200  64500 -34000  63125 -32625)(net MAN_RETURN)(type route))
-    (wire (path B.Cu 200  63125 -28200  63500 -27825)(net MAN_RETURN)(type route))
+    (wire (path B.Cu 200  63125 -28376.1  62680.4 -28376.1)(net MAN_RETURN)(type route))
+    (wire (path B.Cu 200  63125 -28376.1  63125 -28200  63500 -27825)(net MAN_RETURN)(type route))
     (wire (path In1.Cu 200  68004.4 -23052.1  62680.4 -28376.1)(net MAN_RETURN)(type route))
     (wire (path In1.Cu 200  76500 -14620  74448.3 -14620  68004.4 -21063.9  68004.4 -23052.1)(net MAN_RETURN)(type route))
-    (wire (path B.Cu 200  64500 -38000  66383.1 -36116.9)(net AUTO_RETURN)(type route))
-    (wire (path B.Cu 200  62003.4 -33144.6  62175 -32973)(net AUTO_RETURN)(type route))
-    (wire (path B.Cu 150  62926.3 -34315.3  62926.3 -34067.5  62003.4 -33144.6)(net AUTO_RETURN)(type route))
-    (wire (path B.Cu 200  64500 -38000  62926.3 -36426.3)(net AUTO_RETURN)(type route))
-    (wire (path B.Cu 200  62175 -32973  62175 -29500)(net AUTO_RETURN)(type route))
-    (wire (path B.Cu 200  62926.3 -36426.3  62926.3 -34315.3)(net AUTO_RETURN)(type route))
-    (wire (path B.Cu 200  66383.1 -36116.9  66383.1 -33823.3  69015.7 -31190.7)(net AUTO_RETURN)(type route))
-    (wire (path In1.Cu 200  69015.7 -31190.7  74448.3 -25758.1  74448.3 -18430)(net AUTO_RETURN)(type route))
-    (wire (path In1.Cu 200  76500 -18430  74448.3 -18430)(net AUTO_RETURN)(type route))
     (wire (path B.Cu 200  62098.3 -22329  61500 -22927.3)(net START_N)(type route))
     (wire (path B.Cu 150  62491 -21796.9  62491 -21936.3)(net START_N)(type route))
     (wire (path B.Cu 200  63415.9 -20000  62776.8 -20639.1  62776.8 -21511.1)(net START_N)(type route))
@@ -4640,13 +4767,6 @@
     (wire (path B.Cu 200  61500 -22927.3  61500 -23325)(net START_N)(type route))
     (wire (path In2.Cu 200  74448.3 -22240  72533.5 -20325.2  63741.1 -20325.2  63415.9 -20000)(net START_N)(type route))
     (wire (path In2.Cu 200  76500 -22240  74448.3 -22240)(net START_N)(type route))
-    (wire (path B.Cu 200  64175 -19501.5  64175 -19000)(net RESET_N)(type route))
-    (wire (path B.Cu 200  68037.4 -24193  66936 -23091.6)(net RESET_N)(type route))
-    (wire (path B.Cu 200  66936 -20983.8  66188.9 -20236.7)(net RESET_N)(type route))
-    (wire (path B.Cu 200  64910.2 -20236.7  64175 -19501.5)(net RESET_N)(type route))
-    (wire (path B.Cu 200  66936 -23091.6  66936 -20983.8)(net RESET_N)(type route))
-    (wire (path B.Cu 200  66188.9 -20236.7  64910.2 -20236.7)(net RESET_N)(type route))
-    (wire (path In2.Cu 200  76500 -26050  69894.4 -26050  68037.4 -24193)(net RESET_N)(type route))
     (wire (path F.Cu 200  88000 -43325  87620 -43325  87123.5 -43821.5)(net PROBE_L3_SENSE)(type route))
     (wire (path B.Cu 200  70450 -52000  71333.8 -51116.2)(net PROBE_L3_SENSE)(type route))
     (wire (path B.Cu 200  72353 -43086.8  73114.8 -42325)(net PROBE_L3_SENSE)(type route))
@@ -5095,6 +5215,7 @@
     (via "Via[0-3]_550:250_um"  55755.3 -27351.9 (net GND)(type route))
     (via "Via[0-3]_550:250_um"  72250 -24841.1 (net GND)(type route))
     (via "Via[0-3]_550:250_um"  54507.5 -32817.5 (net GND)(type route))
+    (via "Via[0-3]_450:200_um"  87600 -12000 (net GND)(type route))
     (via "Via[0-3]_550:250_um"  61193 -20824.6 (net GND)(type route))
     (via "Via[0-3]_550:250_um"  49175.3 -32325.3 (net GND)(type route))
     (via "Via[0-3]_550:250_um"  63275 -51597.4 (net GND)(type route))
@@ -5198,6 +5319,11 @@
     (via "Via[0-3]_550:250_um"  81538.6 -48728.8 (net PROBE_INLET_ADC)(type route))
     (via "Via[0-3]_400:200_um"  13400 -32700 (net L_PROTECTED)(type route))
     (via "Via[0-3]_550:250_um"  55725 -34408.8 (net MAN_SENSE)(type route))
+    (via "Via[0-3]_550:250_um"  69015.7 -31190.7 (net AUTO_RETURN)(type route))
+    (via "Via[0-3]_450:200_um"  60350 -32950 (net STOP_RETURN)(type route))
+    (via "Via[0-3]_450:200_um"  87600 -18000 (net STOP_RETURN)(type route))
+    (via "Via[0-3]_450:200_um"  79050 -26350 (net STOP_RETURN)(type route))
+    (via "Via[0-3]_450:200_um"  63600 -31350 (net STOP_RETURN)(type route))
     (via "Via[0-3]_400:200_um"  20050 -37200 (net M_IAP)(type route))
     (via "Via[0-3]_400:200_um"  15200 -41000 (net M_IAP)(type route))
     (via "Via[0-3]_550:250_um"  19700 -48500 (net M_IAP)(type route))
@@ -5254,15 +5380,16 @@
     (via "Via[0-3]_550:250_um"  81177.1 -42050 (net PROBE_TCOM_CLAMP)(type route))
     (via "Via[0-3]_550:250_um"  17000 -36200 (net M_XOUT)(type route))
     (via "Via[0-3]_400:200_um"  21850 -41525 (net M_XOUT)(type route))
+    (via "Via[0-3]_450:200_um"  81900 -26250 (net RESET_N)(type route))
+    (via "Via[0-3]_450:200_um"  82000 -12000 (net RESET_N)(type route))
+    (via "Via[0-3]_550:250_um"  68037.4 -24193 (net RESET_N)(type route))
     (via "Via[0-3]_550:250_um"  75500 -57996.3 (net PROBE_L2_SENSE)(type route))
     (via "Via[0-3]_550:250_um"  82669.9 -52022.5 (net PROBE_L2_SENSE)(type route))
     (via "Via[0-3]_550:250_um"  69268.9 -45416.9 (net PROBE_MUX_BUF)(type route))
     (via "Via[0-3]_550:250_um"  63801.5 -45023.5 (net PROBE_BIAS_DIV)(type route))
     (via "Via[0-3]_550:250_um"  66062.9 -48012.5 (net PROBE_BIAS_DIV)(type route))
     (via "Via[0-3]_550:250_um"  62680.4 -28376.1 (net MAN_RETURN)(type route))
-    (via "Via[0-3]_550:250_um"  69015.7 -31190.7 (net AUTO_RETURN)(type route))
     (via "Via[0-3]_550:250_um"  63415.9 -20000 (net START_N)(type route))
-    (via "Via[0-3]_550:250_um"  68037.4 -24193 (net RESET_N)(type route))
     (via "Via[0-3]_550:250_um"  87123.5 -43821.5 (net PROBE_L3_SENSE)(type route))
     (via "Via[0-3]_550:250_um"  72353 -43086.8 (net PROBE_L3_SENSE)(type route))
     (via "Via[0-3]_550:250_um"  74188.2 -62536.2 (net PROBE_L4_CLAMP)(type route))
