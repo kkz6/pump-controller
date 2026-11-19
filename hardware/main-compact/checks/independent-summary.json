@@ -1,0 +1,46 @@
+{
+  "source_sha256": {
+    "hardware/main-compact/pump-controller-compact.kicad_pcb": "54227639c975885a5bf217f07a2b41714bfbc1bc258bdd3170d76975cad4ec19",
+    "hardware/main-compact/pump-controller-compact.kicad_pro": "1a3d4b1400b057679f1ce7ae563323bb7ee40e52c8cc4387335b1e29ab56e750",
+    "hardware/main-compact/pump-controller-compact.kicad_dru": "9d941aa1c73b8da543df71ca6819ab04621e31d1116bba526582872d5af856dc",
+    "design/main-compact.json": "944c57f9411761d9aab0081b8a870cb677b64045828b7445f60e0f329d73fc71",
+    "hardware/main-compact/controls_conditioning.kicad_sch": "fb94bb9a94854282dcc6c1a1cfba81b6006b71ee26e97fc69542d94bb5c2a61b",
+    "hardware/main-compact/local_controls_1.kicad_sch": "250af853eddfce81b0708943da92199d628103d7c159136298e79c13f1b8930b",
+    "hardware/main-compact/local_controls_2.kicad_sch": "d855a421b60d0001c6fb38c866843475756c989d12a04627402ccde181ae8a07",
+    "hardware/main-compact/mcu.kicad_sch": "d5c42bb6f29642127bb3eccf8446d617c0471a4d9d2a327f5c17fb82eb6a84e8",
+    "hardware/main-compact/mechanical.kicad_sch": "2e1bfffc3dae76fb5e88da2d4f9028e8ba866d1652d18308d03464534339c3f8",
+    "hardware/main-compact/meter_ic.kicad_sch": "0bd5c4c02ab56c9270328e63187879e2b0f8ff381a6733ab16476447d1c3465a",
+    "hardware/main-compact/meter_inputs.kicad_sch": "d03c2c2e858189b22949c70fce08bdf1ba64ea441890ec9442a0d2b9974c4a73",
+    "hardware/main-compact/meter_isolation.kicad_sch": "a4dc04cbb205e1975c5364fd57db22b181fd5c70ed99c45d42bd389903f260b5",
+    "hardware/main-compact/power.kicad_sch": "a045f4eb3f5bda82df8f360d445674c6d4efa15e3fc98ed6f7bc9df7b3d41ac8",
+    "hardware/main-compact/power_flags.kicad_sch": "373defc58eefc8ec574cf02807907468b414675cfb4f73079424c31049754e2b",
+    "hardware/main-compact/probes_1.kicad_sch": "a109aea395f0e498a0615d4c7d6a7b45e77124640ebd94558ed684ae145c5d94",
+    "hardware/main-compact/probes_2.kicad_sch": "df1cae7dafe36673d9e163f28a3655aa96f33194d986a1c26c48fa61a4041137",
+    "hardware/main-compact/probes_3.kicad_sch": "4b3c3608a88ffd114bbadaaf44d0e410877fae1c004e49356992fcb12f8b01d0",
+    "hardware/main-compact/probes_4.kicad_sch": "2d87cec2e3230782e6529cbdabdb8a5a4f1588148fbe6e3141d1b39fffd9eb60",
+    "hardware/main-compact/pump-controller-compact.kicad_sch": "340dc5a5be90d6803fd5472754ae57f26c15211af0a1934143e9b09cc2f06463",
+    "hardware/main-compact/relay_protection_1.kicad_sch": "9b35e6a5f0f5183839c25cea8bce04d55601688031191dfb86ae4a1dd3815434",
+    "hardware/main-compact/relay_protection_2.kicad_sch": "2b1e17a53e42bf1292b0c1c0645e4431c309e2a62814e1a3a591893f58f4d951"
+  },
+  "native_sources_unchanged": true,
+  "native_violation_counts": {
+    "erc": 0,
+    "drc": 0,
+    "unconnected": 0,
+    "schematic_parity": 0
+  },
+  "critical_checks_ignored": [],
+  "geometry_and_source_passed": true,
+  "isolation_negative_tests_passed": true,
+  "independent_native_checks_passed": true,
+  "report_sha256": {
+    "independent-erc.json": "e0b2db83c06851089e89c9c21df86473af2111bba5176c225303874ef7e58bc6",
+    "independent-drc.json": "281f8b46fe42481d07f88fd8e9bb5554ee8b078626dc9b0ac67cb80a0edc7b46",
+    "independent-netlist.xml": "d8ad60d6442626d043186e01461dd3de85556276bec16a1e039560f3ae87007e",
+    "independent-geometry.json": "42686d2122c40af59dbd46c2207b58ac59ab1d6c120cbce24af985224008cbfd",
+    "isolation-negative-tests.json": "0f1c08fd0330b9a5c8859e630100d20668e12979dffddb6c39aad22a903310f7"
+  },
+  "manufacturer_accepted": false,
+  "hardware_tested": false,
+  "release_ready": false
+}

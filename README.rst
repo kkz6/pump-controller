@@ -1,6 +1,16 @@
 Compact single-phase pump controller
 ====================================
 
+The current **compact main board measures 100 x 75 mm**, with a modeled
+populated thickness of 25.68 mm and a separate 60 x 45 mm OLED/button panel.
+The compact version moves the power capacitor to the front and corrects
+the optional AUTO-key input. See the
+`compact PCB, schematic, fabrication files and validation <hardware/main-compact/README.rst>`_.
+Physical electrical and thermal qualification and firmware remain pending.
+
+Historical 100 x 80 mm Rev E baseline
+-------------------------------------
+
 **100 x 80 mm main board on hold.** The optional AUTO key is connected to
 MCP23017 GPB7. Microchip restricts this pin to output use because transitions
 during reads can corrupt the shared I2C bus. The Rev E Gerbers and test records
@@ -18,8 +28,7 @@ capacitor-start circuit stay in the starter.
 pumping. Firmware and assembled-board testing remain pending.** Both boards have
 passing native and independent CAD/export records, including the main's U37/C78
 input-conditioning correction. The baseline prototype archives pass their
-source and content checks. Compact alternatives are being evaluated; these
-results do not select the final board size or layer count. No manufacturer
+source and content checks. These records apply only to the historical 100 x 80 mm layout. No manufacturer
 acceptance, PCB order or physical qualification is recorded.
 
 Start here

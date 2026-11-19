@@ -1,6 +1,12 @@
 Design sources and revisions
 ============================
 
+The current compact circuit, layout, BOM, manufacturing archive and checks
+are indexed in the `compact board directory <../hardware/main-compact/README.rst>`_.
+
+Historical Rev E design
+-----------------------
+
 **100 x 80 mm main board on hold.** The optional AUTO key is connected to
 MCP23017 GPB7. Microchip restricts this pin to output use because transitions
 during reads can corrupt the shared I2C bus. The Rev E Gerbers and test records

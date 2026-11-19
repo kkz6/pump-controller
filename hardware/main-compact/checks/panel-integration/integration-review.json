@@ -1,0 +1,230 @@
+{
+  "control_variant": "compact",
+  "expander_key_inputs": {
+    "manual": "GPB6 / U33.7",
+    "auto": "GPA0 / U33.21"
+  },
+  "review_scope": "Independent native pin/net and interface topology check; no electrical hardware or firmware test.",
+  "source_sha256": {
+    "panel_board": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+    "main_board": "54227639c975885a5bf217f07a2b41714bfbc1bc258bdd3170d76975cad4ec19",
+    "panel_source": "15aaac7c64697c61dfad9820bc6af614ac38696b5718b00f5c9c1da8575c31ba",
+    "main_source": "944c57f9411761d9aab0081b8a870cb677b64045828b7445f60e0f329d73fc71",
+    "independently_exported_main_netlist": "4d175044cb8afe3b4460ed76d3bb9fcfbcbda3d97452880b8c9318634432990c",
+    "independently_exported_panel_netlist": "b5c7849febec21851ec1cf359586bb8f8be0d4f751b751873186aa9d55ba06eb"
+  },
+  "main_connected_source_pins_checked": 613,
+  "panel_components_including_mounting_holes": 33,
+  "panel_connected_source_pins_checked": 81,
+  "native_source_comparison_issues": [],
+  "host_harness": [
+    {
+      "panel_pin": 1,
+      "panel_net": "+5V",
+      "main_connector": "J32",
+      "main_pin": 1,
+      "main_net": "+5V"
+    },
+    {
+      "panel_pin": 2,
+      "panel_net": "STOP_RETURN",
+      "main_connector": "J32",
+      "main_pin": 2,
+      "main_net": "STOP_RETURN"
+    },
+    {
+      "panel_pin": 3,
+      "panel_net": "MAN_RETURN",
+      "main_connector": "J32",
+      "main_pin": 3,
+      "main_net": "MAN_RETURN"
+    },
+    {
+      "panel_pin": 4,
+      "panel_net": "AUTO_RETURN",
+      "main_connector": "J32",
+      "main_pin": 4,
+      "main_net": "AUTO_RETURN"
+    },
+    {
+      "panel_pin": 5,
+      "panel_net": "START_N",
+      "main_connector": "J32",
+      "main_pin": 5,
+      "main_net": "START_N"
+    },
+    {
+      "panel_pin": 6,
+      "panel_net": "RESET_N",
+      "main_connector": "J32",
+      "main_pin": 6,
+      "main_net": "RESET_N"
+    },
+    {
+      "panel_pin": 7,
+      "panel_net": "GND",
+      "main_connector": "J32",
+      "main_pin": 7,
+      "main_net": "GND"
+    },
+    {
+      "panel_pin": 8,
+      "panel_net": "+3V3",
+      "main_connector": "J32",
+      "main_pin": 8,
+      "main_net": "+3V3"
+    },
+    {
+      "panel_pin": 9,
+      "panel_net": "I2C_SDA",
+      "main_connector": "J32",
+      "main_pin": 9,
+      "main_net": "I2C_SDA"
+    },
+    {
+      "panel_pin": 10,
+      "panel_net": "I2C_SCL",
+      "main_connector": "J32",
+      "main_pin": 10,
+      "main_net": "I2C_SCL"
+    },
+    {
+      "panel_pin": 11,
+      "panel_net": "KEY_MAN_N",
+      "main_connector": "J32",
+      "main_pin": 11,
+      "main_net": "SPARE_B6"
+    },
+    {
+      "panel_pin": 12,
+      "panel_net": "KEY_AUTO_N",
+      "main_connector": "J32",
+      "main_pin": 12,
+      "main_net": "SPARE_B7"
+    }
+  ],
+  "common_ground": "Panel J1.7 returns directly through main J32.7. All twelve host cable cavities connect one-to-one; the former fanout cable is incompatible.",
+  "stop_contact_path_cases_checked": 128,
+  "stop_contact_path_passed": true,
+  "stop_path": "+5V -> SW1 COM/NC -> STOP_LOCAL_NC -> external J3 NC contact -> STOP_RETURN -> main J31 high-high loop -> K1 coil",
+  "stop_shunt_rule": "Fit JP1 only when no external NC STOP is fitted. It bypasses the external contact only, never local STOP.",
+  "external_no_buttons": [
+    {
+      "local": "SW2",
+      "external": "J2",
+      "nets": [
+        "GND",
+        "START_N"
+      ],
+      "parallel": true
+    },
+    {
+      "local": "SW3",
+      "external": "J4",
+      "nets": [
+        "MAN_RETURN",
+        "STOP_RETURN"
+      ],
+      "parallel": true
+    },
+    {
+      "local": "SW4",
+      "external": "J5",
+      "nets": [
+        "GND",
+        "RESET_N"
+      ],
+      "parallel": true
+    },
+    {
+      "local": "SW5",
+      "external": "J6",
+      "nets": [
+        "AUTO_RETURN",
+        "STOP_RETURN"
+      ],
+      "parallel": true
+    }
+  ],
+  "oled_pin_order": {
+    "1": "SCL",
+    "2": "SDA",
+    "3": "GND",
+    "4": "+3V3"
+  },
+  "key_channels": [
+    {
+      "transistor": "Q1",
+      "raw_net": "KEY_MAN_RAW",
+      "conditioned_net": "KEY_MAN_N",
+      "active_level": "LOW",
+      "pins_B_E_C": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "transistor": "Q2",
+      "raw_net": "KEY_AUTO_RAW",
+      "conditioned_net": "KEY_AUTO_N",
+      "active_level": "LOW",
+      "pins_B_E_C": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "key_truth_table": {
+    "MAN_contact_only": "KEY_MAN_N=0, KEY_AUTO_N=1",
+    "AUTO_contact_only": "KEY_MAN_N=1, KEY_AUTO_N=0",
+    "neither_contact": "1,1 invalid when key mode enabled",
+    "both_contacts": "0,0 invalid",
+    "panel_unplugged": "0,0 from main R92/R93 pull-downs, invalid"
+  },
+  "key_calculations": {
+    "nominal_high_V_at_3V3": 3.0,
+    "MCP23017_min_VIH_at_3V3": 2.64,
+    "nominal_R_C_rise_time_constant_us": 90.909,
+    "selected_key_raw_input_mA_5V_VBE0p7": 2.7027,
+    "STOP_added_wetting_mA_at5V": 2.2727,
+    "note": "Nominal calculations; component tolerances, leakage, contact behavior, cable drops and temperature still need validation."
+  },
+  "required_firmware": [
+    "Configure MCP23017 GPB6/GPA0 as key inputs with pull-ups disabled; keep NC GPB7/GPA7 configured as outputs.",
+    "Enable key input only when intentionally fitted; do not silently auto-detect or fall back on invalid states.",
+    "Debounce mechanical contacts; 10nF filters are not sufficient debounce alone.",
+    "Mode/key changes stop and disarm; never start solely from selecting AUTO or MANUAL.",
+    "Reject both-high/both-low key states when key mode is enabled, and require a fresh START after fault/mode changes."
+  ],
+  "main_assembly_variant": "Main board physically removes SW3/SW4 and superseded J33/J34. Panel SW4/SW5 connect through GH12 J32.6/J32.4; all12 host cavities are one-to-one.",
+  "native_layout_snapshot": {
+    "drc_violations": 0,
+    "unconnected": 0,
+    "parity_issues": 0,
+    "erc_violations": 0
+  },
+  "primary_references": [
+    "https://omronfs.omron.com/en_US/ecb/products/pdf/en-d2f.pdf",
+    "https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf",
+    "https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf",
+    "design/oled-selection.txt"
+  ],
+  "main_board_routing_frozen_at_review": true,
+  "hardware_tested": false,
+  "firmware_implemented": false,
+  "release_ready": false,
+  "remaining_checks": [
+    "Purchased switch/connector contact orientation and harness continuity.",
+    "STOP actuator travel/height and OLED/enclosure spacing.",
+    "Gold/low-level dry-contact key suitability for approximately 2.7 mA at 5 V.",
+    "Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.",
+    "Robu fabrication acceptance and assembled-board functional/thermal/EMC tests."
+  ],
+  "main_native_summary_sha256": "7896a46642179a1e734d54cfc671e24f86ed434bd5e472be9fac1f167dd6c811",
+  "main_native_evidence_current": true,
+  "native_inputs_unchanged": true,
+  "integration_passed": true,
+  "main_source_and_schematic_compared": true
+}

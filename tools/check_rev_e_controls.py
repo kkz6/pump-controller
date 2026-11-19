@@ -5,7 +5,9 @@ The generated matrix is a specification, never a fabricated measurement result.
 No native schematic or PCB is changed. Meter stimulus is not literally zero energy.
 """
 from pathlib import Path
+import argparse
 import hashlib
+import os
 import itertools
 import json
 import subprocess
@@ -14,6 +16,13 @@ import xml.etree.ElementTree as ET
 BASE = Path(__file__).resolve().parents[1]
 OUT = BASE / 'hardware/main-rev-e/checks'
 CLI = BASE / '.tools/kicad-cli'
+MAIN_SCH = BASE / 'hardware/main-rev-e/pump-controller-main-rev-e.kicad_sch'
+PANEL_SCH = BASE / 'hardware/panel-rev-e/pump-panel-rev-e.kicad_sch'
+MAIN_SOURCE = BASE / 'design/main-rev-e.json'
+PANEL_SOURCE = BASE / 'design/panel-rev-e.json'
+ACCEPTANCE_OUT = BASE / 'design/rev-e-unpowered-harness-acceptance.json'
+VARIANT = 'rev-e'
+LABEL = 'Rev E'
 
 
 def sha(path):
@@ -45,8 +54,7 @@ def connected(edges, start, end):
 
 def audit():
     OUT.mkdir(parents=True, exist_ok=True)
-    main_sch = BASE / 'hardware/main-rev-e/pump-controller-main-rev-e.kicad_sch'
-    panel_sch = BASE / 'hardware/panel-rev-e/pump-panel-rev-e.kicad_sch'
+    main_sch, panel_sch = MAIN_SCH, PANEL_SCH
     main_xml, panel_xml = OUT / 'control-main-netlist.xml', OUT / 'control-panel-netlist.xml'
     main, panel = native(main_sch, main_xml), native(panel_sch, panel_xml)
     issues, checked = [], []
@@ -106,6 +114,13 @@ def audit():
         'R88': {1:'START_N',2:'START_FILTER'},'R89': {1:'+3V3',2:'START_FILTER'},
         'R90': {1:'RESET_N',2:'RESET_FILTER'},'R91': {1:'+3V3',2:'RESET_FILTER'},
     }
+    if VARIANT == 'compact':
+        main_expected['U33'].update({8:None,21:'SPARE_B7',28:None})
+        parts={c['ref']:c for sheet in json.loads(MAIN_SOURCE.read_text())['sheets'] for c in sheet['components']}
+        source_pins={str(v['num']):v for v in parts['U33']['pins']}
+        for pin in ['8','28']:
+            if source_pins[pin].get('net') or source_pins[pin].get('type')!='output':
+                issues.append({'issue':'Compact MCP port7 must be NC/output','ref':'U33','pin':pin})
     for ref, values in main_expected.items():
         pins('main', ref, values)
     panel_expected = {
@@ -151,6 +166,8 @@ def audit():
             '+5V':['J1.1','J8.1','SW1.1'],
             'STOP_LOCAL_NC':['J3.1','JP1.1','SW1.3'],
             'STOP_RETURN':['J1.2','J3.2','J4.2','J6.2','JP1.2','R1.1','SW3.2','SW5.2']}}
+    expected_members['main']['SPARE_B6']=['J32.11','R92.1','U33.7']
+    expected_members['main']['SPARE_B7']=['J32.12','R93.1','U33.'+('21' if VARIANT=='compact' else '8')]
     for domain,nets in expected_members.items():
         mapping=main if domain=='main' else panel
         for net,wanted in nets.items():
@@ -160,7 +177,7 @@ def audit():
             membership_checks.append(record)
             if not record['passed']:issues.append(record)
     value_checks=[]
-    main_values={'U37':'SN74LVC3G17DCUR','C78':'100nF','R74':'100R','R70':'47k','R71':'2.2k','R72':'2.2k','R78':'2.2k','R76':'22R',
+    main_values={'U33':'MCP23017-E/SS','U37':'SN74LVC3G17DCUR','C78':'100nF','R74':'100R','R70':'47k','R71':'2.2k','R72':'2.2k','R78':'2.2k','R76':'22R',
                  'R77':'2.2k','R75':'100k','C77':'100nF','U36':'SN74LVC1G17DBVR',
                  'R80':'10k','R81':'33k','R82':'10k','R83':'33k','R84':'10k',
                  'R85':'33k','R86':'22k','R87':'100k','C86':'10nF',
@@ -203,10 +220,10 @@ def audit():
         got=connected(edges, main['J30','1'],main['J30','2'])
         relay_cases.append({'K1_NO_closed':k1,'K2_NO_closed':k2,'conductive':got,
                             'passed':got==(k1 and k2)})
-    tracked = [BASE/'design/main-rev-e.json', BASE/'design/panel-rev-e.json',main_xml,panel_xml]
+    tracked = [MAIN_SOURCE, PANEL_SOURCE,main_xml,panel_xml]
     tracked += sorted(main_sch.parent.glob('*.kicad_sch')) + sorted(panel_sch.parent.glob('*.kicad_sch'))
     report = {
-        'schema_version':1,'scope':'Independent freshly exported schematic pin map and contact-only graph audit; no board mutation, hardware measurements or firmware simulation.',
+        'schema_version':1,'variant':VARIANT,'expander_key_inputs':{'manual':'GPB6 / U33.7','auto':'GPA0 / U33.21' if VARIANT=='compact' else 'GPB7 / U33.8'},'scope':'Independent freshly exported schematic pin map and contact-only graph audit; no board mutation, hardware measurements or firmware simulation.',
         'input_sha256':{str(p.relative_to(BASE)):sha(p) for p in tracked},
         'pin_checks':checked,'value_checks':value_checks,'exact_critical_net_membership':membership_checks,'issues':issues,'stop_reachability_cases':cases,
         'stop_reachability_failures':failed,'relay_series_cases':relay_cases,
@@ -293,7 +310,7 @@ def acceptance(host):
             {'local_STOP_pressed':local_open,'external_STOP_open':external_open,'HH_float_tripped':hh_trip,'JP1_fitted':False}))
     stages.append({'id':'STOP_HH_CONTACT_FIXTURE','setup':'No main PCB: a labelled fixture jumper connects HOST_BREAKOUT.2 to the detached HH lead cavity1; HH cavity2 goes only to FIXTURE_HH_RETURN. Panel/key/OLED state as HOST_AND_STOP; external NC STOP fitted and JP1 removed. This mimics the series contact path without energizing relays and does not measure main-board J31 copper or latch timing.','cases':rows})
     return {
-        'schema_version':1,'title':'Rev E unpowered loom, panel and STOP contact acceptance matrix',
+        'schema_version':1,'title':LABEL+' unpowered loom, panel and STOP contact acceptance matrix',
         'status':'specification_only','hardware_tested':False,'all_measurements_initially_unrun':True,
         'meaning_of_unpowered':'No mains, motor, coil, USB, programmer, battery or other operating supply is connected. Stored energy is verified absent before removing/test connecting parts. A bounded resistance-meter stimulus is permitted; this is not literally zero electrical energy.',
         'instrument_limits':{'maximum_open_circuit_test_voltage_V':0.2,'maximum_short_circuit_test_current_A':0.001,
@@ -306,16 +323,31 @@ def acceptance(host):
                    'PH4':{'1':'I2C_SCL','2':'I2C_SDA','3':'GND','4':'+3V3'},
                    'KEY_GH3':{'1':'+5V common','2':'MANUAL raw','3':'AUTO raw'}},
         'powered_key_test_deferred':{'MANUAL':[0,1],'AUTO':[1,0],'key_detached':[1,1],'panel_detached':[0,0],
-             'order':['KEY_MAN_N','KEY_AUTO_N'],'note':'Expected powered logic only, not measurable as logic while unpowered. With key enabled,11/00 invalid; internal MCP pullups disabled. No universal individual-wire-fault coverage is claimed.'},
+             'order':['KEY_MAN_N','KEY_AUTO_N'],'note':'Expected powered logic only, not measurable as logic while unpowered. With key enabled,11/00 invalid; internal MCP key-input pullups disabled. '+('Compact key inputs are GPB6/GPA0; GPB7/GPA7 remain unconnected and must be configured as outputs. ' if VARIANT=='compact' else '')+'No universal individual-wire-fault coverage is claimed.'},
         'stages':stages,'case_count':sum(len(s['cases']) for s in stages),
     }
 
 
 def main():
+    global OUT, MAIN_SCH, PANEL_SCH, MAIN_SOURCE, PANEL_SOURCE, ACCEPTANCE_OUT, VARIANT, LABEL
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--variant',choices=['rev-e','compact'],default='rev-e')
+    for flag in ['main-sch','panel-sch','main-source','panel-source','output','acceptance-output']:
+        parser.add_argument('--'+flag,type=Path)
+    args=parser.parse_args();VARIANT=args.variant
+    if VARIANT=='compact':
+        LABEL='Compact';OUT=BASE/'hardware/main-compact/checks'
+        MAIN_SCH=BASE/'hardware/main-compact/pump-controller-compact.kicad_sch'
+        MAIN_SOURCE=BASE/'design/main-compact.json'
+        ACCEPTANCE_OUT=BASE/'design/compact-unpowered-harness-acceptance.json'
+    OUT=(args.output or OUT).resolve();MAIN_SCH=(args.main_sch or MAIN_SCH).resolve()
+    PANEL_SCH=(args.panel_sch or PANEL_SCH).resolve();MAIN_SOURCE=(args.main_source or MAIN_SOURCE).resolve()
+    PANEL_SOURCE=(args.panel_source or PANEL_SOURCE).resolve();ACCEPTANCE_OUT=(args.acceptance_output or ACCEPTANCE_OUT).resolve()
     report,host=audit()
     matrix=acceptance(host)
-    matrix['audit_evidence']={'path':'../hardware/main-rev-e/checks/hardwired-control-review.json','sha256':sha(OUT/'hardwired-control-review.json'),'pin_and_contact_graph_passed':report['passed']}
-    path=BASE/'design/rev-e-unpowered-harness-acceptance.json'
+    matrix['audit_evidence']={'path':os.path.relpath(OUT/'hardwired-control-review.json',ACCEPTANCE_OUT.parent),'sha256':sha(OUT/'hardwired-control-review.json'),'pin_and_contact_graph_passed':report['passed']}
+    path=ACCEPTANCE_OUT
+    path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(matrix,indent=2)+'\n')
     print(json.dumps({'audit_passed':report['passed'],'checked_pins':len(report['pin_checks']),
                       'stop_cases':report['stop_reachability_cases'],'acceptance_cases':matrix['case_count'],
