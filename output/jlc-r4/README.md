@@ -13,6 +13,8 @@ The BOM and placement files describe one board. Two main boards require 544 comp
 
 A catalog estimate prices 580 of the required 592 pieces at **US$171.69**. Five exact manufacturer part numbers, covering the other 12 pieces, still need quotes. Assembly, extra procurement quantities, freight, taxes and items installed outside the PCBs are additional. [Two-set component quantities and prices](component-quantity-plan.csv) · [Installation parts for two sets](offboard-two-installations.csv)
 
+For prices at actual purchase quantities, alternatives from JLC Global Sourcing and the domestic cabinet parts, see the [cost and availability comparison](parts-cost-review.md) and the [complete parts index](complete-parts-index.csv).
+
 ## Supplier matching
 
 The two signed-in assembly drafts specify **two assembled boards per design**. JLCPCB matched the uploaded bills and placements as shown below. The [two-set supplier matches](two-set-assembly-matches.csv) contain current per-part shortfalls. The [original five-board comparison](assembly-quote-matches.csv) is retained for reference.
