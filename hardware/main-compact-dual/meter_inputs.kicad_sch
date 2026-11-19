@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "589dd6f8-e22e-5817-8a3f-1723b121f40e")
 (paper "A3")
-(title_block (title "Meter voltage and current inputs - LIVE DOMAIN") (rev "COMPACT-DUAL-PROTOTYPE") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Meter voltage and current inputs - LIVE DOMAIN") (rev "COMPACT-DUAL-GUARD-R2") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:R42"
 (pin_names (offset 0.508))

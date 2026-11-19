@@ -65,7 +65,7 @@ def title(g, heading, sub, page):
     line(g, [(MARGIN,116),(RIGHT,116)], RULE, .8)
     line(g, [(MARGIN,789),(RIGHT,789)], RULE, .8)
     text(g,MARGIN,806,"COMPACT-DUAL  /  Field wiring review",8,tone=MUTED)
-    text(g,RIGHT-48,806,f"{page} of 3",8,tone=MUTED)
+    text(g,RIGHT-48,806,f"{page} of 7",8,tone=MUTED)
 
 
 def heading(g, y, name, detail):
@@ -73,11 +73,11 @@ def heading(g, y, name, detail):
     text(g,MARGIN,y+17,detail,9.5,tone=MUTED)
 
 
-def port_group(g, y, title_left="Controller harness"):
+def port_group(g, y, title_left="Isolated interposer contacts"):
     start_y=y+26
     box(g,MARGIN,y+11,142,109)
     text(g,MARGIN,y+1,title_left,9,bold=True,tone=MUTED)
-    labels=("J30.1    A COM", "J30.2    A NO", "J35.1    B COM", "J35.2    B NO")
+    labels=("KCA    A COM", "KCA    A NO", "KCB    B COM", "KCB    B NO")
     yrows=[start_y+i*26 for i in range(4)]
     for i,(yy,label) in enumerate(zip(yrows,labels)):
         text(g,MARGIN+12,yy+3,label,10,bold=True,tone=A_COLOR if i<2 else B_COLOR)
@@ -97,7 +97,7 @@ def target(g, y, labels, title_text):
 
 def page_maintained_four(g):
     title(g,"Two- and four-wire starter connections",
-          "Controller position. Use the harness and matching profile documented for the exact starter.",1)
+          "HOST command contacts. Install the independent guard and command interposers on pages 4 and 5.",1)
     heading(g,148,"Two wires  /  maintained RUN",
             "For a starter that runs on contact closure and stops on opening.")
     x,ys=port_group(g,193)
@@ -126,7 +126,7 @@ def page_maintained_four(g):
     paragraph(g,MARGIN,684,["Open-to-stop DOL. Insert pair A only into the added permission section of the",
                            "coil circuit. Keep the original STOP and overload in series with every coil path.",
                            "Connect pair B across the approved momentary START input. Only a fresh pulse starts."],10)
-    text(g,MARGIN,738,"Fit two Phoenix 1836079 plugs and two CP-MSTB 1734634 coding elements.",9,bold=True)
+    text(g,MARGIN,738,"J30 and J35 drive the 24 V interposer coils. The A/B pairs above are their dry contacts.",9,bold=True)
     text(g,MARGIN,751,"Key A at pole 1 and B at pole 2. Verify each plug fits only its assigned header.",9,bold=True)
     text(g,MARGIN,773,"Keep the starter's capacitor circuit intact. Motor and capacitor current stay off this harness.",9,bold=True)
     g.showPage()
@@ -157,8 +157,8 @@ def page_three(g):
         terminal(g,x,yy,A_COLOR if i<2 else B_COLOR)
         if i!=2: terminal(g,z,yy,A_COLOR if i<2 else B_COLOR)
     text(g,mid+6,ys[0]-6,"Captured COM splice",8.5,bold=True)
-    paragraph(g,MARGIN,357,["The only common is the captive splice between J30.1 and J35.1 in this harness.",
-                           "J30.2 operates START. J35.2 operates STOP. The main PCB keeps both pairs separate.",
+    paragraph(g,MARGIN,357,["The only common is the captive splice between the KCA and KCB contact commons.",
+                           "KCA NO operates START. KCB NO operates STOP. The two contact pairs are kept separate.",
                            "Keep both outputs within the same starter control system. Never join either contact",
                            "to controller ground, J36, a probe common, protective earth or AC neutral."],10)
     line(g,[(MARGIN,428),(RIGHT,428)],RULE,.8)
@@ -166,7 +166,7 @@ def page_three(g):
             "A front-panel button label alone does not establish that an electronic keypad accepts dry contacts.")
     text(g,MARGIN,511,"Contact load",11,bold=True)
     paragraph(g,MARGIN,529,["Check voltage, current and inrush against the exact input and relay data. Omron's",
-                            "G5Q low-level reliability reference is 10 mA at 5 V DC. A scanned keypad may run",
+                            "G7SA low-level reliability reference is 1 mA at 5 V DC. A scanned keypad may run",
                             "well below this. Use a verified low-level interface when the contact load is unsuitable."],10)
     text(g,MARGIN,600,"START timing",11,bold=True)
     paragraph(g,MARGIN,618,["Use the OEM's documented pulse range. A contact can weld or a processor can stall.",
@@ -174,7 +174,7 @@ def page_three(g):
                            "Do not connect an unverified button circuit to exercise the profile."],10)
     text(g,MARGIN,690,"Controller power loss",11,bold=True)
     paragraph(g,MARGIN,708,["A powerless controller cannot send a closure to STOP. A starter may remain latched.",
-                           "Unattended use requires an independent verified inhibit or trip in this installation.",
+                           "Wire the independent guard on pages 4 and 5. Confirm the actual OEM off and release proofs.",
                            "Confirm local STOP priority and no unintended restart after supply restoration."],10)
     g.showPage()
 
@@ -202,7 +202,7 @@ def page_manual(g):
                             "RUN link or keypad common splice captive in its disconnected HOST harness. Confirm the",
                             "original buttons work locally. Mechanically exclude the DOL link from either layout."],10)
     line(g,[(MARGIN,432),(RIGHT,432)],RULE,.8)
-    heading(g,463,"J36 logic-side plug  /  separate three-wire cable",
+    heading(g,463,"J36 keyed five-way plug  /  position and guard",
             "Fully seated plug position is reported by two electrically isolated, low-current auxiliary contacts.")
     x=197
     box(g,MARGIN,507,x-MARGIN,88)
@@ -218,12 +218,188 @@ def page_manual(g):
     terminal(g,315,551,filled=True)
     paragraph(g,MARGIN,626,["Each position contact closes to J36.1. HOST alone allows a fresh arm sequence.",
                            "LOCAL alone selects original starter control. Both or neither inhibits controller outputs.",
-                           "J36 mates with a separate JST GHR-03V-S housing. Keep all starter voltage off these pins."],10)
+                           "J36.4 and J36.5 go to the isolated receiver on page 5. Use JST ZER-05V-S."],10)
     text(g,MARGIN,687,"Before returning to service",11,bold=True)
     paragraph(g,MARGIN,706,["Disable OEM automatic start/retry in LOCAL and verify it stays disabled after a power cycle.",
                            "Confirm a released STOP, an overload reset, a transfer or restoration of power cannot",
                            "start the pump unexpectedly. Verify every required independent high-level and dry-run",
                            "trip in the selected position. A disconnected controller cannot enforce a software trip."],10)
+    g.showPage()
+
+
+def page_guard(g):
+    title(g, "Independent motor shutdown",
+          "External cabinet hardware. All profiles and both service positions share these trips.", 4)
+    heading(g, 146, "Guard inputs", "Single-channel PNOZ s4, 24 V DC. SR1 and SR2 both use monitored rising-edge start.")
+    box(g, MARGIN, 182, RIGHT-MARGIN, 98)
+    paragraph(g, MARGIN+12, 204, [
+        "SR1.S11  >  Original STOP spare NC  >  overload spare NC  >  KV and KC healthy NO",
+        ">  independent high-high float NC  >  position branches below  >  SR1.S12 / S22.",
+        "HOST: HOST seated + LOCAL released + both DD2503 window NOs + panel-stop relay NO.",
+        "LOCAL: LOCAL seated + HOST released, with both OEM command pairs disconnected.",
+    ], 9.5, 18)
+    paragraph(g, MARGIN, 300, [
+        "KV senses the protected motor supply before KS1/KS2. KC senses an independent OEM",
+        "control supply if present. A qualified common-source arrangement uses one monitor.",
+        "J1 and cabinet 24 V are fed upstream. Confirm worst-case brownout detection at the starter.",
+    ], 9.7, 15)
+    heading(g, 379, "Reset and deliberate enable", "SR1.S12 > RESET > S34. Reset alone leaves the motor feeder open.")
+    box(g, MARGIN, 413, RIGHT-MARGIN, 99)
+    paragraph(g, MARGIN+12, 436, [
+        "SR2.S11 > SR1.13-14 > [off-proof branch or SR2.33-34 RUN seal] > SR2.S12 / S22.",
+        "Off-proof branch: both KS mirrors, all three J2.7/8 proofs (page 6), START release and",
+        "in HOST both guided KCA/KCB NCs. LOCAL isolates both controller command pairs.",
+        "SR2.S12 > dedicated ENABLE momentary NO > SR2.S34. Keep all proofs off S34.",
+    ], 9.5, 18)
+    heading(g, 552, "Two series motor contactors", "Feed each coil from a different dry safety contact. Use contactors rated for the actual load.")
+    paragraph(g, MARGIN, 598, [
+        "Fused cabinet +24 V > SR2.13-14 > KS1.A1. Fused +24 V > SR2.23-24 > KS2.A1.",
+        "Both A2 terminals return to cabinet 0 V. Route the protected motor feed as shown.",
+    ], 9.7, 15)
+    nodes = [(MARGIN, 114, "Protected supply"), (184, 78, "KS1 NO"), (296, 78, "KS2 NO"),
+             (410, RIGHT-410, "Whole OEM starter")]
+    for i, (x, w, name) in enumerate(nodes):
+        box(g, x, 646, w, 33)
+        text(g, x+10, 667, name, 9.7, True)
+        if i:
+            prev_x, prev_w, _ = nodes[i-1]
+            line(g, [(prev_x+prev_w,662), (x,662)])
+    paragraph(g, MARGIN, 712, [
+        "A welded PCB command cannot bypass either trip. One welded main contactor leaves",
+        "the other available and its NC mirror blocks re-enable. Qualify release, anti-restart",
+        "and the actual OEM start/stop behavior before connecting a motor.",
+    ], 10, 15)
+    g.showPage()
+
+
+def page_signals(g):
+    title(g, "Guard loom and command interfaces",
+          "Cabinet 24 V, controller logic and the OEM button circuit are three separate wiring domains.", 5)
+    heading(g, 151, "Main board to cabinet", "Use preterminated, keyed harnesses. Each arrow below identifies an electrical connection.")
+    for y, label, details in [
+        (195, "J30.1 / J30.2", "Fused +24 V to COM. NO to KCA coil 1. Coil 0 to cabinet 0 V."),
+        (231, "J35.1 / J35.2", "Fused +24 V to COM. NO to KCB coil 1. Coil 0 to cabinet 0 V."),
+        (267, "J36.1", "Floating receiver return and isolated position contacts common."),
+        (303, "J36.2 / J36.3", "HOST / LOCAL full-seat dry contacts to J36.1 respectively."),
+        (339, "J36.4", "3.3 V heartbeat to isolated HB receiver. Nominal 5 Hz."),
+        (375, "J36.5", "5 V raw panel STOP return to separate isolated PANEL receiver."),
+        (411, "J31.1 / J31.2", "KFB isolated gold NO, closed only with both KS picked up in HOST."),
+    ]:
+        box(g, MARGIN, y-18, RIGHT-MARGIN, 28)
+        text(g, MARGIN+9, y, label, 10, True)
+        text(g, 155, y, details, 9.5)
+    heading(g, 475, "Cabinet receiver", "J36 connects only to floating low-voltage, high-impedance inputs.")
+    paragraph(g, MARGIN, 518, [
+        "Isolated 5 V > LM393B input comparators > individual optocouplers > cabinet PNP outputs.",
+        "Heartbeat: isolated pulses to ifm DD2503.4. Both windows: FO=5, SP=5 Hz, HY=40%.",
+        "HOST path through 13-14, link 14 to 19, then 19-20. Leave reset inputs 17/18 open.",
+        "Panel: isolated 24 V output > KPS coil. Wire KPS NO in the HOST branch.",
+        "Feedback: fused +24 V > KS1 NO > KS2 NO > separate HOST-seated NO > KFB coil.",
+    ], 9.7, 18)
+    heading(g, 652, "Commissioning hold", "The cabinet also needs the isolated receiver PCB and the external guard hardware.")
+    paragraph(g, MARGIN, 695, [
+        "Identify the exact OEM contacts and no-voltage-release behavior. Use the contact schedule,",
+        "receiver components and power-return tests in hardware/starter-guard/README.rst.",
+        "Confirm a held RESET or ENABLE cannot start after supply, mirror or command recovery.",
+        "Verify the original STOP and high-high at the load while both controller contacts are held.",
+    ], 9.7, 17)
+    g.showPage()
+
+
+def page_pickup_proof(g):
+    title(g, "Starter neutral proof before enable",
+          "Both HOST and LOCAL require proven open pickup wiring before the starter supply is restored.", 6)
+    heading(g,150,"J2.7 to J2.8  /  three isolated contacts in series",
+            "External cabinet 24 V proof circuit. Keep the OEM pickup wiring electrically separate.")
+    line(g,[(MARGIN+5,233),(RIGHT-5,233)])
+    for x, tag, status in [(78,"KOF1","Power stage off"),(234,"KHL1","Actual hold released"),(388,"KID1","Whole pickup open")]:
+        box(g,x,205,129,55)
+        text(g,x+8,227,tag,12,bold=True)
+        text(g,x+8,247,status,9.1)
+    terminal(g,MARGIN+5,233)
+    terminal(g,RIGHT-5,233)
+    text(g,MARGIN,280,"J2.7",9,bold=True)
+    text(g,RIGHT-25,280,"J2.8",9,bold=True)
+    heading(g,326,"Conventional holding circuit",
+            "Trace every parallel START, holding and remote contact in the actual installed transfer position.")
+    paragraph(g,MARGIN,369,[
+        "KOF1 is the verified OEM stopped-state contact. KHL1 is the mechanically linked NC",
+        "of the NO actually carrying the seal-in current. A compatible TeSys D / LADN11 is",
+        "one example. Retire any former independent seal-in contact left across this pair.",
+        "KID1 is the healthy NO from an independent, powered, isolated pickup-path monitor.",
+        "It must detect a bridge across START while the OEM feeder is off and both buttons",
+        "are released. J2.9/10 separately checks the OEM START actuator release.",
+    ],10,18)
+    heading(g,514,"Electrical restart acceptance",
+            "Use an isolated dummy load; keep the motor disconnected for fault injection.")
+    paragraph(g,MARGIN,558,[
+        "Trip the feeder. With both buttons released, test a welded holding NO and a bridge",
+        "across the real START terminals separately, in both modes. Restore all supplies,",
+        "RESET and press ENABLE. The two motor contactors and J31 must remain open.",
+        "Verify the holding weld bars KHL1. A wire bridge tests KID1, even if KHL1 is healthy.",
+        "Repeat with the monitor unpowered and its return open. Remove the fault, release",
+        "ENABLE, then verify that a fresh ENABLE and subsequent new START are required.",
+    ],10,18)
+    paragraph(g,MARGIN,709,[
+        "Page 7 shows one specific 24 V DC pilot interface. A keypad",
+        "display, released button or mirror alone cannot establish command neutrality.",
+        "Keep the profile disabled if the actual pickup circuit or retained demand is unobservable.",
+    ],9.5,17)
+    g.showPage()
+
+
+def page_24v_pilot(g):
+    title(g,"24 V DC DOL pilot example","Separate live SELV pilot. Motor feeder through KS1 and KS2. Do not apply to an AC coil or keypad.",7)
+    heading(g,149,"Motor contactor pilot / four-wire DOL HOST profile",
+            "P and D remain directly across the START and holding contacts in HOST and LOCAL.")
+    box(g,42,224,77,30)
+    text(g,47,243,"+24 / STOP / OL",8.2,True)
+    line(g,[(119,238),(133,238),(133,322)])
+    for yy,label in [(210,"OEM START NO"),(257,"Actual seal NO"),(302,"KCB NO / HOST")]:
+        line(g,[(133,yy),(316,yy)])
+        box(g,167,yy-12,111,24)
+        text(g,175,yy+3,label,9,True)
+    line(g,[(133,238),(133,210)])
+    line(g,[(316,210),(316,322)])
+    for xx,tag in [(133,"P  /  J10.1"),(316,"D  /  J10.2")]:
+        terminal(g,xx,257,filled=True)
+        text(g,xx-17,190,tag,9,True,tone=A_COLOR)
+    line(g,[(316,257),(RIGHT,257)])
+    box(g,330,243,78,28)
+    text(g,337,260,"A1  coil  A2",9,True)
+    box(g,418,232,104,50)
+    text(g,423,251,"KCA NO in HOST",8.5,True)
+    text(g,423,267,"Link in LOCAL",8.5)
+    text(g,530,245,"0 V",8.5,True)
+    line(g,[(133,322),(133,354),(316,354),(316,322)])
+    box(g,153,339,144,31)
+    text(g,159,359,"R40 - OC3 LED - R41",9,True)
+    line(g,[(316,322),(531,322)])
+    box(g,355,306,117,32)
+    text(g,363,326,"R42  680R / 5 W",9.5,True)
+    text(g,497,345,"Pilot 0 V",8.5)
+    text(g,496,310,"J10.3",8.5,True)
+    heading(g,410,"Affirmative open-path sensing",
+            "Optical isolation separates cabinet 24 V from the OEM pilot. See the native pilot sheet for each pin.")
+    paragraph(g,MARGIN,451,[
+        "R40 and R41 are 1.60 k, 1%, 0.6 W each. P to R40 to AQY212EH pin 1,",
+        "pin 2 to R41 to D. D8 clamps reverse LED voltage. Shorting P to D removes LED drive;",
+        "opening either sense lead does the same. R42 returns D to pilot 0 V even with KCA open.",
+        "Cabinet fused +24 V to OC3.3; OC3.4 to KID1.A1; A2 to cabinet 0 V. R43 (2.20 k,",
+        "1%, 1 W) shunts A1-A2. RE17RAMU function A, 1 s, Y1 open. Timed dry 15-18 goes",
+        "in series with KOF1 and KHL1 as drawn on page 6. Check actual timing and wetting.",
+    ],9.8,17)
+    heading(g,587,"Preconditions and acceptance",
+            "OEM pilot stays energized for supervision. Isolate and verify both supplies before servicing.")
+    paragraph(g,MARGIN,631,[
+        "Example coil LC1D09BD. Qualify 21.6-26.4 V pilot, coil resistance 70-150 ohms hot/cold.",
+        "Fit KC1 RM17UBE16 on the pilot supply; KV1 RM17UBE15 monitors the 230 V motor feed.",
+        "Open-to-stop coil permission is on the return. The LOCAL insert restores only that return",
+        "and disconnects remote KCB. Test a P-D bridge with KCA open and with LOCAL selected.",
+        "Check actual coil release, heating, supply loss, nuisance pickup and false idle. If the OEM",
+        "seal stays picked after a trip, use original STOP to clear it before RESET / ENABLE.",
+        "Other pilot voltages and electronic memory require separate, qualified proof hardware.",
+    ],9.7,17)
     g.showPage()
 
 
@@ -236,6 +412,10 @@ def main():
     page_maintained_four(g)
     page_three(g)
     page_manual(g)
+    page_guard(g)
+    page_signals(g)
+    page_pickup_proof(g)
+    page_24v_pilot(g)
     g.save()
 
 

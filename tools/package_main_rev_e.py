@@ -34,13 +34,19 @@ class BoardVariant(NamedTuple):
     size: tuple
     revision: str
 
+    @property
+    def archive_name(self):
+        if self.directory == 'main-compact-dual':
+            return self.cam_name + '-guard-r2'
+        return self.cam_name
+
 
 def board_variant(compact=False, compact_dual=False):
     if compact and compact_dual:
         raise ValueError('Select one main PCB variant')
     if compact_dual:
         return BoardVariant('main-compact-dual', 'pump-controller-compact', 'pump-controller-compact-dual',
-                            'design/main-compact-dual.json', (100, 97), 'COMPACT-DUAL-PROTOTYPE')
+                            'design/main-compact-dual.json', (100, 97), 'COMPACT-DUAL-GUARD-R2')
     if compact:
         return BoardVariant('main-compact', 'pump-controller-compact', 'pump-controller-compact',
                             'design/main-compact.json', (100, 75), 'Compact')
@@ -62,9 +68,10 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def invalidate_packages(output, name=NAME):
-    for suffix in SUFFIXES:
-        (output / (name + suffix)).unlink(missing_ok=True)
+def invalidate_packages(output, variant):
+    for name in {variant.archive_name, variant.cam_name}:
+        for suffix in SUFFIXES:
+            (output / (name + suffix)).unlink(missing_ok=True)
     (output / 'package-manifest.json').unlink(missing_ok=True)
 
 
@@ -75,7 +82,7 @@ def package(base=BASE, *, compact=False, compact_dual=False):
     source_path = variant.design
     size = list(variant.size)
     settings = dict(SETTINGS, outline_mm=size)
-    invalidate_packages(output, name)
+    invalidate_packages(output, variant)
     board = output / (variant.native_name + '.kicad_pcb')
     checks = output / 'checks'
     tracked = {}
@@ -114,6 +121,10 @@ def package(base=BASE, *, compact=False, compact_dual=False):
             and set(geometry['copper_layers']) == {'F.Cu', 'In1.Cu', 'In2.Cu', 'In3.Cu', 'In4.Cu', 'B.Cu'},
             'Native geometry is stale or failed')
     if compact_dual:
+        bypass = read(checks / 'bypass-routing.json')
+        require(bypass['board_sha256'] == pcb_hash and bypass['passed'] is True and not bypass['failures']
+                and set(bypass['measurements']) == {'C56','C57','C59','C60','C102','C103','C104'},
+                'Bypass routing evidence is stale or incomplete')
         field_gap = geometry['starter_field_to_board_mains_projected']['gap_mm']
         require(field_gap >= 8, 'Starter-to-mains projected clearance is below 8 mm')
     export = read(output / 'fabrication-manifest.json')
@@ -174,7 +185,8 @@ def package(base=BASE, *, compact=False, compact_dual=False):
         'Paste files are supplied in a separate stencil archive.\n'
     )
     if compact_dual:
-        notes += ('Maintain at least 8.00 mm finished copper separation from both starter pairs to '
+        notes += ('Guard R2 requires the separate cabinet shutdown assembly. J31 accepts isolated guard feedback only.\n'
+                  'Maintain at least 8.00 mm finished copper separation from both starter pairs to '
                   'controller mains, metering and isolated logic across all six layers. Report DFM changes.\n')
     common = {
         'revision': variant.revision, 'scope': 'Bare-PCB engineering prototype only',
@@ -208,7 +220,7 @@ def package(base=BASE, *, compact=False, compact_dual=False):
             manifest = {**common, 'archive_kind': 'bare_board' if suffix == SUFFIXES[0] else 'stencil',
                         'files_sha256': {n: hashlib.sha256(b).hexdigest() for n, b in payload.items()}}
             payload['package-manifest.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
-            filename = name + suffix
+            filename = variant.archive_name + suffix
             with zipfile.ZipFile(temp / filename, 'w', zipfile.ZIP_DEFLATED) as archive:
                 for member, data in sorted(payload.items()):
                     archive.writestr(member, data)

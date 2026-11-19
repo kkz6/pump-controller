@@ -8,7 +8,8 @@ static bool duration_valid(uint32_t ms)
 bool starter_configure(struct starter_outputs *s, struct starter_config config)
 {
     *s = (struct starter_outputs){0};
-    if (!duration_valid(config.contact_settle_ms)) return false;
+    if (!config.independent_shutdown || config.profile != config.harness_profile ||
+        !duration_valid(config.contact_settle_ms)) return false;
     switch (config.profile) {
     case STARTER_RUN_PAIR:
         break;
@@ -16,8 +17,7 @@ bool starter_configure(struct starter_outputs *s, struct starter_config config)
         if (!duration_valid(config.start_pulse_ms)) return false;
         break;
     case STARTER_PULSE_STOP:
-        if (!duration_valid(config.start_pulse_ms) || !duration_valid(config.stop_pulse_ms)
-            || !config.independent_shutdown) return false;
+        if (!duration_valid(config.start_pulse_ms) || !duration_valid(config.stop_pulse_ms)) return false;
         break;
     default:
         return false;

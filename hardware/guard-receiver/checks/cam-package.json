@@ -1,0 +1,57 @@
+{
+  "revision": "GUARD-RX-A",
+  "source_sha256": {
+    "hardware/guard-receiver/Pump.kicad_sym": "f00a2d740d1e25878aaf89ed0f138c3e3b9550e0f2476b6be4300a1d5fef650d",
+    "hardware/guard-receiver/cabinet.kicad_sch": "0cbc351e1a77d23ea9458b72549b0022adb371ee8ea30ecea3d52fd7a14cb183",
+    "hardware/guard-receiver/fp-lib-table": "e4daf5d24d959bebbeea5ed28881464fb4486ad6ca592e5dbd6a7e3a0b99a982",
+    "hardware/guard-receiver/guard-receiver.kicad_dru": "9bfaff540cacc333eead87d593e6e780f504e28f407d5045fc32bb00ed53425f",
+    "hardware/guard-receiver/guard-receiver.kicad_pcb": "e8c1ea8c7d2632b4e60d19df7d7fae85620e0e43b6460bfd93e1d1da45a47063",
+    "hardware/guard-receiver/guard-receiver.kicad_pro": "b77d488d444803f9f3bca8aaaba145894f6a3521e63d9c29c6231ea75cb25d8a",
+    "hardware/guard-receiver/guard-receiver.kicad_sch": "9024fbc4396b001d614e4b203668e7d51086707b18706cbc490afe8fa9583132",
+    "hardware/guard-receiver/plugs.kicad_sch": "68e16bf15d00d93e6471ecc7c0d6667a307ea74f12f97bff5185b197c3c2bcb8",
+    "hardware/guard-receiver/receiver.kicad_sch": "7b82512e84ce7d886ce91c8b2071c5b565151990f81d8742422bb01b16404906",
+    "hardware/guard-receiver/sym-lib-table": "e852788926d914a0a23493c450866861a2033a77e4d84fab8df9c06707760c25"
+  },
+  "geometry_sha256": "b7871d41fe67b68d6900eb8056516c00828538e879c55edd6137c78d017d6d64",
+  "native_erc": 0,
+  "native_drc": 0,
+  "unconnected": 0,
+  "schematic_parity": 0,
+  "outline_mm": [
+    68.0,
+    48.0
+  ],
+  "copper_layers": 2,
+  "schematic_pins_compared_with_ipc": 115,
+  "drills_compared_with_ipc": {
+    "PTH": 59,
+    "NPTH": 6
+  },
+  "gerber_conductive_netlist_extracted": false,
+  "prototype_hardware_tested": false,
+  "archives": {
+    "guard-receiver-rev-a-gerber-prototype.zip": {
+      "sha256": "e164239e8131dafd08f40b83fdb42b4cfc52644d5c75e86fd60ac7f74329d74b",
+      "files_sha256": {
+        "guard-receiver-rev-a-NPTH.XLN": "b256bde6cd7228e4c94c0b49ee480108cf1dcc9a08b4504ace3bc12d8bd146b6",
+        "guard-receiver-rev-a-PTH.XLN": "5b37b69a1f864370b6c1c98ff71d336b7655247eddeeddf2b7940296ddecf1c9",
+        "guard-receiver-rev-a.GBL": "f96422e84d693170e8d784b709ed0fe315aee9d68280af79f8e4854698f63f6c",
+        "guard-receiver-rev-a.GBO": "0d63ce3886ea8cc01fc364509d79756f20c446b13c590d02cf27d52b95ec9c5d",
+        "guard-receiver-rev-a.GBS": "02990d1dd791ee942e6087ab72e7d524eb7967ca6445e172c37546f278187428",
+        "guard-receiver-rev-a.GKO": "811dc0b8942981afd66359f50d2e5e07b8b5181ef98c34d682cb56e3125c3390",
+        "guard-receiver-rev-a.GTL": "9a996f47ae9894b7106057674cc0885560694501a7d885fd9835df75a37d7a2b",
+        "guard-receiver-rev-a.GTO": "e8d9ef65e4ab67b399295719af788ccd441d97d0850a46fffe754be1ce1fd16a",
+        "guard-receiver-rev-a.GTS": "616083c78591d52904953e5cde59fac7bf8240b7be3b230e005b87dc5837a5c7",
+        "guard-receiver-rev-a.d356": "a88f64fbf7f924b92d9f7998b564c8325e650c7a77afce551a090edee3919f2e",
+        "guard-receiver-rev-a.gbrjob": "0e0a48601d4433e5a26246a76d9185da819be4163edb500c5299704a33664eac"
+      }
+    },
+    "guard-receiver-rev-a-stencil-prototype.zip": {
+      "sha256": "ccb63d81a68df1fa0e7fca058994e6fb45a28f4fe288b52082983bc0fd52c182",
+      "files_sha256": {
+        "guard-receiver-rev-a.GBP": "bfb66bda9afb154fdd0dccdff7664eb32238431c78f9697ccfbb11551b976284",
+        "guard-receiver-rev-a.GTP": "d09ea9f0bf37df9607323f476c2fae0204d388fa91ffe78b7fb97c9c909be571"
+      }
+    }
+  }
+}

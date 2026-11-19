@@ -43,6 +43,9 @@ class PackageGate(unittest.TestCase):
         sources = {str(p.relative_to(self.base)): digest(p) for p in inputs}
         board_hash = digest(inputs[0])
         source_hash = digest(inputs[-1])
+        if self.compact_dual:
+            dump(self.checks / 'bypass-routing.json', {'board_sha256': board_hash, 'passed': True,
+                 'failures': [], 'measurements': dict.fromkeys(['C56','C57','C59','C60','C102','C103','C104'], {})})
         for filename in gate.REPORTS:
             dump(self.checks / filename, {'synthetic': True})
         dump(self.checks / 'independent-geometry.json',
@@ -93,11 +96,13 @@ class PackageGate(unittest.TestCase):
     def refused(self):
         # A failed retry must remove earlier archives, not leave stale uploads.
         for suffix in gate.SUFFIXES:
-            (self.out / (self.variant.cam_name + suffix)).write_text('obsolete upload')
+            for stem in {self.variant.cam_name, self.variant.archive_name}:
+                (self.out / (stem + suffix)).write_text('obsolete upload')
         with self.assertRaises((ValueError, KeyError, OSError)):
             gate.package(self.base, compact_dual=self.compact_dual)
         for suffix in gate.SUFFIXES:
-            self.assertFalse((self.out / (self.variant.cam_name + suffix)).exists())
+            for stem in {self.variant.cam_name, self.variant.archive_name}:
+                self.assertFalse((self.out / (stem + suffix)).exists())
         self.assertFalse((self.out / 'package-manifest.json').exists())
 
     def test_packages_only_matching_artifacts_and_separates_stencil(self):
@@ -167,12 +172,16 @@ class DualPackageGate(PackageGate):
 
     def test_variant_uses_its_own_archive_and_copper_names(self):
         result = gate.package(self.base, compact_dual=True)
-        filename = 'pump-controller-compact-dual-gerber-prototype.zip'
-        self.assertEqual(result['revision'], 'COMPACT-DUAL-PROTOTYPE')
+        filename = 'pump-controller-compact-dual-guard-r2-gerber-prototype.zip'
+        self.assertEqual(result['revision'], 'COMPACT-DUAL-GUARD-R2')
         self.assertEqual(result['fabrication_settings']['outline_mm'], [100, 97])
         self.assertIn(filename, result['archives'])
         with zipfile.ZipFile(self.out / filename) as archive:
             self.assertIn('pump-controller-compact-dual.GTL', archive.namelist())
+
+    def test_stale_bypass_evidence(self):
+        self.update(self.checks / 'bypass-routing.json', 'board_sha256', 'previous-layout')
+        self.refused()
 
     def test_wrong_embedded_gerber_revision(self):
         self.update(self.checks / 'independent-gerbers.json', 'x2_project_revision', 'COMPACT-PROTOTYPE')

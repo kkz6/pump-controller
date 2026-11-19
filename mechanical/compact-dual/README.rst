@@ -1,12 +1,15 @@
 Standalone case for the dual-output main board
 =============================================
 
-The starter button cable enters the **right wall** through its own M20 gland.
+The cabinet guard command cable enters the **right wall** through its own M20 gland.
 Two removable plugs face it directly, J30 for output A and J35 for output B.
-A separate entry on the near wall carries the isolated manual-transfer position
-signal to J36. The top-view drawing shows which wall is near. The steel starter
+The near-wall GUARD I/O entry carries the five-core J36 logic harness. A second
+near-wall entry carries the two J31 permit auxiliary wires. The top-view drawing shows which wall is near. The steel starter
 and the capacitors, contactor, overload, and original operator buttons stay in
-their original cabinet.
+their original cabinet. This printed case houses the main PCB and OLED panel.
+Mount the 68 × 48 mm signal receiver and the DIN guard equipment in the
+separately rated starter or control cabinet. Their mounting, separation and
+cable access need to be checked against the actual cabinet dimensions.
 
 * `Cable-entry drawing and full-size right-wall template <../../output/enclosure-compact-dual/wire-entries.pdf>`_
 * `Top-view preview <../../output/enclosure-compact-dual/wire-entries.png>`_
@@ -16,8 +19,8 @@ their original cabinet.
 * `Starter contact wiring drawing <../../hardware/main-compact-dual/exports/starter-wiring.pdf>`_
   and `terminal assignments and supported profiles <../../hardware/main-compact-dual/README.rst>`_
 
-Starter cable
-------------
+Guard command cable
+------------------
 
 The M20 opening is 20.1 mm in diameter, centred 91.0 mm from the near wall
 and 29.5 mm above the underside. The wall fits LAPP SKINTOP ST-M 53017030
@@ -31,26 +34,19 @@ is a pilot cable. The one-horsepower motor current stays in the starter.
 `locknut data <https://www.lapp.com/en_US/us/skintop-gmp-gl-m/p/53119020>`_,
 `mounting-hole tolerance, LAPP T21 <https://products.lappgroup.com/fileadmin/catalog/en_T_pdf/T21_Thread_dimensions_for_cable_glands_int.pdf>`_.
 
-=============  ===============================================================
-Cable cores    Starter cable assembly
-=============  ===============================================================
-Two            One maintained RUN pair. Locally link J30.2 to J35.1 in the
-               removable harness and carry J30.1 and J35.2 to the starter.
-Four           Carry J30.1, J30.2, J35.1 and J35.2 separately, as two pairs.
-Three          Use only a manufacturer-documented shared common for the two
-               inputs of the same starter. Fit a covered splice in the harness
-               for the common and carry two separate signal cores.
-=============  ===============================================================
+Route four insulated cores through the M20 gland from the PCB to the cabinet
+guard. J30.1/J30.2 switch only interposer coil A; J35.1/J35.2 switch only
+interposer coil B. Keep the separately fused pairs separate. All jumpers or
+shared commons for a verified OEM starter profile are on the output side of
+the cabinet interposers. See the `guard wiring drawing
+<../../hardware/main-compact-dual/exports/starter-wiring.pdf>`_.
 
-Both board headers have pin 1 COM and pin 2 NO. Use a professionally terminated
-loom marked A and B at both ends. Where a branch needs a splice, keep the
-splice enclosed and allow one correctly prepared conductor per plug cavity.
-Route the jacket into the case before fitting the removable screw plugs.
-Leave enough free length for unplugging without pulling on screws, moving
-the gland or exceeding the cable maker's bend radius. Bring the independent
-HOST/LOCAL position-sense jacket through TRANSFER SENSE. The keyed manual
-transfer insert remains accessible at the starter with both energy sources
-isolated. Confirmed HOST feedback is required for controller operation.
+Each board header has pin 1 COM and pin 2 NO. Mark both ends of the loom
+A and B. Route the jacket into the case before fitting the removable screw
+plugs. Leave enough free length for unplugging without pulling on screws,
+moving the gland or exceeding the cable maker's bend radius. Bring the
+five-core J36 logic harness through GUARD I/O. The physical HOST/LOCAL
+transfer remains at the starter. Its isolated full-seat contacts feed J36.
 
 **Physically code the two plugs.** Use two Phoenix Contact 1836189 headers,
 two 1836079 removable mating plugs and two individual CP-MSTB coding elements
@@ -142,12 +138,18 @@ The optional gold-contact, maintained, break-before-make SPDT selector uses
 approximately 2.7 mA load and use a three-core jacket if it leaves the case.
 Use either a lid selector or a remote selector on J8. A separately enabled
 maintained key takes precedence over MODE. **Main J36** serves the independent
-physical HOST/LOCAL transfer at the starter, through the TRANSFER SENSE entry.
+physical HOST/LOCAL feedback and the guard monitor. On its keyed JST ZE plug,
+cavity 1 is logic ground, 2 HOST, 3 LOCAL, 4 heartbeat and 5 panel permission.
+The two monitor outputs feed the isolated external interface.
 
 The far wall takes the AC supply. The left wall takes the captive mains-
 referenced CT cable, tank cable and inlet cable through separate glands. A
 fixed divider separates the CT entry from the probe entries. The near wall
-takes the optional float, the transfer feedback, remote mode key and antenna bulkhead.
+takes J31 PERMIT AUX, J36 GUARD I/O, the optional mode key and antenna bulkhead.
+The NC high-high float and original STOP are wired directly to the independent
+external guard in the starter cabinet or its own rated panel. The printed box
+houses the controller and display. The J31 connection uses only the isolated
+auxiliary contacts of the external guard. Leave it open when disconnected.
 Select glands that match each installed jacket or fit closed blanking plugs.
 The CAD allows a 29.7 mm maximum M20 locknut corner diameter, 24.2 mm for M16
 and 18.7 mm for M12. Check each gland's panel stack and exterior tool access.
@@ -159,10 +161,17 @@ Fit and reproduction
 The native PCB supplies all five mounting centres and the connector pad
 locations. Interference checks cover the printed base, PCB guard, lid parts,
 populated KiCad STEP solids including the project body envelopes for the power
-supply, varistor, relays and other packages, both plug envelopes, plug extraction and tool
+supply, varistor, relays and other packages, the two starter plug envelopes, plug extraction and tool
 access, and the gland barrel and locknut envelopes. With the guard removed,
 each plug has 8 mm of checked withdrawal plus a further 14.9 mm to the outer
-wall. Each installed plug envelope clears the guard by 6.1 mm. Actual wire
+wall. J31 uses an 11 mm guard slot for the
+`Phoenix 1803578 auxiliary plug <https://www.phoenixcontact.com/en-gb/products/pcb-plug-mc-15-2-st-381-1803578>`_.
+J21 uses the two-pin JST XHP-2 inlet plug in a 12 mm guard slot and J36
+uses the five-pin ZER-05V-S in a 15 mm slot. KiCad shows J36 as a
+project clearance body (12.4 × 9.9 × 6 mm) around the header and solder
+tails. The side-entry connector dimensions come from the
+`JST ZE drawing <https://www.jst.com/wp-content/uploads/2025/06/eZE.pdf>`_. Each signal plug has a separate
+8 mm withdrawal check with the guard removed. Each installed starter plug envelope clears the guard by 6.1 mm. Actual wire
 dress, bend radius, insertion force, gland retention, enclosure material,
 finger access, ingress protection and electrical qualification require a first
 article. The printed assembly has no established rating for mains installation.
@@ -184,3 +193,4 @@ regenerate from the project root with the KiCad and OCP environments installed::
   .tools/3d-modern/bin/python mechanical/compact-dual/check_assembly.py hardware/main-compact-dual/pump-controller-compact.kicad_pcb output/enclosure-compact-dual
   .tools/3d-modern/bin/python mechanical/compact-dual/package_print.py output/enclosure-compact-dual
   .tools/3d-modern/bin/python mechanical/compact-dual/draw.py output/enclosure-compact-dual
+  .tools/3d-modern/bin/python mechanical/compact-dual/render_connections.py

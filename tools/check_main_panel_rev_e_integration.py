@@ -113,6 +113,17 @@ if compact:
  if mainnet('U33',7)!='SPARE_B6' or mainnet('U33',21)!='SPARE_B7':issues.append('Compact key inputs must use GPB6/GPA0')
  sp={str(q['num']):q for q in main_components['U33']['pins']}
  if args.control_variant == 'compact-dual':
+  legends = {item.GetText() for item in m.GetDrawings() if isinstance(item,p.PCB_TEXT)
+             and item.GetLayer() in (p.F_SilkS,p.B_SilkS)}
+  if 'PERMIT NO' not in legends or 'HH NC' in legends:
+   issues.append('J31 must be marked for the external NO guard feedback contact.')
+  connector_keys = [('J21',mainfps,'JST_XH_S2B-XH-A_1x02'),('J31',mainfps,'MC_1,5_2-G-3.81'),
+                    ('J36',mainfps,'JST_ZE_SM05B-ZESS-TB_1x05'),('J8',fps,'JST_GH_SM03B-GHS-TB_1x03')]
+  for ref, board_fps, key in connector_keys:
+   if key not in str(board_fps[ref].GetFPID().GetLibItemName()):
+    issues.append('Mechanically keyed connector footprint mismatch: ' + ref)
+  if [mainnet('J36',i) for i in range(1,6)] != ['GND','HOST_AUX_N','LOCAL_AUX_N','HB_MON','PANEL_OK_MON']:
+   issues.append('Guard receiver and transfer cavity assignments differ.')
   if any(ref.startswith('SW') for ref in mainfps):issues.append('Physical switch footprint on button-free main PCB')
   for pin, name in [('8', 'START_CMD_LED'), ('28', 'STOP_CMD_LED')]:
    if mainnet('U33', pin) != name or sp[pin].get('type') != 'output':
@@ -138,7 +149,7 @@ report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'
  'source_sha256':{'panel_board':before,'main_board':sha(mainpath),'panel_source':sha(args.panel_source),'main_source':sha(args.main_source),'independently_exported_main_netlist':sha(CHECKS/'integration-main-netlist.xml'),'independently_exported_panel_netlist':sha((CHECKS/'integration-netlist.xml'))},
  'main_connected_source_pins_checked':main_checked,'panel_components_including_mounting_holes':len(cs),'panel_connected_source_pins_checked':checked,
  'native_source_comparison_issues':issues,'host_harness':host_map,'common_ground':'Panel J1.7 returns directly through main J32.7. All twelve host cable cavities connect one-to-one; the former fanout cable is incompatible.',
- 'stop_contact_path_cases_checked':len(stop_cases),'stop_contact_path_passed':not any('STOP'in i for i in issues),'stop_path':'+5V -> SW1 COM/NC -> STOP_LOCAL_NC -> external J3 NC contact -> STOP_RETURN -> main J31 high-high loop -> K1 coil',
+ 'stop_contact_path_cases_checked':len(stop_cases),'stop_contact_path_passed':not any('STOP'in i for i in issues),'stop_path':'+5V -> SW1 COM/NC -> STOP_LOCAL_NC -> external J3 NC contact -> STOP_RETURN -> main J31 ' + ('external guard auxiliary' if args.control_variant=='compact-dual' else 'high-high loop') + ' -> K1 coil',
  'stop_shunt_rule':'Fit JP1 only when no external NC STOP is fitted. It bypasses the external contact only, never local STOP.',
  'external_no_buttons':parallel,'oled_pin_order':{'1':'SCL','2':'SDA','3':'GND','4':'+3V3'},'key_channels':keychecks,
  'key_truth_table':{'MAN_contact_only':'KEY_MAN_N=0, KEY_AUTO_N=1','AUTO_contact_only':'KEY_MAN_N=1, KEY_AUTO_N=0','neither_contact':'1,1 invalid when key mode enabled','both_contacts':'0,0 invalid','panel_unplugged':'0,0 from main R92/R93 pull-downs, invalid'},

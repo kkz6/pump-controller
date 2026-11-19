@@ -9,11 +9,15 @@ extern "C" {
 
 enum panel_mode { PANEL_MANUAL, PANEL_AUTO };
 
+/* Independent field monitor observes rising edges at nominal 5 Hz. */
+enum { GUARD_EDGE_MS = 100, GUARD_QUIET_MS = 3000, GUARD_MAX_SAMPLE_AGE_MS = 100 };
+
 struct panel_sample {
     uint8_t gpio_a, gpio_b; /* Physical GPIO registers of main U33, IPOL=0. */
     uint32_t sampled_at_ms;
+    uint32_t protection_checked_at_ms; /* Last complete evaluation of sensor freshness and trips. */
     bool valid; /* Both port reads and input-direction configuration verified. */
-    bool process_healthy; /* Fresh protection inputs and verified startup latch clear. */
+    bool process_healthy; /* Fresh protection inputs; independent of J31 guard feedback. */
     bool motor_stopped; /* Confirmed, fresh feedback; false also represents unknown. */
     bool fill_demand; /* Qualified automatic fill demand from the application. */
     bool settings_open;
@@ -29,12 +33,16 @@ struct panel_controls {
     struct panel_debounce buttons, key;
     enum panel_mode mode;
     uint32_t debounce_ms, max_age_ms, released_since_ms, arm_sample_ms, last_sample_ms;
+    uint32_t guard_quiet_since_ms, guard_last_edge_ms, guard_panel_sample_ms, guard_process_sample_ms;
+    uint32_t last_process_ms;
+    bool guard_clock_started, guard_recovered, heartbeat_high;
     bool key_fitted, initialized, auto_enabled, demand_used, pending_start;
     bool release_timing, start_released;
 };
 
 struct panel_result {
     struct starter_drive drive;
+    bool heartbeat_high; /* GPIO21 output level from this control cycle. Never use a free-running timer. */
     enum panel_mode mode;
     bool auto_enabled;
     bool set_reset_pressed, set_reset_held, next_pressed; /* OLED/settings events. */

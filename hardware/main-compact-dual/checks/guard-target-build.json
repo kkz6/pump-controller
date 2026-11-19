@@ -1,0 +1,21 @@
+{
+  "target": "esp32c6",
+  "idf_version": "v5.4.2",
+  "sdk_image": "espressif/idf@sha256:4317595a911886e04cbc6d731315d5fc2918e510b6733fc7d03381ab2d270082",
+  "fixture": "Disabled configuration, compiles and links guard_gpio_init and guard_gpio_step",
+  "source_sha256": {
+    "design/review-fixtures/guard-target/CMakeLists.txt": "d828af7bc5174bbd653b632e45cde24ff0bbef1de5737e56b702f78e98545f68",
+    "design/review-fixtures/guard-target/main/CMakeLists.txt": "30cbfe86eb0518c6cb38d573090f3668ab24d9f38873d06976fcd4a1da7d9885",
+    "design/review-fixtures/guard-target/main/smoke.c": "29c1b7faede16c6e2b1c69f3f651bb73efedc345aa95d469f7f39a793b4ad4e8",
+    "firmware/components/starter_outputs/CMakeLists.txt": "68f561129417bc326a595a2ffe02ae12837b3345f7dbdf2a3bccc6b44464c8dd",
+    "firmware/components/starter_outputs/guard_gpio.c": "5ad29fe9a4d75e8a66b2a7ae026d3716092aa4bd9c44ce3c85f1571158674b8e",
+    "firmware/components/starter_outputs/include/guard_gpio.h": "3d6999ea5f256118375538497f5ce965620d64d20b727b9c4d14766f326c4cf7",
+    "firmware/components/starter_outputs/include/panel_controls.h": "22b9283353988ef38a44a041be7123e495d146914f5e5739923db2ff8572cbee",
+    "firmware/components/starter_outputs/include/starter_outputs.h": "6547471404cdf701f87a22f702f54318a19585c85e523f742e5c17eda6880677",
+    "firmware/components/starter_outputs/panel_controls.c": "547dc29c1e02e29cead0fea78365f274ef33f80e86cba27b3547d03c009e6e6d",
+    "firmware/components/starter_outputs/starter_outputs.c": "d74cce34a7292214a4ed640c8eb826afde93a6e089e896c183c0d2d450c1c770"
+  },
+  "elf_machine": "RISC-V",
+  "target_executed": false,
+  "physical_motor_or_guard_tested": false
+}

@@ -1018,6 +1018,14 @@
       {
         "pattern": "LOCAL_SENSE_N",
         "netclass": "SELV"
+      },
+      {
+        "pattern": "HB_MON",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "PANEL_OK_MON",
+        "netclass": "SELV"
       }
     ]
   },

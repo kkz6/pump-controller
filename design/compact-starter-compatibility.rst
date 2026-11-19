@@ -1,6 +1,11 @@
 Compact controller review for an existing pushbutton starter
 ============================================================
 
+For the guarded 100 × 97 mm R2, use the `independent guard and starter
+qualification requirements <../hardware/starter-guard/README.rst>`_. R2 J31
+accepts the external permit contact. All subsequent pin descriptions on this
+page refer to the older 100 × 75 mm board.
+
 The `dual-output main board <../hardware/main-compact-dual/README.rst>`_
 implements two independent relay contacts and external profile-specific
 harnesses. The single-output purchase hold below applies to the original

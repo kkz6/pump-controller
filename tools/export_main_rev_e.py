@@ -24,7 +24,7 @@ def export(compact=False, compact_dual=False):
  BOARD=O/(variant.native_name+'.kicad_pcb')
  source=B/variant.design
  size=list(variant.size)
- invalidate_packages(O,P)
+ invalidate_packages(O,variant)
  frozen=source_hashes(BOARD, source);checks=O/'checks';checks.mkdir(exist_ok=True)
  run(['sch','erc','--format','json','--severity-all','--exit-code-violations','-o',checks/'export-erc.json',BOARD.with_suffix('.kicad_sch')])
  run(['pcb','drc','--format','json','--severity-all','--all-track-errors','--schematic-parity','--exit-code-violations','-o',checks/'export-drc.json',BOARD])

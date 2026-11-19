@@ -1,0 +1,52 @@
+{
+  "tool": "jvanstraten/gerbertools",
+  "upstream_commit": "7d797b51b13da8060e27d5b16444052a73c5fc32",
+  "method": "Nominal artwork connectivity reconstructed from Gerber copper polygons and plated drill hits. Each named IPC-D-356 pad and via is assigned to its physical copper island. Hardware and fabricated bare boards require separate tests.",
+  "archives": [
+    {
+      "path": "hardware/main-compact-dual/pump-controller-compact-dual-guard-r2-gerber-prototype.zip",
+      "sha256": "1c93df7dc849842c5b86ec183c1a8faf2618177549b65f5f1642ac68c19a59d3",
+      "copper_layers": 6,
+      "ipc_records": 1197,
+      "ipc_named_nets": 169,
+      "layer_witnesses": 1757,
+      "opens_shorts": 0
+    },
+    {
+      "path": "hardware/guard-receiver/guard-receiver-rev-a-gerber-prototype.zip",
+      "sha256": "e164239e8131dafd08f40b83fdb42b4cfc52644d5c75e86fd60ac7f74329d74b",
+      "copper_layers": 2,
+      "ipc_records": 141,
+      "ipc_named_nets": 35,
+      "layer_witnesses": 200,
+      "opens_shorts": 0
+    }
+  ],
+  "negative_controls": [
+    {
+      "injected": "On the receiver GTL at (30.000, −8.288) mm, flash a 1.90 mm clear circle followed by a 0.40 mm dark circle at the same centre. The remaining R17 landing must split HB_LED_A into two islands.",
+      "findings": [
+        "logical net HB_LED_A is divided up into 2 islands"
+      ]
+    },
+    {
+      "injected": "On the receiver GTL add a 0.40 mm dark stroke from (53.800, −31.700) to (53.800, −27.740) mm, connecting J4.1 and J4.2.",
+      "findings": [
+        "logical nets CAB_0 and FUSED_24 are short-circuited"
+      ]
+    },
+    {
+      "injected": "On main-board G4L (In3.Cu), flash a 0.35 mm clear circle at (35.400, −31.875) mm in the M_MISO trace.",
+      "findings": [
+        "logical net M_MISO is divided up into 2 islands"
+      ]
+    }
+  ],
+  "upstream_url": "https://github.com/jvanstraten/gerbertools/tree/7d797b51b13da8060e27d5b16444052a73c5fc32",
+  "repeat_procedure": [
+    "Verify both ZIP SHA-256 digests. Extract each into its own directory. Build GerberTools at the pinned commit. Its Gerber reader accepts these KiCad plots after removing standalone non-imaging %TO...*% and %TD...*% attribute commands from temporary copies. Preserve all aperture, polarity and imaging commands.",
+    "Load the GKO outline, PTH.XLN plated holes and NPTH.XLN nonplated holes into CircuitBoard. Use 0.025 mm plating. Add copper bottom first in GBL, G5L, G4L, G3L, G2L, GTL order for the main board and GBL, GTL order for the receiver.",
+    "Read the archived .d356 and resolve its net aliases. Convert the coordinates from the IPC file units to millimetres. Emit (x, y, zero-based copper layer, net name) for each named test record. IPC access 00 supplies two witnesses, one per outer face. Access 01 maps to the top index N−1, and access N maps to bottom index 0, where N is the copper layer count. Omit unnamed mechanical holes.",
+    "Call CircuitBoard.build_netlist with those witnesses and minimum clearance and annulus set to zero for connectivity, then call drc(). Compare the reported findings and witness counts with both archive entries. Apply each negative control below separately to a fresh extracted copy, preserving the original .d356."
+  ]
+}

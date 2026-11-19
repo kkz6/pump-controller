@@ -1,6 +1,9 @@
 Electrical design review of the dual-output pump controller
 ==========================================================
 
+**Historical review.** The following results apply to the revision identified below.
+See the `guarded R2 engineering changes <compact-dual-guard-r2.rst>`_ for the subsequent design.
+
 19 November 2026. **Hold the main PCB order for the next layout revision.
 Unattended pumping is unqualified in all three starter profiles.** The OLED
 panel passed the connectivity review. One of its connectors can accept the
@@ -201,7 +204,7 @@ with supervised first-article metering, immunity, insulation and thermal
 tests before considering unattended use. The
 `bench acceptance plan <rev-e-bench-acceptance.rst>`_ gives additional tests.
 
-The pulse-STOP observation can be reproduced from the repository root::
+The original pulse-STOP observation can be reproduced at Git revision d2bb43c. The R2 fixture also checks loss of the guard heartbeat. From the repository root::
 
   cc -std=c11 -Wall -Wextra -Werror -Ifirmware/components/starter_outputs/include \
     design/review-fixtures/pulse-stop-bus-loss.c \

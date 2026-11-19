@@ -235,13 +235,15 @@ def audit(args):
     if dual:
         expected_additions.update({
             'J35': {'1': 'CTRL_B_COM', '2': 'CTRL_B_NO'},
-            'J36': {'1': 'GND', '2': 'HOST_AUX_N', '3': 'LOCAL_AUX_N', 'MP': 'GND'},
+            'J36': {'1': 'GND', '2': 'HOST_AUX_N', '3': 'LOCAL_AUX_N', '4': 'HB_MON', '5': 'PANEL_OK_MON', 'MP': 'GND'},
             'R192': {'1': 'HOST_AUX_N', '2': 'HOST_SENSE_N'},
             'R193': {'1': 'LOCAL_AUX_N', '2': 'LOCAL_SENSE_N'},
             'R194': {'1': '+3V3', '2': 'HOST_SENSE_N'},
             'R195': {'1': '+3V3', '2': 'LOCAL_SENSE_N'},
+            'R196': {'1': 'HEARTBEAT', '2': 'HB_MON'},
+            'R197': {'1': 'STOP_RETURN', '2': 'PANEL_OK_MON'},
         })
-        for ref, value in {'R192':'1k', 'R193':'1k', 'R194':'10k', 'R195':'10k'}.items():
+        for ref, value in {'R192':'1k', 'R193':'1k', 'R194':'10k', 'R195':'10k', 'R196':'1k', 'R197':'1k'}.items():
             if components.get(ref, {}).get('value') != value:
                 source_issues.append({'ref': ref, 'issue': 'transfer input resistor mismatch', 'expected': value})
     if has_indicators:
@@ -333,7 +335,7 @@ def audit(args):
     domains.update({net: 'SELV' for net in ('ARM_CLEAR_N','STOP_SENSE_RAW','MAN_SENSE_RAW','AUTO_SENSE_RAW')})
     if dual:
         domains.update(dict.fromkeys(FIELD_CONTACTS, 'LIVE'))
-        domains.update(dict.fromkeys(('HOST_AUX_N','LOCAL_AUX_N','HOST_SENSE_N','LOCAL_SENSE_N'), 'SELV'))
+        domains.update(dict.fromkeys(('HOST_AUX_N','LOCAL_AUX_N','HOST_SENSE_N','LOCAL_SENSE_N','HB_MON','PANEL_OK_MON'), 'SELV'))
     if has_indicators:
         domains.update({net: 'SELV' for net in ('START_CMD_LED', 'START_LED_A', 'STOP_CMD_LED', 'STOP_LED_A')})
     domain_issues = []

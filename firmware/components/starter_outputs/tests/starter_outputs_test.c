@@ -13,7 +13,7 @@ static struct starter_drive check(struct starter_outputs *s, uint32_t now, bool 
 /* Test fixture timings, independent of the values required by any real starter. */
 static struct starter_config config(enum starter_profile profile)
 {
-    return (struct starter_config){.profile = profile, .contact_settle_ms = 20,
+    return (struct starter_config){.profile = profile, .harness_profile = profile, .contact_settle_ms = 20,
         .start_pulse_ms = 60, .stop_pulse_ms = 40, .independent_shutdown = true};
 }
 
@@ -87,6 +87,16 @@ static void test_pulse_stop(void)
 int main(void)
 {
     struct starter_outputs s;
+    for (enum starter_profile profile = STARTER_RUN_PAIR; profile <= STARTER_PULSE_STOP; ++profile) {
+        struct starter_config selected = config(profile);
+        selected.independent_shutdown = false;
+        assert(!starter_configure(&s, selected));
+        selected.independent_shutdown = true;
+        for (enum starter_profile harness = STARTER_DISABLED; harness <= STARTER_PULSE_STOP; ++harness) {
+            selected.harness_profile = harness;
+            assert(starter_configure(&s, selected) == (profile == harness));
+        }
+    }
     struct starter_config bad = config(STARTER_PULSE_STOP);
     bad.independent_shutdown = false;
     assert(!starter_configure(&s, bad));

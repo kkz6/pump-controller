@@ -1,0 +1,52 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-19T21:46:16",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/89631eda-41be-5d78-a59c-debf165ca879",
+            "violations": []
+        },
+        {
+            "path": "/Signal receiving and isolation/",
+            "uuid_path": "/89631eda-41be-5d78-a59c-debf165ca879/2d9885f6-533f-51dd-a883-c713ab66a0ee",
+            "violations": []
+        },
+        {
+            "path": "/Cabinet 24 V drivers and feedback/",
+            "uuid_path": "/89631eda-41be-5d78-a59c-debf165ca879/2da04cb5-5d18-51bf-827c-348bb3baa09a",
+            "violations": []
+        },
+        {
+            "path": "/Keyed harnesses and mounting/",
+            "uuid_path": "/89631eda-41be-5d78-a59c-debf165ca879/8130fe8e-ab63-5a3d-b2c1-3d50406ef09f",
+            "violations": []
+        }
+    ],
+    "source": "guard-receiver.kicad_sch"
+}

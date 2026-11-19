@@ -89,6 +89,11 @@ def validate(args):
     netlist_path = output / 'independent-netlist.xml'
     run([cli, 'sch', 'export', 'netlist', '--format', 'kicadxml', '-o', netlist_path,
          board.with_suffix('.kicad_sch')], allowed=(0,))
+    # Make the exported source locator portable without changing any net or component.
+    schematic = board.with_suffix('.kicad_sch')
+    netlist_path.write_text(netlist_path.read_text().replace(
+        '<source>' + str(schematic) + '</source>',
+        '<source>' + str(schematic.relative_to(BASE)) + '</source>', 1))
     geometry_path = output / 'independent-geometry.json'
     run([python, BASE / 'tools/check_main_rev_e_geometry.py', '--board', board,
          '--source', source, '--netlist', netlist_path, '--output', geometry_path], allowed=(0, 1))

@@ -19,7 +19,8 @@ struct starter_config {
     uint32_t contact_settle_ms; /* Commissioned release/operate time including coil suppression. */
     uint32_t start_pulse_ms;
     uint32_t stop_pulse_ms;
-    bool independent_shutdown; /* Qualified OEM shutdown on loss of controller, for pulse STOP. */
+    enum starter_profile harness_profile; /* Read back from separately commissioned service configuration. */
+    bool independent_shutdown; /* External hardwired float, STOP and guard commissioned for this harness. */
 };
 
 struct starter_outputs {

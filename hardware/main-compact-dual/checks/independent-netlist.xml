@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/main-compact-dual/pump-controller-compact.kicad_sch</source>
-    <date>2026-11-19T20:21:55</date>
+    <source>hardware/main-compact-dual/pump-controller-compact.kicad_sch</source>
+    <date>2026-11-19T21:35:42</date>
     <tool>Eeschema 10.0.8</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title>Compact controller with two field contacts</title>
+        <title>Compact controller with independent starter guard</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>pump-controller-compact.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -26,7 +26,7 @@
       <title_block>
         <title>Isolated AC input, 5 V and 3.3 V supplies</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>power.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -44,7 +44,7 @@
       <title_block>
         <title>ESP32-C6 Matter controller and service interface</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>mcu.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -62,7 +62,7 @@
       <title_block>
         <title>Single-phase metering - LIVE DOMAIN</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>meter_ic.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -80,7 +80,7 @@
       <title_block>
         <title>Meter voltage and current inputs - LIVE DOMAIN</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>meter_inputs.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -98,7 +98,7 @@
       <title_block>
         <title>Meter isolation - power and SPI</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>meter_isolation.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -116,7 +116,7 @@
       <title_block>
         <title>Relay drivers and independent watchdog / 1</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>relay_protection_1.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -134,7 +134,7 @@
       <title_block>
         <title>Relay drivers and independent watchdog / 2</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>relay_protection_2.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -152,7 +152,7 @@
       <title_block>
         <title>Rev E GH12 panel interface / 1</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>local_controls_1.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -170,7 +170,7 @@
       <title_block>
         <title>OLED and manual transfer position feedback</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>local_controls_2.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -188,7 +188,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 1</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>probes_1.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -206,7 +206,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 2</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>probes_2.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -224,7 +224,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 3</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>probes_3.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -242,7 +242,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 4</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>probes_4.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -260,7 +260,7 @@
       <title_block>
         <title>Power-source declarations for electrical-rule checking</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>power_flags.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -278,7 +278,7 @@
       <title_block>
         <title>Four corner mounts and edge support</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>mechanical.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -296,7 +296,7 @@
       <title_block>
         <title>STOP, MODE and NEXT input conditioning</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-PROTOTYPE</rev>
+        <rev>COMPACT-DUAL-GUARD-R2</rev>
         <date/>
         <source>controls_conditioning.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -1930,16 +1930,17 @@
     </comp>
     <comp ref="C56">
       <value>100nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R, 10%, 16V</description>
+      <footprint>CompactGuard:C_0402_1005Metric</footprint>
+      <datasheet>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</datasheet>
+      <description>Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
       <fields>
-        <field name="MPN">SPEC: 100nF X7R, 10%, 16V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="MPN">GRM155R71C104KA88D</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
-      <libsource lib="Pump" part="C56" description="X7R, 10%, 16V"/>
-      <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
+      <libsource lib="Pump" part="C56" description="Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance."/>
+      <property name="MPN" value="GRM155R71C104KA88D"/>
       <property name="Sheetname" value="Meter isolation - power and SPI"/>
       <property name="Sheetfile" value="meter_isolation.kicad_sch"/>
       <sheetpath names="/Meter isolation - power and SPI/" tstamps="/07df83fc-e1ab-5421-b635-c3b7d21cce9d/"/>
@@ -1955,16 +1956,17 @@
     </comp>
     <comp ref="C57">
       <value>100nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R, 10%, 16V</description>
+      <footprint>CompactGuard:C_0402_1005Metric</footprint>
+      <datasheet>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</datasheet>
+      <description>Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
       <fields>
-        <field name="MPN">SPEC: 100nF X7R, 10%, 16V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="MPN">GRM155R71C104KA88D</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
-      <libsource lib="Pump" part="C57" description="X7R, 10%, 16V"/>
-      <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
+      <libsource lib="Pump" part="C57" description="Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance."/>
+      <property name="MPN" value="GRM155R71C104KA88D"/>
       <property name="Sheetname" value="Meter isolation - power and SPI"/>
       <property name="Sheetfile" value="meter_isolation.kicad_sch"/>
       <sheetpath names="/Meter isolation - power and SPI/" tstamps="/07df83fc-e1ab-5421-b635-c3b7d21cce9d/"/>
@@ -2005,16 +2007,17 @@
     </comp>
     <comp ref="C59">
       <value>100nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R, 10%, 16V</description>
+      <footprint>CompactGuard:C_0402_1005Metric</footprint>
+      <datasheet>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</datasheet>
+      <description>Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
       <fields>
-        <field name="MPN">SPEC: 100nF X7R, 10%, 16V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="MPN">GRM155R71C104KA88D</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
-      <libsource lib="Pump" part="C59" description="X7R, 10%, 16V"/>
-      <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
+      <libsource lib="Pump" part="C59" description="Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance."/>
+      <property name="MPN" value="GRM155R71C104KA88D"/>
       <property name="Sheetname" value="Meter isolation - power and SPI"/>
       <property name="Sheetfile" value="meter_isolation.kicad_sch"/>
       <sheetpath names="/Meter isolation - power and SPI/" tstamps="/07df83fc-e1ab-5421-b635-c3b7d21cce9d/"/>
@@ -2030,16 +2033,17 @@
     </comp>
     <comp ref="C60">
       <value>100nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R, 10%, 16V</description>
+      <footprint>CompactGuard:C_0402_1005Metric</footprint>
+      <datasheet>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</datasheet>
+      <description>Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
       <fields>
-        <field name="MPN">SPEC: 100nF X7R, 10%, 16V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="MPN">GRM155R71C104KA88D</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
-      <libsource lib="Pump" part="C60" description="X7R, 10%, 16V"/>
-      <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
+      <libsource lib="Pump" part="C60" description="Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance."/>
+      <property name="MPN" value="GRM155R71C104KA88D"/>
       <property name="Sheetname" value="Meter isolation - power and SPI"/>
       <property name="Sheetfile" value="meter_isolation.kicad_sch"/>
       <sheetpath names="/Meter isolation - power and SPI/" tstamps="/07df83fc-e1ab-5421-b635-c3b7d21cce9d/"/>
@@ -2107,12 +2111,12 @@
     </comp>
     <comp ref="U11">
       <value>ADuM6421ABRNZ5</value>
-      <footprint>Pump:ADuM6421A_RN28</footprint>
+      <footprint>CompactGuard:ADuM6421A_RN28_Dense</footprint>
       <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf</datasheet>
       <description>Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage</description>
       <fields>
         <field name="MPN">ADUM6421ABRNZ5</field>
-        <field name="Footprint">Pump:ADuM6421A_RN28</field>
+        <field name="Footprint">CompactGuard:ADuM6421A_RN28_Dense</field>
         <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf</field>
         <field name="Description">Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage</field>
       </fields>
@@ -2763,14 +2767,14 @@
       <value>SN74LVC1G17DBVR</value>
       <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
       <datasheet>https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf</datasheet>
-      <description>Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software</description>
+      <description>Schmitt detector for the K1 coil-positive permit. Opening panel STOP or the external J31 permit auxiliary clears ARM in hardware.</description>
       <fields>
         <field name="MPN">SN74LVC1G17DBVR</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
         <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf</field>
-        <field name="Description">Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software</field>
+        <field name="Description">Schmitt detector for the K1 coil-positive permit. Opening panel STOP or the external J31 permit auxiliary clears ARM in hardware.</field>
       </fields>
-      <libsource lib="Pump" part="U35" description="Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software"/>
+      <libsource lib="Pump" part="U35" description="Schmitt detector for the K1 coil-positive permit. Opening panel STOP or the external J31 permit auxiliary clears ARM in hardware."/>
       <property name="MPN" value="SN74LVC1G17DBVR"/>
       <property name="Sheetname" value="Relay drivers and independent watchdog / 1"/>
       <property name="Sheetfile" value="relay_protection_1.kicad_sch"/>
@@ -2895,14 +2899,14 @@
       <value>OUT A / COM-NO</value>
       <footprint>Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</footprint>
       <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</datasheet>
-      <description>Starter output A. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</description>
+      <description>Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</description>
       <fields>
         <field name="MPN">1836189</field>
         <field name="Footprint">Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</field>
         <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</field>
-        <field name="Description">Starter output A. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</field>
+        <field name="Description">Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</field>
       </fields>
-      <libsource lib="Pump" part="J30" description="Starter output A. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only."/>
+      <libsource lib="Pump" part="J30" description="Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil."/>
       <property name="MPN" value="1836189"/>
       <property name="Sheetname" value="Relay drivers and independent watchdog / 2"/>
       <property name="Sheetfile" value="relay_protection_2.kicad_sch"/>
@@ -2918,17 +2922,18 @@
       </units>
     </comp>
     <comp ref="J31">
-      <value>STOP-fed high-high NC float loop / fitted shorting link</value>
+      <value>EXTERNAL PERMIT AUX</value>
       <footprint>Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal</footprint>
-      <description>STOP-fed high-high NC float loop / fitted shorting link</description>
+      <datasheet>https://www.phoenixcontact.com/en-gb/products/pcb-header-mc-15-2-g-381-1803277</datasheet>
+      <description>Isolated NO auxiliary contact from external guard. Closed only with guard proven and controller authority enabled. Open inhibits K1. No shunt. Independent high-high float and OEM STOP act off-board.</description>
       <fields>
-        <field name="MPN">Phoenix MC 1,5/2-G-3,81</field>
+        <field name="MPN">1803277</field>
         <field name="Footprint">Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal</field>
-        <field name="Datasheet"/>
-        <field name="Description">STOP-fed high-high NC float loop / fitted shorting link</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-gb/products/pcb-header-mc-15-2-g-381-1803277</field>
+        <field name="Description">Isolated NO auxiliary contact from external guard. Closed only with guard proven and controller authority enabled. Open inhibits K1. No shunt. Independent high-high float and OEM STOP act off-board.</field>
       </fields>
-      <libsource lib="Pump" part="J31" description="STOP-fed high-high NC float loop / fitted shorting link"/>
-      <property name="MPN" value="Phoenix MC 1,5/2-G-3,81"/>
+      <libsource lib="Pump" part="J31" description="Isolated NO auxiliary contact from external guard. Closed only with guard proven and controller authority enabled. Open inhibits K1. No shunt. Independent high-high float and OEM STOP act off-board."/>
+      <property name="MPN" value="1803277"/>
       <property name="Sheetname" value="Relay drivers and independent watchdog / 2"/>
       <property name="Sheetfile" value="relay_protection_2.kicad_sch"/>
       <sheetpath names="/Relay drivers and independent watchdog / 2/" tstamps="/239bbe92-877d-51ea-9ac4-465d8c249877/"/>
@@ -2946,14 +2951,14 @@
       <value>OUT B / COM-NO</value>
       <footprint>Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</footprint>
       <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</datasheet>
-      <description>Starter output B. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</description>
+      <description>Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</description>
       <fields>
         <field name="MPN">1836189</field>
         <field name="Footprint">Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</field>
         <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</field>
-        <field name="Description">Starter output B. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</field>
+        <field name="Description">Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</field>
       </fields>
-      <libsource lib="Pump" part="J35" description="Starter output B. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only."/>
+      <libsource lib="Pump" part="J35" description="Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil."/>
       <property name="MPN" value="1836189"/>
       <property name="Sheetname" value="Relay drivers and independent watchdog / 2"/>
       <property name="Sheetfile" value="relay_protection_2.kicad_sch"/>
@@ -3717,18 +3722,18 @@
       </units>
     </comp>
     <comp ref="J36">
-      <value>MANUAL TRANSFER SENSE</value>
-      <footprint>Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal</footprint>
-      <datasheet>https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf</datasheet>
-      <description>3.3 V logic-side feedback from separate insulated position contacts only. GHR-03V-S mating housing. Cavity 1 GND, 2 HOST, 3 LOCAL.</description>
+      <value>TRANSFER / GUARD MONITOR</value>
+      <footprint>Connector_JST:JST_ZE_SM05B-ZESS-TB_1x05-1MP_P1.50mm_Horizontal</footprint>
+      <datasheet>https://www.jst.com/wp-content/uploads/2025/06/eZE.pdf</datasheet>
+      <description>Internal SELV harness. ZER-05V-S. 1 logic GND, 2 HOST and 3 LOCAL dry-contact returns, 4 protected 3.3 V heartbeat out, 5 protected 5 V panel STOP return out. Guard inputs are high impedance and galvanically isolated from the 24 V circuit.</description>
       <fields>
-        <field name="MPN">SM03B-GHS-TB(LF)(SN)</field>
-        <field name="Footprint">Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal</field>
-        <field name="Datasheet">https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf</field>
-        <field name="Description">3.3 V logic-side feedback from separate insulated position contacts only. GHR-03V-S mating housing. Cavity 1 GND, 2 HOST, 3 LOCAL.</field>
+        <field name="MPN">SM05B-ZESS-TB(LF)(SN)</field>
+        <field name="Footprint">Connector_JST:JST_ZE_SM05B-ZESS-TB_1x05-1MP_P1.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.jst.com/wp-content/uploads/2025/06/eZE.pdf</field>
+        <field name="Description">Internal SELV harness. ZER-05V-S. 1 logic GND, 2 HOST and 3 LOCAL dry-contact returns, 4 protected 3.3 V heartbeat out, 5 protected 5 V panel STOP return out. Guard inputs are high impedance and galvanically isolated from the 24 V circuit.</field>
       </fields>
-      <libsource lib="Pump" part="J36" description="3.3 V logic-side feedback from separate insulated position contacts only. GHR-03V-S mating housing. Cavity 1 GND, 2 HOST, 3 LOCAL."/>
-      <property name="MPN" value="SM03B-GHS-TB(LF)(SN)"/>
+      <libsource lib="Pump" part="J36" description="Internal SELV harness. ZER-05V-S. 1 logic GND, 2 HOST and 3 LOCAL dry-contact returns, 4 protected 3.3 V heartbeat out, 5 protected 5 V panel STOP return out. Guard inputs are high impedance and galvanically isolated from the 24 V circuit."/>
+      <property name="MPN" value="SM05B-ZESS-TB(LF)(SN)"/>
       <property name="Sheetname" value="OLED and manual transfer position feedback"/>
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
       <sheetpath names="/OLED and manual transfer position feedback/" tstamps="/302b4e77-c8dc-5a34-8b42-a975f43aad60/"/>
@@ -3739,6 +3744,8 @@
             <pin num="1"/>
             <pin num="2"/>
             <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
             <pin num="MP"/>
           </pins>
         </unit>
@@ -3867,6 +3874,58 @@
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
       <sheetpath names="/OLED and manual transfer position feedback/" tstamps="/302b4e77-c8dc-5a34-8b42-a975f43aad60/"/>
       <tstamps>dbbeaefc-5531-5078-9cf0-ba98f1e01392</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R196">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</datasheet>
+      <description>1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</description>
+      <fields>
+        <field name="MPN">RC0603FR-071KL</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</field>
+        <field name="Description">1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</field>
+      </fields>
+      <libsource lib="Pump" part="R196" description="1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed."/>
+      <property name="MPN" value="RC0603FR-071KL"/>
+      <property name="Sheetname" value="OLED and manual transfer position feedback"/>
+      <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
+      <sheetpath names="/OLED and manual transfer position feedback/" tstamps="/302b4e77-c8dc-5a34-8b42-a975f43aad60/"/>
+      <tstamps>96a03688-baf8-5c33-9982-9dd6ebb4191c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R197">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</datasheet>
+      <description>1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</description>
+      <fields>
+        <field name="MPN">RC0603FR-071KL</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</field>
+        <field name="Description">1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</field>
+      </fields>
+      <libsource lib="Pump" part="R197" description="1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed."/>
+      <property name="MPN" value="RC0603FR-071KL"/>
+      <property name="Sheetname" value="OLED and manual transfer position feedback"/>
+      <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
+      <sheetpath names="/OLED and manual transfer position feedback/" tstamps="/302b4e77-c8dc-5a34-8b42-a975f43aad60/"/>
+      <tstamps>8fba7385-647a-5d6b-8e83-5035e0b426d3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -4531,14 +4590,14 @@
     <comp ref="C102">
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R 16V 10%</description>
+      <description>Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%.</description>
       <fields>
         <field name="MPN">SPEC: 100nF X7R 16V 10%</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
-        <field name="Description">X7R 16V 10%</field>
+        <field name="Description">Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%.</field>
       </fields>
-      <libsource lib="Pump" part="C102" description="X7R 16V 10%"/>
+      <libsource lib="Pump" part="C102" description="Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%."/>
       <property name="MPN" value="SPEC: 100nF X7R 16V 10%"/>
       <property name="Sheetname" value="AC conductive probe interface - prototype / 2"/>
       <property name="Sheetfile" value="probes_2.kicad_sch"/>
@@ -4556,14 +4615,14 @@
     <comp ref="C103">
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R 16V 10%</description>
+      <description>Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%.</description>
       <fields>
         <field name="MPN">SPEC: 100nF X7R 16V 10%</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
-        <field name="Description">X7R 16V 10%</field>
+        <field name="Description">Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%.</field>
       </fields>
-      <libsource lib="Pump" part="C103" description="X7R 16V 10%"/>
+      <libsource lib="Pump" part="C103" description="Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%."/>
       <property name="MPN" value="SPEC: 100nF X7R 16V 10%"/>
       <property name="Sheetname" value="AC conductive probe interface - prototype / 2"/>
       <property name="Sheetfile" value="probes_2.kicad_sch"/>
@@ -4581,14 +4640,14 @@
     <comp ref="C104">
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>X7R 16V 10%</description>
+      <description>Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%.</description>
       <fields>
         <field name="MPN">SPEC: 100nF X7R 16V 10%</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
-        <field name="Description">X7R 16V 10%</field>
+        <field name="Description">Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%.</field>
       </fields>
-      <libsource lib="Pump" part="C104" description="X7R 16V 10%"/>
+      <libsource lib="Pump" part="C104" description="Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%."/>
       <property name="MPN" value="SPEC: 100nF X7R 16V 10%"/>
       <property name="Sheetname" value="AC conductive probe interface - prototype / 2"/>
       <property name="Sheetfile" value="probes_2.kicad_sch"/>
@@ -5960,18 +6019,18 @@
       </units>
     </comp>
     <comp ref="J21">
-      <value>INLET PROBES</value>
-      <footprint>Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal</footprint>
-      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-381-1803277</datasheet>
-      <description>Phoenix MC 1,5/2-G-3,81 header; mating screw plug 1803578, verify fit</description>
+      <value>INLET / RETURN</value>
+      <footprint>Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal</footprint>
+      <datasheet>https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</datasheet>
+      <description>Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.</description>
       <fields>
-        <field name="MPN">1803277</field>
-        <field name="Footprint">Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal</field>
-        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-381-1803277</field>
-        <field name="Description">Phoenix MC 1,5/2-G-3,81 header; mating screw plug 1803578, verify fit</field>
+        <field name="MPN">S2B-XH-A(LF)(SN)</field>
+        <field name="Footprint">Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</field>
+        <field name="Description">Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.</field>
       </fields>
-      <libsource lib="Pump" part="J21" description="Phoenix MC 1,5/2-G-3,81 header; mating screw plug 1803578, verify fit"/>
-      <property name="MPN" value="1803277"/>
+      <libsource lib="Pump" part="J21" description="Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE."/>
+      <property name="MPN" value="S2B-XH-A(LF)(SN)"/>
       <property name="Sheetname" value="AC conductive probe interface - prototype / 4"/>
       <property name="Sheetfile" value="probes_4.kicad_sch"/>
       <sheetpath names="/AC conductive probe interface - prototype / 4/" tstamps="/7b8f6f38-d88c-5824-bd33-b88508380f92/"/>
@@ -6302,13 +6361,13 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C102">
-      <description>X7R 16V 10%</description>
+      <description>Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%.</description>
       <fields>
         <field name="Reference">C102</field>
         <field name="Value">100nF</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
-        <field name="Description">X7R 16V 10%</field>
+        <field name="Description">Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6316,13 +6375,13 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C103">
-      <description>X7R 16V 10%</description>
+      <description>Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%.</description>
       <fields>
         <field name="Reference">C103</field>
         <field name="Value">100nF</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
-        <field name="Description">X7R 16V 10%</field>
+        <field name="Description">Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6330,13 +6389,13 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C104">
-      <description>X7R 16V 10%</description>
+      <description>Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%.</description>
       <fields>
         <field name="Reference">C104</field>
         <field name="Value">100nF</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
-        <field name="Description">X7R 16V 10%</field>
+        <field name="Description">Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6943,13 +7002,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C56">
-      <description>X7R, 10%, 16V</description>
+      <description>Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
+      <docs>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</docs>
       <fields>
         <field name="Reference">C56</field>
         <field name="Value">100nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6957,13 +7017,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C57">
-      <description>X7R, 10%, 16V</description>
+      <description>Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
+      <docs>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</docs>
       <fields>
         <field name="Reference">C57</field>
         <field name="Value">100nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6985,13 +7046,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C59">
-      <description>X7R, 10%, 16V</description>
+      <description>Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
+      <docs>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</docs>
       <fields>
         <field name="Reference">C59</field>
         <field name="Value">100nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -7013,13 +7075,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C60">
-      <description>X7R, 10%, 16V</description>
+      <description>Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</description>
+      <docs>https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</docs>
       <fields>
         <field name="Reference">C60</field>
         <field name="Value">100nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">X7R, 10%, 16V</field>
+        <field name="Footprint">CompactGuard:C_0402_1005Metric</field>
+        <field name="Datasheet">https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&amp;partno=GRM155R71C104KA88%23</field>
+        <field name="Description">Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -7738,14 +7801,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="J21">
-      <description>Phoenix MC 1,5/2-G-3,81 header; mating screw plug 1803578, verify fit</description>
-      <docs>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-381-1803277</docs>
+      <description>Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.</description>
+      <docs>https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</docs>
       <fields>
         <field name="Reference">J21</field>
-        <field name="Value">INLET PROBES</field>
-        <field name="Footprint">Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal</field>
-        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-381-1803277</field>
-        <field name="Description">Phoenix MC 1,5/2-G-3,81 header; mating screw plug 1803578, verify fit</field>
+        <field name="Value">INLET / RETURN</field>
+        <field name="Footprint">Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</field>
+        <field name="Description">Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.</field>
       </fields>
       <pins>
         <pin num="1" name="INLET" type="passive"/>
@@ -7753,14 +7816,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="J30">
-      <description>Starter output A. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</description>
+      <description>Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</description>
       <docs>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</docs>
       <fields>
         <field name="Reference">J30</field>
         <field name="Value">OUT A / COM-NO</field>
         <field name="Footprint">Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</field>
         <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</field>
-        <field name="Description">Starter output A. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</field>
+        <field name="Description">Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</field>
       </fields>
       <pins>
         <pin num="1" name="COM" type="passive"/>
@@ -7768,13 +7831,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="J31">
-      <description>STOP-fed high-high NC float loop / fitted shorting link</description>
+      <description>Isolated NO auxiliary contact from external guard. Closed only with guard proven and controller authority enabled. Open inhibits K1. No shunt. Independent high-high float and OEM STOP act off-board.</description>
+      <docs>https://www.phoenixcontact.com/en-gb/products/pcb-header-mc-15-2-g-381-1803277</docs>
       <fields>
         <field name="Reference">J31</field>
-        <field name="Value">STOP-fed high-high NC float loop / fitted shorting link</field>
+        <field name="Value">EXTERNAL PERMIT AUX</field>
         <field name="Footprint">Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal</field>
-        <field name="Datasheet"/>
-        <field name="Description">STOP-fed high-high NC float loop / fitted shorting link</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-gb/products/pcb-header-mc-15-2-g-381-1803277</field>
+        <field name="Description">Isolated NO auxiliary contact from external guard. Closed only with guard proven and controller authority enabled. Open inhibits K1. No shunt. Independent high-high float and OEM STOP act off-board.</field>
       </fields>
       <pins>
         <pin num="1" name="STOP_RETURN" type="passive"/>
@@ -7808,14 +7872,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="J35">
-      <description>Starter output B. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</description>
+      <description>Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</description>
       <docs>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</docs>
       <fields>
         <field name="Reference">J35</field>
         <field name="Value">OUT B / COM-NO</field>
         <field name="Footprint">Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</field>
         <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</field>
-        <field name="Description">Starter output B. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.</field>
+        <field name="Description">Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.</field>
       </fields>
       <pins>
         <pin num="1" name="COM" type="passive"/>
@@ -7823,19 +7887,21 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="J36">
-      <description>3.3 V logic-side feedback from separate insulated position contacts only. GHR-03V-S mating housing. Cavity 1 GND, 2 HOST, 3 LOCAL.</description>
-      <docs>https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf</docs>
+      <description>Internal SELV harness. ZER-05V-S. 1 logic GND, 2 HOST and 3 LOCAL dry-contact returns, 4 protected 3.3 V heartbeat out, 5 protected 5 V panel STOP return out. Guard inputs are high impedance and galvanically isolated from the 24 V circuit.</description>
+      <docs>https://www.jst.com/wp-content/uploads/2025/06/eZE.pdf</docs>
       <fields>
         <field name="Reference">J36</field>
-        <field name="Value">MANUAL TRANSFER SENSE</field>
-        <field name="Footprint">Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal</field>
-        <field name="Datasheet">https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf</field>
-        <field name="Description">3.3 V logic-side feedback from separate insulated position contacts only. GHR-03V-S mating housing. Cavity 1 GND, 2 HOST, 3 LOCAL.</field>
+        <field name="Value">TRANSFER / GUARD MONITOR</field>
+        <field name="Footprint">Connector_JST:JST_ZE_SM05B-ZESS-TB_1x05-1MP_P1.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.jst.com/wp-content/uploads/2025/06/eZE.pdf</field>
+        <field name="Description">Internal SELV harness. ZER-05V-S. 1 logic GND, 2 HOST and 3 LOCAL dry-contact returns, 4 protected 3.3 V heartbeat out, 5 protected 5 V panel STOP return out. Guard inputs are high impedance and galvanically isolated from the 24 V circuit.</field>
       </fields>
       <pins>
         <pin num="1" name="GND" type="passive"/>
         <pin num="2" name="HOST" type="passive"/>
         <pin num="3" name="LOCAL" type="passive"/>
+        <pin num="4" name="HB_OUT" type="passive"/>
+        <pin num="5" name="PANEL_OK_OUT" type="passive"/>
         <pin num="MP" name="SHIELD" type="passive"/>
       </pins>
     </libpart>
@@ -8657,6 +8723,36 @@
         <pin num="2" name="" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Pump" part="R196">
+      <description>1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</description>
+      <docs>https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</docs>
+      <fields>
+        <field name="Reference">R196</field>
+        <field name="Value">1k</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</field>
+        <field name="Description">1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R197">
+      <description>1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</description>
+      <docs>https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</docs>
+      <fields>
+        <field name="Reference">R197</field>
+        <field name="Value">1k</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors</field>
+        <field name="Description">1 kΩ series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Pump" part="R2">
       <description>Bourns 2512 thick-film 33 ohm 1%, 2 W at 70 C with 300 mm2 combined solder-pad/trace copper per datasheet; permanent 5 V minimum-load resistor, 0.677-0.844 W at 4.75-5.25 V including 1% tolerance. Reserve copper area and keep away from probes, precision meter components, antenna module and electrolytics. Revised module local ambient limit 50 C.</description>
       <docs>https://www.bourns.com/docs/product-datasheets/crm.pdf</docs>
@@ -9345,7 +9441,7 @@
       <fields>
         <field name="Reference">U11</field>
         <field name="Value">ADuM6421ABRNZ5</field>
-        <field name="Footprint">Pump:ADuM6421A_RN28</field>
+        <field name="Footprint">CompactGuard:ADuM6421A_RN28_Dense</field>
         <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf</field>
         <field name="Description">Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage</field>
       </fields>
@@ -9662,14 +9758,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="U35">
-      <description>Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software</description>
+      <description>Schmitt detector for the K1 coil-positive permit. Opening panel STOP or the external J31 permit auxiliary clears ARM in hardware.</description>
       <docs>https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf</docs>
       <fields>
         <field name="Reference">U35</field>
         <field name="Value">SN74LVC1G17DBVR</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
         <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf</field>
-        <field name="Description">Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software</field>
+        <field name="Description">Schmitt detector for the K1 coil-positive permit. Opening panel STOP or the external J31 permit auxiliary clears ARM in hardware.</field>
       </fields>
       <pins>
         <pin num="1" name="NC" type="no_connect"/>
@@ -10000,27 +10096,32 @@
       <node ref="U36" pin="3" pinfunction="GND_3" pintype="power_in"/>
       <node ref="U37" pin="4" pinfunction="GND_4" pintype="power_in"/>
     </net>
-    <net code="16" name="HEARTBEAT" class="SELV,Default">
+    <net code="16" name="HB_MON" class="SELV,Default">
+      <node ref="J36" pin="4" pinfunction="HB_OUT_4" pintype="passive"/>
+      <node ref="R196" pin="2" pintype="passive"/>
+    </net>
+    <net code="17" name="HEARTBEAT" class="SELV,Default">
+      <node ref="R196" pin="1" pintype="passive"/>
       <node ref="R71" pin="1" pintype="passive"/>
       <node ref="U3" pin="27" pinfunction="GPIO21_27" pintype="bidirectional"/>
       <node ref="U30" pin="4" pinfunction="WDI_4" pintype="input"/>
     </net>
-    <net code="17" name="HH_SENSE" class="SELV,Default">
+    <net code="18" name="HH_SENSE" class="SELV,Default">
       <node ref="C86" pin="1" pintype="passive"/>
       <node ref="R86" pin="2" pintype="passive"/>
       <node ref="R87" pin="1" pintype="passive"/>
       <node ref="U35" pin="2" pinfunction="A_2" pintype="input"/>
     </net>
-    <net code="18" name="HOST_AUX_N" class="SELV,Default">
+    <net code="19" name="HOST_AUX_N" class="SELV,Default">
       <node ref="J36" pin="2" pinfunction="HOST_2" pintype="passive"/>
       <node ref="R192" pin="1" pintype="passive"/>
     </net>
-    <net code="19" name="HOST_SENSE_N" class="SELV,Default">
+    <net code="20" name="HOST_SENSE_N" class="SELV,Default">
       <node ref="R192" pin="2" pintype="passive"/>
       <node ref="R194" pin="2" pintype="passive"/>
       <node ref="U33" pin="24" pinfunction="GPA3_24" pintype="bidirectional"/>
     </net>
-    <net code="20" name="I2C_SCL" class="SELV,Default">
+    <net code="21" name="I2C_SCL" class="SELV,Default">
       <node ref="J32" pin="10" pinfunction="I2C_SCL_10" pintype="passive"/>
       <node ref="OLED1" pin="1" pinfunction="SCL_1" pintype="input"/>
       <node ref="R25" pin="2" pintype="passive"/>
@@ -10028,7 +10129,7 @@
       <node ref="U3" pin="29" pinfunction="GPIO23_29" pintype="bidirectional"/>
       <node ref="U33" pin="12" pinfunction="SCL_12" pintype="input"/>
     </net>
-    <net code="21" name="I2C_SDA" class="SELV,Default">
+    <net code="22" name="I2C_SDA" class="SELV,Default">
       <node ref="J32" pin="9" pinfunction="I2C_SDA_9" pintype="passive"/>
       <node ref="OLED1" pin="2" pinfunction="SDA_2" pintype="bidirectional"/>
       <node ref="R24" pin="2" pintype="passive"/>
@@ -10036,81 +10137,81 @@
       <node ref="U3" pin="28" pinfunction="GPIO22_28" pintype="bidirectional"/>
       <node ref="U33" pin="13" pinfunction="SDA_13" pintype="bidirectional"/>
     </net>
-    <net code="22" name="INTERLOCK_OK" class="SELV,Default">
+    <net code="23" name="INTERLOCK_OK" class="SELV,Default">
       <node ref="D35" pin="1" pintype="passive"/>
       <node ref="U33" pin="6" pinfunction="GPB5_6" pintype="bidirectional"/>
       <node ref="U35" pin="4" pinfunction="Y_4" pintype="output"/>
     </net>
-    <net code="23" name="K1_COIL_PLUS" class="SELV,Default">
+    <net code="24" name="K1_COIL_PLUS" class="SELV,Default">
       <node ref="D31" pin="1" pintype="passive"/>
       <node ref="J31" pin="2" pinfunction="K1_COIL_PLUS_2" pintype="passive"/>
       <node ref="K1" pin="1" pinfunction="COIL+_1" pintype="passive"/>
       <node ref="R86" pin="1" pintype="passive"/>
     </net>
-    <net code="24" name="K1_GATE" class="SELV,Default">
+    <net code="25" name="K1_GATE" class="SELV,Default">
       <node ref="Q30" pin="1" pinfunction="G_1" pintype="input"/>
       <node ref="R74" pin="2" pintype="passive"/>
       <node ref="R75" pin="1" pintype="passive"/>
     </net>
-    <net code="25" name="K1_LOW" class="SELV,Default">
+    <net code="26" name="K1_LOW" class="SELV,Default">
       <node ref="D31" pin="2" pintype="passive"/>
       <node ref="K1" pin="5" pinfunction="COIL-_5" pintype="passive"/>
       <node ref="Q30" pin="3" pinfunction="D_3" pintype="passive"/>
     </net>
-    <net code="26" name="K2_GATE" class="SELV,Default">
+    <net code="27" name="K2_GATE" class="SELV,Default">
       <node ref="Q31" pin="1" pinfunction="G_1" pintype="input"/>
       <node ref="R76" pin="2" pintype="passive"/>
       <node ref="R77" pin="1" pintype="passive"/>
     </net>
-    <net code="27" name="K2_LOW" class="SELV,Default">
+    <net code="28" name="K2_LOW" class="SELV,Default">
       <node ref="D32" pin="2" pintype="passive"/>
       <node ref="K2" pin="5" pinfunction="COIL-_5" pintype="passive"/>
       <node ref="Q31" pin="3" pinfunction="D_3" pintype="passive"/>
     </net>
-    <net code="28" name="LOCAL_AUX_N" class="SELV,Default">
+    <net code="29" name="LOCAL_AUX_N" class="SELV,Default">
       <node ref="J36" pin="3" pinfunction="LOCAL_3" pintype="passive"/>
       <node ref="R193" pin="1" pintype="passive"/>
     </net>
-    <net code="29" name="LOCAL_SENSE_N" class="SELV,Default">
+    <net code="30" name="LOCAL_SENSE_N" class="SELV,Default">
       <node ref="R193" pin="2" pintype="passive"/>
       <node ref="R195" pin="2" pintype="passive"/>
       <node ref="U33" pin="23" pinfunction="GPA2_23" pintype="bidirectional"/>
     </net>
-    <net code="30" name="L_FUSED" class="LIVE,HV,Default">
+    <net code="31" name="L_FUSED" class="LIVE,HV,Default">
       <node ref="F1" pin="2" pintype="passive"/>
       <node ref="R1" pin="1" pintype="passive"/>
     </net>
-    <net code="31" name="L_PROTECTED" class="LIVE,HV,Default">
+    <net code="32" name="L_PROTECTED" class="LIVE,HV,Default">
       <node ref="R1" pin="2" pintype="passive"/>
       <node ref="R43" pin="1" pintype="passive"/>
       <node ref="RV1" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="AC_L_1" pintype="power_in"/>
     </net>
-    <net code="32" name="MAINS_L" class="LIVE,HV,Default">
+    <net code="33" name="MAINS_L" class="LIVE,HV,Default">
       <node ref="F1" pin="1" pintype="passive"/>
       <node ref="J1" pin="1" pinfunction="L_1" pintype="passive"/>
     </net>
-    <net code="33" name="MAINS_N" class="LIVE,Default">
+    <net code="34" name="MAINS_N" class="LIVE,Default">
       <node ref="J1" pin="2" pinfunction="N_2" pintype="passive"/>
       <node ref="R42" pin="1" pintype="passive"/>
       <node ref="RV1" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U1" pin="2" pinfunction="AC_N_2" pintype="power_in"/>
     </net>
-    <net code="34" name="MAN_RETURN" class="SELV,Default">
+    <net code="35" name="MAN_RETURN" class="SELV,Default">
       <node ref="J32" pin="3" pinfunction="MAN_RETURN_3" pintype="passive"/>
       <node ref="R82" pin="1" pintype="passive"/>
     </net>
-    <net code="35" name="MAN_SENSE" class="SELV,Default">
+    <net code="36" name="MAN_SENSE" class="SELV,Default">
       <node ref="U33" pin="4" pinfunction="GPB3_4" pintype="bidirectional"/>
       <node ref="U37" pin="5" pinfunction="2Y_5" pintype="output"/>
     </net>
-    <net code="36" name="MAN_SENSE_RAW" class="SELV,Default">
+    <net code="37" name="MAN_SENSE_RAW" class="SELV,Default">
       <node ref="C82" pin="1" pintype="passive"/>
       <node ref="R82" pin="2" pintype="passive"/>
       <node ref="R83" pin="1" pintype="passive"/>
       <node ref="U37" pin="3" pinfunction="2A_3" pintype="input"/>
     </net>
-    <net code="37" name="MCU_EN" class="SELV,Default">
+    <net code="38" name="MCU_EN" class="SELV,Default">
       <node ref="C22" pin="1" pintype="passive"/>
       <node ref="D30" pin="1" pintype="passive"/>
       <node ref="J2" pin="5" pinfunction="RESET_N_5" pintype="passive"/>
@@ -10118,39 +10219,39 @@
       <node ref="U3" pin="8" pinfunction="EN_8" pintype="input"/>
       <node ref="U33" pin="18" pinfunction="RESET_N_18" pintype="input"/>
     </net>
-    <net code="38" name="METER_CS" class="SELV,Default">
+    <net code="39" name="METER_CS" class="SELV,Default">
       <node ref="R26" pin="2" pintype="passive"/>
       <node ref="U11" pin="6" pinfunction="VIC_6" pintype="input"/>
       <node ref="U3" pin="24" pinfunction="GPIO18_24" pintype="bidirectional"/>
     </net>
-    <net code="39" name="METER_MISO" class="SELV,Default">
+    <net code="40" name="METER_MISO" class="SELV,Default">
       <node ref="U11" pin="7" pinfunction="VOD_7" pintype="output"/>
       <node ref="U3" pin="19" pinfunction="GPIO14_19" pintype="bidirectional"/>
     </net>
-    <net code="40" name="METER_MOSI" class="SELV,Default">
+    <net code="41" name="METER_MOSI" class="SELV,Default">
       <node ref="U11" pin="5" pinfunction="VIB_5" pintype="input"/>
       <node ref="U3" pin="16" pinfunction="GPIO7_16" pintype="bidirectional"/>
     </net>
-    <net code="41" name="METER_SCLK" class="SELV,Default">
+    <net code="42" name="METER_SCLK" class="SELV,Default">
       <node ref="U11" pin="4" pinfunction="VIA_4" pintype="input"/>
       <node ref="U3" pin="15" pinfunction="GPIO6_15" pintype="bidirectional"/>
     </net>
-    <net code="42" name="MUX_A0" class="SELV,Default">
+    <net code="43" name="MUX_A0" class="SELV,Default">
       <node ref="R106" pin="1" pintype="passive"/>
       <node ref="U21" pin="1" pinfunction="A0_1" pintype="input"/>
       <node ref="U3" pin="13" pinfunction="GPIO1_13" pintype="bidirectional"/>
     </net>
-    <net code="43" name="MUX_A1" class="SELV,Default">
+    <net code="44" name="MUX_A1" class="SELV,Default">
       <node ref="R107" pin="1" pintype="passive"/>
       <node ref="U21" pin="16" pinfunction="A1_16" pintype="input"/>
       <node ref="U3" pin="5" pinfunction="GPIO2_5" pintype="bidirectional"/>
     </net>
-    <net code="44" name="MUX_A2" class="SELV,Default">
+    <net code="45" name="MUX_A2" class="SELV,Default">
       <node ref="R108" pin="1" pintype="passive"/>
       <node ref="U21" pin="15" pinfunction="A2_15" pintype="input"/>
       <node ref="U3" pin="6" pinfunction="GPIO3_6" pintype="bidirectional"/>
     </net>
-    <net code="45" name="M_3V3" class="LIVE,Default">
+    <net code="46" name="M_3V3" class="LIVE,Default">
       <node ref="C46" pin="1" pintype="passive"/>
       <node ref="C47" pin="1" pintype="passive"/>
       <node ref="C60" pin="1" pintype="passive"/>
@@ -10162,12 +10263,12 @@
       <node ref="U10" pin="8" pinfunction="PULL_HIGH_8" pintype="input"/>
       <node ref="U11" pin="28" pinfunction="VDD2_28" pintype="power_in"/>
     </net>
-    <net code="46" name="M_CS" class="LIVE,Default">
+    <net code="47" name="M_CS" class="LIVE,Default">
       <node ref="R41" pin="2" pintype="passive"/>
       <node ref="U10" pin="28" pinfunction="CS_N_28" pintype="input"/>
       <node ref="U11" pin="23" pinfunction="VOC_23" pintype="output"/>
     </net>
-    <net code="47" name="M_CT_HI" class="LIVE,Default">
+    <net code="48" name="M_CT_HI" class="LIVE,Default">
       <node ref="CT1" pin="1" pinfunction="S1_1" pintype="passive"/>
       <node ref="D10" pin="1" pinfunction="A1_1" pintype="passive"/>
       <node ref="D10" pin="2" pinfunction="K2_2" pintype="passive"/>
@@ -10175,7 +10276,7 @@
       <node ref="R49" pin="1" pintype="passive"/>
       <node ref="RB1" pin="1" pintype="passive"/>
     </net>
-    <net code="48" name="M_GND" class="LIVE,Default">
+    <net code="49" name="M_GND" class="LIVE,Default">
       <node ref="C40" pin="2" pintype="passive"/>
       <node ref="C41" pin="2" pintype="passive"/>
       <node ref="C42" pin="2" pintype="passive"/>
@@ -10211,17 +10312,17 @@
       <node ref="U11" pin="26" pinfunction="GND2_26" pintype="power_in"/>
       <node ref="U11" pin="27" pinfunction="GND2_27" pintype="power_in"/>
     </net>
-    <net code="49" name="M_IAN" class="LIVE,Default">
+    <net code="50" name="M_IAN" class="LIVE,Default">
       <node ref="C54" pin="1" pintype="passive"/>
       <node ref="R50" pin="2" pintype="passive"/>
       <node ref="U10" pin="6" pinfunction="IAN_6" pintype="input"/>
     </net>
-    <net code="50" name="M_IAP" class="LIVE,Default">
+    <net code="51" name="M_IAP" class="LIVE,Default">
       <node ref="C53" pin="1" pintype="passive"/>
       <node ref="R49" pin="2" pintype="passive"/>
       <node ref="U10" pin="5" pinfunction="IAP_5" pintype="input"/>
     </net>
-    <net code="51" name="M_ISO_GND" class="LIVE,Default">
+    <net code="52" name="M_ISO_GND" class="LIVE,Default">
       <node ref="C58" pin="2" pintype="passive"/>
       <node ref="C59" pin="2" pintype="passive"/>
       <node ref="FB2" pin="1" pintype="passive"/>
@@ -10230,111 +10331,115 @@
       <node ref="U11" pin="19" pinfunction="GNDISO_19" pintype="power_in"/>
       <node ref="U11" pin="20" pinfunction="VSEL_20" pintype="input"/>
     </net>
-    <net code="52" name="M_ISO_RAW" class="LIVE,Default">
+    <net code="53" name="M_ISO_RAW" class="LIVE,Default">
       <node ref="C58" pin="1" pintype="passive"/>
       <node ref="C59" pin="1" pintype="passive"/>
       <node ref="FB1" pin="1" pintype="passive"/>
       <node ref="U11" pin="18" pinfunction="VISO_18" pintype="power_out"/>
     </net>
-    <net code="53" name="M_MISO" class="LIVE,Default">
+    <net code="54" name="M_MISO" class="LIVE,Default">
       <node ref="U10" pin="26" pinfunction="MISO_26" pintype="tri_state"/>
       <node ref="U11" pin="22" pinfunction="VID_22" pintype="input"/>
     </net>
-    <net code="54" name="M_MOSI" class="LIVE,Default">
+    <net code="55" name="M_MOSI" class="LIVE,Default">
       <node ref="U10" pin="27" pinfunction="MOSI_27" pintype="input"/>
       <node ref="U11" pin="24" pinfunction="VOB_24" pintype="output"/>
     </net>
-    <net code="55" name="M_REF" class="LIVE,Default">
+    <net code="56" name="M_REF" class="LIVE,Default">
       <node ref="C44" pin="1" pintype="passive"/>
       <node ref="C45" pin="1" pintype="passive"/>
       <node ref="U10" pin="13" pinfunction="REF_13" pintype="power_out"/>
     </net>
-    <net code="56" name="M_RESET_N" class="LIVE,Default">
+    <net code="57" name="M_RESET_N" class="LIVE,Default">
       <node ref="C48" pin="1" pintype="passive"/>
       <node ref="R40" pin="2" pintype="passive"/>
       <node ref="U10" pin="2" pinfunction="RESET_N_2" pintype="input"/>
     </net>
-    <net code="57" name="M_SCLK" class="LIVE,Default">
+    <net code="58" name="M_SCLK" class="LIVE,Default">
       <node ref="U10" pin="25" pinfunction="SCLK_25" pintype="input"/>
       <node ref="U11" pin="25" pinfunction="VOA_25" pintype="output"/>
     </net>
-    <net code="58" name="M_VDIV_0" class="LIVE,DIV198,Default">
+    <net code="59" name="M_VDIV_0" class="LIVE,DIV198,Default">
       <node ref="R43" pin="2" pintype="passive"/>
       <node ref="R44" pin="1" pintype="passive"/>
     </net>
-    <net code="59" name="M_VDIV_1" class="LIVE,DIV132,Default">
+    <net code="60" name="M_VDIV_1" class="LIVE,DIV132,Default">
       <node ref="R44" pin="2" pintype="passive"/>
       <node ref="R45" pin="1" pintype="passive"/>
     </net>
-    <net code="60" name="M_VDIV_2" class="LIVE,DIV66,Default">
+    <net code="61" name="M_VDIV_2" class="LIVE,DIV66,Default">
       <node ref="R45" pin="2" pintype="passive"/>
       <node ref="R46" pin="1" pintype="passive"/>
     </net>
-    <net code="61" name="M_VINTA" class="LIVE,Default">
+    <net code="62" name="M_VINTA" class="LIVE,Default">
       <node ref="C42" pin="1" pintype="passive"/>
       <node ref="C43" pin="1" pintype="passive"/>
       <node ref="U10" pin="15" pinfunction="VINTA_15" pintype="power_out"/>
     </net>
-    <net code="62" name="M_VINTD" class="LIVE,Default">
+    <net code="63" name="M_VINTD" class="LIVE,Default">
       <node ref="C40" pin="1" pintype="passive"/>
       <node ref="C41" pin="1" pintype="passive"/>
       <node ref="U10" pin="3" pinfunction="VINTD_3" pintype="power_out"/>
     </net>
-    <net code="63" name="M_VN" class="LIVE,Default">
+    <net code="64" name="M_VN" class="LIVE,Default">
       <node ref="C52" pin="1" pintype="passive"/>
       <node ref="R48" pin="2" pintype="passive"/>
       <node ref="U10" pin="11" pinfunction="VN_11" pintype="input"/>
     </net>
-    <net code="64" name="M_VP" class="LIVE,Default">
+    <net code="65" name="M_VP" class="LIVE,Default">
       <node ref="C51" pin="1" pintype="passive"/>
       <node ref="R46" pin="2" pintype="passive"/>
       <node ref="R47" pin="1" pintype="passive"/>
       <node ref="U10" pin="12" pinfunction="VP_12" pintype="input"/>
     </net>
-    <net code="65" name="M_XIN" class="LIVE,Default">
+    <net code="66" name="M_XIN" class="LIVE,Default">
       <node ref="C49" pin="1" pintype="passive"/>
       <node ref="U10" pin="18" pinfunction="CLKIN_18" pintype="input"/>
       <node ref="Y1" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="66" name="M_XOUT" class="LIVE,Default">
+    <net code="67" name="M_XOUT" class="LIVE,Default">
       <node ref="C50" pin="1" pintype="passive"/>
       <node ref="U10" pin="19" pinfunction="CLKOUT_19" pintype="output"/>
       <node ref="Y1" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="67" name="PERMIT_D" class="SELV,Default">
+    <net code="68" name="PANEL_OK_MON" class="SELV,Default">
+      <node ref="J36" pin="5" pinfunction="PANEL_OK_OUT_5" pintype="passive"/>
+      <node ref="R197" pin="2" pintype="passive"/>
+    </net>
+    <net code="69" name="PERMIT_D" class="SELV,Default">
       <node ref="R72" pin="1" pintype="passive"/>
       <node ref="U3" pin="26" pinfunction="GPIO20_26" pintype="bidirectional"/>
       <node ref="U34" pin="2" pinfunction="B_2" pintype="input"/>
     </net>
-    <net code="68" name="PERMIT_Q" class="SELV,Default">
+    <net code="70" name="PERMIT_Q" class="SELV,Default">
       <node ref="R74" pin="1" pintype="passive"/>
       <node ref="U34" pin="4" pinfunction="Y_4" pintype="output"/>
     </net>
-    <net code="69" name="PROBE_ADC_BIAS" class="SELV,Default">
+    <net code="71" name="PROBE_ADC_BIAS" class="SELV,Default">
       <node ref="C111" pin="1" pintype="passive"/>
       <node ref="R111" pin="2" pintype="passive"/>
       <node ref="U22" pin="5" pinfunction="AIN1_5" pintype="input"/>
     </net>
-    <net code="70" name="PROBE_ADC_BIAS2" class="SELV,Default">
+    <net code="72" name="PROBE_ADC_BIAS2" class="SELV,Default">
       <node ref="C113" pin="1" pintype="passive"/>
       <node ref="R113" pin="2" pintype="passive"/>
       <node ref="U22" pin="7" pinfunction="AIN3_7" pintype="input"/>
     </net>
-    <net code="71" name="PROBE_ADC_RDY" class="SELV,Default">
+    <net code="73" name="PROBE_ADC_RDY" class="SELV,Default">
       <node ref="R109" pin="1" pintype="passive"/>
       <node ref="U22" pin="2" pinfunction="ALERT_RDY_2" pintype="open_collector"/>
     </net>
-    <net code="72" name="PROBE_ADC_SIGNAL" class="SELV,Default">
+    <net code="74" name="PROBE_ADC_SIGNAL" class="SELV,Default">
       <node ref="C110" pin="1" pintype="passive"/>
       <node ref="R110" pin="2" pintype="passive"/>
       <node ref="U22" pin="4" pinfunction="AIN0_4" pintype="input"/>
     </net>
-    <net code="73" name="PROBE_ADC_TX" class="SELV,Default">
+    <net code="75" name="PROBE_ADC_TX" class="SELV,Default">
       <node ref="C112" pin="1" pintype="passive"/>
       <node ref="R112" pin="2" pintype="passive"/>
       <node ref="U22" pin="6" pinfunction="AIN2_6" pintype="input"/>
     </net>
-    <net code="74" name="PROBE_BIAS" class="SELV,Default">
+    <net code="76" name="PROBE_BIAS" class="SELV,Default">
       <node ref="C101" pin="1" pintype="passive"/>
       <node ref="C121" pin="2" pintype="passive"/>
       <node ref="C123" pin="2" pintype="passive"/>
@@ -10353,226 +10458,226 @@
       <node ref="R172" pin="2" pintype="passive"/>
       <node ref="U21" pin="11" pinfunction="S6_11" pintype="bidirectional"/>
     </net>
-    <net code="75" name="PROBE_BIAS_DIV" class="SELV,Default">
+    <net code="77" name="PROBE_BIAS_DIV" class="SELV,Default">
       <node ref="C100" pin="1" pintype="passive"/>
       <node ref="R100" pin="2" pintype="passive"/>
       <node ref="R101" pin="1" pintype="passive"/>
       <node ref="U20" pin="3" pinfunction="IN1+_3" pintype="input"/>
     </net>
-    <net code="76" name="PROBE_BIAS_RAW" class="SELV,Default">
+    <net code="78" name="PROBE_BIAS_RAW" class="SELV,Default">
       <node ref="R102" pin="1" pintype="passive"/>
       <node ref="U20" pin="1" pinfunction="OUT1_1" pintype="output"/>
       <node ref="U20" pin="2" pinfunction="IN1-_2" pintype="input"/>
     </net>
-    <net code="77" name="PROBE_EXC" class="SELV,Default">
+    <net code="79" name="PROBE_EXC" class="SELV,Default">
       <node ref="R103" pin="1" pintype="passive"/>
       <node ref="R105" pin="1" pintype="passive"/>
       <node ref="U3" pin="12" pinfunction="GPIO0_12" pintype="bidirectional"/>
     </net>
-    <net code="78" name="PROBE_ICOM" class="SELV,Default">
+    <net code="80" name="PROBE_ICOM" class="SELV,Default">
       <node ref="J21" pin="2" pinfunction="INLET_COM_2" pintype="passive"/>
       <node ref="R120" pin="2" pintype="passive"/>
     </net>
-    <net code="79" name="PROBE_ICOM_CLAMP" class="SELV,Default">
+    <net code="81" name="PROBE_ICOM_CLAMP" class="SELV,Default">
       <node ref="C107" pin="2" pintype="passive"/>
       <node ref="C109" pin="2" pintype="passive"/>
       <node ref="D101" pin="1" pintype="passive"/>
       <node ref="R119" pin="1" pintype="passive"/>
     </net>
-    <net code="80" name="PROBE_ICOM_DRIVE" class="SELV,Default">
+    <net code="82" name="PROBE_ICOM_DRIVE" class="SELV,Default">
       <node ref="C107" pin="1" pintype="passive"/>
       <node ref="C109" pin="1" pintype="passive"/>
       <node ref="D103" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R118" pin="2" pintype="passive"/>
     </net>
-    <net code="81" name="PROBE_ICOM_MID" class="SELV,Default">
+    <net code="83" name="PROBE_ICOM_MID" class="SELV,Default">
       <node ref="R119" pin="2" pintype="passive"/>
       <node ref="R120" pin="1" pintype="passive"/>
     </net>
-    <net code="82" name="PROBE_INLET" class="SELV,Default">
+    <net code="84" name="PROBE_INLET" class="SELV,Default">
       <node ref="J21" pin="1" pinfunction="INLET_1" pintype="passive"/>
       <node ref="R170" pin="1" pintype="passive"/>
     </net>
-    <net code="83" name="PROBE_INLET_ADC" class="SELV,Default">
+    <net code="85" name="PROBE_INLET_ADC" class="SELV,Default">
       <node ref="C129" pin="1" pintype="passive"/>
       <node ref="D119" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R173" pin="2" pintype="passive"/>
       <node ref="U21" pin="12" pinfunction="S5_12" pintype="bidirectional"/>
     </net>
-    <net code="84" name="PROBE_INLET_CLAMP" class="SELV,Default">
+    <net code="86" name="PROBE_INLET_CLAMP" class="SELV,Default">
       <node ref="C128" pin="1" pintype="passive"/>
       <node ref="D118" pin="1" pintype="passive"/>
       <node ref="R171" pin="2" pintype="passive"/>
     </net>
-    <net code="85" name="PROBE_INLET_MID" class="SELV,Default">
+    <net code="87" name="PROBE_INLET_MID" class="SELV,Default">
       <node ref="R170" pin="2" pintype="passive"/>
       <node ref="R171" pin="1" pintype="passive"/>
     </net>
-    <net code="86" name="PROBE_INLET_SENSE" class="SELV,Default">
+    <net code="88" name="PROBE_INLET_SENSE" class="SELV,Default">
       <node ref="C128" pin="2" pintype="passive"/>
       <node ref="R172" pin="1" pintype="passive"/>
       <node ref="R173" pin="1" pintype="passive"/>
     </net>
-    <net code="87" name="PROBE_L1" class="SELV,Default">
+    <net code="89" name="PROBE_L1" class="SELV,Default">
       <node ref="J20" pin="2" pinfunction="L1_2" pintype="passive"/>
       <node ref="R130" pin="1" pintype="passive"/>
     </net>
-    <net code="88" name="PROBE_L1_ADC" class="SELV,Default">
+    <net code="90" name="PROBE_L1_ADC" class="SELV,Default">
       <node ref="C121" pin="1" pintype="passive"/>
       <node ref="D111" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R133" pin="2" pintype="passive"/>
       <node ref="U21" pin="4" pinfunction="S1_4" pintype="bidirectional"/>
     </net>
-    <net code="89" name="PROBE_L1_CLAMP" class="SELV,Default">
+    <net code="91" name="PROBE_L1_CLAMP" class="SELV,Default">
       <node ref="C120" pin="1" pintype="passive"/>
       <node ref="D110" pin="1" pintype="passive"/>
       <node ref="R131" pin="2" pintype="passive"/>
     </net>
-    <net code="90" name="PROBE_L1_MID" class="SELV,Default">
+    <net code="92" name="PROBE_L1_MID" class="SELV,Default">
       <node ref="R130" pin="2" pintype="passive"/>
       <node ref="R131" pin="1" pintype="passive"/>
     </net>
-    <net code="91" name="PROBE_L1_SENSE" class="SELV,Default">
+    <net code="93" name="PROBE_L1_SENSE" class="SELV,Default">
       <node ref="C120" pin="2" pintype="passive"/>
       <node ref="R132" pin="1" pintype="passive"/>
       <node ref="R133" pin="1" pintype="passive"/>
     </net>
-    <net code="92" name="PROBE_L2" class="SELV,Default">
+    <net code="94" name="PROBE_L2" class="SELV,Default">
       <node ref="J20" pin="3" pinfunction="L2_3" pintype="passive"/>
       <node ref="R140" pin="1" pintype="passive"/>
     </net>
-    <net code="93" name="PROBE_L2_ADC" class="SELV,Default">
+    <net code="95" name="PROBE_L2_ADC" class="SELV,Default">
       <node ref="C123" pin="1" pintype="passive"/>
       <node ref="D113" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R143" pin="2" pintype="passive"/>
       <node ref="U21" pin="5" pinfunction="S2_5" pintype="bidirectional"/>
     </net>
-    <net code="94" name="PROBE_L2_CLAMP" class="SELV,Default">
+    <net code="96" name="PROBE_L2_CLAMP" class="SELV,Default">
       <node ref="C122" pin="1" pintype="passive"/>
       <node ref="D112" pin="1" pintype="passive"/>
       <node ref="R141" pin="2" pintype="passive"/>
     </net>
-    <net code="95" name="PROBE_L2_MID" class="SELV,Default">
+    <net code="97" name="PROBE_L2_MID" class="SELV,Default">
       <node ref="R140" pin="2" pintype="passive"/>
       <node ref="R141" pin="1" pintype="passive"/>
     </net>
-    <net code="96" name="PROBE_L2_SENSE" class="SELV,Default">
+    <net code="98" name="PROBE_L2_SENSE" class="SELV,Default">
       <node ref="C122" pin="2" pintype="passive"/>
       <node ref="R142" pin="1" pintype="passive"/>
       <node ref="R143" pin="1" pintype="passive"/>
     </net>
-    <net code="97" name="PROBE_L3" class="SELV,Default">
+    <net code="99" name="PROBE_L3" class="SELV,Default">
       <node ref="J20" pin="4" pinfunction="L3_4" pintype="passive"/>
       <node ref="R150" pin="1" pintype="passive"/>
     </net>
-    <net code="98" name="PROBE_L3_ADC" class="SELV,Default">
+    <net code="100" name="PROBE_L3_ADC" class="SELV,Default">
       <node ref="C125" pin="1" pintype="passive"/>
       <node ref="D115" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R153" pin="2" pintype="passive"/>
       <node ref="U21" pin="6" pinfunction="S3_6" pintype="bidirectional"/>
     </net>
-    <net code="99" name="PROBE_L3_CLAMP" class="SELV,Default">
+    <net code="101" name="PROBE_L3_CLAMP" class="SELV,Default">
       <node ref="C124" pin="1" pintype="passive"/>
       <node ref="D114" pin="1" pintype="passive"/>
       <node ref="R151" pin="2" pintype="passive"/>
     </net>
-    <net code="100" name="PROBE_L3_MID" class="SELV,Default">
+    <net code="102" name="PROBE_L3_MID" class="SELV,Default">
       <node ref="R150" pin="2" pintype="passive"/>
       <node ref="R151" pin="1" pintype="passive"/>
     </net>
-    <net code="101" name="PROBE_L3_SENSE" class="SELV,Default">
+    <net code="103" name="PROBE_L3_SENSE" class="SELV,Default">
       <node ref="C124" pin="2" pintype="passive"/>
       <node ref="R152" pin="1" pintype="passive"/>
       <node ref="R153" pin="1" pintype="passive"/>
     </net>
-    <net code="102" name="PROBE_L4" class="SELV,Default">
+    <net code="104" name="PROBE_L4" class="SELV,Default">
       <node ref="J20" pin="5" pinfunction="L4_5" pintype="passive"/>
       <node ref="R160" pin="1" pintype="passive"/>
     </net>
-    <net code="103" name="PROBE_L4_ADC" class="SELV,Default">
+    <net code="105" name="PROBE_L4_ADC" class="SELV,Default">
       <node ref="C127" pin="1" pintype="passive"/>
       <node ref="D117" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R163" pin="2" pintype="passive"/>
       <node ref="U21" pin="7" pinfunction="S4_7" pintype="bidirectional"/>
     </net>
-    <net code="104" name="PROBE_L4_CLAMP" class="SELV,Default">
+    <net code="106" name="PROBE_L4_CLAMP" class="SELV,Default">
       <node ref="C126" pin="1" pintype="passive"/>
       <node ref="D116" pin="1" pintype="passive"/>
       <node ref="R161" pin="2" pintype="passive"/>
     </net>
-    <net code="105" name="PROBE_L4_MID" class="SELV,Default">
+    <net code="107" name="PROBE_L4_MID" class="SELV,Default">
       <node ref="R160" pin="2" pintype="passive"/>
       <node ref="R161" pin="1" pintype="passive"/>
     </net>
-    <net code="106" name="PROBE_L4_SENSE" class="SELV,Default">
+    <net code="108" name="PROBE_L4_SENSE" class="SELV,Default">
       <node ref="C126" pin="2" pintype="passive"/>
       <node ref="R162" pin="1" pintype="passive"/>
       <node ref="R163" pin="1" pintype="passive"/>
     </net>
-    <net code="107" name="PROBE_MUX_BUF" class="SELV,Default">
+    <net code="109" name="PROBE_MUX_BUF" class="SELV,Default">
       <node ref="R110" pin="1" pintype="passive"/>
       <node ref="U20" pin="8" pinfunction="OUT3_8" pintype="output"/>
       <node ref="U20" pin="9" pinfunction="IN3-_9" pintype="input"/>
     </net>
-    <net code="108" name="PROBE_MUX_OUT" class="SELV,Default">
+    <net code="110" name="PROBE_MUX_OUT" class="SELV,Default">
       <node ref="R114" pin="1" pintype="passive"/>
       <node ref="U20" pin="10" pinfunction="IN3+_10" pintype="input"/>
       <node ref="U21" pin="8" pinfunction="D_8" pintype="bidirectional"/>
     </net>
-    <net code="109" name="PROBE_TCOM" class="SELV,Default">
+    <net code="111" name="PROBE_TCOM" class="SELV,Default">
       <node ref="J20" pin="1" pinfunction="COM_1" pintype="passive"/>
       <node ref="R117" pin="2" pintype="passive"/>
     </net>
-    <net code="110" name="PROBE_TCOM_CLAMP" class="SELV,Default">
+    <net code="112" name="PROBE_TCOM_CLAMP" class="SELV,Default">
       <node ref="C106" pin="2" pintype="passive"/>
       <node ref="C108" pin="2" pintype="passive"/>
       <node ref="D100" pin="1" pintype="passive"/>
       <node ref="R116" pin="1" pintype="passive"/>
     </net>
-    <net code="111" name="PROBE_TCOM_DRIVE" class="SELV,Default">
+    <net code="113" name="PROBE_TCOM_DRIVE" class="SELV,Default">
       <node ref="C106" pin="1" pintype="passive"/>
       <node ref="C108" pin="1" pintype="passive"/>
       <node ref="D102" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R115" pin="2" pintype="passive"/>
     </net>
-    <net code="112" name="PROBE_TCOM_MID" class="SELV,Default">
+    <net code="114" name="PROBE_TCOM_MID" class="SELV,Default">
       <node ref="R116" pin="2" pintype="passive"/>
       <node ref="R117" pin="1" pintype="passive"/>
     </net>
-    <net code="113" name="PROBE_TX_INLET" class="SELV,Default">
+    <net code="115" name="PROBE_TX_INLET" class="SELV,Default">
       <node ref="R118" pin="1" pintype="passive"/>
       <node ref="U20" pin="13" pinfunction="IN4-_13" pintype="input"/>
       <node ref="U20" pin="14" pinfunction="OUT4_14" pintype="output"/>
       <node ref="U21" pin="9" pinfunction="S8_9" pintype="bidirectional"/>
     </net>
-    <net code="114" name="PROBE_TX_SET" class="SELV,Default">
+    <net code="116" name="PROBE_TX_SET" class="SELV,Default">
       <node ref="R103" pin="2" pintype="passive"/>
       <node ref="R104" pin="2" pintype="passive"/>
       <node ref="U20" pin="12" pinfunction="IN4+_12" pintype="input"/>
       <node ref="U20" pin="5" pinfunction="IN2+_5" pintype="input"/>
     </net>
-    <net code="115" name="PROBE_TX_TANK" class="SELV,Default">
+    <net code="117" name="PROBE_TX_TANK" class="SELV,Default">
       <node ref="R112" pin="1" pintype="passive"/>
       <node ref="R115" pin="1" pintype="passive"/>
       <node ref="U20" pin="6" pinfunction="IN2-_6" pintype="input"/>
       <node ref="U20" pin="7" pinfunction="OUT2_7" pintype="output"/>
       <node ref="U21" pin="10" pinfunction="S7_10" pintype="bidirectional"/>
     </net>
-    <net code="116" name="RESET_FILTER" class="SELV,Default">
+    <net code="118" name="RESET_FILTER" class="SELV,Default">
       <node ref="C90" pin="1" pintype="passive"/>
       <node ref="R90" pin="2" pintype="passive"/>
       <node ref="R91" pin="2" pintype="passive"/>
       <node ref="U33" pin="2" pinfunction="GPB1_2" pintype="bidirectional"/>
     </net>
-    <net code="117" name="RESET_N" class="SELV,Default">
+    <net code="119" name="RESET_N" class="SELV,Default">
       <node ref="J32" pin="6" pinfunction="RESET_N_6" pintype="passive"/>
       <node ref="R90" pin="1" pintype="passive"/>
     </net>
-    <net code="118" name="RUN_CMD" class="SELV,Default">
+    <net code="120" name="RUN_CMD" class="SELV,Default">
       <node ref="R76" pin="1" pintype="passive"/>
       <node ref="U3" pin="25" pinfunction="GPIO19_25" pintype="bidirectional"/>
     </net>
-    <net code="119" name="SAFE_CLEAR_N" class="SELV,Default">
+    <net code="121" name="SAFE_CLEAR_N" class="SELV,Default">
       <node ref="D30" pin="2" pintype="passive"/>
       <node ref="D35" pin="2" pintype="passive"/>
       <node ref="R70" pin="2" pintype="passive"/>
@@ -10580,172 +10685,173 @@
       <node ref="U32" pin="1" pinfunction="RESET_N_1" pintype="open_collector"/>
       <node ref="U36" pin="2" pinfunction="A_2" pintype="input"/>
     </net>
-    <net code="120" name="SPARE_B6" class="SELV,Default">
+    <net code="122" name="SPARE_B6" class="SELV,Default">
       <node ref="J32" pin="11" pinfunction="SPARE_B6_11" pintype="passive"/>
       <node ref="R92" pin="1" pintype="passive"/>
       <node ref="U33" pin="7" pinfunction="GPB6_7" pintype="bidirectional"/>
     </net>
-    <net code="121" name="SPARE_B7" class="SELV,Default">
+    <net code="123" name="SPARE_B7" class="SELV,Default">
       <node ref="J32" pin="12" pinfunction="SPARE_B7_12" pintype="passive"/>
       <node ref="R93" pin="1" pintype="passive"/>
       <node ref="U33" pin="21" pinfunction="GPA0_21" pintype="bidirectional"/>
     </net>
-    <net code="122" name="START_CMD_LED" class="SELV,Default">
+    <net code="124" name="START_CMD_LED" class="SELV,Default">
       <node ref="R190" pin="1" pintype="passive"/>
       <node ref="U33" pin="8" pinfunction="GPB7_8" pintype="output"/>
     </net>
-    <net code="123" name="START_FILTER" class="SELV,Default">
+    <net code="125" name="START_FILTER" class="SELV,Default">
       <node ref="C88" pin="1" pintype="passive"/>
       <node ref="R88" pin="2" pintype="passive"/>
       <node ref="R89" pin="2" pintype="passive"/>
       <node ref="U33" pin="1" pinfunction="GPB0_1" pintype="bidirectional"/>
     </net>
-    <net code="124" name="START_LED_A" class="SELV,Default">
+    <net code="126" name="START_LED_A" class="SELV,Default">
       <node ref="D40" pin="2" pintype="passive"/>
       <node ref="R190" pin="2" pintype="passive"/>
     </net>
-    <net code="125" name="START_N" class="SELV,Default">
+    <net code="127" name="START_N" class="SELV,Default">
       <node ref="J32" pin="5" pinfunction="START_N_5" pintype="passive"/>
       <node ref="R88" pin="1" pintype="passive"/>
     </net>
-    <net code="126" name="STOP_CMD_LED" class="SELV,Default">
+    <net code="128" name="STOP_CMD_LED" class="SELV,Default">
       <node ref="R191" pin="1" pintype="passive"/>
       <node ref="U33" pin="28" pinfunction="GPA7_28" pintype="output"/>
     </net>
-    <net code="127" name="STOP_LED_A" class="SELV,Default">
+    <net code="129" name="STOP_LED_A" class="SELV,Default">
       <node ref="D41" pin="2" pintype="passive"/>
       <node ref="R191" pin="2" pintype="passive"/>
     </net>
-    <net code="128" name="STOP_RETURN" class="SELV,Default">
+    <net code="130" name="STOP_RETURN" class="SELV,Default">
       <node ref="J31" pin="1" pinfunction="STOP_RETURN_1" pintype="passive"/>
       <node ref="J32" pin="2" pinfunction="STOP_RETURN_2" pintype="passive"/>
+      <node ref="R197" pin="1" pintype="passive"/>
       <node ref="R80" pin="1" pintype="passive"/>
     </net>
-    <net code="129" name="STOP_SENSE" class="SELV,Default">
+    <net code="131" name="STOP_SENSE" class="SELV,Default">
       <node ref="U33" pin="3" pinfunction="GPB2_3" pintype="bidirectional"/>
       <node ref="U37" pin="7" pinfunction="1Y_7" pintype="output"/>
     </net>
-    <net code="130" name="STOP_SENSE_RAW" class="SELV,Default">
+    <net code="132" name="STOP_SENSE_RAW" class="SELV,Default">
       <node ref="C80" pin="1" pintype="passive"/>
       <node ref="R80" pin="2" pintype="passive"/>
       <node ref="R81" pin="1" pintype="passive"/>
       <node ref="U37" pin="1" pinfunction="1A_1" pintype="input"/>
     </net>
-    <net code="131" name="STRAP_GPIO8" class="SELV,Default">
+    <net code="133" name="STRAP_GPIO8" class="SELV,Default">
       <node ref="R22" pin="2" pintype="passive"/>
       <node ref="U3" pin="22" pinfunction="GPIO8_22" pintype="bidirectional"/>
     </net>
-    <net code="132" name="UART_TX" class="SELV,Default">
+    <net code="134" name="UART_TX" class="SELV,Default">
       <node ref="J2" pin="3" pinfunction="TXD0_3" pintype="passive"/>
       <node ref="U3" pin="31" pinfunction="GPIO16_31" pintype="bidirectional"/>
     </net>
-    <net code="133" name="USB_DM" class="SELV,Default">
+    <net code="135" name="USB_DM" class="SELV,Default">
       <node ref="J2" pin="7" pinfunction="USB_D-_7" pintype="passive"/>
       <node ref="R27" pin="2" pintype="passive"/>
     </net>
-    <net code="134" name="USB_DM_MCU" class="SELV,Default">
+    <net code="136" name="USB_DM_MCU" class="SELV,Default">
       <node ref="R27" pin="1" pintype="passive"/>
       <node ref="U3" pin="17" pinfunction="GPIO12_17" pintype="bidirectional"/>
     </net>
-    <net code="135" name="USB_DP" class="SELV,Default">
+    <net code="137" name="USB_DP" class="SELV,Default">
       <node ref="J2" pin="8" pinfunction="USB_D+_8" pintype="passive"/>
       <node ref="R28" pin="2" pintype="passive"/>
     </net>
-    <net code="136" name="USB_DP_MCU" class="SELV,Default">
+    <net code="138" name="USB_DP_MCU" class="SELV,Default">
       <node ref="R28" pin="1" pintype="passive"/>
       <node ref="U3" pin="18" pinfunction="GPIO13_18" pintype="bidirectional"/>
     </net>
-    <net code="137" name="unconnected-(U2-PG-Pad8)" class="SELV,Default">
+    <net code="139" name="unconnected-(U2-PG-Pad8)" class="SELV,Default">
       <node ref="U2" pin="8" pinfunction="PG_8" pintype="no_connect"/>
     </net>
-    <net code="138" name="unconnected-(U3-GPIO4-Pad9)" class="SELV,Default">
+    <net code="140" name="unconnected-(U3-GPIO4-Pad9)" class="SELV,Default">
       <node ref="U3" pin="9" pinfunction="GPIO4_9" pintype="no_connect"/>
     </net>
-    <net code="139" name="unconnected-(U3-GPIO5-Pad10)" class="SELV,Default">
+    <net code="141" name="unconnected-(U3-GPIO5-Pad10)" class="SELV,Default">
       <node ref="U3" pin="10" pinfunction="GPIO5_10" pintype="no_connect"/>
     </net>
-    <net code="140" name="unconnected-(U3-GPIO15-Pad20)" class="SELV,Default">
+    <net code="142" name="unconnected-(U3-GPIO15-Pad20)" class="SELV,Default">
       <node ref="U3" pin="20" pinfunction="GPIO15_20" pintype="no_connect"/>
     </net>
-    <net code="141" name="unconnected-(U3-NC-Pad4)" class="SELV,Default">
+    <net code="143" name="unconnected-(U3-NC-Pad4)" class="SELV,Default">
       <node ref="U3" pin="4" pinfunction="NC_4" pintype="no_connect"/>
     </net>
-    <net code="142" name="unconnected-(U3-NC-Pad7)" class="SELV,Default">
+    <net code="144" name="unconnected-(U3-NC-Pad7)" class="SELV,Default">
       <node ref="U3" pin="7" pinfunction="NC_7" pintype="no_connect"/>
     </net>
-    <net code="143" name="unconnected-(U3-NC-Pad21)" class="SELV,Default">
+    <net code="145" name="unconnected-(U3-NC-Pad21)" class="SELV,Default">
       <node ref="U3" pin="21" pinfunction="NC_21" pintype="no_connect"/>
     </net>
-    <net code="144" name="unconnected-(U3-NC-Pad32)" class="SELV,Default">
+    <net code="146" name="unconnected-(U3-NC-Pad32)" class="SELV,Default">
       <node ref="U3" pin="32" pinfunction="NC_32" pintype="no_connect"/>
     </net>
-    <net code="145" name="unconnected-(U3-NC-Pad33)" class="SELV,Default">
+    <net code="147" name="unconnected-(U3-NC-Pad33)" class="SELV,Default">
       <node ref="U3" pin="33" pinfunction="NC_33" pintype="no_connect"/>
     </net>
-    <net code="146" name="unconnected-(U3-NC-Pad34)" class="SELV,Default">
+    <net code="148" name="unconnected-(U3-NC-Pad34)" class="SELV,Default">
       <node ref="U3" pin="34" pinfunction="NC_34" pintype="no_connect"/>
     </net>
-    <net code="147" name="unconnected-(U3-NC-Pad35)" class="SELV,Default">
+    <net code="149" name="unconnected-(U3-NC-Pad35)" class="SELV,Default">
       <node ref="U3" pin="35" pinfunction="NC_35" pintype="no_connect"/>
     </net>
-    <net code="148" name="unconnected-(U10-CF1-Pad23)" class="LIVE,Default">
+    <net code="150" name="unconnected-(U10-CF1-Pad23)" class="LIVE,Default">
       <node ref="U10" pin="23" pinfunction="CF1_23" pintype="output+no_connect"/>
     </net>
-    <net code="149" name="unconnected-(U10-CF2-Pad24)" class="LIVE,Default">
+    <net code="151" name="unconnected-(U10-CF2-Pad24)" class="LIVE,Default">
       <node ref="U10" pin="24" pinfunction="CF2_24" pintype="output+no_connect"/>
     </net>
-    <net code="150" name="unconnected-(U10-IRQ-Pad22)" class="LIVE,Default">
+    <net code="152" name="unconnected-(U10-IRQ-Pad22)" class="LIVE,Default">
       <node ref="U10" pin="22" pinfunction="IRQ_22" pintype="open_collector+no_connect"/>
     </net>
-    <net code="151" name="unconnected-(U10-REVP-Pad20)" class="LIVE,Default">
+    <net code="153" name="unconnected-(U10-REVP-Pad20)" class="LIVE,Default">
       <node ref="U10" pin="20" pinfunction="REVP_20" pintype="output+no_connect"/>
     </net>
-    <net code="152" name="unconnected-(U10-ZX-Pad1)" class="LIVE,Default">
+    <net code="154" name="unconnected-(U10-ZX-Pad1)" class="LIVE,Default">
       <node ref="U10" pin="1" pinfunction="ZX_1" pintype="output+no_connect"/>
     </net>
-    <net code="153" name="unconnected-(U10-ZX_I-Pad21)" class="LIVE,Default">
+    <net code="155" name="unconnected-(U10-ZX_I-Pad21)" class="LIVE,Default">
       <node ref="U10" pin="21" pinfunction="ZX_I_21" pintype="output+no_connect"/>
     </net>
-    <net code="154" name="unconnected-(U11-NIC-Pad13)" class="SELV,Default">
+    <net code="156" name="unconnected-(U11-NIC-Pad13)" class="SELV,Default">
       <node ref="U11" pin="13" pinfunction="NIC_13" pintype="no_connect"/>
     </net>
-    <net code="155" name="unconnected-(U11-NIC-Pad16)" class="LIVE,Default">
+    <net code="157" name="unconnected-(U11-NIC-Pad16)" class="LIVE,Default">
       <node ref="U11" pin="16" pinfunction="NIC_16" pintype="no_connect"/>
     </net>
-    <net code="156" name="unconnected-(U21-NC-Pad3)" class="SELV,Default">
+    <net code="158" name="unconnected-(U21-NC-Pad3)" class="SELV,Default">
       <node ref="U21" pin="3" pinfunction="NC_3" pintype="no_connect"/>
     </net>
-    <net code="157" name="unconnected-(U31-Q_N-Pad3)" class="SELV,Default">
+    <net code="159" name="unconnected-(U31-Q_N-Pad3)" class="SELV,Default">
       <node ref="U31" pin="3" pinfunction="Q_N_3" pintype="output+no_connect"/>
     </net>
-    <net code="158" name="unconnected-(U33-GPA1-Pad22)" class="SELV,Default">
+    <net code="160" name="unconnected-(U33-GPA1-Pad22)" class="SELV,Default">
       <node ref="U33" pin="22" pinfunction="GPA1_22" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="159" name="unconnected-(U33-GPA4-Pad25)" class="SELV,Default">
+    <net code="161" name="unconnected-(U33-GPA4-Pad25)" class="SELV,Default">
       <node ref="U33" pin="25" pinfunction="GPA4_25" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="160" name="unconnected-(U33-GPA5-Pad26)" class="SELV,Default">
+    <net code="162" name="unconnected-(U33-GPA5-Pad26)" class="SELV,Default">
       <node ref="U33" pin="26" pinfunction="GPA5_26" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="161" name="unconnected-(U33-GPA6-Pad27)" class="SELV,Default">
+    <net code="163" name="unconnected-(U33-GPA6-Pad27)" class="SELV,Default">
       <node ref="U33" pin="27" pinfunction="GPA6_27" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="162" name="unconnected-(U33-INTA-Pad20)" class="SELV,Default">
+    <net code="164" name="unconnected-(U33-INTA-Pad20)" class="SELV,Default">
       <node ref="U33" pin="20" pinfunction="INTA_20" pintype="open_collector+no_connect"/>
     </net>
-    <net code="163" name="unconnected-(U33-INTB-Pad19)" class="SELV,Default">
+    <net code="165" name="unconnected-(U33-INTB-Pad19)" class="SELV,Default">
       <node ref="U33" pin="19" pinfunction="INTB_19" pintype="open_collector+no_connect"/>
     </net>
-    <net code="164" name="unconnected-(U33-NC-Pad11)" class="SELV,Default">
+    <net code="166" name="unconnected-(U33-NC-Pad11)" class="SELV,Default">
       <node ref="U33" pin="11" pinfunction="NC_11" pintype="no_connect"/>
     </net>
-    <net code="165" name="unconnected-(U33-NC-Pad14)" class="SELV,Default">
+    <net code="167" name="unconnected-(U33-NC-Pad14)" class="SELV,Default">
       <node ref="U33" pin="14" pinfunction="NC_14" pintype="no_connect"/>
     </net>
-    <net code="166" name="unconnected-(U35-NC-Pad1)" class="SELV,Default">
+    <net code="168" name="unconnected-(U35-NC-Pad1)" class="SELV,Default">
       <node ref="U35" pin="1" pinfunction="NC_1" pintype="no_connect"/>
     </net>
-    <net code="167" name="unconnected-(U36-NC-Pad1)" class="SELV,Default">
+    <net code="169" name="unconnected-(U36-NC-Pad1)" class="SELV,Default">
       <node ref="U36" pin="1" pinfunction="NC_1" pintype="no_connect"/>
     </net>
   </nets>
