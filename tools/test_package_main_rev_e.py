@@ -46,12 +46,26 @@ class PackageGate(unittest.TestCase):
         if self.compact_dual:
             dump(self.checks / 'bypass-routing.json', {'board_sha256': board_hash, 'passed': True,
                  'failures': [], 'measurements': dict.fromkeys(['C56','C57','C59','C60','C102','C103','C104'], {})})
+            panel_board = self.base / 'hardware/panel-rev-f/pump-panel-rev-f.kicad_pcb'
+            panel_board.parent.mkdir(parents=True)
+            panel_board.write_text('synthetic panel')
+            checks = {str(p.relative_to(self.base)): digest(p) for p in (inputs[0], inputs[3], panel_board)}
+            cases = [dict(harness=h, ac_source=a, host_vbus=u, coil_A_feed=False, coil_B_feed=False,
+                          raw_panel_permit=False) for h in ('open','run','bench')
+                     for a in (False,True) for u in (False,True)]
+            dump(self.checks / 'usb-service.json', dict(input_sha256=checks, power_combinations=cases,
+                 usb_orientations={'normal':{},'flipped':{}}, negative_controls_rejected=['injected']))
         for filename in gate.REPORTS:
             dump(self.checks / filename, {'synthetic': True})
         dump(self.checks / 'independent-geometry.json',
              {'pcb_sha256': board_hash, 'source_sha256': source_hash,
               'copper_layers': ['F.Cu', 'In1.Cu', 'In2.Cu', 'In3.Cu', 'In4.Cu', 'B.Cu'],
               'geometry_and_source_passed': True,
+              'mains_line_to_neutral_projected': {'gap_mm': 3.2},
+              'line_segments_to_neutral_projected': {
+                  'L_FUSED': {'minimum_same_layer_mm': 3.2},
+                  'L_PROTECTED': {'minimum_same_layer_mm': 2.8,
+                      'minimum_same_layer_excluding_U1_input_pair': {'gap_mm': 3.2}}},
               'starter_field_to_board_mains_projected': {'gap_mm': 8.5}})
         dump(self.checks / 'independent-summary.json', {
             'source_sha256': sources, 'independent_native_checks_passed': True,
@@ -172,12 +186,19 @@ class DualPackageGate(PackageGate):
 
     def test_variant_uses_its_own_archive_and_copper_names(self):
         result = gate.package(self.base, compact_dual=True)
-        filename = 'pump-controller-compact-dual-guard-r2-gerber-prototype.zip'
-        self.assertEqual(result['revision'], 'COMPACT-DUAL-GUARD-R2')
+        filename = 'pump-controller-compact-dual-guard-r3-gerber-prototype.zip'
+        self.assertEqual(result['revision'], 'COMPACT-DUAL-GUARD-R3')
         self.assertEqual(result['fabrication_settings']['outline_mm'], [100, 97])
         self.assertIn(filename, result['archives'])
         with zipfile.ZipFile(self.out / filename) as archive:
             self.assertIn('pump-controller-compact-dual.GTL', archive.namelist())
+
+    def test_usb_host_must_disable_both_coils(self):
+        path = self.checks / 'usb-service.json'
+        cases = json.loads(path.read_text())['power_combinations']
+        next(s for s in cases if s['host_vbus'] and s['harness']=='bench')['coil_B_feed'] = True
+        self.update(path, 'power_combinations', cases)
+        self.refused()
 
     def test_stale_bypass_evidence(self):
         self.update(self.checks / 'bypass-routing.json', 'board_sha256', 'previous-layout')
@@ -188,8 +209,23 @@ class DualPackageGate(PackageGate):
         self.refused()
 
     def test_field_clearance_below_target(self):
+        self.expect_gap_refusal('starter_field_to_board_mains_projected', 7.95)
+
+    def test_mains_gap_below_target(self):
+        self.expect_gap_refusal('mains_line_to_neutral_projected', 3.19)
+
+    def test_converter_footprint_exception_cannot_extend_to_trace(self):
+        path = self.checks / 'independent-geometry.json'
+        segments = json.loads(path.read_text())['line_segments_to_neutral_projected']
+        segments['L_PROTECTED']['minimum_same_layer_excluding_U1_input_pair']['gap_mm'] = 3.19
+        self.expect_geometry_refusal('line_segments_to_neutral_projected', segments)
+
+    def expect_gap_refusal(self, measurement, gap):
+        self.expect_geometry_refusal(measurement, {'gap_mm': gap})
+
+    def expect_geometry_refusal(self, measurement, value):
         geometry = self.checks / 'independent-geometry.json'
-        self.update(geometry, 'starter_field_to_board_mains_projected', {'gap_mm': 7.95})
+        self.update(geometry, measurement, value)
         summary = self.checks / 'independent-summary.json'
         hashes = json.loads(summary.read_text())['report_sha256']
         hashes[geometry.name] = digest(geometry)

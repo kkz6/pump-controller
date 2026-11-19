@@ -1,24 +1,26 @@
 Compact single-phase pump controller
 ====================================
 
-**R2 installation and purchase hold.** The cabinet drawing reverses three
-relay coils. Two reproduced software faults affect START and automatic STOP.
-Read the `system audit and USB-C status <design/guarded-r2-system-audit.rst>`_
-before selecting hardware or using the R2 files.
+**Guarded R3 is the current bare-board engineering prototype.** The three
+boards are the 100 × 97 mm main controller, the 60 × 45 mm OLED/button panel
+and the 68 × 48 mm isolated guard receiver. The two motor contactors,
+hardwired STOP, high-high float, service shutter and reset/enable circuit
+are separate cabinet hardware. The original starter handles the motor current.
+Read the R3 electrical and service report before selecting an OEM interface.
 
-**Current engineering prototype — guarded R2.** The original hardwired STOP,
-overload and separate high-high float trip two external contactors in HOST
-and LOCAL. The actual starter, independent guard assembly, application firmware
-and pump still require first-article validation before a mains installation.
-The shutdown requires the separate signal receiver and hardwired cabinet assembly.
+* `R3 electrical review, bench limits and Robu files <design/guarded-r3-release.rst>`_
+* `Main PCB, schematic, connectors and programming <hardware/main-compact-dual/README.rst>`_
+* `OLED panel with five buttons, indexed remote station and optional mode key <hardware/panel-rev-f/README.rst>`_
+* `Isolated signal receiver <hardware/guard-receiver/README.rst>`_
+* `Cabinet guard and original starter controls <hardware/starter-guard/README.rst>`_
+* `Starter wiring and field terminal schedule <hardware/main-compact-dual/exports/starter-wiring.pdf>`_
+* `USB service shutter geometry <mechanical/guarded-r3/README.rst>`_
 
-* `Main PCB, schematic and prototype Gerbers <hardware/main-compact-dual/README.rst>`_
-* `Two-layer signal receiver and fabrication files <hardware/guard-receiver/README.rst>`_
-* `Cabinet guard, original starter controls and power restoration <hardware/starter-guard/README.rst>`_
-* `Starter wiring drawing <hardware/main-compact-dual/exports/starter-wiring.pdf>`_
-* `OLED panel with five buttons and optional key <hardware/panel-rev-e/README.rst>`_
-* `Enclosure and cable entries <mechanical/compact-dual/README.rst>`_
-* `R2 validation and first-article limits <design/compact-dual-guard-r2.rst>`_
+Before approving the main PCB order, get Robu to confirm the two USB locator
+holes at 0.65 ±0.05 mm finished. Electrical qualification,
+measured stopping times, EMC immunity, enclosure fit and an integrated pump
+application remain open. Superseded R2 findings are recorded in the
+`R2 system audit <design/guarded-r2-system-audit.rst>`_.
 
 The earlier **compact main board measures 100 x 75 mm**, with a modeled
 populated thickness of 25.68 mm and a separate 60 x 45 mm OLED/button panel.

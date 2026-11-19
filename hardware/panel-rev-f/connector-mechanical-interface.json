@@ -1,0 +1,301 @@
+{
+  "pcb_sha256": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
+  "coordinates": "KiCad board origin upper-left, x right, y down, viewed from front; rear connectors retain these coordinate values",
+  "outline_mm": [
+    60,
+    45
+  ],
+  "board_thickness_mm": 1.6,
+  "hole_diameter_mm": 2.7,
+  "mount_holes_mm": [
+    [
+      3,
+      3
+    ],
+    [
+      57,
+      3
+    ],
+    [
+      3,
+      42
+    ],
+    [
+      57,
+      42
+    ]
+  ],
+  "max_support_boss_radius_mm": 3.3,
+  "rear_clearance_reservation_mm": 10,
+  "connectors": [
+    {
+      "reference": "J1",
+      "part": "SM12B-GHS-TB(LF)(SN)",
+      "origin_mm": [
+        30.0,
+        3.3
+      ],
+      "rotation_deg": 0.0,
+      "side": "rear",
+      "mouth_direction_xy": [
+        0,
+        -1
+      ],
+      "mouth_plane_mm": 0.85,
+      "body_fab_bounds_mm": [
+        20.875,
+        0.85,
+        39.125,
+        4.9
+      ],
+      "reserve_outward_from_mouth_mm": 15,
+      "clearance_reservation_note": "Preliminary plug-plus-wire-bend allowance, not a verified purchased plug envelope.",
+      "pins": [
+        {
+          "num": "1",
+          "net": "+5V"
+        },
+        {
+          "num": "2",
+          "net": "STOP_RETURN"
+        },
+        {
+          "num": "3",
+          "net": "MAN_RETURN"
+        },
+        {
+          "num": "4",
+          "net": "AUTO_RETURN"
+        },
+        {
+          "num": "5",
+          "net": "START_N"
+        },
+        {
+          "num": "6",
+          "net": "RESET_N"
+        },
+        {
+          "num": "7",
+          "net": "GND"
+        },
+        {
+          "num": "8",
+          "net": "+3V3"
+        },
+        {
+          "num": "9",
+          "net": "I2C_SDA"
+        },
+        {
+          "num": "10",
+          "net": "I2C_SCL"
+        },
+        {
+          "num": "11",
+          "net": "KEY_MAN_N"
+        },
+        {
+          "num": "12",
+          "net": "KEY_AUTO_N"
+        },
+        {
+          "num": "MP",
+          "net": "GND"
+        }
+      ]
+    },
+    {
+      "reference": "J2",
+      "part": "SM10B-GHS-TB(LF)(SN)",
+      "origin_mm": [
+        30.0,
+        41.7
+      ],
+      "rotation_deg": 180.0,
+      "side": "rear",
+      "mouth_direction_xy": [
+        0,
+        1
+      ],
+      "mouth_plane_mm": 44.15,
+      "body_fab_bounds_mm": [
+        22.125,
+        40.1,
+        37.875,
+        44.15
+      ],
+      "reserve_outward_from_mouth_mm": 15,
+      "clearance_reservation_note": "Preliminary plug-plus-wire-bend allowance, not a verified purchased plug envelope.",
+      "pins": [
+        {
+          "num": "1",
+          "net": "START_N"
+        },
+        {
+          "num": "2",
+          "net": "GND"
+        },
+        {
+          "num": "3",
+          "net": "STOP_LOCAL_NC"
+        },
+        {
+          "num": "4",
+          "net": "STOP_RETURN"
+        },
+        {
+          "num": "5",
+          "net": "MAN_RETURN"
+        },
+        {
+          "num": "6",
+          "net": "STOP_RETURN"
+        },
+        {
+          "num": "7",
+          "net": "RESET_N"
+        },
+        {
+          "num": "8",
+          "net": "GND"
+        },
+        {
+          "num": "9",
+          "net": "AUTO_RETURN"
+        },
+        {
+          "num": "10",
+          "net": "STOP_RETURN"
+        },
+        {
+          "num": "MP",
+          "net": "GND"
+        }
+      ]
+    },
+    {
+      "reference": "J7",
+      "part": "S4B-PH-SM4-TB(LF)(SN)",
+      "origin_mm": [
+        54.8,
+        21.0
+      ],
+      "rotation_deg": -90.0,
+      "side": "rear",
+      "mouth_direction_xy": [
+        1,
+        0
+      ],
+      "mouth_plane_mm": 59.2,
+      "body_fab_bounds_mm": [
+        51.6,
+        15.05,
+        59.2,
+        26.95
+      ],
+      "reserve_outward_from_mouth_mm": 15,
+      "clearance_reservation_note": "Preliminary plug-plus-wire-bend allowance, not a verified purchased plug envelope.",
+      "pins": [
+        {
+          "num": "1",
+          "net": "I2C_SCL"
+        },
+        {
+          "num": "2",
+          "net": "I2C_SDA"
+        },
+        {
+          "num": "3",
+          "net": "GND"
+        },
+        {
+          "num": "4",
+          "net": "+3V3"
+        },
+        {
+          "num": "MP",
+          "net": "GND"
+        }
+      ]
+    },
+    {
+      "reference": "J8",
+      "part": "SM03B-GHS-TB(LF)(SN)",
+      "origin_mm": [
+        3.3,
+        20.0
+      ],
+      "rotation_deg": 90.0,
+      "side": "rear",
+      "mouth_direction_xy": [
+        -1,
+        0
+      ],
+      "mouth_plane_mm": 0.85,
+      "body_fab_bounds_mm": [
+        0.85,
+        16.5,
+        4.9,
+        23.5
+      ],
+      "reserve_outward_from_mouth_mm": 15,
+      "clearance_reservation_note": "Preliminary plug-plus-wire-bend allowance, not a verified purchased plug envelope.",
+      "pins": [
+        {
+          "num": "1",
+          "net": "+5V"
+        },
+        {
+          "num": "2",
+          "net": "KEY_MAN_RAW"
+        },
+        {
+          "num": "3",
+          "net": "KEY_AUTO_RAW"
+        },
+        {
+          "num": "MP",
+          "net": "GND"
+        }
+      ]
+    }
+  ],
+  "buttons_mm": {
+    "START": [
+      7.5,
+      30
+    ],
+    "STOP": [
+      20,
+      30
+    ],
+    "MODE": [
+      34.5,
+      30
+    ],
+    "SET_RESET": [
+      45,
+      30
+    ],
+    "NEXT": [
+      54,
+      30
+    ]
+  },
+  "oled_envelope_mm": [
+    12,
+    4,
+    48,
+    16.5
+  ],
+  "limits": [
+    "OLED mounting and display viewing area must be checked against purchased module",
+    "Plunger heights and switch travel not validated",
+    "Mating plugs and wire bend envelopes are not represented in native STEP"
+  ],
+  "sources": [
+    "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf",
+    "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+  ]
+}

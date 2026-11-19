@@ -20,6 +20,11 @@ def measure(board_path):
     nets = {n: {'length_mm':0., 'signal_vias':0, 'samples':0,
                 'reference_copper_samples':0, 'longest_gap_on_one_segment_mm':0.}
             for n in ['USB_DM_MCU','USB_DP_MCU','USB_DM','USB_DP','M_XIN','M_XOUT']}
+    if b.FindNet('USB_CONN_DP') is not None:
+        for name in ('USB_CONN_DP', 'USB_CONN_DM', 'USB_PROT_DP', 'USB_PROT_DM'):
+            nets[name] = dict.fromkeys(nets['USB_DP'], 0)
+    signal_reference_layers = {p.F_Cu: p.In1_Cu, p.In2_Cu: p.In1_Cu,
+                               p.In3_Cu: p.In4_Cu, p.B_Cu: p.In4_Cu}
     plane_tracks = []
     for t in b.GetTracks():
         via = isinstance(t, p.PCB_VIA)
@@ -35,8 +40,11 @@ def measure(board_path):
         length = p.ToMM(t.GetLength())
         rec['length_mm'] += length
         start, end = t.GetStart(), t.GetEnd()
-        layer, ref = (p.In4_Cu,'M_GND') if net.startswith('M_') else (p.In1_Cu,'GND')
-        poly = planes[layer,ref]
+        layer = signal_reference_layers.get(t.GetLayer())
+        if layer is None:
+            raise ValueError(f'Signal {net} on reserved layer {b.GetLayerName(t.GetLayer())}')
+        ref = 'M_GND' if net.startswith('M_') else ('GND' if layer == p.In1_Cu else '+3V3')
+        poly = planes[layer, ref]
         steps = max(1, math.ceil(length / .1))
         gap = 0
         for k in range(steps):
@@ -62,8 +70,10 @@ def measure(board_path):
         'routed_signals':nets,
         'usb_total_length_difference_mm':round(abs(
           nets['USB_DP']['length_mm']+nets['USB_DP_MCU']['length_mm']-
-          nets['USB_DM']['length_mm']-nets['USB_DM_MCU']['length_mm']),3),
-        'scope':'Samples project trace centres onto the designated filled plane. Via antipads and clearance around through holes create local voids. Lengths exclude vertical travel, contact pins and cable. Geometry does not measure return current, differential impedance, oscillator margin, emissions or immunity.'
+          nets['USB_DM']['length_mm']-nets['USB_DM_MCU']['length_mm']+
+          nets.get('USB_CONN_DP', {}).get('length_mm', 0)-nets.get('USB_CONN_DM', {}).get('length_mm', 0)+
+          nets.get('USB_PROT_DP', {}).get('length_mm', 0)-nets.get('USB_PROT_DM', {}).get('length_mm', 0)),3),
+        'scope':'Trace centres project onto the adjacent reserved plane. SELV traces reference In1 GND from F.Cu/In2 and In4 +3V3 from In3/B.Cu. Metering traces reference the corresponding M_GND plane. Via antipads and clearance around through holes create local voids. Lengths sum routed copper including receptacle and ESD branches when fitted. They exclude vertical travel, contact pins and cable. Geometry does not measure return current, differential impedance, oscillator margin, emissions or immunity.'
     }
 
 if __name__=='__main__':

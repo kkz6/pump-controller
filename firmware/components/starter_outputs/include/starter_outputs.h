@@ -9,10 +9,14 @@ extern "C" {
 #endif
 
 enum starter_profile { STARTER_DISABLED, STARTER_RUN_PAIR, STARTER_OPEN_STOP, STARTER_PULSE_STOP };
-enum starter_command { STARTER_NONE, STARTER_ARM, STARTER_START, STARTER_STOP };
+enum starter_command { STARTER_NONE, STARTER_ARM, STARTER_START, STARTER_STOP, STARTER_ACKNOWLEDGE };
 enum starter_transfer { TRANSFER_UNKNOWN, TRANSFER_HOST, TRANSFER_LOCAL };
 enum starter_phase { STARTER_IDLE, STARTER_PERMISSION, STARTER_STARTING, STARTER_RUNNING,
-                     STARTER_RELEASING, STARTER_STOPPING, STARTER_SETTLING };
+                     STARTER_RELEASING, STARTER_STOPPING, STARTER_SETTLING, STARTER_FEEDBACK_FAULT };
+
+struct starter_pulse_range {
+    uint32_t min_ms, max_ms; /* Limits recorded when the specific OEM harness was qualified. */
+};
 
 struct starter_config {
     enum starter_profile profile;
@@ -21,13 +25,15 @@ struct starter_config {
     uint32_t stop_pulse_ms;
     enum starter_profile harness_profile; /* Read back from separately commissioned service configuration. */
     bool independent_shutdown; /* External hardwired float, STOP and guard commissioned for this harness. */
+    struct starter_pulse_range start_range, stop_range;
+    uint32_t confirm_stop_ms; /* From the STOP request, including relay release, OEM response and coast. */
 };
 
 struct starter_outputs {
     struct starter_config config;
     enum starter_phase phase;
     enum starter_command previous;
-    uint32_t since_ms;
+    uint32_t since_ms, stop_requested_ms;
     bool host, healthy, armed;
 };
 
@@ -46,7 +52,10 @@ enum starter_transfer starter_transfer_decode(bool host_n, bool local_n);
  * Use fresh, debounced J36 inputs. A read failure supplies TRANSFER_UNKNOWN.
  * healthy includes permission to run and a verified hardware latch clear after reset;
  * stopped requires valid, fresh feedback.
- * ARM is a fresh operator event. A failed sensor always withdraws permission.
+ * ARM is a fresh operator event. ACKNOWLEDGE is a separate local operator
+ * edge, accepted only with the guard down, good independent stop feedback and
+ * neutral controls. The caller qualifies that edge. A fault withdraws both
+ * outputs and the caller must suppress the external guard heartbeat.
  * The caller applies the returned drive immediately, independently of the OLED/I²C. */
 struct starter_drive starter_step(struct starter_outputs *s, uint32_t now_ms, enum starter_transfer position,
                                  bool healthy, bool stopped, enum starter_command command);

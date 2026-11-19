@@ -45,6 +45,7 @@ struct panel_result {
     bool heartbeat_high; /* GPIO21 output level from this control cycle. Never use a free-running timer. */
     enum panel_mode mode;
     bool auto_enabled;
+    bool feedback_fault; /* Latched disagreement between the command and measured motor state. */
     bool set_reset_pressed, set_reset_held, next_pressed; /* OLED/settings events. */
 };
 

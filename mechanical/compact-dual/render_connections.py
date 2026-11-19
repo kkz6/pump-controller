@@ -1,4 +1,4 @@
-"""Produce the R2 board view and the cabinet command plug pinout from the native PCB."""
+"""Produce the guarded main board view and the cabinet command plug pinout from the native PCB."""
 import argparse
 import hashlib
 import json
@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 from build import ROOT
 
 
-def compose(top_file, angled_file, out):
+def compose(top_file, angled_file, out, revision):
     width, height = 1400, 790
     background, ink, blue, accent = '#f3f5f3', '#182f33', '#215859', '#eaad25'
     im = Image.new('RGB', (width,height), background)
@@ -21,7 +21,7 @@ def compose(top_file, angled_file, out):
         family = 'DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf'
         draw.text((x,y),value,font=ImageFont.truetype(str(Path(get_data_path())/'fonts'/'ttf'/family),size),anchor=anchor,fill=fill)
     label(44,25,'Cabinet guard command connections',38,True)
-    label(46,79,'GUARD-R2  /  main PCB, component side',22,fill=blue)
+    label(46,79,f'{revision}  /  main PCB, component side',22,fill=blue)
     top = Image.open(top_file).convert('RGBA')
     top = top.crop(top.getbbox())
     top.thumbnail((610,565),Image.Resampling.LANCZOS)
@@ -51,11 +51,17 @@ def compose(top_file, angled_file, out):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--board',type=Path,default=ROOT/'hardware/main-compact-dual/pump-controller-compact.kicad_pcb')
-    parser.add_argument('--fit',type=Path,default=ROOT/'output/enclosure-compact-dual/fit-checks.json')
+    parser.add_argument('--fit',type=Path,help='Optional enclosure fit record for the exact board revision')
+    parser.add_argument('--validated',type=Path,help='Independent native PCB geometry report')
     parser.add_argument('--out',type=Path,default=ROOT/'hardware/main-compact-dual/exports')
     args=parser.parse_args()
     digest=hashlib.sha256(args.board.read_bytes()).hexdigest()
-    assert json.loads(args.fit.read_text())['pcb_hash']==digest
+    if args.fit:
+        assert json.loads(args.fit.read_text())['pcb_hash']==digest
+    report=args.validated or args.board.parent/'checks/independent-geometry.json'
+    geometry=json.loads(report.read_text())
+    assert geometry['pcb_sha256']==digest and geometry['geometry_and_source_passed']
+    revision=json.loads((ROOT/'design/main-compact-dual.json').read_text())['revision']
     with tempfile.TemporaryDirectory() as temp:
         work=Path(temp)
         visual=work/'render.kicad_pcb'
@@ -68,7 +74,7 @@ def main():
             subprocess.run([ROOT/'.tools/kicad-cli','pcb','render','--side','top','--rotate',rotation,
                 '--width','1800','--height','1760','--background','transparent','--quality','basic',
                 '-o',path,visual],check=True,stdout=subprocess.DEVNULL)
-        compose(top,angled,args.out/'main-starter-contacts.png')
+        compose(top,angled,args.out/'main-starter-contacts.png',revision)
 
 
 if __name__=='__main__':

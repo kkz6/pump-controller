@@ -88,8 +88,8 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     }
     bool mode_changed = mode != p->mode;
     p->mode = mode;
-    update_heartbeat(p, now, &in, monitor_eligible && !mode_changed);
-    result.heartbeat_high = p->heartbeat_high;
+    bool faulted = p->outputs.phase == STARTER_FEEDBACK_FAULT;
+    update_heartbeat(p, now, &in, monitor_eligible && !mode_changed && !faulted);
     /* The monitor must be able to qualify before the independent manual reset.
      * Only the separate guard contact on J31 permits an actual start. */
     bool ready = monitor_eligible && p->guard_recovered && (in.gpio_b & 32);
@@ -137,7 +137,20 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
             if (auto_start) p->demand_used = true;
         }
     }
-    result.drive = starter_step(&p->outputs, now, transfer, ready, in.motor_stopped, command);
+    bool confirmed_stopped = fresh && !interrupted && process_fresh && in.process_healthy && in.motor_stopped;
+    /* An actual post-trip SET edge is required. Confirm the external guard
+     * has dropped before accepting it, and keep START and automatic demand
+     * disarmed through the normal external RESET/ENABLE procedure. */
+    if (faulted && monitor_eligible && !(in.gpio_b & 32) && confirmed_stopped &&
+        !(raw & START) && !(p->buttons.stable & START) && (pressed & SET))
+        command = STARTER_ACKNOWLEDGE;
+    result.drive = starter_step(&p->outputs, now, transfer, ready, confirmed_stopped, command);
+    result.feedback_fault = p->outputs.phase == STARTER_FEEDBACK_FAULT;
+    if (result.feedback_fault && !faulted) {
+        update_heartbeat(p, now, &in, false);
+        p->auto_enabled = p->pending_start = p->start_released = p->release_timing = false;
+    }
+    result.heartbeat_high = p->heartbeat_high;
     if (result.drive.arm_issued) {
         p->pending_start = true;
         p->arm_sample_ms = in.sampled_at_ms;

@@ -1,6 +1,8 @@
 Standalone case for the dual-output main board
 =============================================
 
+**Historical R2 enclosure.** The R3 USB access interlock requires a different enclosure interface. See the `current R3 engineering release <../../design/guarded-r3-release.rst>`_.
+
 The cabinet guard command cable enters the **right wall** through its own M20 gland.
 Two removable plugs face it directly, J30 for output A and J35 for output B.
 The near-wall GUARD I/O entry carries the five-core J36 logic harness. A second

@@ -152,6 +152,7 @@ def audit(args):
                   if c.get('on_board', True)}
     variant = source['board'].get('variant')
     dual = variant == 'compact-dual'
+    usb_service = source.get('revision') == 'COMPACT-DUAL-GUARD-R3'
     has_indicators = variant in ('compact-led', 'compact-dual')
     compact = variant == 'compact' or has_indicators
     original = json.loads((BASE / 'design/circuit.json').read_text())
@@ -221,6 +222,12 @@ def audit(args):
             old_pins.update({'2': 'CTRL_B_COM', '3': 'CTRL_B_NO'})
         if dual and ref == 'J30':
             old_pins = {'1': 'CTRL_A_COM', '2': 'CTRL_A_NO'}
+        if usb_service and ref in ('K2', 'D32', 'J32'):
+            old_pins['1'] = '+5V_CMD'
+        if usb_service and ref == 'U1':
+            old_pins['5'] = 'PSU_5V_RAW'
+        if usb_service and ref == 'J2':
+            del old_pins['7'], old_pins['8']
         new_pins = {str(x['num']): x.get('net') or '' for x in new['pins']}
         if old_pins != new_pins:
             source_issues.append({'ref': ref, 'issue': 'functional pin/net map changed',
@@ -267,6 +274,23 @@ def audit(args):
     for ref, value in {'U37':'SN74LVC3G17DCUR','C78':'100nF'}.items():
         if components.get(ref,{}).get('value') != value:
             source_issues.append({'ref': ref, 'issue': 'conditioner part/value mismatch', 'expected': value})
+    if usb_service:
+        expected_additions.update({
+            'J40': {'A1':'GND','A4':'USB_VBUS','A5':'USB_CC1','A6':'USB_CONN_DP',
+                    'A7':'USB_CONN_DM','A8':'','A9':'USB_VBUS','A12':'GND','B5':'USB_CC2',
+                    'B6':'USB_CONN_DP','B7':'USB_CONN_DM','B8':'','SH':'GND'},
+            'J41': {'1':'PSU_5V_RAW','2':'+5V','3':'GND'},
+            'U40': {'1':'+5V','2':'GND','3':'CMD_ALLOWED','4':'','5':'+5V_CMD','6':'+5V_CMD'},
+            'U41': {'1':'GND','2':'USB_DP','3':'','4':'USB_PROT_DP','5':'GND','6':'USB_PROT_DM',
+                    '7':'','8':'USB_DM','9':'CMD_ALLOWED','10':'+3V3'},
+            'Q40': {'1':'USB_PRESENT','2':'GND','3':'CMD_ALLOWED'},
+            'D42': {'1':'USB_PROT_DP','2':'GND','3':'USB_PROT_DM','4':'USB_CONN_DM','5':'USB_ESD_REF','6':'USB_CONN_DP'},
+            'D43': {'1':'USB_ESD_REF','2':'USB_VBUS'}, 'D44': {'1':'USB_VBUS','2':'GND'},
+            'R240': {'1':'USB_CC1','2':'GND'}, 'R241': {'1':'USB_CC2','2':'GND'},
+            'R242': {'1':'USB_VBUS','2':'USB_PRESENT'}, 'R243': {'1':'USB_PRESENT','2':'GND'},
+            'R244': {'1':'+3V3','2':'CMD_ALLOWED'}, 'C240': {'1':'+5V','2':'GND'},
+            'C241': {'1':'+3V3','2':'GND'}, 'C242': {'1':'+5V_CMD','2':'GND'},
+        })
     for ref, expected in expected_additions.items():
         actual = {str(x['num']): x.get('net') or '' for x in components.get(ref, {}).get('pins', [])}
         if actual != expected:
@@ -338,6 +362,9 @@ def audit(args):
         domains.update(dict.fromkeys(('HOST_AUX_N','LOCAL_AUX_N','HOST_SENSE_N','LOCAL_SENSE_N','HB_MON','PANEL_OK_MON'), 'SELV'))
     if has_indicators:
         domains.update({net: 'SELV' for net in ('START_CMD_LED', 'START_LED_A', 'STOP_CMD_LED', 'STOP_LED_A')})
+    if usb_service:
+        domains.update(dict.fromkeys(('USB_CC1','USB_CC2','USB_CONN_DP','USB_CONN_DM','USB_PROT_DP','USB_PROT_DM','USB_PRESENT',
+                                      'USB_VBUS','USB_ESD_REF','CMD_ALLOWED','+5V_CMD','PSU_5V_RAW'), 'SELV'))
     domain_issues = []
 
     def domain(net, ref=None, pin=None):
@@ -538,6 +565,43 @@ def audit(args):
         issue('all_layer_projected_live_selv', projected_gap['gap_mm'], LIMITS['live_selv'],
               a=projected_gap['live'], b=projected_gap['isolated'])
 
+    if usb_service:
+        neutral = [o for o in copper if o['net'] == 'MAINS_N']
+        ac_input_gaps = {net: closest_groups((o for o in copper if o['net'] == net), neutral, 'line', 'neutral')
+                         for net in ('MAINS_L', 'L_FUSED', 'L_PROTECTED')}
+        for net, record in ac_input_gaps.items():
+            per_layer = {}
+            outside_fixed_pads = []
+            for layer in layers:
+                name = b.GetLayerName(layer)
+                line_copper = [o for o in copper if o['net'] == net and o['layer'] == name]
+                return_copper = [o for o in neutral if o['layer'] == name]
+                if line_copper and return_copper:
+                    per_layer[name] = closest_groups(line_copper, return_copper, 'line', 'neutral')
+                    if net == 'L_PROTECTED':
+                        # Exclude exactly the fixed AC pad pair, preserving checks
+                        # from either pad to every other trace or pad.
+                        for phase, ret in (([o for o in line_copper if o['id'] != 'U1.1'], return_copper),
+                                           (line_copper, [o for o in return_copper if o['id'] != 'U1.2'])):
+                            if phase and ret:
+                                outside_fixed_pads.append(closest_groups(phase, ret, 'line', 'neutral'))
+            if outside_fixed_pads:
+                nearest = min(outside_fixed_pads, key=lambda g: g['gap_mm'])
+                record['minimum_same_layer_excluding_U1_input_pair'] = nearest
+                if nearest['gap_mm'] + EPS < 3.2:
+                    issue('protected_phase_to_neutral_except_fixed_U1_pair', nearest['gap_mm'], 3.2,
+                          a=nearest['line'], b=nearest['neutral'])
+            record['same_layer'] = per_layer
+            record['minimum_same_layer_mm'] = min(g['gap_mm'] for g in per_layer.values())
+            if net != 'MAINS_L':
+                required = 2.8 if net == 'L_PROTECTED' else 3.2
+                nearest = min(per_layer.values(), key=lambda g: g['gap_mm'])
+                if nearest['gap_mm'] + EPS < required:
+                    issue(net + '_to_neutral_same_layer', nearest['gap_mm'], required,
+                          a=nearest['line'], b=nearest['neutral'])
+        gap = ac_input_gaps['MAINS_L']
+        if gap['gap_mm'] + EPS < 3.2:
+            issue('all_layer_projected_incoming_line_to_neutral', gap['gap_mm'], 3.2, a=gap['line'], b=gap['neutral'])
     if dual:
         field = [o for o in copper if o['net'] in FIELD_CONTACTS]
         board_mains = [o for o in copper if o['domain'] == 'LIVE' and o['net'] not in FIELD_CONTACTS]
@@ -741,6 +805,12 @@ def audit(args):
     }
     if dual:
         result['starter_field_to_board_mains_projected'] = field_gap
+    if usb_service:
+        result['board_mains_to_isolated_projected'] = closest_groups(
+            board_mains, (part for part in copper if part['domain'] == 'SELV'),
+            'board_mains', 'isolated')
+        result['mains_line_to_neutral_projected'] = ac_input_gaps['MAINS_L']
+        result['line_segments_to_neutral_projected'] = ac_input_gaps
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps({'passed': result['geometry_and_source_passed'],

@@ -1,12 +1,16 @@
 Guarded R2 system audit
 =======================
 
+**Historical R2 record.** See the `current R3 engineering release <guarded-r3-release.rst>`_.
+
 **Hold the PCB order for an installed controller. Withdraw the R2 cabinet
 wiring drawing from installation use.** Three cabinet relay coils have their
 polarity reversed. The starter control software also accepts two sequences
 that can keep the motor running or issue START at the wrong time. This review
 applies to design commit ``d8a4d995fc12ff316d73df2e0b7db6624b6f45d5``
-of 19 November 2026. The hardware files remain the evidence for these findings.
+of 19 November 2026. See the immutable
+`R2 hardware and audit baseline <https://github.com/kkz6/pump-controller/tree/d8a4d995fc12ff316d73df2e0b7db6624b6f45d5>`_
+for the affected wiring and layout.
 
 Faults requiring correction
 ---------------------------

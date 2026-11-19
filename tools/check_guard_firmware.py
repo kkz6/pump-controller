@@ -16,6 +16,7 @@ def run():
     inputs = sorted(path for path in COMPONENTS.rglob('*')
                     if path.is_file() and path.suffix in ('.c', '.h', '.sh', '.txt'))
     inputs.append(ROOT / 'design/review-fixtures/pulse-stop-bus-loss.c')
+    inputs.append(ROOT / 'design/review-fixtures/r2-stop-feedback.c')
     def hashes():
         return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest() for path in inputs}
 

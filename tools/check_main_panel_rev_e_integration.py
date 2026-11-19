@@ -66,39 +66,83 @@ expected_host=['+5V','STOP_RETURN','MAN_RETURN','AUTO_RETURN','START_N','RESET_N
 for i,n in enumerate(expected_host,1):
  if net('J1',i)!=n:issues.append('host pin mismatch '+str(i))
 host_map=[]
+service_interlock = main_source.get('revision') == 'COMPACT-DUAL-GUARD-R3'
 for pin,(ref,num)in enumerate([('J32',i)for i in range(1,13)],1):
  mn=mainnet(ref,num);pn=net('J1',pin);expect= {'KEY_MAN_N':'SPARE_B6','KEY_AUTO_N':'SPARE_B7'}.get(pn,pn)
+ if pin==1 and service_interlock:expect='+5V_CMD'
  if mn!=expect:issues.append('host harness mismatch pin '+str(pin))
  host_map.append({'panel_pin':pin,'panel_net':pn,'main_connector':ref,'main_pin':num,'main_net':mn})
 if mainnet('J32',7)!='GND':issues.append('main common-ground mismatch')
 if net('SW1',1)!='+5V' or net('SW1',3)!='STOP_LOCAL_NC' or not (net('SW1',2)=='' or net('SW1',2).startswith('unconnected-(')):issues.append('local STOP contact map mismatch')
-if [net('J3',i)for i in (1,2)]!=['STOP_LOCAL_NC','STOP_RETURN']:issues.append('external STOP is not in series')
-if [net('JP1',i)for i in (1,2)]!=['STOP_LOCAL_NC','STOP_RETURN']:issues.append('STOP bypass bridges wrong contacts')
-pairs=[('SW2','J2'),('SW3','J4'),('SW4','J5'),('SW5','J6')]
+keyed_station = src.get('revision') == 'F'
+if keyed_station:
+ stop_socket, stop_pins = 'J2', (3, 4)
+ pairs = [('SW2','J2',1), ('SW3','J2',5), ('SW4','J2',7), ('SW5','J2',9)]
+ expected_headers = {'J1':'SM12B-GHS-TB', 'J2':'SM10B-GHS-TB', 'J7':'S4B-PH-SM4-TB', 'J8':'SM03B-GHS-TB'}
+ actual_headers = {ref for ref in fps if ref.startswith('J')}
+ if actual_headers != set(expected_headers):
+  issues.append('Unexpected panel connector or local external STOP bypass')
+ for ref, family in expected_headers.items():
+  if family not in fps[ref].GetFPIDAsString() or family not in cs[ref]['mpn']:
+   issues.append('Panel connector keying mismatch '+ref)
+else:
+ stop_socket, stop_pins = 'J3', (1, 2)
+ pairs = [('SW2','J2',1),('SW3','J4',1),('SW4','J5',1),('SW5','J6',1)]
+ if [net('JP1',i) for i in (1,2)]!=['STOP_LOCAL_NC','STOP_RETURN']:
+  issues.append('STOP bypass bridges wrong contacts')
+stop_contacts = tuple(net(stop_socket,i) for i in stop_pins)
+if stop_contacts != ('STOP_LOCAL_NC','STOP_RETURN'):
+ issues.append('External STOP is not in series')
 parallel=[]
-for sw,j in pairs:
- a={net(sw,1),net(sw,2)};z={net(j,1),net(j,2)}
- parallel.append({'local':sw,'external':j,'nets':sorted(a),'parallel':a==z})
- if a!=z:issues.append('parallel external button mismatch '+j)
+for sw,j,first_pin in pairs:
+ a={net(sw,1),net(sw,2)};z={net(j,first_pin),net(j,first_pin+1)}
+ parallel.append({'local':sw,'external':j,'external_pins':[first_pin,first_pin+1],'nets':sorted(a),'parallel':a==z})
+ if a!=z:issues.append('Parallel external button mismatch '+j)
+# For F these are distinct, exclusive physical cable assemblies. An open remote
+# NC in a station cannot be bypassed by a second plug, nor is there a PCB shunt.
+plug_types = ('unplugged','loopback','station') if keyed_station else ('loopback','station')
+def contacts_connect(edges, source, target):
+ reached = {source}
+ while True:
+  old_size = len(reached)
+  for a, b in edges:
+   if a in reached or b in reached:
+    reached.update((a, b))
+  if len(reached) == old_size:
+   return target in reached
+
 stop_cases=[]
-for local_closed,external_present,external_closed in itertools.product([False,True],repeat=3):
- shunt=not external_present
+for plug,local_closed,external_closed in itertools.product(plug_types,[False,True],[False,True]):
  for keys in itertools.product([False,True],repeat=4):
   edges=[]
   if local_closed:edges.append((net('SW1',1),net('SW1',3)))
-  if shunt:edges.append((net('JP1',1),net('JP1',2)))
-  if external_present and external_closed:edges.append((net('J3',1),net('J3',2)))
-  for (sw,j),pressed in zip(pairs,keys):
+  if plug=='loopback':
+   edges.append(stop_contacts if keyed_station else (net('JP1',1),net('JP1',2)))
+  if plug=='station' and external_closed:edges.append(stop_contacts)
+  for (sw,j,first_pin),pressed in zip(pairs,keys):
    if pressed:edges.append((net(sw,1),net(sw,2)))
-  reached={'+5V'}
-  while True:
-   previous=len(reached)
-   for a,z in edges:
-    if a in reached or z in reached:reached.update([a,z])
-   if len(reached)==previous:break
-  actual='STOP_RETURN'in reached;expected=local_closed and (shunt or external_closed)
+  actual = contacts_connect(edges, net('J1', 1), net('J1', 2))
+  expected=local_closed and (plug=='loopback' or (plug=='station' and external_closed))
   if actual!=expected:issues.append('STOP contact path truth-table mismatch')
-  stop_cases.append({'local_closed':local_closed,'external_present':external_present,'external_closed':external_closed,'other_key_states':keys,'stop_return_connected':actual})
+  stop_cases.append({'local_closed':local_closed,'plug':plug,'external_closed':external_closed,
+                     'other_key_states':keys,'stop_return_connected':actual})
+# Negative control on the physical host cable: a short between adjacent
+# cavities drives the panel STOP return even if both NC contacts are open.
+host_bridge_cases = []
+if keyed_station:
+ host_bridge = (net('J1', 1), net('J1', 2))
+ for local_closed, remote_closed in ((False, True), (True, False), (False, False)):
+  edges = []
+  if local_closed:
+   edges.append((net('SW1', 1), net('SW1', 3)))
+  if remote_closed:
+   edges.append(stop_contacts)
+  before_bridge = contacts_connect(edges, net('SW1', 1), net(stop_socket, stop_pins[1]))
+  after_bridge = contacts_connect([*edges, host_bridge], net('SW1', 1), net(stop_socket, stop_pins[1]))
+  if before_bridge or not after_bridge:
+   issues.append('HOST loom STOP bridge negative control did not discriminate the wiring fault')
+  host_bridge_cases.append({'local_NC_closed': local_closed, 'remote_NC_closed': remote_closed,
+                            'return_live_without_bridge': before_bridge, 'return_live_with_bridge': after_bridge})
 if [net('J7',i)for i in range(1,5)]!=['I2C_SCL','I2C_SDA','GND','+3V3']:issues.append('OLED connector order mismatch')
 keychecks=[]
 for q,jpin,raw,bn,out,refs in [('Q1',2,'KEY_MAN_RAW','KEY_MAN_B','KEY_MAN_N',['R2','R3','R4','R5','C3']),('Q2',3,'KEY_AUTO_RAW','KEY_AUTO_B','KEY_AUTO_N',['R6','R7','R8','R9','C4'])]:
@@ -160,6 +204,16 @@ report={'control_variant':args.control_variant,'expander_key_inputs':{'manual':'
  'primary_references':['https://omronfs.omron.com/en_US/ecb/products/pdf/en-d2f.pdf','https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf','https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf','design/oled-selection.txt'],
  'main_board_routing_frozen_at_review':False,'hardware_tested':False,'firmware_implemented':False,'release_ready':False,
  'remaining_checks':['Purchased switch/connector contact orientation and harness continuity.','STOP actuator travel/height and OLED/enclosure spacing.','Gold/low-level dry-contact key suitability for approximately 2.7 mA at 5 V.','Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.','Robu fabrication acceptance and assembled-board functional/thermal/EMC tests.']}
+if keyed_station:
+ report['stop_path'] = mainnet('J32',1) + ' at main J32.1 -> panel J1.1 -> SW1 NC -> J2.3 -> remote NC or fixed local-only loop -> J2.4 -> STOP_RETURN at J1.2 -> main J32.2 and guard monitor'
+ report['stop_shunt_rule'] = 'Only a single keyed station or local-only plug fits J2. Unplugging it opens STOP, and the factory loop always remains in series with local STOP.'
+ report['host_loom_stop_bridge_negative_control'] = {
+  'fault': 'Direct short between panel J1.1 and J1.2, equivalent to main J32.1 and J32.2 on the straight loom.',
+  'panel_pin_nets': list(host_bridge), 'main_pin_nets': [mainnet('J32', 1), mainnet('J32', 2)],
+  'scope': 'With the HOST command supply energized, the bridge masks both panel STOP contacts. The separate cabinet OEM STOP and high-high circuits are outside this panel model.',
+  'cases': host_bridge_cases,
+ }
+ report['remote_button_harness'] = 'One GH10 with permanent switch-end terminations; optional unused NO branches remain empty.'
 if args.control_variant == 'compact-dual':
  report['main_assembly_variant'] = 'All five physical operator switches on the panel. No switch footprints on the main PCB. Twelve cavities one-to-one from panel J1 to main J32.'
  report.pop('firmware_implemented')

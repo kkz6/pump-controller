@@ -1,0 +1,9 @@
+subassembly,item,manufacturer_part,quantity,assembly_note
+"J2 station","10-circuit keyed housing","JST GHR-10V-S","1","Remote station or local-only loop plug. Only one fits."
+"J2 station","crimp socket","JST SSHL-002T-P0.2","2 per populated cavity pair","Always populate the 3-4 NC path. Order spare contacts for setup and inspection."
+"J2 station","wire","insulated stranded copper 28 AWG","2 per selected button","Verify 0.76–1.0 mm outside diameter for selected contacts. Use as a low-voltage internal loom and strain-relieve at the station."
+"J2 station","switch plate","built-to-order captive assembly","1 when remote buttons fitted","Labelled fixed switch ends. Specify gold or low-level rated dry contacts for actual circuit current. Isolate unused terminals. Four NO options and one NC STOP."
+"J2 local-only","insulated link","28 AWG loop in plug","1 if remote STOP absent","Factory terminated from cavity 3 to 4 only. Never fit when station has remote STOP."
+"J1 host","12-circuit housing","JST GHR-12V-S","2","Same cavity numbers to main J32."
+"J8 key","3-circuit housing","JST GHR-03V-S","1 optional","1 common +5V; 2 MAN; 3 AUTO."
+"J7 display","4-circuit housing","JST PHR-4","2 if using a custom loom","Match the purchased module connector. 1 SCL / 2 SDA / 3 GND / 4 +3V3 on J7; verify at module."

@@ -1,7 +1,7 @@
 {
-  "pcb_sha256": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
-  "source_sha256": "447445d1dd34213638a59852ea8df28e316f40364b2dc21d52436ec9043ce164",
-  "native_inventory_sha256": "4e025d5b3bacd0979a16be6b4ac1911e5612206e4b76fee65338ab3c8cda05a0",
+  "pcb_sha256": "d211549d9f128d36ca47cd313a6e9e0a5a9278a3c7f11ff3fca4f39272093161",
+  "source_sha256": "ec4142ecdce431d2556d937154abb1262bc9d727cfd154c26c9b8ca7bb55541b",
+  "native_inventory_sha256": "7fd79c86b3fb18d68fb9db6478bc4c5e0aaac19998062e62a53ca2b2d2e9eb02",
   "parser_versions": {
     "gerbonara": "0.13.0",
     "shapely": "2.1.2"
@@ -25,24 +25,24 @@
   ],
   "drills": {
     "PTH": {
-      "count": 560,
-      "expected": 560,
+      "count": 594,
+      "expected": 594,
       "missing": [],
       "extra": [],
       "max_coordinate_rounding_error_mm": 0.0005000000000023874
     },
     "NPTH": {
-      "count": 5,
-      "expected": 5,
+      "count": 7,
+      "expected": 7,
       "missing": [],
       "extra": [],
       "max_coordinate_rounding_error_mm": 0
     }
   },
   "ipc_d356": {
-    "records": 1202,
-    "connected_source_pins_checked": 641,
-    "unconnected_source_pins_checked": 31,
+    "records": 1299,
+    "connected_source_pins_checked": 695,
+    "unconnected_source_pins_checked": 36,
     "source_inventory_pin_maps_identical": true,
     "nc_alias_policy": "Exact reference + source pin name + pad number only; no prefix wildcard. Missing NC records and mixed net names fail.",
     "normalized_nc_aliases": [
@@ -231,17 +231,51 @@
         "pin": "3",
         "source_net": "",
         "exact_native_nc_alias": "unconnected-(U21-NC-Pad3)"
+      },
+      {
+        "ref": "J40",
+        "pin": "A8",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(J40-SBU1-PadA8)"
+      },
+      {
+        "ref": "J40",
+        "pin": "B8",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(J40-SBU2-PadB8)"
+      },
+      {
+        "ref": "U41",
+        "pin": "3",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U41-D2+-Pad3)"
+      },
+      {
+        "ref": "U41",
+        "pin": "7",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U41-D2--Pad7)"
+      },
+      {
+        "ref": "U40",
+        "pin": "4",
+        "source_net": "",
+        "exact_native_nc_alias": "unconnected-(U40-NC-Pad4)"
       }
     ],
     "pin_net_differences": [],
-    "unexpected_pins": []
+    "unexpected_pins": [],
+    "nonconductive_locators_matched": [
+      "7c57e5cb-03f5-4ec4-88cf-4640f10e1af4",
+      "a7eaf17b-1b5a-4a84-a487-7809490a3fa2"
+    ]
   },
   "mask_geometry": {
     "F.Mask": {
       "passed": true,
-      "parsed_primitive_count": 367,
-      "actual_connected_openings": 367,
-      "expected_physical_pin_groups": 357,
+      "parsed_primitive_count": 421,
+      "actual_connected_openings": 421,
+      "expected_physical_pin_groups": 407,
       "unmatched_native_pins": [],
       "merged_distinct_pin_openings": [],
       "extra_area_outside_native_tolerance_mm2": 0.0,
@@ -252,9 +286,9 @@
     },
     "B.Mask": {
       "passed": true,
-      "parsed_primitive_count": 370,
-      "actual_connected_openings": 370,
-      "expected_physical_pin_groups": 370,
+      "parsed_primitive_count": 383,
+      "actual_connected_openings": 383,
+      "expected_physical_pin_groups": 382,
       "unmatched_native_pins": [],
       "merged_distinct_pin_openings": [],
       "extra_area_outside_native_tolerance_mm2": 0.0,
@@ -270,91 +304,91 @@
   "native_contour_registration_tolerance_mm": 0.01,
   "file_checks": {
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GTL": {
-      "sha256": "837b6a45ccca8b66411a01c4a76866f54c4083e95d283fa66f2daa8c82ea9a77",
-      "objects": 3832,
+      "sha256": "79db439fc4056dea3dc67e01806ef1e011b1179c9e0ec0be738b4d334b3bcd53",
+      "objects": 4434,
       "layer_function": "Copper,L1,Top"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.G2L": {
-      "sha256": "6dd9e638960ad2a17844704299bf4d4b2310b61fef1f075b9c6ef8e51ebd299d",
-      "objects": 562,
+      "sha256": "dcd27de8e41c219355ed36f545fc293974f2e03fdc95deeaede8ecf04d9c0da3",
+      "objects": 596,
       "layer_function": "Copper,L2,Inr"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.G3L": {
-      "sha256": "a835da5aa9e19767d8df675a1872ba49be9925b9ddc30d1ad0ab9fbae19a868e",
-      "objects": 1524,
+      "sha256": "9d49e3d07b849cda19e4554e53dc80a322641d5ed696f2cf23a7f27f455b31d4",
+      "objects": 1554,
       "layer_function": "Copper,L3,Inr"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.G4L": {
-      "sha256": "4cdd02ecf1c384930b0a7e83b4c51b88770bf98651ee3b2b14852cdf6db76e2c",
-      "objects": 2353,
+      "sha256": "f4d7c67ea22a0a46c4f47ca35d47075413ce3a5853a9e68bdaea830fc19b9a27",
+      "objects": 2588,
       "layer_function": "Copper,L4,Inr"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.G5L": {
-      "sha256": "766edfeb1accbbf53f3854c389c2bfc1e9b488f36b5662093c41fe23d4f2cea3",
-      "objects": 562,
+      "sha256": "2f523354984637bc190406652eccf6db7df931b5fd5565355b8de422028e40eb",
+      "objects": 596,
       "layer_function": "Copper,L5,Inr"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GBL": {
-      "sha256": "0a4c243d976453acabc4ce007496c5c7c569069bf5ab2cf32799d1225de7f8b4",
-      "objects": 3809,
+      "sha256": "c1b142ba0adde029b7473d2bb644ead8939a2c979297b30015c7fe7ca5f6216b",
+      "objects": 4091,
       "layer_function": "Copper,L6,Bot"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GTS": {
-      "sha256": "42ce661a632cd5b307c6ee255c92e7da8b6a662f11beb28ed8f1de7b630181f2",
-      "objects": 367,
+      "sha256": "c8ec3d560ec557a7bafea478e82b9f111e4e6047f2312ffe7aae65480343ce2c",
+      "objects": 421,
       "layer_function": "Soldermask,Top"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GBS": {
-      "sha256": "52dd713b75da1dc4668bbe7fc8cf81fbbe9cef4ce7c33e344203713f92e0c7e2",
-      "objects": 370,
+      "sha256": "c5e1142fa10763c613ef5dee128ed2ca550b5bb0e7c149e7ea27955c318ffca3",
+      "objects": 383,
       "layer_function": "Soldermask,Bot"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GTO": {
-      "sha256": "34198c4a59bee4179e9189febf4cb7b460a57b2687fdb6fe28fe7ec1ce8543b6",
-      "objects": 1130,
+      "sha256": "b5af0c851cb0d7dd42c22d93ba68a7fb3467cd8301971a32a6426a17953422c7",
+      "objects": 1288,
       "layer_function": "Legend,Top"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GBO": {
-      "sha256": "bebf4c77947ad1b04d21f2736e893d6521ef409c19b1db2653a91e9a399ea85d",
-      "objects": 370,
+      "sha256": "36c15ae0194b3a452dcb8226eb77d334b994d0c330a6e65b6161b2d55b71e910",
+      "objects": 553,
       "layer_function": "Legend,Bot"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.GKO": {
-      "sha256": "f00bdec3dc3434e86a542425c717c8043b4380b050983afbc3cbb538a3f61a40",
+      "sha256": "23eb19cf48cc60779d766d5074312dff688b1e87f6ffeefc51625bdd4f5190f3",
       "objects": 4,
       "layer_function": "Profile,NP"
     },
     "hardware/main-compact-dual/exports/stencil/pump-controller-compact-dual.GTP": {
-      "sha256": "d094d6e2e07ac4e5efd5eb81d60b596736584c1a89db460a0710350962253956",
-      "objects": 318,
+      "sha256": "ca6ceb482054094fc0b485d9dd3709d522d8dedf5b51af0ee554e1e252f9ff32",
+      "objects": 369,
       "layer_function": "Paste,Top"
     },
     "hardware/main-compact-dual/exports/stencil/pump-controller-compact-dual.GBP": {
-      "sha256": "879c7b1392604b8e57a1248810be4aa42ec5f87a6e42dd124b294aeaaff16284",
-      "objects": 323,
+      "sha256": "8459cc489dc48668262339a2a335b91a9d0c55f4b3d77328da96c4353900fae2",
+      "objects": 333,
       "layer_function": "Paste,Bot"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual-PTH.XLN": {
-      "sha256": "7ea315394997d9d2d2bbe940706ef0c0062557cf76d7466dd18568c5d0f97443"
+      "sha256": "a1684de34983c080c3677b3b2c8c410958f370365fb23abb9f2ef92d921a70b9"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual-NPTH.XLN": {
-      "sha256": "add2cffd436c9b6c3d4244754540f429108df733c5c57ab60ca8bf9606463b5b"
+      "sha256": "8aaf795577e6d4bf55589e00034c9db609731325fca70a130198f5d443d9a7d1"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.d356": {
-      "sha256": "997d15486706664754151f78f1f179e9930952a258cbcafdcd013ed3221c97f1"
+      "sha256": "5f2ec64fdfc89bc351aab3d9aa4e39820078a14405d2f4c0908d39f45ff0391f"
     },
     "hardware/main-compact-dual/gerber/pump-controller-compact-dual.gbrjob": {
-      "sha256": "c952a27ebc5f7b6dd7017458be19a936d91dee2d965e62fe59da0acb0082dd9c"
+      "sha256": "ccf9d0a09e0b8156c88fdec676f7b59bbfc9e304b9c473be94da1feaf138c48b"
     }
   },
   "parser_warnings": [
     {
       "file": "pump-controller-compact-dual-PTH.XLN",
-      "message": "hardware/main-compact-dual/gerber/pump-controller-compact-dual-PTH.XLN:22 \"G90\": G90 header statement found after end of header"
+      "message": "hardware/main-compact-dual/gerber/pump-controller-compact-dual-PTH.XLN:26 \"G90\": G90 header statement found after end of header"
     },
     {
       "file": "pump-controller-compact-dual-NPTH.XLN",
-      "message": "hardware/main-compact-dual/gerber/pump-controller-compact-dual-NPTH.XLN:12 \"G90\": G90 header statement found after end of header"
+      "message": "hardware/main-compact-dual/gerber/pump-controller-compact-dual-NPTH.XLN:14 \"G90\": G90 header statement found after end of header"
     }
   ],
   "serialization_registration_and_mask_passed": true,
@@ -368,5 +402,5 @@
     "Nominal mask web/drill geometry does not prove process registration tolerances.",
     "Preview bottom layers retain unmirrored manufacturing coordinates."
   ],
-  "x2_project_revision": "COMPACT-DUAL-GUARD-R2"
+  "x2_project_revision": "COMPACT-DUAL-GUARD-R3"
 }

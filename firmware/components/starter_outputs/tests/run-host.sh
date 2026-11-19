@@ -7,7 +7,8 @@ leds="$components/command_leds"
 build=$(mktemp -d)
 trap 'rm -rf "$build"' EXIT
 for test in "$outputs/tests/panel_controls_test.c" "$outputs/tests/starter_outputs_test.c" "$leds/tests/command_leds_test.c" \
-            "$components/../../design/review-fixtures/pulse-stop-bus-loss.c"; do
+            "$components/../../design/review-fixtures/pulse-stop-bus-loss.c" \
+            "$components/../../design/review-fixtures/r2-stop-feedback.c"; do
     program="$build/$(basename "$test" .c)"
     "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -pedantic -I"$outputs/include" -I"$leds/include" \
         "$outputs/panel_controls.c" "$outputs/starter_outputs.c" "$leds/command_leds.c" "$test" -o "$program"

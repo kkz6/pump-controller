@@ -38,6 +38,7 @@ static void setup(struct fixture *f, enum starter_profile profile)
 {
     struct starter_config config = {
         .profile = profile, .harness_profile = profile, .independent_shutdown = true,
+        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
         .contact_settle_ms = 5, .start_pulse_ms = 10, .stop_pulse_ms = 10
     };
     assert(panel_controls_configure(&f->panel, config, false, 4, 20));
@@ -80,8 +81,11 @@ static bool ignored_stop(void)
     f.sample.fill_demand = false;
     unsigned stop_events = 0, last_second_edges = 0, total_edges = 0;
     bool previous = f.panel.heartbeat_high;
+    uint32_t first_fault_ms = 0;
     for (unsigned ms = 10; ms <= 10000; ms += 10) {
         struct panel_result out = tick(&f, 10);
+        if (out.feedback_fault && !first_fault_ms) first_fault_ms = ms;
+        if (out.feedback_fault) assert(!out.heartbeat_high && !out.drive.permit_d && !out.drive.run_cmd);
         if (out.drive.stop_issued) ++stop_events;
         if (out.heartbeat_high != previous) {
             ++total_edges;
@@ -93,9 +97,23 @@ static bool ignored_stop(void)
            "heartbeat edges=%u (final second=%u), IDLE=%d, AUTO authorized=%d.\n",
            stop_events, total_edges, last_second_edges,
            f.panel.outputs.phase == STARTER_IDLE, f.panel.auto_enabled);
-    puts("Expected a latched fault and withdrawn heartbeat after a qualified stop deadline.");
-    /* Ten seconds is the observation interval for this fixture, not a field deadline. */
-    return last_second_edges != 0 || f.panel.auto_enabled;
+    /* The request was first processed at +10 ms. */
+    assert(first_fault_ms == 10 + f.panel.outputs.config.confirm_stop_ms);
+    if (last_second_edges != 0 || f.panel.auto_enabled || !first_fault_ms) return true;
+    f.sample.gpio_b &= (uint8_t)~B_SET_N;
+    tick(&f, 1);
+    assert(tick(&f, 5).feedback_fault);  /* Motor still running, guard still up. */
+    f.sample.motor_stopped = true;
+    f.sample.gpio_b &= (uint8_t)~B_GUARD_OK;
+    assert(tick(&f, 5).feedback_fault);  /* Recovery with SET held cannot acknowledge. */
+    f.sample.gpio_b |= B_SET_N;
+    tick(&f, 1); tick(&f, 5);
+    f.sample.gpio_b &= (uint8_t)~B_SET_N;
+    tick(&f, 1);
+    struct panel_result ack = tick(&f, 5);
+    assert(!ack.feedback_fault && !ack.auto_enabled && !ack.drive.arm_issued && !ack.heartbeat_high);
+    puts("STOP timeout latched; held SET rejected; deliberate acknowledgement required guard open and stopped feedback.");
+    return false;
 }
 
 static bool start_after_feedback_changes(void)
@@ -111,8 +129,8 @@ static bool start_after_feedback_changes(void)
     struct panel_result next = tick(&f, 5);
     printf("OPEN_STOP: stopped feedback went false before START, "
            "START event=%d, START output=%d.\n", next.drive.start_issued, next.drive.run_cmd);
-    puts("Expected the pending START closure to be inhibited.");
-    return next.drive.start_issued || next.drive.run_cmd;
+    return next.drive.start_issued || next.drive.run_cmd || next.drive.permit_d ||
+           !next.feedback_fault || next.heartbeat_high;
 }
 
 int main(void)

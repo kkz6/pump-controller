@@ -1,0 +1,635 @@
+{
+  "width": 60.0,
+  "height": 45.0,
+  "routed": false,
+  "components": [
+    {
+      "ref": "J1",
+      "footprint": "Connector_JST:JST_GH_SM12B-GHS-TB_1x12-1MP_P1.25mm_Horizontal",
+      "x": 30.0,
+      "y": 3.3,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 23.125,
+          "y": 5.15,
+          "net": "+5V"
+        },
+        "2": {
+          "x": 24.375,
+          "y": 5.15,
+          "net": "STOP_RETURN"
+        },
+        "3": {
+          "x": 25.625,
+          "y": 5.15,
+          "net": "MAN_RETURN"
+        },
+        "4": {
+          "x": 26.875,
+          "y": 5.15,
+          "net": "AUTO_RETURN"
+        },
+        "5": {
+          "x": 28.125,
+          "y": 5.15,
+          "net": "START_N"
+        },
+        "6": {
+          "x": 29.375,
+          "y": 5.15,
+          "net": "RESET_N"
+        },
+        "7": {
+          "x": 30.625,
+          "y": 5.15,
+          "net": "GND"
+        },
+        "8": {
+          "x": 31.875,
+          "y": 5.15,
+          "net": "+3V3"
+        },
+        "9": {
+          "x": 33.125,
+          "y": 5.15,
+          "net": "I2C_SDA"
+        },
+        "10": {
+          "x": 34.375,
+          "y": 5.15,
+          "net": "I2C_SCL"
+        },
+        "11": {
+          "x": 35.625,
+          "y": 5.15,
+          "net": "KEY_MAN_N"
+        },
+        "12": {
+          "x": 36.875,
+          "y": 5.15,
+          "net": "KEY_AUTO_N"
+        },
+        "MP": {
+          "x": 38.725,
+          "y": 1.95,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "J2",
+      "footprint": "Connector_JST:JST_GH_SM10B-GHS-TB_1x10-1MP_P1.25mm_Horizontal",
+      "x": 30.0,
+      "y": 41.7,
+      "rotation": 180.0,
+      "pads": {
+        "1": {
+          "x": 35.625,
+          "y": 39.85,
+          "net": "START_N"
+        },
+        "2": {
+          "x": 34.375,
+          "y": 39.85,
+          "net": "GND"
+        },
+        "3": {
+          "x": 33.125,
+          "y": 39.85,
+          "net": "STOP_LOCAL_NC"
+        },
+        "4": {
+          "x": 31.875,
+          "y": 39.85,
+          "net": "STOP_RETURN"
+        },
+        "5": {
+          "x": 30.625,
+          "y": 39.85,
+          "net": "MAN_RETURN"
+        },
+        "6": {
+          "x": 29.375,
+          "y": 39.85,
+          "net": "STOP_RETURN"
+        },
+        "7": {
+          "x": 28.125,
+          "y": 39.85,
+          "net": "RESET_N"
+        },
+        "8": {
+          "x": 26.875,
+          "y": 39.85,
+          "net": "GND"
+        },
+        "9": {
+          "x": 25.625,
+          "y": 39.85,
+          "net": "AUTO_RETURN"
+        },
+        "10": {
+          "x": 24.375,
+          "y": 39.85,
+          "net": "STOP_RETURN"
+        },
+        "MP": {
+          "x": 22.525,
+          "y": 43.05,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "SW1",
+      "footprint": "Panel:Omron_D2F-01F",
+      "x": 16.87,
+      "y": 30.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 16.87,
+          "y": 30.0,
+          "net": "+5V"
+        },
+        "2": {
+          "x": 21.95,
+          "y": 30.0,
+          "net": ""
+        },
+        "3": {
+          "x": 27.03,
+          "y": 30.0,
+          "net": "STOP_LOCAL_NC"
+        }
+      }
+    },
+    {
+      "ref": "R1",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 14.0,
+      "y": 25.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 13.175,
+          "y": 25.5,
+          "net": "STOP_RETURN"
+        },
+        "2": {
+          "x": 14.825,
+          "y": 25.5,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "SW2",
+      "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "x": 7.5,
+      "y": 30.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 5.8,
+          "y": 30.0,
+          "net": "START_N"
+        },
+        "2": {
+          "x": 9.2,
+          "y": 30.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "SW3",
+      "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "x": 34.5,
+      "y": 30.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 32.8,
+          "y": 30.0,
+          "net": "MAN_RETURN"
+        },
+        "2": {
+          "x": 36.2,
+          "y": 30.0,
+          "net": "STOP_RETURN"
+        }
+      }
+    },
+    {
+      "ref": "SW4",
+      "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "x": 45.0,
+      "y": 30.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 43.3,
+          "y": 30.0,
+          "net": "RESET_N"
+        },
+        "2": {
+          "x": 46.7,
+          "y": 30.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "SW5",
+      "footprint": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "x": 54.0,
+      "y": 30.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 52.3,
+          "y": 30.0,
+          "net": "AUTO_RETURN"
+        },
+        "2": {
+          "x": 55.7,
+          "y": 30.0,
+          "net": "STOP_RETURN"
+        }
+      }
+    },
+    {
+      "ref": "J7",
+      "footprint": "Connector_JST:JST_PH_S4B-PH-SM4-TB_1x04-1MP_P2.00mm_Horizontal",
+      "x": 54.8,
+      "y": 21.0,
+      "rotation": -90.0,
+      "pads": {
+        "1": {
+          "x": 51.95,
+          "y": 18.0,
+          "net": "I2C_SCL"
+        },
+        "2": {
+          "x": 51.95,
+          "y": 20.0,
+          "net": "I2C_SDA"
+        },
+        "3": {
+          "x": 51.95,
+          "y": 22.0,
+          "net": "GND"
+        },
+        "4": {
+          "x": 51.95,
+          "y": 24.0,
+          "net": "+3V3"
+        },
+        "MP": {
+          "x": 57.7,
+          "y": 26.35,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "C1",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "x": 44.0,
+      "y": 16.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 43.225,
+          "y": 16.0,
+          "net": "+3V3"
+        },
+        "2": {
+          "x": 44.775,
+          "y": 16.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "C2",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "x": 48.0,
+      "y": 16.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 47.225,
+          "y": 16.0,
+          "net": "+3V3"
+        },
+        "2": {
+          "x": 48.775,
+          "y": 16.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "J8",
+      "footprint": "Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal",
+      "x": 3.3,
+      "y": 20.0,
+      "rotation": 90.0,
+      "pads": {
+        "1": {
+          "x": 5.15,
+          "y": 21.25,
+          "net": "+5V"
+        },
+        "2": {
+          "x": 5.15,
+          "y": 20.0,
+          "net": "KEY_MAN_RAW"
+        },
+        "3": {
+          "x": 5.15,
+          "y": 18.75,
+          "net": "KEY_AUTO_RAW"
+        },
+        "MP": {
+          "x": 1.95,
+          "y": 16.9,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "R2",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 22.0,
+      "y": 13.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 21.175,
+          "y": 13.0,
+          "net": "KEY_MAN_RAW"
+        },
+        "2": {
+          "x": 22.825,
+          "y": 13.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "R3",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 22.0,
+      "y": 16.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 21.175,
+          "y": 16.5,
+          "net": "KEY_MAN_RAW"
+        },
+        "2": {
+          "x": 22.825,
+          "y": 16.5,
+          "net": "KEY_MAN_B"
+        }
+      }
+    },
+    {
+      "ref": "R4",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 22.0,
+      "y": 20.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 21.175,
+          "y": 20.5,
+          "net": "KEY_MAN_B"
+        },
+        "2": {
+          "x": 22.825,
+          "y": 20.5,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "R5",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 27.0,
+      "y": 16.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 26.175,
+          "y": 16.5,
+          "net": "+3V3"
+        },
+        "2": {
+          "x": 27.825,
+          "y": 16.5,
+          "net": "KEY_MAN_N"
+        }
+      }
+    },
+    {
+      "ref": "C3",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "x": 25.5,
+      "y": 20.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 24.725,
+          "y": 20.5,
+          "net": "KEY_MAN_N"
+        },
+        "2": {
+          "x": 26.275,
+          "y": 20.5,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "Q1",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "x": 27.0,
+      "y": 13.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 26.0625,
+          "y": 13.95,
+          "net": "KEY_MAN_B"
+        },
+        "2": {
+          "x": 26.0625,
+          "y": 12.05,
+          "net": "GND"
+        },
+        "3": {
+          "x": 27.9375,
+          "y": 13.0,
+          "net": "KEY_MAN_N"
+        }
+      }
+    },
+    {
+      "ref": "R6",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 33.0,
+      "y": 13.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 32.175,
+          "y": 13.0,
+          "net": "KEY_AUTO_RAW"
+        },
+        "2": {
+          "x": 33.825,
+          "y": 13.0,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "R7",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 33.0,
+      "y": 16.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 32.175,
+          "y": 16.5,
+          "net": "KEY_AUTO_RAW"
+        },
+        "2": {
+          "x": 33.825,
+          "y": 16.5,
+          "net": "KEY_AUTO_B"
+        }
+      }
+    },
+    {
+      "ref": "R8",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 33.0,
+      "y": 20.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 32.175,
+          "y": 20.5,
+          "net": "KEY_AUTO_B"
+        },
+        "2": {
+          "x": 33.825,
+          "y": 20.5,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "R9",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "x": 38.0,
+      "y": 16.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 37.175,
+          "y": 16.5,
+          "net": "+3V3"
+        },
+        "2": {
+          "x": 38.825,
+          "y": 16.5,
+          "net": "KEY_AUTO_N"
+        }
+      }
+    },
+    {
+      "ref": "C4",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "x": 36.5,
+      "y": 20.5,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 35.725,
+          "y": 20.5,
+          "net": "KEY_AUTO_N"
+        },
+        "2": {
+          "x": 37.275,
+          "y": 20.5,
+          "net": "GND"
+        }
+      }
+    },
+    {
+      "ref": "Q2",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "x": 38.0,
+      "y": 13.0,
+      "rotation": 0.0,
+      "pads": {
+        "1": {
+          "x": 37.0625,
+          "y": 13.95,
+          "net": "KEY_AUTO_B"
+        },
+        "2": {
+          "x": 37.0625,
+          "y": 12.05,
+          "net": "GND"
+        },
+        "3": {
+          "x": 38.9375,
+          "y": 13.0,
+          "net": "KEY_AUTO_N"
+        }
+      }
+    },
+    {
+      "ref": "H1",
+      "footprint": "MountingHole:MountingHole_2.7mm_M2.5",
+      "x": 3.0,
+      "y": 3.0,
+      "rotation": 0.0,
+      "pads": {}
+    },
+    {
+      "ref": "H2",
+      "footprint": "MountingHole:MountingHole_2.7mm_M2.5",
+      "x": 57.0,
+      "y": 3.0,
+      "rotation": 0.0,
+      "pads": {}
+    },
+    {
+      "ref": "H3",
+      "footprint": "MountingHole:MountingHole_2.7mm_M2.5",
+      "x": 3.0,
+      "y": 42.0,
+      "rotation": 0.0,
+      "pads": {}
+    },
+    {
+      "ref": "H4",
+      "footprint": "MountingHole:MountingHole_2.7mm_M2.5",
+      "x": 57.0,
+      "y": 42.0,
+      "rotation": 0.0,
+      "pads": {}
+    }
+  ]
+}

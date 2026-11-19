@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "9f762bf6-275c-5bbf-b86e-cee49efcfd49")
 (paper "A3")
-(title_block (title "Power-source declarations for electrical-rule checking") (rev "COMPACT-DUAL-GUARD-R2") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Power-source declarations for electrical-rule checking") (rev "COMPACT-DUAL-GUARD-R3") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:_FLG1"
 (pin_names (offset 0.508))

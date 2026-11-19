@@ -64,8 +64,8 @@ def title(g, heading, sub, page):
     text(g, MARGIN, 100, sub, size=10, tone=MUTED)
     line(g, [(MARGIN,116),(RIGHT,116)], RULE, .8)
     line(g, [(MARGIN,789),(RIGHT,789)], RULE, .8)
-    text(g,MARGIN,806,"COMPACT-DUAL  /  Field wiring review",8,tone=MUTED)
-    text(g,RIGHT-48,806,f"{page} of 7",8,tone=MUTED)
+    text(g,MARGIN,806,"COMPACT-DUAL  /  R3 cabinet prototype",8,tone=MUTED)
+    text(g,RIGHT-48,806,f"{page} of 8",8,tone=MUTED)
 
 
 def heading(g, y, name, detail):
@@ -77,7 +77,7 @@ def port_group(g, y, title_left="Isolated interposer contacts"):
     start_y=y+26
     box(g,MARGIN,y+11,142,109)
     text(g,MARGIN,y+1,title_left,9,bold=True,tone=MUTED)
-    labels=("KCA    A COM", "KCA    A NO", "KCB    B COM", "KCB    B NO")
+    labels=("XC1.3    KCA  A COM", "XC1.4    KCA  A NO", "XC1.1    KCB  B COM", "XC1.2    KCB  B NO")
     yrows=[start_y+i*26 for i in range(4)]
     for i,(yy,label) in enumerate(zip(yrows,labels)):
         text(g,MARGIN+12,yy+3,label,10,bold=True,tone=A_COLOR if i<2 else B_COLOR)
@@ -185,7 +185,7 @@ def page_manual(g):
     heading(g,148,"LOCAL MANUAL insert",
             "A mechanically exclusive plug removes both controller output branches from the starter.")
     text(g,MARGIN,197,"Open-to-stop DOL service socket",11,bold=True)
-    text(g,MARGIN,214,"Cavity numbers apply to this fixed adapter only.",9,tone=MUTED)
+    text(g,MARGIN,214,"XC1 is the four-cavity dry command transfer.",9,tone=MUTED)
     for x,cavity,host in [(81,"1","B COM"),(133,"2","B NO"),(187,"3","A COM"),(240,"4","A NO")]:
         text(g,x-4,239,cavity,10,bold=True)
         terminal(g,x,249)
@@ -230,10 +230,10 @@ def page_manual(g):
 def page_guard(g):
     title(g, "Independent motor shutdown",
           "External cabinet hardware. All profiles and both service positions share these trips.", 4)
-    heading(g, 146, "Guard inputs", "Single-channel PNOZ s4, 24 V DC. SR1 and SR2 both use monitored rising-edge start.")
+    heading(g, 146, "Guard inputs", "SR1 single-channel In2+. SR2 dual-channel In2- with cross-short detection. Both use rising-edge start.")
     box(g, MARGIN, 182, RIGHT-MARGIN, 98)
     paragraph(g, MARGIN+12, 204, [
-        "SR1.S11  >  Original STOP spare NC  >  overload spare NC  >  KV and KC healthy NO",
+        "SR1.S11  >  SG1.11-12  >  original STOP spare NC  >  overload spare NC  >  KV and KC NO",
         ">  independent high-high float NC  >  position branches below  >  SR1.S12 / S22.",
         "HOST: HOST seated + LOCAL released + both DD2503 window NOs + panel-stop relay NO.",
         "LOCAL: LOCAL seated + HOST released, with both OEM command pairs disconnected.",
@@ -241,14 +241,15 @@ def page_guard(g):
     paragraph(g, MARGIN, 300, [
         "KV senses the protected motor supply before KS1/KS2. KC senses an independent OEM",
         "control supply if present. A qualified common-source arrangement uses one monitor.",
-        "J1 and cabinet 24 V are fed upstream. Confirm worst-case brownout detection at the starter.",
+        "Main J1 and cabinet XT1 are fed upstream. Confirm worst-case brownout detection at the starter.",
     ], 9.7, 15)
     heading(g, 379, "Reset and deliberate enable", "SR1.S12 > RESET > S34. Reset alone leaves the motor feeder open.")
-    box(g, MARGIN, 413, RIGHT-MARGIN, 99)
+    box(g, MARGIN, 413, RIGHT-MARGIN, 117)
     paragraph(g, MARGIN+12, 436, [
-        "SR2.S11 > SR1.13-14 > [off-proof branch or SR2.33-34 RUN seal] > SR2.S12 / S22.",
-        "Off-proof branch: both KS mirrors, all three J2.7/8 proofs (page 6), START release and",
+        "Channel A: SR2.S11 > SR1.13-14 > [off proofs or SR2.33-34 RUN seal] > SR2.S12.",
+        "Off proofs: both KS mirrors, three XF2.7/8 proofs (page 6), START release and",
         "in HOST both guided KCA/KCB NCs. LOCAL isolates both controller command pairs.",
+        "Channel B: SR2.S21 > SR1.23-24 > SG1.21-22 > SR2.S22. No S12-S22 link on SR2.",
         "SR2.S12 > dedicated ENABLE momentary NO > SR2.S34. Keep all proofs off S34.",
     ], 9.5, 18)
     heading(g, 552, "Two series motor contactors", "Feed each coil from a different dry safety contact. Use contactors rated for the actual load.")
@@ -256,7 +257,7 @@ def page_guard(g):
         "Fused cabinet +24 V > SR2.13-14 > KS1.A1. Fused +24 V > SR2.23-24 > KS2.A1.",
         "Both A2 terminals return to cabinet 0 V. Route the protected motor feed as shown.",
     ], 9.7, 15)
-    nodes = [(MARGIN, 114, "Protected supply"), (184, 78, "KS1 NO"), (296, 78, "KS2 NO"),
+    nodes = [(MARGIN, 114, "XM1 L after QISO1"), (184, 78, "KS1 NO"), (296, 78, "KS2 NO"),
              (410, RIGHT-410, "Whole OEM starter")]
     for i, (x, w, name) in enumerate(nodes):
         box(g, x, 646, w, 33)
@@ -265,7 +266,7 @@ def page_guard(g):
             prev_x, prev_w, _ = nodes[i-1]
             line(g, [(prev_x+prev_w,662), (x,662)])
     paragraph(g, MARGIN, 712, [
-        "A welded PCB command cannot bypass either trip. One welded main contactor leaves",
+        "STOP and high-high drop both channels of SR2. One welded main contactor leaves",
         "the other available and its NC mirror blocks re-enable. Qualify release, anti-restart",
         "and the actual OEM start/stop behavior before connecting a motor.",
     ], 10, 15)
@@ -277,8 +278,8 @@ def page_signals(g):
           "Cabinet 24 V, controller logic and the OEM button circuit are three separate wiring domains.", 5)
     heading(g, 151, "Main board to cabinet", "Use preterminated, keyed harnesses. Each arrow below identifies an electrical connection.")
     for y, label, details in [
-        (195, "J30.1 / J30.2", "Fused +24 V to COM. NO to KCA coil 1. Coil 0 to cabinet 0 V."),
-        (231, "J35.1 / J35.2", "Fused +24 V to COM. NO to KCB coil 1. Coil 0 to cabinet 0 V."),
+        (195, "J30.1 / J30.2", "Fused +24 V to COM. NO to KCA1 coil 0 (+). Coil 1 to cabinet 0 V."),
+        (231, "J35.1 / J35.2", "Fused +24 V to COM. NO to KCB1 coil 0 (+). Coil 1 to cabinet 0 V."),
         (267, "J36.1", "Floating receiver return and isolated position contacts common."),
         (303, "J36.2 / J36.3", "HOST / LOCAL full-seat dry contacts to J36.1 respectively."),
         (339, "J36.4", "3.3 V heartbeat to isolated HB receiver. Nominal 5 Hz."),
@@ -293,7 +294,7 @@ def page_signals(g):
         "Isolated 5 V > LM393B input comparators > individual optocouplers > cabinet PNP outputs.",
         "Heartbeat: isolated pulses to ifm DD2503.4. Both windows: FO=5, SP=5 Hz, HY=40%.",
         "HOST path through 13-14, link 14 to 19, then 19-20. Leave reset inputs 17/18 open.",
-        "Panel: isolated 24 V output > KPS coil. Wire KPS NO in the HOST branch.",
+        "Panel: RX.J4.4 > KPS1 coil 0 (+). Coil 1 to cabinet 0 V. KPS1 NO permits HOST.",
         "Feedback: fused +24 V > KS1 NO > KS2 NO > separate HOST-seated NO > KFB coil.",
     ], 9.7, 18)
     heading(g, 652, "Commissioning hold", "The cabinet also needs the isolated receiver PCB and the external guard hardware.")
@@ -309,7 +310,7 @@ def page_signals(g):
 def page_pickup_proof(g):
     title(g, "Starter neutral proof before enable",
           "Both HOST and LOCAL require proven open pickup wiring before the starter supply is restored.", 6)
-    heading(g,150,"J2.7 to J2.8  /  three isolated contacts in series",
+    heading(g,150,"XF2.7 to XF2.8  /  three isolated contacts in series",
             "External cabinet 24 V proof circuit. Keep the OEM pickup wiring electrically separate.")
     line(g,[(MARGIN+5,233),(RIGHT-5,233)])
     for x, tag, status in [(78,"KOF1","Power stage off"),(234,"KHL1","Actual hold released"),(388,"KID1","Whole pickup open")]:
@@ -318,8 +319,8 @@ def page_pickup_proof(g):
         text(g,x+8,247,status,9.1)
     terminal(g,MARGIN+5,233)
     terminal(g,RIGHT-5,233)
-    text(g,MARGIN,280,"J2.7",9,bold=True)
-    text(g,RIGHT-25,280,"J2.8",9,bold=True)
+    text(g,MARGIN,280,"XF2.7",9,bold=True)
+    text(g,RIGHT-25,280,"XF2.8",9,bold=True)
     heading(g,326,"Conventional holding circuit",
             "Trace every parallel START, holding and remote contact in the actual installed transfer position.")
     paragraph(g,MARGIN,369,[
@@ -328,7 +329,7 @@ def page_pickup_proof(g):
         "one example. Retire any former independent seal-in contact left across this pair.",
         "KID1 is the healthy NO from an independent, powered, isolated pickup-path monitor.",
         "It must detect a bridge across START while the OEM feeder is off and both buttons",
-        "are released. J2.9/10 separately checks the OEM START actuator release.",
+        "are released. XF2.9/10 separately checks the OEM START actuator release.",
     ],10,18)
     heading(g,514,"Electrical restart acceptance",
             "Use an isolated dummy load; keep the motor disconnected for fault injection.")
@@ -361,7 +362,7 @@ def page_24v_pilot(g):
         text(g,175,yy+3,label,9,True)
     line(g,[(133,238),(133,210)])
     line(g,[(316,210),(316,322)])
-    for xx,tag in [(133,"P  /  J10.1"),(316,"D  /  J10.2")]:
+    for xx,tag in [(133,"P  /  XP10.1"),(316,"D  /  XP10.2")]:
         terminal(g,xx,257,filled=True)
         text(g,xx-17,190,tag,9,True,tone=A_COLOR)
     line(g,[(316,257),(RIGHT,257)])
@@ -378,7 +379,7 @@ def page_24v_pilot(g):
     box(g,355,306,117,32)
     text(g,363,326,"R42  680R / 5 W",9.5,True)
     text(g,497,345,"Pilot 0 V",8.5)
-    text(g,496,310,"J10.3",8.5,True)
+    text(g,496,310,"XP10.3",8.5,True)
     heading(g,410,"Affirmative open-path sensing",
             "Optical isolation separates cabinet 24 V from the OEM pilot. See the native pilot sheet for each pin.")
     paragraph(g,MARGIN,451,[
@@ -403,6 +404,46 @@ def page_24v_pilot(g):
     g.showPage()
 
 
+def page_service(g):
+    title(g,"USB service and field terminals",
+          "Guarded service access and separate motor feeder. Qualify the finished cabinet on an isolated dummy load.",8)
+    heading(g,148,"USB shutter  /  both transfer positions",
+            "SG1 Omron D4NS-4BF, two direct-opening NC contacts, captive D4DS-K1 actuator.")
+    for y,name,route in [
+        (201,"XSG1.1 / .2","SR1.S11  >  SG1.11-12  >  original STOP spare NC"),
+        (242,"XSG1.3 / .4","SR1.24  >  SG1.21-22  >  SR2.S22"),
+    ]:
+        box(g,MARGIN,y-20,RIGHT-MARGIN,31)
+        text(g,MARGIN+10,y,name,10,True)
+        text(g,164,y,route,10)
+    paragraph(g,MARGIN,289,[
+        "Open QISO1 upstream of XM1. It must isolate both motor conductors before it releases its",
+        "unique transfer key. This key unlocks AL1 on the sole USB shutter. AL1 captures the key",
+        "until the shutter is locked after cable removal. Keep PE continuous and logic powered separately.",
+        "SG1 also drops KS1/KS2 in HOST and LOCAL. A plugged cable physically prevents closure.",
+        "Test both QISO1 poles with both KS contacts held closed. Isolate all supplies for cabinet work.",
+    ],10,17)
+    heading(g,419,"Fixed terminals  /  power and pilot",
+            "XM1 and XM2 use separate 32 A Phoenix UT 4 grey and blue DIN terminal pairs, covers and end stops.")
+    for y,tag,links in [
+        (462,"XM1.1 / .2","Motor L / N from QISO1 outputs. Both poles open with service key out."),
+        (494,"XM2.1 / .2","Switched L from KS2 / N from QISO1. PE via separate continuous bar."),
+        (526,"XT1.1 / .2","Protected always-on L / N for cabinet PSU PS2."),
+        (558,"XP1.1 / .2","Independently protected OEM pilot source / return."),
+        (590,"XC1.1 / .2 / .3 / .4","Dry B COM / B NO / A COM / A NO. Profile mapping on pages 1-3."),
+        (622,"RX.J4.1 to .5","Receiver +24 V / 0 V / heartbeat / KPS1 drive / KFB1 drive."),
+    ]:
+        text(g,MARGIN,y,tag,9.5,True)
+        text(g,166,y,links,9.4)
+    heading(g,683,"Check at each relay socket",
+            "G7SA-2A2B on P7SA-10F: KPS1, KCA1 and KCB1 require terminal 0 positive, 1 negative.")
+    paragraph(g,MARGIN,730,[
+        "D9, D4 and D5 are remote 1N4007 clamps at KPS1, KCA1 and KCB1 respectively.",
+        "Band to socket terminal 0. Record measured pickup, release and feeder interruption times.",
+    ],10,17)
+    g.showPage()
+
+
 def main():
     output=Path(__file__).parent/"exports"/"starter-wiring.pdf"
     output.parent.mkdir(exist_ok=True)
@@ -416,6 +457,7 @@ def main():
     page_signals(g)
     page_pickup_proof(g)
     page_24v_pilot(g)
+    page_service(g)
     g.save()
 
 

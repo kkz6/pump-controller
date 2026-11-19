@@ -1,9 +1,9 @@
 Guard receiver PCB
 ==================
 
-**R2 cabinet wiring hold.** The published KPS coil terminal numbers below
-are reversed. See the `system audit <../../design/guarded-r2-system-audit.rst>`_
-before using the receiver wiring instructions.
+The R3 field drawing specifies the polarized remote KPS1 coil and its
+socket-mounted D9. Check the terminal numbers on the **non-indicating**
+P7SA-10F base before applying power.
 
 This 68 × 48 mm, two-layer PCB belongs in the cabinet beside the independent
 guard equipment. J36 brings the controller heartbeat and raw panel STOP to two
@@ -42,7 +42,7 @@ J31 go straight through between the corresponding board headers.
      - 1 floating +5 V from DDR-15G-5 +Vo, 2 receiver 0 V from -Vo. Set and verify 5.00 V before plugging in.
    * - J4 cabinet
      - JST VHR-5N, SVH-21T-P1.1
-     - 1 fused regulated +24 V, 2 cabinet 0 V, 3 PNP heartbeat to WD1, 4 PNP raw panel OK to KPS coil 1, 5 +24 V HOST feedback drive from the KS1/KS2 auxiliaries and independent HOST contact.
+     - 1 fused regulated +24 V, 2 cabinet 0 V, 3 PNP heartbeat to WD1, 4 PNP raw panel OK to KPS1 positive coil terminal 0, 5 +24 V HOST feedback drive from the KS1/KS2 auxiliaries and independent HOST contact.
 
 Use 26 AWG with 0.76–1.2 mm jacket OD for the ZE logic loom. PH contacts
 accept 24–28 AWG at roughly 0.9–1.5 mm insulation OD. Use 22 AWG, with
@@ -58,8 +58,8 @@ prototype maximum J36 run and verify the actual cable with contactor and radio
 switching. Route J4 with its own 0 V return, away from the CT, mains and
 capacitor circuits. J31 remains electrically isolated from the cabinet rail.
 
-KPS coil terminal 0 returns to cabinet 0 V at the cabinet. Fit a 1N4007
-**at that remote coil**, band to terminal 1, in addition to the receiver
+KPS1 coil terminal **1** returns to cabinet 0 V. Fit D9 (1N4007)
+**at that remote coil**, band to positive terminal **0**, in addition to the receiver
 clamp D3. KFB1's local clamp D6 is on this PCB. J4.5 energizes KFB1 only
 after both motor contactors physically pick up in HOST. Releasing either
 contactor, moving to LOCAL, or losing the guard's 24 V opens J31. Never

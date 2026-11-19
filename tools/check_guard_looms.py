@@ -1,4 +1,4 @@
-"""Check native schematic cavity assignments and keyed families across the guarded R2 boards."""
+"""Check native schematic cavity assignments and keyed families across the guarded R3 boards."""
 import hashlib
 import json
 from pathlib import Path
@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HARDWARE = ROOT / 'hardware'
 PROJECTS = {
     'main': HARDWARE/'main-compact-dual/pump-controller-compact.kicad_sch',
-    'panel': HARDWARE/'panel-rev-e/pump-panel-rev-e.kicad_sch',
+    'panel': HARDWARE/'panel-rev-f/pump-panel-rev-f.kicad_sch',
     'receiver': HARDWARE/'guard-receiver/guard-receiver.kicad_sch',
     'cabinet': HARDWARE/'starter-guard/starter-guard.kicad_sch',
 }
@@ -21,6 +21,10 @@ PORTS = {
     ('main','J31'): ('PhoenixContact_MC_1,5_2-G-3.81_', ['STOP_RETURN','K1_COIL_PLUS']),
     ('receiver','J31'): ('PhoenixContact_MC_1,5_2-G-3.81_', ['J31_1','J31_2']),
     ('main','J21'): ('JST_XH_', ['PROBE_INLET','PROBE_ICOM']),
+    ('main','J41'): ('JST_XH_', ['PSU_5V_RAW','+5V','GND']),
+    ('panel','J2'): ('JST_GH_', ['START_N','GND','STOP_LOCAL_NC','STOP_RETURN','MAN_RETURN',
+                                'STOP_RETURN','RESET_N','GND','AUTO_RETURN','STOP_RETURN']),
+    ('panel','J7'): ('JST_PH_', ['I2C_SCL','I2C_SDA','GND','+3V3']),
     ('panel','J8'): ('JST_GH_', ['+5V','KEY_MAN_RAW','KEY_AUTO_RAW']),
     ('receiver','J2'): ('JST_PH_', ['ISO_0','HOST_LOGIC','LOCAL_LOGIC']),
     ('receiver','J3'): ('JST_PH_', ['ISO_5','ISO_0']),

@@ -43,21 +43,23 @@ def check_native(circuits):
     pins = {(n.get("ref"), n.get("pin")): net.get("name") for net in xml.findall(".//nets/net")
             for n in net.findall("node") if not net.get("name").startswith("unconnected-")}
     terminals = {
-        "SR1_INPUT": {"OEM_STOP_RELEASED":"S3 11 12", "OVERLOAD_HEALTHY":"S4 C NC",
+        "SR1_INPUT": {"USB_COVER_A":"SG1 11 12", "OEM_STOP_RELEASED":"S3 11 12", "OVERLOAD_HEALTHY":"S4 C NC",
                       "KV_IN_RANGE_NO":"KV1 11 14", "KC_IN_RANGE_NO":"KC1 11 14", "FLOAT_NC":"LS1 COM NC",
-                      "H_SEATED":"J3 5 6", "L_RELEASED":"J3 7 8", "HB_WINDOW_1_NO":"WD1 13 14","HB_WINDOW_2_NO":"WD1 19 20",
-                      "PANEL_RELAY_NO":"KPS1 33 34", "L_SEATED":"J3 9 10", "H_RELEASED":"J3 11 12"},
+                      "H_SEATED":"XF3 5 6", "L_RELEASED":"XF3 7 8", "HB_WINDOW_1_NO":"WD1 13 14","HB_WINDOW_2_NO":"WD1 19 20",
+                      "PANEL_RELAY_NO":"KPS1 33 34", "L_SEATED":"XF3 9 10", "H_RELEASED":"XF3 11 12"},
         "SR1_RESET":{"RESET_PRESSED":"S1 13 14"},
         "SR2_INPUT":{"SR1_13_14":"SR1 13 14", "SR2_33_34":"SR2 33 34",
                      "KS1_MIRROR_NC":"KS1 21 22", "KS2_MIRROR_NC":"KS2 21 22",
                      "OEM_OFF_PROOF":"KOF1 21 22","OEM_HOLD_RELEASED":"KHL1 61 62",
                      "OEM_COMMAND_PATH_OPEN":"KID1 15 18","OEM_START_RELEASED":"S5 C NC",
-                     "H_SEATED":"J3 13 14", "KCA_GUIDED_NC":"KCA1 11 12",
-                     "KCB_GUIDED_NC":"KCB1 11 12","L_SEATED":"J3 15 16"},
+                     "H_SEATED":"XF3 13 14", "KCA_GUIDED_NC":"KCA1 11 12",
+                     "KCB_GUIDED_NC":"KCB1 11 12","L_SEATED":"XF3 15 16"},
+        "SR2_INPUT_B":{"SR1_23_24":"SR1 23 24", "USB_COVER_B":"SG1 21 22"},
         "SR2_ENABLE":{"ENABLE_PRESSED":"S2 13 14"},
         "KS1_COIL":{"SR2_13_14":"SR2 13 14"}, "KS2_COIL":{"SR2_23_24":"SR2 23 24"},
-        "HOST_FEEDBACK":{"KS1_AUX_NO":"KS1 13 14", "KS2_AUX_NO":"KS2 13 14","H_SEATED":"J3 17 18"},
-        "J31":{"KFB_NO":"KFB1 4 8"}, "OEM_FEED":{"KS1_MAIN_NO":"KS1 1L1 2T1","KS2_MAIN_NO":"KS2 1L1 2T1"},
+        "HOST_FEEDBACK":{"KS1_AUX_NO":"KS1 13 14", "KS2_AUX_NO":"KS2 13 14","H_SEATED":"XF3 17 18"},
+        "J31":{"KFB_NO":"KFB1 4 8"}, "OEM_RETURN":{"ISOLATOR_N":"QISO1 N-IN N-OUT"},
+        "OEM_FEED":{"ISOLATOR_L":"QISO1 L-IN L-OUT","KS1_MAIN_NO":"KS1 1L1 2T1","KS2_MAIN_NO":"KS2 1L1 2T1"},
     }
     assert xml.find('.//components/comp[@ref="WD1"]/fields/field[@name="MPN"]').text == "DD2503"
     assert {pin: net for (ref,pin),net in pins.items() if ref == "WD1"} == {
@@ -66,13 +68,30 @@ def check_native(circuits):
     assert pins["F1","1"] == "FUSED_24" and pins["F1","2"] == "HB_24_FUSED"
     pilot_pins = {"R40":["PILOT_P","OPT_SENSE_A"],"R41":["OPT_SENSE_K","PILOT_D"],
                   "R42":["PILOT_D","OEM_CTRL_N"],"R43":["ID_TIMER_24","CAB_0"],
-                  "J10":["PILOT_P","PILOT_D","OEM_CTRL_N"],
+                  "XP10":["PILOT_P","PILOT_D","OEM_CTRL_N"],
                   "OC3":["OPT_SENSE_A","OPT_SENSE_K","FUSED_24","ID_TIMER_24"],
                   "D8":["OPT_SENSE_A","OPT_SENSE_K"]}
     for ref,nets in pilot_pins.items():
         assert [pins[ref,str(i+1)] for i in range(len(nets))]==nets
     assert pins["KID1","A1"]=="ID_TIMER_24" and pins["KID1","A2"]=="CAB_0"
     assert pins["KHL1","53"]=="PILOT_P" and pins["KHL1","54"]=="PILOT_D"
+    def pinmap(ref):
+        return {pin: net for (component,pin),net in pins.items() if component==ref}
+
+    for relay, source, suppressors in (("KPS1","PANEL_24",("D3","D9")),
+                                      ("KCA1","KCA_COIL",("D4",)), ("KCB1","KCB_COIL",("D5",))):
+        assert pins[relay,"0"] == source and pins[relay,"1"] == "CAB_0"
+        for suppressor in suppressors:
+            assert pinmap(suppressor) == {"1":source,"2":"CAB_0"}
+    assert pinmap("XC1") == {"1":"B_COM","2":"B_NO","3":"A_COM","4":"A_NO"}
+    assert pinmap("XM1") == {"1":"PROTECTED_LINE","2":"MOTOR_RETURN"}
+    assert pinmap("XM2") == {"1":"OEM_LINE","2":"MOTOR_RETURN"}
+    assert pinmap("XSG1") == {"1":"SR1_S11","2":"AFTER_USB_A","3":"SECOND_STAGE","4":"SR2_S22"}
+    assert pins["SR1","S12"] == pins["SR1","S22"] == "SR1_S12"
+    for pin in ("S11","S12","S21","S22","S34"):
+        assert pins["SR2",pin] == "SR2_" + pin
+    assert pinmap("QISO1") == {"L-IN":"BRANCH_LINE","L-OUT":"PROTECTED_LINE","N-IN":"BRANCH_NEUTRAL","N-OUT":"MOTOR_RETURN"}
+    assert xml.find('.//components/comp[@ref="AL1"]') is not None
     count=0
     for circuit, wire_list in circuits.items():
         for left, right, condition in wire_list:
@@ -87,17 +106,79 @@ def check_native(circuits):
 
 def input_sweep(circuits):
     count = 0
-    for flags in itertools.product((False, True), repeat=10):
-        stop, ol, kv, kc, hh, host, local, hb1, hb2, panel = flags
-        states = dict(OEM_STOP_RELEASED=stop, OVERLOAD_HEALTHY=ol,
+    for flags in itertools.product((False, True), repeat=11):
+        stop, ol, kv, kc, hh, host, local, hb1, hb2, panel, door = flags
+        states = dict(USB_COVER_A=door, OEM_STOP_RELEASED=stop, OVERLOAD_HEALTHY=ol,
                       KV_IN_RANGE_NO=kv, KC_IN_RANGE_NO=kc, FLOAT_NC=hh,
                       H_SEATED=host, L_SEATED=local, L_RELEASED=not local,
                       H_RELEASED=not host, HB_WINDOW_1_NO=hb1, HB_WINDOW_2_NO=hb2, PANEL_RELAY_NO=panel)
-        expected = (all((stop, ol, kv, kc, hh)) and host != local
+        expected = (all((stop, ol, kv, kc, hh, door)) and host != local
                     and (local or hb1 and hb2 and panel))
         assert conducts(circuits["SR1_INPUT"], "SR1.S11", "SR1.S12", states) == expected
         count += 1
     return count
+
+
+def stage2_continuity(c, state, bridges=()):
+    # The two opposite-polarity Pilz test circuits have physically independent
+    # sources. SR1 is visible here only through its wired output contacts.
+    network = c["SR2_INPUT"] + c["SR2_INPUT_B"] + [(a,b,"BYPASS") for a,b in bridges]
+    state = dict(state, BYPASS=True)
+    return (conducts(network, "SR2.S11", "SR2.S12", state),
+            conducts(network, "SR2.S21", "SR2.S22", state),
+            not conducts(network, "SR2.S11", "SR2.S21", state))
+
+
+def check_cascade_faults(c):
+    """Inject a copper bridge or a contact weld into a running, sealed circuit."""
+    exposed = ("SR2.S11","RUN_PERMITTED","SR2.S12","SR2.S21","SECOND_STAGE","SR2.S22")
+    bridges = [(pair,) for pair in itertools.combinations(exposed, 2)]
+    counts = defaultdict(int)
+    open_circuits = 0
+    for host, trip in itertools.product((False, True), ("FLOAT_NC","OEM_STOP_RELEASED","USB_ACCESS")):
+        running = {condition: True for wires in c.values() for _,_,condition in wires}
+        running.update(H_SEATED=host,L_SEATED=not host,L_RELEASED=host,H_RELEASED=not host,
+                       KS1_MIRROR_NC=False,KS2_MIRROR_NC=False,OEM_OFF_PROOF=False)
+        assert all(stage2_continuity(c, running))  # Already picked up and sealed.
+        for links, stuck_gate in [(b,None) for b in [()]+bridges] + [((),p) for p in ("USB_COVER_A","USB_COVER_B")]:
+            state = dict(running)
+            if trip == "USB_ACCESS":
+                state.update(USB_COVER_A=False,USB_COVER_B=False)
+            else:
+                state[trip] = False
+            if stuck_gate:
+                state[stuck_gate] = True
+            sr1 = conducts(c["SR1_INPUT"],"SR1.S11","SR1.S12",state)
+            state.update(SR1_13_14=sr1,SR1_23_24=sr1)
+            sr2 = all(stage2_continuity(c,state,links))
+            state.update(SR2_13_14=sr2,SR2_23_24=sr2)
+            k1 = conducts(c["KS1_COIL"],"FUSED_24","KS1.A1",state)
+            k2 = conducts(c["KS2_COIL"],"FUSED_24","KS2.A1",state)
+            state.update(KS1_MAIN_NO=k1,KS2_MAIN_NO=k2,KS1_AUX_NO=k1,KS2_AUX_NO=k2)
+            assert not sr2 and not k1 and not k2, (host,trip,links,stuck_gate)
+            assert not conducts(c["OEM_FEED"],"PROTECTED_LINE","OEM_LINE",state)
+            assert not conducts(c["HOST_FEEDBACK"],"FUSED_24","KFB.A1",state)
+            counts[trip] += 1
+        if trip == "USB_ACCESS":
+            # A disconnected service lead opens its pole while the shutter is shut.
+            for open_pole in ("USB_COVER_A","USB_COVER_B"):
+                state = dict(running)
+                state[open_pole] = False
+                sr1 = conducts(c["SR1_INPUT"],"SR1.S11","SR1.S12",state)
+                state.update(SR1_13_14=sr1,SR1_23_24=sr1)
+                assert not all(stage2_continuity(c,state))
+                open_circuits += 1
+        if trip == "FLOAT_NC":
+            # Reproduce R2 on channel A alone, with no software gate tied to SR1.
+            r2 = c["SR2_INPUT"] + [("SR2.S11","RUN_PERMITTED","BYPASS")]
+            assert conducts(r2,"SR2.S11","SR2.S12",dict(running,SR1_13_14=False,BYPASS=True))
+            # Two simultaneous independent bypasses defeat the new trip as expected.
+            assert all(stage2_continuity(c,dict(running,SR1_13_14=False,SR1_23_24=False),
+                                 [("SR2.S11","RUN_PERMITTED"),("SR2.S21","SECOND_STAGE")]))
+    return {"single_bridge_or_gate_contact_cases_by_demand":dict(counts),
+            "single_open_service_channel_by_mode":open_circuits,
+            "wire_nodes":exposed,"prior_single_channel_bypass_reproduced":True,
+            "dual_bypass_sensitivity_control_reproduced":True}
 
 
 def check_sequences(c):
@@ -106,7 +187,7 @@ def check_sequences(c):
     for host, fault, weld_a, weld_b, weld_ks1, weld_ks2 in itertools.product(
         (False, True),
         ("OEM_STOP_RELEASED", "OVERLOAD_HEALTHY", "KV_IN_RANGE_NO", "KC_IN_RANGE_NO",
-         "FLOAT_NC", "HB_WINDOW_1_NO", "HB_WINDOW_2_NO", "PANEL_RELAY_NO", "CABINET_24", "UNSEAT"),
+         "FLOAT_NC", "HB_WINDOW_1_NO", "HB_WINDOW_2_NO", "PANEL_RELAY_NO", "CABINET_24", "UNSEAT", "USB_ACCESS"),
         (False, True), (False, True), (False, True), (False, True)
     ):
         if weld_ks1 and weld_ks2:
@@ -114,23 +195,30 @@ def check_sequences(c):
         if not host and fault in ("HB_WINDOW_1_NO", "HB_WINDOW_2_NO", "PANEL_RELAY_NO"):
             continue  # service LOCAL physically isolates the board
         sr1 = sr2 = prev_sr1 = prev_sr2 = False
+        prev_ok1 = prev_ok2 = False
+        both_open_since_trip = True
         state = {condition: True for wires in c.values() for _, _, condition in wires}
         state.update(H_SEATED=host, H_RELEASED=not host, L_SEATED=not host, L_RELEASED=host,
                      RESET_PRESSED=False, ENABLE_PRESSED=False, CABINET_24=True,
                      SR2_33_34=False)
 
         def step(reset=False, enable=False):
-            nonlocal sr1, sr2, prev_sr1, prev_sr2
+            nonlocal sr1, sr2, prev_sr1, prev_sr2, both_open_since_trip, prev_ok1, prev_ok2
             state.update(RESET_PRESSED=reset, ENABLE_PRESSED=enable)
             ok1 = state["CABINET_24"] and conducts(c["SR1_INPUT"], "SR1.S11", "SR1.S12", state)
             request1 = conducts(c["SR1_RESET"], "SR1.S12", "SR1.S34", state)
-            sr1 = ok1 and (sr1 or request1 and not prev_sr1)
-            prev_sr1 = request1
-            state["SR1_13_14"] = sr1
-            ok2 = ok1 and conducts(c["SR2_INPUT"], "SR2.S11", "SR2.S12", state)
+            sr1 = ok1 and (sr1 or prev_ok1 and request1 and not prev_sr1)
+            prev_sr1, prev_ok1 = request1, ok1
+            state.update(SR1_13_14=sr1, SR1_23_24=sr1)
+            input_a, input_b, clean = stage2_continuity(c, state)
+            ok2 = state["CABINET_24"] and input_a and input_b and clean
+            if sr2 and not ok2:
+                both_open_since_trip = False
+            if not input_a and not input_b:
+                both_open_since_trip = True
             request2 = conducts(c["SR2_ENABLE"], "SR2.S12", "SR2.S34", state)
-            sr2 = ok2 and (sr2 or request2 and not prev_sr2)
-            prev_sr2 = request2
+            sr2 = ok2 and (sr2 or prev_ok2 and both_open_since_trip and request2 and not prev_sr2)
+            prev_sr2, prev_ok2 = request2, ok2
             state.update(SR2_13_14=sr2, SR2_23_24=sr2, SR2_33_34=sr2)
             coil1 = state["CABINET_24"] and conducts(c["KS1_COIL"], "FUSED_24", "KS1.A1", state)
             coil2 = state["CABINET_24"] and conducts(c["KS2_COIL"], "FUSED_24", "KS2.A1", state)
@@ -138,12 +226,21 @@ def check_sequences(c):
             state["KS2_MAIN_NO"] = coil2 or weld_ks2
             state.update(KS1_AUX_NO=coil1, KS2_AUX_NO=coil2)
             state["KFB_NO"] = state["CABINET_24"] and conducts(c["HOST_FEEDBACK"], "FUSED_24", "KFB.A1", state)
-            live = conducts(c["OEM_FEED"], "PROTECTED_LINE", "OEM_LINE", state)
+            live = (conducts(c["OEM_FEED"], "BRANCH_LINE", "OEM_LINE", state)
+                    and conducts(c["OEM_RETURN"], "BRANCH_NEUTRAL", "MOTOR_RETURN", state))
             fb = conducts(c["J31"], "J31.1", "J31.2", state)
             return live, fb
 
+        # Each step represents a settled interval. A held button on cold
+        # power-up, or a fresh ENABLE before SR1 has settled, supplies no
+        # qualifying monitored rising edge. Check simultaneous RESET+ENABLE.
+        assert step(reset=True,enable=True) == (False, False)
+        assert step(reset=True,enable=True) == (False, False)
+        assert not sr1 and not sr2
         assert step() == (False, False)
-        assert step(reset=True) == (False, False)
+        assert step(reset=True,enable=True) == (False, False)
+        assert sr1 and not sr2
+        assert step(enable=True) == (False, False)
         assert step() == (False, False)
         assert step(enable=True) == (True, host)
         # Inject a main-pole weld only after energization. Mirrors now report it.
@@ -151,6 +248,8 @@ def check_sequences(c):
                      KS1_MIRROR_NC=not weld_ks1, KS2_MIRROR_NC=not weld_ks2)
         if fault == "UNSEAT":
             state.update(H_SEATED=False, L_SEATED=False, H_RELEASED=True, L_RELEASED=True)
+        elif fault == "USB_ACCESS":
+            state.update(USB_COVER_A=False, USB_COVER_B=False)
         else:
             state[fault] = False
         assert step() == (False, False)
@@ -158,6 +257,8 @@ def check_sequences(c):
         assert step(reset=True) == (False, False)
         if fault == "UNSEAT":
             state.update(H_SEATED=host, L_SEATED=not host, H_RELEASED=not host, L_RELEASED=host)
+        elif fault == "USB_ACCESS":
+            state.update(USB_COVER_A=True, USB_COVER_B=True)
         else:
             state[fault] = True
         assert step(reset=True) == (False, False)
@@ -180,6 +281,89 @@ def check_sequences(c):
         assert step(enable=True) == (expected, expected and host)
         counts[fault] += 1
     return dict(sorted(counts.items()))
+
+
+def check_trapped_key(c):
+    # Explore all allowed exchange/door/cable orders. Keep both contactors
+    # conductive throughout to test isolation without any release-time premise.
+    def reachable(key_releases_on=False, door_closes_on_cable=False):
+        initial = (True,"QISO1",False,False)
+        seen, queue = {initial}, [initial]
+        while queue:
+            on, key, door, cable = queue.pop()
+            candidates = []
+            if key=="QISO1":
+                candidates.append((not on,key,door,cable))
+                if not on or key_releases_on:
+                    candidates.append((on,"in hand",door,cable))
+            elif key=="in hand":
+                candidates.extend([(on,"QISO1",door,cable),(on,"AL1",door,cable)])
+            else:
+                if not door:
+                    candidates.append((on,"in hand",door,cable))
+                    candidates.append((on,key,True,cable))
+                else:
+                    candidates.append((on,key,door,not cable))
+                    if not cable or door_closes_on_cable:
+                        candidates.append((on,key,False,cable))
+            for candidate in candidates:
+                if candidate not in seen:
+                    seen.add(candidate)
+                    queue.append(candidate)
+        return seen
+
+    def can_expose_energized_usb(states):
+        for on, key, door, plugged in states:
+            state = {condition:True for wires in c.values() for _,_,condition in wires}
+            state.update(ISOLATOR_L=on, ISOLATOR_N=on)
+            line = conducts(c["OEM_FEED"],"BRANCH_LINE","OEM_LINE",state)
+            neutral = conducts(c["OEM_RETURN"],"BRANCH_NEUTRAL","MOTOR_RETURN",state)
+            assert line==neutral==on
+            if (door or plugged) and (line or neutral):
+                return True
+        return False
+
+    states = reachable()
+    assert any(s[3] for s in states)
+    assert not can_expose_energized_usb(states)
+    assert can_expose_energized_usb(reachable(key_releases_on=True))
+    assert can_expose_energized_usb(reachable(door_closes_on_cable=True))
+    return {"reachable_mechanical_states":len(states),"contactors_held_closed":True,
+            "scope":"Isolator upstream of XM1 in both modes, independent of VBUS. QISO1/AL1 mechanical action and sole-key control require verification.",
+            "negative_controls_detected":["QISO1 releases key while on","AL1 can lock over an inserted cable"]}
+
+
+def check_dead_cable_restoration(c):
+    """All supply restoration orders with an installed, unpowered USB cable."""
+    sources = ("motor_branch","pilot","cabinet","main_logic")
+    observations = 0
+    for host, stuck, order in itertools.product((False,True),("neither","A","B"),itertools.permutations(sources)):
+        power = {s:False for s in sources}
+        for source in order:
+            power[source] = True
+            # Cable blocks the shutter, AL1 holds the unique key, QISO1 is
+            # positively open. Grant all commands and manual edges immediately
+            # whenever their hardwired inputs permit, even before real delays.
+            state = {condition:True for wires in c.values() for _,_,condition in wires}
+            state.update(USB_COVER_A=stuck=="A",USB_COVER_B=stuck=="B",
+                         ISOLATOR_L=False, ISOLATOR_N=False,
+                         H_SEATED=host,L_RELEASED=host,L_SEATED=not host,H_RELEASED=not host,
+                         KC_IN_RANGE_NO=power["pilot"],
+                         HB_WINDOW_1_NO=power["main_logic"],HB_WINDOW_2_NO=power["main_logic"],
+                         PANEL_RELAY_NO=power["main_logic"],SR2_33_34=True)
+            # Stress the gate contacts independently of KV reaction time. A
+            # temporarily retained healthy indication cannot bypass the shutter.
+            state["KV_IN_RANGE_NO"] = power["motor_branch"]
+            sr1 = power["cabinet"] and conducts(c["SR1_INPUT"],"SR1.S11","SR1.S12",state)
+            state.update(SR1_13_14=sr1,SR1_23_24=sr1)
+            assert not (power["cabinet"] and all(stage2_continuity(c,state)))
+            # Power-side proof assuming both KS main poles retained/welded.
+            assert not conducts(c["OEM_FEED"],"BRANCH_LINE","OEM_LINE",state)
+            assert not conducts(c["OEM_RETURN"],"BRANCH_NEUTRAL","MOTOR_RETURN",state)
+            observations += 1
+    return {"restoration_orders_per_mode_and_gate_fault":24,"sampled_supply_states":observations,
+            "cable":"Inserted with VBUS at 0 V. A separately supplied main board can energize its command rail.",
+            "result":"No SR2 permission, including with either SG1 contact bridged. Both QISO1 poles remain open with both KS main contacts retained. Physical key exchange/plug capture is assumed."}
 
 
 def check_oem_pickup_proofs(circuits):
@@ -312,6 +496,9 @@ if __name__ == "__main__":
         "contact_netlist_sha256": hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
         "field_schematic":check_native(circuit),
         "input_combinations": input_sweep(circuit),
+        "interstage_shorts":check_cascade_faults(circuit),
+        "trapped_key_service":check_trapped_key(circuit),
+        "dead_cable_restoration":check_dead_cable_restoration(circuit),
         "oem_pickup_restoration_cases":check_oem_pickup_proofs(circuit),
         "trip_and_rearm_sequences_by_fault": check_sequences(circuit),
         "receiver_tolerance_corners": check_receiver(),

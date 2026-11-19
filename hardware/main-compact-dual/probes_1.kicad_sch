@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "a17580d2-bfb9-50f5-a270-3297c5a03f9b")
 (paper "A3")
-(title_block (title "AC conductive probe interface - prototype / 1") (rev "COMPACT-DUAL-GUARD-R2") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "AC conductive probe interface - prototype / 1") (rev "COMPACT-DUAL-GUARD-R3") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:U20"
 (pin_names (offset 0.508))

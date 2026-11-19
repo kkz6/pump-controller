@@ -1,5 +1,5 @@
 {
-  "board_sha256": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
+  "board_sha256": "d211549d9f128d36ca47cd313a6e9e0a5a9278a3c7f11ff3fca4f39272093161",
   "kicad_version": "10.0.8",
   "method": "Land-edge distances follow same-face track centrelines outside endpoint copper. Centre-to-centre figures include the distance through each land to its centre. Ground vias must meet filled In1.Cu copper. Figures exclude barrel length, component-internal leads and assembled parasitics.",
   "adum_criterion": "Both PCB leads together <=2 mm between package terminal witnesses allowing \u00b10.04 mm effective registration per component on each axis. Verify registration on first articles. ADuM6421A Rev. C pp.29,32 and Murata GRM155R71C104KA88-01 dimensional drawing.",

@@ -2,13 +2,13 @@
 <export version="E">
   <design>
     <source>hardware/main-compact-dual/pump-controller-compact.kicad_sch</source>
-    <date>2026-11-19T21:35:42</date>
+    <date>2026-11-19T23:10:40</date>
     <tool>Eeschema 10.0.8</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Compact controller with independent starter guard</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>pump-controller-compact.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -26,7 +26,7 @@
       <title_block>
         <title>Isolated AC input, 5 V and 3.3 V supplies</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>power.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -44,7 +44,7 @@
       <title_block>
         <title>ESP32-C6 Matter controller and service interface</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>mcu.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -62,7 +62,7 @@
       <title_block>
         <title>Single-phase metering - LIVE DOMAIN</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>meter_ic.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -80,7 +80,7 @@
       <title_block>
         <title>Meter voltage and current inputs - LIVE DOMAIN</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>meter_inputs.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -98,7 +98,7 @@
       <title_block>
         <title>Meter isolation - power and SPI</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>meter_isolation.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -116,7 +116,7 @@
       <title_block>
         <title>Relay drivers and independent watchdog / 1</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>relay_protection_1.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -134,7 +134,7 @@
       <title_block>
         <title>Relay drivers and independent watchdog / 2</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>relay_protection_2.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -148,11 +148,11 @@
         <comment number="9" value=""/>
       </title_block>
     </sheet>
-    <sheet number="9" name="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/">
+    <sheet number="9" name="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/">
       <title_block>
-        <title>Rev E GH12 panel interface / 1</title>
+        <title>Panel F GH12 control interface / 1</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>local_controls_1.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -170,7 +170,7 @@
       <title_block>
         <title>OLED and manual transfer position feedback</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>local_controls_2.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -188,7 +188,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 1</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>probes_1.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -206,7 +206,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 2</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>probes_2.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -224,7 +224,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 3</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>probes_3.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -242,7 +242,7 @@
       <title_block>
         <title>AC conductive probe interface - prototype / 4</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>probes_4.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -260,7 +260,7 @@
       <title_block>
         <title>Power-source declarations for electrical-rule checking</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>power_flags.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -278,7 +278,7 @@
       <title_block>
         <title>Four corner mounts and edge support</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>mechanical.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
@@ -296,9 +296,45 @@
       <title_block>
         <title>STOP, MODE and NEXT input conditioning</title>
         <company>1 HP single-phase pump controller</company>
-        <rev>COMPACT-DUAL-GUARD-R2</rev>
+        <rev>COMPACT-DUAL-GUARD-R3</rev>
         <date/>
         <source>controls_conditioning.kicad_sch</source>
+        <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="18" name="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/">
+      <title_block>
+        <title>USB Type-C data, ESD protection and cable detection</title>
+        <company>1 HP single-phase pump controller</company>
+        <rev>COMPACT-DUAL-GUARD-R3-DRAFT</rev>
+        <date/>
+        <source>usb_service.kicad_sch</source>
+        <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="19" name="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/">
+      <title_block>
+        <title>Motor command inhibit and keyed bench supply</title>
+        <company>1 HP single-phase pump controller</company>
+        <rev>COMPACT-DUAL-GUARD-R3-DRAFT</rev>
+        <date/>
+        <source>service_inhibit.kicad_sch</source>
         <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
@@ -493,17 +529,17 @@
     </comp>
     <comp ref="J1">
       <value>AC INPUT L/N</value>
-      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
-      <datasheet>https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-15-2-508-1715721</datasheet>
-      <description>Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2</description>
+      <footprint>CompactGuard:TerminalBlock_MetzConnect_Type171_RT13702HBWC_1x02_P7.50mm_Horizontal</footprint>
+      <datasheet>https://www.metz-connect.com/externalfiles/311711/863694.PDF</datasheet>
+      <description>METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral.</description>
       <fields>
-        <field name="MPN">1715721</field>
-        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
-        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-15-2-508-1715721</field>
-        <field name="Description">Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2</field>
+        <field name="MPN">31171102 (RT13702HBWC)</field>
+        <field name="Footprint">CompactGuard:TerminalBlock_MetzConnect_Type171_RT13702HBWC_1x02_P7.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.metz-connect.com/externalfiles/311711/863694.PDF</field>
+        <field name="Description">METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral.</field>
       </fields>
-      <libsource lib="Pump" part="J1" description="Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2"/>
-      <property name="MPN" value="1715721"/>
+      <libsource lib="Pump" part="J1" description="METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral."/>
+      <property name="MPN" value="31171102 (RT13702HBWC)"/>
       <property name="Sheetname" value="Isolated AC input, 5 V and 3.3 V supplies"/>
       <property name="Sheetfile" value="power.kicad_sch"/>
       <sheetpath names="/Isolated AC input, 5 V and 3.3 V supplies/" tstamps="/2fdbcb1f-0be1-56c2-ab88-951d933bb0c4/"/>
@@ -758,17 +794,17 @@
       </units>
     </comp>
     <comp ref="J2">
-      <value>SERVICE 2x4 2.54mm</value>
-      <footprint>Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical</footprint>
-      <description>Internal2.54mm service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.</description>
+      <value>SERVICE 2x3</value>
+      <footprint>CompactGuard:PinHeader_2x03_P2.54mm_Vertical</footprint>
+      <description>SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40.</description>
       <fields>
-        <field name="MPN">SPEC:2x4 2.54mm vertical header,0.64mm square posts</field>
-        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical</field>
+        <field name="MPN">Samtec TSW-103-07-G-D</field>
+        <field name="Footprint">CompactGuard:PinHeader_2x03_P2.54mm_Vertical</field>
         <field name="Datasheet"/>
-        <field name="Description">Internal2.54mm service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.</field>
+        <field name="Description">SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40.</field>
       </fields>
-      <libsource lib="Pump" part="J2" description="Internal2.54mm service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins."/>
-      <property name="MPN" value="SPEC:2x4 2.54mm vertical header,0.64mm square posts"/>
+      <libsource lib="Pump" part="J2" description="SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40."/>
+      <property name="MPN" value="Samtec TSW-103-07-G-D"/>
       <property name="Sheetname" value="ESP32-C6 Matter controller and service interface"/>
       <property name="Sheetfile" value="mcu.kicad_sch"/>
       <sheetpath names="/ESP32-C6 Matter controller and service interface/" tstamps="/ecb4b218-235a-5ad0-997d-fa1b29440435/"/>
@@ -782,8 +818,6 @@
             <pin num="4"/>
             <pin num="5"/>
             <pin num="6"/>
-            <pin num="7"/>
-            <pin num="8"/>
           </pins>
         </unit>
       </units>
@@ -1470,17 +1504,18 @@
       </units>
     </comp>
     <comp ref="C51">
-      <value>33nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>C0G, 5%, 50V</description>
+      <value>33nF 50V C0G 5%</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</datasheet>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
       <fields>
-        <field name="MPN">SPEC: 33nF C0G, 5%, 50V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="MPN">C2012C0G1H333J125AA</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
-      <libsource lib="Pump" part="C51" description="C0G, 5%, 50V"/>
-      <property name="MPN" value="SPEC: 33nF C0G, 5%, 50V"/>
+      <libsource lib="Pump" part="C51" description="TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."/>
+      <property name="MPN" value="C2012C0G1H333J125AA"/>
       <property name="Sheetname" value="Meter voltage and current inputs - LIVE DOMAIN"/>
       <property name="Sheetfile" value="meter_inputs.kicad_sch"/>
       <sheetpath names="/Meter voltage and current inputs - LIVE DOMAIN/" tstamps="/c21b7c14-c199-5afb-afb5-c61a1a5a97bb/"/>
@@ -1495,17 +1530,18 @@
       </units>
     </comp>
     <comp ref="C52">
-      <value>33nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>C0G, 5%, 50V</description>
+      <value>33nF 50V C0G 5%</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</datasheet>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
       <fields>
-        <field name="MPN">SPEC: 33nF C0G, 5%, 50V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="MPN">C2012C0G1H333J125AA</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
-      <libsource lib="Pump" part="C52" description="C0G, 5%, 50V"/>
-      <property name="MPN" value="SPEC: 33nF C0G, 5%, 50V"/>
+      <libsource lib="Pump" part="C52" description="TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."/>
+      <property name="MPN" value="C2012C0G1H333J125AA"/>
       <property name="Sheetname" value="Meter voltage and current inputs - LIVE DOMAIN"/>
       <property name="Sheetfile" value="meter_inputs.kicad_sch"/>
       <sheetpath names="/Meter voltage and current inputs - LIVE DOMAIN/" tstamps="/c21b7c14-c199-5afb-afb5-c61a1a5a97bb/"/>
@@ -1520,17 +1556,18 @@
       </units>
     </comp>
     <comp ref="C53">
-      <value>33nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>C0G, 5%, 50V</description>
+      <value>33nF 50V C0G 5%</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</datasheet>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
       <fields>
-        <field name="MPN">SPEC: 33nF C0G, 5%, 50V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="MPN">C2012C0G1H333J125AA</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
-      <libsource lib="Pump" part="C53" description="C0G, 5%, 50V"/>
-      <property name="MPN" value="SPEC: 33nF C0G, 5%, 50V"/>
+      <libsource lib="Pump" part="C53" description="TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."/>
+      <property name="MPN" value="C2012C0G1H333J125AA"/>
       <property name="Sheetname" value="Meter voltage and current inputs - LIVE DOMAIN"/>
       <property name="Sheetfile" value="meter_inputs.kicad_sch"/>
       <sheetpath names="/Meter voltage and current inputs - LIVE DOMAIN/" tstamps="/c21b7c14-c199-5afb-afb5-c61a1a5a97bb/"/>
@@ -1545,17 +1582,18 @@
       </units>
     </comp>
     <comp ref="C54">
-      <value>33nF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
-      <description>C0G, 5%, 50V</description>
+      <value>33nF 50V C0G 5%</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</datasheet>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
       <fields>
-        <field name="MPN">SPEC: 33nF C0G, 5%, 50V</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="MPN">C2012C0G1H333J125AA</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
-      <libsource lib="Pump" part="C54" description="C0G, 5%, 50V"/>
-      <property name="MPN" value="SPEC: 33nF C0G, 5%, 50V"/>
+      <libsource lib="Pump" part="C54" description="TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."/>
+      <property name="MPN" value="C2012C0G1H333J125AA"/>
       <property name="Sheetname" value="Meter voltage and current inputs - LIVE DOMAIN"/>
       <property name="Sheetfile" value="meter_inputs.kicad_sch"/>
       <sheetpath names="/Meter voltage and current inputs - LIVE DOMAIN/" tstamps="/c21b7c14-c199-5afb-afb5-c61a1a5a97bb/"/>
@@ -3094,9 +3132,9 @@
       </fields>
       <libsource lib="Pump" part="C73" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>afb71a32-74bb-54e2-8841-3d2218afd45f</tstamps>
       <units>
         <unit name="A">
@@ -3119,9 +3157,9 @@
       </fields>
       <libsource lib="Pump" part="C74" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 1uF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>865d3a37-ea0c-5589-8089-059b6b0a0f0c</tstamps>
       <units>
         <unit name="A">
@@ -3144,9 +3182,9 @@
       </fields>
       <libsource lib="Pump" part="C80" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>74eac0cd-8679-5da8-b55b-0853ddd21efd</tstamps>
       <units>
         <unit name="A">
@@ -3169,9 +3207,9 @@
       </fields>
       <libsource lib="Pump" part="C82" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>71a854fb-9328-5841-9c82-98d95555e5c9</tstamps>
       <units>
         <unit name="A">
@@ -3194,9 +3232,9 @@
       </fields>
       <libsource lib="Pump" part="C84" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>b49ac333-6bc2-5d95-9316-7eb8fa29408f</tstamps>
       <units>
         <unit name="A">
@@ -3219,9 +3257,9 @@
       </fields>
       <libsource lib="Pump" part="C86" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>a6c26cc0-c780-5aef-b719-0a226bae1942</tstamps>
       <units>
         <unit name="A">
@@ -3244,9 +3282,9 @@
       </fields>
       <libsource lib="Pump" part="C88" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>f2306edb-8451-5e9f-8135-faccf7ae5378</tstamps>
       <units>
         <unit name="A">
@@ -3269,9 +3307,9 @@
       </fields>
       <libsource lib="Pump" part="C90" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>b53fce06-eed9-5d21-9e53-cbc22dbc8b4c</tstamps>
       <units>
         <unit name="A">
@@ -3295,9 +3333,9 @@
       </fields>
       <libsource lib="Pump" part="J32" description="Keyed1:1 twelve-way harness to panelJ1. Isolated low voltage only. STOP opens hardware permit; no mains contacts on this harness. Not hot-pluggable."/>
       <property name="MPN" value="SM12B-GHS-TB(LF)(SN)"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>1bde49b3-847e-543c-8640-f6c73cefee17</tstamps>
       <units>
         <unit name="A">
@@ -3331,9 +3369,9 @@
       </fields>
       <libsource lib="Pump" part="R80" description="Series input resistor for 10k/33k raw divider into U37 Schmitt buffer; not a direct U33 input."/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>efe92e3b-2fd3-5941-988a-6b7337292821</tstamps>
       <units>
         <unit name="A">
@@ -3356,9 +3394,9 @@
       </fields>
       <libsource lib="Pump" part="R81" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 33k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>2cfba62c-0770-5eb2-a7b5-016c247b2f75</tstamps>
       <units>
         <unit name="A">
@@ -3381,9 +3419,9 @@
       </fields>
       <libsource lib="Pump" part="R82" description="Series input resistor for 10k/33k raw divider into U37 Schmitt buffer; not a direct U33 input."/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>7ad80a9c-ca05-5c91-b024-564c2a18af61</tstamps>
       <units>
         <unit name="A">
@@ -3406,9 +3444,9 @@
       </fields>
       <libsource lib="Pump" part="R83" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 33k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>9a0f479f-827a-5dea-bd8d-9af58b9e4001</tstamps>
       <units>
         <unit name="A">
@@ -3431,9 +3469,9 @@
       </fields>
       <libsource lib="Pump" part="R84" description="Series input resistor for 10k/33k raw divider into U37 Schmitt buffer; not a direct U33 input."/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>1cc6aab5-cfb2-5a74-b7d9-5af582d40ce6</tstamps>
       <units>
         <unit name="A">
@@ -3456,9 +3494,9 @@
       </fields>
       <libsource lib="Pump" part="R85" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 33k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>fdec197e-9aad-55e4-a8be-7830be9ebdcc</tstamps>
       <units>
         <unit name="A">
@@ -3481,9 +3519,9 @@
       </fields>
       <libsource lib="Pump" part="R86" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 22k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>31c88253-e678-5439-a784-5c9eddef46c8</tstamps>
       <units>
         <unit name="A">
@@ -3506,9 +3544,9 @@
       </fields>
       <libsource lib="Pump" part="R87" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 100k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>ce7071bb-3fb5-58ba-b074-de6f4bedccc7</tstamps>
       <units>
         <unit name="A">
@@ -3531,9 +3569,9 @@
       </fields>
       <libsource lib="Pump" part="R88" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 1k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>4c0f8d5b-6102-57f8-b46b-575dcb045dee</tstamps>
       <units>
         <unit name="A">
@@ -3556,9 +3594,9 @@
       </fields>
       <libsource lib="Pump" part="R89" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>9cd89d58-2c06-5af8-ae77-c47361e8c8e0</tstamps>
       <units>
         <unit name="A">
@@ -3581,9 +3619,9 @@
       </fields>
       <libsource lib="Pump" part="R90" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 1k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>60714add-51f9-5670-a672-db1251e56b9f</tstamps>
       <units>
         <unit name="A">
@@ -3606,9 +3644,9 @@
       </fields>
       <libsource lib="Pump" part="R91" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>08ec0067-fd8f-5e3d-8c9e-bcf03be56ab0</tstamps>
       <units>
         <unit name="A">
@@ -3631,9 +3669,9 @@
       </fields>
       <libsource lib="Pump" part="R92" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 100k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>f9b736ba-e016-59c1-b0f1-5052cc4c555b</tstamps>
       <units>
         <unit name="A">
@@ -3656,9 +3694,9 @@
       </fields>
       <libsource lib="Pump" part="R93" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 100k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>c3a75c9b-ad64-5884-a0af-b21d0dc7857d</tstamps>
       <units>
         <unit name="A">
@@ -3682,9 +3720,9 @@
       </fields>
       <libsource lib="Pump" part="U33" description="MCP23017 at I2C address 0x20, 400 kHz. Use GPB0 through GPB6 and GPA0 as control inputs. AUTO key on GPA0. GPB7 drives START CMD and GPA7 drives STOP CMD. Clear both output latches before configuring these pins as outputs. Disable pull-ups on both key inputs. HOST_N and LOCAL_N read the seated transfer plug through separate isolated-side position contacts."/>
       <property name="MPN" value="MCP23017-E/SS"/>
-      <property name="Sheetname" value="Rev E GH12 panel interface / 1"/>
+      <property name="Sheetname" value="Panel F GH12 control interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Rev E GH12 panel interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
+      <sheetpath names="/Panel F GH12 control interface / 1/" tstamps="/8ad1224e-5ca7-50b3-b32f-db6184be50ab/"/>
       <tstamps>a08292e5-7613-5770-96eb-4405408c84af</tstamps>
       <units>
         <unit name="A">
@@ -6315,6 +6353,443 @@
         </unit>
       </units>
     </comp>
+    <comp ref="C241">
+      <value>100nF 16V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Local supply decoupling.</description>
+      <fields>
+        <field name="MPN">GRM188R71C104KA01D</field>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Local supply decoupling.</field>
+      </fields>
+      <libsource lib="Pump" part="C241" description="Local supply decoupling."/>
+      <property name="MPN" value="GRM188R71C104KA01D"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>62ad1a89-fc4d-5ec0-8a2c-50b4b057afcd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D42">
+      <value>USB ESD</value>
+      <footprint>CompactGuard:SOT-23-6</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/usblc6-2.pdf</datasheet>
+      <description>ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device.</description>
+      <fields>
+        <field name="MPN">USBLC6-2SC6</field>
+        <field name="Footprint">CompactGuard:SOT-23-6</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/usblc6-2.pdf</field>
+        <field name="Description">ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device.</field>
+      </fields>
+      <libsource lib="Pump" part="D42" description="ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device."/>
+      <property name="MPN" value="USBLC6-2SC6"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>b17191be-f75a-5688-8654-82f6a4174ef4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D43">
+      <value>CLAMP REFERENCE BLOCK</value>
+      <footprint>CompactGuard:D_SOD-123F</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/BAS116H.pdf</datasheet>
+      <description>Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug.</description>
+      <fields>
+        <field name="MPN">BAS116H,115</field>
+        <field name="Footprint">CompactGuard:D_SOD-123F</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/BAS116H.pdf</field>
+        <field name="Description">Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug.</field>
+      </fields>
+      <libsource lib="Pump" part="D43" description="Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug."/>
+      <property name="MPN" value="BAS116H,115"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>adc6e84d-087d-586d-a717-f0b2b68e9f75</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D44">
+      <value>VBUS TVS 6V</value>
+      <footprint>CompactGuard:D_SOD-123F</footprint>
+      <datasheet>https://www.littelfuse.com/products/overvoltage-protection/tvs-diodes/surface-mount/smf/smf6-0a</datasheet>
+      <description>Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40.</description>
+      <fields>
+        <field name="MPN">SMF6.0A</field>
+        <field name="Footprint">CompactGuard:D_SOD-123F</field>
+        <field name="Datasheet">https://www.littelfuse.com/products/overvoltage-protection/tvs-diodes/surface-mount/smf/smf6-0a</field>
+        <field name="Description">Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40.</field>
+      </fields>
+      <libsource lib="Pump" part="D44" description="Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40."/>
+      <property name="MPN" value="SMF6.0A"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>11a06e8d-e032-5d3d-a473-87ce9012e26d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J40">
+      <value>USB-C DATA / SERVICE</value>
+      <footprint>CompactGuard:USB_C_GCT_USB4110_12Lands</footprint>
+      <datasheet>https://gct.co/files/drawings/usb4110.pdf</datasheet>
+      <description>GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover.</description>
+      <fields>
+        <field name="MPN">USB4110-GF-A</field>
+        <field name="Footprint">CompactGuard:USB_C_GCT_USB4110_12Lands</field>
+        <field name="Datasheet">https://gct.co/files/drawings/usb4110.pdf</field>
+        <field name="Description">GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover.</field>
+      </fields>
+      <libsource lib="Pump" part="J40" description="GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover."/>
+      <property name="MPN" value="USB4110-GF-A"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>b0057f4a-7a10-563e-a1bc-dd3abbe59da9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="A1"/>
+            <pin num="A4"/>
+            <pin num="A5"/>
+            <pin num="A6"/>
+            <pin num="A7"/>
+            <pin num="A8"/>
+            <pin num="A9"/>
+            <pin num="A12"/>
+            <pin num="B5"/>
+            <pin num="B6"/>
+            <pin num="B7"/>
+            <pin num="B8"/>
+            <pin num="SH"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R240">
+      <value>5.1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>CC1 termination</description>
+      <fields>
+        <field name="MPN">RC0603FR-075K1L</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">CC1 termination</field>
+      </fields>
+      <libsource lib="Pump" part="R240" description="CC1 termination"/>
+      <property name="MPN" value="RC0603FR-075K1L"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>130d3183-923a-57ac-9b0e-1233dab5c540</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R241">
+      <value>5.1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>CC2 termination</description>
+      <fields>
+        <field name="MPN">RC0603FR-075K1L</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">CC2 termination</field>
+      </fields>
+      <libsource lib="Pump" part="R241" description="CC2 termination"/>
+      <property name="MPN" value="RC0603FR-075K1L"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>ae5329ac-56cc-5fcb-8306-b429a3f2cccd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U41">
+      <value>USB DATA SWITCH</value>
+      <footprint>CompactGuard:MSOP-10_3x3mm_P0.5mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/ts3usb30e.pdf</datasheet>
+      <description>TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths.</description>
+      <fields>
+        <field name="MPN">TS3USB30EDGSR</field>
+        <field name="Footprint">CompactGuard:MSOP-10_3x3mm_P0.5mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/ts3usb30e.pdf</field>
+        <field name="Description">TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths.</field>
+      </fields>
+      <libsource lib="Pump" part="U41" description="TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths."/>
+      <property name="MPN" value="TS3USB30EDGSR"/>
+      <property name="Sheetname" value="USB Type-C data, ESD protection and cable detection"/>
+      <property name="Sheetfile" value="usb_service.kicad_sch"/>
+      <sheetpath names="/USB Type-C data, ESD protection and cable detection/" tstamps="/c95332e7-ff2f-5248-9bb0-db82e9eb9e8b/"/>
+      <tstamps>d6665bd4-16be-5b5a-80e7-087381d2a3cb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C240">
+      <value>1uF 16V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Local supply decoupling.</description>
+      <fields>
+        <field name="MPN">GRM188R71C105KA12D</field>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Local supply decoupling.</field>
+      </fields>
+      <libsource lib="Pump" part="C240" description="Local supply decoupling."/>
+      <property name="MPN" value="GRM188R71C105KA12D"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>7aa88bf5-55b9-5a13-9e38-b56ed6b83b12</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C242">
+      <value>100nF 16V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Local supply decoupling.</description>
+      <fields>
+        <field name="MPN">GRM188R71C104KA01D</field>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Local supply decoupling.</field>
+      </fields>
+      <libsource lib="Pump" part="C242" description="Local supply decoupling."/>
+      <property name="MPN" value="GRM188R71C104KA01D"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>9ddf21c3-0294-55a7-b827-bb5ca250e411</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J41">
+      <value>RUN LINK / BENCH 5V</value>
+      <footprint>CompactGuard:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical</footprint>
+      <datasheet>https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</datasheet>
+      <description>JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6.</description>
+      <fields>
+        <field name="MPN">B3B-XH-A(LF)(SN)</field>
+        <field name="Footprint">CompactGuard:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical</field>
+        <field name="Datasheet">https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</field>
+        <field name="Description">JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6.</field>
+      </fields>
+      <libsource lib="Pump" part="J41" description="JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6."/>
+      <property name="MPN" value="B3B-XH-A(LF)(SN)"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>9f32e3d5-8ba3-5202-94e2-8fe304a2fdbd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q40">
+      <value>VBUS INHIBIT</value>
+      <footprint>CompactGuard:SOT-23</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/PMV16XN.pdf</datasheet>
+      <description>Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V.</description>
+      <fields>
+        <field name="MPN">PMV16XNR</field>
+        <field name="Footprint">CompactGuard:SOT-23</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/PMV16XN.pdf</field>
+        <field name="Description">Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V.</field>
+      </fields>
+      <libsource lib="Pump" part="Q40" description="Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V."/>
+      <property name="MPN" value="PMV16XNR"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>d2793445-3359-54b5-adad-3bfe5ed22333</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R242">
+      <value>1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Gate series</description>
+      <fields>
+        <field name="MPN">RC0603FR-071KL</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Gate series</field>
+      </fields>
+      <libsource lib="Pump" part="R242" description="Gate series"/>
+      <property name="MPN" value="RC0603FR-071KL"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>372b7566-09ff-57e1-90ec-1ed42958349a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R243">
+      <value>47k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Gate pulldown</description>
+      <fields>
+        <field name="MPN">RC0603FR-0747KL</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Gate pulldown</field>
+      </fields>
+      <libsource lib="Pump" part="R243" description="Gate pulldown"/>
+      <property name="MPN" value="RC0603FR-0747KL"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>c4543ae3-2f78-5625-9463-3390161a6612</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R244">
+      <value>10k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Inhibit pull-up</description>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Inhibit pull-up</field>
+      </fields>
+      <libsource lib="Pump" part="R244" description="Inhibit pull-up"/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>f1324814-bc9d-53fb-beda-a858ceff29d5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U40">
+      <value>USB MOTOR INHIBIT</value>
+      <footprint>CompactGuard:SOT-363_SC-70-6</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps22919.pdf</datasheet>
+      <description>VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT.</description>
+      <fields>
+        <field name="MPN">TPS22919DCKR</field>
+        <field name="Footprint">CompactGuard:SOT-363_SC-70-6</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps22919.pdf</field>
+        <field name="Description">VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT.</field>
+      </fields>
+      <libsource lib="Pump" part="U40" description="VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT."/>
+      <property name="MPN" value="TPS22919DCKR"/>
+      <property name="Sheetname" value="Motor command inhibit and keyed bench supply"/>
+      <property name="Sheetfile" value="service_inhibit.kicad_sch"/>
+      <sheetpath names="/Motor command inhibit and keyed bench supply/" tstamps="/a4569eba-a07f-5b23-895a-d7f85064c1d2/"/>
+      <tstamps>d691fcf1-fd6e-563b-93c8-63895924af1a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
   </components>
   <libparts>
     <libpart lib="Pump" part="C1">
@@ -6733,6 +7208,48 @@
         <pin num="2" name="" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Pump" part="C240">
+      <description>Local supply decoupling.</description>
+      <fields>
+        <field name="Reference">C240</field>
+        <field name="Value">1uF 16V X7R</field>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Local supply decoupling.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="C241">
+      <description>Local supply decoupling.</description>
+      <fields>
+        <field name="Reference">C241</field>
+        <field name="Value">100nF 16V X7R</field>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Local supply decoupling.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="C242">
+      <description>Local supply decoupling.</description>
+      <fields>
+        <field name="Reference">C242</field>
+        <field name="Value">100nF 16V X7R</field>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Local supply decoupling.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Pump" part="C3">
       <description>TDK 1210, 22 uF, 16 V X7R, 20%. Buck VIN bypass. Verify at least 10 uF effective at operating bias and temperature.</description>
       <docs>https://product.tdk.com/info/en/documents/chara_sheet/c3225x7r1c226m250ac.pdf</docs>
@@ -6932,13 +7449,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C51">
-      <description>C0G, 5%, 50V</description>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
+      <docs>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</docs>
       <fields>
         <field name="Reference">C51</field>
-        <field name="Value">33nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="Value">33nF 50V C0G 5%</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6946,13 +7464,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C52">
-      <description>C0G, 5%, 50V</description>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
+      <docs>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</docs>
       <fields>
         <field name="Reference">C52</field>
-        <field name="Value">33nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="Value">33nF 50V C0G 5%</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6960,13 +7479,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C53">
-      <description>C0G, 5%, 50V</description>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
+      <docs>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</docs>
       <fields>
         <field name="Reference">C53</field>
-        <field name="Value">33nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="Value">33nF 50V C0G 5%</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -6974,13 +7494,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="C54">
-      <description>C0G, 5%, 50V</description>
+      <description>TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</description>
+      <docs>https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</docs>
       <fields>
         <field name="Reference">C54</field>
-        <field name="Value">33nF</field>
-        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description">C0G, 5%, 50V</field>
+        <field name="Value">33nF 50V C0G 5%</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA</field>
+        <field name="Description">TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -7637,6 +8158,55 @@
         <pin num="2" name="" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Pump" part="D42">
+      <description>ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device.</description>
+      <docs>https://www.st.com/resource/en/datasheet/usblc6-2.pdf</docs>
+      <fields>
+        <field name="Reference">D42</field>
+        <field name="Value">USB ESD</field>
+        <field name="Footprint">CompactGuard:SOT-23-6</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/usblc6-2.pdf</field>
+        <field name="Description">ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IO1" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="IO2" type="passive"/>
+        <pin num="4" name="IO2" type="passive"/>
+        <pin num="5" name="VBUS" type="passive"/>
+        <pin num="6" name="IO1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D43">
+      <description>Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug.</description>
+      <docs>https://assets.nexperia.com/documents/data-sheet/BAS116H.pdf</docs>
+      <fields>
+        <field name="Reference">D43</field>
+        <field name="Value">CLAMP REFERENCE BLOCK</field>
+        <field name="Footprint">CompactGuard:D_SOD-123F</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/BAS116H.pdf</field>
+        <field name="Description">Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D44">
+      <description>Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40.</description>
+      <docs>https://www.littelfuse.com/products/overvoltage-protection/tvs-diodes/surface-mount/smf/smf6-0a</docs>
+      <fields>
+        <field name="Reference">D44</field>
+        <field name="Value">VBUS TVS 6V</field>
+        <field name="Footprint">CompactGuard:D_SOD-123F</field>
+        <field name="Datasheet">https://www.littelfuse.com/products/overvoltage-protection/tvs-diodes/surface-mount/smf/smf6-0a</field>
+        <field name="Description">Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Pump" part="F1">
       <description>Bel 1 A time-delay axial pigtail fuse; 200 A interrupting capacity at 600 VAC; coordinate with upstream protection</description>
       <docs>https://www.belfuse.com/media/datasheets/products/circuit-protection/ds-cp-0adkx-series.pdf</docs>
@@ -7733,14 +8303,14 @@
       </fields>
     </libpart>
     <libpart lib="Pump" part="J1">
-      <description>Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2</description>
-      <docs>https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-15-2-508-1715721</docs>
+      <description>METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral.</description>
+      <docs>https://www.metz-connect.com/externalfiles/311711/863694.PDF</docs>
       <fields>
         <field name="Reference">J1</field>
         <field name="Value">AC INPUT L/N</field>
-        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
-        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-15-2-508-1715721</field>
-        <field name="Description">Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2</field>
+        <field name="Footprint">CompactGuard:TerminalBlock_MetzConnect_Type171_RT13702HBWC_1x02_P7.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.metz-connect.com/externalfiles/311711/863694.PDF</field>
+        <field name="Description">METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral.</field>
       </fields>
       <pins>
         <pin num="1" name="L" type="passive"/>
@@ -7763,13 +8333,13 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="J2">
-      <description>Internal2.54mm service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.</description>
+      <description>SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40.</description>
       <fields>
         <field name="Reference">J2</field>
-        <field name="Value">SERVICE 2x4 2.54mm</field>
-        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical</field>
+        <field name="Value">SERVICE 2x3</field>
+        <field name="Footprint">CompactGuard:PinHeader_2x03_P2.54mm_Vertical</field>
         <field name="Datasheet"/>
-        <field name="Description">Internal2.54mm service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.</field>
+        <field name="Description">SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40.</field>
       </fields>
       <pins>
         <pin num="1" name="GND" type="passive"/>
@@ -7778,8 +8348,6 @@
         <pin num="4" name="ARM_TEST" type="passive"/>
         <pin num="5" name="RESET_N" type="passive"/>
         <pin num="6" name="BOOT_N" type="passive"/>
-        <pin num="7" name="USB_D-" type="passive"/>
-        <pin num="8" name="USB_D+" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Pump" part="J20">
@@ -7905,6 +8473,48 @@
         <pin num="MP" name="SHIELD" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Pump" part="J40">
+      <description>GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover.</description>
+      <docs>https://gct.co/files/drawings/usb4110.pdf</docs>
+      <fields>
+        <field name="Reference">J40</field>
+        <field name="Value">USB-C DATA / SERVICE</field>
+        <field name="Footprint">CompactGuard:USB_C_GCT_USB4110_12Lands</field>
+        <field name="Datasheet">https://gct.co/files/drawings/usb4110.pdf</field>
+        <field name="Description">GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover.</field>
+      </fields>
+      <pins>
+        <pin num="A1" name="GND_A1_B12" type="passive"/>
+        <pin num="A4" name="VBUS_A4_B9" type="passive"/>
+        <pin num="A5" name="CC1" type="passive"/>
+        <pin num="A6" name="D+" type="passive"/>
+        <pin num="A7" name="D-" type="passive"/>
+        <pin num="A8" name="SBU1" type="no_connect"/>
+        <pin num="A9" name="VBUS_A9_B4" type="passive"/>
+        <pin num="A12" name="GND_A12_B1" type="passive"/>
+        <pin num="B5" name="CC2" type="passive"/>
+        <pin num="B6" name="D+" type="passive"/>
+        <pin num="B7" name="D-" type="passive"/>
+        <pin num="B8" name="SBU2" type="no_connect"/>
+        <pin num="SH" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="J41">
+      <description>JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6.</description>
+      <docs>https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</docs>
+      <fields>
+        <field name="Reference">J41</field>
+        <field name="Value">RUN LINK / BENCH 5V</field>
+        <field name="Footprint">CompactGuard:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical</field>
+        <field name="Datasheet">https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</field>
+        <field name="Description">JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PSU" type="passive"/>
+        <pin num="2" name="BOARD_5V" type="power_out"/>
+        <pin num="3" name="RETURN" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Pump" part="K1">
       <description>5 V 40 mA coil. Separate normally open starter command contact. Verify actual pilot load, including low-level reliability and inductive inrush. Omron reference for contact failure rate: 10 mA at 5 VDC.</description>
       <docs>https://components.omron.com/sg-en/products/relays/G5Q</docs>
@@ -7999,6 +8609,22 @@
       </fields>
       <pins>
         <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="Q40">
+      <description>Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V.</description>
+      <docs>https://assets.nexperia.com/documents/data-sheet/PMV16XN.pdf</docs>
+      <fields>
+        <field name="Reference">Q40</field>
+        <field name="Value">VBUS INHIBIT</field>
+        <field name="Footprint">CompactGuard:SOT-23</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/PMV16XN.pdf</field>
+        <field name="Description">Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
         <pin num="2" name="S" type="passive"/>
         <pin num="3" name="D" type="passive"/>
       </pins>
@@ -8818,6 +9444,76 @@
         <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description">I2C SDA pull-up; populate one pull-up set on assembled controller</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R240">
+      <description>CC1 termination</description>
+      <fields>
+        <field name="Reference">R240</field>
+        <field name="Value">5.1k 1%</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">CC1 termination</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R241">
+      <description>CC2 termination</description>
+      <fields>
+        <field name="Reference">R241</field>
+        <field name="Value">5.1k 1%</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">CC2 termination</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R242">
+      <description>Gate series</description>
+      <fields>
+        <field name="Reference">R242</field>
+        <field name="Value">1k 1%</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Gate series</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R243">
+      <description>Gate pulldown</description>
+      <fields>
+        <field name="Reference">R243</field>
+        <field name="Value">47k 1%</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Gate pulldown</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R244">
+      <description>Inhibit pull-up</description>
+      <fields>
+        <field name="Reference">R244</field>
+        <field name="Value">10k 1%</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Inhibit pull-up</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -9814,6 +10510,48 @@
         <pin num="8" name="VCC" type="power_in"/>
       </pins>
     </libpart>
+    <libpart lib="Pump" part="U40">
+      <description>VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT.</description>
+      <docs>https://www.ti.com/lit/ds/symlink/tps22919.pdf</docs>
+      <fields>
+        <field name="Reference">U40</field>
+        <field name="Value">USB MOTOR INHIBIT</field>
+        <field name="Footprint">CompactGuard:SOT-363_SC-70-6</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps22919.pdf</field>
+        <field name="Description">VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="ON" type="input"/>
+        <pin num="4" name="NC" type="no_connect"/>
+        <pin num="5" name="QOD" type="passive"/>
+        <pin num="6" name="VOUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="U41">
+      <description>TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths.</description>
+      <docs>https://www.ti.com/lit/ds/symlink/ts3usb30e.pdf</docs>
+      <fields>
+        <field name="Reference">U41</field>
+        <field name="Value">USB DATA SWITCH</field>
+        <field name="Footprint">CompactGuard:MSOP-10_3x3mm_P0.5mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/ts3usb30e.pdf</field>
+        <field name="Description">TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths.</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SEL" type="passive"/>
+        <pin num="2" name="D1+" type="passive"/>
+        <pin num="3" name="D2+" type="no_connect"/>
+        <pin num="4" name="D+" type="passive"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="D-" type="passive"/>
+        <pin num="7" name="D2-" type="no_connect"/>
+        <pin num="8" name="D1-" type="passive"/>
+        <pin num="9" name="OE_N" type="input"/>
+        <pin num="10" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
     <libpart lib="Pump" part="Y1">
       <description>18pF load; 27pF caps assume 4.5pF total stray; confirm oscillator start/accuracy</description>
       <docs>https://abracon.com/Resonators/ABLS.pdf</docs>
@@ -9843,6 +10581,7 @@
       <node ref="C105" pin="1" pintype="passive"/>
       <node ref="C20" pin="1" pintype="passive"/>
       <node ref="C21" pin="1" pintype="passive"/>
+      <node ref="C241" pin="1" pintype="passive"/>
       <node ref="C5" pin="1" pintype="passive"/>
       <node ref="C57" pin="1" pintype="passive"/>
       <node ref="C6" pin="1" pintype="passive"/>
@@ -9874,6 +10613,7 @@
       <node ref="R21" pin="1" pintype="passive"/>
       <node ref="R22" pin="1" pintype="passive"/>
       <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="R244" pin="1" pintype="passive"/>
       <node ref="R25" pin="1" pintype="passive"/>
       <node ref="R26" pin="1" pintype="passive"/>
       <node ref="R70" pin="1" pintype="passive"/>
@@ -9896,77 +10636,91 @@
       <node ref="U35" pin="5" pinfunction="VCC_5" pintype="power_in"/>
       <node ref="U36" pin="5" pinfunction="VCC_5" pintype="power_in"/>
       <node ref="U37" pin="8" pinfunction="VCC_8" pintype="power_in"/>
+      <node ref="U41" pin="10" pinfunction="VCC_10" pintype="power_in"/>
     </net>
     <net code="2" name="+5V" class="SELV,Default">
       <node ref="C1" pin="1" pintype="passive"/>
       <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C240" pin="1" pintype="passive"/>
       <node ref="C3" pin="1" pintype="passive"/>
       <node ref="C4" pin="1" pintype="passive"/>
       <node ref="C55" pin="1" pintype="passive"/>
       <node ref="C56" pin="1" pintype="passive"/>
-      <node ref="D32" pin="1" pintype="passive"/>
-      <node ref="J32" pin="1" pinfunction="+5V_1" pintype="passive"/>
-      <node ref="K2" pin="1" pinfunction="COIL+_1" pintype="passive"/>
+      <node ref="J41" pin="2" pinfunction="BOARD_5V_2" pintype="power_out"/>
       <node ref="R2" pin="1" pintype="passive"/>
-      <node ref="U1" pin="5" pinfunction="+VOUT_5" pintype="power_out"/>
       <node ref="U11" pin="11" pinfunction="VDDP_11" pintype="power_in"/>
       <node ref="U2" pin="2" pinfunction="VIN_2" pintype="power_in"/>
       <node ref="U2" pin="3" pinfunction="EN_3" pintype="input"/>
+      <node ref="U40" pin="1" pinfunction="VIN_1" pintype="power_in"/>
     </net>
-    <net code="3" name="ARM_CLEAR_N" class="SELV,Default">
+    <net code="3" name="+5V_CMD" class="SELV,Default">
+      <node ref="C242" pin="1" pintype="passive"/>
+      <node ref="D32" pin="1" pintype="passive"/>
+      <node ref="J32" pin="1" pinfunction="+5V_1" pintype="passive"/>
+      <node ref="K2" pin="1" pinfunction="COIL+_1" pintype="passive"/>
+      <node ref="U40" pin="5" pinfunction="QOD_5" pintype="passive"/>
+      <node ref="U40" pin="6" pinfunction="VOUT_6" pintype="power_out"/>
+    </net>
+    <net code="4" name="ARM_CLEAR_N" class="SELV,Default">
       <node ref="U31" pin="6" pinfunction="CLR_N_6" pintype="input"/>
       <node ref="U36" pin="4" pinfunction="Y_4" pintype="output"/>
     </net>
-    <net code="4" name="ARM_CMD" class="SELV,Default">
+    <net code="5" name="ARM_CMD" class="SELV,Default">
       <node ref="J2" pin="4" pinfunction="ARM_TEST_4" pintype="passive"/>
       <node ref="R78" pin="1" pintype="passive"/>
       <node ref="U3" pin="30" pinfunction="GPIO17_30" pintype="bidirectional"/>
       <node ref="U31" pin="1" pinfunction="CLK_1" pintype="input"/>
     </net>
-    <net code="5" name="ARM_Q" class="SELV,Default">
+    <net code="6" name="ARM_Q" class="SELV,Default">
       <node ref="U31" pin="5" pinfunction="Q_5" pintype="output"/>
       <node ref="U34" pin="1" pinfunction="A_1" pintype="input"/>
     </net>
-    <net code="6" name="AUTO_RETURN" class="SELV,Default">
+    <net code="7" name="AUTO_RETURN" class="SELV,Default">
       <node ref="J32" pin="4" pinfunction="AUTO_RETURN_4" pintype="passive"/>
       <node ref="R84" pin="1" pintype="passive"/>
     </net>
-    <net code="7" name="AUTO_SENSE" class="SELV,Default">
+    <net code="8" name="AUTO_SENSE" class="SELV,Default">
       <node ref="U33" pin="5" pinfunction="GPB4_5" pintype="bidirectional"/>
       <node ref="U37" pin="2" pinfunction="3Y_2" pintype="output"/>
     </net>
-    <net code="8" name="AUTO_SENSE_RAW" class="SELV,Default">
+    <net code="9" name="AUTO_SENSE_RAW" class="SELV,Default">
       <node ref="C84" pin="1" pintype="passive"/>
       <node ref="R84" pin="2" pintype="passive"/>
       <node ref="R85" pin="1" pintype="passive"/>
       <node ref="U37" pin="6" pinfunction="3A_6" pintype="input"/>
     </net>
-    <net code="9" name="BOOT" class="SELV,Default">
+    <net code="10" name="BOOT" class="SELV,Default">
       <node ref="J2" pin="6" pinfunction="BOOT_N_6" pintype="passive"/>
       <node ref="R21" pin="2" pintype="passive"/>
       <node ref="U3" pin="23" pinfunction="GPIO9_23" pintype="bidirectional"/>
     </net>
-    <net code="10" name="BUCK_SW" class="SELV,Default">
+    <net code="11" name="BUCK_SW" class="SELV,Default">
       <node ref="L1" pin="1" pintype="passive"/>
       <node ref="U2" pin="7" pinfunction="SW_7" pintype="power_out"/>
     </net>
-    <net code="11" name="CTRL_A_COM" class="STARTER_FIELD,LIVE,HV,Default">
+    <net code="12" name="CMD_ALLOWED" class="SELV,Default">
+      <node ref="Q40" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R244" pin="2" pintype="passive"/>
+      <node ref="U40" pin="3" pinfunction="ON_3" pintype="input"/>
+      <node ref="U41" pin="9" pinfunction="OE_N_9" pintype="input"/>
+    </net>
+    <net code="13" name="CTRL_A_COM" class="STARTER_FIELD,LIVE,HV,Default">
       <node ref="J30" pin="1" pinfunction="COM_1" pintype="passive"/>
       <node ref="K1" pin="2" pinfunction="COM_2" pintype="passive"/>
     </net>
-    <net code="12" name="CTRL_A_NO" class="STARTER_FIELD,LIVE,HV,Default">
+    <net code="14" name="CTRL_A_NO" class="STARTER_FIELD,LIVE,HV,Default">
       <node ref="J30" pin="2" pinfunction="NO_2" pintype="passive"/>
       <node ref="K1" pin="3" pinfunction="NO_3" pintype="passive"/>
     </net>
-    <net code="13" name="CTRL_B_COM" class="STARTER_FIELD,LIVE,HV,Default">
+    <net code="15" name="CTRL_B_COM" class="STARTER_FIELD,LIVE,HV,Default">
       <node ref="J35" pin="1" pinfunction="COM_1" pintype="passive"/>
       <node ref="K2" pin="2" pinfunction="COM_2" pintype="passive"/>
     </net>
-    <net code="14" name="CTRL_B_NO" class="STARTER_FIELD,LIVE,HV,Default">
+    <net code="16" name="CTRL_B_NO" class="STARTER_FIELD,LIVE,HV,Default">
       <node ref="J35" pin="2" pinfunction="NO_2" pintype="passive"/>
       <node ref="K2" pin="3" pinfunction="NO_3" pintype="passive"/>
     </net>
-    <net code="15" name="GND" class="SELV,Default">
+    <net code="17" name="GND" class="SELV,Default">
       <node ref="C1" pin="2" pintype="passive"/>
       <node ref="C100" pin="2" pintype="passive"/>
       <node ref="C101" pin="2" pintype="passive"/>
@@ -9982,6 +10736,9 @@
       <node ref="C20" pin="2" pintype="passive"/>
       <node ref="C21" pin="2" pintype="passive"/>
       <node ref="C22" pin="2" pintype="passive"/>
+      <node ref="C240" pin="2" pintype="passive"/>
+      <node ref="C241" pin="2" pintype="passive"/>
+      <node ref="C242" pin="2" pintype="passive"/>
       <node ref="C3" pin="2" pintype="passive"/>
       <node ref="C4" pin="2" pintype="passive"/>
       <node ref="C5" pin="2" pintype="passive"/>
@@ -10020,20 +10777,30 @@
       <node ref="D119" pin="1" pinfunction="A1_1" pintype="passive"/>
       <node ref="D40" pin="1" pintype="passive"/>
       <node ref="D41" pin="1" pintype="passive"/>
+      <node ref="D42" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="D44" pin="2" pintype="passive"/>
       <node ref="J2" pin="1" pinfunction="GND_1" pintype="passive"/>
       <node ref="J32" pin="7" pinfunction="GND_7" pintype="passive"/>
       <node ref="J32" pin="MP" pinfunction="MOUNT_MP" pintype="passive"/>
       <node ref="J36" pin="1" pinfunction="GND_1" pintype="passive"/>
       <node ref="J36" pin="MP" pinfunction="SHIELD_MP" pintype="passive"/>
+      <node ref="J40" pin="A1" pinfunction="GND_A1_B12_A1" pintype="passive"/>
+      <node ref="J40" pin="A12" pinfunction="GND_A12_B1_A12" pintype="passive"/>
+      <node ref="J40" pin="SH" pinfunction="SHIELD_SH" pintype="passive"/>
+      <node ref="J41" pin="3" pinfunction="RETURN_3" pintype="passive"/>
       <node ref="OLED1" pin="3" pinfunction="GND_3" pintype="power_in"/>
       <node ref="Q30" pin="2" pinfunction="S_2" pintype="passive"/>
       <node ref="Q31" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q40" pin="2" pinfunction="S_2" pintype="passive"/>
       <node ref="R101" pin="2" pintype="passive"/>
       <node ref="R105" pin="2" pintype="passive"/>
       <node ref="R106" pin="2" pintype="passive"/>
       <node ref="R107" pin="2" pintype="passive"/>
       <node ref="R108" pin="2" pintype="passive"/>
       <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R240" pin="2" pintype="passive"/>
+      <node ref="R241" pin="2" pintype="passive"/>
+      <node ref="R243" pin="2" pintype="passive"/>
       <node ref="R71" pin="2" pintype="passive"/>
       <node ref="R72" pin="2" pintype="passive"/>
       <node ref="R75" pin="2" pintype="passive"/>
@@ -10095,33 +10862,36 @@
       <node ref="U35" pin="3" pinfunction="GND_3" pintype="power_in"/>
       <node ref="U36" pin="3" pinfunction="GND_3" pintype="power_in"/>
       <node ref="U37" pin="4" pinfunction="GND_4" pintype="power_in"/>
+      <node ref="U40" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U41" pin="1" pinfunction="SEL_1" pintype="passive"/>
+      <node ref="U41" pin="5" pinfunction="GND_5" pintype="power_in"/>
     </net>
-    <net code="16" name="HB_MON" class="SELV,Default">
+    <net code="18" name="HB_MON" class="SELV,Default">
       <node ref="J36" pin="4" pinfunction="HB_OUT_4" pintype="passive"/>
       <node ref="R196" pin="2" pintype="passive"/>
     </net>
-    <net code="17" name="HEARTBEAT" class="SELV,Default">
+    <net code="19" name="HEARTBEAT" class="SELV,Default">
       <node ref="R196" pin="1" pintype="passive"/>
       <node ref="R71" pin="1" pintype="passive"/>
       <node ref="U3" pin="27" pinfunction="GPIO21_27" pintype="bidirectional"/>
       <node ref="U30" pin="4" pinfunction="WDI_4" pintype="input"/>
     </net>
-    <net code="18" name="HH_SENSE" class="SELV,Default">
+    <net code="20" name="HH_SENSE" class="SELV,Default">
       <node ref="C86" pin="1" pintype="passive"/>
       <node ref="R86" pin="2" pintype="passive"/>
       <node ref="R87" pin="1" pintype="passive"/>
       <node ref="U35" pin="2" pinfunction="A_2" pintype="input"/>
     </net>
-    <net code="19" name="HOST_AUX_N" class="SELV,Default">
+    <net code="21" name="HOST_AUX_N" class="SELV,Default">
       <node ref="J36" pin="2" pinfunction="HOST_2" pintype="passive"/>
       <node ref="R192" pin="1" pintype="passive"/>
     </net>
-    <net code="20" name="HOST_SENSE_N" class="SELV,Default">
+    <net code="22" name="HOST_SENSE_N" class="SELV,Default">
       <node ref="R192" pin="2" pintype="passive"/>
       <node ref="R194" pin="2" pintype="passive"/>
       <node ref="U33" pin="24" pinfunction="GPA3_24" pintype="bidirectional"/>
     </net>
-    <net code="21" name="I2C_SCL" class="SELV,Default">
+    <net code="23" name="I2C_SCL" class="SELV,Default">
       <node ref="J32" pin="10" pinfunction="I2C_SCL_10" pintype="passive"/>
       <node ref="OLED1" pin="1" pinfunction="SCL_1" pintype="input"/>
       <node ref="R25" pin="2" pintype="passive"/>
@@ -10129,7 +10899,7 @@
       <node ref="U3" pin="29" pinfunction="GPIO23_29" pintype="bidirectional"/>
       <node ref="U33" pin="12" pinfunction="SCL_12" pintype="input"/>
     </net>
-    <net code="22" name="I2C_SDA" class="SELV,Default">
+    <net code="24" name="I2C_SDA" class="SELV,Default">
       <node ref="J32" pin="9" pinfunction="I2C_SDA_9" pintype="passive"/>
       <node ref="OLED1" pin="2" pinfunction="SDA_2" pintype="bidirectional"/>
       <node ref="R24" pin="2" pintype="passive"/>
@@ -10137,81 +10907,81 @@
       <node ref="U3" pin="28" pinfunction="GPIO22_28" pintype="bidirectional"/>
       <node ref="U33" pin="13" pinfunction="SDA_13" pintype="bidirectional"/>
     </net>
-    <net code="23" name="INTERLOCK_OK" class="SELV,Default">
+    <net code="25" name="INTERLOCK_OK" class="SELV,Default">
       <node ref="D35" pin="1" pintype="passive"/>
       <node ref="U33" pin="6" pinfunction="GPB5_6" pintype="bidirectional"/>
       <node ref="U35" pin="4" pinfunction="Y_4" pintype="output"/>
     </net>
-    <net code="24" name="K1_COIL_PLUS" class="SELV,Default">
+    <net code="26" name="K1_COIL_PLUS" class="SELV,Default">
       <node ref="D31" pin="1" pintype="passive"/>
       <node ref="J31" pin="2" pinfunction="K1_COIL_PLUS_2" pintype="passive"/>
       <node ref="K1" pin="1" pinfunction="COIL+_1" pintype="passive"/>
       <node ref="R86" pin="1" pintype="passive"/>
     </net>
-    <net code="25" name="K1_GATE" class="SELV,Default">
+    <net code="27" name="K1_GATE" class="SELV,Default">
       <node ref="Q30" pin="1" pinfunction="G_1" pintype="input"/>
       <node ref="R74" pin="2" pintype="passive"/>
       <node ref="R75" pin="1" pintype="passive"/>
     </net>
-    <net code="26" name="K1_LOW" class="SELV,Default">
+    <net code="28" name="K1_LOW" class="SELV,Default">
       <node ref="D31" pin="2" pintype="passive"/>
       <node ref="K1" pin="5" pinfunction="COIL-_5" pintype="passive"/>
       <node ref="Q30" pin="3" pinfunction="D_3" pintype="passive"/>
     </net>
-    <net code="27" name="K2_GATE" class="SELV,Default">
+    <net code="29" name="K2_GATE" class="SELV,Default">
       <node ref="Q31" pin="1" pinfunction="G_1" pintype="input"/>
       <node ref="R76" pin="2" pintype="passive"/>
       <node ref="R77" pin="1" pintype="passive"/>
     </net>
-    <net code="28" name="K2_LOW" class="SELV,Default">
+    <net code="30" name="K2_LOW" class="SELV,Default">
       <node ref="D32" pin="2" pintype="passive"/>
       <node ref="K2" pin="5" pinfunction="COIL-_5" pintype="passive"/>
       <node ref="Q31" pin="3" pinfunction="D_3" pintype="passive"/>
     </net>
-    <net code="29" name="LOCAL_AUX_N" class="SELV,Default">
+    <net code="31" name="LOCAL_AUX_N" class="SELV,Default">
       <node ref="J36" pin="3" pinfunction="LOCAL_3" pintype="passive"/>
       <node ref="R193" pin="1" pintype="passive"/>
     </net>
-    <net code="30" name="LOCAL_SENSE_N" class="SELV,Default">
+    <net code="32" name="LOCAL_SENSE_N" class="SELV,Default">
       <node ref="R193" pin="2" pintype="passive"/>
       <node ref="R195" pin="2" pintype="passive"/>
       <node ref="U33" pin="23" pinfunction="GPA2_23" pintype="bidirectional"/>
     </net>
-    <net code="31" name="L_FUSED" class="LIVE,HV,Default">
+    <net code="33" name="L_FUSED" class="LIVE,HV,Default">
       <node ref="F1" pin="2" pintype="passive"/>
       <node ref="R1" pin="1" pintype="passive"/>
     </net>
-    <net code="32" name="L_PROTECTED" class="LIVE,HV,Default">
+    <net code="34" name="L_PROTECTED" class="LIVE,HV,Default">
       <node ref="R1" pin="2" pintype="passive"/>
       <node ref="R43" pin="1" pintype="passive"/>
       <node ref="RV1" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="AC_L_1" pintype="power_in"/>
     </net>
-    <net code="33" name="MAINS_L" class="LIVE,HV,Default">
+    <net code="35" name="MAINS_L" class="LIVE,HV,Default">
       <node ref="F1" pin="1" pintype="passive"/>
       <node ref="J1" pin="1" pinfunction="L_1" pintype="passive"/>
     </net>
-    <net code="34" name="MAINS_N" class="LIVE,Default">
+    <net code="36" name="MAINS_N" class="LIVE,Default">
       <node ref="J1" pin="2" pinfunction="N_2" pintype="passive"/>
       <node ref="R42" pin="1" pintype="passive"/>
       <node ref="RV1" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U1" pin="2" pinfunction="AC_N_2" pintype="power_in"/>
     </net>
-    <net code="35" name="MAN_RETURN" class="SELV,Default">
+    <net code="37" name="MAN_RETURN" class="SELV,Default">
       <node ref="J32" pin="3" pinfunction="MAN_RETURN_3" pintype="passive"/>
       <node ref="R82" pin="1" pintype="passive"/>
     </net>
-    <net code="36" name="MAN_SENSE" class="SELV,Default">
+    <net code="38" name="MAN_SENSE" class="SELV,Default">
       <node ref="U33" pin="4" pinfunction="GPB3_4" pintype="bidirectional"/>
       <node ref="U37" pin="5" pinfunction="2Y_5" pintype="output"/>
     </net>
-    <net code="37" name="MAN_SENSE_RAW" class="SELV,Default">
+    <net code="39" name="MAN_SENSE_RAW" class="SELV,Default">
       <node ref="C82" pin="1" pintype="passive"/>
       <node ref="R82" pin="2" pintype="passive"/>
       <node ref="R83" pin="1" pintype="passive"/>
       <node ref="U37" pin="3" pinfunction="2A_3" pintype="input"/>
     </net>
-    <net code="38" name="MCU_EN" class="SELV,Default">
+    <net code="40" name="MCU_EN" class="SELV,Default">
       <node ref="C22" pin="1" pintype="passive"/>
       <node ref="D30" pin="1" pintype="passive"/>
       <node ref="J2" pin="5" pinfunction="RESET_N_5" pintype="passive"/>
@@ -10219,39 +10989,39 @@
       <node ref="U3" pin="8" pinfunction="EN_8" pintype="input"/>
       <node ref="U33" pin="18" pinfunction="RESET_N_18" pintype="input"/>
     </net>
-    <net code="39" name="METER_CS" class="SELV,Default">
+    <net code="41" name="METER_CS" class="SELV,Default">
       <node ref="R26" pin="2" pintype="passive"/>
       <node ref="U11" pin="6" pinfunction="VIC_6" pintype="input"/>
       <node ref="U3" pin="24" pinfunction="GPIO18_24" pintype="bidirectional"/>
     </net>
-    <net code="40" name="METER_MISO" class="SELV,Default">
+    <net code="42" name="METER_MISO" class="SELV,Default">
       <node ref="U11" pin="7" pinfunction="VOD_7" pintype="output"/>
       <node ref="U3" pin="19" pinfunction="GPIO14_19" pintype="bidirectional"/>
     </net>
-    <net code="41" name="METER_MOSI" class="SELV,Default">
+    <net code="43" name="METER_MOSI" class="SELV,Default">
       <node ref="U11" pin="5" pinfunction="VIB_5" pintype="input"/>
       <node ref="U3" pin="16" pinfunction="GPIO7_16" pintype="bidirectional"/>
     </net>
-    <net code="42" name="METER_SCLK" class="SELV,Default">
+    <net code="44" name="METER_SCLK" class="SELV,Default">
       <node ref="U11" pin="4" pinfunction="VIA_4" pintype="input"/>
       <node ref="U3" pin="15" pinfunction="GPIO6_15" pintype="bidirectional"/>
     </net>
-    <net code="43" name="MUX_A0" class="SELV,Default">
+    <net code="45" name="MUX_A0" class="SELV,Default">
       <node ref="R106" pin="1" pintype="passive"/>
       <node ref="U21" pin="1" pinfunction="A0_1" pintype="input"/>
       <node ref="U3" pin="13" pinfunction="GPIO1_13" pintype="bidirectional"/>
     </net>
-    <net code="44" name="MUX_A1" class="SELV,Default">
+    <net code="46" name="MUX_A1" class="SELV,Default">
       <node ref="R107" pin="1" pintype="passive"/>
       <node ref="U21" pin="16" pinfunction="A1_16" pintype="input"/>
       <node ref="U3" pin="5" pinfunction="GPIO2_5" pintype="bidirectional"/>
     </net>
-    <net code="45" name="MUX_A2" class="SELV,Default">
+    <net code="47" name="MUX_A2" class="SELV,Default">
       <node ref="R108" pin="1" pintype="passive"/>
       <node ref="U21" pin="15" pinfunction="A2_15" pintype="input"/>
       <node ref="U3" pin="6" pinfunction="GPIO3_6" pintype="bidirectional"/>
     </net>
-    <net code="46" name="M_3V3" class="LIVE,Default">
+    <net code="48" name="M_3V3" class="LIVE,Default">
       <node ref="C46" pin="1" pintype="passive"/>
       <node ref="C47" pin="1" pintype="passive"/>
       <node ref="C60" pin="1" pintype="passive"/>
@@ -10263,12 +11033,12 @@
       <node ref="U10" pin="8" pinfunction="PULL_HIGH_8" pintype="input"/>
       <node ref="U11" pin="28" pinfunction="VDD2_28" pintype="power_in"/>
     </net>
-    <net code="47" name="M_CS" class="LIVE,Default">
+    <net code="49" name="M_CS" class="LIVE,Default">
       <node ref="R41" pin="2" pintype="passive"/>
       <node ref="U10" pin="28" pinfunction="CS_N_28" pintype="input"/>
       <node ref="U11" pin="23" pinfunction="VOC_23" pintype="output"/>
     </net>
-    <net code="48" name="M_CT_HI" class="LIVE,Default">
+    <net code="50" name="M_CT_HI" class="LIVE,Default">
       <node ref="CT1" pin="1" pinfunction="S1_1" pintype="passive"/>
       <node ref="D10" pin="1" pinfunction="A1_1" pintype="passive"/>
       <node ref="D10" pin="2" pinfunction="K2_2" pintype="passive"/>
@@ -10276,7 +11046,7 @@
       <node ref="R49" pin="1" pintype="passive"/>
       <node ref="RB1" pin="1" pintype="passive"/>
     </net>
-    <net code="49" name="M_GND" class="LIVE,Default">
+    <net code="51" name="M_GND" class="LIVE,Default">
       <node ref="C40" pin="2" pintype="passive"/>
       <node ref="C41" pin="2" pintype="passive"/>
       <node ref="C42" pin="2" pintype="passive"/>
@@ -10312,17 +11082,17 @@
       <node ref="U11" pin="26" pinfunction="GND2_26" pintype="power_in"/>
       <node ref="U11" pin="27" pinfunction="GND2_27" pintype="power_in"/>
     </net>
-    <net code="50" name="M_IAN" class="LIVE,Default">
+    <net code="52" name="M_IAN" class="LIVE,Default">
       <node ref="C54" pin="1" pintype="passive"/>
       <node ref="R50" pin="2" pintype="passive"/>
       <node ref="U10" pin="6" pinfunction="IAN_6" pintype="input"/>
     </net>
-    <net code="51" name="M_IAP" class="LIVE,Default">
+    <net code="53" name="M_IAP" class="LIVE,Default">
       <node ref="C53" pin="1" pintype="passive"/>
       <node ref="R49" pin="2" pintype="passive"/>
       <node ref="U10" pin="5" pinfunction="IAP_5" pintype="input"/>
     </net>
-    <net code="52" name="M_ISO_GND" class="LIVE,Default">
+    <net code="54" name="M_ISO_GND" class="LIVE,Default">
       <node ref="C58" pin="2" pintype="passive"/>
       <node ref="C59" pin="2" pintype="passive"/>
       <node ref="FB2" pin="1" pintype="passive"/>
@@ -10331,115 +11101,115 @@
       <node ref="U11" pin="19" pinfunction="GNDISO_19" pintype="power_in"/>
       <node ref="U11" pin="20" pinfunction="VSEL_20" pintype="input"/>
     </net>
-    <net code="53" name="M_ISO_RAW" class="LIVE,Default">
+    <net code="55" name="M_ISO_RAW" class="LIVE,Default">
       <node ref="C58" pin="1" pintype="passive"/>
       <node ref="C59" pin="1" pintype="passive"/>
       <node ref="FB1" pin="1" pintype="passive"/>
       <node ref="U11" pin="18" pinfunction="VISO_18" pintype="power_out"/>
     </net>
-    <net code="54" name="M_MISO" class="LIVE,Default">
+    <net code="56" name="M_MISO" class="LIVE,Default">
       <node ref="U10" pin="26" pinfunction="MISO_26" pintype="tri_state"/>
       <node ref="U11" pin="22" pinfunction="VID_22" pintype="input"/>
     </net>
-    <net code="55" name="M_MOSI" class="LIVE,Default">
+    <net code="57" name="M_MOSI" class="LIVE,Default">
       <node ref="U10" pin="27" pinfunction="MOSI_27" pintype="input"/>
       <node ref="U11" pin="24" pinfunction="VOB_24" pintype="output"/>
     </net>
-    <net code="56" name="M_REF" class="LIVE,Default">
+    <net code="58" name="M_REF" class="LIVE,Default">
       <node ref="C44" pin="1" pintype="passive"/>
       <node ref="C45" pin="1" pintype="passive"/>
       <node ref="U10" pin="13" pinfunction="REF_13" pintype="power_out"/>
     </net>
-    <net code="57" name="M_RESET_N" class="LIVE,Default">
+    <net code="59" name="M_RESET_N" class="LIVE,Default">
       <node ref="C48" pin="1" pintype="passive"/>
       <node ref="R40" pin="2" pintype="passive"/>
       <node ref="U10" pin="2" pinfunction="RESET_N_2" pintype="input"/>
     </net>
-    <net code="58" name="M_SCLK" class="LIVE,Default">
+    <net code="60" name="M_SCLK" class="LIVE,Default">
       <node ref="U10" pin="25" pinfunction="SCLK_25" pintype="input"/>
       <node ref="U11" pin="25" pinfunction="VOA_25" pintype="output"/>
     </net>
-    <net code="59" name="M_VDIV_0" class="LIVE,DIV198,Default">
+    <net code="61" name="M_VDIV_0" class="LIVE,DIV198,Default">
       <node ref="R43" pin="2" pintype="passive"/>
       <node ref="R44" pin="1" pintype="passive"/>
     </net>
-    <net code="60" name="M_VDIV_1" class="LIVE,DIV132,Default">
+    <net code="62" name="M_VDIV_1" class="LIVE,DIV132,Default">
       <node ref="R44" pin="2" pintype="passive"/>
       <node ref="R45" pin="1" pintype="passive"/>
     </net>
-    <net code="61" name="M_VDIV_2" class="LIVE,DIV66,Default">
+    <net code="63" name="M_VDIV_2" class="LIVE,DIV66,Default">
       <node ref="R45" pin="2" pintype="passive"/>
       <node ref="R46" pin="1" pintype="passive"/>
     </net>
-    <net code="62" name="M_VINTA" class="LIVE,Default">
+    <net code="64" name="M_VINTA" class="LIVE,Default">
       <node ref="C42" pin="1" pintype="passive"/>
       <node ref="C43" pin="1" pintype="passive"/>
       <node ref="U10" pin="15" pinfunction="VINTA_15" pintype="power_out"/>
     </net>
-    <net code="63" name="M_VINTD" class="LIVE,Default">
+    <net code="65" name="M_VINTD" class="LIVE,Default">
       <node ref="C40" pin="1" pintype="passive"/>
       <node ref="C41" pin="1" pintype="passive"/>
       <node ref="U10" pin="3" pinfunction="VINTD_3" pintype="power_out"/>
     </net>
-    <net code="64" name="M_VN" class="LIVE,Default">
+    <net code="66" name="M_VN" class="LIVE,Default">
       <node ref="C52" pin="1" pintype="passive"/>
       <node ref="R48" pin="2" pintype="passive"/>
       <node ref="U10" pin="11" pinfunction="VN_11" pintype="input"/>
     </net>
-    <net code="65" name="M_VP" class="LIVE,Default">
+    <net code="67" name="M_VP" class="LIVE,Default">
       <node ref="C51" pin="1" pintype="passive"/>
       <node ref="R46" pin="2" pintype="passive"/>
       <node ref="R47" pin="1" pintype="passive"/>
       <node ref="U10" pin="12" pinfunction="VP_12" pintype="input"/>
     </net>
-    <net code="66" name="M_XIN" class="LIVE,Default">
+    <net code="68" name="M_XIN" class="LIVE,Default">
       <node ref="C49" pin="1" pintype="passive"/>
       <node ref="U10" pin="18" pinfunction="CLKIN_18" pintype="input"/>
       <node ref="Y1" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="67" name="M_XOUT" class="LIVE,Default">
+    <net code="69" name="M_XOUT" class="LIVE,Default">
       <node ref="C50" pin="1" pintype="passive"/>
       <node ref="U10" pin="19" pinfunction="CLKOUT_19" pintype="output"/>
       <node ref="Y1" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="68" name="PANEL_OK_MON" class="SELV,Default">
+    <net code="70" name="PANEL_OK_MON" class="SELV,Default">
       <node ref="J36" pin="5" pinfunction="PANEL_OK_OUT_5" pintype="passive"/>
       <node ref="R197" pin="2" pintype="passive"/>
     </net>
-    <net code="69" name="PERMIT_D" class="SELV,Default">
+    <net code="71" name="PERMIT_D" class="SELV,Default">
       <node ref="R72" pin="1" pintype="passive"/>
       <node ref="U3" pin="26" pinfunction="GPIO20_26" pintype="bidirectional"/>
       <node ref="U34" pin="2" pinfunction="B_2" pintype="input"/>
     </net>
-    <net code="70" name="PERMIT_Q" class="SELV,Default">
+    <net code="72" name="PERMIT_Q" class="SELV,Default">
       <node ref="R74" pin="1" pintype="passive"/>
       <node ref="U34" pin="4" pinfunction="Y_4" pintype="output"/>
     </net>
-    <net code="71" name="PROBE_ADC_BIAS" class="SELV,Default">
+    <net code="73" name="PROBE_ADC_BIAS" class="SELV,Default">
       <node ref="C111" pin="1" pintype="passive"/>
       <node ref="R111" pin="2" pintype="passive"/>
       <node ref="U22" pin="5" pinfunction="AIN1_5" pintype="input"/>
     </net>
-    <net code="72" name="PROBE_ADC_BIAS2" class="SELV,Default">
+    <net code="74" name="PROBE_ADC_BIAS2" class="SELV,Default">
       <node ref="C113" pin="1" pintype="passive"/>
       <node ref="R113" pin="2" pintype="passive"/>
       <node ref="U22" pin="7" pinfunction="AIN3_7" pintype="input"/>
     </net>
-    <net code="73" name="PROBE_ADC_RDY" class="SELV,Default">
+    <net code="75" name="PROBE_ADC_RDY" class="SELV,Default">
       <node ref="R109" pin="1" pintype="passive"/>
       <node ref="U22" pin="2" pinfunction="ALERT_RDY_2" pintype="open_collector"/>
     </net>
-    <net code="74" name="PROBE_ADC_SIGNAL" class="SELV,Default">
+    <net code="76" name="PROBE_ADC_SIGNAL" class="SELV,Default">
       <node ref="C110" pin="1" pintype="passive"/>
       <node ref="R110" pin="2" pintype="passive"/>
       <node ref="U22" pin="4" pinfunction="AIN0_4" pintype="input"/>
     </net>
-    <net code="75" name="PROBE_ADC_TX" class="SELV,Default">
+    <net code="77" name="PROBE_ADC_TX" class="SELV,Default">
       <node ref="C112" pin="1" pintype="passive"/>
       <node ref="R112" pin="2" pintype="passive"/>
       <node ref="U22" pin="6" pinfunction="AIN2_6" pintype="input"/>
     </net>
-    <net code="76" name="PROBE_BIAS" class="SELV,Default">
+    <net code="78" name="PROBE_BIAS" class="SELV,Default">
       <node ref="C101" pin="1" pintype="passive"/>
       <node ref="C121" pin="2" pintype="passive"/>
       <node ref="C123" pin="2" pintype="passive"/>
@@ -10458,226 +11228,230 @@
       <node ref="R172" pin="2" pintype="passive"/>
       <node ref="U21" pin="11" pinfunction="S6_11" pintype="bidirectional"/>
     </net>
-    <net code="77" name="PROBE_BIAS_DIV" class="SELV,Default">
+    <net code="79" name="PROBE_BIAS_DIV" class="SELV,Default">
       <node ref="C100" pin="1" pintype="passive"/>
       <node ref="R100" pin="2" pintype="passive"/>
       <node ref="R101" pin="1" pintype="passive"/>
       <node ref="U20" pin="3" pinfunction="IN1+_3" pintype="input"/>
     </net>
-    <net code="78" name="PROBE_BIAS_RAW" class="SELV,Default">
+    <net code="80" name="PROBE_BIAS_RAW" class="SELV,Default">
       <node ref="R102" pin="1" pintype="passive"/>
       <node ref="U20" pin="1" pinfunction="OUT1_1" pintype="output"/>
       <node ref="U20" pin="2" pinfunction="IN1-_2" pintype="input"/>
     </net>
-    <net code="79" name="PROBE_EXC" class="SELV,Default">
+    <net code="81" name="PROBE_EXC" class="SELV,Default">
       <node ref="R103" pin="1" pintype="passive"/>
       <node ref="R105" pin="1" pintype="passive"/>
       <node ref="U3" pin="12" pinfunction="GPIO0_12" pintype="bidirectional"/>
     </net>
-    <net code="80" name="PROBE_ICOM" class="SELV,Default">
+    <net code="82" name="PROBE_ICOM" class="SELV,Default">
       <node ref="J21" pin="2" pinfunction="INLET_COM_2" pintype="passive"/>
       <node ref="R120" pin="2" pintype="passive"/>
     </net>
-    <net code="81" name="PROBE_ICOM_CLAMP" class="SELV,Default">
+    <net code="83" name="PROBE_ICOM_CLAMP" class="SELV,Default">
       <node ref="C107" pin="2" pintype="passive"/>
       <node ref="C109" pin="2" pintype="passive"/>
       <node ref="D101" pin="1" pintype="passive"/>
       <node ref="R119" pin="1" pintype="passive"/>
     </net>
-    <net code="82" name="PROBE_ICOM_DRIVE" class="SELV,Default">
+    <net code="84" name="PROBE_ICOM_DRIVE" class="SELV,Default">
       <node ref="C107" pin="1" pintype="passive"/>
       <node ref="C109" pin="1" pintype="passive"/>
       <node ref="D103" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R118" pin="2" pintype="passive"/>
     </net>
-    <net code="83" name="PROBE_ICOM_MID" class="SELV,Default">
+    <net code="85" name="PROBE_ICOM_MID" class="SELV,Default">
       <node ref="R119" pin="2" pintype="passive"/>
       <node ref="R120" pin="1" pintype="passive"/>
     </net>
-    <net code="84" name="PROBE_INLET" class="SELV,Default">
+    <net code="86" name="PROBE_INLET" class="SELV,Default">
       <node ref="J21" pin="1" pinfunction="INLET_1" pintype="passive"/>
       <node ref="R170" pin="1" pintype="passive"/>
     </net>
-    <net code="85" name="PROBE_INLET_ADC" class="SELV,Default">
+    <net code="87" name="PROBE_INLET_ADC" class="SELV,Default">
       <node ref="C129" pin="1" pintype="passive"/>
       <node ref="D119" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R173" pin="2" pintype="passive"/>
       <node ref="U21" pin="12" pinfunction="S5_12" pintype="bidirectional"/>
     </net>
-    <net code="86" name="PROBE_INLET_CLAMP" class="SELV,Default">
+    <net code="88" name="PROBE_INLET_CLAMP" class="SELV,Default">
       <node ref="C128" pin="1" pintype="passive"/>
       <node ref="D118" pin="1" pintype="passive"/>
       <node ref="R171" pin="2" pintype="passive"/>
     </net>
-    <net code="87" name="PROBE_INLET_MID" class="SELV,Default">
+    <net code="89" name="PROBE_INLET_MID" class="SELV,Default">
       <node ref="R170" pin="2" pintype="passive"/>
       <node ref="R171" pin="1" pintype="passive"/>
     </net>
-    <net code="88" name="PROBE_INLET_SENSE" class="SELV,Default">
+    <net code="90" name="PROBE_INLET_SENSE" class="SELV,Default">
       <node ref="C128" pin="2" pintype="passive"/>
       <node ref="R172" pin="1" pintype="passive"/>
       <node ref="R173" pin="1" pintype="passive"/>
     </net>
-    <net code="89" name="PROBE_L1" class="SELV,Default">
+    <net code="91" name="PROBE_L1" class="SELV,Default">
       <node ref="J20" pin="2" pinfunction="L1_2" pintype="passive"/>
       <node ref="R130" pin="1" pintype="passive"/>
     </net>
-    <net code="90" name="PROBE_L1_ADC" class="SELV,Default">
+    <net code="92" name="PROBE_L1_ADC" class="SELV,Default">
       <node ref="C121" pin="1" pintype="passive"/>
       <node ref="D111" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R133" pin="2" pintype="passive"/>
       <node ref="U21" pin="4" pinfunction="S1_4" pintype="bidirectional"/>
     </net>
-    <net code="91" name="PROBE_L1_CLAMP" class="SELV,Default">
+    <net code="93" name="PROBE_L1_CLAMP" class="SELV,Default">
       <node ref="C120" pin="1" pintype="passive"/>
       <node ref="D110" pin="1" pintype="passive"/>
       <node ref="R131" pin="2" pintype="passive"/>
     </net>
-    <net code="92" name="PROBE_L1_MID" class="SELV,Default">
+    <net code="94" name="PROBE_L1_MID" class="SELV,Default">
       <node ref="R130" pin="2" pintype="passive"/>
       <node ref="R131" pin="1" pintype="passive"/>
     </net>
-    <net code="93" name="PROBE_L1_SENSE" class="SELV,Default">
+    <net code="95" name="PROBE_L1_SENSE" class="SELV,Default">
       <node ref="C120" pin="2" pintype="passive"/>
       <node ref="R132" pin="1" pintype="passive"/>
       <node ref="R133" pin="1" pintype="passive"/>
     </net>
-    <net code="94" name="PROBE_L2" class="SELV,Default">
+    <net code="96" name="PROBE_L2" class="SELV,Default">
       <node ref="J20" pin="3" pinfunction="L2_3" pintype="passive"/>
       <node ref="R140" pin="1" pintype="passive"/>
     </net>
-    <net code="95" name="PROBE_L2_ADC" class="SELV,Default">
+    <net code="97" name="PROBE_L2_ADC" class="SELV,Default">
       <node ref="C123" pin="1" pintype="passive"/>
       <node ref="D113" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R143" pin="2" pintype="passive"/>
       <node ref="U21" pin="5" pinfunction="S2_5" pintype="bidirectional"/>
     </net>
-    <net code="96" name="PROBE_L2_CLAMP" class="SELV,Default">
+    <net code="98" name="PROBE_L2_CLAMP" class="SELV,Default">
       <node ref="C122" pin="1" pintype="passive"/>
       <node ref="D112" pin="1" pintype="passive"/>
       <node ref="R141" pin="2" pintype="passive"/>
     </net>
-    <net code="97" name="PROBE_L2_MID" class="SELV,Default">
+    <net code="99" name="PROBE_L2_MID" class="SELV,Default">
       <node ref="R140" pin="2" pintype="passive"/>
       <node ref="R141" pin="1" pintype="passive"/>
     </net>
-    <net code="98" name="PROBE_L2_SENSE" class="SELV,Default">
+    <net code="100" name="PROBE_L2_SENSE" class="SELV,Default">
       <node ref="C122" pin="2" pintype="passive"/>
       <node ref="R142" pin="1" pintype="passive"/>
       <node ref="R143" pin="1" pintype="passive"/>
     </net>
-    <net code="99" name="PROBE_L3" class="SELV,Default">
+    <net code="101" name="PROBE_L3" class="SELV,Default">
       <node ref="J20" pin="4" pinfunction="L3_4" pintype="passive"/>
       <node ref="R150" pin="1" pintype="passive"/>
     </net>
-    <net code="100" name="PROBE_L3_ADC" class="SELV,Default">
+    <net code="102" name="PROBE_L3_ADC" class="SELV,Default">
       <node ref="C125" pin="1" pintype="passive"/>
       <node ref="D115" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R153" pin="2" pintype="passive"/>
       <node ref="U21" pin="6" pinfunction="S3_6" pintype="bidirectional"/>
     </net>
-    <net code="101" name="PROBE_L3_CLAMP" class="SELV,Default">
+    <net code="103" name="PROBE_L3_CLAMP" class="SELV,Default">
       <node ref="C124" pin="1" pintype="passive"/>
       <node ref="D114" pin="1" pintype="passive"/>
       <node ref="R151" pin="2" pintype="passive"/>
     </net>
-    <net code="102" name="PROBE_L3_MID" class="SELV,Default">
+    <net code="104" name="PROBE_L3_MID" class="SELV,Default">
       <node ref="R150" pin="2" pintype="passive"/>
       <node ref="R151" pin="1" pintype="passive"/>
     </net>
-    <net code="103" name="PROBE_L3_SENSE" class="SELV,Default">
+    <net code="105" name="PROBE_L3_SENSE" class="SELV,Default">
       <node ref="C124" pin="2" pintype="passive"/>
       <node ref="R152" pin="1" pintype="passive"/>
       <node ref="R153" pin="1" pintype="passive"/>
     </net>
-    <net code="104" name="PROBE_L4" class="SELV,Default">
+    <net code="106" name="PROBE_L4" class="SELV,Default">
       <node ref="J20" pin="5" pinfunction="L4_5" pintype="passive"/>
       <node ref="R160" pin="1" pintype="passive"/>
     </net>
-    <net code="105" name="PROBE_L4_ADC" class="SELV,Default">
+    <net code="107" name="PROBE_L4_ADC" class="SELV,Default">
       <node ref="C127" pin="1" pintype="passive"/>
       <node ref="D117" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R163" pin="2" pintype="passive"/>
       <node ref="U21" pin="7" pinfunction="S4_7" pintype="bidirectional"/>
     </net>
-    <net code="106" name="PROBE_L4_CLAMP" class="SELV,Default">
+    <net code="108" name="PROBE_L4_CLAMP" class="SELV,Default">
       <node ref="C126" pin="1" pintype="passive"/>
       <node ref="D116" pin="1" pintype="passive"/>
       <node ref="R161" pin="2" pintype="passive"/>
     </net>
-    <net code="107" name="PROBE_L4_MID" class="SELV,Default">
+    <net code="109" name="PROBE_L4_MID" class="SELV,Default">
       <node ref="R160" pin="2" pintype="passive"/>
       <node ref="R161" pin="1" pintype="passive"/>
     </net>
-    <net code="108" name="PROBE_L4_SENSE" class="SELV,Default">
+    <net code="110" name="PROBE_L4_SENSE" class="SELV,Default">
       <node ref="C126" pin="2" pintype="passive"/>
       <node ref="R162" pin="1" pintype="passive"/>
       <node ref="R163" pin="1" pintype="passive"/>
     </net>
-    <net code="109" name="PROBE_MUX_BUF" class="SELV,Default">
+    <net code="111" name="PROBE_MUX_BUF" class="SELV,Default">
       <node ref="R110" pin="1" pintype="passive"/>
       <node ref="U20" pin="8" pinfunction="OUT3_8" pintype="output"/>
       <node ref="U20" pin="9" pinfunction="IN3-_9" pintype="input"/>
     </net>
-    <net code="110" name="PROBE_MUX_OUT" class="SELV,Default">
+    <net code="112" name="PROBE_MUX_OUT" class="SELV,Default">
       <node ref="R114" pin="1" pintype="passive"/>
       <node ref="U20" pin="10" pinfunction="IN3+_10" pintype="input"/>
       <node ref="U21" pin="8" pinfunction="D_8" pintype="bidirectional"/>
     </net>
-    <net code="111" name="PROBE_TCOM" class="SELV,Default">
+    <net code="113" name="PROBE_TCOM" class="SELV,Default">
       <node ref="J20" pin="1" pinfunction="COM_1" pintype="passive"/>
       <node ref="R117" pin="2" pintype="passive"/>
     </net>
-    <net code="112" name="PROBE_TCOM_CLAMP" class="SELV,Default">
+    <net code="114" name="PROBE_TCOM_CLAMP" class="SELV,Default">
       <node ref="C106" pin="2" pintype="passive"/>
       <node ref="C108" pin="2" pintype="passive"/>
       <node ref="D100" pin="1" pintype="passive"/>
       <node ref="R116" pin="1" pintype="passive"/>
     </net>
-    <net code="113" name="PROBE_TCOM_DRIVE" class="SELV,Default">
+    <net code="115" name="PROBE_TCOM_DRIVE" class="SELV,Default">
       <node ref="C106" pin="1" pintype="passive"/>
       <node ref="C108" pin="1" pintype="passive"/>
       <node ref="D102" pin="3" pinfunction="K1_A2_3" pintype="passive"/>
       <node ref="R115" pin="2" pintype="passive"/>
     </net>
-    <net code="114" name="PROBE_TCOM_MID" class="SELV,Default">
+    <net code="116" name="PROBE_TCOM_MID" class="SELV,Default">
       <node ref="R116" pin="2" pintype="passive"/>
       <node ref="R117" pin="1" pintype="passive"/>
     </net>
-    <net code="115" name="PROBE_TX_INLET" class="SELV,Default">
+    <net code="117" name="PROBE_TX_INLET" class="SELV,Default">
       <node ref="R118" pin="1" pintype="passive"/>
       <node ref="U20" pin="13" pinfunction="IN4-_13" pintype="input"/>
       <node ref="U20" pin="14" pinfunction="OUT4_14" pintype="output"/>
       <node ref="U21" pin="9" pinfunction="S8_9" pintype="bidirectional"/>
     </net>
-    <net code="116" name="PROBE_TX_SET" class="SELV,Default">
+    <net code="118" name="PROBE_TX_SET" class="SELV,Default">
       <node ref="R103" pin="2" pintype="passive"/>
       <node ref="R104" pin="2" pintype="passive"/>
       <node ref="U20" pin="12" pinfunction="IN4+_12" pintype="input"/>
       <node ref="U20" pin="5" pinfunction="IN2+_5" pintype="input"/>
     </net>
-    <net code="117" name="PROBE_TX_TANK" class="SELV,Default">
+    <net code="119" name="PROBE_TX_TANK" class="SELV,Default">
       <node ref="R112" pin="1" pintype="passive"/>
       <node ref="R115" pin="1" pintype="passive"/>
       <node ref="U20" pin="6" pinfunction="IN2-_6" pintype="input"/>
       <node ref="U20" pin="7" pinfunction="OUT2_7" pintype="output"/>
       <node ref="U21" pin="10" pinfunction="S7_10" pintype="bidirectional"/>
     </net>
-    <net code="118" name="RESET_FILTER" class="SELV,Default">
+    <net code="120" name="PSU_5V_RAW" class="SELV,Default">
+      <node ref="J41" pin="1" pinfunction="PSU_1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="+VOUT_5" pintype="power_out"/>
+    </net>
+    <net code="121" name="RESET_FILTER" class="SELV,Default">
       <node ref="C90" pin="1" pintype="passive"/>
       <node ref="R90" pin="2" pintype="passive"/>
       <node ref="R91" pin="2" pintype="passive"/>
       <node ref="U33" pin="2" pinfunction="GPB1_2" pintype="bidirectional"/>
     </net>
-    <net code="119" name="RESET_N" class="SELV,Default">
+    <net code="122" name="RESET_N" class="SELV,Default">
       <node ref="J32" pin="6" pinfunction="RESET_N_6" pintype="passive"/>
       <node ref="R90" pin="1" pintype="passive"/>
     </net>
-    <net code="120" name="RUN_CMD" class="SELV,Default">
+    <net code="123" name="RUN_CMD" class="SELV,Default">
       <node ref="R76" pin="1" pintype="passive"/>
       <node ref="U3" pin="25" pinfunction="GPIO19_25" pintype="bidirectional"/>
     </net>
-    <net code="121" name="SAFE_CLEAR_N" class="SELV,Default">
+    <net code="124" name="SAFE_CLEAR_N" class="SELV,Default">
       <node ref="D30" pin="2" pintype="passive"/>
       <node ref="D35" pin="2" pintype="passive"/>
       <node ref="R70" pin="2" pintype="passive"/>
@@ -10685,174 +11459,231 @@
       <node ref="U32" pin="1" pinfunction="RESET_N_1" pintype="open_collector"/>
       <node ref="U36" pin="2" pinfunction="A_2" pintype="input"/>
     </net>
-    <net code="122" name="SPARE_B6" class="SELV,Default">
+    <net code="125" name="SPARE_B6" class="SELV,Default">
       <node ref="J32" pin="11" pinfunction="SPARE_B6_11" pintype="passive"/>
       <node ref="R92" pin="1" pintype="passive"/>
       <node ref="U33" pin="7" pinfunction="GPB6_7" pintype="bidirectional"/>
     </net>
-    <net code="123" name="SPARE_B7" class="SELV,Default">
+    <net code="126" name="SPARE_B7" class="SELV,Default">
       <node ref="J32" pin="12" pinfunction="SPARE_B7_12" pintype="passive"/>
       <node ref="R93" pin="1" pintype="passive"/>
       <node ref="U33" pin="21" pinfunction="GPA0_21" pintype="bidirectional"/>
     </net>
-    <net code="124" name="START_CMD_LED" class="SELV,Default">
+    <net code="127" name="START_CMD_LED" class="SELV,Default">
       <node ref="R190" pin="1" pintype="passive"/>
       <node ref="U33" pin="8" pinfunction="GPB7_8" pintype="output"/>
     </net>
-    <net code="125" name="START_FILTER" class="SELV,Default">
+    <net code="128" name="START_FILTER" class="SELV,Default">
       <node ref="C88" pin="1" pintype="passive"/>
       <node ref="R88" pin="2" pintype="passive"/>
       <node ref="R89" pin="2" pintype="passive"/>
       <node ref="U33" pin="1" pinfunction="GPB0_1" pintype="bidirectional"/>
     </net>
-    <net code="126" name="START_LED_A" class="SELV,Default">
+    <net code="129" name="START_LED_A" class="SELV,Default">
       <node ref="D40" pin="2" pintype="passive"/>
       <node ref="R190" pin="2" pintype="passive"/>
     </net>
-    <net code="127" name="START_N" class="SELV,Default">
+    <net code="130" name="START_N" class="SELV,Default">
       <node ref="J32" pin="5" pinfunction="START_N_5" pintype="passive"/>
       <node ref="R88" pin="1" pintype="passive"/>
     </net>
-    <net code="128" name="STOP_CMD_LED" class="SELV,Default">
+    <net code="131" name="STOP_CMD_LED" class="SELV,Default">
       <node ref="R191" pin="1" pintype="passive"/>
       <node ref="U33" pin="28" pinfunction="GPA7_28" pintype="output"/>
     </net>
-    <net code="129" name="STOP_LED_A" class="SELV,Default">
+    <net code="132" name="STOP_LED_A" class="SELV,Default">
       <node ref="D41" pin="2" pintype="passive"/>
       <node ref="R191" pin="2" pintype="passive"/>
     </net>
-    <net code="130" name="STOP_RETURN" class="SELV,Default">
+    <net code="133" name="STOP_RETURN" class="SELV,Default">
       <node ref="J31" pin="1" pinfunction="STOP_RETURN_1" pintype="passive"/>
       <node ref="J32" pin="2" pinfunction="STOP_RETURN_2" pintype="passive"/>
       <node ref="R197" pin="1" pintype="passive"/>
       <node ref="R80" pin="1" pintype="passive"/>
     </net>
-    <net code="131" name="STOP_SENSE" class="SELV,Default">
+    <net code="134" name="STOP_SENSE" class="SELV,Default">
       <node ref="U33" pin="3" pinfunction="GPB2_3" pintype="bidirectional"/>
       <node ref="U37" pin="7" pinfunction="1Y_7" pintype="output"/>
     </net>
-    <net code="132" name="STOP_SENSE_RAW" class="SELV,Default">
+    <net code="135" name="STOP_SENSE_RAW" class="SELV,Default">
       <node ref="C80" pin="1" pintype="passive"/>
       <node ref="R80" pin="2" pintype="passive"/>
       <node ref="R81" pin="1" pintype="passive"/>
       <node ref="U37" pin="1" pinfunction="1A_1" pintype="input"/>
     </net>
-    <net code="133" name="STRAP_GPIO8" class="SELV,Default">
+    <net code="136" name="STRAP_GPIO8" class="SELV,Default">
       <node ref="R22" pin="2" pintype="passive"/>
       <node ref="U3" pin="22" pinfunction="GPIO8_22" pintype="bidirectional"/>
     </net>
-    <net code="134" name="UART_TX" class="SELV,Default">
+    <net code="137" name="UART_TX" class="SELV,Default">
       <node ref="J2" pin="3" pinfunction="TXD0_3" pintype="passive"/>
       <node ref="U3" pin="31" pinfunction="GPIO16_31" pintype="bidirectional"/>
     </net>
-    <net code="135" name="USB_DM" class="SELV,Default">
-      <node ref="J2" pin="7" pinfunction="USB_D-_7" pintype="passive"/>
-      <node ref="R27" pin="2" pintype="passive"/>
+    <net code="138" name="USB_CC1" class="SELV,Default">
+      <node ref="J40" pin="A5" pinfunction="CC1_A5" pintype="passive"/>
+      <node ref="R240" pin="1" pintype="passive"/>
     </net>
-    <net code="136" name="USB_DM_MCU" class="SELV,Default">
+    <net code="139" name="USB_CC2" class="SELV,Default">
+      <node ref="J40" pin="B5" pinfunction="CC2_B5" pintype="passive"/>
+      <node ref="R241" pin="1" pintype="passive"/>
+    </net>
+    <net code="140" name="USB_CONN_DM" class="SELV,Default">
+      <node ref="D42" pin="4" pinfunction="IO2_4" pintype="passive"/>
+      <node ref="J40" pin="A7" pinfunction="D-_A7" pintype="passive"/>
+      <node ref="J40" pin="B7" pinfunction="D-_B7" pintype="passive"/>
+    </net>
+    <net code="141" name="USB_CONN_DP" class="SELV,Default">
+      <node ref="D42" pin="6" pinfunction="IO1_6" pintype="passive"/>
+      <node ref="J40" pin="A6" pinfunction="D+_A6" pintype="passive"/>
+      <node ref="J40" pin="B6" pinfunction="D+_B6" pintype="passive"/>
+    </net>
+    <net code="142" name="USB_DM" class="SELV,Default">
+      <node ref="R27" pin="2" pintype="passive"/>
+      <node ref="U41" pin="8" pinfunction="D1-_8" pintype="passive"/>
+    </net>
+    <net code="143" name="USB_DM_MCU" class="SELV,Default">
       <node ref="R27" pin="1" pintype="passive"/>
       <node ref="U3" pin="17" pinfunction="GPIO12_17" pintype="bidirectional"/>
     </net>
-    <net code="137" name="USB_DP" class="SELV,Default">
-      <node ref="J2" pin="8" pinfunction="USB_D+_8" pintype="passive"/>
+    <net code="144" name="USB_DP" class="SELV,Default">
       <node ref="R28" pin="2" pintype="passive"/>
+      <node ref="U41" pin="2" pinfunction="D1+_2" pintype="passive"/>
     </net>
-    <net code="138" name="USB_DP_MCU" class="SELV,Default">
+    <net code="145" name="USB_DP_MCU" class="SELV,Default">
       <node ref="R28" pin="1" pintype="passive"/>
       <node ref="U3" pin="18" pinfunction="GPIO13_18" pintype="bidirectional"/>
     </net>
-    <net code="139" name="unconnected-(U2-PG-Pad8)" class="SELV,Default">
+    <net code="146" name="USB_ESD_REF" class="SELV,Default">
+      <node ref="D42" pin="5" pinfunction="VBUS_5" pintype="passive"/>
+      <node ref="D43" pin="1" pintype="passive"/>
+    </net>
+    <net code="147" name="USB_PRESENT" class="SELV,Default">
+      <node ref="Q40" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R242" pin="2" pintype="passive"/>
+      <node ref="R243" pin="1" pintype="passive"/>
+    </net>
+    <net code="148" name="USB_PROT_DM" class="SELV,Default">
+      <node ref="D42" pin="3" pinfunction="IO2_3" pintype="passive"/>
+      <node ref="U41" pin="6" pinfunction="D-_6" pintype="passive"/>
+    </net>
+    <net code="149" name="USB_PROT_DP" class="SELV,Default">
+      <node ref="D42" pin="1" pinfunction="IO1_1" pintype="passive"/>
+      <node ref="U41" pin="4" pinfunction="D+_4" pintype="passive"/>
+    </net>
+    <net code="150" name="USB_VBUS" class="SELV,Default">
+      <node ref="D43" pin="2" pintype="passive"/>
+      <node ref="D44" pin="1" pintype="passive"/>
+      <node ref="J40" pin="A4" pinfunction="VBUS_A4_B9_A4" pintype="passive"/>
+      <node ref="J40" pin="A9" pinfunction="VBUS_A9_B4_A9" pintype="passive"/>
+      <node ref="R242" pin="1" pintype="passive"/>
+    </net>
+    <net code="151" name="unconnected-(J40-SBU1-PadA8)" class="SELV,Default">
+      <node ref="J40" pin="A8" pinfunction="SBU1_A8" pintype="no_connect"/>
+    </net>
+    <net code="152" name="unconnected-(J40-SBU2-PadB8)" class="SELV,Default">
+      <node ref="J40" pin="B8" pinfunction="SBU2_B8" pintype="no_connect"/>
+    </net>
+    <net code="153" name="unconnected-(U2-PG-Pad8)" class="SELV,Default">
       <node ref="U2" pin="8" pinfunction="PG_8" pintype="no_connect"/>
     </net>
-    <net code="140" name="unconnected-(U3-GPIO4-Pad9)" class="SELV,Default">
+    <net code="154" name="unconnected-(U3-GPIO4-Pad9)" class="SELV,Default">
       <node ref="U3" pin="9" pinfunction="GPIO4_9" pintype="no_connect"/>
     </net>
-    <net code="141" name="unconnected-(U3-GPIO5-Pad10)" class="SELV,Default">
+    <net code="155" name="unconnected-(U3-GPIO5-Pad10)" class="SELV,Default">
       <node ref="U3" pin="10" pinfunction="GPIO5_10" pintype="no_connect"/>
     </net>
-    <net code="142" name="unconnected-(U3-GPIO15-Pad20)" class="SELV,Default">
+    <net code="156" name="unconnected-(U3-GPIO15-Pad20)" class="SELV,Default">
       <node ref="U3" pin="20" pinfunction="GPIO15_20" pintype="no_connect"/>
     </net>
-    <net code="143" name="unconnected-(U3-NC-Pad4)" class="SELV,Default">
+    <net code="157" name="unconnected-(U3-NC-Pad4)" class="SELV,Default">
       <node ref="U3" pin="4" pinfunction="NC_4" pintype="no_connect"/>
     </net>
-    <net code="144" name="unconnected-(U3-NC-Pad7)" class="SELV,Default">
+    <net code="158" name="unconnected-(U3-NC-Pad7)" class="SELV,Default">
       <node ref="U3" pin="7" pinfunction="NC_7" pintype="no_connect"/>
     </net>
-    <net code="145" name="unconnected-(U3-NC-Pad21)" class="SELV,Default">
+    <net code="159" name="unconnected-(U3-NC-Pad21)" class="SELV,Default">
       <node ref="U3" pin="21" pinfunction="NC_21" pintype="no_connect"/>
     </net>
-    <net code="146" name="unconnected-(U3-NC-Pad32)" class="SELV,Default">
+    <net code="160" name="unconnected-(U3-NC-Pad32)" class="SELV,Default">
       <node ref="U3" pin="32" pinfunction="NC_32" pintype="no_connect"/>
     </net>
-    <net code="147" name="unconnected-(U3-NC-Pad33)" class="SELV,Default">
+    <net code="161" name="unconnected-(U3-NC-Pad33)" class="SELV,Default">
       <node ref="U3" pin="33" pinfunction="NC_33" pintype="no_connect"/>
     </net>
-    <net code="148" name="unconnected-(U3-NC-Pad34)" class="SELV,Default">
+    <net code="162" name="unconnected-(U3-NC-Pad34)" class="SELV,Default">
       <node ref="U3" pin="34" pinfunction="NC_34" pintype="no_connect"/>
     </net>
-    <net code="149" name="unconnected-(U3-NC-Pad35)" class="SELV,Default">
+    <net code="163" name="unconnected-(U3-NC-Pad35)" class="SELV,Default">
       <node ref="U3" pin="35" pinfunction="NC_35" pintype="no_connect"/>
     </net>
-    <net code="150" name="unconnected-(U10-CF1-Pad23)" class="LIVE,Default">
+    <net code="164" name="unconnected-(U10-CF1-Pad23)" class="LIVE,Default">
       <node ref="U10" pin="23" pinfunction="CF1_23" pintype="output+no_connect"/>
     </net>
-    <net code="151" name="unconnected-(U10-CF2-Pad24)" class="LIVE,Default">
+    <net code="165" name="unconnected-(U10-CF2-Pad24)" class="LIVE,Default">
       <node ref="U10" pin="24" pinfunction="CF2_24" pintype="output+no_connect"/>
     </net>
-    <net code="152" name="unconnected-(U10-IRQ-Pad22)" class="LIVE,Default">
+    <net code="166" name="unconnected-(U10-IRQ-Pad22)" class="LIVE,Default">
       <node ref="U10" pin="22" pinfunction="IRQ_22" pintype="open_collector+no_connect"/>
     </net>
-    <net code="153" name="unconnected-(U10-REVP-Pad20)" class="LIVE,Default">
+    <net code="167" name="unconnected-(U10-REVP-Pad20)" class="LIVE,Default">
       <node ref="U10" pin="20" pinfunction="REVP_20" pintype="output+no_connect"/>
     </net>
-    <net code="154" name="unconnected-(U10-ZX-Pad1)" class="LIVE,Default">
+    <net code="168" name="unconnected-(U10-ZX-Pad1)" class="LIVE,Default">
       <node ref="U10" pin="1" pinfunction="ZX_1" pintype="output+no_connect"/>
     </net>
-    <net code="155" name="unconnected-(U10-ZX_I-Pad21)" class="LIVE,Default">
+    <net code="169" name="unconnected-(U10-ZX_I-Pad21)" class="LIVE,Default">
       <node ref="U10" pin="21" pinfunction="ZX_I_21" pintype="output+no_connect"/>
     </net>
-    <net code="156" name="unconnected-(U11-NIC-Pad13)" class="SELV,Default">
+    <net code="170" name="unconnected-(U11-NIC-Pad13)" class="SELV,Default">
       <node ref="U11" pin="13" pinfunction="NIC_13" pintype="no_connect"/>
     </net>
-    <net code="157" name="unconnected-(U11-NIC-Pad16)" class="LIVE,Default">
+    <net code="171" name="unconnected-(U11-NIC-Pad16)" class="LIVE,Default">
       <node ref="U11" pin="16" pinfunction="NIC_16" pintype="no_connect"/>
     </net>
-    <net code="158" name="unconnected-(U21-NC-Pad3)" class="SELV,Default">
+    <net code="172" name="unconnected-(U21-NC-Pad3)" class="SELV,Default">
       <node ref="U21" pin="3" pinfunction="NC_3" pintype="no_connect"/>
     </net>
-    <net code="159" name="unconnected-(U31-Q_N-Pad3)" class="SELV,Default">
+    <net code="173" name="unconnected-(U31-Q_N-Pad3)" class="SELV,Default">
       <node ref="U31" pin="3" pinfunction="Q_N_3" pintype="output+no_connect"/>
     </net>
-    <net code="160" name="unconnected-(U33-GPA1-Pad22)" class="SELV,Default">
+    <net code="174" name="unconnected-(U33-GPA1-Pad22)" class="SELV,Default">
       <node ref="U33" pin="22" pinfunction="GPA1_22" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="161" name="unconnected-(U33-GPA4-Pad25)" class="SELV,Default">
+    <net code="175" name="unconnected-(U33-GPA4-Pad25)" class="SELV,Default">
       <node ref="U33" pin="25" pinfunction="GPA4_25" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="162" name="unconnected-(U33-GPA5-Pad26)" class="SELV,Default">
+    <net code="176" name="unconnected-(U33-GPA5-Pad26)" class="SELV,Default">
       <node ref="U33" pin="26" pinfunction="GPA5_26" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="163" name="unconnected-(U33-GPA6-Pad27)" class="SELV,Default">
+    <net code="177" name="unconnected-(U33-GPA6-Pad27)" class="SELV,Default">
       <node ref="U33" pin="27" pinfunction="GPA6_27" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="164" name="unconnected-(U33-INTA-Pad20)" class="SELV,Default">
+    <net code="178" name="unconnected-(U33-INTA-Pad20)" class="SELV,Default">
       <node ref="U33" pin="20" pinfunction="INTA_20" pintype="open_collector+no_connect"/>
     </net>
-    <net code="165" name="unconnected-(U33-INTB-Pad19)" class="SELV,Default">
+    <net code="179" name="unconnected-(U33-INTB-Pad19)" class="SELV,Default">
       <node ref="U33" pin="19" pinfunction="INTB_19" pintype="open_collector+no_connect"/>
     </net>
-    <net code="166" name="unconnected-(U33-NC-Pad11)" class="SELV,Default">
+    <net code="180" name="unconnected-(U33-NC-Pad11)" class="SELV,Default">
       <node ref="U33" pin="11" pinfunction="NC_11" pintype="no_connect"/>
     </net>
-    <net code="167" name="unconnected-(U33-NC-Pad14)" class="SELV,Default">
+    <net code="181" name="unconnected-(U33-NC-Pad14)" class="SELV,Default">
       <node ref="U33" pin="14" pinfunction="NC_14" pintype="no_connect"/>
     </net>
-    <net code="168" name="unconnected-(U35-NC-Pad1)" class="SELV,Default">
+    <net code="182" name="unconnected-(U35-NC-Pad1)" class="SELV,Default">
       <node ref="U35" pin="1" pinfunction="NC_1" pintype="no_connect"/>
     </net>
-    <net code="169" name="unconnected-(U36-NC-Pad1)" class="SELV,Default">
+    <net code="183" name="unconnected-(U36-NC-Pad1)" class="SELV,Default">
       <node ref="U36" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="184" name="unconnected-(U40-NC-Pad4)" class="SELV,Default">
+      <node ref="U40" pin="4" pinfunction="NC_4" pintype="no_connect"/>
+    </net>
+    <net code="185" name="unconnected-(U41-D2+-Pad3)" class="SELV,Default">
+      <node ref="U41" pin="3" pinfunction="D2+_3" pintype="no_connect"/>
+    </net>
+    <net code="186" name="unconnected-(U41-D2--Pad7)" class="SELV,Default">
+      <node ref="U41" pin="7" pinfunction="D2-_7" pintype="no_connect"/>
     </net>
   </nets>
 </export>

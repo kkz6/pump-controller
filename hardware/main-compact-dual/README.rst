@@ -1,18 +1,11 @@
-Guarded single-phase pump controller, revision R2
+Guarded single-phase pump controller, revision R3
 =================================================
 
-**Installation and purchase hold.** Cabinet relay wiring, motor feedback and
-AC inlet spacing require review before use. See the
-`R2 system audit <../../design/guarded-r2-system-audit.rst>`_.
-
-**Engineering prototype for the bench.** The 100 × 97 mm six-layer main PCB,
-60 × 45 mm OLED panel, isolated signal receiver and external cabinet guard
-work together. The starter
-and its capacitor circuit still carry the motor current. The independent guard
-adds two series motor contactors ahead of the starter. Allow cabinet space for
-them, the control supply, monitoring and terminals before ordering hardware.
-For assembly, U11 and its four specified 0402 capacitors require the placement
-and inspection tolerances in the `R2 electrical review <../../design/compact-dual-guard-r2.rst>`_.
+The six-layer, 100 × 97 mm main board controls the existing starter through
+two dry command outputs and a separate cabinet guard. The motor current stays
+in the starter feeder. The signal receiver, two motor contactors, dual-channel
+USB access interlock and hardwired trip chain are part of the reference
+assembly. Use separate cabinet space for those parts.
 
 Start with the `field assembly and wiring <../starter-guard/README.rst>`_ and
 `connection drawing <exports/starter-wiring.pdf>`_. The original starter STOP,
@@ -33,7 +26,7 @@ Connections
   existing inlet probe return before connecting it. Do not tie the two
   excitation outputs together. The **independent float goes to the cabinet
   guard**, on its own cable, so loss of the tank common cannot defeat it.
-* J30 and J35 are dry contacts. Each pin 1 is COM, pin 2 NO. In R2 they switch
+* J30 and J35 are dry contacts. Each pin 1 is COM, pin 2 NO. In R3 they switch
   the guard's separately fused 24 V **command interposer coils** A and B. The
   interposers provide the contacts for the OEM commands and physically prove
   that each command has released before re-enable. Route the original OEM
@@ -52,19 +45,26 @@ Connections
   `receiver PCB and connectors <../guard-receiver/README.rst>`_. Never apply 24 V
   to J36. The `harness parts list <starter-harness-parts.csv>`_ specifies the
   mating housings and terminals.
-* J32 connects to OLED panel J1 through a pin-for-pin 12-way cable. The panel
-  carries START, STOP, MODE, SET/RESET and NEXT/+. Optional external operator
-  buttons terminate on the panel. When fitting remote NC STOP at panel J3,
-  remove JP1 and verify opening either STOP breaks the loop. The optional
-  maintained AUTO/MANUAL selector uses panel J8 (JST GH3), pin 1 common +5 V,
-  pin 2 MANUAL, pin 3 AUTO. J8 selects the operating mode. The separate
-  mechanical service transfer at the starter determines whether the PCB can
-  issue commands. See the `panel drawings <../panel-rev-e/README.rst>`_.
-* J2 is an eight-pin internal programming header. R2 has no USB-C socket.
-  Pins 7 and 8 are native USB D− and D+,
-  pin 1 logic GND, pins 5 and 6 EN and BOOT. Pin 2 is 3.3 V. Leave pin 4
-  (ARM_CMD) open for native USB. Use an isolated bench with mains and starter
-  wiring disconnected. USB VBUS must stay off the 3.3 V rail.
+* J32 links to panel J1 with a straight-through 12-way cable. All five
+  operator buttons and the OLED are on panel F. Its optional button station
+  uses one indexed ten-way J2. When the station is absent, fit the local-only
+  plug with a fixed NC loop at cavities 3–4. Either solution keeps the local
+  STOP in series. Removing the plug opens STOP. The optional maintained mode
+  key is on panel J8, pins 1 common, 2 MANUAL and 3 AUTO. This key selects the
+  software mode. The separately interlocked HOST/LOCAL transfer selects
+  authority over the physical starter. See the
+  `panel connector drawing <../panel-rev-f/README.rst>`_.
+* J40 is a USB-C data port for the ESP32-C6. Opening the specified service
+  shutter requires the captive key from the motor-feeder isolator in OFF,
+  and trips the cabinet in either transfer position. Powered USB also
+  cuts both board command coil paths and the raw panel permission supply
+  independently of software. USB VBUS supplies no board power. For bench
+  programming disconnect AC and starter leads, remove the RUN link and power
+  the board through the isolated 5 V J41 bench harness (2 positive, 3 return,
+  cavity 1 empty). The RUN harness bridges J41.1 to J41.2. J2 is the
+  six-pin internal fixture. Its pins are 1 GND, 2 3.3 V sense, 3 UART TX,
+  4 ARM_CMD, 5 EN and 6 BOOT. Leave pin 4 open during USB service. See the
+  `service and interlock checks <../../design/guarded-r3-release.rst>`_.
 
 Choosing a starter profile
 --------------------------
@@ -130,12 +130,15 @@ Design files and verification
 
 * `KiCad project <pump-controller-compact.kicad_pro>`_, `PCB <pump-controller-compact.kicad_pcb>`_,
   `schematic PDF <exports/schematic.pdf>`_ and `BOM <bom.csv>`_.
-* `Board top <exports/board-top.png>`_, `starter connector view <exports/main-starter-contacts.png>`_,
-  `panel front and rear <exports/oled-panel-3d.png>`_ and `enclosure <../../mechanical/compact-dual/README.rst>`_.
+* `Main and panel copper layouts <exports/pcb-layout.png>`_,
+  `main PCB top view <exports/board-top.png>`_ and
+  `starter connector view <exports/main-starter-contacts.png>`_.
+* `Panel F drawings and views <../panel-rev-f/README.rst>`_ and
+  `R3 USB service guard <../../mechanical/guarded-r3/README.rst>`_.
 * `Native rule checks <checks/independent-summary.json>`_, `copper measurements <checks/independent-geometry.json>`_,
   `panel and cable checks <checks/panel-integration.json>`_ and `harness continuity <checks/starter-harness.json>`_.
-* `Prototype copper and drill archive <pump-controller-compact-dual-guard-r2-gerber-prototype.zip>`_,
-  `stencil archive <pump-controller-compact-dual-guard-r2-stencil-prototype.zip>`_ and
+* `Prototype copper and drill archive <pump-controller-compact-dual-guard-r3-gerber-prototype.zip>`_,
+  `stencil archive <pump-controller-compact-dual-guard-r3-stencil-prototype.zip>`_ and
   `fabrication file checks <checks/independent-gerbers.json>`_.
-* `R2 release conditions <../../design/compact-dual-guard-r2.rst>`_ and
+* `R3 release and acceptance limits <../../design/guarded-r3-release.rst>`_ and
   `electrical findings on the previous layout <../../design/compact-dual-electrical-audit.rst>`_.

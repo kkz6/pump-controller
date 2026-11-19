@@ -56,7 +56,19 @@ def export(compact=False, compact_dual=False):
    elif src.suffix=='.svg':shutil.copyfile(src,maps/src.name)
   run(['pcb','export','ipcd356','-o',fab/(P+'.d356'),BOARD])
  run(['pcb','export','pos','--format','csv','--units','mm','--side','both','--exclude-dnp','-o',O/'exports/component-positions.csv',BOARD])
- run(['sch','export','svg','-o',str(O/'exports/schematic-svg')+'/',BOARD.with_suffix('.kicad_sch')])
+ if compact_dual:
+  run(['sch','export','pdf','-o',O/'exports/schematic.pdf',BOARD.with_suffix('.kicad_sch')])
+ svg_output=O/'exports/schematic-svg'
+ svg_output.mkdir(parents=True,exist_ok=True)
+ with tempfile.TemporaryDirectory(prefix='pump-schematic-svg-') as temp:
+  svg_temp=Path(temp)
+  run(['sch','export','svg','-o',str(svg_temp)+'/',BOARD.with_suffix('.kicad_sch')])
+  pages=list(svg_temp.glob('*.svg'))
+  if not pages: raise RuntimeError('No schematic SVG pages were exported')
+  for page in pages: shutil.copyfile(page,svg_output/page.name)
+  current={page.name for page in pages}
+  for previous in svg_output.glob(BOARD.stem+'*.svg'):
+   if previous.name not in current: previous.unlink()
  if source_hashes(BOARD, source)!=frozen:raise RuntimeError('CAD changed during export')
  manifest={'revision':variant.revision,'purpose':'Bare PCB engineering prototype','pcb_prototype_order_package':False,'assembled_product_qualified':False,'source_sha256':frozen,'outline_mm':size,'layer_order':['GTL','G2L','G3L','G4L','G5L','GBL'],'thickness_mm':1.6,'solder_mask':'green','outer_copper_oz':1,'inner_copper_oz':.5,'finish':'ENIG','material':'FR4 Tg155 or vendor-confirmed equivalent','exact_dielectric_stackup_vendor_confirmation_required':True,'controlled_impedance_specified':False,'origin':'absolute, metric, unmirrored across all CAM and drill files','through_vias_only':True,'via_in_pad':False,'manufacturer_confirmed':False,'hardware_tested':False,'output_sha256':{str(p.relative_to(O)):sha(p)for folder in[fab,paste,maps]for p in sorted(folder.iterdir())if p.is_file()}}
  (O/'fabrication-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

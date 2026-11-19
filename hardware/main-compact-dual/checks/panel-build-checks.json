@@ -1,19 +1,36 @@
 {
-  "panel_pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+  "panel_pcb_sha256": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
   "panel_archives": {
-    "gerber": {
-      "archive": "hardware/panel-rev-e/pump-panel-rev-e-gerber-review.zip",
-      "sha256": "8bf7a5d787d260ce5185a3bb440b7821ad91e05cc2926098c2e292282e0f3abf",
-      "matching_fresh_exports_excluding_timestamp": 12
+    "pump-panel-rev-f-gerber-prototype.zip": {
+      "sha256": "2ac3362fb07e5a4567f883d60a853bdaf8fe9bc73332c746d251cffdd59eaf0e",
+      "members": [
+        "MANUFACTURING-NOTES.txt",
+        "drill-report.txt",
+        "pump-panel-rev-f-B_Cu.gbl",
+        "pump-panel-rev-f-B_Mask.gbs",
+        "pump-panel-rev-f-B_Silkscreen.gbo",
+        "pump-panel-rev-f-Edge_Cuts.gm1",
+        "pump-panel-rev-f-F_Cu.gtl",
+        "pump-panel-rev-f-F_Mask.gts",
+        "pump-panel-rev-f-F_Silkscreen.gto",
+        "pump-panel-rev-f-NPTH.drl",
+        "pump-panel-rev-f-PTH.drl",
+        "pump-panel-rev-f-job.gbrjob",
+        "pump-panel-rev-f.d356"
+      ]
     },
-    "stencil": {
-      "archive": "hardware/panel-rev-e/pump-panel-rev-e-stencil-review.zip",
-      "sha256": "a90fbf087df7c17552b6e589b6f2644a67d7a32a531dc54377e8a95925e55309",
-      "matching_fresh_exports_excluding_timestamp": 3
+    "pump-panel-rev-f-stencil-prototype.zip": {
+      "sha256": "ee1a3f8eb79444190602178f21fa814f27f0d870271dd7c5b0a9cd0ce71a6be1",
+      "members": [
+        "MANUFACTURING-NOTES.txt",
+        "pump-panel-rev-f-B_Paste.gbp",
+        "pump-panel-rev-f-F_Paste.gtp",
+        "pump-panel-rev-f-job.gbrjob"
+      ]
     }
   },
-  "archive_comparison": "Native KiCad regeneration of fabrication plots, drill files, job files and IPC netlist. All file contents matched after normalizing creation timestamps. Archive CRCs and exact file equality against checked-in export directories also passed.",
-  "hardware_tested": false,
-  "target_application_tested": false,
-  "guarded_control_firmware": "guard-firmware.json"
+  "panel_artwork_record": "hardware/panel-rev-f/checks/artwork.json",
+  "artwork_record_sha256": "35d55dc9252d218b24d3ddd425b4976df741c3c7ad5a63daa415dda9f8081a9f",
+  "archive_comparison": "ZIP CRC and exact member equality against panel CAD exports. Physical copper connectivity reconstructed from the bare-board archive.",
+  "hardware_tested": false
 }

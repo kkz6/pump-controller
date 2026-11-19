@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "c8e4372e-5f8d-597b-9327-a258e42eadc6")
 (paper "A3")
-(title_block (title "Heartbeat receiver and common supplies") (rev "1-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Heartbeat receiver and common supplies") (rev "R3-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:PS1"
 (pin_names (offset 0.508))
