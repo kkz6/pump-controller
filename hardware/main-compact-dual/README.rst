@@ -163,6 +163,11 @@ Design and verification files
 * `Populated top view from KiCad <exports/board-top.png>`_. The two green
   headers at the top edge are A and B. The drawing includes approximate
   component bodies. Mating plugs belong to the cable harness.
+* `OLED panel front and rear <exports/oled-panel-3d.png>`_ shows the five
+  buttons, J7 display cable and J8 key input. The OLED, STOP switch body
+  and J7 housing are represented by approximate assembly models.
+* `Starter connector close-up <exports/main-starter-contacts.png>`_ identifies
+  the COM and NO terminals on both J30 and J35.
 * `Native CAD validation <checks/independent-summary.json>`_,
   `clearances and mounting geometry <checks/independent-geometry.json>`_
   and `isolation rule tests <checks/isolation-negative-tests.json>`_.
