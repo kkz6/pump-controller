@@ -1,0 +1,66 @@
+{
+  "checker_sha256": "83d1af1e7ce9a1ac83c0956b5633f506029d82ac5804fca3dc4aff0dacbc52f6",
+  "compact_passes": true,
+  "baseline_mode_regression_passes": true,
+  "negative_cases": {
+    "legacy": {
+      "rejected": true,
+      "issues": [
+        {
+          "issue": "Compact MCP port7 must be NC/output",
+          "ref": "U33",
+          "pin": "8"
+        },
+        {
+          "issue": "Compact MCP port7 must be NC/output",
+          "ref": "U33",
+          "pin": "28"
+        },
+        {
+          "domain": "main",
+          "ref": "U33",
+          "pin": "8",
+          "expected_net": null,
+          "actual_net": "SPARE_B7",
+          "passed": false
+        },
+        {
+          "domain": "main",
+          "ref": "U33",
+          "pin": "21",
+          "expected_net": "SPARE_B7",
+          "actual_net": "unconnected-(U33-GPA0-Pad21)",
+          "passed": false
+        },
+        {
+          "domain": "main",
+          "net": "SPARE_B7",
+          "expected_members": [
+            "J32.12",
+            "R93.1",
+            "U33.21"
+          ],
+          "actual_members": [
+            "J32.12",
+            "R93.1",
+            "U33.8"
+          ],
+          "passed": false
+        }
+      ],
+      "report_sha256": "92face1a84e5cf90b2ccc6e91d58772c30d8b318d2a22bf38aa357834f4da98e"
+    },
+    "port7": {
+      "rejected": true,
+      "issues": [
+        {
+          "issue": "Compact MCP port7 must be NC/output",
+          "ref": "U33",
+          "pin": "28"
+        }
+      ],
+      "report_sha256": "f87ae67593978ffd0cf40673e00e64dd5cff9d1b8b334aa8479411734a5361e9"
+    }
+  },
+  "scope": "Validation logic only; no hardware measurement"
+}

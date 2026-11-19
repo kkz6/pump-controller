@@ -302,8 +302,9 @@ def audit(args):
     bounds = ((min(x for x, y in ends), min(y for x, y in ends)),
               (max(x for x, y in ends), max(y for x, y in ends)))
     size = [round(bounds[1][i] - bounds[0][i], 6) for i in (0, 1)]
-    if size != [100, 80] or len(corners) != 4 or set(corners.values()) != {2}:
-        errors.append('Outline is not a single closed 100×80 mm rectangle')
+    expected_size = native['outline_size_mm']
+    if size != expected_size or len(corners) != 4 or set(corners.values()) != {2}:
+        errors.append(f'Gerber outline must match the closed {expected_size} mm native profile')
     drill_checks, drills = {}, []
     for kind, plated in [('PTH', True), ('NPTH', False)]:
         candidates = [p for p in args.cam.iterdir() if p.suffix.lower() in {'.xln', '.drl'}
@@ -352,6 +353,9 @@ def audit(args):
         raise ValueError('Expected exactly one Gerber job file')
     job_path = job_candidates[0]
     job = json.loads(job_path.read_text())
+    job_size = job.get('GeneralSpecs', {}).get('Size', {})
+    if [job_size.get('X'), job_size.get('Y')] != expected_size:
+        errors.append('Job dimensions differ from the native outline')
     board_gerber_names = sorted(Path(path).name for path, details in files.items()
                                if 'layer_function' in details and not details['layer_function'].startswith('Paste,'))
     if sorted(x['Path'] for x in job['FilesAttributes']) != board_gerber_names:

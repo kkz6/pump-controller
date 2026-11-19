@@ -1,0 +1,76 @@
+{
+  "pcb_sha256": "54227639c975885a5bf217f07a2b41714bfbc1bc258bdd3170d76975cad4ec19",
+  "reference_planes": [
+    {
+      "layer": "In1.Cu",
+      "net": "GND",
+      "connected_polygons": 1,
+      "area_mm2": 3013.61
+    },
+    {
+      "layer": "In1.Cu",
+      "net": "M_GND",
+      "connected_polygons": 1,
+      "area_mm2": 1571.89
+    },
+    {
+      "layer": "In4.Cu",
+      "net": "+3V3",
+      "connected_polygons": 1,
+      "area_mm2": 2937.37
+    },
+    {
+      "layer": "In4.Cu",
+      "net": "M_GND",
+      "connected_polygons": 1,
+      "area_mm2": 1571.89
+    }
+  ],
+  "tracks_on_reserved_plane_layers": [],
+  "routed_signals": {
+    "USB_DM_MCU": {
+      "length_mm": 2.219,
+      "signal_vias": 0,
+      "samples": 23,
+      "reference_copper_samples": 23,
+      "longest_gap_on_one_segment_mm": 0.0
+    },
+    "USB_DP_MCU": {
+      "length_mm": 2.219,
+      "signal_vias": 0,
+      "samples": 23,
+      "reference_copper_samples": 23,
+      "longest_gap_on_one_segment_mm": 0.0
+    },
+    "USB_DM": {
+      "length_mm": 22.817,
+      "signal_vias": 2,
+      "samples": 235,
+      "reference_copper_samples": 201,
+      "longest_gap_on_one_segment_mm": 0.662
+    },
+    "USB_DP": {
+      "length_mm": 22.458,
+      "signal_vias": 2,
+      "samples": 233,
+      "reference_copper_samples": 199,
+      "longest_gap_on_one_segment_mm": 0.662
+    },
+    "M_XIN": {
+      "length_mm": 15.024,
+      "signal_vias": 0,
+      "samples": 153,
+      "reference_copper_samples": 153,
+      "longest_gap_on_one_segment_mm": 0.0
+    },
+    "M_XOUT": {
+      "length_mm": 23.633,
+      "signal_vias": 0,
+      "samples": 239,
+      "reference_copper_samples": 239,
+      "longest_gap_on_one_segment_mm": 0.0
+    }
+  },
+  "usb_total_length_difference_mm": 0.359,
+  "scope": "Samples project trace centres onto the designated filled plane. Via antipads and clearance around through holes create local voids. Lengths exclude vertical travel, contact pins and cable. Geometry does not measure return current, differential impedance, oscillator margin, emissions or immunity."
+}

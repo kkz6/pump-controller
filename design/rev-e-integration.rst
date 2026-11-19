@@ -1,6 +1,11 @@
 Rev E installation and enclosure interfaces
 ==========================================
 
+The compact main uses the same field terminals and panel cable. On the compact
+board, J32 pin 12 (AUTO key) reaches U33 pin 21, GPIOA bit 0. The historical
+Rev E assignment to GPIOB bit 7 is unsuitable for input use. Use the
+`compact wiring correction <../hardware/main-compact/README.rst>`_ for that board.
+
 This revision uses a 100 x 80 mm six-layer main PCB and a 60 x 45 mm
 low-voltage control panel. Native Zigbee is the primary firmware target;
 Matter over Thread and Matter over Wi-Fi are separate planned builds on the

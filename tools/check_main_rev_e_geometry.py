@@ -142,6 +142,7 @@ def audit(args):
     source = json.loads(source_path.read_text())
     components = {c['ref']: c for sheet in source['sheets'] for c in sheet['components']
                   if c.get('on_board', True)}
+    compact = source['board'].get('variant') == 'compact'
     original = json.loads((BASE / 'design/circuit.json').read_text())
     original_parts = {c['ref']: c for sheet in original['sheets'] for c in sheet['components']
                       if c.get('on_board', True) and c['ref'] not in {'SW3', 'SW4', 'J33', 'J34'}}
@@ -177,6 +178,11 @@ def audit(args):
             source_issues.append({'ref': ref, 'issue': 'conditioner divider/filter value mismatch', 'expected': conditioner_values[ref], 'actual': new['value']})
         if ref == 'U31':
             old_pins['6'] = 'ARM_CLEAR_N'
+        if compact and ref == 'U33':
+            old_pins.update({'8': '', '21': 'SPARE_B7'})
+            pin_types = {str(pin['num']): pin['type'] for pin in new['pins']}
+            if new['mpn'] != 'MCP23017-E/SS' or any(pin_types.get(i) != 'output' for i in ['8', '28']):
+                source_issues.append({'ref': ref, 'issue': 'compact key requires two unconnected output-only pins on the MCP23017'})
         if ref == 'J32':
             # Rev E consolidates the three previous panel/expansion headers
             # into one connector matching Rev D panel J1 cavity-for-cavity.
@@ -222,6 +228,13 @@ def audit(args):
         if f is None:
             source_issues.append({'ref': ref, 'issue': 'missing native footprint'})
             continue
+        if compact:
+            placement = c['placement']
+            point = f.GetPosition()
+            angle_error = (f.GetOrientationDegrees() - placement['rotation'] + 180) % 360 - 180
+            if (abs(mm(point.x) - placement['x']) > EPS or abs(mm(point.y) - placement['y']) > EPS
+                    or abs(angle_error) > EPS or f.IsFlipped() != (placement.get('side', 'F') == 'B')):
+                source_issues.append({'ref': ref, 'issue': 'native placement differs from compact source'})
         fid = str(f.GetFPID().GetLibNickname()) + ':' + str(f.GetFPID().GetLibItemName())
         if fid != c['footprint'] or f.GetValue() != c['value']:
             source_issues.append({'ref': ref, 'issue': 'native footprint/value mismatch'})
@@ -518,6 +531,8 @@ def audit(args):
                                'expected_nets': sorted(expected_nets), 'actual_nets': sorted(actual_nets)})
 
     mounting_targets = {(4.0, 4.0), (96.0, 4.0), (96.0, 76.0), (4.0, 76.0)}
+    if compact:
+        mounting_targets = {(16.0, 8.8), (96.0, 8.8), (96.0, 76.0), (4.0, 76.0)}
     mounting = [h for h in all_holes if h.get('ref') and re.fullmatch(r'H\d+', h['ref'])]
     actual_mounting = {tuple(h['xy_mm']) for h in mounting}
     if actual_mounting != mounting_targets:

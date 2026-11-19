@@ -34,16 +34,20 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def invalidate_packages(output):
+def invalidate_packages(output, name=NAME):
     for suffix in SUFFIXES:
-        (output / (NAME + suffix)).unlink(missing_ok=True)
+        (output / (name + suffix)).unlink(missing_ok=True)
     (output / 'package-manifest.json').unlink(missing_ok=True)
 
 
-def package(base=BASE):
-    output = base / 'hardware/main-rev-e'
-    invalidate_packages(output)
-    board = output / (NAME + '.kicad_pcb')
+def package(base=BASE, *, compact=False):
+    output = base / ('hardware/main-compact' if compact else 'hardware/main-rev-e')
+    name = 'pump-controller-compact' if compact else NAME
+    source_path = 'design/main-compact.json' if compact else 'design/main-rev-e.json'
+    size = [100, 75] if compact else [100, 80]
+    settings = dict(SETTINGS, outline_mm=size)
+    invalidate_packages(output, name)
+    board = output / (name + '.kicad_pcb')
     checks = output / 'checks'
     tracked = {}
 
@@ -59,10 +63,10 @@ def package(base=BASE):
         return json.loads(watch(path).read_text())
 
     inputs = [board, board.with_suffix('.kicad_pro'), board.with_suffix('.kicad_dru'),
-              base / 'design/main-rev-e.json'] + sorted(output.glob('*.kicad_sch'))
+              base / source_path] + sorted(output.glob('*.kicad_sch'))
     frozen = {str(path.relative_to(base)): sha(watch(path)) for path in inputs}
     pcb_hash = frozen[str(board.relative_to(base))]
-    source_hash = frozen['design/main-rev-e.json']
+    source_hash = frozen[source_path]
     native = read(checks / 'independent-summary.json')
     require(native['source_sha256'] == frozen, 'Native checks refer to stale sources')
     require(native['independent_native_checks_passed'] is True
@@ -82,11 +86,11 @@ def package(base=BASE):
             'Native geometry is stale or failed')
     export = read(output / 'fabrication-manifest.json')
     require(export['source_sha256'] == frozen, 'CAM export refers to stale sources')
-    require(all(export[key] == value for key, value in SETTINGS.items()),
+    require(all(export[key] == value for key, value in settings.items()),
             'Fabrication settings changed; review package notes and process assumptions')
-    expected_board = {NAME + '.' + ext for ext in BOARD_EXTENSIONS}
-    expected_board |= {NAME + ext for ext in ('.gbrjob', '-PTH.XLN', '-NPTH.XLN', '.d356')}
-    expected_paste = {NAME + '.GTP', NAME + '.GBP'}
+    expected_board = {name + '.' + ext for ext in BOARD_EXTENSIONS}
+    expected_board |= {name + ext for ext in ('.gbrjob', '-PTH.XLN', '-NPTH.XLN', '.d356')}
+    expected_paste = {name + '.GTP', name + '.GBP'}
     cam = output / 'gerber'
     paste = output / 'exports/stencil'
     require({p.name for p in cam.iterdir()} == expected_board, 'Unexpected/missing bare-board CAM file')
@@ -106,7 +110,7 @@ def package(base=BASE):
             and parsed['native_inventory_sha256'] == sha(checks / 'independent-geometry.json'),
             'Parsed CAM evidence refers to stale sources/inventory')
     require(parsed['serialization_registration_and_mask_passed'] is True and not parsed['errors']
-            and parsed['gerber_files_parsed'] == 13 and parsed['outline_centerline_size_mm'] == [100, 80]
+            and parsed['gerber_files_parsed'] == 13 and parsed['outline_centerline_size_mm'] == size
             and set(parsed['mask_geometry']) == {'F.Mask', 'B.Mask'}
             and all(x['passed'] is True for x in parsed['mask_geometry'].values()),
             'Parsed CAM checks failed or are incomplete')
@@ -117,8 +121,8 @@ def package(base=BASE):
             'Unexpected connectivity validation scope; review packaging gate')
 
     notes = (
-        'BARE-PCB ENGINEERING PROTOTYPE — MAIN REV E\n'
-        '100 x 80 mm, 6 layers, 1.6 mm FR-4 Tg155 or vendor-confirmed equivalent.\n'
+        f'BARE-PCB ENGINEERING PROTOTYPE — {name}\n'
+        f'{size[0]} x {size[1]} mm, 6 layers, 1.6 mm FR-4 Tg155 or vendor-confirmed equivalent.\n'
         'Layer order: GTL / G2L / G3L / G4L / G5L / GBL. Outer copper 1 oz; inner copper 0.5 oz.\n'
         'Green solder mask, white legend, ENIG. No controlled impedance stackup specified.\n'
         'Exact dielectric ply schedule and the six-layer construction require vendor confirmation.\n'
@@ -134,7 +138,7 @@ def package(base=BASE):
         'Paste files are supplied in a separate stencil archive.\n'
     )
     common = {
-        'revision': 'E', 'scope': 'Bare-PCB engineering prototype only',
+        'revision': 'Compact' if compact else 'E', 'scope': 'Bare-PCB engineering prototype only',
         'native_and_parsed_cam_checks_passed': True,
         'manufacturer_accepted': False, 'hardware_tested': False,
         'assembled_product_qualified': False, 'gerber_conductive_netlist_extracted': False,
@@ -151,7 +155,7 @@ def package(base=BASE):
     payloads = [
         ({n: (cam / n).read_bytes() for n in sorted(expected_board)}, notes),
         ({n: (paste / n).read_bytes() for n in sorted(expected_paste)},
-         'SEPARATE STENCIL PROTOTYPE — MAIN REV E\n'
+         f'SEPARATE STENCIL PROTOTYPE — {name}\n'
          'F.Paste / B.Paste; metric absolute coordinates. Not part of bare-board copper.\n'
          'Assembler must confirm stencil thickness, apertures and assembly process.\n'),
     ]
@@ -165,10 +169,10 @@ def package(base=BASE):
             manifest = {**common, 'archive_kind': 'bare_board' if suffix == SUFFIXES[0] else 'stencil',
                         'files_sha256': {n: hashlib.sha256(b).hexdigest() for n, b in payload.items()}}
             payload['package-manifest.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
-            filename = NAME + suffix
+            filename = name + suffix
             with zipfile.ZipFile(temp / filename, 'w', zipfile.ZIP_DEFLATED) as archive:
-                for name, data in sorted(payload.items()):
-                    archive.writestr(name, data)
+                for member, data in sorted(payload.items()):
+                    archive.writestr(member, data)
             with zipfile.ZipFile(temp / filename) as archive:
                 require(archive.testzip() is None, 'ZIP CRC check failed')
                 require(set(archive.namelist()) == set(payload), 'ZIP inventory mismatch')
@@ -187,7 +191,10 @@ def package(base=BASE):
 
 if __name__ == '__main__':
     try:
-        result = package()
+        import argparse
+        parser = argparse.ArgumentParser(description=__doc__)
+        parser.add_argument('--compact', action='store_true')
+        result = package(compact=parser.parse_args().compact)
     except (ValueError, KeyError, OSError, json.JSONDecodeError) as error:
         raise SystemExit('Packaging refused; current validated evidence is required: ' + str(error))
     print(json.dumps({'scope': result['scope'], 'archives': {
