@@ -1,0 +1,1136 @@
+{
+  "sheets": [
+    {
+      "id": "power",
+      "title": "Isolated AC input, 5 V and 3.3 V supplies",
+      "components": [
+        {
+          "ref": "J1",
+          "value": "AC INPUT L/N",
+          "mpn": "1715721",
+          "description": "Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2",
+          "datasheet": "https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-15-2-508-1715721",
+          "footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+          "kind": "connector",
+          "pins": [
+            {
+              "num": "1",
+              "name": "L",
+              "net": "MAINS_L",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "N",
+              "net": "MAINS_N",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "F1",
+          "value": "T1A 600VAC",
+          "mpn": "0ADKP1000-RE",
+          "description": "Bel 1 A time-delay axial pigtail fuse; 200 A interrupting capacity at 600 VAC per TUV; coordinate with upstream protection",
+          "datasheet": "https://www.belfuse.com/media/datasheets/products/circuit-protection/ds-cp-0adkx-series.pdf",
+          "footprint": "Pump:Fuse_Axial_5x20_P27.94",
+          "kind": "fuse",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "MAINS_L",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "L_FUSED",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R1",
+          "value": "22R 3W FUSIBLE",
+          "mpn": "AC03000002209JACCS",
+          "description": "Vishay AC03-CS 22 ohm 3 W 5% fusible safety resistor; keep heat away from MCU and capacitors",
+          "datasheet": "https://www.vishay.com/docs/28909/acxxcs.pdf",
+          "footprint": "Pump:R_Axial_L13_D6_P20.32",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "L_FUSED",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "L_PROTECTED",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "RV1",
+          "value": "TMOV 320VAC",
+          "mpn": "TMOV14RP320EL2B7",
+          "description": "Thermally protected 14 mm MOV, 320 VAC continuous; INLINE crimped L2B7 lead option required for footprint; surge coordination unverified",
+          "datasheet": "https://www.littelfuse.com/assetdocs/tmov-itmov?assetguid=bd475732-1071-4352-b8aa-f78b0007eb05",
+          "footprint": "Pump:TMOV14_Inline_P7.5",
+          "kind": "varistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "L_PROTECTED",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "MAINS_N",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "U1",
+          "value": "5V 1.2A ISOLATED",
+          "mpn": "RACM06E-05SK/277",
+          "description": "6 W reinforced-isolation AC/DC module, 25.4 x 25.4 x 16.7 mm; 5 V model delivers 6 W to 50 C at 115-277 VAC; keep output floating",
+          "datasheet": "https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf",
+          "footprint": "Pump:RACM06E",
+          "kind": "power_module",
+          "pins": [
+            {
+              "num": "1",
+              "name": "AC_L",
+              "net": "L_PROTECTED",
+              "type": "power_in"
+            },
+            {
+              "num": "2",
+              "name": "AC_N",
+              "net": "MAINS_N",
+              "type": "power_in"
+            },
+            {
+              "num": "4",
+              "name": "-VOUT",
+              "net": "GND",
+              "type": "power_out"
+            },
+            {
+              "num": "5",
+              "name": "+VOUT",
+              "net": "+5V",
+              "type": "power_out"
+            }
+          ]
+        },
+        {
+          "ref": "C1",
+          "value": "47uF 16V 105C",
+          "mpn": "Generic 47uF 16V 105C low-impedance electrolytic D5 P2.0",
+          "description": "5 V bulk reservoir near relay branch; select <=5 mm diameter and <=11 mm height",
+          "datasheet": "",
+          "footprint": "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm",
+          "kind": "capacitor_polarized",
+          "pins": [
+            {
+              "num": "1",
+              "name": "+",
+              "net": "+5V",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "-",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C2",
+          "value": "100nF 50V X7R",
+          "mpn": "Generic 100nF 50V X7R 0805",
+          "description": "Local ceramic bypass; X7R dielectric; verify effective capacitance at bias",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+5V",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C3",
+          "value": "22uF 16V X7R",
+          "mpn": "Generic 22uF 16V X7R 1210",
+          "description": "Buck input capacitor directly at VIN/PGND; 22 uF nominal chosen to retain at least 10 uF effective at 5 V including bias/tolerance; qualify purchased part",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_1210_3225Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+5V",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C4",
+          "value": "100nF 50V X7R",
+          "mpn": "Generic 100nF 50V X7R 0805",
+          "description": "Buck high-frequency input bypass directly at VIN/PGND",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+5V",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "U2",
+          "value": "TPS62162 3V3 1A",
+          "mpn": "TPS62162DSGR",
+          "description": "Fixed 3.3 V synchronous buck; FB tied to AGND, VOS Kelvin-connected to output capacitor; EP to ground with thermal vias",
+          "datasheet": "https://www.ti.com/lit/ds/symlink/tps62160.pdf",
+          "footprint": "Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm_ThermalVias",
+          "kind": "ic",
+          "pins": [
+            {
+              "num": "1",
+              "name": "PGND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "2",
+              "name": "VIN",
+              "net": "+5V",
+              "type": "power_in"
+            },
+            {
+              "num": "3",
+              "name": "EN",
+              "net": "+5V",
+              "type": "input"
+            },
+            {
+              "num": "4",
+              "name": "AGND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "5",
+              "name": "FB",
+              "net": "GND",
+              "type": "input"
+            },
+            {
+              "num": "6",
+              "name": "VOS",
+              "net": "+3V3",
+              "type": "input"
+            },
+            {
+              "num": "7",
+              "name": "SW",
+              "net": "BUCK_SW",
+              "type": "power_out"
+            },
+            {
+              "num": "8",
+              "name": "PG",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "9",
+              "name": "EP",
+              "net": "GND",
+              "type": "power_in"
+            }
+          ]
+        },
+        {
+          "ref": "L1",
+          "value": "2.2uH",
+          "mpn": "74438357022",
+          "description": "Wuerth WE-MAPI 4030; 4.1x4.1x3.1 mm, 2.2 uH, 4.6 A saturation at 10% drop, max 26 mOhm DCR",
+          "datasheet": "https://www.we-online.com/components/products/datasheet/74438357022.pdf",
+          "footprint": "Inductor_SMD:L_Wuerth_MAPI-4030",
+          "kind": "inductor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "BUCK_SW",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "+3V3",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C5",
+          "value": "22uF 10V X7R",
+          "mpn": "Generic 22uF 10V X7R 1210",
+          "description": "Buck output capacitor at L1/VOS; select effective capacitance within TI datasheet recommended range after bias/tolerance",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_1210_3225Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C6",
+          "value": "100nF 50V X7R",
+          "mpn": "Generic 100nF 50V X7R 0805",
+          "description": "Local 3.3 V rail bypass",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R2",
+          "value": "33R 1% 2W MINIMUM LOAD",
+          "mpn": "CRM2512-FX-33R0ELF",
+          "description": "Bourns 2512 thick-film 33 ohm 1%, 2 W at 70 C with 300 mm2 combined solder-pad/trace copper per datasheet; permanent 5 V minimum-load resistor, 0.677-0.844 W at 4.75-5.25 V including 1% tolerance. Reserve copper area and keep away from probes, precision meter components, antenna module and electrolytics. Revised module local ambient limit 50 C.",
+          "datasheet": "https://www.bourns.com/docs/product-datasheets/crm.pdf",
+          "footprint": "Resistor_SMD:R_2512_6332Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+5V",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcu",
+      "title": "ESP32-C6 Matter controller and service interface",
+      "components": [
+        {
+          "ref": "U3",
+          "value": "ESP32-C6-MINI-1U-H8",
+          "mpn": "ESP32-C6-MINI-1U-H8",
+          "description": "8 MB flash; external antenna; hardware supports Matter over Wi-Fi or Thread. Antenna must be outside metal starter enclosure. GPIO17 drives ARM_CMD interlock rearm; GPIO16 UART TX logs only; GPIO4/5/15 unused; strap levels preserved.",
+          "datasheet": "https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf",
+          "footprint": "Pump:ESP32-C6-MINI-1U",
+          "kind": "ic",
+          "pins": [
+            {
+              "num": "1",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "2",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "3",
+              "name": "3V3",
+              "net": "+3V3",
+              "type": "power_in"
+            },
+            {
+              "num": "4",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "5",
+              "name": "GPIO2",
+              "net": "MUX_A1",
+              "type": "bidirectional"
+            },
+            {
+              "num": "6",
+              "name": "GPIO3",
+              "net": "MUX_A2",
+              "type": "bidirectional"
+            },
+            {
+              "num": "7",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "8",
+              "name": "EN",
+              "net": "MCU_EN",
+              "type": "input"
+            },
+            {
+              "num": "9",
+              "name": "GPIO4",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "10",
+              "name": "GPIO5",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "11",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "12",
+              "name": "GPIO0",
+              "net": "PROBE_EXC",
+              "type": "bidirectional"
+            },
+            {
+              "num": "13",
+              "name": "GPIO1",
+              "net": "MUX_A0",
+              "type": "bidirectional"
+            },
+            {
+              "num": "14",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "15",
+              "name": "GPIO6",
+              "net": "METER_SCLK",
+              "type": "bidirectional"
+            },
+            {
+              "num": "16",
+              "name": "GPIO7",
+              "net": "METER_MOSI",
+              "type": "bidirectional"
+            },
+            {
+              "num": "17",
+              "name": "GPIO12",
+              "net": "USB_DM_MCU",
+              "type": "bidirectional"
+            },
+            {
+              "num": "18",
+              "name": "GPIO13",
+              "net": "USB_DP_MCU",
+              "type": "bidirectional"
+            },
+            {
+              "num": "19",
+              "name": "GPIO14",
+              "net": "METER_MISO",
+              "type": "bidirectional"
+            },
+            {
+              "num": "20",
+              "name": "GPIO15",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "21",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "22",
+              "name": "GPIO8",
+              "net": "STRAP_GPIO8",
+              "type": "bidirectional"
+            },
+            {
+              "num": "23",
+              "name": "GPIO9",
+              "net": "BOOT",
+              "type": "bidirectional"
+            },
+            {
+              "num": "24",
+              "name": "GPIO18",
+              "net": "METER_CS",
+              "type": "bidirectional"
+            },
+            {
+              "num": "25",
+              "name": "GPIO19",
+              "net": "RUN_CMD",
+              "type": "bidirectional"
+            },
+            {
+              "num": "26",
+              "name": "GPIO20",
+              "net": "PERMIT_D",
+              "type": "bidirectional"
+            },
+            {
+              "num": "27",
+              "name": "GPIO21",
+              "net": "HEARTBEAT",
+              "type": "bidirectional"
+            },
+            {
+              "num": "28",
+              "name": "GPIO22",
+              "net": "I2C_SDA",
+              "type": "bidirectional"
+            },
+            {
+              "num": "29",
+              "name": "GPIO23",
+              "net": "I2C_SCL",
+              "type": "bidirectional"
+            },
+            {
+              "num": "30",
+              "name": "GPIO17",
+              "net": "ARM_CMD",
+              "type": "bidirectional"
+            },
+            {
+              "num": "31",
+              "name": "GPIO16",
+              "net": "UART_TX",
+              "type": "bidirectional"
+            },
+            {
+              "num": "32",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "33",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "34",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "35",
+              "name": "NC",
+              "net": null,
+              "type": "no_connect"
+            },
+            {
+              "num": "36",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "37",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "38",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "39",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "40",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "41",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "42",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "43",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "44",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "45",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "46",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "47",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "48",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "49",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "50",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "51",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "52",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            },
+            {
+              "num": "53",
+              "name": "GND",
+              "net": "GND",
+              "type": "power_in"
+            }
+          ]
+        },
+        {
+          "ref": "C20",
+          "value": "22uF 10V X7R",
+          "mpn": "Generic 22uF 10V X7R 1210",
+          "description": "Module bulk capacitor adjacent to pin 3; effective capacitance >=10 uF at 3.3 V",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_1210_3225Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C21",
+          "value": "100nF 50V X7R",
+          "mpn": "Generic 100nF 50V X7R 0805",
+          "description": "Module bypass immediately at pin 3 and ground pads",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "C22",
+          "value": "1uF 10V X7R",
+          "mpn": "Generic 1uF 10V X7R 0805",
+          "description": "Enable RC delay with R20; watchdog/supervisor uses open-drain reset only",
+          "datasheet": "",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "kind": "capacitor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "MCU_EN",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R20",
+          "value": "10k",
+          "mpn": "Generic 10k 1% 0.125 W 0805",
+          "description": "Module EN pull-up; 10 ms nominal RC with C22",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "MCU_EN",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R21",
+          "value": "10k",
+          "mpn": "Generic 10k 1% 0.125 W 0805",
+          "description": "GPIO9 boot strap pull-up; SW2 pulls low for UART/USB download",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "BOOT",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R22",
+          "value": "10k",
+          "mpn": "Generic 10k 1% 0.125 W 0805",
+          "description": "GPIO8 must be high while GPIO9 is low to enter serial download mode",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "STRAP_GPIO8",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R24",
+          "value": "3.3k",
+          "mpn": "Generic 3.3k 1% 0.125 W 0805",
+          "description": "I2C SDA pull-up; populate one pull-up set on assembled controller",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "I2C_SDA",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R25",
+          "value": "3.3k",
+          "mpn": "Generic 3.3k 1% 0.125 W 0805",
+          "description": "I2C SCL pull-up; verify bus capacitance/rise time at selected clock",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "I2C_SCL",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R26",
+          "value": "10k",
+          "mpn": "Generic 10k 1% 0.125 W 0805",
+          "description": "Keep metering IC deselected while ESP32 is resetting",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "METER_CS",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R27",
+          "value": "22R",
+          "mpn": "Generic 22R 1% 0.125 W 0805",
+          "description": "Optional internal USB service path; series resistor adjacent to module",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "USB_DM_MCU",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "USB_DM",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "R28",
+          "value": "22R",
+          "mpn": "Generic 22R 1% 0.125 W 0805",
+          "description": "Optional internal USB service path; route D+/D- as 90-ohm differential pair",
+          "datasheet": "",
+          "footprint": "Resistor_SMD:R_0805_2012Metric",
+          "kind": "resistor",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "USB_DP_MCU",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "USB_DP",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "SW1",
+          "value": "TACT NO",
+          "mpn": "TL3305AF160QG",
+          "description": "Momentary reset button; footprint groups two physically common terminals as each logical pad",
+          "datasheet": "https://www.e-switch.com/wp-content/uploads/2023/01/TL3305.pdf",
+          "footprint": "Button_Switch_SMD:SW_SPST_TL3305A",
+          "kind": "switch",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "MCU_EN",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "SW2",
+          "value": "TACT NO",
+          "mpn": "TL3305AF160QG",
+          "description": "Momentary boot/download button; hold low during reset for download",
+          "datasheet": "https://www.e-switch.com/wp-content/uploads/2023/01/TL3305.pdf",
+          "footprint": "Button_Switch_SMD:SW_SPST_TL3305A",
+          "kind": "switch",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "BOOT",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "GND",
+              "type": "passive"
+            }
+          ]
+        },
+        {
+          "ref": "J2",
+          "value": "SERVICE 2x4 1.27mm",
+          "mpn": "Generic 2x4 1.27 mm vertical male header",
+          "description": "Internal service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.",
+          "datasheet": "",
+          "footprint": "Connector_PinHeader_1.27mm:PinHeader_2x04_P1.27mm_Vertical",
+          "kind": "connector",
+          "pins": [
+            {
+              "num": "1",
+              "name": "GND",
+              "net": "GND",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "3V3_SENSE",
+              "net": "+3V3",
+              "type": "passive"
+            },
+            {
+              "num": "3",
+              "name": "TXD0",
+              "net": "UART_TX",
+              "type": "passive"
+            },
+            {
+              "num": "4",
+              "name": "ARM_TEST",
+              "net": "ARM_CMD",
+              "type": "passive"
+            },
+            {
+              "num": "5",
+              "name": "RESET_N",
+              "net": "MCU_EN",
+              "type": "passive"
+            },
+            {
+              "num": "6",
+              "name": "BOOT_N",
+              "net": "BOOT",
+              "type": "passive"
+            },
+            {
+              "num": "7",
+              "name": "USB_D-",
+              "net": "USB_DM",
+              "type": "passive"
+            },
+            {
+              "num": "8",
+              "name": "USB_D+",
+              "net": "USB_DP",
+              "type": "passive"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "custom_footprints": {
+    "library": "Pump",
+    "directory": "design/power-footprints/Pump.pretty",
+    "units": "mm",
+    "view": "top",
+    "RACM06E": {
+      "body": {
+        "x_min": -2.54,
+        "y_min": -2.54,
+        "x_max": 22.86,
+        "y_max": 22.86,
+        "height": 16.7
+      },
+      "pads": {
+        "1": [
+          0,
+          5.08
+        ],
+        "2": [
+          0,
+          0
+        ],
+        "4": [
+          20.32,
+          10.16
+        ],
+        "5": [
+          20.32,
+          0
+        ]
+      },
+      "drill": 1.0,
+      "source": "https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf"
+    },
+    "ESP32-C6-MINI-1U": {
+      "body": {
+        "x_min": -6.6,
+        "y_min": -6.9,
+        "x_max": 6.6,
+        "y_max": 5.6,
+        "height": 2.4
+      },
+      "source": "https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf",
+      "basis": "Manufacturer Fig 11-2; pad geometry copied from installed KiCad ESP32-C6-MINI-1; antenna keepout removed for external-antenna variant"
+    }
+  },
+  "engineering_notes": [
+    "Prototype component-level design; neither netlist checks nor manufacturer module approvals establish safety/EMC approval of the complete assembled controller.",
+    "No Y capacitor, earth connection, or neutral connection to isolated GND. Keep hazardous-voltage traces separated from all sensor, MCU and service conductors by the project isolation barrier.",
+    "R1/RV1 are an engineering variant of the RECOM surge example, not a qualified 2 kV solution. Verify impulse energy, continuous overvoltage behavior, thermal disconnect and upstream fault interruption.",
+    "RACM06E-05SK/277 full-load rating at 115-277 VAC is 6 W up to 50 C local ambient, 5 W at 65 C. Use measured internal enclosure temperature and actual load for derating.",
+    "Capacitor values are nominal. Qualify exact purchased MLCC part numbers for DC bias, tolerance, temperature and buck stability; generic entries are not procurement-release MPNs.",
+    "Custom axial fuse/resistor footprints assume formed lead spacing. Fit-check purchased parts before fabrication; TMOV footprint specifically requires inline L2B7 lead suffix.",
+    "Hardware watchdog, reset supervisor and relay fail-safe logic are defined on another sheet. MCU_EN is shared open-drain reset; RUN_CMD, PERMIT_D and HEARTBEAT require external safe-state pull-downs there.",
+    "8 MB module antenna cable connector and external antenna are mechanical BOM items, not additional RF PCB circuitry. Follow module approval antenna requirements.",
+    "R2 intentionally loads the 6 W supply above its 10% minimum for specified regulation: at least 0.677 W at 4.75 V, up to 0.844 W at 5.25 V, including 1% tolerance. Total conservative 5 V allocation is now 5.7 W including OLED and J34 expansion; constrain measured PSU local ambient to <=50 C. R2 datasheet 2 W rating assumes 300 mm2 combined pad/trace copper, with linear derating above 70 C to zero at 155 C. Verify resistor/PCB temperatures and keep its heat away from precision probe/meter circuitry, RF module and capacitors."
+  ]
+}

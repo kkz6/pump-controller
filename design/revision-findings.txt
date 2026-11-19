@@ -1,0 +1,74 @@
+REV B DESIGN DECISIONS AND REVIEW FINDINGS
+19 November 2026
+
+This record distinguishes completed design corrections from unresolved
+prototype validation. Manufacturer references are in the corresponding review
+notes and parts-complete.csv.
+
+CORRECTED IN THE COMPONENT DEFINITION
+
+1. Meter SPI and isolated-supply pin assignments were checked against the
+   ADE7953 and ADuM6421A datasheets. Meter return remains neutral-live and
+   must not be connected to isolated GND.
+2. The CT burden is permanently attached across the CT secondary. Disconnecting
+   the PCB therefore does not intentionally leave the CT unburdened.
+3. Meter input calculations distinguish the CT's 60 A maximum input from the
+   circuit's approximately 26 Arms ideal unclipped measurement range.
+4. Added the permanent 33-ohm PSU load for specified light-load operation.
+   Revised the complete load allocation to 5.7 W and local ambient to <=50 C.
+5. Corrected the coil-circuit connector from a 3.81 mm type with inadequate
+   III/2 voltage rating to Phoenix 1836189, 5.08 mm, 320 V under III/2.
+6. Separated watchdog heartbeat from explicit ARM latch clock. A restored
+   interlock or ordinary heartbeat cannot intentionally re-arm the latch.
+7. Buffered the high-high supply sense before the MCP23017. Changed its lower
+   divider resistor R87 to 100k for input margin at U35; R86 remains 22k.
+   Discharge with a floating source is approximately 1 ms; use >=5 ms selector
+   OFF dwell and independent software mode-change cancellation.
+8. Corrected BAT54WS-7-F to its two-pin SOD-323 package; do not substitute the
+   differently pinned three-pin BAT54W part.
+9. Corrected ADS1115IDGSR to the 10-pin DGS / TSSOP-10 3x3 mm land pattern.
+10. Replaced direct grounding of spare MCP port pins with 100k pull-downs.
+11. Replaced TLV803EA30DBZR with STM1001TWX6F. Worst-case original release
+    threshold could exceed the buck's 3.1845 V lower rail. ST's specified
+    3.00-3.15 V threshold provides 34.5 mV DC release margin. Pin mapping is
+    changed: 1 RESET, 2 VCC, 3 GND. Falling threshold touches the MCU minimum;
+    supply transients and reset propagation still require bench testing.
+12. AC-blocking capacitors are included in all seven field probe conductors
+    to avoid sustained electrode DC from a stalled excitation output.
+
+13. Added J34, a small 3.3 V I2C / two-GPIO expansion header with 25 mA
+    reserved supply current. USB recovery and upgrade/configuration design
+    requirements are recorded in programmability.txt.
+14. Replaced all discrete indicators with a purchased 0.91-inch OLED module,
+    Waveshare 14657, 36 x 12.5 mm. J33 is now four-pin GH, with reverse numeric
+    mapping to the module PH header. The completed previous LED board is
+    archived, not part of the current design. Reserve 100 mA for the display
+    pending measurement; total allocation is now 5.7 W. Short scheduled display
+    transfers must preserve the probe ADC deadlines.
+
+REMAINING REVIEW / TEST ITEMS
+
+1. Actual contactor coil rating and inductive inrush/holding load; suppression
+   and allowable contact stress; starter-specific integration and enclosure fit.
+2. Coordinated mains fault protection, insulation system, surge/EMC, altitude,
+   pollution environment, component clearances and safe enclosure/mounting.
+3. Main-board routing completion and native DRC status. A placement pass does
+   not establish a routed, manufacturable board. See hardware/checks.
+4. Derived package footprints and connector mating parts need supplier review.
+5. R2 heat spreading, closed-enclosure PSU ambient and all hot restart cases.
+   SS14 plus field wiring reduces K1 coil voltage; catalog pickup is at 23 C.
+6. STOP/MAN/AUTO divider logic has limited transient/contact-drop margin.
+   Require debounce, no arming on ambiguity, and complete supply-corner tests.
+7. No direct overload/contactor auxiliary feedback. Use manual-reset overload
+   and STOP/OFF before overload reset; do not promise hardware latching of
+   all external coil-supply interruptions.
+8. Probe cable capacitance, leakage, actual water conductivity, fouling,
+   long-cable surge and worst-case multi-electrode loading need tests.
+9. Meter calibration and phase orientation; startup clipping detection;
+   pump-specific dry-run envelope and level-progress limits.
+10. Firmware implementation, timing, persistence, watchdog service policy,
+    no-unexpected-start behavior, Matter commissioning and LAN dashboard.
+11. Actual Apple Home / Aqara interoperability and RF performance through
+    the closed enclosure with the intended external antenna.
+
+No physical pump, mains, thermal, insulation or RF test has been performed.

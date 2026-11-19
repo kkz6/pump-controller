@@ -1,0 +1,325 @@
+PUMP CONTROLLER — OPERATING CONTRACT AND BRING-UP PLAN
+Revision: 2026-11-19 / engineering prototype
+
+STATUS
+
+This document specifies intended firmware behavior and commissioning checks.
+Matter firmware, the local dashboard, control logic and calibration software
+have not been implemented or tested. The circuit and PCB are a prototype;
+schematic generation and CAD checks do not establish mains safety, EMC,
+protection performance or compatibility with every starter.
+
+Application assumed: one 220–240 VAC, single-phase, 1 HP pump, with an existing
+DOL contactor and correctly selected motor overload protection. The board's
+two series relay contacts control the contactor coil circuit. They do not
+switch the motor power conductors. Confirm actual coil voltage, pickup VA,
+holding VA and suppression before connecting it. Retain protective earth,
+upstream disconnection, circuit protection and the motor overload device.
+
+LOCAL CONNECTION AND APP BEHAVIOR
+
+Use Matter over 2.4 GHz Wi-Fi on ESP32-C6-MINI-1U-H8. The same Wi-Fi link can
+serve an authenticated local browser dashboard with voltage, current, real
+power, power factor, energy, water band, sensor validity and fault history.
+No additional local server is required by this proposed architecture. Place
+the approved external antenna outside the metal starter enclosure using an
+insulated mounting arrangement; keep its cable in the isolated low-voltage
+compartment and observe the module manufacturer's antenna restrictions.
+
+Matter uses local IP communication. Once commissioned, routine local control
+must work with the internet/WAN disconnected while the Wi-Fi router, local
+network and relevant controller remain powered. Setup, Apple account services,
+remote access, updates and some voice functions may still require internet.
+Do not describe this as operation without Wi-Fi or without a powered LAN.
+Allow local IPv6 and discovery traffic; avoid client isolation between the
+phone, HomePod and controller. Test WAN failure explicitly. [1, 2]
+
+The existing HomePod mini or HomePod (2nd generation) can be the Apple Home
+hub. Its Thread capability does not require this device to use Thread.
+Apple's supported accessory categories and displayed attributes are limited;
+native Home tiles for water quantity, volts, amps and watts are not guaranteed.
+Implement and validate a supported on/off endpoint for basic control, and use
+the local dashboard for detailed telemetry. Matter attribute availability does
+not itself establish that Apple Home will display that attribute. [1]
+
+The Aqara hub model is unspecified. A Matter bridge and a Matter controller
+have different roles: a bridge exposing Aqara devices does not necessarily
+accept this third-party device. Aqara lists compatible Matter controllers,
+including M3, separately. If the installed hub supports the endpoint, it may
+be added through Matter multi-admin; pump operation must not depend on Aqara
+being present. Verify behavior with the actual model and firmware. [2, 3]
+
+Proposed app name: "Pump enable". ON means an enabled request, subject to the
+physical mode, arm latch, water level and every protective inhibit. In AUTO,
+an ON request can legitimately wait with the motor stopped because the tank
+is full. The dashboard must distinguish enabled request, commanded relays,
+measured running state, mode and reason for inhibition. A relay command alone
+must never be presented as proof that the motor is running.
+
+OFF from any accepted local/app command cancels the enabled request and keeps
+it cancelled until a fresh ON/START. AUTO must not undo a user OFF on its next
+scan. App ON never overrides the physical OFF selector, STOP, open high-high
+loop, latched fault or the need for physical re-arm.
+
+PHYSICAL CONTROLS AND RE-ARM
+
+OFF: selector opens both MAN and AUTO returns. K1 coil power is interrupted,
+and the hardware interlock clears the arm latch. Software commands both
+relays off and clears the enabled request. Do not rely on software to detect
+OFF before the coil is released.
+
+MAN: a fresh local START arms the healthy controller and requests running.
+Manual operation still obeys STOP, high-high, destination-full stop, source
+availability, dry-run, metering/sensor validity and electrical protections.
+MAN is not a bypass of the protective contactor-coil chain.
+
+AUTO: a fresh local START arms the healthy controller and enables normal tank
+filling. Start below the commissioned low threshold and stop at the high
+threshold. Normal full-tank stops may retain the arm latch and enabled request
+for the next fill cycle; a protective trip may not.
+
+STOP is a normally closed contact in the 5 V coil-permission circuit. Opening
+it removes K1 coil power and clears the arm latch. Closing STOP, changing the
+selector back from OFF, or reclosing a high-high float must not restart the
+pump. The next START must be a new press after the input has been released.
+A button held through boot or a fault is not a new START.
+
+RESET acknowledges a latched fault only after its cause is gone and the
+required healthy observations have completed. RESET does not start or re-arm.
+A separate, fresh local START is required. A power cycle is not a fault reset
+or an instruction to resume. Network restoration and firmware reboot also
+leave the pump off and unarmed. Automatic dry-run retries default to zero.
+
+The SN74LVC1G74 arm latch is clocked by a deliberate ARM_CMD pulse after a
+valid START; HEARTBEAT must never clock it. Supervisor, watchdog, MCU reset
+and physical interlock clear permission. The MCU must also drop PERMIT_D and
+RUN_CMD on every software fault, clear the run request, and never pulse ARM_CMD
+merely because the loop starts working again. Heartbeat may advance only after
+a complete healthy control cycle; a free-running interrupt must not conceal
+a stalled control/sensor task. Use firmware brownout reset as another layer,
+and test the complete rail-collapse response with the chosen supervisor.
+
+The proposed default requires physical START after a hardware/protective
+trip. Once locally armed, ordinary app OFF/ON can stop and request operation
+without clearing a healthy arm latch. A deliberate mode transition between
+MAN and AUTO should cancel the request and require START again.
+
+PROBES, WATER DISPLAY AND AUTOMATIC FILLING
+
+The existing five tank wires are assumed to be COM plus four electrodes
+L1, L2, L3, L4 in ascending height. COM must remain immersed below L1.
+Confirm those identities by measurement before connection; five wires alone
+do not prove this arrangement. J21 inlet sensing requires an inlet electrode
+AND a valid nearby inlet-common electrode/return. A single existing inlet
+wire is insufficient until its return is identified. Never use mains neutral,
+protective earth, a motor body or an unverified pipe as the probe return.
+
+For bits ordered L1,L2,L3,L4, the valid settled wet patterns are:
+  0000  below L1
+  1000  between L1 and L2
+  1100  between L2 and L3
+  1110  between L3 and L4
+  1111  at or above L4
+Other patterns, uncertain amplitudes, stale samples and failed excitation
+self-checks require an explicit unknown/fault display, not a fabricated level.
+Probe transitions need bounded debounce to reject splashes; the independent
+high-high float and STOP must not wait for that debounce.
+
+Four threshold probes give five bands, not continuous depth. Calibrate their
+heights against tank geometry before showing volume intervals. Do not label
+them exact 0/25/50/75/100% or exact litres without that mapping. Below L1 is not
+necessarily empty, and reaching L4 does not establish the tank's total volume.
+The OLED should show the current valid band, measured running state, mode and
+fault status. Rotate readable pages for level/state and V/A/W/PF values;
+faults take priority over page rotation. Show "unknown" for invalid data.
+Page content, order, brightness and timing are firmware/configuration choices.
+There are no separate level/status LEDs in the selected design.
+
+The 128 x 32 OLED shares I2C with essential probe/control peripherals. A whole
+512-byte screen transfer takes roughly 12–13 ms at 400 kHz and must not block
+the 2 ms probe sampling slots. Queue at most 16 display-data bytes per short
+transaction (about 0.405 ms wire time including address/control bytes), admit
+it only when the sensor scheduler has adequate slack, and yield between chunks.
+Refresh values at 1–2 Hz; split command sequences as well as pixel writes.
+Rendering reads a state snapshot and has no authority to write motor outputs.
+An OLED-only NACK may disable the display while valid control continues; a
+stuck shared bus or stale essential data must cause a latched protective stop.
+Bus operations require deadlines; if the control loop stalls, the hardware
+watchdog must remove permission. See oled-selection.txt for harness and tests.
+
+Simple conductivity probes cannot distinguish every broken wire from dry
+water, or every short/fouled probe from a wet probe. Conductivity depends on
+water and cable conditions. Use the independent normally closed high-high
+float to interrupt permission where overflow consequences require it. A
+shorting link in J31 is only a bypass for controlled bench work and provides
+no independent high-high protection. A wet inlet probe indicates water at
+its location; it does not prove pump flow or successful priming.
+
+The proposed excitation is balanced 25 Hz AC. Follow probe-front-end.txt for
+phase-locked sampling, mux settling, fresh conversions and bias/excitation
+checks. Do not run protective decisions from cached ADC or meter values.
+
+DRY-RUN AND ELECTRICAL COMMISSIONING
+
+Use calibrated real input power as the principal underload signal, with
+current and power factor available for diagnosis. A universal "1 HP dry-run
+current" is invalid: load depends on the actual motor, voltage, pump curve,
+head, valve setting and water condition. Low real power can also indicate
+closed-valve operation, loss of prime or a broken coupling. The software must
+report an underload/dry-run fault without claiming it uniquely identifies the
+physical cause.
+
+Calibrate RMS voltage, RMS current, phase and active power against suitable
+reference instruments at representative loads. Record normal wet operating
+power across the intended head and supply range, including the lowest normal
+power case. Select an underload threshold below all validated normal cases
+and above the validated fault cases with allowance for measurement error.
+If those ranges overlap, power alone cannot reliably protect that installation;
+add an independent suitable flow/pressure input in a revised design.
+
+Do not deliberately run a pump dry merely to obtain a calibration number.
+Use manufacturer-approved test conditions, a controlled test arrangement or
+validated reference traces. Inrush blanking and priming grace apply only to
+the underload algorithm. STOP, high-high, invalid data and independent motor
+overload protection remain effective during startup. Limit any priming grace
+to the pump manufacturer's permitted condition and time.
+
+PROVISIONAL COMMISSIONING SETTINGS — NOT VALIDATED PROTECTION VALUES
+
+These values are engineering starting points for bench tests. Store final
+settings with a version, range checking and calibration record. AUTO and
+unattended MAN operation remain disabled until the installation is validated.
+
+  Control cycle:              50 ms target; bounded deadline.
+  Watchdog heartbeat:         every 250 ms after a completed healthy cycle.
+  Probe sample averaging:     5 excitation cycles, approximately 200 ms.
+  Excitation startup discard: at least 1 s, followed by valid self-checks.
+  Probe wet/dry amplitudes:   >=100 mV / <=60 mV provisional; middle uncertain.
+  Level transition debounce: 2 s maximum before stable classification.
+  Inlet-dry debounce:         1 s provisional; then latched stop.
+  Stale probe/meter data:     >1 s since a required valid result: latched stop.
+  AUTO start:                L1 dry for 2 s, with all other conditions healthy.
+  Normal full stop:           L4 wet for 2 s; independent HH acts immediately.
+  Minimum off interval:      30 s provisional; increase to maker's limit.
+  Minimum run interval:      none may postpone a stop or protective trip.
+  Underload startup blank:   1 s provisional for inrush, within total grace.
+  Total priming grace:       5 s provisional from the start command; shorten
+                             if required by the pump manufacturer.
+  Sustained underload time:  3 s after grace, subject to allowed damage time.
+  Initial threshold study:   0.65 x measured normal wet power is a trial
+                             candidate only; do not enable without validation.
+  Automatic fault retries:  0; RESET then fresh START after fault clearance.
+
+Set a maximum continuous fill time from measured worst-case legitimate fill
+time and pump duty limits. A provisional study value is 1.5 times the longest
+validated fill time, capped by permitted motor duty; an unset limit must
+prevent unattended AUTO rather than mean unlimited run. Set voltage and
+overcurrent thresholds from motor nameplate/manufacturer limits and measured
+startup behavior, not generic values inferred from 1 HP. Existing thermal
+overload protection remains required.
+
+Detect failure to establish running power and power persisting after a stop.
+Determine their time limits from measured contactor and motor behavior. If
+current persists after both relays are commanded off, latch a fault and show
+"motor still powered"; the board cannot guarantee interruption of a welded
+external contactor. Use the upstream disconnect before investigation.
+
+ORDERED BRING-UP AND ACCEPTANCE CHECKS
+
+1. Unpowered inspection. Check every actual component against its datasheet,
+   including supervisor pinout, relay coil voltage, connectors, isolation
+   barrier, slots, spacing, mounting hardware and field-wire separation.
+   Check the assembled board for shorts and wrong resistor values. Verify
+   upstream fuse coordination for the installation's prospective fault
+   current; the on-board fuse rating alone does not establish board SCCR.
+
+2. Isolated low-voltage supply only. Keep all mains terminals and contactor
+   wiring disconnected. Feed +5 V/GND through a current-limited bench supply
+   with the AC/DC source unpowered and an approved isolation arrangement.
+   Start at a low current limit and inspect consumption, 3.3 V and heating.
+   The permanent 33 ohm PSU bleeder draws about 152 mA at 5 V by itself.
+   Check buck startup and ripple before inserting expensive modules if
+   assembly permits. Never back-feed a powered AC/DC module from USB/debug.
+
+3. Supply and reset tests. With dummy loads, sweep the allowed 5 V range,
+   apply MCU/Wi-Fi load steps, and scope +3V3, SAFE_CLEAR_N, ARM_Q, PERMIT_Q
+   and both coil drives. Test slow ramps, fast dips, power interruption and
+   recovery. Verify zero unintended pickup and no automatic re-arm. Test
+   the new supervisor threshold and release delay, finite reset propagation,
+   watchdog timing and actual relay pickup/release at temperature. The
+   nominal voltage/tolerance calculation does not replace those tests.
+
+4. Hardware stop chain without a motor. Use actual low-voltage selector,
+   STOP and high-high float contacts. Test each individually while running
+   dummy relay loads, then close it again and confirm a new START is needed.
+   Hold START through boot and fault recovery. Force the MCU to reset, stall
+   the control task and stop sensor updates while a timer still runs. None
+   may leave K1 permitted beyond the documented protective deadline. Verify
+   no external mains control wire is connected to J31/J32 or probe headers.
+
+5. Probe simulator, then real water. Exercise every valid/invalid pattern,
+   open/shorted wires, missing common, phase loss, ADC errors and long cable
+   loading. Check amplitudes and electrode AC balance with suitable isolated
+   instruments. Repeat with the installation's water and full cable length.
+   Confirm inlet return and whether an independent HH float is installed.
+
+6. Meter and application tests at low risk. Use a controlled isolated test
+   setup to calibrate the metering chain and confirm CT orientation and
+   burden. Never open the CT secondary while its primary carries current.
+   Simulate calibrated underload/overcurrent/voltage faults before involving
+   a pump. Verify every timeout, output state, RESET/START distinction,
+   history timestamp and unknown-data indication.
+
+7. Network acceptance with relay dummy loads. Pair with the actual Apple
+   Home/HomePod combination and optional supported Aqara controller. Confirm
+   ON/OFF meaning in MAN and AUTO. Disconnect WAN, then disconnect Wi-Fi,
+   then power down hubs. Local physical controls and protective logic must
+   continue; network loss must not fabricate telemetry or cause a restart.
+   Check repeated/late commands, reboot, update and factory-reset paths.
+   All firmware update and factory-reset operations first stop and unarm.
+
+8. Qualified mains bench validation. Only after the earlier checks, use a
+   qualified electrical test setup to validate insulation, protective earth,
+   leakage, actual creepage/clearance, dielectric withstand and the required
+   EMC/surge/EFT behavior under the applicable equipment requirements. Verify
+   coil suppression and contact switching with the real DOL coil. Do not
+   attach an earth-referenced oscilloscope or ordinary USB lead to the live
+   meter domain. Follow an approved isolated measurement method.
+
+9. Thermal/full-load check in the closed starter enclosure. Operate both
+   relays, Wi-Fi transmit bursts, OLED worst-case pattern and metering. The
+   conservative 5 V budget is 5.7 W including the minimum-load resistor,
+   100 mA OLED engineering reservation and 25 mA at 3.3 V for J34; keep
+   the AC/DC module local ambient at or below 50 degrees C. At 65 degrees C
+   its 5 W derated output is insufficient for that budget. Verify the 33 ohm
+   resistor's 0.677–0.844 W dissipation, required heat-spreading copper and
+   temperatures of nearby probes, RF module, relay coils and capacitors.
+   Keep the bleeder's heat away from measurement and RF parts. A closed box
+   can be materially hotter than the surrounding room.
+
+10. Supervised pump commissioning. Fit the correctly rated overload, verify
+    rotation/flow/prime by approved means, measure wet running ranges, record
+    fill times and validate limits. Confirm high and low electrode heights,
+    HH float action, stop release and restart inhibition. Record the final
+    settings and test results before enabling unattended operation. Fault
+    injection must remain within the pump and test-equipment limits.
+
+SELECTED PRIMARY SOURCES
+
+[1] Apple, pair and manage Matter accessories / supported Home categories:
+    https://support.apple.com/en-us/102135
+[2] Connectivity Standards Alliance, Matter local connectivity and multi-admin:
+    https://csa-iot.org/all-solutions/matter/matter-faq/
+[3] Aqara, controller versus bridge roles and supported device categories:
+    https://www.aqara.com/us/explore/everything-matter
+[4] Espressif, ESP32-C6-MINI-1/MINI-1U electrical and antenna requirements:
+    https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf
+[5] Analog Devices, ADE7953 metering and calibration:
+    https://www.analog.com/media/en/technical-documentation/data-sheets/ade7953.pdf
+[6] RECOM, RACM06E-K/277 output loading and thermal derating:
+    https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf
+[7] STMicroelectronics, STWD100 watchdog:
+    https://www.st.com/resource/en/datasheet/stwd100.pdf
+
+Implementation-specific thresholds, timings and operating policies above
+are design proposals; they are not manufacturer-certified pump settings.

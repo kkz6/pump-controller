@@ -1,0 +1,106 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-19T08:54:25",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc",
+            "violations": []
+        },
+        {
+            "path": "/Isolated AC input, 5 V and 3.3 V supplies/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/6cc684ae-027b-5d3e-9d1d-be648c42c9a1",
+            "violations": []
+        },
+        {
+            "path": "/ESP32-C6 Matter controller and service interface/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/f722dc24-d69a-5028-8965-9e71c82971b8",
+            "violations": []
+        },
+        {
+            "path": "/Single-phase metering - LIVE DOMAIN/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/c792de25-942d-5d50-bf47-57f569d9b64a",
+            "violations": []
+        },
+        {
+            "path": "/Meter voltage and current inputs - LIVE DOMAIN/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/b8eca30b-0146-5e9b-9477-cab41cefb081",
+            "violations": []
+        },
+        {
+            "path": "/Meter isolation - power and SPI/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/78f056ce-cafc-5503-a580-6965a486e7e8",
+            "violations": []
+        },
+        {
+            "path": "/Relay drivers and independent watchdog / 1/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/9010dd81-e5c7-56dd-b669-563547a79c0a",
+            "violations": []
+        },
+        {
+            "path": "/Relay drivers and independent watchdog / 2/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/5ef2aaa2-2ebb-5963-b2f3-1b79fc1c4734",
+            "violations": []
+        },
+        {
+            "path": "/Low-voltage physical controls and indicator interface / 1/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/e749cff8-b6b8-5885-a8d8-6590783d9dcf",
+            "violations": []
+        },
+        {
+            "path": "/Low-voltage physical controls and indicator interface / 2/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/b911d325-44ca-5deb-a2b9-c4000d272aac",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype Rev B / 1/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/c8d72938-86cf-5e32-8644-3abc55fa9ca6",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype Rev B / 2/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/99a4b127-db62-5191-a0f0-fd73978e45e0",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype Rev B / 3/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/bffeda20-d1df-50d5-b3f5-99047fad8a6e",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype Rev B / 4/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/b4191d50-1ee1-5c46-9755-7791bf87e071",
+            "violations": []
+        },
+        {
+            "path": "/Power-source declarations for electrical-rule checking/",
+            "uuid_path": "/48d055a3-8c48-5511-b550-564de28bc9cc/e2a85eb0-1194-5b73-b0bf-20c3c1b4cd07",
+            "violations": []
+        }
+    ],
+    "source": "pump-controller-rev-b.kicad_sch"
+}

@@ -1,0 +1,4 @@
+(version 1)
+(rule "Reinforced live to isolated control separation"
+  (condition "(A.NetClass == 'LIVE' && B.NetClass == 'SELV') || (A.NetClass == 'SELV' && B.NetClass == 'LIVE')")
+  (constraint clearance (min 9mm)))

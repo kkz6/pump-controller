@@ -1,0 +1,13 @@
+CALCULATED LINEAR RC MODEL; NOT HARDWARE VALIDATION
+25 Hz; 25 us backward-Euler; 1.0 s settling; bipolar ADC windows.
+4 wet 100k, nominal cable: half-amplitude V=0.2123,0.2064,0.2007,0.1952; AC node span -0.2479..0.2479 V about 1.65 V
+4 wet 100k, severe cable: half-amplitude V=0.2100,0.2042,0.1986,0.1932; AC node span -0.2560..0.2560 V about 1.65 V
+4 dry 1M, nominal cable: half-amplitude V=0.0395,0.0393,0.0391,0.0389; AC node span -0.3001..0.2999 V about 1.65 V
+4 dry open, severe cable: half-amplitude V=0.0054,0.0015,0.0004,0.0001; AC node span -0.3589..0.3589 V about 1.65 V
+one dry 1M, three wet short: half-amplitude V=0.0255,0.4254,0.4048,0.3852; AC node span -0.5214..0.5215 V about 1.65 V
+4 wet short: half-amplitude V=0.4021,0.3814,0.3618,0.3432; AC node span -0.4806..0.4806 V about 1.65 V
+4 wet 100k, block C -30%, VDD -5%: half-amplitude V=0.2020,0.1941,0.1865,0.1792; AC node span -0.2459..0.2459 V about 1.65 V
+top 100k, lower three short: half-amplitude V=0.4303,0.4087,0.3882,0.1518; AC node span -0.5115..0.5115 V about 1.65 V
+top 100k, lower short, C-30% VDD-5%: half-amplitude V=0.4056,0.3768,0.3500,0.1379; AC node span -0.5203..0.5203 V about 1.65 V
+inlet wet 100k: half-amplitude V=0.2379; AC node span -0.2976..0.2976 V about 1.65 V
+inlet dry 1M: half-amplitude V=0.0406; AC node span -0.3758..0.3755 V about 1.65 V

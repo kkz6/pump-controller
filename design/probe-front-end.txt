@@ -1,0 +1,283 @@
+PROBE FRONT END — REV B ENGINEERING PROTOTYPE
+19 November 2026
+
+Status: component-value prototype design, not a field-qualified protection product.
+Authoritative connectivity is probe-front-end.json. This sheet covers only the
+isolated low-voltage probe circuit, not mains insulation or motor switching.
+
+1. CONNECTIONS AND MEASUREMENT LIMITS
+
+J20: pin 1 tank common; pins 2..5 L1..L4, ordered bottom to top.
+J21: pin 1 inlet sensing electrode; pin 2 a separate nearby inlet reference.
+The existing single inlet wire cannot provide a conductive measurement without
+a verified return electrode. Neither neutral, motor body nor protective earth is
+the designed return. Each of the seven field conductors has a series DC-blocking
+capacitor. Field ESD devices reference only isolated controller GND.
+
+Five tank bands are available, not a continuously measured volume. An inlet wet
+indication means liquid is present, not that it is moving. Bare probes cannot
+distinguish dry water from an open wire; the independent high-high inhibit and
+motor underload protection remain necessary.
+
+2. EXCITATION AND REFERENCE, EXACT VALUES
+
+U20 = TLV9004IPWR, TSSOP-14. Pins 4/11 = isolated +3V3/GND.
+R100/R101 = 10k/10k, 0.1%, create 1.65V nominal at PROBE_BIAS_DIV;
+C100 = 100nF to GND. U20A: +in pin3 at divider, -in pin2 joined
+to out pin1. R102 = 47 ohm from pin1 to PROBE_BIAS; C101 = 1uF
+to GND. Feedback is before R102 to isolate capacitive loading.
+
+R103 = 27k from PROBE_EXC to PROBE_TX_SET; R104 = 43k from that
+node to PROBE_BIAS. R105 = 100k PROBE_EXC pulldown. With a 0/3.3V
+GPIO, TX_SET switches between 0.6364V and 2.6636V, nominal.
+U20B is a unity buffer at pins 5(+),6(-),7(out), for tank excitation.
+U20D is a second unity buffer at pins 12(+),13(-),14(out), for inlet.
+Both +inputs connect TX_SET; each -input joins its own output.
+
+Each driver path is:
+  op-amp OUT -> 2.2k -> DRIVE node -> 2uF DC blocker -> CLAMP node
+  -> 4.99k -> 4.99k -> common electrode terminal.
+BAT54S at DRIVE: pin1 GND, pin2 +3V3, pin3 DRIVE.
+PESD5V0S1BA from CLAMP to GND, bidirectional.
+The 4.99k parts are CRCW12064K99FKEA, 1206, 1%, 0.25W.
+Each common blocker is two 1uF capacitors in parallel: C106 || C108
+for tank, C107 || C109 for inlet. This improves mixed wet-load margin.
+
+3. FIVE IDENTICAL SENSE CHANNELS
+
+For each L1..L4 and INLET:
+  terminal -> 10k -> 10k -> CLAMP node -> 1uF DC blocker -> SENSE.
+  SENSE -> 47k -> PROBE_BIAS.
+  SENSE -> 22k -> ADC node (the respective mux input).
+  ADC node -> 1nF C0G -> PROBE_BIAS.
+  PESD5V0S1BA from CLAMP to GND, bidirectional.
+  BAS70-04 at ADC: pin1 GND, pin2 +3V3, pin3 ADC.
+
+Terminal series parts: CRCW120610K0FKEA, 1206, 1%, 0.25W.
+Other resistors: 1% 0603 except the 0.1% reference divider.
+All DC-block capacitor parts: TDK C2012X7R1H105K125AB, 1uF, 50V, X7R,
+10%, 0805. Five sense paths each use 1uF; two common paths each use
+2 x 1uF = 2uF. The model includes a -30% effective-capacitance case.
+Do not substitute a substantially lower capacitance without repeating analysis.
+All sense channels stay connected to their individual loads; the mux selects
+the measurement, not the electrode excitation. This avoids switching charge
+into a newly selected, previously floating field electrode.
+
+4. MULTIPLEXER, ADC AND FIRMWARE TIMING
+
+U21 = TMUX1208PWR, TSSOP-16. Pin13 +3V3; pin14 GND; pin2 EN tied
+to +3V3; pin3 NC. Pin1=A0, pin16=A1, pin15=A2; each address has
+a 100k pulldown. S1..S5 select L1,L2,L3,L4,INLET respectively.
+S6 = bias reference, S7 = tank driver, S8 = inlet driver. Exact
+pin numbers are in the JSON and TI datasheet. Selected signal D pin8
+goes to U20C +in pin10. Its -in pin9 joins out pin8.
+R114 = 1M from mux output to PROBE_BIAS gives a defined idle bias.
+This introduces up to approximately 7% additional selected-channel loading;
+the conservative RC model below loads EVERY channel this way simultaneously.
+
+U22 = ADS1115IDGSR, VSSOP-10. Pin8 +3V3, pin3 GND, pin1 ADDR=GND
+(0x48). Pins9/10 = I2C SDA/SCL. Shared 3.3V I2C pullups are on the main
+controller, not duplicated in this sheet. The bus is also used by MCP23017
+(0x20) and the selected Waveshare 0.91-inch 128x32 I2C OLED at J33. Confirm
+the exact carrier revision/address before assembly; it must not conflict
+with either device. Pin2 RDY has 10k pullup; the current controller uses OS polling
+unless an explicit GPIO connection is added in a later design revision.
+
+AIN0(pin4) from U20C out through 100 ohm, 10nF shunt at ADC.
+AIN1(pin5) from PROBE_BIAS through 100 ohm, 10nF shunt.
+AIN2(pin6) from tank excitation OUT through 100 ohm, 10nF shunt.
+AIN3(pin7) from PROBE_BIAS through 100 ohm, 10nF shunt.
+Each IC has its own 100nF bypass. Local bulk = 4.7uF.
+
+Normal acquisition: AIN0-AIN1, PGA +/-2.048V, 860 samples/second,
+single-shot conversion. Excitation: 25Hz, equal 20ms positive/negative
+half-cycles. After each edge, wait until 7ms. Select L1 at 7ms, L2 at
+9ms, L3 at 11ms, L4 at 13ms, inlet at 15ms. Allow at least 100us
+analog settling after mux selection; then start and complete a fresh ADC
+conversion. At 860SPS the datasheet oscillator tolerance means about 1.3ms
+must be allowed, plus I2C overhead. Use conversion-ready, not a guessed
+fixed read delay. The 2ms slots require 400kHz I2C and bounded firmware
+latency. Discard any sample that straddles an excitation edge or misses
+its slot. Stop/re-arm logic must regard persistently missing sensing as a
+fault; an old ADC register is not a fresh measurement.
+
+Shared-bus scheduling with the OLED:
+- Use one deadline-aware I2C owner. ADC conversion control/readout and local
+  protection-input reads take priority over display traffic. Do not let a
+  display driver hold the bus lock across an entire screen update, wait
+  indefinitely for a peripheral, or disable the excitation/control timer.
+- A 128x32 monochrome frame is 512 data bytes. At 400kHz, data and ACK bits
+  alone take 11.52ms; framing/commands/software commonly extend this toward
+  13ms. Such a blocking frame cannot fit the 7ms pre-scan interval.
+- Limit each display data transaction to 16 payload bytes. Address, control
+  byte and 16 data bytes take 162 clocks, or 0.405ms, before additional
+  commands/software. Establish a measured worst-case transaction bound;
+  use 0.5ms as the initial scheduling budget only if that bound is verified.
+- Initial schedule: reserve 0..1ms after each excitation edge for control
+  servicing; permit OLED chunks only in 1..6ms; leave 6..7ms quiet and
+  7..19ms for probe/diagnostic acquisition. No OLED transfer may overlap a
+  conversion or delay the next excitation edge. Launch a chunk only when
+  its complete command/data budget fits before the boundary. Otherwise
+  defer it. Four 0.5ms chunks per half-cycle can distribute a full frame
+  over about 160ms; one or two updates per second is sufficient for the
+  normal human-readable status screen. Up to five updates per second is
+  conditional on the measured complete-frame/control budget; never exceed it.
+- Render into RAM outside critical acquisition work and send only changed
+  regions where practical. Initialization/recovery also uses bounded
+  transactions while permission is off. Do not silently lower the bus to
+  100kHz: that invalidates both display and 2ms ADC slot budgets.
+
+Freshness and fault handling:
+Tag each accepted conversion with excitation edge/polarity, channel, start
+time and completion time. Check write/read acknowledgements and OS-ready
+for the newly started conversion; never reuse a previous ADC register after
+a missed slot, bus error or timeout. Reject an entire affected bipolar pair
+and do not fill a five-cycle average by repeating its previous value. Keep
+an explicit expiry for each raw pair and averaged state in the protection
+state machine; maximum age must be validated against the required stop
+time, not inferred from display refresh. Inhibit a new start on missing,
+expired or ambiguous sensor data. Confirmed shared-bus failure or expired
+protection data must clear RUN_CMD/PERMIT_D and latch a fault, rather than
+waiting for the watchdog's potentially 2.24s timeout. Service the watchdog
+only after successful required sensing/control checks.
+
+An absent OLED that NACKs can be disabled while valid ADC and local-input
+acquisition continue. An OLED holding SDA/SCL low compromises the shared
+protection bus and therefore requires fail-off. Perform bounded bus recovery
+with permission off, reinitialize the affected devices, discard incomplete
+averages and require fresh sensing plus user re-arm. Display failure must
+not suppress hardware STOP/OFF/high-high action or convert invalid sensing
+into a displayed/stored valid level.
+
+Pullups and physical bus limits:
+The main board has 3.3k pullups on SDA and SCL. The selected Waveshare
+carrier has 4.7k pullups to its internal 3.3V regulator rail. Their nominal
+parallel resistance is 1.939k, drawing about 1.70mA at a zero-volt LOW,
+or 1.50mA at VOL=0.4V if both rails are 3.3V. Using 3.432V for both rails,
+1% low main resistors and 5% low carrier resistors gives about 1.82mA at
+zero volts, below the ADS1115's 3mA test current for VOL<=0.4V. The carrier
+regulator's actual output may differ from the main rail when powered from
+3.3V; measure both HIGH and LOW levels. This calculation does not verify
+other modules, level shifters, leakage, power sequencing or cable capacitance.
+Inspect/measure the assembled carrier and total pullup resistance before
+installation. Remove or leave unpopulated redundant carrier pullups if the
+combined load is excessive; retain an effective pullup that meets both sink
+and rise-time requirements. Never permit pullups to an external 5V rail.
+
+For an ideal RC bus, 30..70% rise time is about 0.8473*R*C. The 300ns
+400kHz limit corresponds to about 107pF with 3.3k alone or 183pF with 1.939k,
+before tolerances. Measure rise time and LOW level at the farthest device;
+these capacitance calculations are not approved cable-length ratings. Use
+a short internal display cable, routed away from probe analog traces and
+the contactor/coil wiring, with a close ground return. Check the cable's
+actual pin order against J33. The selected carrier's order is 1=SCL,
+2=SDA, 3=GND, 4=VCC; wire each net explicitly because J33 and generic OLED
+modules can use a different order.
+
+The OLED charge pump/refresh can inject supply and ground noise even with
+no I2C update in progress. Compare ADC bipolar amplitudes and classification
+with the display absent, blank, all pixels lit, and rapidly changing data,
+including contactor switching and worst-case radio traffic. Scheduling alone
+does not establish analog compatibility. Probe-calculation.txt is unchanged:
+its RC model does not simulate OLED noise or shared-bus firmware timing.
+
+For each channel A = (positive reading - negative reading) / 2. Average
+over five complete 40ms cycles = 200ms. Ideal 50Hz interference cancels
+between paired half-cycles; a five-cycle average also rejects ideal 60Hz
+pickup. Frequency drift, clipping, nonlinearity and EMI are not removed by
+this mathematical argument; actual contactor/noise tests are mandatory.
+Initial classification: wet A >= 0.100V; dry A <= 0.060V; intermediate
+values are ambiguous, not automatically wet or dry. Normalize thresholds
+for actual supply/excitation amplitude or include the supply tolerance.
+Validate sensor confidence before allowing a new pump start. Debounce and
+ambiguous-state handling must be coordinated with the root control logic.
+
+Use the spare 17ms slot for one diagnostic conversion if timing permits;
+alternate S6 zero/reference, S7 and S8 excitation checks. Both polarities
+must arrive and the amplitude must be plausible. At boot or after a waveform
+interruption, discard the first 1s of sensing. Coil permission stays off
+until sensing and the other protection inputs are valid. A frozen GPIO
+leaves only a finite capacitor transient, then essentially no electrode
+current except component leakage. The system watchdog must still stop the
+motor because a DC-blocked but frozen circuit does not provide valid sensing.
+
+5. CALCULATIONS, PROTOTYPE ENVELOPE AND WEAKNESSES
+
+probe_calculation.py is an explicit backward-Euler linear RC model with a
+25us step and 1s settling. Its results are in probe-calculation.txt.
+It includes shared-common loading by all four tank channels, cable capacitance,
+coupling capacitance and a conservative 1M load on every mux input.
+It does NOT model electrode polarization, contamination, external ground
+potentials, temperature-dependent diode leakage, ADC digital filter weighting,
+op-amp saturation/stability, EMI or surge protection. The timed ADC window is
+an approximation, not an ADS1115 silicon model.
+
+Electrical commissioning target: wet electrode resistance <=100k at the
+chosen spacing/water; dry insulation >=1M. Nominal modeled cable: 3nF
+per conductor to GND, 3nF common-to-sense, 0.5nF sense-to-sense. A severe
+stress case uses 10nF, 10nF and 2nF respectively. These are model values,
+not a cable manufacturer's guaranteed per-metre characteristics.
+Initial cable-length TARGET <=30m, 0..60C enclosure ambient. Neither is
+a released rating: confirm measured cable capacitance and field behavior
+before fitting to an installation. Longer lines or very pure water can
+require different excitation/current thresholds or a remote sensor interface.
+
+Shorted-probe normal currents are small: a single ideal conducting branch has
+12.18k common + 20k field series + 47k load, before capacitor impedance.
+Excitation step/79.18k = 25.6uA; charging conditions can temporarily raise
+this, but passive impedances still limit it. Four parallel branches load
+the common driver; the simulation explicitly includes that interaction.
+Series blockers prevent a firmware-stalled output from sustaining DC. Real
+capacitor and suppressor leakage means the true steady current is not exactly
+zero; damaged parts or external wiring faults are outside that guarantee.
+
+The TMUX recommended signal range is 0..VDD; absolute maximum is -0.5 to
+VDD+0.5V. BAS70-04 specifies <=410mV at 1mA, 25C. The 22k resistor limits
+secondary clamp current after the primary field clamp. This supports the
+chosen protection approach but is NOT a qualified worst-case transient design:
+verify temperature corners, rail uplift and powered/unpowered injection.
+The ADS1115 absolute analog range is -0.3 to VDD+0.3V regardless of PGA
+range; it sees only buffered in-rail analog outputs, never the field node.
+
+The low-leakage ESD diode is not a direct-lightning protector. Standard 1206
+resistors have limited voltage and pulse energy; the pair is not permission
+to connect a probe cable to mains. Final EFT/surge requirements may require
+higher pulse-rated resistors, additional arresters and a defined chassis path.
+Clamp currents can enter the 3.3V rail; validate rail absorption with the
+actual regulator and controller, including power off. No surge test has yet
+been run. Sensor wiring and mains wiring must remain physically separated.
+
+6. MANUFACTURER REFERENCES
+
+TLV9004 pinout/limits:
+https://www.ti.com/lit/ds/symlink/tlv9004.pdf
+TMUX1208 pinout/logic/absolute limits:
+https://www.ti.com/lit/ds/symlink/tmux1208.pdf
+ADS1115 pinout/range/timing:
+https://www.ti.com/lit/ds/symlink/ads1115.pdf
+Waveshare 0.91-inch OLED carrier pin order/regulator/pullups:
+https://files.waveshare.com/upload/2/2a/0.91inch_OLED_Module_Schematic.pdf
+BAS70-04 clamp pinout and forward drop:
+https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf
+BAT54S drive clamps:
+https://assets.nexperia.com/documents/data-sheet/BAT54S.pdf
+PESD5V0S1BA field suppressor:
+https://assets.nexperia.com/documents/data-sheet/PESD5V0S1BA.pdf
+1uF DC-blocking capacitor:
+https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012X7R1H105K125AB
+AC conductivity and polarization principles:
+https://www.analog.com/en/resources/reference-designs/circuits-from-the-lab/CN0359.html
+Omron cable-capacitance/noise failure modes:
+https://www.ia.omron.com/support/guide/33/troubleshooting.html
+
+7. REQUIRED BENCH CHECKS BEFORE MOTOR INSTALLATION
+
+Use an isolated low-voltage bench supply first. Verify ADC references and
+excitation amplitudes. Substitute known 0, 10k, 100k, 200k, 1M and open
+probe loads, with all wet-count combinations and the maximum cable emulator.
+Test disconnected common, crossed probes and each single input short.
+Verify AC current decays after excitation GPIO is held high or low and
+after MCU reset. Test 50/60Hz pickup with safe isolated injection; record
+diode leakage and wet/dry separation hot and cold. Test actual water and
+probe fouling. Only then evaluate contactor switching, power dips, ESD/EFT
+and appropriate surge tests with suitable equipment and qualified handling.

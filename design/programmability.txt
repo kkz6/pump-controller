@@ -1,0 +1,230 @@
+PUMP CONTROLLER — PROGRAMMABILITY AND FUTURE EXPANSION
+Revision: 2026-11-19 / hardware provision and firmware specification
+
+STATUS AND INTENT
+
+The selected ESP32-C6-MINI-1U-H8 provides a programmable controller with 8 MiB
+of flash. The circuit provides native USB service access and boot/reset
+buttons. Firmware, OTA update service, configuration editor, Matter endpoints
+and dashboard are not implemented. This document specifies their intended
+design; it does not claim the application currently builds, fits or operates.
+J34 is included as an internal expansion provision; final physical fit and
+routing remain part of prototype qualification.
+
+Changing tank bands, delays, dry-run limits, motor ratings, OLED pages
+and communication features should normally require configuration or firmware
+updates, rather than replacing the controller PCB. Hardware voltage, current,
+isolation, thermal and input-range limits remain fixed by the fitted circuit.
+
+SERVICE AND RECOVERY HARDWARE
+
+U3 is ESP32-C6-MINI-1U-H8 with an external antenna connector. GPIO12/13 are
+reserved for native USB D-/D+; GPIO16 supplies UART transmit logs only.
+SW1 pulls MCU_EN low to reset. SW2 pulls GPIO9/BOOT low. For manual ROM
+download entry, hold SW2, press/release SW1, then release SW2. The normal
+GPIO8 strap state must be preserved. Firmware must not repurpose USB pins.
+Native USB Serial/JTAG supports programming, logging and debugging; it is
+not a general USB host or arbitrary USB peripheral interface. [1, 2]
+
+J2 is the existing internal 2 x 4 service header at 1.27 mm pitch:
+
+  Pin  Signal        Purpose
+   1   GND           Isolated low-voltage reference
+   2   3V3_SENSE     Rail sense/reference only; no power input or load output
+   3   TXD0          GPIO16 UART transmit logs
+   4   ARM_TEST      GPIO17 ARM_CMD; NOT UART receive
+   5   RESET_N       MCU_EN / hardware reset
+   6   BOOT_N        GPIO9 / download strap
+   7   USB_D-        GPIO12 through its series resistor
+   8   USB_D+        GPIO13 through its series resistor
+
+There is no USB VBUS pin on J2. A keyed, clearly labeled service adapter must
+connect only the intended signals. Leave ARM_TEST unconnected in a normal
+programming cable; driving it can clock the permission latch. Never attach
+an ordinary USB-UART adapter assuming pin 4 is RX. Do not back-power the board
+through 3V3_SENSE or signal pins. Service with mains disconnected, the motor
+control path isolated and a suitable isolated 5 V bench supply, following the
+bring-up document. Do not bridge the live metering ground to service GND.
+
+ROM recovery remains a design requirement even if both application slots are
+invalid. Secure-boot, flash-encryption and debug/download eFuse choices can
+restrict this path. Validate the exact signed-image recovery procedure before
+any irreversible production security provisioning; do not promise unrestricted
+USB recovery after arbitrary eFuse changes. The current task does not program
+security fuses or implement an update/recovery service.
+
+PLANNED LOCAL UPDATES
+
+Provide a local authenticated update page/API using encrypted transport and
+signed firmware packages. Package metadata must identify board revision,
+firmware version, partition-layout compatibility and required configuration
+schema. No cloud service is required to upload an approved package locally.
+Reject incompatible hardware, oversized images and invalid signatures before
+selecting a new image. Normal OTA updates replace only the inactive application
+slot; bootloader and partition-table changes require a separately validated
+service procedure because their update failure behavior differs. [3]
+
+Before update/reboot, cancel requests, command both relays off and clear
+permission. Enable ESP-IDF application rollback. A new image starts unarmed,
+tests its configuration, essential sensors and safe output state, and confirms
+itself only after those checks pass. Do not require internet or a reachable
+home hub to pass the local startup checks. Failed validation or reboot before
+confirmation must return to the previous valid image. Neither successful
+update nor rollback may restart a pump without a fresh physical START.
+Keep security-version/anti-rollback policy compatible with the retained rescue
+image; automatic rollback cannot restore an image prohibited by that policy.
+
+8 MiB FLASH ALLOCATION PROPOSAL
+
+This is a capacity budget, not a generated or tested partition-table file.
+1 KiB = 1024 bytes; 1 MiB = 1,048,576 bytes. The entire device is 0x800000 bytes.
+Addresses below are inclusive starts; each size ends immediately before the
+next start. App slots are aligned to 64 KiB, data regions to 4 KiB. [4]
+
+  Start      Size       Capacity    Intended use
+  0x000000   0x010000     64 KiB     Bootloader/partition table and reserved space
+  0x010000   0x010000     64 KiB     NVS configuration and Matter/network state
+  0x020000   0x001000      4 KiB     NVS encryption-key partition
+  0x021000   0x002000      8 KiB     OTA selection metadata
+  0x023000   0x001000      4 KiB     PHY initialization reservation
+  0x024000   0x010000     64 KiB     Calibration NVS, separate from user settings
+  0x034000   0x010000     64 KiB     Factory identity/provisioning data
+  0x044000   0x010000     64 KiB     Bounded crash-dump storage
+  0x054000   0x00C000     48 KiB     Metadata growth/alignment reserve
+  0x060000   0x300000   3072 KiB     Application OTA slot 0
+  0x360000   0x300000   3072 KiB     Application OTA slot 1
+  0x660000   0x1A0000   1664 KiB     Bounded diagnostic/event data filesystem
+  0x800000   end        8192 KiB     Total physical flash
+
+Two 3 MiB slots consume 6 MiB; metadata/reserve consumes 384 KiB; diagnostic
+storage consumes 1664 KiB. Sum: 8192 KiB = 8 MiB, with no space counted twice.
+There is no third factory application in this budget; initial provisioning
+writes slot 0, and USB/ROM is the independent service route. Actual bootloader
+and partition-table offsets inside the first 64 KiB must be validated against
+the selected ESP-IDF/security configuration before generating the table.
+
+Do not assume Matter, Wi-Fi, TLS and the dashboard will fit in 3 MiB. Build
+the chosen features and check the final signed/encrypted image size, RAM use
+and runtime headroom early. Leave deliberate image-growth allowance inside
+each slot. If it does not fit, reduce features/assets or revise the flash
+layout/hardware before release. Diagnostic filesystem capacity is nominal;
+filesystem metadata and wear management reduce usable log bytes. Bundle
+dashboard assets with each app image so UI and firmware roll back together.
+
+CONFIGURATION, CALIBRATION AND DATA
+
+Use versioned NVS configuration with range checks and explicit migration
+rules. Configure tank electrode mapping/heights, start/stop bands, debounce,
+maximum run time, minimum off time, priming/inrush grace, validated power
+thresholds, motor nameplate values and permitted electrical limits. Do not
+hardcode universal pump thresholds. Keep protective bounds in firmware so an
+invalid setting cannot silently disable a required check.
+
+Store meter gain/phase/offset and probe calibration separately, recording
+board identity, calibration version, conditions and integrity checks. Normal
+OTA and ordinary settings reset preserve calibration. Define separate user
+actions for network/Matter reset, settings reset and calibration erase; never
+erase calibration as an accidental side effect of re-pairing.
+
+Provide local configuration/calibration export and import with schema and
+hardware checks, a readable preview, checksum and explicit commissioning
+status. Do not export Wi-Fi passwords, Matter private keys or other secrets
+in an ordinary settings backup. Reject calibration from another device unless
+the operator deliberately performs and records a new calibration process.
+Persist new settings atomically; stage migrations so the previous image can
+still read its last valid settings after rollback. Write event summaries at
+bounded rates instead of storing every ADC sample to flash. Invalid or missing
+required calibration inhibits unattended operation.
+
+MODULAR FIRMWARE BOUNDARIES
+
+  Control/protection: authoritative state machine, timers, inhibits and re-arm.
+  Hardware outputs: sole writer of RUN_CMD, PERMIT_D and ARM_CMD; safe defaults.
+  Meter service: calibrated V/A/W/PF/energy plus timestamp and quality flags.
+  Probe service: electrode states, water bands, phase/self-check validity.
+  Configuration: validation, persistence, migration and calibration records.
+  Matter adapter: translates authenticated requests and reports state.
+  Local UI/API: uses the same requests/state model as Matter; no raw GPIO API.
+  OLED renderer: read-only state snapshots, configurable pages, bounded I2C work.
+  Update/diagnostics: signed updates, rollback checks and bounded event history.
+
+Use timestamped, typed interfaces with explicit invalid/stale states. Network
+or UI code submits requests; it must not drive coils directly or block the
+protective control loop. Keep safety-critical deadlines separate from slow
+network and flash operations. New sensor drivers and app features can then be
+added without duplicating the pump decision logic.
+
+The OLED replaces all separate level/status lights. Its page order, text,
+units, water-band graphic, brightness, idle dimming and rotation interval
+can change in firmware/configuration with no new PCB. Fault pages take
+priority. Do not reuse START/RESET as display navigation if that changes
+their safety semantics; automatic page rotation needs no extra buttons.
+Use 1–2 Hz value refresh and a 512-byte framebuffer. An I2C scheduler must
+split writes into at most 16 display-data bytes and admit them only between
+probe deadlines; a blocking full-frame library call is not acceptable.
+The display service cannot write motor outputs. OLED-only failure may disable
+the UI; a shared-bus fault that invalidates essential sensing must stop and
+latch the controller. See oled-selection.txt for timing and harness details.
+
+MCP23017 port A pins formerly driving indicators are now unused internal
+spares. Leave them as inputs with configured internal pull-ups; do not
+drive them as display outputs or count them as extra ESP32 GPIO. Only the
+documented J34 signals are a supported expansion connector.
+
+The first firmware target is Matter over Wi-Fi with a local browser dashboard.
+ESP32-C6 also supports Thread hardware, so a future firmware variant may use
+Matter over Thread. That change requires a compatible border router, renewed
+commissioning and a revised plan for browser telemetry. Do not promise
+simultaneous Wi-Fi/Thread Matter operation, seamless fabric migration or a
+Thread browser dashboard merely because both radios/protocols are supported.
+
+J34 INTERNAL EXPANSION
+
+  Pin  Signal       Meaning
+   1   +3V3         Internal expansion supply, 25 mA total reserved maximum
+   2   GND          Isolated low-voltage reference
+   3   I2C_SDA      Existing 3.3 V bus, ESP32 GPIO22
+   4   I2C_SCL      Existing 3.3 V bus, ESP32 GPIO23
+   5   SPARE_B6     MCP23017 GPB6; ordinary 3.3 V GPIO subject to chip limits
+   6   SPARE_B7     MCP23017 GPB7; ordinary 3.3 V GPIO subject to chip limits
+
+Use 7-bit I2C addresses: 0x20 is reserved for the on-board MCP23017, 0x48
+for ADS1115 and 0x3C for the OLED (confirm on the received module). Select a
+nonconflicting address for any added device; verify its
+speed, bus capacitance and pull-ups with the existing bus. Candidate sensors
+must operate from 3.3 V and within the aggregate 25 mA budget, including their
+startup peaks and GPIO loads. GPB6/7 are not high-current outputs or additional
+ESP32 pins; keep them inputs/high impedance until deliberately configured.
+J33 supplies only the OLED's 100 mA engineering reservation, not additional
+loads; J2 provides no load allowance.
+
+J34 is for short wiring inside the isolated low-voltage compartment only.
+No hot plugging, external 5 V logic, mains signals, long tank/field cables,
+unisolated RS485, motors or relay coils. External field expansion needs a
+separate protected interface and a new isolation/EMC/power review. The added
+25 mA expansion and 100 mA OLED allocations produce a 5.7 W 5 V budget, leaving 0.3 W
+below the 6 W PSU limit at no more than 50 degrees C local module ambient.
+
+NON-BYPASSABLE HARDWARE LIMITS
+
+Software changes cannot turn physical STOP, OFF or the independent high-high
+loop into advisory inputs. Preserve their hardware interruption of permission,
+the hardware watchdog/re-arm arrangement, and the existing motor overload
+and upstream protection. A configurable product still requires calibration
+and repeat validation after material changes; user scripts or an unrestricted
+GPIO console must not bypass those controls in the operating installation.
+
+PRIMARY SOURCES
+
+[1] ESP32-C6-MINI-1/MINI-1U module specification:
+    https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf
+[2] ESP-IDF native USB Serial/JTAG and manual download recovery:
+    https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/usb-serial-jtag-console.html
+[3] ESP-IDF OTA slots, metadata and rollback:
+    https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-reference/system/ota.html
+[4] ESP-IDF partition layout and alignment rules:
+    https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/partition-tables.html
+
+J2 mappings were checked against design/power-mcu.json; J33/J34 mappings
+were checked against design/core.json. Physical fit and wiring require
+verification on the manufactured prototype.

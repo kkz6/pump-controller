@@ -1,0 +1,214 @@
+Pump controller Rev B — power allocation and interface review
+Reviewed 2026-11-19
+
+POWER ALLOCATION
+This is a conservative component allocation for simultaneous operation, not a
+measured consumption result or a guaranteed all-fault maximum. It reserves
+25 mA at 3.3 V for the planned J34 internal expansion header only. J2 is a
+service/reference interface and J33 serves the budgeted OLED; neither
+provides an additional external-load allowance. Verify J34 fit on the prototype.
+
+3.3 V loads                              Reserved current
+ESP32-C6, RF transmission and flash             500 mA
+J33 OLED display, engineering reservation       100 mA
+ADuM6421A safe-side digital circuits             15 mA
+Probe analogue front end, mux and ADC             5 mA
+MCP23017                                         2 mA
+Supervisors, logic, pull-ups and margin             8 mA
+J34 internal expansion                          25 mA
+TOTAL                                          655 mA
+
+The ESP32 module specifies a 382 mA Wi-Fi TX peak at 3.3 V/25 C; 500 mA is
+an engineering reservation with margin. The buck is rated 1 A. Reserve 80%
+conversion efficiency until measured, giving 3.3*0.655/0.80 = 2.702 W from 5 V.
+The 25 mA expansion allowance alone adds 0.103 W nominal (approximately
+0.104 W), or 0.107 W at the buck's +4% power-save upper voltage tolerance.
+
+Direct 5 V loads                        Reserved current
+ADuM6421A integrated isolated converter         250 mA
+Both G5Q-1A4 DC5 relay coils                    130 mA
+Physical control dividers and margin              5 mA
+TOTAL                                          385 mA
+
+The 250 mA converter allocation uses ADI's full-output-load maximum for 5 V
+input/3.3 V output, though ADE7953 plus isolated logic need approximately
+16 mA maximum at 3.3 V under the configured low-speed SPI conditions.
+G5Q nominal coil current is 40 mA each at 23 C, resistance tolerance +/-10%;
+130 mA for both includes a conservative allowance for cold copper and supply
+tolerance. No contactor coil or motor current is supplied by this 5 V rail.
+
+Total at nominal rails: 2.701875 + 5*0.385 = 4.626875 W, about 925 mA at 5 V.
+Using +4% on 3.3 V and +5% on 5 V gives 2.80995 + 2.02125 = 4.8312 W before
+the minimum-load resistor. The +4% buck bound supersedes the earlier +2%
+estimate. The 80% buck efficiency and reserved MCU current are assumptions
+to verify with startup, maximum RF duty, the OLED, both relays and J34 load.
+
+The Waveshare 0.91inch OLED Module SKU 14657 replaces the discrete indicator
+panel. No guaranteed maximum module current was found in its official product,
+wiki or schematic documentation. Its 100 mA allowance is an engineering
+reservation, not a manufacturer limit or measured value. Measure all-pixels-on,
+maximum permitted contrast, charge-pump startup, cold/hot behavior and voltage
+corners before qualification. Do not infer module current from the SSD1306
+controller logic-current specification. See oled-selection.txt.
+
+PERMANENT MINIMUM LOAD — FINAL SELECTED SOLUTION
+R2 = Bourns CRM2512-FX-33R0ELF, 33 ohm 1%, 2 W, 2512, from +5V to GND.
+At 4.75 V and +1% resistance: 4.75^2 / 33.33 = 0.677 W.
+At 5.25 V and -1% resistance: 5.25^2 / 32.67 = 0.844 W.
+Thus R2 alone maintains more than the 0.6 W minimum load for specified PSU
+regulation, throughout that voltage/tolerance envelope. Normal rail dynamics
+must still be verified at startup and during load steps.
+
+REVISED TOTAL WITH OLED AND J34: 4.8312 W + 0.844 W = 5.6752 W.
+Round to 5.7 W (approximately 1.14 A at nominal 5 V). This is below the 6 W /
+1.2 A PSU rating with only 0.3 W allowance remaining. This supersedes previous
+5.3/5.4 W complete-board allocations and the pre-bleeder 4.4 W figure. Do not
+allocate more external loads from the remaining allowance without re-review.
+
+RACM06E-05SK/277 rating, 115-277 VAC input:
+Local ambient            Available power   Margin against 5.7 W
+Up to 50 C                    6.0 W                 0.3 W
+65 C                          5.0 W                -0.7 W
+
+REQUIRE <=50 C measured ambient immediately around the module in this design.
+The 65 C thermal envelope considered before R2 is no longer acceptable for the
+conservative full-load allocation. The actual normal consumption will be lower,
+but it does not replace the design allocation without measurements.
+
+R2 THERMAL LAYOUT REQUIREMENT
+Bourns rates this part at 2 W at 70 C with 300 mm2 combined solder-pad and trace
+copper. Its rating falls linearly to zero at 155 C. Reserve that heat-spreading
+copper, respect both rail nets, and verify case/PCB temperature at 0.844 W in
+the assembled enclosure. Place R2 away from probe front end, precision metering
+resistors/reference, RF module/antenna and electrolytic capacitors. Do not place
+it against a plastic cover or wire insulation. The resistor rating does not
+replace thermal verification of the surrounding PCB.
+
+REPLACEMENT SCREEN
+The similarly sized RAC05-05SK lists 0% minimum load but is OVC II. Its /277
+variant retains OVC III yet carries the same below-10% output-specification
+disclaimer. Retaining RACM06E with R2 preserves the selected OVC III module and
+footprint. Revisit a zero-minimum-load module only as a separately qualified
+power-stage revision, rather than silently downgrading the input environment.
+
+PINOUT AND WIRING REVIEW
+- U1: pins 1/2 = line/neutral; pins 5/4 = +5 V/isolated ground. U2 fixed-3.3 V
+  FB ties to AGND; VOS senses the output; exposed pad is ground.
+- ADuM6421A power and SPI mapping matches Table 25. VDDP is 5 V; VDD1 is 3.3 V;
+  VSEL ties to GNDISO for 3.3 V output. The isolated converter positive and
+  return pass through separate beads into M_3V3/M_GND; M_GND is neutral-live.
+- GPIO17/module pad 30 is ARM_CMD. J2 pin 4 is ARM_TEST, not UART receive.
+  GPIO16 is UART transmit logging; USB pins 12/13 provide programming/debug.
+- Updated HH sensing passes through SN74LVC1G17 before the MCP23017. This
+  resolves the earlier lack of GPIO input-high margin after the selector diode.
+- J30 has been changed to MC 1,5/2-G-5,08, Phoenix 1836189, rated 320 V under
+  III/2. This resolves the original 3.81 mm header's insufficient 160 V III/2
+  rating for a 230 V starter. Apply the same rating to its mating plug.
+- Supply J1 from the protected incoming line and neutral, before the contactor
+  power contacts. J30 belongs in the existing contactor-coil control path,
+  preserving the overload and stop protection; no hold-in branch may bypass it.
+- J32 connections: +5 V -> NC STOP -> STOP_RETURN and selector common;
+  selector MAN/AUTO contacts -> MAN_RETURN/AUTO_RETURN. START and RESET are
+  separate dry NO contacts to GND. Existing mains button connections cannot
+  share these low-voltage contacts. RESET here acknowledges a fault; it is not
+  the ESP32 hardware reset.
+- J31 is the independent NC high-high float circuit. J10/CT wiring is mains
+  referenced and enclosed/insulated; the burden remains permanently attached
+  across the CT when unplugged. J20/J21 probes and J33 OLED harness use
+  only the isolated low-voltage domain. Never bond M_GND to GND.
+- J2 is internal service access, with 3V3 as sense/reference. Use native USB
+  only under the documented isolated bench-power service arrangement.
+
+FUSE FINDINGS — NO COMPONENT CHANGE MADE
+The present Bel 0ADKP1000-RE is a T1A 600 VAC axial fuse. Its interrupting
+capacity is 200 A at 600 VAC; it is not a general high-fault-current branch fuse.
+The installation's prospective fault current and upstream protection must be
+coordinated. A series 22-ohm resistor is not proof of adequate fuse breaking
+capacity, especially for faults ahead of that resistor.
+
+A smaller candidate is Schurter UMT-H 3403.0274.11: 1 A time-lag, 16 x 5.3 mm
+SMD, 277 VAC, 1500 A breaking rating at 277 VAC under its UL conditions.
+It is NOT a documented drop-in equivalent for RECOM's agency-tested T1A
+420/600 VAC arrangements. Use only after confirming the intended system
+approval/test path with the PSU supplier.
+
+A size-preserving alternative is Eaton BK-S505H-V-1-R, 1 A time-delay,
+5 x 20 mm axial, 600 VAC: 1500 A breaking at 250 VAC but 100 A at 600 VAC.
+Do not assume its 1500 A rating applies at 264/277 VAC. It improves the
+published 250 VAC interrupting figure, not every installation condition.
+For higher prospective faults, coordinate a suitable upstream high-breaking
+branch device; choosing a tiny PCB fuse alone does not establish system SCCR.
+
+PRIMARY SOURCES
+ESP32-C6-MINI-1U datasheet, Table 6-4:
+https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf
+TPS62160/61/62 datasheet:
+https://www.ti.com/lit/ds/symlink/tps62160.pdf
+ADuM6421A datasheet, Tables 3, 8, 10 and 25:
+https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf
+ADE7953 datasheet, power specification:
+https://www.analog.com/media/en/technical-documentation/data-sheets/ade7953.pdf
+Omron G5Q datasheet:
+https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5q.pdf
+RECOM RACM06E-K/277, 5 V derating and fuse/light-load notes:
+https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf
+MCP23017, GPIO VIH specification:
+https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
+Phoenix 3.81 mm header:
+https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-381-1803277?type=pdf
+Phoenix 5.08 mm alternative:
+https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf
+Bel fuse:
+https://www.belfuse.com/media/datasheets/products/circuit-protection/ds-cp-0adkx-series.pdf
+Schurter UMT-H:
+https://www.schurter.com/en/datasheet/UMT-H
+Eaton S505H:
+https://www.eaton.com/content/dam/eaton/products/electronic-components/resources/data-sheet/eaton-s505h-vac-time-delay-fuses-data-sheet.pdf
+
+Bourns R2 power-rating, copper-area and derating requirements:
+https://www.bourns.com/docs/product-datasheets/crm.pdf
+
+FINAL FUSE FOOTPRINT CHECK — RETAIN PRESENT F1
+Littelfuse 477 does not provide the requested 1500 A interruption at 500 VAC
+for the 1 A part: its 1500 A figure is specified at 400 VDC, while the relevant
+500 VAC figure is 100 A. Schurter SHT does specify 1500 A at 500 VAC but uses
+a 6.3 x 32 mm body, not the present 5 x 20 mm / 27.94 mm axial footprint.
+Neither is a verified no-layout-change upgrade. No F1 change was made.
+The 22-ohm R1 limits only faults downstream of R1. It cannot limit a short
+between F1 and R1. Upstream interrupting rating alone also does not establish
+coordination with this fuse: check the complete protective arrangement.
+https://www.littelfuse.com/assetdocs/littelfuse_fuse_477_datasheet.pdf?assetguid=624ac410-146d-47dc-9971-cdaaa78f2c78
+https://www.schurter.com/en/datasheet/SHT
+
+SUPERVISOR TOLERANCE CORRECTION — SAME PACKAGE, PIN REMAP REQUIRED
+The original TLV803EA30DBZR can release as high as
+3.08 x 1.02 x 1.015 = 3.1887 V, exceeding the TPS62162 power-save lower
+static limit 3.3 x 0.965 = 3.1845 V. This permits a corner where permission
+never releases. TLV803EA29DBZR is pin compatible but its 2.93 V threshold
+can fall to 2.8714 V, below the ESP32 module's 3.0 V operating minimum.
+
+Selected replacement: ST STM1001TWX6F, open-drain active-low, SOT-23-3,
+3.08 V nominal, 3.00–3.15 V threshold over -40 to +85 degrees C, release
+delay 140–280 ms. Datasheet describes assertion/release about this threshold
+without an additional specified hysteresis increment. Static release margin
+is therefore 34.5 mV against the buck's stated power-save lower limit.
+This is NOT a pin-compatible substitution: use 1 RESET -> SAFE_CLEAR_N,
+2 VCC -> +3V3, 3 VSS -> GND, with the same SOT-23 footprint and local rerouting.
+
+MAX803TEUR+T is not a documented alternative: Analog Devices MAX803 is
+open-drain in SC70 only; its SOT-23 family members MAX809/810 are push-pull.
+The similarly named onsemi NCP803SN308T1G must not be confused with it.
+
+The ST minimum threshold exactly meets the module's 3.0 V floor, and reset
+propagation is finite. The DC comparison is not a guarantee that all rail
+dips are caught before the MCU leaves its recommended range. Retain firmware
+brownout reset, test load steps/slow ramps/fast collapses, verify boot-time
+inhibition and require a fresh START after a trip. The supervisor must not
+be described as a certified safety function. ST lists this exact MPN active;
+availability must be reconfirmed at procurement. The current core.json now
+contains STM1001TWX6F with the stated pin remap; verify the generated PCB
+and assembled part orientation against it before applying power.
+https://www.ti.com/lit/ds/symlink/tlv803e.pdf
+https://www.st.com/resource/en/datasheet/stm1001.pdf
+https://estore.st.com/en/stm1001twx6f-cpn.html
+https://www.analog.com/media/en/technical-documentation/data-sheets/MAX803-MAX810Z.pdf
