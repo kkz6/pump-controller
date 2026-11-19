@@ -25,9 +25,11 @@ explicit in that helper. It does not certify the physical design.
 
 ``finalize_routing_input.py`` exports ``hardware/pump-controller-rev-b.dsn``.
 The recorded routing used Freerouting 2.5.0, a separate open-source program.
-Its session output is ``hardware/pump-controller-rev-b.ses``. After routing::
+The initial session is archived as ``pump-controller-rev-b-fast.ses``;
+the final native board also contains subsequent checked local repairs.
+To import a newly created session explicitly::
 
-    python tools/import_routing.py
+    python tools/import_routing.py --session path/to/new-session.ses
 
 This imports the session, refills the planes, runs native KiCad DRC, and
 compares every board pad against the final circuit JSON. Read the resulting
@@ -38,3 +40,36 @@ board. The native KiCad rule file is the authoritative spacing check.
 ``cache_footprints.py`` refreshes the portable cache from an installed
 standard library and records hashes. Standard libraries retain their own
 license, described in ``hardware/FOOTPRINT-PROVENANCE.rst``.
+
+Checks and local routing repairs
+--------------------------------
+
+To validate the existing routed board without importing an earlier router
+session, run::
+
+    python tools/import_routing.py --check-only
+    python tools/audit_vias.py
+
+``audit_vias.py`` uses native pad geometry to inventory via-drill overlap
+with SMT copper. Listed overlaps require filled and plated-over processing
+or rerouting; ordinary via tenting is not an accepted substitute.
+
+``apply_route_patch.py PATCH.json`` applies a narrowly specified set of
+track/via removals and additions, then refills zones. Coordinates are in mm.
+The accepted repair patches are preserved under
+``archive/layout-iterations/``. Do not replay them on the final board: those
+changes are already incorporated, and removal matches must be unique.
+
+``export_routing_geometry.py`` reads the current native board and its latest
+``main-drc.json`` report to create ``hardware/checks/routing-geometry.json``.
+It is read-only. ``grid_route.py`` uses Python 3 with NumPy to propose routes
+in ``hardware/checks/proposed-routes.json``; it does not edit the PCB. Its
+occupancy model intentionally overestimates rectangular pad corners and
+ignores copper pours during search. All proposals must be checked after
+native zone refill using the project-specific KiCad rules. A route-search
+success is not a DRC or manufacturing acceptance result.
+
+``record_board.py`` records actual final coordinates, side and rotation in
+``design/pcb-placement.json`` and ``hardware/placement.json`` and refreshes
+the DSN from the native board. Run it after ``import_routing.py --check-only``
+so its routed status comes from the latest native connectivity result.

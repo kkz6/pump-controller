@@ -46,6 +46,11 @@ CORRECTED IN THE COMPONENT DEFINITION
     pending measurement; total allocation is now 5.7 W. Short scheduled display
     transfers must preserve the probe ADC deadlines.
 
+15. Replaced the unverified SS14-13-F ordering entry with manufacturer-verified
+    Diodes B140-13-F. Footprint, diode polarity and nets are unchanged. The
+    stated 0.5 V maximum forward drop applies at 1 A and 25 C; temperature
+    and the complete coil path remain prototype validation items.
+
 REMAINING REVIEW / TEST ITEMS
 
 1. Actual contactor coil rating and inductive inrush/holding load; suppression
@@ -56,7 +61,7 @@ REMAINING REVIEW / TEST ITEMS
    not establish a routed, manufacturable board. See hardware/checks.
 4. Derived package footprints and connector mating parts need supplier review.
 5. R2 heat spreading, closed-enclosure PSU ambient and all hot restart cases.
-   SS14 plus field wiring reduces K1 coil voltage; catalog pickup is at 23 C.
+   B140 plus field wiring reduces K1 coil voltage; catalog pickup is at 23 C.
 6. STOP/MAN/AUTO divider logic has limited transient/contact-drop margin.
    Require debounce, no arming on ambiguity, and complete supply-corner tests.
 7. No direct overload/contactor auxiliary feedback. Use manual-reset overload

@@ -100,10 +100,10 @@ j30['footprint']='Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.0
 j30['mpn']='1836189';j30['description']='Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required'
 conn(s,'J31',['MODE_COIL_5V','K1_COIL_PLUS'],'High-high NC float loop / fitted shorting link')
 
-s=sheet('local_controls','Low-voltage physical controls and indicator interface','All J32 controls are isolated low voltage. Existing mains button wiring must be removed before reusing buttons here.')
+s=sheet('local_controls','Low-voltage physical controls and OLED interface','All J32 controls are isolated low voltage. Existing mains button wiring must be removed before reusing buttons here.')
 conn(s,'J32',['+5V','STOP_RETURN','MAN_RETURN','AUTO_RETURN','START_N','RESET_N','GND'],'STOP + selector + START + RESET')
 for idx,net in [(33,'MAN_RETURN'),(34,'AUTO_RETURN')]:
-    add(s,f'D{idx}','SS14','Diode_SMD:D_SMA',[(1,'K','MODE_COIL_5V'),(2,'A',net)],'diode','SS14-13-F','OR of selector outputs; OFF or STOP removes K1 coil supply physically')
+    add(s,f'D{idx}','B140','Diode_SMD:D_SMA',[(1,'K','MODE_COIL_5V'),(2,'A',net)],'diode','B140-13-F','OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C')
 # MCP23017 port A is spare, B reads contacts. 0x20 at 400 kHz.
 p=[]
 bnet=['START_FILTER','RESET_FILTER','STOP_SENSE','MAN_SENSE','AUTO_SENSE','INTERLOCK_OK','SPARE_B6','SPARE_B7']
@@ -123,8 +123,29 @@ add(s,'J34','EXPANSION 3V3 I2C + 2 GPIO','Connector_PinHeader_1.27mm:PinHeader_2
 
 add(s,'OLED1','0.91 inch OLED 128x32 SSD1306','',[(1,'SCL','I2C_SCL','input'),(2,'SDA','I2C_SDA','bidirectional'),(3,'GND','GND','power_in'),(4,'VCC','+3V3','power_in')],mpn='Waveshare 14657 / 0.91inch OLED Module',desc='External36x12.5mm PCB;3.3V supply;PH2.0 4pin;modulePH2.0 numericpins1SCL2SDA3GND4VCC;J33->OLED mapping1->4,2->3,3->2,4->1;0x3C default;100mA reserved,not datasheet maximum',url='https://www.waveshare.com/0.91inch-oled-module.htm',on_board=False)
 
+# Verified manufacturer sources; this lookup changes documentation only.
+source_urls = {
+    'D30': 'https://www.diodes.com/part/view/BAT54WS',
+    'D35': 'https://www.diodes.com/part/view/BAT54WS',
+    'D31': 'https://www.diodes.com/part/view/1N4148W',
+    'D32': 'https://www.diodes.com/part/view/1N4148W',
+    'D33': 'https://www.diodes.com/datasheet/download/B140.pdf',
+    'D34': 'https://www.diodes.com/datasheet/download/B140.pdf',
+    'R43': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',
+    'R44': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',
+    'R45': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',
+    'R46': 'https://www.vishay.com/docs/28758/tnpw_e3.pdf',
+    'R47': 'https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL',
+    'FB1': 'https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=',
+    'FB2': 'https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=',
+    'J33': 'https://www.jst-mfg.com/product/index.php?lang=2&series=105',
+    'J30': 'https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf',
+}
+
 for s in S:
     for comp in s['components']:
+        if comp['ref'] in source_urls:
+            comp['datasheet'] = source_urls[comp['ref']]
         for pin in comp['pins']:
             if pin.get('net')=='M_ISO_RETURN':pin['net']='M_ISO_GND'
 BASE.joinpath('core.json').write_text(json.dumps({'sheets':S},indent=2))

@@ -150,6 +150,8 @@ def decorate(board,w,h,bs):
     for f in board.GetFootprints():
         f.Value().SetVisible(False)
         f.Reference().SetVisible(False)
+        if f.GetReference() in ['U1','U3','U11','F1','R1','RV1']:
+            r=f.Reference();r.SetLayer(p.B_Fab if f.GetLayer()==p.B_Cu else p.F_Fab);r.SetVisible(True);r.SetTextSize(v(1,1));r.SetTextThickness(MM(.15));r.SetTextAngle(p.EDA_ANGLE(0,p.DEGREES_T));r.SetPosition(f.GetBoundingBox(False,False).GetCenter())
 
 def strip_board_items(s,names):
     level=0;quoted=False;escaped=False;start=None;spans=[]

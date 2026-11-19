@@ -228,3 +228,11 @@ PRIMARY SOURCES
 J2 mappings were checked against design/power-mcu.json; J33/J34 mappings
 were checked against design/core.json. Physical fit and wiring require
 verification on the manufactured prototype.
+
+INLET ROLE CONFIGURATION
+
+Store an explicit SOURCE_PRESENT or PIPE_WATER_PROOF role with its validated
+startup deadline. The latter supports a normally dry pipe that fills after
+the pump starts; requiring it wet before every start would prevent priming.
+See operation-and-bringup.txt for bounded-start and latched-stop semantics.
+An unset role/deadline must inhibit unattended AUTO.

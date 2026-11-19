@@ -26,7 +26,7 @@ refs=[c['ref'] for s in sheets for c in s['components']]
 assert len(refs)==len(set(refs))
 (P/'circuit.json').write_text(json.dumps(d,indent=2))
 with (P/'parts-complete.csv').open('w',newline='') as f:
-    w=csv.writer(f);w.writerow(['Reference','Value','MPN or procurement specification','Description','Footprint','Board','Datasheet'])
+    w=csv.writer(f,lineterminator="\n");w.writerow(['Reference','Value','MPN or procurement specification','Description','Footprint','Board','Datasheet'])
     for s in sheets:
         for c in s['components']:
             if c['ref'].startswith('#'):continue

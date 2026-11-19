@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/pump-controller-rev-b.kicad_sch</source>
-    <date>2026-11-19T08:54:24</date>
+    <date>2026-11-19T09:02:16</date>
     <tool>Eeschema 10.0.8</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -148,9 +148,9 @@
         <comment number="9" value=""/>
       </title_block>
     </sheet>
-    <sheet number="9" name="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/">
+    <sheet number="9" name="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/">
       <title_block>
-        <title>Low-voltage physical controls and indicator interface / 1</title>
+        <title>Low-voltage physical controls and OLED interface / 1</title>
         <company>1 HP single-phase pump controller</company>
         <rev>B-DRAFT</rev>
         <date/>
@@ -166,9 +166,9 @@
         <comment number="9" value=""/>
       </title_block>
     </sheet>
-    <sheet number="10" name="/Low-voltage physical controls and indicator interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/">
+    <sheet number="10" name="/Low-voltage physical controls and OLED interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/">
       <title_block>
-        <title>Low-voltage physical controls and indicator interface / 2</title>
+        <title>Low-voltage physical controls and OLED interface / 2</title>
         <company>1 HP single-phase pump controller</company>
         <rev>B-DRAFT</rev>
         <date/>
@@ -1688,11 +1688,12 @@
     <comp ref="R43">
       <value>249k</value>
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/28758/tnpw_e3.pdf</datasheet>
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
       <fields>
         <field name="MPN">TNPW1206249KBEEA</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <libsource lib="Pump" part="R43" description="0.1%, 25ppm/K, 200V working, 1206; 4 in series"/>
@@ -1713,11 +1714,12 @@
     <comp ref="R44">
       <value>249k</value>
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/28758/tnpw_e3.pdf</datasheet>
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
       <fields>
         <field name="MPN">TNPW1206249KBEEA</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <libsource lib="Pump" part="R44" description="0.1%, 25ppm/K, 200V working, 1206; 4 in series"/>
@@ -1738,11 +1740,12 @@
     <comp ref="R45">
       <value>249k</value>
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/28758/tnpw_e3.pdf</datasheet>
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
       <fields>
         <field name="MPN">TNPW1206249KBEEA</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <libsource lib="Pump" part="R45" description="0.1%, 25ppm/K, 200V working, 1206; 4 in series"/>
@@ -1763,11 +1766,12 @@
     <comp ref="R46">
       <value>249k</value>
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/28758/tnpw_e3.pdf</datasheet>
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
       <fields>
         <field name="MPN">TNPW1206249KBEEA</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <libsource lib="Pump" part="R46" description="0.1%, 25ppm/K, 200V working, 1206; 4 in series"/>
@@ -1788,11 +1792,12 @@
     <comp ref="R47">
       <value>1k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL</datasheet>
       <description>0.1%, 25ppm/K, 0603 voltage-divider low leg</description>
       <fields>
         <field name="MPN">RT0603BRD071KL</field>
         <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL</field>
         <field name="Description">0.1%, 25ppm/K, 0603 voltage-divider low leg</field>
       </fields>
       <libsource lib="Pump" part="R47" description="0.1%, 25ppm/K, 0603 voltage-divider low leg"/>
@@ -2063,11 +2068,12 @@
     <comp ref="FB1">
       <value>1.5k @100MHz</value>
       <footprint>Inductor_SMD:L_0603_1608Metric</footprint>
+      <datasheet>https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</datasheet>
       <description>Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</description>
       <fields>
         <field name="MPN">BLM18HE152SN1D</field>
         <field name="Footprint">Inductor_SMD:L_0603_1608Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</field>
         <field name="Description">Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</field>
       </fields>
       <libsource lib="Pump" part="FB1" description="Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane"/>
@@ -2088,11 +2094,12 @@
     <comp ref="FB2">
       <value>1.5k @100MHz</value>
       <footprint>Inductor_SMD:L_0603_1608Metric</footprint>
+      <datasheet>https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</datasheet>
       <description>Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</description>
       <fields>
         <field name="MPN">BLM18HE152SN1D</field>
         <field name="Footprint">Inductor_SMD:L_0603_1608Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</field>
         <field name="Description">Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</field>
       </fields>
       <libsource lib="Pump" part="FB2" description="Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane"/>
@@ -2290,11 +2297,12 @@
     <comp ref="D30">
       <value>BAT54WS</value>
       <footprint>Diode_SMD:D_SOD-323</footprint>
+      <datasheet>https://www.diodes.com/part/view/BAT54WS</datasheet>
       <description>MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop</description>
       <fields>
         <field name="MPN">BAT54WS-7-F</field>
         <field name="Footprint">Diode_SMD:D_SOD-323</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/BAT54WS</field>
         <field name="Description">MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop</field>
       </fields>
       <libsource lib="Pump" part="D30" description="MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop"/>
@@ -2315,11 +2323,12 @@
     <comp ref="D31">
       <value>1N4148W</value>
       <footprint>Diode_SMD:D_SOD-123</footprint>
+      <datasheet>https://www.diodes.com/part/view/1N4148W</datasheet>
       <description>Flyback directly across relay coil</description>
       <fields>
         <field name="MPN">1N4148W-7-F</field>
         <field name="Footprint">Diode_SMD:D_SOD-123</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/1N4148W</field>
         <field name="Description">Flyback directly across relay coil</field>
       </fields>
       <libsource lib="Pump" part="D31" description="Flyback directly across relay coil"/>
@@ -2340,11 +2349,12 @@
     <comp ref="D35">
       <value>BAT54WS</value>
       <footprint>Diode_SMD:D_SOD-323</footprint>
+      <datasheet>https://www.diodes.com/part/view/BAT54WS</datasheet>
       <description>Physical interlock low asynchronously clears arm latch; prevents restart on STOP release</description>
       <fields>
         <field name="MPN">BAT54WS-7-F</field>
         <field name="Footprint">Diode_SMD:D_SOD-323</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/BAT54WS</field>
         <field name="Description">Physical interlock low asynchronously clears arm latch; prevents restart on STOP release</field>
       </fields>
       <libsource lib="Pump" part="D35" description="Physical interlock low asynchronously clears arm latch; prevents restart on STOP release"/>
@@ -2793,11 +2803,12 @@
     <comp ref="D32">
       <value>1N4148W</value>
       <footprint>Diode_SMD:D_SOD-123</footprint>
+      <datasheet>https://www.diodes.com/part/view/1N4148W</datasheet>
       <description>Flyback directly across relay coil</description>
       <fields>
         <field name="MPN">1N4148W-7-F</field>
         <field name="Footprint">Diode_SMD:D_SOD-123</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/1N4148W</field>
         <field name="Description">Flyback directly across relay coil</field>
       </fields>
       <libsource lib="Pump" part="D32" description="Flyback directly across relay coil"/>
@@ -2818,11 +2829,12 @@
     <comp ref="J30">
       <value>Coil control series contacts - mains</value>
       <footprint>Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</datasheet>
       <description>Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required</description>
       <fields>
         <field name="MPN">1836189</field>
         <field name="Footprint">Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</field>
         <field name="Description">Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required</field>
       </fields>
       <libsource lib="Pump" part="J30" description="Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required"/>
@@ -2905,9 +2917,9 @@
       </fields>
       <libsource lib="Pump" part="C73" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>afb71a32-74bb-54e2-8841-3d2218afd45f</tstamps>
       <units>
         <unit name="A">
@@ -2930,9 +2942,9 @@
       </fields>
       <libsource lib="Pump" part="C74" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 1uF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>865d3a37-ea0c-5589-8089-059b6b0a0f0c</tstamps>
       <units>
         <unit name="A">
@@ -2955,9 +2967,9 @@
       </fields>
       <libsource lib="Pump" part="C80" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>74eac0cd-8679-5da8-b55b-0853ddd21efd</tstamps>
       <units>
         <unit name="A">
@@ -2980,9 +2992,9 @@
       </fields>
       <libsource lib="Pump" part="C82" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>71a854fb-9328-5841-9c82-98d95555e5c9</tstamps>
       <units>
         <unit name="A">
@@ -3005,9 +3017,9 @@
       </fields>
       <libsource lib="Pump" part="C84" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>b49ac333-6bc2-5d95-9316-7eb8fa29408f</tstamps>
       <units>
         <unit name="A">
@@ -3030,9 +3042,9 @@
       </fields>
       <libsource lib="Pump" part="C86" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 10nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>a6c26cc0-c780-5aef-b719-0a226bae1942</tstamps>
       <units>
         <unit name="A">
@@ -3055,9 +3067,9 @@
       </fields>
       <libsource lib="Pump" part="C88" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>f2306edb-8451-5e9f-8135-faccf7ae5378</tstamps>
       <units>
         <unit name="A">
@@ -3069,20 +3081,21 @@
       </units>
     </comp>
     <comp ref="D33">
-      <value>SS14</value>
+      <value>B140</value>
       <footprint>Diode_SMD:D_SMA</footprint>
-      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically</description>
+      <datasheet>https://www.diodes.com/datasheet/download/B140.pdf</datasheet>
+      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</description>
       <fields>
-        <field name="MPN">SS14-13-F</field>
+        <field name="MPN">B140-13-F</field>
         <field name="Footprint">Diode_SMD:D_SMA</field>
-        <field name="Datasheet"/>
-        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically</field>
+        <field name="Datasheet">https://www.diodes.com/datasheet/download/B140.pdf</field>
+        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</field>
       </fields>
-      <libsource lib="Pump" part="D33" description="OR of selector outputs; OFF or STOP removes K1 coil supply physically"/>
-      <property name="MPN" value="SS14-13-F"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <libsource lib="Pump" part="D33" description="OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C"/>
+      <property name="MPN" value="B140-13-F"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>65efff39-468f-5a00-a2f5-2fc2cea1d860</tstamps>
       <units>
         <unit name="A">
@@ -3094,20 +3107,21 @@
       </units>
     </comp>
     <comp ref="D34">
-      <value>SS14</value>
+      <value>B140</value>
       <footprint>Diode_SMD:D_SMA</footprint>
-      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically</description>
+      <datasheet>https://www.diodes.com/datasheet/download/B140.pdf</datasheet>
+      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</description>
       <fields>
-        <field name="MPN">SS14-13-F</field>
+        <field name="MPN">B140-13-F</field>
         <field name="Footprint">Diode_SMD:D_SMA</field>
-        <field name="Datasheet"/>
-        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically</field>
+        <field name="Datasheet">https://www.diodes.com/datasheet/download/B140.pdf</field>
+        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</field>
       </fields>
-      <libsource lib="Pump" part="D34" description="OR of selector outputs; OFF or STOP removes K1 coil supply physically"/>
-      <property name="MPN" value="SS14-13-F"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <libsource lib="Pump" part="D34" description="OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C"/>
+      <property name="MPN" value="B140-13-F"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>eb1cd0e4-70da-5265-a21e-2c0b131472ce</tstamps>
       <units>
         <unit name="A">
@@ -3130,9 +3144,9 @@
       </fields>
       <libsource lib="Pump" part="J32" description="STOP + selector + START + RESET"/>
       <property name="MPN" value="Phoenix MC 1,5/7-G-3,81"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>1bde49b3-847e-543c-8640-f6c73cefee17</tstamps>
       <units>
         <unit name="A">
@@ -3160,9 +3174,9 @@
       </fields>
       <libsource lib="Pump" part="R80" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 22k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>efe92e3b-2fd3-5941-988a-6b7337292821</tstamps>
       <units>
         <unit name="A">
@@ -3185,9 +3199,9 @@
       </fields>
       <libsource lib="Pump" part="R81" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 33k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>2cfba62c-0770-5eb2-a7b5-016c247b2f75</tstamps>
       <units>
         <unit name="A">
@@ -3210,9 +3224,9 @@
       </fields>
       <libsource lib="Pump" part="R82" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 22k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>7ad80a9c-ca05-5c91-b024-564c2a18af61</tstamps>
       <units>
         <unit name="A">
@@ -3235,9 +3249,9 @@
       </fields>
       <libsource lib="Pump" part="R83" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 33k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>9a0f479f-827a-5dea-bd8d-9af58b9e4001</tstamps>
       <units>
         <unit name="A">
@@ -3260,9 +3274,9 @@
       </fields>
       <libsource lib="Pump" part="R84" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 22k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>1cc6aab5-cfb2-5a74-b7d9-5af582d40ce6</tstamps>
       <units>
         <unit name="A">
@@ -3285,9 +3299,9 @@
       </fields>
       <libsource lib="Pump" part="R85" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 33k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>fdec197e-9aad-55e4-a8be-7830be9ebdcc</tstamps>
       <units>
         <unit name="A">
@@ -3310,9 +3324,9 @@
       </fields>
       <libsource lib="Pump" part="R86" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 22k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>31c88253-e678-5439-a784-5c9eddef46c8</tstamps>
       <units>
         <unit name="A">
@@ -3335,9 +3349,9 @@
       </fields>
       <libsource lib="Pump" part="R87" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 100k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>ce7071bb-3fb5-58ba-b074-de6f4bedccc7</tstamps>
       <units>
         <unit name="A">
@@ -3360,9 +3374,9 @@
       </fields>
       <libsource lib="Pump" part="R88" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 1k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>4c0f8d5b-6102-57f8-b46b-575dcb045dee</tstamps>
       <units>
         <unit name="A">
@@ -3385,9 +3399,9 @@
       </fields>
       <libsource lib="Pump" part="R89" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>9cd89d58-2c06-5af8-ae77-c47361e8c8e0</tstamps>
       <units>
         <unit name="A">
@@ -3410,9 +3424,9 @@
       </fields>
       <libsource lib="Pump" part="R90" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 1k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>60714add-51f9-5670-a672-db1251e56b9f</tstamps>
       <units>
         <unit name="A">
@@ -3435,9 +3449,9 @@
       </fields>
       <libsource lib="Pump" part="R92" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 100k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>f9b736ba-e016-59c1-b0f1-5052cc4c555b</tstamps>
       <units>
         <unit name="A">
@@ -3460,9 +3474,9 @@
       </fields>
       <libsource lib="Pump" part="R93" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 100k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>c3a75c9b-ad64-5884-a0af-b21d0dc7857d</tstamps>
       <units>
         <unit name="A">
@@ -3486,9 +3500,9 @@
       </fields>
       <libsource lib="Pump" part="U33" description="I2C0x20,400kHz. GPA unused: configure inputs with internal pullups, no PCB connections; GPB controls/expansion"/>
       <property name="MPN" value="MCP23017-E/SS"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 1"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 1"/>
       <property name="Sheetfile" value="local_controls_1.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 1/" tstamps="/e749cff8-b6b8-5885-a8d8-6590783d9dcf/"/>
       <tstamps>a08292e5-7613-5770-96eb-4405408c84af</tstamps>
       <units>
         <unit name="A">
@@ -3537,9 +3551,9 @@
       </fields>
       <libsource lib="Pump" part="C90" description="X7R, 10%, 16V"/>
       <property name="MPN" value="SPEC: 100nF X7R, 10%, 16V"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 2"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 2"/>
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
       <tstamps>b53fce06-eed9-5d21-9e53-cbc22dbc8b4c</tstamps>
       <units>
         <unit name="A">
@@ -3553,18 +3567,19 @@
     <comp ref="J33">
       <value>OLED I2C 3V3</value>
       <footprint>Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical</footprint>
+      <datasheet>https://www.jst-mfg.com/product/index.php?lang=2&amp;series=105</datasheet>
       <description>OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance</description>
       <fields>
         <field name="MPN">BM04B-GHS-TBT(LF)(SN)</field>
         <field name="Footprint">Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.jst-mfg.com/product/index.php?lang=2&amp;series=105</field>
         <field name="Description">OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance</field>
       </fields>
       <libsource lib="Pump" part="J33" description="OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance"/>
       <property name="MPN" value="BM04B-GHS-TBT(LF)(SN)"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 2"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 2"/>
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
       <tstamps>78116adc-65fc-58b7-b612-a8ca321f7f2b</tstamps>
       <units>
         <unit name="A">
@@ -3590,9 +3605,9 @@
       </fields>
       <libsource lib="Pump" part="J34" description="Internal short-cable expansion only;3.3V logic,25mA maximum allocated;not hot-pluggable;MCP GPIO defaults input with100k pulldown;reserve I2C0x20 and0x48"/>
       <property name="MPN" value="SPEC: 2x3 1.27mm vertical SMD header; match KiCad land pattern"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 2"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 2"/>
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
       <tstamps>9066a324-1bc5-5395-81b4-c9f675abec90</tstamps>
       <units>
         <unit name="A">
@@ -3619,10 +3634,10 @@
       </fields>
       <libsource lib="Pump" part="OLED1" description="External36x12.5mm PCB;3.3V supply;PH2.0 4pin;modulePH2.0 numericpins1SCL2SDA3GND4VCC;J33-&gt;OLED mapping1-&gt;4,2-&gt;3,3-&gt;2,4-&gt;1;0x3C default;100mA reserved,not datasheet maximum"/>
       <property name="MPN" value="Waveshare 14657 / 0.91inch OLED Module"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 2"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 2"/>
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
       <property name="exclude_from_board"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
       <tstamps>41b722c8-0c52-5e09-850f-75aa1224ca18</tstamps>
       <units>
         <unit name="A">
@@ -3647,9 +3662,9 @@
       </fields>
       <libsource lib="Pump" part="R91" description="1%, 0.1W, 0603"/>
       <property name="MPN" value="SPEC: 10k 1%, 0.1W, 0603"/>
-      <property name="Sheetname" value="Low-voltage physical controls and indicator interface / 2"/>
+      <property name="Sheetname" value="Low-voltage physical controls and OLED interface / 2"/>
       <property name="Sheetfile" value="local_controls_2.kicad_sch"/>
-      <sheetpath names="/Low-voltage physical controls and indicator interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
+      <sheetpath names="/Low-voltage physical controls and OLED interface / 2/" tstamps="/b911d325-44ca-5deb-a2b9-c4000d272aac/"/>
       <tstamps>08ec0067-fd8f-5e3d-8c9e-bcf03be56ab0</tstamps>
       <units>
         <unit name="A">
@@ -7072,11 +7087,12 @@
     </libpart>
     <libpart lib="Pump" part="D30">
       <description>MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop</description>
+      <docs>https://www.diodes.com/part/view/BAT54WS</docs>
       <fields>
         <field name="Reference">D30</field>
         <field name="Value">BAT54WS</field>
         <field name="Footprint">Diode_SMD:D_SOD-323</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/BAT54WS</field>
         <field name="Description">MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop</field>
       </fields>
       <pins>
@@ -7086,11 +7102,12 @@
     </libpart>
     <libpart lib="Pump" part="D31">
       <description>Flyback directly across relay coil</description>
+      <docs>https://www.diodes.com/part/view/1N4148W</docs>
       <fields>
         <field name="Reference">D31</field>
         <field name="Value">1N4148W</field>
         <field name="Footprint">Diode_SMD:D_SOD-123</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/1N4148W</field>
         <field name="Description">Flyback directly across relay coil</field>
       </fields>
       <pins>
@@ -7100,11 +7117,12 @@
     </libpart>
     <libpart lib="Pump" part="D32">
       <description>Flyback directly across relay coil</description>
+      <docs>https://www.diodes.com/part/view/1N4148W</docs>
       <fields>
         <field name="Reference">D32</field>
         <field name="Value">1N4148W</field>
         <field name="Footprint">Diode_SMD:D_SOD-123</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/1N4148W</field>
         <field name="Description">Flyback directly across relay coil</field>
       </fields>
       <pins>
@@ -7113,13 +7131,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="D33">
-      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically</description>
+      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</description>
+      <docs>https://www.diodes.com/datasheet/download/B140.pdf</docs>
       <fields>
         <field name="Reference">D33</field>
-        <field name="Value">SS14</field>
+        <field name="Value">B140</field>
         <field name="Footprint">Diode_SMD:D_SMA</field>
-        <field name="Datasheet"/>
-        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically</field>
+        <field name="Datasheet">https://www.diodes.com/datasheet/download/B140.pdf</field>
+        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -7127,13 +7146,14 @@
       </pins>
     </libpart>
     <libpart lib="Pump" part="D34">
-      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically</description>
+      <description>OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</description>
+      <docs>https://www.diodes.com/datasheet/download/B140.pdf</docs>
       <fields>
         <field name="Reference">D34</field>
-        <field name="Value">SS14</field>
+        <field name="Value">B140</field>
         <field name="Footprint">Diode_SMD:D_SMA</field>
-        <field name="Datasheet"/>
-        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically</field>
+        <field name="Datasheet">https://www.diodes.com/datasheet/download/B140.pdf</field>
+        <field name="Description">OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF&lt;=0.5V at1A/25C</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -7142,11 +7162,12 @@
     </libpart>
     <libpart lib="Pump" part="D35">
       <description>Physical interlock low asynchronously clears arm latch; prevents restart on STOP release</description>
+      <docs>https://www.diodes.com/part/view/BAT54WS</docs>
       <fields>
         <field name="Reference">D35</field>
         <field name="Value">BAT54WS</field>
         <field name="Footprint">Diode_SMD:D_SOD-323</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.diodes.com/part/view/BAT54WS</field>
         <field name="Description">Physical interlock low asynchronously clears arm latch; prevents restart on STOP release</field>
       </fields>
       <pins>
@@ -7171,11 +7192,12 @@
     </libpart>
     <libpart lib="Pump" part="FB1">
       <description>Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</description>
+      <docs>https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</docs>
       <fields>
         <field name="Reference">FB1</field>
         <field name="Value">1.5k @100MHz</field>
         <field name="Footprint">Inductor_SMD:L_0603_1608Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</field>
         <field name="Description">Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</field>
       </fields>
       <pins>
@@ -7185,11 +7207,12 @@
     </libpart>
     <libpart lib="Pump" part="FB2">
       <description>Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</description>
+      <docs>https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</docs>
       <fields>
         <field name="Reference">FB2</field>
         <field name="Value">1.5k @100MHz</field>
         <field name="Footprint">Inductor_SMD:L_0603_1608Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=</field>
         <field name="Description">Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane</field>
       </fields>
       <pins>
@@ -7281,11 +7304,12 @@
     </libpart>
     <libpart lib="Pump" part="J30">
       <description>Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required</description>
+      <docs>https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</docs>
       <fields>
         <field name="Reference">J30</field>
         <field name="Value">Coil control series contacts - mains</field>
         <field name="Footprint">Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf</field>
         <field name="Description">Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required</field>
       </fields>
       <pins>
@@ -7328,11 +7352,12 @@
     </libpart>
     <libpart lib="Pump" part="J33">
       <description>OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance</description>
+      <docs>https://www.jst-mfg.com/product/index.php?lang=2&amp;series=105</docs>
       <fields>
         <field name="Reference">J33</field>
         <field name="Value">OLED I2C 3V3</field>
         <field name="Footprint">Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.jst-mfg.com/product/index.php?lang=2&amp;series=105</field>
         <field name="Description">OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance</field>
       </fields>
       <pins>
@@ -8260,11 +8285,12 @@
     </libpart>
     <libpart lib="Pump" part="R43">
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
+      <docs>https://www.vishay.com/docs/28758/tnpw_e3.pdf</docs>
       <fields>
         <field name="Reference">R43</field>
         <field name="Value">249k</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <pins>
@@ -8274,11 +8300,12 @@
     </libpart>
     <libpart lib="Pump" part="R44">
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
+      <docs>https://www.vishay.com/docs/28758/tnpw_e3.pdf</docs>
       <fields>
         <field name="Reference">R44</field>
         <field name="Value">249k</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <pins>
@@ -8288,11 +8315,12 @@
     </libpart>
     <libpart lib="Pump" part="R45">
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
+      <docs>https://www.vishay.com/docs/28758/tnpw_e3.pdf</docs>
       <fields>
         <field name="Reference">R45</field>
         <field name="Value">249k</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <pins>
@@ -8302,11 +8330,12 @@
     </libpart>
     <libpart lib="Pump" part="R46">
       <description>0.1%, 25ppm/K, 200V working, 1206; 4 in series</description>
+      <docs>https://www.vishay.com/docs/28758/tnpw_e3.pdf</docs>
       <fields>
         <field name="Reference">R46</field>
         <field name="Value">249k</field>
         <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.vishay.com/docs/28758/tnpw_e3.pdf</field>
         <field name="Description">0.1%, 25ppm/K, 200V working, 1206; 4 in series</field>
       </fields>
       <pins>
@@ -8316,11 +8345,12 @@
     </libpart>
     <libpart lib="Pump" part="R47">
       <description>0.1%, 25ppm/K, 0603 voltage-divider low leg</description>
+      <docs>https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL</docs>
       <fields>
         <field name="Reference">R47</field>
         <field name="Value">1k</field>
         <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
-        <field name="Datasheet"/>
+        <field name="Datasheet">https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL</field>
         <field name="Description">0.1%, 25ppm/K, 0603 voltage-divider low leg</field>
       </fields>
       <pins>

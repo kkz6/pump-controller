@@ -87,8 +87,9 @@ A button held through boot or a fault is not a new START.
 RESET acknowledges a latched fault only after its cause is gone and the
 required healthy observations have completed. RESET does not start or re-arm.
 A separate, fresh local START is required. A power cycle is not a fault reset
-or an instruction to resume. Network restoration and firmware reboot also
-leave the pump off and unarmed. Automatic dry-run retries default to zero.
+or an instruction to resume. Network restoration must not re-arm a stopped controller. A healthy local
+automatic cycle does not require the network and must not be disabled merely
+by a Wi-Fi/WAN outage. Firmware reboot leaves the pump off and unarmed. Automatic dry-run retries default to zero.
 
 The SN74LVC1G74 arm latch is clocked by a deliberate ARM_CMD pulse after a
 valid START; HEARTBEAT must never clock it. Supervisor, watchdog, MCU reset
@@ -159,6 +160,29 @@ The proposed excitation is balanced 25 Hz AC. Follow probe-front-end.txt for
 phase-locked sampling, mux settling, fresh conversions and bias/excitation
 checks. Do not run protective decisions from cached ADC or meter values.
 
+CONFIGURABLE INLET-SENSOR ROLE
+
+Commission the inlet input's role; a probe in a normally flooded suction
+source and a probe in a pipe that fills only after startup are not equivalent.
+
+- SOURCE_PRESENT: require a healthy wet indication before starting, and stop
+  on sustained loss of water. Use this only where the electrode location is
+  expected to stay flooded while source water is available.
+- PIPE_WATER_PROOF: an initially dry pipe does not by itself inhibit every
+  start. Permit only a bounded, deliberately enabled start with all other
+  protections healthy; require the probe to become wet within a commissioned
+  proof deadline. The deadline must fit the pump maker's allowable priming
+  conditions. Failure to become wet, or subsequent sustained loss of wet
+  indication, latches a stop. No unlimited retries are permitted.
+
+An unset role or proof deadline disables unattended AUTO. The provisional
+one-second inlet-dry debounce applies only when the selected role expects
+water; it does not override a validated startup-proof window. Neither role
+makes a wet electrode proof of actual flow. Keep calibrated power-based
+underload detection and all physical stop/overload protections active under
+their own validated startup rules. Selecting a role changes firmware settings,
+not the electrical probe circuit.
+
 DRY-RUN AND ELECTRICAL COMMISSIONING
 
 Use calibrated real input power as the principal underload signal, with
@@ -196,7 +220,8 @@ unattended MAN operation remain disabled until the installation is validated.
   Excitation startup discard: at least 1 s, followed by valid self-checks.
   Probe wet/dry amplitudes:   >=100 mV / <=60 mV provisional; middle uncertain.
   Level transition debounce: 2 s maximum before stable classification.
-  Inlet-dry debounce:         1 s provisional; then latched stop.
+  Inlet-dry debounce:         1 s provisional when the configured role expects
+                             water; see the bounded startup-proof role above.
   Stale probe/meter data:     >1 s since a required valid result: latched stop.
   AUTO start:                L1 dry for 2 s, with all other conditions healthy.
   Normal full stop:           L4 wet for 2 s; independent HH acts immediately.

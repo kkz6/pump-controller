@@ -1,0 +1,28 @@
+2026-11-19 09:00:06.242 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
+2026-11-19 09:00:06.504 INFO   Hardware: 11 CPU cores, 463 CPU score, 4608 MB RAM
+2026-11-19 09:00:06.506 WARN   GUI is disabled and you don't have a console available, so the only feedback from Freerouting is in the log.
+2026-11-19 09:00:07.881 INFO   [3560AB\374B2F] Loading board file 'pump-controller-rev-b.dsn'...
+2026-11-19 09:00:07.953 INFO   Layer 'In1.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-19 09:00:07.970 INFO   [3560AB\374B2F] Job '3560AB\374B2F' started at 2026-11-19T03:30:07.970810Z.
+2026-11-19 09:00:08.068 WARN   Design Warning: Board has 6 pre-existing clearance violation(s) in the loaded design (before routing):
+  - 6 unfixable violation(s) (cannot be resolved by Freerouting):
+      * 4 pin-to-pin clearance violations:
+          - R43.2 [net M_VDIV_0] <-> R46.1 [net M_VDIV_2]
+          - R43.2 [net M_VDIV_0] <-> R43.1 [net L_PROTECTED]
+          - R43.1 [net L_PROTECTED] <-> R44.1 [net M_VDIV_0]
+          - R44.2 [net M_VDIV_1] <-> R44.1 [net M_VDIV_0]
+      * 2 fixed trace/via clearance violations:
+          - C5.2 [net GND] <-> FixedVia#2079 [net GND]
+          - C4.2 [net GND] <-> FixedVia#2078 [net GND]
+  - 0 potentially fixable violations
+Notice: Freerouting does not modify component placement, board outlines, or fixed items.
+Resolving these 6 unfixable violation(s) is the responsibility of the board author in their EDA tool (e.g. KiCad).
+2026-11-19 09:00:08.091 INFO   [3560AB\374B2F] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=10.
+2026-11-19 09:00:08.170 INFO   [3560AB\374B2F] Auto-routing stage started on board 'f49262e8f69b9215334b6d36fc1d7de4' with baseline score 27.63 for 481 unrouted items.
+2026-11-19 09:02:38.017 INFO   [3560AB\374B2F] Auto-routing pass #1 on board 'f49262e8f69b9215334b6d36fc1d7de4' was completed in 149.80 seconds with score 781.95 (82 unrouted and 6 violations), using 147.45 CPU seconds and the job allocated 46.26 GB of memory so far.
+2026-11-19 09:04:42.519 INFO   [3560AB\374B2F] Auto-routing pass #2 on board 'c4fde0eb30e2cd7bb88d53f642489fcb' was completed in 122.55 seconds with score 872.25 (48 unrouted and 6 violations), using 268.00 CPU seconds and the job allocated 66.90 GB of memory so far.
+2026-11-19 09:05:12.686 INFO   [3560AB\374B2F] Auto-routing pass #3 on board 'd1ea4a748a7e6141180157020ac3308a' was completed in 28.16 seconds with score 882.88 (44 unrouted and 6 violations), using 293.94 CPU seconds and the job allocated 71.15 GB of memory so far.
+2026-11-19 09:05:18.949 INFO   [3560AB\374B2F] Auto-routing stage completed with timeout: started with 481 unrouted nets, completed in 308.83 seconds, final score: 882.88 (44 unrouted and 6 violations), using 293.94 total CPU seconds, 71.15 GB total allocated, and 326.8 MB peak heap usage.
+2026-11-19 09:05:19.121 INFO   [3560AB\374B2F] Job '3560AB\374B2F' finished with state: TIMED_OUT (elapsed: 5 minutes 11.15 seconds, finished at UTC: 2026-11-19T03:35:19.119120Z).
+2026-11-19 09:05:19.198 INFO   Saving output file '/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/pump-controller-rev-b-fast.ses' (SES)...
+2026-11-19 09:05:19.205 INFO   Successfully saved output file '/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/pump-controller-rev-b-fast.ses' (157693 bytes).

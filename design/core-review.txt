@@ -10,7 +10,7 @@ FUNCTIONAL WIRING
 The on-board RACM06E-05SK/277 supplies isolated 5V. Its positive passes
 through the normally closed STOP contact, then to the common of a
 break-before-make MANUAL/OFF/AUTO selector. MAN_RETURN and AUTO_RETURN go
-to their respective SS14 diodes; their common cathode MODE_COIL_5V passes
+to their respective B140 diodes; their common cathode MODE_COIL_5V passes
 through the separate normally closed high-high float to K1_COIL_PLUS.
 OFF, STOP or high-high opening therefore physically removes K1 coil supply.
 If the high-high float is absent, its fitted link must be documented: the
@@ -65,6 +65,14 @@ D30/D35 must use the implemented BAT54WS-7-F two-pin SOD-323 part with
 pin1 cathode, pin2 anode. Nexperia BAT54W,115 is a DIFFERENT three-pin
 SOT-323 part and is not a drop-in replacement.
 
+D33/D34 are Diodes B140-13-F in SMA, replacing the unverified SS14-13-F
+ordering entry. The manufacturer's B120/B-B160/B datasheet confirms 40V,
+1A and maximum VF=0.5V at 1A/25C for B140. It identifies polarity by a
+cathode band/notch; the existing D_SMA footprint has cathode pad1 and anode
+pad2. No pin, net or footprint changes are required. The quoted VF limit
+is at 25C, not a guaranteed full-temperature limit; temperature-dependent
+diode drop and relay hot pickup remain part of physical validation.
+
 The active Rev B draft replaces the indicator panel with a 0.91-inch
 128x32 I2C OLED. U33 GPA0..GPA7 are intentionally unconnected; configure
 them as inputs with their internal pullups enabled. They are not display
@@ -89,7 +97,7 @@ fail-off because ADC and local input freshness are then compromised.
 LOCAL INPUT AND SUPPLY MARGINS
 
 MCP23017 GPIO VIH is 0.8*VDD. STOP/MAN/AUTO use 22k/33k 1% dividers
-upstream of the SS14 diode. Taking the PSU's 2% accuracy, 0.3% line and
+upstream of the B140 diode. Taking the PSU's 2% accuracy, 0.3% line and
 1% load terms conservatively together gives 4.835V at 25C. Worst divider
 ratio is 0.595190; with 1uA input leakage the minimum high is 2.864V.
 TPS62162 power-save +4% permits VDD=3.432V, so VIH=2.7456V. The resulting
@@ -133,6 +141,16 @@ Voltage network: 4*249k + 1k = 997k total; gain = 1/997.
   The selected 200V-working resistor rating has normal-operation headroom;
   surge and single-fault behavior still need separate evaluation.
 
+Measurement point: the voltage divider samples L_PROTECTED, after the
+controller's 22-ohm series input resistor. The motor power feed does not pass
+through that resistor. Controller supply current therefore creates a small,
+load-dependent voltage drop/distortion between the sensed node and the motor
+supply. Calibrate against the actual starter supply with representative RF,
+OLED and relay activity, and quantify the resulting real-power error. Do not
+claim precision motor-terminal voltage/power or a fixed accuracy from the
+nominal resistor ratio alone. Moving the sensing point would require a new
+surge/input-protection review, not just changing a label.
+
 Current network, ideal 1000:1 CT, 6.8 ohm permanent burden:
   6Arms  -> 40.8mVrms  -> 57.70mV peak; burden 0.245mW.
   20Arms -> 136.0mVrms -> 192.33mV peak; burden 2.72mW.
@@ -168,7 +186,8 @@ REMAINING MATERIAL DECISIONS / VERIFICATION
 2. Verify the actual contactor coil voltage, inrush/holding VA and suppression
    against G5Q contact ratings; resistive current ratings are insufficient.
 3. K1 receives at least 4.335V in the 25C static calculation before cable/FET
-   drops, using a conservative 0.5V SS14 drop. G5Q pickup <=3.75V is quoted
+   drops, using the B140's 0.5V maximum drop specified at 1A/25C. G5Q
+   pickup <=3.75V is quoted
    at 23C coil temperature. Omron's approximate 0.4%/C copper model gives
    4.155V at 50C versus only 4.2725V available: 118mV before wiring, ripple
    and self-heating. At 60C the estimate is 4.305V versus 4.2475V available.
@@ -207,3 +226,4 @@ https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf
 https://components.omron.com/eu-en/datasheet_pdf/J155-E1.pdf
 https://www.ia.omron.com/support/guide/36/further_information.html
 https://files.waveshare.com/upload/2/2a/0.91inch_OLED_Module_Schematic.pdf
+https://www.diodes.com/datasheet/download/B140.pdf

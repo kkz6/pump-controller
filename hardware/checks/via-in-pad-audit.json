@@ -1,0 +1,275 @@
+{
+  "pcb_sha256": "7d5b673c80b85336321920ecac454928ebdc92d13bcde9e29b882098c60659b7",
+  "method": "Native effective copper pad geometry intersects finished-drill nominal disk; includes edge intersections. Does not substitute for CAM/assembly review.",
+  "mandatory_process": "Filled and plated-over vias for every listed SMT-pad drill overlap, or reroute before fabrication. Tenting alone is not accepted.",
+  "overlap_count": 19,
+  "unique_via_count": 16,
+  "overlaps": [
+    {
+      "ref": "C123",
+      "pad": "1",
+      "net": "PROBE_L2_ADC",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        85.7,
+        51.0
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "5efe350e-ea10-4d30-a1ee-5b5a92a85838",
+      "center_inside_pad": false
+    },
+    {
+      "ref": "C4",
+      "pad": "2",
+      "net": "GND",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        56.45,
+        12.25
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "a670752e-df7b-48c4-a943-826813844e9c",
+      "center_inside_pad": false
+    },
+    {
+      "ref": "C50",
+      "pad": "2",
+      "net": "M_GND",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        19.275,
+        40.8
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "c7cde886-b69d-4f86-b204-98b38a387bb1",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "C53",
+      "pad": "1",
+      "net": "M_IAP",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        19.7,
+        48.5
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "7d401ea7-1cb0-4c86-883c-b2760bc08673",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "C54",
+      "pad": "1",
+      "net": "M_IAN",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        17.25,
+        48.05
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "aad127da-be55-4019-aee2-6a985abf9503",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "J34",
+      "pad": "3",
+      "net": "I2C_SDA",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        60.8,
+        39.4
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "09d2e639-29be-4650-b766-8d6fc9d67f69",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "Q30",
+      "pad": "1",
+      "net": "K1_GATE",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        44.2,
+        38.8
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "59904a77-1e05-4ce0-a617-1b3c6d60096c",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "R143",
+      "pad": "2",
+      "net": "PROBE_L2_ADC",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        85.7,
+        51.0
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "5efe350e-ea10-4d30-a1ee-5b5a92a85838",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "R20",
+      "pad": "2",
+      "net": "MCU_EN",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        57.7,
+        23.0
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "39fb7fe2-0da4-4e32-b94d-b44d2f9fe001",
+      "center_inside_pad": false
+    },
+    {
+      "ref": "R71",
+      "pad": "2",
+      "net": "GND",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        63.25,
+        22.45
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "e030e97d-525d-4e1e-a490-87f27bac3ff3",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U10",
+      "pad": "18",
+      "net": "M_XIN",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        20.7,
+        41.5
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "c9293cc3-8c89-4f63-bbaa-a88e18d8147e",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U10",
+      "pad": "2",
+      "net": "M_RESET_N",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        15.6,
+        42.5
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "b2f7e832-7372-4d55-8a0e-83995c19cf30",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U10",
+      "pad": "29",
+      "net": "M_GND",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        19.275,
+        40.8
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "c7cde886-b69d-4f86-b204-98b38a387bb1",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U10",
+      "pad": "5",
+      "net": "M_IAP",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        15.2,
+        41.0
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "401bb8b4-43b8-4215-baa4-f18e1b2dabf8",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U10",
+      "pad": "6",
+      "net": "M_IAN",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        15.6,
+        40.5
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "6d75e047-0273-4aed-8b57-a6c1390e87c8",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U11",
+      "pad": "18",
+      "net": "M_ISO_RAW",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        31.05,
+        20.25
+      ],
+      "via_diameter_mm": 0.45,
+      "drill_mm": 0.2,
+      "via_uuid": "a7d996de-7965-4c44-abd2-6b2cf734e6ef",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U20",
+      "pad": "7",
+      "net": "PROBE_TX_TANK",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        64.099999,
+        46.2
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "7efda5c9-6bec-4c1d-ab16-b1382fbd8626",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "U3",
+      "pad": "49",
+      "net": "GND",
+      "side": "F.Cu",
+      "via_xy_mm": [
+        63.25,
+        22.45
+      ],
+      "via_diameter_mm": 0.4,
+      "drill_mm": 0.2,
+      "via_uuid": "e030e97d-525d-4e1e-a490-87f27bac3ff3",
+      "center_inside_pad": true
+    },
+    {
+      "ref": "Y1",
+      "pad": "1",
+      "net": "M_XIN",
+      "side": "B.Cu",
+      "via_xy_mm": [
+        11.6,
+        35.5
+      ],
+      "via_diameter_mm": 0.55,
+      "drill_mm": 0.25,
+      "via_uuid": "b500cfca-f7de-43f4-b390-4c4f5e3ef7c0",
+      "center_inside_pad": false
+    }
+  ]
+}
