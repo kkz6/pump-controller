@@ -1,0 +1,42 @@
+{
+  "pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+  "archives": [
+    {
+      "archive": "pump-panel-rev-e-gerber-review.zip",
+      "sha256": "8bf7a5d787d260ce5185a3bb440b7821ad91e05cc2926098c2e292282e0f3abf",
+      "files": {
+        "REVIEW-ONLY.txt": "b7eaf3b16381ce91ea9612582bb18b06a634aa231bf121c9ed416c19af3beee0",
+        "drill-report.txt": "2a7bf6f0bd0aea3b976b64e9803e322ea2644c86114fbb9f9406db827f1b5ee7",
+        "pump-panel-rev-e-B_Cu.gbl": "6022d3d77fc26a4805cedfa4a7e3c07c34fdb2d1427922ca3b8a640dceb612db",
+        "pump-panel-rev-e-B_Mask.gbs": "7d85f231b0e0afb54c0671fe2d6a831091ca3f50f23c5183497b0184f4cd9c03",
+        "pump-panel-rev-e-B_Silkscreen.gbo": "d6964ae36b80fb4ca8acfda53bc12e4c7cac0f4284d6b50bdb84be68ac31e2cf",
+        "pump-panel-rev-e-Edge_Cuts.gm1": "eb4a80ecd2dc246e9828d31363ed972a6bf5094f69a2af5ee072a4b258769bf3",
+        "pump-panel-rev-e-F_Cu.gtl": "b43baf54715823c96f475065e57aee37078eefd590eaea19ddaf9e496ad0e93c",
+        "pump-panel-rev-e-F_Mask.gts": "d6cd55f85ffc5c1b4e8ea07bc648f25baaa97fad52eab220e0118c108b43a771",
+        "pump-panel-rev-e-F_Silkscreen.gto": "868a37445025a77adc27cfe9232ebc0bf2d6b0bcc2fc23d308035a80f91f8a3a",
+        "pump-panel-rev-e-NPTH.drl": "5120072eaba62cf858a9e392beb68722e753ab8b98265f3ccb2f94a7c86bf4bb",
+        "pump-panel-rev-e-PTH.drl": "cc434f3fb15efce8ed513259f2fe896b7dbe8302d294a5a1896bce0bca8f4efc",
+        "pump-panel-rev-e-job.gbrjob": "e2e0704d3e7eef5b0af4c69377d762bcb13c6a4907ea7dcfb8de405fa95ab84d",
+        "pump-panel-rev-e.d356": "76affcb43e2a8f13668aaf5421e6effca322435c5fc1eff6a07045a1fdf576d4"
+      },
+      "file_count": 13,
+      "archive_crc_ok": true,
+      "contents_match_export_folder": true
+    },
+    {
+      "archive": "pump-panel-rev-e-stencil-review.zip",
+      "sha256": "a90fbf087df7c17552b6e589b6f2644a67d7a32a531dc54377e8a95925e55309",
+      "files": {
+        "REVIEW-ONLY.txt": "98690a51d570a6f3659c9cfb190bb245c861b40cbe24f67a438c10108152d648",
+        "pump-panel-rev-e-B_Paste.gbp": "406e7222bc6d3e9754762dc5e65dcf382203a931cb5766078aa203c43e4fb56a",
+        "pump-panel-rev-e-F_Paste.gtp": "bcf49f2435734e3c320a0ab40443bd992f47dae28bd33a77d9e5b86516a03893",
+        "pump-panel-rev-e-job.gbrjob": "804f315095f0c24590668a5f7c08d6418dbc3fd72013274e15f50098f8e5b1a3"
+      },
+      "file_count": 4,
+      "archive_crc_ok": true,
+      "contents_match_export_folder": true
+    }
+  ],
+  "native_export_hashes_consistent": true,
+  "approval_scope": "Archive structure, checksums and matching export evidence only; manufacturer acceptance and physical tests remain outstanding"
+}

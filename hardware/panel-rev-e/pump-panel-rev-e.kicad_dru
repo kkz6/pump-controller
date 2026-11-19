@@ -1,0 +1,4 @@
+(version 1)
+(rule "Panel drilled-pad clearance" (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.Pad_Type == 'Through-hole' && B.Pad_Type == 'Through-hole'") (constraint clearance (min 0.5mm)))
+(rule "Panel via to track copper clearance" (condition "(A.Type == 'Via' && B.Type == 'Track') || (B.Type == 'Via' && A.Type == 'Track')") (constraint clearance (min 0.254mm)))
+(rule "Panel PTH to track copper clearance" (condition "(A.Type == 'Pad' && A.Pad_Type == 'Through-hole' && B.Type == 'Track') || (B.Type == 'Pad' && B.Pad_Type == 'Through-hole' && A.Type == 'Track')") (constraint clearance (min 0.33mm)))
