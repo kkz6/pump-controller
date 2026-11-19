@@ -1,0 +1,46 @@
+{
+  "source_sha256": {
+    "hardware/main-compact-led/pump-controller-compact.kicad_pcb": "907e499b3baf2d8165bfe8aba0bbaac68e7cd3e95e6b6618beb2fc76ce320fdb",
+    "hardware/main-compact-led/pump-controller-compact.kicad_pro": "be6df5bb011565923f18326c24f040e68a64a40600a0cc3ef12f283878650e9c",
+    "hardware/main-compact-led/pump-controller-compact.kicad_dru": "9d941aa1c73b8da543df71ca6819ab04621e31d1116bba526582872d5af856dc",
+    "design/main-compact-led.json": "be9f17b9c23254e162bead43bfe1597b17c3c424c0a4e957a9a4d479013721d2",
+    "hardware/main-compact-led/controls_conditioning.kicad_sch": "ce2ffe286d62621b049ed3f0c5accee30c0298641c36309285a2ecadba1e3409",
+    "hardware/main-compact-led/local_controls_1.kicad_sch": "5d07dfcf8fc0dccae528923f451da5699a247a5f9d7b48f4cc60fa4fb4763dfe",
+    "hardware/main-compact-led/local_controls_2.kicad_sch": "a0595a7c610ec984ceb97315ba033f7349b8dd7d7ed4dfd53aee5d779c6d84ae",
+    "hardware/main-compact-led/mcu.kicad_sch": "2c21870a6c7b2339314a7a5612fe49139f8d914d426dd6e75290787be7466b9b",
+    "hardware/main-compact-led/mechanical.kicad_sch": "09255c4e40158d6f3c01c1ab92e6378eae0e747073c8f0d4b67262faa58ef606",
+    "hardware/main-compact-led/meter_ic.kicad_sch": "2f4761be330ab909458254615ac09208ef60652b1382b9b53f074c06af17fa49",
+    "hardware/main-compact-led/meter_inputs.kicad_sch": "c341d8f51c53e4d52b326c8fbf2cf3d8d6cc247ebd996b5b3eee9af9735c9eaa",
+    "hardware/main-compact-led/meter_isolation.kicad_sch": "4977e0d459e0a9fbf05499c3761d61ba87edbfed07a22f0813c5577e0f37b537",
+    "hardware/main-compact-led/power.kicad_sch": "369e649fca0e4be785fe6e3747cb482d6c78ac75266f80341aba71ce2c285678",
+    "hardware/main-compact-led/power_flags.kicad_sch": "03553f8379ae79824834b68ce644ada1b4788dfa832e5c56d40d507cc1565d50",
+    "hardware/main-compact-led/probes_1.kicad_sch": "e9a1e54b69a7e5c07c39b588fbc726c5095db4ab6225f0e96a2caa1c75eb9c61",
+    "hardware/main-compact-led/probes_2.kicad_sch": "d9082e55156a4b7deb78eba0382c7ce98be0ba913fbca45f9777873e46fad34d",
+    "hardware/main-compact-led/probes_3.kicad_sch": "a6968e5e61aec6d06cefce6e5d014fb122267cf275fba60ad39ed7de044561f5",
+    "hardware/main-compact-led/probes_4.kicad_sch": "fa793ca18cb8121e7f00c91609e82f23f1b3ce1be41dfd42e5e02af841d301ef",
+    "hardware/main-compact-led/pump-controller-compact.kicad_sch": "44b2d88d4cba38cc391f72b1eb4c069f5299c6d10b9471796888b70c93278bb3",
+    "hardware/main-compact-led/relay_protection_1.kicad_sch": "76275f1f9915da7e06b62233c2d02de58a488903376addead66728eb88b47009",
+    "hardware/main-compact-led/relay_protection_2.kicad_sch": "f9c712f26efac92a05fc214fc87fb7d8f5004ab4a928951299e21448c59dc7c9"
+  },
+  "native_sources_unchanged": true,
+  "native_violation_counts": {
+    "erc": 0,
+    "drc": 0,
+    "unconnected": 0,
+    "schematic_parity": 0
+  },
+  "critical_checks_ignored": [],
+  "geometry_and_source_passed": true,
+  "isolation_negative_tests_passed": true,
+  "independent_native_checks_passed": true,
+  "report_sha256": {
+    "independent-erc.json": "8930d6f5493976052c3c471c26d67472743860de2e4672886f389a54221f33b2",
+    "independent-drc.json": "2351ebc94544b220f8dc8777b77e4f9b95eebdeffccc1e2c1344000d3d7a001e",
+    "independent-netlist.xml": "2d20e63ebc3c760252cf79de7fde0cc3bb5c3ae3a10055a7fbea94f1c032d276",
+    "independent-geometry.json": "5898e2559e0bb733eb2f9cda48bb01cfa03e90f059e76636d5141e896add55a9",
+    "isolation-negative-tests.json": "09a01ecec9b40d73ed2b09a6e001d3fb80c420d6ff7ccc43ec7124d6481bc8b9"
+  },
+  "manufacturer_accepted": false,
+  "hardware_tested": false,
+  "release_ready": false
+}

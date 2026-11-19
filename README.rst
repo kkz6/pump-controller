@@ -8,6 +8,10 @@ the optional AUTO-key input. See the
 `compact PCB, schematic, fabrication files and validation <hardware/main-compact/README.rst>`_.
 Physical electrical and thermal qualification and firmware remain pending.
 
+The `command LED engineering revision <hardware/main-compact-led/README.rst>`_
+adds green START and red STOP indicators near the relays. Its PCB and
+firmware indicator component are separate from the existing Gerber packages.
+
 Historical 100 x 80 mm Rev E baseline
 -------------------------------------
 

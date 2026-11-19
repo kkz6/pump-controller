@@ -142,7 +142,8 @@ def audit(args):
     source = json.loads(source_path.read_text())
     components = {c['ref']: c for sheet in source['sheets'] for c in sheet['components']
                   if c.get('on_board', True)}
-    compact = source['board'].get('variant') == 'compact'
+    variant = source['board'].get('variant')
+    compact = variant in ('compact', 'compact-led')
     original = json.loads((BASE / 'design/circuit.json').read_text())
     original_parts = {c['ref']: c for sheet in original['sheets'] for c in sheet['components']
                       if c.get('on_board', True) and c['ref'] not in {'SW3', 'SW4', 'J33', 'J34'}}
@@ -180,9 +181,14 @@ def audit(args):
             old_pins['6'] = 'ARM_CLEAR_N'
         if compact and ref == 'U33':
             old_pins.update({'8': '', '21': 'SPARE_B7'})
+            if variant == 'compact-led':
+                old_pins.update({'8': 'START_CMD_LED', '28': 'STOP_CMD_LED'})
             pin_types = {str(pin['num']): pin['type'] for pin in new['pins']}
             if new['mpn'] != 'MCP23017-E/SS' or any(pin_types.get(i) != 'output' for i in ['8', '28']):
-                source_issues.append({'ref': ref, 'issue': 'compact key requires two unconnected output-only pins on the MCP23017'})
+                message = 'compact key requires two unconnected output-only pins on the MCP23017'
+                if variant == 'compact-led':
+                    message = 'command indicators require GPB7 and GPA7 as output-only MCP23017 pins'
+                source_issues.append({'ref': ref, 'issue': message})
         if ref == 'J32':
             # Rev E consolidates the three previous panel/expansion headers
             # into one connector matching Rev D panel J1 cavity-for-cavity.
@@ -202,13 +208,34 @@ def audit(args):
                 '5':'MAN_SENSE','6':'AUTO_SENSE_RAW','7':'STOP_SENSE','8':'+3V3'},
         'C78': {'1': '+3V3', '2': 'GND'},
     }
+    if variant == 'compact-led':
+        expected_additions.update({
+            'R190': {'1': 'START_CMD_LED', '2': 'START_LED_A'},
+            'D40': {'1': 'GND', '2': 'START_LED_A'},
+            'R191': {'1': 'STOP_CMD_LED', '2': 'STOP_LED_A'},
+            'D41': {'1': 'GND', '2': 'STOP_LED_A'},
+        })
+        indicator_parts = {
+            'R190': ('1k', 'RC0603FR-071KL'),
+            'D40': ('START CMD GREEN', 'APTD1608LCGCK'),
+            'R191': ('1k', 'RC0603FR-071KL'),
+            'D41': ('STOP CMD RED', 'APT1608LSECK/J3-PRV'),
+        }
+        for ref, (value, mpn) in indicator_parts.items():
+            part = components.get(ref, {})
+            if (part.get('value'), part.get('mpn')) != (value, mpn):
+                source_issues.append({'ref': ref, 'issue': 'command indicator part mismatch',
+                                      'expected_value': value, 'expected_mpn': mpn})
     for ref, value in {'U37':'SN74LVC3G17DCUR','C78':'100nF'}.items():
         if components.get(ref,{}).get('value') != value:
             source_issues.append({'ref': ref, 'issue': 'conditioner part/value mismatch', 'expected': value})
     for ref, expected in expected_additions.items():
         actual = {str(x['num']): x.get('net') or '' for x in components.get(ref, {}).get('pins', [])}
         if actual != expected:
-            source_issues.append({'ref': ref, 'issue': 'safety buffer pin/net map mismatch', 'expected': expected, 'actual': actual})
+            message = 'safety buffer pin/net map mismatch'
+            if variant == 'compact-led' and ref in indicator_parts:
+                message = 'command indicator pin/net map mismatch'
+            source_issues.append({'ref': ref, 'issue': message, 'expected': expected, 'actual': actual})
     for ref, c in components.items():
         if ref not in original_parts and ref not in expected_additions and c.get('pins'):
             source_issues.append({'ref': ref, 'issue': 'unexpected new electrical component'})
@@ -266,6 +293,8 @@ def audit(args):
     domains = {x['pattern']: x['netclass'] for x in old_project['net_settings']['netclass_patterns']
                if x['netclass'] in {'LIVE', 'SELV'}}
     domains.update({net: 'SELV' for net in ('ARM_CLEAR_N','STOP_SENSE_RAW','MAN_SENSE_RAW','AUTO_SENSE_RAW')})
+    if variant == 'compact-led':
+        domains.update({net: 'SELV' for net in ('START_CMD_LED', 'START_LED_A', 'STOP_CMD_LED', 'STOP_LED_A')})
     domain_issues = []
 
     def domain(net, ref=None, pin=None):
