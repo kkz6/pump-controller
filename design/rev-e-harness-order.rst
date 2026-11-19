@@ -53,6 +53,11 @@ Lead schedule for the harness shop
   panel electronics. Optional MODE, SET, NEXT and key leads follow the
   panel parts-and-interface schedule.
 
+The numbered unpowered acceptance matrix is
+``rev-e-unpowered-harness-acceptance.json``; its fixture procedure and limits
+are in ``rev-e-unpowered-harness-acceptance.rst``. All physical results remain
+unrun until recorded against a particular completed harness/panel.
+
 Commissioning boundary
 ----------------------
 
