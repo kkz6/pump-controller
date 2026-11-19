@@ -1,6 +1,11 @@
 Dual-output main PCB for single-phase pump starters
 ===================================================
 
+**Hold the main PCB order for a layout and protection revision.**
+Review the `electrical audit <../../design/compact-dual-electrical-audit.rst>`_
+before using the fabrication files. The measured bypass routing, connector
+ambiguities and failure paths require action before unattended use.
+
 J30 and J35 provide two independently controlled, normally open dry contacts.
 Use the fitted series harness for a starter with one maintained RUN input,
 or use the two contact pairs separately for a starter with dedicated inputs.
