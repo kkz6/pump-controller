@@ -1,0 +1,116 @@
+{
+  "revision": "INTEGRATED-R4",
+  "scope": "Bare-PCB engineering prototype only",
+  "native_and_parsed_cam_checks_passed": true,
+  "manufacturer_accepted": false,
+  "hardware_tested": false,
+  "assembled_product_qualified": false,
+  "gerber_conductive_netlist_extracted": false,
+  "source_sha256": {
+    "hardware/main-integrated/pump-controller-integrated.kicad_pcb": "c041664134cc75b10818be919da3220458ef4f13a12b604214b683884fbeae8d",
+    "hardware/main-integrated/pump-controller-integrated.kicad_pro": "44cdc9354d6f33114b0a6bf60e714ab7739316cb41f653d3fafc22cac1789171",
+    "hardware/main-integrated/pump-controller-integrated.kicad_dru": "7de012a81e104ae0bd411e25fc95f376357bbc14d1fb32a9370e803f9060ccd1",
+    "design/main-integrated.json": "69457dedc0e356bc0992c6007a51390ac9c87752f1bd9415a0eca62c6dd4b865",
+    "hardware/main-integrated/controls_conditioning.kicad_sch": "5226a58a0709b9f38b0ef5dcfecd6b39209e0c6e38904adf759c6a09fdd107dd",
+    "hardware/main-integrated/guard_field.kicad_sch": "3faa91c228158fcae67d5ca985c962d0b27383245ccda28569bf93a36cc25b91",
+    "hardware/main-integrated/guard_inputs.kicad_sch": "4a514fc8ea415522e310858cded07fe28573f13790cb5610b1b9b368db84aa2f",
+    "hardware/main-integrated/guard_ports.kicad_sch": "26374ae0398f1759038e2316b1e65fab037f4c867c9dea53bfd3bf588a7aa417",
+    "hardware/main-integrated/local_controls_1.kicad_sch": "9b960667c51467df7ec86e0fea1b2feedb953f538fdd669d32d956369326cd51",
+    "hardware/main-integrated/local_controls_2.kicad_sch": "a8aa48c178819f5db9651842a2609d00a24b16e7bfae73425c014cee479383e8",
+    "hardware/main-integrated/mcu.kicad_sch": "dcebcf263c5c9697981e642436029fd9cc60ce2c971353c8c5c650e112cb8440",
+    "hardware/main-integrated/mechanical.kicad_sch": "46bd879d8c718ec266793fd9f7ce9c069e5d848f14f9cfb690f71625091ea1ff",
+    "hardware/main-integrated/meter_ic.kicad_sch": "a5a5b85a898aee8c2326314b3ac01a859837d7e34bd56d81be332e6d7b795a89",
+    "hardware/main-integrated/meter_inputs.kicad_sch": "49e5928b5b6a9e88dd811ce0be713cbfede19918282dd4fc9166a7806dbe42bb",
+    "hardware/main-integrated/meter_isolation.kicad_sch": "e6dd556ac3179bbfb105d94a2367d4ac92535938d834511998702cd7c890d1c2",
+    "hardware/main-integrated/power.kicad_sch": "5284e63243906d4a64162230abf0f2c6c09bca859ac81114b38f36d7454286d0",
+    "hardware/main-integrated/power_flags.kicad_sch": "ea67fef378fb8eb5f6d904ed68bb0e9c54502e4376430ccb6cbef39be6032924",
+    "hardware/main-integrated/probes_1.kicad_sch": "dff3bdcc2727592bf4ba0934bb495d81feb50f240e379d8091554dbc1621413d",
+    "hardware/main-integrated/probes_2.kicad_sch": "117b9a92f44570bd5849faff6ce94b8877255c06d6e2d8d31b9d2eab18cae5e8",
+    "hardware/main-integrated/probes_3.kicad_sch": "7212b4457e73bb4cd0dd9469e0fd6c62a62279576ee8ecd572354b0161d5ba45",
+    "hardware/main-integrated/probes_4.kicad_sch": "85cc3f9e47bfae69904371c154f69260e9d706fad25a868c13630e56c5341b6e",
+    "hardware/main-integrated/pump-controller-integrated.kicad_sch": "295abd079c24fc602468fc3d82c270de8a82c9d7a91b29644923aba77bb834eb",
+    "hardware/main-integrated/relay_protection_1.kicad_sch": "8ec2275402f3b25ac56c7c439532f9fefe5e1181b94a20ab1e4d8c2f072e0d0e",
+    "hardware/main-integrated/relay_protection_2.kicad_sch": "f78f6b01a4b693a695ba26c0fdf0133ad70088102a75b4c085590ae6d43f4a8d",
+    "hardware/main-integrated/service_inhibit.kicad_sch": "6a4a266423c558350de483b5456e6765d239e89810e5b0265c82b8f1966929cb",
+    "hardware/main-integrated/usb_service.kicad_sch": "dbfe2abd6cee9ae90b465c8e2a167a65fca043ff2490d00b91c4b506dc877c1f"
+  },
+  "evidence_sha256": {
+    "hardware/main-integrated/checks/independent-summary.json": "2f9bebf0759fa4872855383a8cad9b9781f6060c6dd763cc251045fe75a8082d",
+    "hardware/main-integrated/checks/independent-erc.json": "7725fdc45974f6cf806fa7d2297df2076279650a6c7fd80472a574839e8025c1",
+    "hardware/main-integrated/checks/independent-drc.json": "74a0c8163378a662f326905604ffe15f60f13e06226ae7ad3efe744146b156ea",
+    "hardware/main-integrated/checks/independent-netlist.xml": "b145b4faa5527f161b00dde587e401c06104eb0598dad8ff34969e6b73caba0b",
+    "hardware/main-integrated/checks/independent-geometry.json": "045d82810a8c0f618818d91de855c1cb4c84febe40ebbb25b9d69670f4db1b01",
+    "hardware/main-integrated/checks/isolation-negative-tests.json": "bf494e0fcdb8d092b3262966f82bd06e4eaa9367f1ee551e532068269e4754b8",
+    "hardware/main-integrated/checks/receiver-routing.json": "a357c2c462663be76ca08993cb65b10e1fb6134eb065bbef6a5ae3e02d3f793d",
+    "hardware/main-integrated/checks/net-equivalence.json": "62e2eb7e91f2fe2df6a1ea7c438e3d7403164039ebb83c6be14532c6ed7e27f4",
+    "hardware/main-integrated/checks/source.xml": "f6a984f955075e00557c1e2ce976a78624095b1bc7261d059711b9bd0a6cc1c6",
+    "hardware/starter-guard-r4/checks/faults.json": "34373b54427bf070b3df241ed7dc1264a48fc8c9a476de97c0d99679c46c23eb",
+    "hardware/main-integrated/checks/panel-integration.json": "9ca98e88510aafb238f72a87be546e09b88a05803593ead71f1ffcac3953fcfc",
+    "hardware/main-integrated/checks/bypass-routing.json": "a07f8f9fc19d2dc9f2f0a5b0b2763019c62fada8f2b18014e89bd4cf6d803b44",
+    "hardware/main-integrated/checks/usb-service.json": "e8bdf32c8d530bab696114f1e2df9145c60d8f9921d2f596f3c87325443fb61f",
+    "hardware/main-integrated/fabrication-manifest.json": "c4b677fc93f58955d4498b9226edcf2e6b66a0f4ca4ff329eb3ca5ec293ac0c8",
+    "hardware/main-integrated/checks/independent-gerbers.json": "62f344c76f3bcc404e667c19e259865c307e6772d5c90f233a2fe8f805fea78f"
+  },
+  "fabrication_settings": {
+    "outline_mm": [
+      100.0,
+      115.5
+    ],
+    "layer_order": [
+      "GTL",
+      "G2L",
+      "G3L",
+      "G4L",
+      "G5L",
+      "GBL"
+    ],
+    "thickness_mm": 1.6,
+    "solder_mask": "green",
+    "outer_copper_oz": 1,
+    "inner_copper_oz": 0.5,
+    "finish": "ENIG",
+    "material": "FR4 Tg155 or vendor-confirmed equivalent",
+    "origin": "absolute, metric, unmirrored across all CAM and drill files",
+    "through_vias_only": true,
+    "via_in_pad": false,
+    "exact_dielectric_stackup_vendor_confirmation_required": true,
+    "controlled_impedance_specified": false
+  },
+  "pcb_prototype_order_package": true,
+  "archives": {
+    "pump-controller-integrated-r4-gerber-prototype.zip": {
+      "sha256": "d13b49946d28b6f14280bc4586fd79fd5e1a3c0797f720ee2ea428bb0389924e",
+      "file_count": 18,
+      "files_sha256": {
+        "pump-controller-integrated-NPTH.XLN": "87361a319cc43f56bac7580a7d51f3f71c6bf84890adc15dd27c52471bff67bb",
+        "pump-controller-integrated-PTH.XLN": "e645e7ca98b22af3a23e254023a4be84015c6bbc65187708f47fd1c73985eda8",
+        "pump-controller-integrated.G2L": "7b3ed50aff70373f6947624d8ccd7a32568c7f25ebf86b2de04e5b8dc5dba7a6",
+        "pump-controller-integrated.G3L": "ea3ef2b4c2d819bbeea283aabb3102a83e2ce8b148114bf68f7149367ac54870",
+        "pump-controller-integrated.G4L": "d5bdb65585b034ef6cefcc2062475d2271ca9d8775a5c24555a07d2a08fd5f1f",
+        "pump-controller-integrated.G5L": "4146d4e6d3ae07e27835955d4bf766a5691cbd38a2666446ec4a6cd45163e678",
+        "pump-controller-integrated.GBL": "dc3cb29f0194be49e907d5e4ca774bf9ef75f604f4f57fce913ae9607de8060b",
+        "pump-controller-integrated.GBO": "3678400e3a070156699611a556ea1828ae1637dcafee547015c9929ffe16e023",
+        "pump-controller-integrated.GBS": "bcbcf93f1ef779ef6e52633081283b10c8ce65f617074c76c9c3e86bfec111db",
+        "pump-controller-integrated.GKO": "b80a79cb54c842a77edd47abf579ae1455968033cf5969ef6a7db3386254a90a",
+        "pump-controller-integrated.GTL": "a2b4299bb204ebfd9541945a15b3ce79b69895537fdbb77d9ad297fa2e727976",
+        "pump-controller-integrated.GTO": "ba78b24021a448468a5551457966d4a9788bb74cabc549f4fda2f1b8159a58aa",
+        "pump-controller-integrated.GTS": "0607ccc59be22a7c8362dbee1a5edeb49ab38d7c71c14ed808aae922f7a0e988",
+        "pump-controller-integrated.d356": "8dcb9530dd88a38804fc84bb2466b6f771989c47073d18575e99868d7828304a",
+        "pump-controller-integrated.gbrjob": "e3f4f5a42cd40fa127932999747057595d18fb834fcbe541bdc14140910d9068",
+        "MANUFACTURING-NOTES.txt": "0ae5adbdd2641c7c60b4708d0221c64fa593294bd16f0e6eb70969fc7ed60850",
+        "drill-report.txt": "8865c88ebc42bd73f556504d0d8ffa262d92b031d598c4698da4f00360cbab6d",
+        "package-manifest.json": "bdb27f53a94b1a31639697a1f5b0087b0618d670f08616ab758fc64415c090ab"
+      }
+    },
+    "pump-controller-integrated-r4-stencil-prototype.zip": {
+      "sha256": "0d7d944670cd287cec1291a9fd57dbd1a6f2661d96d0df8ecefbca620ceedffc",
+      "file_count": 4,
+      "files_sha256": {
+        "pump-controller-integrated.GBP": "245055fec6566402d022efe3e96e39efe130c954121bbb84af5b828d494c18df",
+        "pump-controller-integrated.GTP": "e9c6330d43464ffce720e1cbae4e051aa0b540ea81212eb6cfd135b0dd12c84f",
+        "MANUFACTURING-NOTES.txt": "eed3c4336b137ea5f0b552411c2ca188ac464e18bb3aa8d67bdb1d95dccdbfe5",
+        "package-manifest.json": "2d2ae4c5bde03986d3cb9f4bc7929ab0bce628eb4fcbcba5580a64e3123c8c98"
+      }
+    }
+  }
+}

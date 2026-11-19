@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.kicad.org/erc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-11-19T23:20:43",
+  "ignored_checks": [
+    {
+      "description": "Global label only appears once in the schematic",
+      "key": "single_global_label"
+    },
+    {
+      "description": "Four connection points are joined together",
+      "key": "four_way_junction"
+    },
+    {
+      "description": "SPICE model issue",
+      "key": "simulation_model_issue"
+    },
+    {
+      "description": "Assigned footprint doesn't match footprint filters",
+      "key": "footprint_filter"
+    }
+  ],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.8",
+  "sheets": [
+    {
+      "path": "/",
+      "uuid_path": "/7943834f-0651-5972-ba2e-59a63315b96d",
+      "violations": []
+    },
+    {
+      "path": "/Independent trips and main board interfaces/",
+      "uuid_path": "/7943834f-0651-5972-ba2e-59a63315b96d/5b4e543b-5037-555b-a682-59a057c24f12",
+      "violations": []
+    },
+    {
+      "path": "/Guard relays and series motor contactors/",
+      "uuid_path": "/7943834f-0651-5972-ba2e-59a63315b96d/9d025ca0-62f4-5da9-8ea3-2331932d9ae5",
+      "violations": []
+    },
+    {
+      "path": "/Conventional 24 V DC pilot proof/",
+      "uuid_path": "/7943834f-0651-5972-ba2e-59a63315b96d/d7c7cc16-b5c8-5e28-aa27-f19171607cb1",
+      "violations": []
+    },
+    {
+      "path": "/Motor isolator and USB access interlock/",
+      "uuid_path": "/7943834f-0651-5972-ba2e-59a63315b96d/fff25ea4-46e7-5c11-a919-9594c32bdf1e",
+      "violations": []
+    }
+  ],
+  "source": "starter-guard-r4.kicad_sch"
+}

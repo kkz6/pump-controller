@@ -96,9 +96,9 @@ def receiver():
     inputs.append(passive("R30","10k","HB_24","CAB_0"))
     return inputs, transfer
 
-def field():
+def field(contacts_file=OUT/"contacts.csv"):
     # Every contact carries the exact two wire labels from the continuity solver.
-    with (OUT/"contacts.csv").open(newline="") as f:
+    with contacts_file.open(newline="") as f:
         contacts = {(r["circuit"], r["conducts_when"]):(r["from"].replace(".","_"),r["to"].replace(".","_"))
                     for r in csv.DictReader(f)}
     def switch(group,name,a,b):

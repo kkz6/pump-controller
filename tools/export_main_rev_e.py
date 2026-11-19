@@ -17,8 +17,8 @@ def source_hashes(BOARD, source):
  O=BOARD.parent
  paths=[BOARD,BOARD.with_suffix('.kicad_pro'),BOARD.with_suffix('.kicad_dru'),source]+sorted(O.glob('*.kicad_sch'))
  return{str(p.relative_to(B)):sha(p)for p in paths}
-def export(compact=False, compact_dual=False):
- variant=board_variant(compact, compact_dual)
+def export(compact=False, compact_dual=False, integrated=False):
+ variant=board_variant(compact, compact_dual, integrated)
  O=B/'hardware'/variant.directory
  P=variant.cam_name
  BOARD=O/(variant.native_name+'.kicad_pcb')
@@ -56,7 +56,7 @@ def export(compact=False, compact_dual=False):
    elif src.suffix=='.svg':shutil.copyfile(src,maps/src.name)
   run(['pcb','export','ipcd356','-o',fab/(P+'.d356'),BOARD])
  run(['pcb','export','pos','--format','csv','--units','mm','--side','both','--exclude-dnp','-o',O/'exports/component-positions.csv',BOARD])
- if compact_dual:
+ if compact_dual or integrated:
   run(['sch','export','pdf','-o',O/'exports/schematic.pdf',BOARD.with_suffix('.kicad_sch')])
  svg_output=O/'exports/schematic-svg'
  svg_output.mkdir(parents=True,exist_ok=True)

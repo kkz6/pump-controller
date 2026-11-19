@@ -1,7 +1,14 @@
 Compact single-phase pump controller
 ====================================
 
-**Guarded R3 is the current bare-board engineering prototype.** The three
+**Integrated R4** combines the controller and the guard receiver on one PCB. The second PCB is the five-button OLED panel. The independent 24 V cabinet guard controls two external motor contactors. The original red STOP and the separate high-high float interrupt this guard in both HOST and LOCAL.
+
+* `R4 main board, plug assignments and schematic <hardware/main-integrated/README.rst>`_
+* `Robu main Gerbers <hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip>`_ and `OLED panel Gerbers <hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip>`_
+* `R4 cabinet wiring drawing <hardware/starter-guard-r4/starter-wiring.pdf>`_ and `fault results <hardware/starter-guard-r4/checks/faults.json>`_
+* `OLED/button panel F <hardware/panel-rev-f/README.rst>`_
+
+**Earlier guarded R3 prototype.** The three
 boards are the 100 × 97 mm main controller, the 60 × 45 mm OLED/button panel
 and the 68 × 48 mm isolated guard receiver. The two motor contactors,
 hardwired STOP, high-high float, service shutter and reset/enable circuit

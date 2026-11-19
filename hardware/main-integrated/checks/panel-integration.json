@@ -1,0 +1,279 @@
+{
+  "control_variant": "integrated",
+  "expander_key_inputs": {
+    "manual": "GPB6 / U33.7",
+    "auto": "GPA0 / U33.21"
+  },
+  "review_scope": "Independent native pin/net and interface topology check; no electrical hardware or firmware test.",
+  "source_sha256": {
+    "panel_board": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
+    "main_board": "c041664134cc75b10818be919da3220458ef4f13a12b604214b683884fbeae8d",
+    "panel_source": "0ffbaee405fdfa0057d57c3b490d8a86d10c6b5690c617966b8482765d093506",
+    "main_source": "69457dedc0e356bc0992c6007a51390ac9c87752f1bd9415a0eca62c6dd4b865",
+    "independently_exported_main_netlist": "d73ccc17c64afea04186e20dc9c597f3dcfdf7083e93c5dc7c7fe8df8fdce63f",
+    "independently_exported_panel_netlist": "5f9a78010098b7447ff3bd3c71f572280ee49c2bc5da11600a713a4480b76cf3"
+  },
+  "main_connected_source_pins_checked": 787,
+  "panel_components_including_mounting_holes": 28,
+  "panel_connected_source_pins_checked": 75,
+  "native_source_comparison_issues": [],
+  "host_harness": [
+    {
+      "panel_pin": 1,
+      "panel_net": "+5V",
+      "main_connector": "J32",
+      "main_pin": 1,
+      "main_net": "+5V_CMD"
+    },
+    {
+      "panel_pin": 2,
+      "panel_net": "STOP_RETURN",
+      "main_connector": "J32",
+      "main_pin": 2,
+      "main_net": "STOP_RETURN"
+    },
+    {
+      "panel_pin": 3,
+      "panel_net": "MAN_RETURN",
+      "main_connector": "J32",
+      "main_pin": 3,
+      "main_net": "MAN_RETURN"
+    },
+    {
+      "panel_pin": 4,
+      "panel_net": "AUTO_RETURN",
+      "main_connector": "J32",
+      "main_pin": 4,
+      "main_net": "AUTO_RETURN"
+    },
+    {
+      "panel_pin": 5,
+      "panel_net": "START_N",
+      "main_connector": "J32",
+      "main_pin": 5,
+      "main_net": "START_N"
+    },
+    {
+      "panel_pin": 6,
+      "panel_net": "RESET_N",
+      "main_connector": "J32",
+      "main_pin": 6,
+      "main_net": "RESET_N"
+    },
+    {
+      "panel_pin": 7,
+      "panel_net": "GND",
+      "main_connector": "J32",
+      "main_pin": 7,
+      "main_net": "GND"
+    },
+    {
+      "panel_pin": 8,
+      "panel_net": "+3V3",
+      "main_connector": "J32",
+      "main_pin": 8,
+      "main_net": "+3V3"
+    },
+    {
+      "panel_pin": 9,
+      "panel_net": "I2C_SDA",
+      "main_connector": "J32",
+      "main_pin": 9,
+      "main_net": "I2C_SDA"
+    },
+    {
+      "panel_pin": 10,
+      "panel_net": "I2C_SCL",
+      "main_connector": "J32",
+      "main_pin": 10,
+      "main_net": "I2C_SCL"
+    },
+    {
+      "panel_pin": 11,
+      "panel_net": "KEY_MAN_N",
+      "main_connector": "J32",
+      "main_pin": 11,
+      "main_net": "SPARE_B6"
+    },
+    {
+      "panel_pin": 12,
+      "panel_net": "KEY_AUTO_N",
+      "main_connector": "J32",
+      "main_pin": 12,
+      "main_net": "SPARE_B7"
+    }
+  ],
+  "common_ground": "Panel J1.7 returns directly through main J32.7. All twelve host cable cavities connect one-to-one; the former fanout cable is incompatible.",
+  "stop_contact_path_cases_checked": 192,
+  "stop_contact_path_passed": true,
+  "stop_path": "+5V_CMD at main J32.1 -> panel J1.1 -> SW1 NC -> J2.3 -> remote NC or fixed local-only loop -> J2.4 -> STOP_RETURN at J1.2 -> main J32.2 and guard monitor -> on-board KFB1 NO (4 to 8) -> K1 coil pin 1",
+  "stop_shunt_rule": "Only a single keyed station or local-only plug fits J2. Unplugging it opens STOP, and the factory loop always remains in series with local STOP.",
+  "external_no_buttons": [
+    {
+      "local": "SW2",
+      "external": "J2",
+      "external_pins": [
+        1,
+        2
+      ],
+      "nets": [
+        "GND",
+        "START_N"
+      ],
+      "parallel": true
+    },
+    {
+      "local": "SW3",
+      "external": "J2",
+      "external_pins": [
+        5,
+        6
+      ],
+      "nets": [
+        "MAN_RETURN",
+        "STOP_RETURN"
+      ],
+      "parallel": true
+    },
+    {
+      "local": "SW4",
+      "external": "J2",
+      "external_pins": [
+        7,
+        8
+      ],
+      "nets": [
+        "GND",
+        "RESET_N"
+      ],
+      "parallel": true
+    },
+    {
+      "local": "SW5",
+      "external": "J2",
+      "external_pins": [
+        9,
+        10
+      ],
+      "nets": [
+        "AUTO_RETURN",
+        "STOP_RETURN"
+      ],
+      "parallel": true
+    }
+  ],
+  "oled_pin_order": {
+    "1": "SCL",
+    "2": "SDA",
+    "3": "GND",
+    "4": "+3V3"
+  },
+  "key_channels": [
+    {
+      "transistor": "Q1",
+      "raw_net": "KEY_MAN_RAW",
+      "conditioned_net": "KEY_MAN_N",
+      "active_level": "LOW",
+      "pins_B_E_C": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "transistor": "Q2",
+      "raw_net": "KEY_AUTO_RAW",
+      "conditioned_net": "KEY_AUTO_N",
+      "active_level": "LOW",
+      "pins_B_E_C": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "key_truth_table": {
+    "MAN_contact_only": "KEY_MAN_N=0, KEY_AUTO_N=1",
+    "AUTO_contact_only": "KEY_MAN_N=1, KEY_AUTO_N=0",
+    "neither_contact": "1,1 invalid when key mode enabled",
+    "both_contacts": "0,0 invalid",
+    "panel_unplugged": "0,0 from main R92/R93 pull-downs, invalid"
+  },
+  "key_calculations": {
+    "nominal_high_V_at_3V3": 3.0,
+    "MCP23017_min_VIH_at_3V3": 2.64,
+    "nominal_R_C_rise_time_constant_us": 90.909,
+    "selected_key_raw_input_mA_5V_VBE0p7": 2.7027,
+    "STOP_added_wetting_mA_at5V": 2.2727,
+    "note": "Nominal calculations; component tolerances, leakage, contact behavior, cable drops and temperature still need validation."
+  },
+  "required_firmware": [
+    "Configure MCP23017 GPB6/GPA0 as key inputs with pull-ups disabled. Drive GPB7/GPA7 as the START and STOP command LED outputs.",
+    "Enable key input only when intentionally fitted; do not silently auto-detect or fall back on invalid states.",
+    "Debounce mechanical contacts; 10nF filters are not sufficient debounce alone.",
+    "Mode/key changes stop and disarm; never start solely from selecting AUTO or MANUAL.",
+    "Reject both-high/both-low key states when key mode is enabled, and require a fresh START after fault/mode changes."
+  ],
+  "main_assembly_variant": "All five physical operator switches on the panel. No switch footprints on the main PCB. Twelve cavities one-to-one from panel J1 to main J32.",
+  "native_layout_snapshot": {
+    "drc_violations": 0,
+    "unconnected": 0,
+    "parity_issues": 0,
+    "erc_violations": 0
+  },
+  "primary_references": [
+    "https://omronfs.omron.com/en_US/ecb/products/pdf/en-d2f.pdf",
+    "https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf",
+    "https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf",
+    "design/oled-selection.txt"
+  ],
+  "main_board_routing_frozen_at_review": true,
+  "hardware_tested": false,
+  "release_ready": false,
+  "remaining_checks": [
+    "Purchased switch/connector contact orientation and harness continuity.",
+    "STOP actuator travel/height and OLED/enclosure spacing.",
+    "Gold/low-level dry-contact key suitability for approximately 2.7 mA at 5 V.",
+    "Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.",
+    "Robu fabrication acceptance and assembled-board functional/thermal/EMC tests."
+  ],
+  "host_loom_stop_bridge_negative_control": {
+    "fault": "Direct short between panel J1.1 and J1.2, equivalent to main J32.1 and J32.2 on the straight loom.",
+    "panel_pin_nets": [
+      "+5V",
+      "STOP_RETURN"
+    ],
+    "main_pin_nets": [
+      "+5V_CMD",
+      "STOP_RETURN"
+    ],
+    "scope": "With the HOST command supply energized, the bridge masks both panel STOP contacts. The separate cabinet OEM STOP and high-high circuits are outside this panel model.",
+    "cases": [
+      {
+        "local_NC_closed": false,
+        "remote_NC_closed": true,
+        "return_live_without_bridge": false,
+        "return_live_with_bridge": true
+      },
+      {
+        "local_NC_closed": true,
+        "remote_NC_closed": false,
+        "return_live_without_bridge": false,
+        "return_live_with_bridge": true
+      },
+      {
+        "local_NC_closed": false,
+        "remote_NC_closed": false,
+        "return_live_without_bridge": false,
+        "return_live_with_bridge": true
+      }
+    ]
+  },
+  "remote_button_harness": "One GH10 with permanent switch-end terminations; optional unused NO branches remain empty.",
+  "firmware_scope": "Native hardware integration check only. Target application and live switching were not exercised.",
+  "main_native_summary_sha256": "2f9bebf0759fa4872855383a8cad9b9781f6060c6dd763cc251045fe75a8082d",
+  "main_native_evidence_current": true,
+  "native_inputs_unchanged": true,
+  "integration_passed": true,
+  "main_source_and_schematic_compared": true
+}

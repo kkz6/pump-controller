@@ -1,4 +1,5 @@
 """Check USB programming and motor permission using KiCad-exported nets and actual PCB pads."""
+import argparse
 import hashlib
 import itertools
 import json
@@ -178,10 +179,17 @@ def closure(sources, edges):
         energized |= extra
 
 
+def permit_terminals(n):
+    if "KFB1.4" in n:
+        return n["KFB1.4"], n["KFB1.8"], n["D302.1"]
+    return n["J31.1"], n["J31.2"], n["J36.5"]
+
+
 def power_case(n, p, harness, ac, usb, want):
     # Scope includes the physical panel STOP and receiver feedback in their
     # most permissive state. Both low-side drivers are modeled continuously on.
     # Using actual net names makes an unintended connection change the result.
+    permit_in, permit_out, monitor = permit_terminals(n)
     P = lambda pin: "panel/"+p[pin]
     sources = []
     paths = []
@@ -195,7 +203,7 @@ def power_case(n, p, harness, ac, usb, want):
         sources.append(n["J41.2"])  # cavity 1 empty; isolated 5 V between 2 and 3
     paths += [(n["U2.2"],n["L1.2"]), (n["J32.8"],P("J1.8")),
               (n["R197.1"],n["R197.2"]), (n["J32.1"],P("J1.1")), (P("SW1.1"),P("SW1.3")),
-              (P("J2.3"),P("J2.4")), (P("J1.2"),n["J32.2"]), (n["J31.1"],n["J31.2"])]
+              (P("J2.3"),P("J2.4")), (P("J1.2"),n["J32.2"]), (permit_in,permit_out)]
     live = closure(sources,paths)
     gated = n["R242.1"] in live and n["R242.2"]==n["Q40.1"] and n["Q40.2"]=="GND"
     pullup = n["R244.1"] in live
@@ -206,7 +214,7 @@ def power_case(n, p, harness, ac, usb, want):
     logic = n["U3.3"] in live
     data = logic and gated and n["Q40.3"]==n["U41.9"]
     result = dict(logic_3v3=logic, data_connected=data, oled_3v3=P("J7.4") in live,
-                  panel_command_5v=P("J1.1") in live, raw_panel_permit=n["J36.5"] in live,
+                  panel_command_5v=P("J1.1") in live, raw_panel_permit=monitor in live,
                   coil_A_feed=n["K1.1"] in live, coil_B_feed=n["K2.1"] in live,
                   converter_output_node=n["U1.5"] in live)
     require(result==want, f"{harness=} {ac=} {usb=}: {result} expected {want}")
@@ -370,4 +378,14 @@ def main():
 
 
 if __name__=="__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--integrated", action="store_true")
+    if parser.parse_args().integrated:
+        MAIN = ROOT / "hardware/main-integrated/pump-controller-integrated.kicad_sch"
+        REPORT = MAIN.parent / "checks/usb-service.json"
+        del MAIN_PINS["J31"], MAIN_PINS["J36"]
+        MAIN_PINS.update({"KFB1":{4:"STOP_RETURN",8:"K1_COIL_PLUS",1:"KFB_A1",16:"CAB_0"},
+                          "D302":{1:"PANEL_OK_MON"}})
+        EXCLUSIVE["STOP_RETURN"] = "J32.2 KFB1.4 R80.1 R197.1"
+        EXCLUSIVE["K1_COIL_PLUS"] = "KFB1.8 K1.1 D31.1 R86.1"
     main()
