@@ -1,0 +1,117 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-19T15:06:03",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714",
+            "violations": []
+        },
+        {
+            "path": "/Isolated AC input, 5 V and 3.3 V supplies/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/2fdbcb1f-0be1-56c2-ab88-951d933bb0c4",
+            "violations": []
+        },
+        {
+            "path": "/ESP32-C6 Matter controller and service interface/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/ecb4b218-235a-5ad0-997d-fa1b29440435",
+            "violations": []
+        },
+        {
+            "path": "/Single-phase metering - LIVE DOMAIN/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/b4ccf877-9641-5d01-a641-46ef220de54c",
+            "violations": []
+        },
+        {
+            "path": "/Meter voltage and current inputs - LIVE DOMAIN/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/c21b7c14-c199-5afb-afb5-c61a1a5a97bb",
+            "violations": []
+        },
+        {
+            "path": "/Meter isolation - power and SPI/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/07df83fc-e1ab-5421-b635-c3b7d21cce9d",
+            "violations": []
+        },
+        {
+            "path": "/Relay drivers and independent watchdog / 1/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/29350353-ffd6-5f96-97a0-ee2c8ab7ed80",
+            "violations": []
+        },
+        {
+            "path": "/Relay drivers and independent watchdog / 2/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/239bbe92-877d-51ea-9ac4-465d8c249877",
+            "violations": []
+        },
+        {
+            "path": "/Rev E GH12 panel interface / 1/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/8ad1224e-5ca7-50b3-b32f-db6184be50ab",
+            "violations": []
+        },
+        {
+            "path": "/Rev E external PH4 OLED / 2/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/302b4e77-c8dc-5a34-8b42-a975f43aad60",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype / 1/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/0d3d786c-c9a8-5b8d-92b4-2222dd77f808",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype / 2/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/126e5ecb-7cb2-5e80-ac94-c04e1701a55a",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype / 3/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/92ef4181-987c-50da-927f-8910dad4ea6f",
+            "violations": []
+        },
+        {
+            "path": "/AC conductive probe interface - prototype / 4/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/7b8f6f38-d88c-5824-bd33-b88508380f92",
+            "violations": []
+        },
+        {
+            "path": "/Power-source declarations for electrical-rule checking/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/bbe076f3-364b-552c-9840-11f8f7feaefa",
+            "violations": []
+        },
+        {
+            "path": "/Four-corner mounting/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/be21912b-015b-5b89-b236-bbb08287e1c9",
+            "violations": []
+        },
+        {
+            "path": "/STOP, MODE and NEXT input conditioning/",
+            "uuid_path": "/c9ccec4e-42a5-5ee7-8517-2040e122c714/b86633df-b96d-5f79-a2b9-2e3f124a6e9d",
+            "violations": []
+        }
+    ],
+    "source": "pump-controller-main-rev-e.kicad_sch"
+}

@@ -1,15 +1,23 @@
 Rev E electrical, reset and noise review
 ========================================
 
+**100 x 80 mm main board on hold.** The optional AUTO key is connected to
+MCP23017 GPB7. Microchip restricts this pin to output use because transitions
+during reads can corrupt the shared I2C bus. The Rev E Gerbers and test records
+below preserve the historical layout. Use the corrected compact design for
+further engineering. See the `Microchip pin advisory
+<https://support.microchip.com/s/article/GPA7---GPB7-Cannot-Be-Used-as-Inputs-In-MCP23017>`_.
+
 Reviewed 19 November 2026 for the 100 x 80 mm six-layer Rev E main PCB and
 60 x 45 mm two-layer panel. This reviews circuit specifications and engineering
 limits; it does not record measurements of a manufactured controller. Three
-confirmed circuit defects were corrected. The E11 source/schematic review
-passes; final routed-board and CAM acceptance
-must be refreshed after the input-conditioning ECO. Prototype-package use
-remains conditional on matching source/evidence/archive hashes and fabricator
-acceptance.
-It is not a released mains product.
+confirmed circuit defects were corrected. The E11 source, routed-board and
+CAM checks pass for this frozen baseline. Main ERC, DRC, unconnected and
+schematic-parity counts are zero; all twelve isolation-rule controls pass.
+The prototype archives match the checked source and CAM hashes. Compact
+alternatives remain under evaluation; this baseline does not select the final
+board size, layer count or purchase. Fabricator acceptance and assembled-product
+qualification remain pending.
 
 The circuit is defined by ``main-rev-e.json`` and ``panel-rev-e.json`` and the
 `native schematic PDF <../hardware/main-rev-e/exports/schematic.pdf>`_. Exact
@@ -93,11 +101,11 @@ See `BAT54WS electrical limits
 The reset-bias and clear-stage source, schematic and BOM changes are repeatable
 through ``../tools/patch_main_rev_e_bias.py`` and
 ``../tools/patch_main_rev_e_safe_clear.py``. Native ERC and schematic-to-board
-parity passed after those changes. The later E11 input-conditioning change
-requires a fresh routed-board record with zero DRC and unconnected findings.
-Final archives must match that record. These checks establish net/layout
-consistency, not the transient behavior discussed
-above. Do not rerun a placement builder over the reviewed routing.
+parity passed after those changes. The later E11 input-conditioning change is
+included in the frozen routed-board record with zero DRC and unconnected
+findings. The checked archives match that record. These checks establish
+net/layout consistency, not the transient behavior discussed above. Do not
+rerun a placement builder over the reviewed routing.
 
 Protection behavior that must be implemented and demonstrated
 -------------------------------------------------------------
@@ -360,9 +368,10 @@ three-input transition allowance, and 0.1 mA extra 5 V divider load. At
 3.432 V and 80% buck efficiency this adds about 0.0071 W. Round the total
 supply allocation to 5.81 W and the 3.3 V current reservation to 665 mA;
 both remain allocations requiring T02/T03 measurements. Source/schematic/BOM
-changes are reproducible through ``../tools/patch_main_rev_e_e11.py``; final
-routing and native/CAM acceptance must include U37, C78, all three RAW nets
-and the changed resistor values. The source-bound
+changes are reproducible through ``../tools/patch_main_rev_e_e11.py``. The
+passing baseline native/CAM records include U37, C78, all three RAW nets
+and the changed resistor values; IPC comparison matches all 613 connected
+main pins and 35 exact NC aliases. The source-bound
 `static screening record <../hardware/main-rev-e/checks/input-conditioning-corners.json>`_
 records the assumptions and arithmetic; it is not physical qualification.
 
@@ -382,9 +391,11 @@ M_GND is neutral-referenced, not SELV ground. The CT secondary, permanent
 burden, cable and J10 are live once connected. Rev E replaces J10's easily
 confused plug with the fixed terminal; insulation, strain relief and a burden
 permanently attached to the CT remain required. Never bond M_GND and GND.
-The pre-E11 geometric minimum was 8.06 mm at K1 contact/coil pads 2/1, only 0.06 mm
-above the project's 8 mm nominal rule. Confirm that measurement against the final
-board hash. It is not a guaranteed finished-board minimum. Request explicit
+The frozen baseline's geometric minimum is 8.06 mm at K1 contact/coil pads 2/1,
+on each copper layer and in the all-layer XY projection, only 0.06 mm above
+the project's 8 mm nominal rule. The source-bound
+`geometry record <../hardware/main-rev-e/checks/independent-geometry.json>`_
+identifies the measured objects. This is not a guaranteed finished-board minimum. Request explicit
 fabricator/assembler review of both relays' pad spacing, copper/process tolerance,
 solder fillets and assembly variation; confirm the finished assembly by inspection.
 Component isolation ratings and PCB clearance checks do not qualify moisture,
@@ -444,8 +455,11 @@ Release boundary
 ----------------
 
 The corrected circuit is suitable for continued prototype engineering only.
-Fresh native/CAM passes after E11 are required for the bare-PCB prototype
-package gate; only a matching final package manifest identifies usable archives. Main
+Native/CAM checks after E11 and the bare-PCB prototype package gate pass for
+the 100 x 80 mm baseline. The
+`two-board package receipt <../hardware/main-rev-e/checks/two-board-baseline-packages.json>`_
+records verified archive/source hashes, with 529 plated and four non-plated
+main holes matching native coordinates and passing exported mask checks. Main
 `bare-board <../hardware/main-rev-e/pump-controller-main-rev-e-gerber-prototype.zip>`_
 and `stencil <../hardware/main-rev-e/pump-controller-main-rev-e-stencil-prototype.zip>`_
 archives are separate from the panel's corresponding review archives and

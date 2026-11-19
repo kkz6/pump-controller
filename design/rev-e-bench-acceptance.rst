@@ -68,8 +68,9 @@ J10 fixed 1727010 termination and its separate strain relief; test every GH/PH
 cable by numbered cavity, including OLED 1=SCL, 2=SDA, 3=GND, 4=3V3.
 Use 18 mm minimum insulating main-board standoffs. Confirm the C1
 Panasonic EEUFR1E470 installed height fits within the 13.5 mm allowance
-(12.5 mm maximum body plus 1 mm mounting allowance); trim top-side leads
-and measure actual clearance in the 170 x 150 x 90 mm case.
+(12.5 mm maximum body plus 1 mm mounting allowance). The enclosure reserves
+13.6 mm below the nominal PCB plane, including its exported surface offset.
+Trim top-side leads and measure actual clearance in the 170 x 150 x 90 mm case.
 
 Observe: continuity agrees with the exact schematic; live-domain conductors
 have no connection to isolated GND or probes. External NC STOP is in series

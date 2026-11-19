@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 HP starter and Rev E pump controller</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f5ef;color:#142f2a;font:17px/1.4 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
+main{max-width:1510px;margin:auto;padding:36px 40px}h1{font-size:39px;letter-spacing:-1.3px;margin:0 0 4px;line-height:1.1}h2{font-size:22px;margin:0 0 10px;letter-spacing:-.5px}h3{font-size:17px;margin:4px 0}p{margin:0}header p{color:#42594f;font-size:18px}
+.layout{display:grid;grid-template-columns:30% 70%;margin-top:23px;border:1px solid #b4c4b9;background:white;border-radius:10px;overflow:hidden}
+aside{padding:20px 20px 16px;background:#e3ebe5}aside img{display:block;width:100%;height:548px;object-fit:contain;background:#d2dcd3;margin-bottom:10px}
+article{padding:20px 24px}.hero{display:grid;grid-template-columns:43% 57%;gap:5px;align-items:center;margin-bottom:9px}.hero img{width:100%;height:200px;object-fit:contain}.hero p{font-size:16px;color:#385148}
+.caption{font-size:15px;color:#385148}.route{display:grid;grid-template-columns:38% 14% 48%;align-items:center;gap:0;border-top:1px solid #d9e1d8;padding:9px 0}.route strong{font-size:16px;display:block}.route small{font-size:14px;display:block;color:#3c4e47}
+.line{border-top:3px solid #aa512f;position:relative;margin:0 16px 0 6px}.line:before,.line:after{content:"";display:block;width:6px;height:6px;background:#aa512f;position:absolute;top:-4.5px;border-radius:50%}.line:before{left:0}.line:after{right:0}.safe .line{border-color:#007d71}.safe .line:before,.safe .line:after{background:#007d71}
+.note{background:#f5eee4;border-left:4px solid #aa512f;padding:10px 12px;margin-top:13px;color:#52351d;font-size:15px}footer{margin-top:13px;color:#40534e;font-size:14px}a{color:#156759}.drawing{display:block;width:100%;margin:26px 0;background:white}
+@media(max-width:850px){main{padding:17px}.layout{grid-template-columns:1fr}aside img{height:340px}.hero{grid-template-columns:43% 57%}.route{grid-template-columns:40% 10% 50%}}
+</style>
+<main>
+<header><h1>How the controller connects to the DOL starter</h1><p>1 HP single-phase pump &nbsp;·&nbsp; Rev E prototype &nbsp;·&nbsp; Standalone enclosure option</p></header>
+<div class="layout">
+<aside><h2>Existing starter</h2><img src="../../design/references/starter-interior-reference.png" alt="Open starter showing the contactor at upper right, two capacitors and the existing RMG controller below"><p class="caption">The contactor is at the upper right. The capacitors and motor leads stay in the starter. The existing RMG water controller is below it.</p></aside>
+<article>
+<div class="hero"><img src="../enclosure-rev-e/assembled-preview.png" alt="Assembled prototype enclosure with a small OLED and front controls"><div><h2>Rev E controller</h2><p>The guard covers the live connections. The OLED and buttons are on the isolated side. Lines below identify cable functions, not terminal positions in the photo.</p></div></div>
+<div class="route"><div><strong>Protected supply</strong><small>After the starter disconnect</small></div><i class="line"></i><div><strong>J1 · Controller power</strong><small>1 line &nbsp;·&nbsp; 2 neutral</small></div></div>
+<div class="route"><div><strong>Contactor coil circuit</strong><small>Original STOP and overload in series</small></div><i class="line"></i><div><strong>J30 · Two series relay contacts</strong><small>1 CTRL_IN &nbsp;·&nbsp; 2 CTRL_OUT</small></div></div>
+<div class="route"><div><strong>CT on one motor conductor</strong><small>Burden fixed at the current transformer</small></div><i class="line"></i><div><strong>J10 · Guarded current input</strong><small>Factory-terminated live-domain cable</small></div></div>
+<div class="route safe"><div><strong>Existing START and STOP</strong><small>Separate insulated auxiliary contacts</small></div><i class="line"></i><div><strong>Panel J2 / J3 · Optional</strong><small>START normally open · STOP normally closed</small></div></div>
+<div class="route safe"><div><strong>Tank / inlet / high-high float</strong><small>Field sensor cable group</small></div><i class="line"></i><div><strong>J20 / J21 / J31 · Isolated inputs</strong><small>Inlet needs a proven water-side return</small></div></div>
+<div class="route safe"><div><strong>Buttons and display</strong><small>Two factory-crimped cables inside</small></div><i class="line"></i><div><strong>Main J32 → panel J1 · Panel J7 → OLED</strong><small>12-way panel cable · 4-way display cable</small></div></div>
+</article>
+</div>
+<p class="note">Before a retrofit, an electrician must trace the coil and capacitor-start circuit and verify that every way of energizing the coil passes through STOP and overload. The photograph cannot identify those terminals. Protective earth remains bonded to the metal starter.</p>
+<footer>For numeric pin assignments and acceptance tests, see the <a href="../../design/rev-e-integration.rst">connection schedule</a> and <a href="../../design/rev-e-bench-acceptance.rst">prototype test plan</a>.</footer>
+<a href="connection-overview.png"><img class="drawing" src="connection-overview.png" alt="Full connector and control-path drawing"></a>
+</main></html>

@@ -12,6 +12,15 @@ This is a reviewed engineering prototype, not an approved installation or
 manufacturing release. Firmware, physical switch operation, contact endurance,
 ESD and enclosure fit have not been tested. Isolated low voltage only: no
 starter coil, mains, motor or capacitor wiring belongs on this panel.
+Main-board J10 is a separate fixed terminal for the factory-captive live-CT
+lead. It has no removable plug and must never be wired to a panel connector.
+
+The panel is implemented in native CAD and includes two NPN key-conditioning
+stages; it is not purely passive. Physical assembly has not been verified.
+The unpowered harness/contact fixture specification is
+``../../design/rev-e-unpowered-harness-acceptance.rst`` with a machine-readable
+case matrix alongside it. CAD checks and unexecuted fixture cases are separate
+from measured assembly acceptance.
 
 Files and checks
 ----------------
@@ -48,7 +57,7 @@ Proposed bare-board order settings: one design, two copper layers, FR-4,
 60 x 45 mm, 1.6 mm overall thickness, 1 oz copper, green mask and white legend.
 Finish and final material/stackup remain subject to Robu's engineering review;
 ENIG is a proposed finish for the SMT assembly. This package does not establish
-acceptance of the separate four-layer main PCB.
+acceptance of the separate six-layer main PCB.
 
 The Gerber profile centreline is exactly 60 x 45 mm. KiCad's job-file Size field
 is 60.05 x 45.05 mm because it includes the 0.05 mm outline stroke; use the

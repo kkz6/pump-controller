@@ -34,9 +34,10 @@ after routing. This result does not establish a soldering-process tolerance.
 
 The old 12 mm mounting gap is insufficient. Use 18 mm insulating main-board
 standoffs; the enclosure is now 170 x 150 x 90 mm with a raised guard. The
-13.5 mm rear envelope leaves 4.5 mm nominal space to the floor. A DOL retrofit
-needs the same rear clearance and a separately verified front guard/wiring
-envelope. Do not reuse the old generic 7 mm-high C1 model as fit evidence.
+13.5 mm installed body plus the exported PCB surface offset is rounded to
+a 13.6 mm underside model allowance, leaving 4.4 mm nominal space to the
+floor. A DOL retrofit needs the same rear clearance and a separately verified
+front guard/wiring envelope. Do not reuse the old generic 7 mm-high C1 model as fit evidence.
 
 ``tools/patch_main_rev_e_c1.py`` updates only C1's courtyard/model reference
 in a caller-selected board. It preserves pad UUIDs, pad/drill sizes, positions,

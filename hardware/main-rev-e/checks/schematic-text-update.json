@@ -1,0 +1,18 @@
+{
+  "pcb_sha256_unchanged": "fc6c86bcb0d494320b89d3ec8e31f188f556abe47e71d20c31727e35340c6c7c",
+  "native_files_changed": [
+    "hardware/main-rev-e/local_controls_2.kicad_sch",
+    "hardware/main-rev-e/pump-controller-main-rev-e.kicad_sch",
+    "hardware/main-rev-e/local_controls_1.kicad_sch",
+    "hardware/main-rev-e/Pump.kicad_sym"
+  ],
+  "pin_definitions_unchanged": true,
+  "all_native_uuids_and_instance_paths_unchanged": true,
+  "external_oled_excluded_from_pcb_bom": true,
+  "scope": "Sheet titles/notes and OLED description only; generator and source synchronized",
+  "native_erc_findings": 0,
+  "json_to_native_netlist_validation": "pass",
+  "schematic_pdf_sha256": "f0943d1299f04a5ebdb88a9cb8fff6f43fa9e637dde9857b25a883543d4f57d6",
+  "netlist_sha256": "4085e8640b71d126fdb452ad737a39239f3136a348601cf199fd59f836954486",
+  "note": "Text-only edit snapshot; later PCB routing work has separate verification records."
+}

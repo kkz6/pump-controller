@@ -1,64 +1,116 @@
 Design sources and revisions
 ============================
 
-The native KiCad project is the editable hardware deliverable. The JSON
-definitions and Python helpers preserve the component/net source used to
-produce this revision and its review documents.
+**100 x 80 mm main board on hold.** The optional AUTO key is connected to
+MCP23017 GPB7. Microchip restricts this pin to output use because transitions
+during reads can corrupt the shared I2C bus. The Rev E Gerbers and test records
+below preserve the historical layout. Use the corrected compact design for
+further engineering. See the `Microchip pin advisory
+<https://support.microchip.com/s/article/GPA7---GPB7-Cannot-Be-Used-as-Inputs-In-MCP23017>`_.
 
-The current assembly uses the unchanged Rev C main PCB plus the separate
-Rev D panel. ``panel-rev-d.json`` is the panel circuit source;
-``panel-rev-d-main-assembly.json`` records the main-board population and
-12-wire harness. Main SW3/SW4 are omitted. Follow
-``panel-rev-d-integration.rst`` for the current controls; earlier main-board
-documents describe the original Rev C panel arrangement.
+The verified Rev E baseline comprises a 100 x 80 mm six-layer main PCB and a
+separate 60 x 45 mm two-layer OLED/button panel. Both boards have passing
+native/CAM records, including the main input-conditioning correction, and
+matching prototype archive checks. Compact alternatives remain under evaluation;
+the baseline does not select a final board size, layer count or purchase.
+Fabricator acceptance, firmware, assembled electrical performance and installation
+qualification remain pending.
 
-Source order
-------------
+Current circuit and evidence
+----------------------------
 
-``build_core.py`` produces ``core.json`` for metering, protection, physical
-controls and OLED connections. ``build_probe_data.py`` produces the probe
-front end. ``power-mcu.json`` holds the power supply and MCU definitions.
-``assemble.py`` combines these into ``circuit.json`` and ``parts-complete.csv``.
+* `Main schematic PDF <../hardware/main-rev-e/exports/schematic.pdf>`_ and
+  `KiCad project <../hardware/main-rev-e/pump-controller-main-rev-e.kicad_pro>`_.
+  ``main-rev-e.json`` defines component/pin interfaces and placements. The
+  current BOM is ``../hardware/main-rev-e/bom.csv``.
+  `Capacitor sourcing <rev-e-capacitor-sourcing.rst>`_ records exact parts,
+  C1 installed dimensions and effective-capacitance acceptance limits.
+* `Panel KiCad project <../hardware/panel-rev-e/pump-panel-rev-e.kicad_pro>`_,
+  ``panel-rev-e.json`` and its native BOM define the five-button panel,
+  optional external contacts, active NPN key conditioning and PH4 OLED socket.
+* `Electrical/reset review <rev-e-electrical-review.rst>`_,
+  `signal and analog layout review <rev-e-signal-integrity-review.rst>`_,
+  `return-path geometry <../hardware/main-rev-e/checks/signal-return-paths.json>`_, and
+  `bench acceptance plan <rev-e-bench-acceptance.rst>`_ distinguish corrected
+  defects, calculation limits and outstanding physical tests. T00–T09 are NOT RUN.
+* `Main native checks <../hardware/main-rev-e/checks/independent-summary.json>`_,
+  `main CAM checks <../hardware/main-rev-e/checks/independent-gerbers.json>`_
+  and `panel checks <../hardware/panel-rev-e/checks/summary.json>`_ are tied to
+  their source hashes. Main ERC/DRC/parity/unconnected counts are zero; all
+  twelve isolation controls pass. The CAM reference matches 613 connected
+  main pins plus 35 exact NC aliases, and the panel matches 81 connected pins.
+  No layout pass is product-safety or EMC qualification.
+* `Two-board baseline package receipt <../hardware/main-rev-e/checks/two-board-baseline-packages.json>`_
+  records archive checksums and matching source evidence. The
+  `integration review <../hardware/panel-rev-e/checks/integration-review.json>`_
+  passes the host/OLED/key mapping and 128 STOP-contact path cases.
+* `Hardwired-control audit <../hardware/main-rev-e/checks/hardwired-control-review.json>`_
+  verifies current pin maps and ideal contact topology.
+  `Unpowered fixture procedure <rev-e-unpowered-harness-acceptance.rst>`_ and
+  `669-case matrix <rev-e-unpowered-harness-acceptance.json>`_ define future
+  physical continuity tests; every result begins unrun.
 
-The native circuit includes external CT/burden and OLED symbols, while the
-main PCB includes only parts marked ``on_board``. External switches, antenna
-and harness requirements also appear in the complete BOM.
+Prototype manufacturing
+-----------------------
 
-Regeneration overwrites native schematic files. PCB regeneration also
-overwrites routing unless the schematic-only option is used. Preserve reviewed
-native changes first. For later revisions, either update these definitions
-before regeneration, or make the native KiCad project authoritative and stop
-regenerating it from the older definitions. Do not silently maintain two
-different versions of the electrical circuit.
+* Main `bare-board ZIP <../hardware/main-rev-e/pump-controller-main-rev-e-gerber-prototype.zip>`_
+  and `stencil ZIP <../hardware/main-rev-e/pump-controller-main-rev-e-stencil-prototype.zip>`_:
+  the `package manifest <../hardware/main-rev-e/package-manifest.json>`_
+  records successful current source/evidence/CAM checks and matching archive hashes.
+* Panel `bare-board review ZIP <../hardware/panel-rev-e/pump-panel-rev-e-gerber-review.zip>`_
+  and `stencil review ZIP <../hardware/panel-rev-e/pump-panel-rev-e-stencil-review.zip>`_.
+* `Fabrication specification <../hardware/fabrication/rev-e/README.rst>`_ and
+  `package procedure <../hardware/main-rev-e/PACKAGING.rst>`_. Main and panel
+  are separate fabrication designs; paste files are separate stencil files. The
+  proposed six-layer dielectric stackup remains subject to vendor confirmation.
 
-Review documents
-----------------
+Connections, operation and radio
+--------------------------------
 
-* ``wiring-guide.rst`` explains external wiring and the photographed starter.
-* ``revision-findings.txt`` records corrections and remaining validation.
-* ``core-review.txt``, ``power-budget-review.txt`` and
-  ``probe-front-end.txt`` retain electrical decisions and calculations.
-* ``oled-selection.txt`` gives module size, exact harness mapping and timing.
-* ``programmability.txt`` and ``operation-and-bringup.txt`` specify future
-  firmware behavior. They do not contain implemented firmware.
-* ``fabrication-constraints.txt`` records geometry and supplier-review needs.
+* `Rev E integration <rev-e-integration.rst>`_,
+  `preassembled harness schedule <rev-e-harness-order.rst>`_ and
+  `panel pin assignments <../hardware/panel-rev-e/parts-and-interface.rst>`_
+  define direct numbered GH12/PH4 cables. Main J33/J34 and main SET/NEXT keys
+  are removed; J2 is the internal 2.54 mm service header. Old fanout looms do
+  not apply. Actual starter coil/capacitor/overload identification remains open.
+* ``oled-selection.txt`` defines the small display, 150 mm host plus 100 mm
+  OLED cable target, shared 400 kHz acquisition schedule and measured bus limits.
+* ``programmability.txt`` and ``operation-and-bringup.txt`` specify future local
+  protection, reset/re-arm, settings, updates and calibration. An internal CPU
+  reset may retain the ARM latch; a fresh session must establish hardware clear.
+* `Wireless architecture <wireless-architecture.rst>`_ and
+  `variant manifest <wireless-variants.json>`_ specify native Zigbee as primary
+  and separate Matter/Thread and Matter/Wi-Fi images. Custom Zigbee pairing
+  directly to Aqara M200 is unsupported; Matter is the planned M200/Apple path.
+  Antenna selection, RF/EMC and actual hub interoperability remain untested.
+* `Mechanical prototype <../mechanical/rev-e/README.rst>`_ describes the separate
+  170 x 150 x 90 mm case, printable parts and fit limits. It does not establish
+  fit inside any starter or an electrically qualified enclosure. Main-board
+  insulating standoffs are 18 mm minimum; verify C1 Panasonic EEUFR1E470
+  installed clearance using the 13.5 mm allowance (12.5 mm maximum body
+  plus 1 mm mounting allowance) and trimmed top-side leads.
 
-The old LED-panel circuit and its completed PCB are superseded and kept under
-``archive/led-panel-rev-b``. The current design has an OLED and no discrete
-indicator panel. Rev C uses one external MODE button and two onboard settings
-keys; the earlier selector documentation is in archive/rev-b-selector.
+Sources and regeneration
+------------------------
 
-PDF production
---------------
+``../tools/build_main_rev_e.py`` transforms the retained earlier circuit into
+current Rev E. It includes connector changes, four mounts, the revised reset
+biases, U36/C77 clear conditioning, U37/C78 control-input conditioning and
+the six-layer layout setup. The panel's
+focused builder is ``../tools/build_panel_rev_e.py``. Build stages overwrite
+native schematics and placement/routing inputs; preserve reviewed changes
+before regeneration. A placement-only DRC is not a routed-board pass.
 
-The report helpers require Python 3 with ``reportlab`` and ``pypdf``. First
-export the current native KiCad schematic to
-``hardware/exports/schematic.pdf``. After a finalized layout report and PCB
-proof exports exist, ``build_layout_report.py`` prepares their review pages.
-Then ``build_report.py`` builds the combined design pack under ``output/pdf``.
-Review rendered pages after regenerating; successful export alone is not a
-visual or electrical validation.
+``core.json``, ``power-mcu.json``, ``probe-front-end.json``, ``assemble.py`` and
+``circuit.json`` remain inputs to the earlier circuit and Rev E transformation.
+They are not independently current connector/placement definitions.
+``parts-complete.csv`` is historical; use current native BOMs. The retained
+``core-review.txt`` and ``power-budget-review.txt`` explain earlier calculations
+but contain superseded references. Current reset findings, 5.81 W allocation
+and actual qualification requirements are in the Rev E reviews and bench plan.
 
-CAD setup and routing helpers are described in ``tools/README.rst``. The
-checks in ``hardware/checks`` govern the recorded revision; historical
-iteration reports under ``archive`` are not current acceptance evidence.
+Rev D used the older main board with a three-header panel fanout. Rev C PDFs,
+``wiring-guide.rst`` and earlier report generators retain that hardware unless
+explicitly revised. Their connectors, dimensions and acceptance records must
+not be used for Rev E. The older main project retains a ``rev-b`` filename
+despite later Rev C metadata. LED/rotary-selector versions are archived.
