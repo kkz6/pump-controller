@@ -1,0 +1,16 @@
+.DS_Store
+.tools/
+tmp/
+__pycache__/
+*.pyc
+*.kicad_prl
+*.lck
+*.bak
+*-backups/
+design/datasheets/
+output/*.zip
+
+
+# Deliberately invalid clearance-test boards and transient router output
+hardware/checks/isolation-test/
+hardware/checks/freerouting-main.log

@@ -1,0 +1,209 @@
+CORE CIRCUIT CHECK — REV B
+19 November 2026
+
+Scope: component pin assignments, metering values and the revised independent
+ARM latch/STOP/OFF/high-high circuit. This is a design review and calculation,
+not a hardware test, insulation certification or commissioning record.
+
+FUNCTIONAL WIRING
+
+The on-board RACM06E-05SK/277 supplies isolated 5V. Its positive passes
+through the normally closed STOP contact, then to the common of a
+break-before-make MANUAL/OFF/AUTO selector. MAN_RETURN and AUTO_RETURN go
+to their respective SS14 diodes; their common cathode MODE_COIL_5V passes
+through the separate normally closed high-high float to K1_COIL_PLUS.
+OFF, STOP or high-high opening therefore physically removes K1 coil supply.
+If the high-high float is absent, its fitted link must be documented: the
+link provides continuity, not overflow protection.
+
+START and RESET are momentary normally open switches to isolated GND.
+All re-used panel switch contacts must be disconnected from their old mains
+wiring before connection to J32. No contact may mix the new low-voltage
+controls and the old mains control circuit.
+
+The existing overload's normally closed auxiliary contact remains in series
+with the contactor coil. Board J30 inserts the K1 and K2 normally open contacts
+in series in that coil circuit. The original mains START/seal-in bypass must
+be removed or rewired so it cannot energize the coil around either relay.
+This revision's manual mode uses local electronics; it does not depend on
+Matter or the network, and it does not bypass controller protection.
+
+ARM_CMD clocks D=1 into U31 only following a fresh user re-arm. It is separate
+from watchdog HEARTBEAT. K1 gate = ARM_Q AND software PERMIT_D. Watchdog,
+power supervisor, MCU reset or loss of INTERLOCK_OK clears ARM_Q. A return
+of power/interlock or the next ordinary heartbeat cannot re-arm it.
+After an interlock transition, firmware must first set RUN_CMD/PERMIT_D low,
+observe valid mode and protection inputs, and accept a new user action.
+Keep ARM_CMD low at boot and never send it as part of periodic servicing.
+
+Use a selector with an OFF interval of at least 5ms, subject to bench
+verification. With the review change R87=100k, C86=10nF discharges through
+100k when K1_COIL_PLUS floats, giving about 1ms nominal time constant.
+With a low-impedance low at K1_COIL_PLUS the time constant is about 180us.
+Firmware must independently detect mode changes and cancel run requests;
+do not rely on an unspecified microsecond transfer gap.
+
+PIN/LOGIC CHECKS
+
+ADE7953: pin26=MISO, pin27=MOSI, pin25=SCLK, pin28=CS. Pins7/8 go high,
+pin14 low, and exposed pad joins the live analog/digital ground. Regulator
+and reference bypassing, reset 10k/1uF and unused B-channel grounding are
+consistent with the manufacturer's connection guidance.
+
+ADuM6421A pin mapping, converter ground separation and VSEL=GNDISO for 3.3V
+output are consistent with its datasheet. Maintain the required isolation
+barrier and the manufacturer's local converter/ferrite layout; electrical
+net separation alone does not establish reinforced insulation.
+
+STWD100NY: WDO1, GND2, EN3, WDI4, VCC5; EN low enables it. Its selected
+timeout is 1.6s nominal, 2.24s maximum. SN74LVC1G74 DCU pin assignments
+and the new SN74LVC1G08 gate are consistent with the proposed function.
+The watchdog must be serviced only after successful fresh control/sensor
+checks, not by an independent timer that continues through a stalled loop.
+
+D30/D35 must use the implemented BAT54WS-7-F two-pin SOD-323 part with
+pin1 cathode, pin2 anode. Nexperia BAT54W,115 is a DIFFERENT three-pin
+SOT-323 part and is not a drop-in replacement.
+
+The active Rev B draft replaces the indicator panel with a 0.91-inch
+128x32 I2C OLED. U33 GPA0..GPA7 are intentionally unconnected; configure
+them as inputs with their internal pullups enabled. They are not display
+drive outputs. J33 is 1=3V3, 2=GND, 3=SDA, 4=SCL. The selected OLED
+carrier is 1=SCL, 2=SDA, 3=GND, 4=VCC: the harness maps 1->4, 2->3,
+3->2, 4->1 by signal, with different connector families at its ends.
+These assignments were checked in the merged circuit; confirm the actual
+carrier revision and cable orientation before powering it.
+
+The OLED shares the 400kHz I2C bus with the ADC and local controls. Use
+bounded 16-byte display chunks in the acquisition idle interval, normally
+1-2Hz updates. Up to 5Hz is conditional on the measured bus/control budget.
+Whole-frame blocking writes are excluded. Target at most 0.5ms per complete
+display transaction only after measurement verifies that bound.
+The selected module's 4.7k pullups in parallel with the main 3.3k give
+about 1.939k and 1.70mA nominal LOW current. Measure actual bus levels and
+rise time, including the carrier's internal regulator. Probe-front-end.txt
+defines scheduling, stale-data fail-off and OLED-noise validation details.
+A display NACK alone may disable its updates; a stuck shared bus requires
+fail-off because ADC and local input freshness are then compromised.
+
+LOCAL INPUT AND SUPPLY MARGINS
+
+MCP23017 GPIO VIH is 0.8*VDD. STOP/MAN/AUTO use 22k/33k 1% dividers
+upstream of the SS14 diode. Taking the PSU's 2% accuracy, 0.3% line and
+1% load terms conservatively together gives 4.835V at 25C. Worst divider
+ratio is 0.595190; with 1uA input leakage the minimum high is 2.864V.
+TPS62162 power-save +4% permits VDD=3.432V, so VIH=2.7456V. The resulting
+119mV input margin allows only 0.200V upstream switch/wire drop.
+At 60C, the PSU's 0.05%/K temperature term lowers the calculation to
+4.7475V: input margin is about 67mV, or 0.112V upstream drop. These figures
+exclude ripple, load transients and PCB drops. A 4% PSU transient can cross
+the input threshold. Debounce input state, fail off on unresolved/invalid
+mode data, and never arm on an ambiguous mode. This is not a complete
+combined-corner qualification. Keep panel control wiring short.
+
+HH uses U35's 5.5V-tolerant Schmitt input, with its rail-to-rail output feeding
+MCP GPB5. Final circuit: R87=100k; R86=22k and C86=10nF.
+At 60C's 4.7475V supply, 0.5V diode drop, resistor corners and 5uA U35
+input leakage, calculated HH high is at least 3.378V before wiring drop.
+The maximum corresponding input is about 4.412V, below its 5.5V rating.
+The merged circuit values were checked after the change; no hardware
+measurement has been made.
+
+Final U32 is STM1001TWX6F: threshold 3.00-3.15V over -40..85C,
+open-drain reset, 140-280ms release delay. Its SOT-23 pins are 1=RESET_N,
+2=VCC, 3=GND; these differ from the previous TLV803E, and the merged circuit
+now uses the ST mapping. The 3.15V maximum threshold is below TPS62162's
+3.1845V static minimum by 34.5mV. This resolves the identified static
+release overlap; ripple/transients and local supply drops still require
+measurement. No extra hysteresis allowance is specified for this ST part.
+The 3.00V minimum falling threshold equals the MCU module's minimum supply;
+finite reset propagation/glitch rejection means this is not a guarantee
+that clear always precedes a sub-3.00V excursion. Test fast/slow brownouts
+and supply oscillation while the pump is commanded on; keep the MCU's own
+brownout protection enabled and require fresh user re-arm after any reset.
+
+CALCULATED METER VALUES
+
+Voltage network: 4*249k + 1k = 997k total; gain = 1/997.
+  230Vrms -> 0.23069Vrms -> 0.32625V peak at VP.
+  264Vrms -> 0.26479Vrms -> 0.37448V peak at VP.
+  This remains below the voltage channel's +/-0.5V peak range at gain1.
+  At 264Vrms, divider current = 0.26479mA.
+  Each 249k dissipates about 17.46mW and drops about 65.93Vrms.
+  The selected 200V-working resistor rating has normal-operation headroom;
+  surge and single-fault behavior still need separate evaluation.
+
+Current network, ideal 1000:1 CT, 6.8 ohm permanent burden:
+  6Arms  -> 40.8mVrms  -> 57.70mV peak; burden 0.245mW.
+  20Arms -> 136.0mVrms -> 192.33mV peak; burden 2.72mW.
+  60Arms -> 408.0mVrms -> 577.00mV peak; burden 24.48mW.
+The ADE current channel in this single-ended configuration is limited to
++/-250mV at gain1. Its ideal unclipped limit is therefore about 26Arms,
+not 60Arms. The 60A figure belongs to the CT manufacturer's maximum input,
+not to this meter's calibrated range. Saturated inrush samples must be
+identified/blanked and must never be treated as reliable underload evidence.
+Use PGA gain1 for the stated current range; higher gain reduces the range.
+
+The permanent burden stays soldered at the CT when its board cable is
+unplugged. The CT only surrounds one motor conductor. Its secondary,
+burden and connector become mains-referenced when connected to this meter,
+so keep the entire assembly insulated and inside the appropriate live zone.
+CT ratio, phase error and orientation require calibration using an adequate
+reference instrument; nominal calculations are not an accuracy guarantee.
+
+The 1k/33nF anti-alias filters have fc about 4.82kHz. Voltage low-leg source
+resistance is about 999ohm, closely matching the current channels' filters.
+The 27pF crystal capacitors give 13.5pF series capacitance; adding the assumed
+4.5pF stray gives 18pF. Confirm oscillator startup and actual frequency on
+the assembled PCB rather than treating stray capacitance as known.
+
+REMAINING MATERIAL DECISIONS / VERIFICATION
+
+1. A contactor auxiliary-feedback input is not present in the reviewed core.
+   MCP GPB6/GPB7 are spare inputs with separate 100k pulldowns R92/R93,
+   not hard-grounded. Add an isolated dry auxiliary-contact input if
+   contactor-state verification is claimed. Otherwise RUN must be described
+   as observed motor current or a command indication, with the distinction
+   explicit. Current sensing cannot prove the contactor's mechanical state.
+2. Verify the actual contactor coil voltage, inrush/holding VA and suppression
+   against G5Q contact ratings; resistive current ratings are insufficient.
+3. K1 receives at least 4.335V in the 25C static calculation before cable/FET
+   drops, using a conservative 0.5V SS14 drop. G5Q pickup <=3.75V is quoted
+   at 23C coil temperature. Omron's approximate 0.4%/C copper model gives
+   4.155V at 50C versus only 4.2725V available: 118mV before wiring, ripple
+   and self-heating. At 60C the estimate is 4.305V versus 4.2475V available.
+   These are estimates, not guaranteed hot-pickup limits. The datasheet's
+   voltage/temperature plot is maximum allowable voltage, not a pickup
+   curve. Hot restart is unqualified; validate at the actual enclosure
+   temperature with the full STOP/selector/float cable loop. A future
+   low-drop OR arrangement may be required. Check relay release with its
+   flyback diode and physical STOP, including frozen MCU/I2C cases.
+4. Test boot, reset, watchdog timeout, selector changes, short STOP taps,
+   high-high trip/recovery, remote pause and resumed MCU execution. None
+   may restart automatically without the required fresh re-arm/action.
+5. The overload NC is in the external mains coil loop and has no direct trip
+   feedback to this board. Opening it does not directly clear ARM_Q. Load/
+   voltage software can detect and latch a fault after its detection delay,
+   but cannot guarantee prevention of every short external-interruption
+   restart. Use a manual-reset overload; set STOP/OFF before resetting it.
+   Do not describe all external coil-loop faults as hardware-latched.
+6. The 33ohm 5V preload dissipates about 0.758W continuously. Thermal
+   verification must include this load, the AC/DC module, relays, meter
+   isolation converter and RF activity in the actual closed starter.
+
+PRIMARY REFERENCES
+https://www.analog.com/media/en/technical-documentation/data-sheets/ade7953.pdf
+https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf
+https://talema.com/wp-content/uploads/datasheets/AC-1020.pdf
+https://www.st.com/resource/en/datasheet/stwd100.pdf
+https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf
+https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf
+https://www.st.com/resource/en/datasheet/stm1001.pdf
+https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
+https://assets.nexperia.com/documents/data-sheet/BAT54W_SER.pdf
+
+https://www.ti.com/lit/ds/symlink/tps62162.pdf
+https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf
+https://components.omron.com/eu-en/datasheet_pdf/J155-E1.pdf
+https://www.ia.omron.com/support/guide/36/further_information.html
+https://files.waveshare.com/upload/2/2a/0.91inch_OLED_Module_Schematic.pdf

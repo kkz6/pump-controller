@@ -1,0 +1,38 @@
+2026-11-19 08:50:29.597 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
+2026-11-19 08:50:29.882 INFO   Hardware: 11 CPU cores, 450 CPU score, 4608 MB RAM
+2026-11-19 08:50:29.884 WARN   GUI is disabled and you don't have a console available, so the only feedback from Freerouting is in the log.
+2026-11-19 08:50:31.368 INFO   [77FD49\A07416] Loading board file 'pump-controller-rev-b.dsn'...
+2026-11-19 08:50:31.458 INFO   Layer 'In1.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-19 08:50:31.481 INFO   [77FD49\A07416] Job '77FD49\A07416' started at 2026-11-19T03:20:31.481629Z.
+2026-11-19 08:50:31.589 WARN   Design Warning: Board has 6 pre-existing clearance violation(s) in the loaded design (before routing):
+  - 6 unfixable violation(s) (cannot be resolved by Freerouting):
+      * 4 pin-to-pin clearance violations:
+          - R46.1 [net M_VDIV_2] <-> R43.2 [net M_VDIV_0]
+          - R43.2 [net M_VDIV_0] <-> R43.1 [net L_PROTECTED]
+          - R43.1 [net L_PROTECTED] <-> R44.1 [net M_VDIV_0]
+          - R44.2 [net M_VDIV_1] <-> R44.1 [net M_VDIV_0]
+      * 2 fixed trace/via clearance violations:
+          - C4.2 [net GND] <-> FixedVia#2089 [net GND]
+          - C5.2 [net GND] <-> FixedVia#2090 [net GND]
+  - 0 potentially fixable violations
+Notice: Freerouting does not modify component placement, board outlines, or fixed items.
+Resolving these 6 unfixable violation(s) is the responsibility of the board author in their EDA tool (e.g. KiCad).
+2026-11-19 08:50:31.621 INFO   [77FD49\A07416] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=10.
+2026-11-19 08:50:31.710 INFO   [77FD49\A07416] Fanout stage started on board '9bd58619cf4703872ef1d35ff1b3aee8' with 582 of 610 SMD pins needing fanout (2 already connected, 26 netless).
+2026-11-19 08:50:45.915 INFO   [77FD49\A07416] Fanout pass #1 on board '352983e29bd5ea25ef27faa5feaee960' completed in 14.11 seconds with 557 SMD pins fanouted, 6 not routed, 0 insert errors, +170 extra vias (0 SMD pins still to check in pass, ripup costs=100).
+2026-11-19 08:50:53.652 INFO   [77FD49\A07416] Fanout pass #2 on board 'ee785a7eed88d373b4cf3e28204b3a53' completed in 7.71 seconds with 169 SMD pins fanouted, 3 not routed, 0 insert errors, +36 extra vias (0 SMD pins still to check in pass, ripup costs=200).
+2026-11-19 08:50:57.150 INFO   [77FD49\A07416] Fanout pass #3 on board '2f67367ef13ea35a62bd1a0eb1f29d81' completed in 3.47 seconds with 92 SMD pins fanouted, 1 not routed, 0 insert errors, +26 extra vias (0 SMD pins still to check in pass, ripup costs=300).
+2026-11-19 08:50:59.739 INFO   [77FD49\A07416] Fanout pass #4 on board '23886567e1be3cb3977eae26e662ac4a' completed in 2.56 seconds with 59 SMD pins fanouted, 1 not routed, 0 insert errors, +11 extra vias (0 SMD pins still to check in pass, ripup costs=400).
+2026-11-19 08:51:02.298 INFO   [77FD49\A07416] Fanout pass #5 on board '976e71db16e9c3666ca1fffe481907e5' completed in 2.53 seconds with 45 SMD pins fanouted, 1 not routed, 0 insert errors, +3 extra vias (0 SMD pins still to check in pass, ripup costs=500).
+2026-11-19 08:51:05.350 INFO   [77FD49\A07416] Fanout pass #6 on board 'c5a451923a7f2055bf314312610ca157' completed in 3.02 seconds with 37 SMD pins fanouted, 3 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=600).
+2026-11-19 08:51:07.540 INFO   [77FD49\A07416] Fanout pass #7 on board 'ea03039d6861822821d5ac8cc22cdd08' completed in 2.16 seconds with 31 SMD pins fanouted, 4 not routed, 0 insert errors, +2 extra vias (0 SMD pins still to check in pass, ripup costs=700).
+2026-11-19 08:51:09.732 INFO   [77FD49\A07416] Fanout pass #8 on board '90ed2fe24c3a2d9850d7f94a829c293f' completed in 2.16 seconds with 32 SMD pins fanouted, 2 not routed, 0 insert errors, +1 extra via (0 SMD pins still to check in pass, ripup costs=800).
+2026-11-19 08:51:11.495 INFO   [77FD49\A07416] Fanout pass #9 on board '0b9f230510b5444b0c784a4d17187b75' completed in 1.73 seconds with 26 SMD pins fanouted, 2 not routed, 0 insert errors, +2 extra vias (0 SMD pins still to check in pass, ripup costs=900).
+2026-11-19 08:51:13.231 INFO   [77FD49\A07416] Fanout pass #10 on board '7165b4fe0444a2d03060db391321f628' completed in 1.70 seconds with 24 SMD pins fanouted, 2 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=1000).
+2026-11-19 08:51:14.950 INFO   [77FD49\A07416] Fanout pass #11 on board 'a839ec5451fcd0bf677090834196ae0e' completed in 1.69 seconds with 24 SMD pins fanouted, 2 not routed, 0 insert errors, +1 extra via (0 SMD pins still to check in pass, ripup costs=1100).
+2026-11-19 08:51:16.661 INFO   [77FD49\A07416] Fanout pass #12 on board '8a40361d3159d0bb7a41e70d82f6f11d' completed in 1.68 seconds with 24 SMD pins fanouted, 2 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=1200).
+2026-11-19 08:51:18.339 INFO   [77FD49\A07416] Fanout pass #13 on board '6d796663006648c09151c4299dea67cd' completed in 1.65 seconds with 24 SMD pins fanouted, 2 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=1300).
+2026-11-19 08:51:20.027 INFO   [77FD49\A07416] Fanout pass #14 on board '30732105d42300f16a19dd15b78ab231' completed in 1.66 seconds with 24 SMD pins fanouted, 2 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=1400).
+2026-11-19 08:51:20.027 INFO   Fanout stopped after 14 passes: no progress for 3 consecutive passes.
+2026-11-19 08:51:20.256 INFO   [77FD49\A07416] Fanout stage completed: started with 584 total SMD pins, completed in 48.49 seconds, escaped pins: 564/584 (96.6%), using 48.07 total CPU seconds, 43.80 GB total allocated, and 208.4 MB peak heap usage.
+2026-11-19 08:51:21.198 INFO   [77FD49\A07416] Auto-routing stage started on board '30732105d42300f16a19dd15b78ab231' with baseline score 550.93 for 171 unrouted items.

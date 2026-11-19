@@ -1,0 +1,206 @@
+[
+  {
+    "library": "Capacitor_SMD",
+    "footprint": "C_0805_2012Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "62775a51fe74ba7f1b572de327bdbd3fc92582721b2abcaa47787865590d89cb"
+  },
+  {
+    "library": "Resistor_SMD",
+    "footprint": "R_0603_1608Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "7190ac4a00125b807e54129ef0d87d87f2a658eeb74d025a7028203419b09f23"
+  },
+  {
+    "library": "Capacitor_SMD",
+    "footprint": "C_0603_1608Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "fe0dbfefbb181a0466f93a8de52d84ba7b00fcd9acdbb69575f4128a0af4e405"
+  },
+  {
+    "library": "Connector_Phoenix_MC_HighVoltage",
+    "footprint": "PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "3d771f2957933592baf02c15dd24e4a20147e2ab66d71dd2122ed7550f86f4a6"
+  },
+  {
+    "library": "Package_TO_SOT_SMD",
+    "footprint": "SOT-23",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "0d88c86c1b6d8c1aae4aa8c09386264c089d4451a128b6ccd63ed253f4300b15"
+  },
+  {
+    "library": "Diode_SMD",
+    "footprint": "D_SOD-323",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "03669ee95335b8ad49c3458e5262e7c2fd7ace6fe481bfd00f46b6f2f32abc8a"
+  },
+  {
+    "library": "TerminalBlock_Phoenix",
+    "footprint": "TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "dfc55b9c4471fef83651217c98993a8cbdec2b699085c2c7be6795b48c441258"
+  },
+  {
+    "library": "Package_SO",
+    "footprint": "TSSOP-16_4.4x5mm_P0.65mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "fbac79fc5f310754726589d67071a422c429216f843ecd6013bbe2e6a49e7064"
+  },
+  {
+    "library": "Resistor_SMD",
+    "footprint": "R_1206_3216Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "c7320668dc81bbb954cb4f15e4e7a766c120059343d43551468c8f7ccc8fde37"
+  },
+  {
+    "library": "Capacitor_SMD",
+    "footprint": "C_1210_3225Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "e1dae516e079b70c4736d001fb81bfb4ef5f9c2a37c8175223a44f83a04ff75f"
+  },
+  {
+    "library": "Package_SO",
+    "footprint": "SSOP-28_5.3x10.2mm_P0.65mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "bbb0d0449b996c0ad096ca837fee38110e319360b863de5c7df6a964f6140d98"
+  },
+  {
+    "library": "Diode_SMD",
+    "footprint": "D_SOD-123",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "fd16785935b01254e1076f490e12f0f096da73cf087adefce51225585c62557a"
+  },
+  {
+    "library": "Connector_Phoenix_MC",
+    "footprint": "PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "8744bcecd03fc41572f24f963056a88c8bbcedb14c3be35476ec69f025c4e2e1"
+  },
+  {
+    "library": "Package_SO",
+    "footprint": "TSSOP-10_3x3mm_P0.5mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "2086038e5c7206b71f55b2b549ebc926ab2462fa36b107db5287ae1d38a0da96"
+  },
+  {
+    "library": "Connector_Phoenix_MC",
+    "footprint": "PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "b72ad9f69da5945a7e9fce7f04e6d6e353e736652f8403bca305f0da3a889fc4"
+  },
+  {
+    "library": "Resistor_SMD",
+    "footprint": "R_0805_2012Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "f050b6a50cc7e6f86291fb7aa8f87b0d02255e21cfbddf291cdccc87e5889794"
+  },
+  {
+    "library": "Connector_PinHeader_1.27mm",
+    "footprint": "PinHeader_2x04_P1.27mm_Vertical",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "68ddd21332012ca44e2f75b595a9736b4dbee56cd140851d40f428994cfb1fc4"
+  },
+  {
+    "library": "Inductor_SMD",
+    "footprint": "L_Wuerth_MAPI-4030",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "03c6fcf37241b9144de263cb8c4a7d63338556e02c59bbb76aad5fe836f0495d"
+  },
+  {
+    "library": "Connector_PinHeader_1.27mm",
+    "footprint": "PinHeader_2x03_P1.27mm_Vertical_SMD",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "f060a5dbc9f88fec4d40ce4626b151dddc9cb545dd831bbfa7d005d43219233d"
+  },
+  {
+    "library": "Package_SON",
+    "footprint": "Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm_ThermalVias",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "1766b4fbe43f04028b62b2c0b616bb23b7a93b1f5d68acb4d5f11ae00c115e43"
+  },
+  {
+    "library": "Connector_Phoenix_MC",
+    "footprint": "PhoenixContact_MC_1,5_7-G-3.81_1x07_P3.81mm_Horizontal",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "754778b0e78730dc4691922762249e6f4c0580cb4bef1cd3f46cc588d1ea92bd"
+  },
+  {
+    "library": "MountingHole",
+    "footprint": "MountingHole_2.7mm_M2.5",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "d28d0215a45e6dd7c7ea0a27ffc55c41e75cd87ce37ab43b84c6cbe6abfe67d8"
+  },
+  {
+    "library": "Connector_JST",
+    "footprint": "JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "c0e5c962366864b39ad3a295bb6419547e18f0f5ac49060d75ea51d0e7079732"
+  },
+  {
+    "library": "Package_SO",
+    "footprint": "VSSOP-8_2.3x2mm_P0.5mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "dca72da69de3263affb64fd1abd218db3cf30ff727c784b3f02c8c588a2875a8"
+  },
+  {
+    "library": "Inductor_SMD",
+    "footprint": "L_0603_1608Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "a2a9c562208496756e22f3ab19e0bd6db2341d14da92e7c767d5eafd1bb45d38"
+  },
+  {
+    "library": "Button_Switch_SMD",
+    "footprint": "SW_SPST_TL3305A",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "55e7939eef6d5d849fc03bfe68b2c3dbdbcab5f8584fc1dc94bacb180c959461"
+  },
+  {
+    "library": "Diode_SMD",
+    "footprint": "D_SMA",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "f7cba3b52ed8b34dce89170722de58324eac04e9e61a095e0eab37b9ca93cb7f"
+  },
+  {
+    "library": "Package_SO",
+    "footprint": "TSSOP-14_4.4x5mm_P0.65mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "e4bf82cea6d3b3259ddf42469b1407628ad1181a28ae6f3f340190c0cca31ccd"
+  },
+  {
+    "library": "Package_TO_SOT_SMD",
+    "footprint": "SOT-323_SC-70",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "74e071f8714739c788536a0b053956a4f21489ee5173faf675e1a7ade4445ba8"
+  },
+  {
+    "library": "Crystal",
+    "footprint": "Crystal_SMD_HC49-SD",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "24d938dc8901f39f5ed83e084f02cc0ccce15e130d88ec99a3f82658ced2fa68"
+  },
+  {
+    "library": "Capacitor_THT",
+    "footprint": "CP_Radial_D5.0mm_P2.00mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "fd0a251de515130de6e789ffb786d43c746b83178e437feb9fc4f39b6ea9ef39"
+  },
+  {
+    "library": "Resistor_SMD",
+    "footprint": "R_2512_6332Metric",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "abab4bf8eeb3ed03061d8eeb56b542cdac074ce8a0ace0f9b06e933c0b48f297"
+  },
+  {
+    "library": "Package_TO_SOT_SMD",
+    "footprint": "SOT-23-5",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "455a3f7c3e5eb5b8847eaa5df23e18651e78ab9f75afd09a0883758a0d901761"
+  },
+  {
+    "library": "Package_CSP",
+    "footprint": "LFCSP-28-1EP_5x5mm_P0.5mm_EP3.14x3.14mm",
+    "source": "KiCad 10.0.8 official macOS distribution",
+    "sha256": "dda7e12fb6ed45eecbb45e46c56e9a33340acfa95d0972ec24bea5425a90e483"
+  }
+]

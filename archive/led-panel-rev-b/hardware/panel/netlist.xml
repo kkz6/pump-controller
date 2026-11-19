@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/panel/pump-panel-rev-b.kicad_sch</source>
+    <date>2026-11-19T08:48:37</date>
+    <tool>Eeschema 10.0.8</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Pump starter cover indicator panel</title>
+        <company>1 HP single-phase pump controller</company>
+        <rev>B-DRAFT</rev>
+        <date/>
+        <source>pump-panel-rev-b.kicad_sch</source>
+        <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/">
+      <title_block>
+        <title>Separate 60 x 20 mm LED board</title>
+        <company>1 HP single-phase pump controller</company>
+        <rev>B-DRAFT</rev>
+        <date/>
+        <source>panel.kicad_sch</source>
+        <comment number="1" value="Engineering prototype; mains review and bench tests pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="D1">
+      <value>LOW</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D1" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>d9803b58-933c-50d5-9461-a944f5584ebc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>L1</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D2" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>7d35673f-ef47-5b62-b75c-de0851c46032</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>L2</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D3" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>5896ed06-cc09-5464-98ce-a58ff8e054e8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>L3</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D4" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>37807ff9-9d1a-5f61-84f3-b459da99c0cf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D5">
+      <value>FULL</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D5" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>b9e62fb7-f115-5cf0-a1fb-0ccbd5618a8d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D6">
+      <value>RUN</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D6" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>1ccc4c64-252d-557a-a32a-4ca1f2f21d09</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D7">
+      <value>AUTO</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KGKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D7" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KGKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>58d19a09-9720-5001-bb50-40f804e0c33e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D8">
+      <value>FAULT</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="MPN">LTST-C190KRKT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <libsource lib="Pump" part="D8" description="0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility"/>
+      <property name="MPN" value="LTST-C190KRKT"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>31da3626-da4e-5010-aa60-f8390697b731</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>To main J33</value>
+      <footprint>Connector_JST:JST_GH_BM10B-GHS-TBT_1x10-1MP_P1.25mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">BM10B-GHS-TBT(LF)(SN)</field>
+        <field name="Footprint">Connector_JST:JST_GH_BM10B-GHS-TBT_1x10-1MP_P1.25mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Pump" part="J1" description=""/>
+      <property name="MPN" value="BM10B-GHS-TBT(LF)(SN)"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>2abbc37a-d12b-576c-8d98-595e3028ca35</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="MP"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R1" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>c268d746-b920-5305-b7dd-825864dae99a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R2" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>4d89edc1-a352-5738-b695-eaebe08c35fa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R3" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>aeafe3d8-b26c-5699-92e3-3bac5e940826</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R4" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>8ba6b8c4-1897-50e2-a80f-ffd1db564b3f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R5" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>e1c93106-3cc1-5663-bc74-e45435f2d03f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R6" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>4c11801c-ad80-5294-a2e5-dbbd840fc6d1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R7" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>88492a08-7aad-5470-9242-feb56d03fd03</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>680R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="MPN">SPEC: 680R 1%, 0.1W, 0603</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <libsource lib="Pump" part="R8" description="1%, 0.1W, 0603"/>
+      <property name="MPN" value="SPEC: 680R 1%, 0.1W, 0603"/>
+      <property name="Sheetname" value="Separate 60 x 20 mm LED board"/>
+      <property name="Sheetfile" value="panel.kicad_sch"/>
+      <sheetpath names="/Separate 60 x 20 mm LED board/" tstamps="/9c22a7d9-5168-5450-a0f9-0677381262cb/"/>
+      <tstamps>0f32a841-3544-5b81-beec-5fcbc83bcf1a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Pump" part="D1">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D1</field>
+        <field name="Value">LOW</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D2">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D2</field>
+        <field name="Value">L1</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D3">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D3</field>
+        <field name="Value">L2</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D4">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D4</field>
+        <field name="Value">L3</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D5">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D5</field>
+        <field name="Value">FULL</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D6">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D6</field>
+        <field name="Value">RUN</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D7">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D7</field>
+        <field name="Value">AUTO</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="D8">
+      <description>0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</description>
+      <fields>
+        <field name="Reference">D8</field>
+        <field name="Value">FAULT</field>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">0603 green (fault red), approx 1-2mA; choose lens/light-pipe with adequate visibility</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="J1">
+      <fields>
+        <field name="Reference">J1</field>
+        <field name="Value">To main J33</field>
+        <field name="Footprint">Connector_JST:JST_GH_BM10B-GHS-TBT_1x10-1MP_P1.25mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="3V3" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="LED1" type="passive"/>
+        <pin num="4" name="LED2" type="passive"/>
+        <pin num="5" name="LED3" type="passive"/>
+        <pin num="6" name="LED4" type="passive"/>
+        <pin num="7" name="LED5" type="passive"/>
+        <pin num="8" name="LED6" type="passive"/>
+        <pin num="9" name="LED7" type="passive"/>
+        <pin num="10" name="LED8" type="passive"/>
+        <pin num="MP" name="Mount" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R1">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R1</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R2">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R2</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R3">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R3</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R4">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R4</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R5">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R5</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R6">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R6</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R7">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R7</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Pump" part="R8">
+      <description>1%, 0.1W, 0603</description>
+      <fields>
+        <field name="Reference">R8</field>
+        <field name="Value">680R</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1%, 0.1W, 0603</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Pump">
+      <uri>${KIPRJMOD}/Pump.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3V3" class="Default">
+      <node ref="J1" pin="1" pinfunction="3V3_1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+    </net>
+    <net code="2" name="ANODE_1" class="Default">
+      <node ref="D1" pin="2" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+    </net>
+    <net code="3" name="ANODE_2" class="Default">
+      <node ref="D2" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="4" name="ANODE_3" class="Default">
+      <node ref="D3" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+    </net>
+    <net code="5" name="ANODE_4" class="Default">
+      <node ref="D4" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="6" name="ANODE_5" class="Default">
+      <node ref="D5" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+    </net>
+    <net code="7" name="ANODE_6" class="Default">
+      <node ref="D6" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="8" name="ANODE_7" class="Default">
+      <node ref="D7" pin="2" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+    </net>
+    <net code="9" name="ANODE_8" class="Default">
+      <node ref="D8" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="10" name="GND" class="Default">
+      <node ref="J1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J1" pin="MP" pinfunction="Mount_MP" pintype="passive"/>
+    </net>
+    <net code="11" name="LED_1" class="Default">
+      <node ref="D1" pin="1" pintype="passive"/>
+      <node ref="J1" pin="3" pinfunction="LED1_3" pintype="passive"/>
+    </net>
+    <net code="12" name="LED_2" class="Default">
+      <node ref="D2" pin="1" pintype="passive"/>
+      <node ref="J1" pin="4" pinfunction="LED2_4" pintype="passive"/>
+    </net>
+    <net code="13" name="LED_3" class="Default">
+      <node ref="D3" pin="1" pintype="passive"/>
+      <node ref="J1" pin="5" pinfunction="LED3_5" pintype="passive"/>
+    </net>
+    <net code="14" name="LED_4" class="Default">
+      <node ref="D4" pin="1" pintype="passive"/>
+      <node ref="J1" pin="6" pinfunction="LED4_6" pintype="passive"/>
+    </net>
+    <net code="15" name="LED_5" class="Default">
+      <node ref="D5" pin="1" pintype="passive"/>
+      <node ref="J1" pin="7" pinfunction="LED5_7" pintype="passive"/>
+    </net>
+    <net code="16" name="LED_6" class="Default">
+      <node ref="D6" pin="1" pintype="passive"/>
+      <node ref="J1" pin="8" pinfunction="LED6_8" pintype="passive"/>
+    </net>
+    <net code="17" name="LED_7" class="Default">
+      <node ref="D7" pin="1" pintype="passive"/>
+      <node ref="J1" pin="9" pinfunction="LED7_9" pintype="passive"/>
+    </net>
+    <net code="18" name="LED_8" class="Default">
+      <node ref="D8" pin="1" pintype="passive"/>
+      <node ref="J1" pin="10" pinfunction="LED8_10" pintype="passive"/>
+    </net>
+  </nets>
+</export>

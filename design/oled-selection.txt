@@ -1,0 +1,141 @@
+PUMP CONTROLLER — OLED SELECTION, HARNESS AND TIMING
+Revision: 2026-11-19 / engineering prototype
+
+SELECTED MODULE
+
+Waveshare SKU 14657, part name "0.91inch OLED Module": white monochrome
+128 x 32 pixels, SSD1306 controller, I2C interface. Manufacturer dimensions
+are 36.0 x 12.5 mm for the module and 22.38 x 5.58 mm for the active display.
+The selected module replaces the discrete level/status indicator panel.
+It is a purchased module mounted behind a protected front-panel window;
+the controller PCB needs only its four-wire harness. Confirm actual thickness,
+connector/cable clearance and mechanical retention on the received module
+before finalizing the enclosure cutout. The 36 x 12.5 figure is not a complete
+three-dimensional installation envelope. [1]
+
+Manufacturer product/wiki information supports nominal 3.3 V or 5 V input.
+Use the controller's isolated +3V3 rail here. The published module schematic
+contains an XC6206P332MR regulator, SSD1306 charge-pump capacitors, reset RC
+and 4.7 kohm pull-ups on each I2C line to the module's internal 3V3 node.
+At 3.3 V input that internal node will be slightly lower because of regulator
+dropout. Verify operation at controller rail corners and startup; the regulator
+does not create an additional isolation barrier. [1, 2]
+
+No guaranteed maximum whole-module current is published in the official
+product/wiki/manual/schematic information checked. Reserve 100 mA at 3.3 V
+as an engineering allowance pending measurements. This is not a datasheet
+maximum. Measure startup peaks, full-white pixels, highest allowed contrast,
+temperature and supply corners. Chip logic-current figures do not include
+the complete OLED panel and charge-pump load.
+
+With the former 25 mA indicator allocation removed, 100 mA OLED allocation
+added and J34 expansion retained at 25 mA, the 3.3 V reservation is 655 mA.
+The full conservative 5 V power allocation is 5.7 W, leaving 0.3 W against
+the 6 W supply at no more than 50 degrees C local module ambient. This is
+a narrow reserve; actual OLED current and charge-pump load steps need bench
+verification. See power-budget-review.txt for the complete calculation.
+
+CONNECTORS AND EXACT WIRE MAPPING
+
+Controller J33: four-position JST GH, 1.25 mm pitch, vertical board header
+BM04B-GHS-TBT(LF)(SN), mating housing GHR-04V-S with SSHL-002T-P0.2 contacts.
+The final native PCB/BOM must confirm that exact header variant. The OLED
+module connector is specified by Waveshare as PH2.0-4P, 2.0 mm pitch; it is
+not GH and is not directly interchangeable. Use the supplied Waveshare PH2.0
+pigtail, terminated correctly at the GH end, or a qualified custom harness.
+A JST PH cable-end candidate is PHR-4 with SPH-002T-P0.5S contacts; confirm
+physical mating with the actual module connector. Select compatible wire
+diameter and crimp tooling for both connector families. [1, 2, 4, 5]
+
+The official module schematic numbers PH2.0 J1 from SCL toward VCC. This
+reverses the proposed controller's numeric order:
+
+  Controller J33 pin/net    OLED module J1 pin/net
+          1  +3V3                   4  VCC
+          2  GND                    3  GND
+          3  I2C_SDA                2  SDA
+          4  I2C_SCL                1  SCL
+
+Verify pin numbers from the respective mating-face drawings and continuity,
+not cable colors or apparent left/right orientation. This is NOT numbered
+1:1 wiring. Both module connectors J1 and P1 have the same numeric mapping
+in the published schematic. Keep the harness short, provisionally <=100 mm,
+entirely in the isolated low-voltage compartment with strain relief. No hot
+plugging and no route beside motor/contact-coil wiring. Do not supply the
+module separately from 5 V while its signals remain on this connector.
+
+I2C SIGNAL INTEGRITY AND ADDRESS PLAN
+
+Use 7-bit addresses: MCP23017 0x20, ADS1115 0x48, OLED expected 0x3C; Waveshare
+documents 0x3C for its 128 x 32 SSD1306 setup. Confirm the supplied unit before
+commissioning. The shifted write byte 0x78 is not a different 7-bit address.
+Do not assign a J34 expansion device to an occupied address. [3]
+
+The controller already has 3.3 kohm pull-ups. The module's 4.7 kohm pull-ups
+give approximately 1.94 kohm combined pull-up resistance when their supply
+nodes are close. Verify rise time, low-level sink current and noise with the
+actual cable and any J34 accessory at 400 kHz. Extra pull-ups are not to be
+added indiscriminately. Test unpowered-module behavior: the pull-ups and input
+structures can back-feed an unpowered device. The normal installation powers
+the module and controller together; avoid partial-power connection sequences.
+Measure whether OLED charge-pump noise alters probe/meter readings.
+
+DISPLAY SOFTWARE AND SHARED-BUS DEADLINES
+
+Firmware remains unimplemented. Planned operation is a 512-byte monochrome
+framebuffer with 1–2 Hz value refresh. Provide programmable rotating pages:
+water band/estimated volume interval, operating mode and measured running
+state, then voltage/current/real power/power factor. Display source-water and
+sensor validity. Fault text overrides normal page rotation; clear any stale
+numeric value or mark it unknown. A full screen need not show every value at
+once. Larger text and automatic rotation avoid adding navigation buttons.
+Brightness, page order, units and intervals are configuration choices, subject
+to display power limits. Dim during inactivity and shift/rotate content to
+reduce persistent-image wear; important fault status must remain readable.
+
+At 400 kHz, 512 data bytes plus one address and control byte occupy at least
+514 x 9 / 400000 = 11.565 ms on the bus. Chunking into 16-byte writes makes
+32 x 18 x 9 / 400000 = 12.96 ms, before extra addressing commands/software
+overhead. Either is much longer than a 2 ms probe sampling slot. A conventional
+blocking full-frame refresh is therefore unsuitable on this shared bus.
+
+Use at most 16 data bytes per transaction: address + control + 16 data bytes
+take approximately 0.405 ms wire time. Count actual START/STOP, driver and
+command overhead too. A single bus scheduler owns access and admits an OLED
+chunk only if enough slack remains before the next essential sensor deadline.
+Yield after every transaction; do not queue the entire frame as one locked
+operation. Split command sequences as well, retain the display address state,
+and postpone display work if sensor sampling needs the bus. Bound every I2C
+operation and check the actual timing with a logic analyzer. Target transaction
+wall time <=0.5 ms only after measurement proves that bound; otherwise reduce
+the chunk size or reserve more slack. Display 1–2 Hz is a refresh target, not
+a justification to miss ADC deadlines.
+
+The renderer consumes immutable/timestamped status and has no direct motor
+output access. A missing OLED that simply NACKs can be reported locally over
+the LAN and disabled without changing healthy pump control. An OLED holding
+SDA/SCL low affects essential MCP/ADC traffic: time out, invalidate stale
+measurements and perform the specified protective stop and latched fault.
+No busy retry loop may continue a false heartbeat. If a software deadlock
+prevents the stop, the independent watchdog clears hardware permission.
+Recovery of the bus alone must not re-arm the pump. Test display unplugged,
+NACK, SDA stuck low, SCL stuck low, slow response and corrupted commands with
+relay dummy loads before use with the contactor.
+
+PRIMARY SOURCES
+
+[1] Waveshare product specifications, size and connector:
+    https://www.waveshare.com/product/displays/0.91inch-oled-module.htm
+[2] Waveshare module schematic, including numeric connector pinout:
+    https://files.waveshare.com/upload/2/2a/0.91inch_OLED_Module_Schematic.pdf
+    https://www.waveshare.com/wiki/0.91inch_OLED_Module
+[3] Waveshare 128 x 32 OLED setup/address:
+    https://www.waveshare.com/wiki/OLED_Display
+[4] JST GH connector family:
+    https://www.jst-mfg.com/product/index.php?lang=2&series=105
+[5] JST PH connector family:
+    https://www.jst-mfg.com/product/index.php?lang=2&series=199
+
+Module dimensions/pinout are manufacturer information. Harness length,
+100 mA allocation, page behavior and scheduling bounds are design proposals
+requiring physical and firmware verification.
