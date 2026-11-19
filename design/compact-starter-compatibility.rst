@@ -42,6 +42,47 @@ path. The panel can remain a prototype candidate once the required physical
 controls are settled. See the `panel contact diagram
 <../hardware/panel-rev-e/README.rst>`_.
 
+Electronic starters with separate START and STOP buttons
+--------------------------------------------------------
+
+Specify two independently controlled, voltage-free command outputs. Keep
+their field circuits electrically separate on the PCB so the starter can use
+its own button supply and common arrangement. The CT remains a sensor. Keep
+the starter's motor switching, capacitor control and protective functions
+in its original circuit.
+
+* For a documented open-to-stop input, one candidate retains the existing
+  K1/K2 series path as an energized run permission and adds a separate
+  normally open START pulse relay. Loss of permission must open the stop
+  circuit in both modes. With START released, restoring permission alone
+  must leave the motor stopped. This has two command functions and three
+  physical relays. A standard `three-wire electronic starter example
+  <https://www.se.com/us/en/faqs/FA166884/>`_ illustrates the input behavior.
+* For a documented momentary close-to-start and close-to-stop interface,
+  provide separate, time-limited button commands. Give STOP priority,
+  reject simultaneous presses, and bound the maximum START duration in
+  hardware. A controller without power cannot issue a STOP pulse to a
+  starter that still has power. Qualify a manufacturer-supported independent
+  stop or inhibit that acts on power or watchdog loss before enabling
+  unattended operation. The CT can verify that current fell after STOP.
+
+Crompton lists the ARMOR1.5-DSU as a 1.5 HP single-phase control panel and
+the ARMOR1.0-CQU as its 1 HP model. The ARMOR series manual illustrating
+the 1 HP unit connects the duration of START to start-capacitor engagement
+and assigns a long STOP press to settings. Its installation diagram
+identifies supply and motor terminals. Neither that diagram nor the 1.5 HP
+product page establishes an external button contact pair, its electrical
+rating, or a loss-of-power inhibit for the linked model. Require the exact
+revision's supported interface and timing before assigning relay terminals
+or advertising compatibility. Verify physical STOP during a START pulse,
+loss of controller power with the starter still powered, and independent
+power restoration with no unintended restart.
+See `Crompton ARMOR1.5-DSU specifications
+<https://www.crompton.co.in/products/armor1-5-dsu-control-panel>`_,
+`the panel range <https://www.crompton.co.in/collections/control-panels>`_
+and `the ARMOR series manual, sections 3.4–4.1
+<https://manuals.plus/m/4cec5ee2cf1123045d99e4bdc8eb29c0108f9c2c4ea35770e1eed9cc89d0beeb.pdf#page=2>`_.
+
 Load, voltage and water sensors
 -------------------------------
 
