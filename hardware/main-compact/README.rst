@@ -54,6 +54,11 @@ Prototype files
   `model dimensions <exports/model-verification.json>`_.
 * `Hardwired stop and relay checks <checks/hardwired-control-review.json>`_ and
   `main-to-panel checks <checks/panel-integration/integration-review.json>`_.
+* `Interactive OLED, buttons and cable view <../../output/compact/panel-connections.html>`_
+  and `connection preview <../../output/compact/panel-connections.png>`_.
+  Follow the 12-way panel lead from J32 on the main board's right edge to J1
+  on the rear top edge of the button panel. The separate 4-way display lead
+  connects J7 on the rear right edge of the panel to the OLED.
 * `OLED/button panel <../panel-rev-e/README.rst>`_ and
   `connector assignments <../../design/rev-e-integration.rst>`_.
   The board-side key input assignment above supersedes the Rev E GPIO assignment.
