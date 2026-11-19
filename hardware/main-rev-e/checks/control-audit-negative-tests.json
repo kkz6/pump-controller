@@ -1,0 +1,64 @@
+{
+  "scope": "Adversarial check of the schematic-control auditor using deliberately corrupted in-memory net maps after native export. No native CAD was modified. This is not a physical wiring test.",
+  "tool_sha256": "5948bf1bf3f111557366203202242cca5e5740d6988004ba0f878e6687ad330d",
+  "cases": [
+    {
+      "id": "bypassed_K1_positive",
+      "in_memory_mutation": {
+        "domain": "main",
+        "pin": [
+          "K1",
+          "1"
+        ],
+        "net": "+5V"
+      },
+      "rejected": true,
+      "finding_count": 2,
+      "stop_case_failures": 832
+    },
+    {
+      "id": "OLED_power_on_clock",
+      "in_memory_mutation": {
+        "domain": "panel",
+        "pin": [
+          "J7",
+          "1"
+        ],
+        "net": "+3V3"
+      },
+      "rejected": true,
+      "finding_count": 1,
+      "stop_case_failures": 0
+    },
+    {
+      "id": "shunt_bypasses_local_STOP",
+      "in_memory_mutation": {
+        "domain": "panel",
+        "pin": [
+          "JP1",
+          "1"
+        ],
+        "net": "+5V"
+      },
+      "rejected": true,
+      "finding_count": 3,
+      "stop_case_failures": 128
+    },
+    {
+      "id": "key_collector_wrong_voltage",
+      "in_memory_mutation": {
+        "domain": "panel",
+        "pin": [
+          "Q1",
+          "3"
+        ],
+        "net": "+5V"
+      },
+      "rejected": true,
+      "finding_count": 2,
+      "stop_case_failures": 0
+    }
+  ],
+  "passed": true,
+  "hardware_tested": false
+}
