@@ -1,15 +1,24 @@
 {
   "tool": "jvanstraten/gerbertools",
   "upstream_commit": "7d797b51b13da8060e27d5b16444052a73c5fc32",
-  "method": "Nominal artwork connectivity reconstructed from Gerber copper polygons and plated drill hits. Each named IPC-D-356 pad and via is assigned to its physical copper island. Hardware and fabricated bare boards require separate tests.",
+  "method": "Nominal Gerber copper and plated drill connectivity against every named IPC-D-356 record. Physical bare-board and insulation tests are separate.",
   "archives": [
     {
-      "path": "hardware/main-compact-dual/pump-controller-compact-dual-guard-r2-gerber-prototype.zip",
-      "sha256": "1c93df7dc849842c5b86ec183c1a8faf2618177549b65f5f1642ac68c19a59d3",
+      "path": "hardware/main-compact-dual/pump-controller-compact-dual-guard-r3-gerber-prototype.zip",
+      "sha256": "0d56ddedd3160ee785dcab004e0e9d15c679d2c75883d335ed7b847b25288dd6",
       "copper_layers": 6,
-      "ipc_records": 1197,
-      "ipc_named_nets": 169,
-      "layer_witnesses": 1757,
+      "ipc_records": 1292,
+      "ipc_named_nets": 186,
+      "layer_witnesses": 1886,
+      "opens_shorts": 0
+    },
+    {
+      "path": "hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip",
+      "sha256": "2ac3362fb07e5a4567f883d60a853bdaf8fe9bc73332c746d251cffdd59eaf0e",
+      "copper_layers": 2,
+      "ipc_records": 108,
+      "ipc_named_nets": 18,
+      "layer_witnesses": 139,
       "opens_shorts": 0
     },
     {
@@ -24,29 +33,47 @@
   ],
   "negative_controls": [
     {
-      "injected": "On the receiver GTL at (30.000, −8.288) mm, flash a 1.90 mm clear circle followed by a 0.40 mm dark circle at the same centre. The remaining R17 landing must split HB_LED_A into two islands.",
+      "board": "main",
+      "injected": "Bridge J1.1 and J1.2 on layer 5 (bottom = 0)",
       "findings": [
-        "logical net HB_LED_A is divided up into 2 islands"
+        "logical nets MAINS_L and MAINS_N are short-circuited"
       ]
     },
     {
-      "injected": "On the receiver GTL add a 0.40 mm dark stroke from (53.800, −31.700) to (53.800, −27.740) mm, connecting J4.1 and J4.2.",
+      "board": "main",
+      "injected": "Open M_MISO on In3.Cu at (35.400, -31.875) mm",
+      "findings": [
+        "logical net M_MISO is divided up into 2 islands"
+      ]
+    },
+    {
+      "board": "panel",
+      "injected": "Bridge J2.1 and J2.2 on layer 0 (bottom = 0)",
+      "findings": [
+        "logical nets GND and START_N are short-circuited"
+      ]
+    },
+    {
+      "board": "panel",
+      "injected": "Isolate J2.3 from the panel STOP trace",
+      "findings": [
+        "connection at coordinate (34.3738, -39.8501) on layer 0 should be connected to logical net GND, but there is no copper here",
+        "logical net STOP_LOCAL_NC is divided up into 2 islands"
+      ]
+    },
+    {
+      "board": "receiver",
+      "injected": "Bridge J4.1 and J4.2 on layer 1 (bottom = 0)",
       "findings": [
         "logical nets CAB_0 and FUSED_24 are short-circuited"
       ]
     },
     {
-      "injected": "On main-board G4L (In3.Cu), flash a 0.35 mm clear circle at (35.400, −31.875) mm in the M_MISO trace.",
+      "board": "receiver",
+      "injected": "Isolate R17 on front copper at (30.000, -8.288) mm",
       "findings": [
-        "logical net M_MISO is divided up into 2 islands"
+        "logical net HB_LED_A is divided up into 2 islands"
       ]
     }
-  ],
-  "upstream_url": "https://github.com/jvanstraten/gerbertools/tree/7d797b51b13da8060e27d5b16444052a73c5fc32",
-  "repeat_procedure": [
-    "Verify both ZIP SHA-256 digests. Extract each into its own directory. Build GerberTools at the pinned commit. Its Gerber reader accepts these KiCad plots after removing standalone non-imaging %TO...*% and %TD...*% attribute commands from temporary copies. Preserve all aperture, polarity and imaging commands.",
-    "Load the GKO outline, PTH.XLN plated holes and NPTH.XLN nonplated holes into CircuitBoard. Use 0.025 mm plating. Add copper bottom first in GBL, G5L, G4L, G3L, G2L, GTL order for the main board and GBL, GTL order for the receiver.",
-    "Read the archived .d356 and resolve its net aliases. Convert the coordinates from the IPC file units to millimetres. Emit (x, y, zero-based copper layer, net name) for each named test record. IPC access 00 supplies two witnesses, one per outer face. Access 01 maps to the top index N−1, and access N maps to bottom index 0, where N is the copper layer count. Omit unnamed mechanical holes.",
-    "Call CircuitBoard.build_netlist with those witnesses and minimum clearance and annulus set to zero for connectivity, then call drc(). Compare the reported findings and witness counts with both archive entries. Apply each negative control below separately to a fresh extracted copy, preserving the original .d356."
   ]
 }

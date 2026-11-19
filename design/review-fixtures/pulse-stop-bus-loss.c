@@ -16,6 +16,7 @@ int main(void)
 {
     struct panel_controls p;
     struct starter_config cfg = {.profile=STARTER_PULSE_STOP, .harness_profile=STARTER_PULSE_STOP,
+        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
         .contact_settle_ms=5, .start_pulse_ms=10, .stop_pulse_ms=10, .independent_shutdown=true};
     struct panel_sample in = {.gpio_a=AUTO_N|LOCAL_N, .gpio_b=START_N|SET_N|STOP_OK|MAN_N,
         .valid=true, .process_healthy=true, .motor_stopped=true};

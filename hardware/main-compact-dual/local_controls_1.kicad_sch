@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "bd3562a7-09da-5301-a963-c4e56cd831d7")
 (paper "A3")
-(title_block (title "Rev E GH12 panel interface / 1") (rev "COMPACT-DUAL-GUARD-R2") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Panel F GH12 control interface / 1") (rev "COMPACT-DUAL-GUARD-R3") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:J32"
 (pin_names (offset 0.508))
@@ -316,8 +316,8 @@
 (symbol "C90_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 0.95 0.95)))) (number "1" (effects (font (size 0.95 0.95))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 0.95 0.95)))) (number "2" (effects (font (size 0.95 0.95))))))
 )
 )
-(text "Rev E GH12 panel interface / 1" (at 15.24 15.24 0) (effects (font (size 2 2)) (justify left)) (uuid "a04d20cf-afea-523a-abbd-f0524cbb5663"))
-(text "Main J32 to panel J1. Original buttons keep their OEM circuits. Use isolated auxiliary START/STOP contacts for panel J2/J3. STOP/HH clear ARM." (at 15.24 22.86 0) (effects (font (size 1 1)) (justify left)) (uuid "bfee2da2-3751-51ec-b289-2e1ffbc66061"))
+(text "Panel F GH12 control interface / 1" (at 15.24 15.24 0) (effects (font (size 2 2)) (justify left)) (uuid "8651e0b7-e92f-5608-b5c7-6552d4f1bdd1"))
+(text "Main J32 to panel J1. OEM START/STOP retain their starter circuits. Optional isolated auxiliary START and STOP contacts use panel J2 pins 1–2 and 3–4. STOP/HH clear ARM." (at 15.24 22.86 0) (effects (font (size 1 1)) (justify left)) (uuid "bfee2da2-3751-51ec-b289-2e1ffbc66061"))
 (symbol (lib_id "Pump:J32") (at 50.8 50.8 0) (unit 1)
 (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
 (uuid "1bde49b3-847e-543c-8640-f6c73cefee17")
@@ -342,7 +342,7 @@
 (pin "MP" (uuid "386b1b88-7c1c-5ab7-8a31-f157f2c23e48"))
 (instances (project "pump-controller-compact" (path "/c9ccec4e-42a5-5ee7-8517-2040e122c714/8ad1224e-5ca7-50b3-b32f-db6184be50ab" (reference "J32") (unit 1)))))
 (wire (pts (xy 30.48 43.18) (xy 22.86 43.18)) (stroke (width 0.1524) (type default)) (uuid "7ec7c710-8f80-5c25-b5d7-3ca7d4354cb6"))
-(global_label "+5V" (shape passive) (at 22.86 43.18 0) (effects (font (size 0.95 0.95)) (justify right)) (uuid "2f1b023e-edb7-598d-824e-a38e6159e93e") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 22.86 43.18 0) (effects (font (size 1 1)) (hide yes))))
+(global_label "+5V_CMD" (shape passive) (at 22.86 43.18 0) (effects (font (size 0.95 0.95)) (justify right)) (uuid "2f1b023e-edb7-598d-824e-a38e6159e93e") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 22.86 43.18 0) (effects (font (size 1 1)) (hide yes))))
 (wire (pts (xy 30.48 45.72) (xy 22.86 45.72)) (stroke (width 0.1524) (type default)) (uuid "c48ff66d-6276-5b9e-8109-bab994ef7f78"))
 (global_label "STOP_RETURN" (shape passive) (at 22.86 45.72 0) (effects (font (size 0.95 0.95)) (justify right)) (uuid "139fd144-978e-53f9-a7e9-557ec5381594") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 22.86 45.72 0) (effects (font (size 1 1)) (hide yes))))
 (wire (pts (xy 30.48 48.26) (xy 22.86 48.26)) (stroke (width 0.1524) (type default)) (uuid "5ee91ce0-7e4c-5659-8d3a-b4036564dc0a"))

@@ -1,10 +1,11 @@
 Independent starter guard
 =========================
 
-**R2 cabinet wiring withdrawn from installation use.** The published drawings
-reverse the coil polarity of KPS1, KCA1 and KCB1. The field transfer and
-motor feeder also need distinct terminal schedules. See the
-`system audit and manufacturer terminal drawings <../../design/guarded-r2-system-audit.rst>`_.
+**R3 cabinet wiring, engineering prototype.** Use the native diagram and
+field schedule below for assembly and bench tests. The earlier R2 terminal
+numbers are withdrawn. No installed starter, trip timing or USB shutter has
+been physically qualified. The `R2 findings <../../design/guarded-r2-system-audit.rst>`_
+identify the superseded wiring.
 
 Alongside the main PCB and OLED panel, the cabinet uses the isolated receiver PCB
 and an independent 24 V guard assembly.
@@ -14,7 +15,11 @@ command relays welded or the OEM START latch held. The high-high float must be a
 separate normally closed contact that opens on rising water. A single stuck float
 or a short across its cable can defeat that input. Where that fault must also be
 covered, use independent level devices with separately routed, monitored channels
-and qualify that arrangement separately.
+and qualify that arrangement separately. Provide a dedicated float cable.
+For potable tanks, the specified SJE MilliAmpMaster WPS 1062686 requires at
+least 950 L per float for its cited approval. Check tether clearance, actual
+switching level and available run-on volume against measured stopping time.
+See the `SJE specification <https://www.sjerhombus.com/wp-content/uploads/2020/05/9500460A-MilliAmpMaster-WPS.pdf>`_.
 
 Power and trip circuits
 -----------------------
@@ -50,14 +55,15 @@ Power and trip circuits
   coordinated fast undervoltage release with mechanically latched breaker
   or use a verified no-voltage-release starter. Keep that installation
   uncommissioned until the disturbance tests pass.
-* SR1 and SR2 use Pilz PNOZ s4 24VDC 750104. Supply each A1/A2 from fused
-  +24 V/0 V. For the specified single-channel control connection use the
-  manufacturer's S12-S22 connection on each unit. Use monitored **rising-edge**
-  start on both. A permanently closed button must fail the power-up and
-  post-trip tests. The single-channel input has no short-across-contact
-  detection. This design carries no installation-level PL/SIL rating.
-* Wire SR1.S11 through the original STOP second NC, overload auxiliary NC and
-  supply monitor(s) and high-high float NC in series. From there go through the transfer and HOST
+* SR1 and SR2 use Pilz PNOZ s4 24VDC 750104. Feed each A1/A2 from fused
+  +24 V/0 V. Select monitored rising-edge start on both. SR1 uses **In2+**
+  single channel with S12 linked to S22. SR2 uses **In2−** dual channel with
+  cross-short detection. Keep SR2.S12 and SR2.S22 independent. Each Pilz
+  requires its end terminator. The single-channel sensor wiring into SR1
+  limits the installation. The circuit has no installation-level PL/SIL rating.
+* Start at SR1.S11. Pass through SG1.11–12 (USB shutter closed), original STOP
+  second NC, overload auxiliary NC, supply monitor(s) and high-high float NC
+  in series. From there go through the transfer and HOST
   health contacts shown in contacts.csv to SR1.S12. All transfer contacts
   are distinct poles of positively linked, full-seat actuators. HOST and LOCAL
   each require the other position's NC. The selector physically breaks both
@@ -65,11 +71,17 @@ Power and trip circuits
   The LOCAL route bypasses the host heartbeat and OLED circuitry only.
 * Wire a momentary NO maintenance RESET between SR1.S12 and S34. SR1.13-14
   is the first contact from SR2.S11. Then wire in series the KS1/KS2 NC
-  mirror contacts, all three J2.7/8 proofs, OEM START release and, in HOST,
+  mirror contacts, all three XF2.7/8 proofs, OEM START release and, in HOST,
   both guided command-relay NC contacts. Terminate at SR2.S12. Bridge only
   this downstream start-only proof branch with SR2's own internally monitored
   safety contact 33-34. Its RUN seal closes when SR2 energizes and opens
-  when SR1 drops. Verify closure precedes opening of any active-state proof.
+  when SR2 drops. Wire **channel B** from SR2.S21 through SR1.23–24,
+  then SG1.21–22, to SR2.S22. Route its outgoing and return conductors
+  separately from channel A. A bridge across either SR1 output contact
+  still permits the other channel to interrupt SR2. Check each conductor
+  independently on the actual cabinet; fit barriers between channels at
+  terminals and protect the sensor loop against mechanical damage.
+  Verify closure precedes opening of any active-state proof.
   On the separate start circuit wire **only** a dedicated momentary NO
   guard ENABLE from SR2.S12 to S34. Delayed neutral/mirror recovery qualifies
   the input first; it cannot manufacture a new start-button edge. Verify the
@@ -90,13 +102,70 @@ Power and trip circuits
   Include appropriate coil suppression and count pickup/inrush of all coils
   when sizing the supply. Preserve the OEM overload and branch coordination.
 
+USB service access and terminal schedule
+---------------------------------------
+
+Route the protected dedicated motor L and N through QISO1 before XM1. Use a
+motor-duty, positively isolating two-pole switch-disconnector with a factory
+engineered trapped-key mechanism (for example a Fortress mGard bolt-interlocked
+disconnector). Select the motor rating, inrush, voltage, utilisation category,
+branch fault-current coordination, neutral switching and matched key code for
+the site. QISO1 must trap its unique key whenever ON and release it only with
+both motor conductors mechanically isolated OFF. Install its matched access
+lock AL1 with a retained actuator on the sole USB shutter. AL1 traps this same
+key while unlocked/open or with a cable inserted. No duplicate or master key
+may be available at the installation. The operator returns this key to QISO1
+only after unplugging and relocking the shutter. KS1/KS2 release time and the
+presence of VBUS therefore have no part in the prior positive isolation of the
+motor branch. Keep the controller and cabinet PSU on their protected supplies
+upstream of QISO1. For detached bench work physically disconnect the motor
+feeder and starter interfaces before applying an isolated logic supply.
+
+Mount Omron D4NS-4BF on a fixed protected frame and retain the D4DS-K1
+tongue on the sole USB access shutter with tamper-resistant fasteners. An
+independent stop must take the door force. The shutter must withdraw its
+tongue past the specified positive-opening travel before a plug can reach
+USB-C. Prove zero feeder voltage before any USB access, including with both KS contactors simulated closed. A connected cable must physically prevent the tongue from reseating,
+including when the upstream USB source is unpowered. Enclose any other access
+to the socket. An external extension, an exposed panel jack or a loose tongue
+defeats this arrangement. Verify the cable sizes, mounting tolerances and
+approach paths against the switch drawing and the installed cabinet. Use
+the motor and control disconnects for cabinet work. The shutter only removes
+motor permission; it does not isolate mains or discharge capacitors.
+
+* XSG1.1 → SG1.11, XSG1.2 → SG1.12, XSG1.3 → SG1.21 and XSG1.4 → SG1.22.
+  Four insulated wires, separately protected channels, no shared common.
+  Opening either direct-opening contact removes a required permission even in
+  LOCAL with the main PCB unplugged. Closing the cover after service requires
+  fresh attended RESET and ENABLE, then a new START. The Pilz can latch a
+  channel discrepancy; repair the fault, verify both inputs opened together,
+  and follow the manual's recovery sequence. Never bridge an input to recover.
+* QISO1 L-IN/N-IN take the protected branch L/N. L-OUT/N-OUT go to XM1.1/2.
+  These functional IDs require the selected disconnector terminal diagram. XM2.1/2 are switched L and continuous
+  N downstream of QISO1 to the OEM motor feeder. Each group uses Phoenix UT 4 grey (3044102)
+  and UT 4 BU blue (3044115), with D-UT 2,5/10 end covers and rail end stops.
+  The selected single-phase arrangement switches line through both KS devices.
+  Confirm the supply arrangement and applicable all-pole isolation on site.
+  PE passes through its own continuous bonded bar. XT1.1/2 are the separate
+  cabinet PSU L/N. XP1.1/2 are the separately protected pilot source/return.
+* XC1 is the four-cavity command transfer. HOST order is **1 B COM (KCB1.33),
+  2 B NO (KCB1.34), 3 A COM (KCA1.33), 4 A NO (KCA1.34)**. For conventional
+  open-to-stop DOL, LOCAL leaves 1/2 open and links 3/4 to restore the added
+  pilot permission only. For maintained RUN and keypad profiles LOCAL leaves
+  all four open. Use mechanically incompatible profile inserts. Follow pages
+  1–3 of the field drawing for the installed OEM interface and proof conditions.
+* XF2 serves the original controls, float and off proofs. XF3 is the transfer
+  position auxiliary group. XP10 carries the three supervised 24 V pilot taps.
+  RX.J4 stays the five-way receiver SELV plug. It has no motor or keypad wire.
+
 Commands and restart proof
 --------------------------
 
 Drive two 24 V Omron G7SA-2A2B DC24 relays (KCA, KCB) as command interposers.
 Fused +24 V goes to J30.1 and J35.1. J30.2 and J35.2 return to their respective
-positive coil terminal 1 on P7SA-10F bases. Terminal 0 returns to cabinet 0 V.
-Fit suppression diodes, band to 1. Use 33-34 for the command NO and
+positive coil terminal **0** on non-indicating P7SA-10F bases. Terminal
+**1** returns to cabinet 0 V. Fit D4 (KCA1) and D5 (KCB1) at the sockets,
+with the banded cathodes to terminal **0**. Use 33-34 for the command NO and
 11-12 for its NC off proof. Their voltage-free NOs, **downstream** of this interface, take
 the A and B roles shown on the starter drawings; their separate force-guided NCs
 go in the start-only SR2.S11-S12 proof branch. This gives a welded PCB relay or a welded interposer
@@ -108,8 +177,8 @@ interposer's low-load limit requires a separately qualified monitored interface.
 
 The OEM-off input must establish a real deenergized state, including absence
 of any stored run request that could resume when the contactors close. For a
-conventional three-wire starter, fit the complete J2.7/8 proof chain described
-below and a separate mechanically linked NC on the START actuator at J2.9/10. A latching electronic starter also needs
+conventional three-wire starter, fit the complete XF2.7/8 proof chain described
+below and a separate mechanically linked NC on the START actuator at XF2.9/10. A latching electronic starter also needs
 an OEM-documented disabled/power-restoration behavior and an independently
 available, powered, isolated state contact if needed. Never infer memory contents
 from a contactor whose power was just removed. Disable OEM automatic restart
@@ -131,7 +200,7 @@ OEM pickup proof before restoring power
 ---------------------------------------
 
 The field harness returns the following **three isolated contacts in series
-between J2.7 and J2.8**. J2.9/10 separately monitors the physical START
+between XF2.7 and XF2.8**. XF2.9/10 separately monitors the physical START
 actuator. These functions apply whenever SR2 can pick up, in HOST and LOCAL.
 
 * KOF1 confirms the OEM power stage is stopped. For a compatible conventional
@@ -141,7 +210,7 @@ actuator. These functions apply whenever SR2 can pick up, in HOST and LOCAL.
   must be a manufacturer-declared mechanically linked pair. One documented
   example is a compatible Schneider TeSys D contactor fitted with a LADN11
   auxiliary block. Put its 53–54 NO in the actual holding rung and its 61–62 NC from
-  that same pair in the J2.7/8 chain. Trace the stamped terminal markings
+  that same pair in the XF2.7/8 chain. Trace the stamped terminal markings
   on the selected block. A separate existing seal-in contact left in parallel
   defeats this proof. For an electronic profile the equivalent feedback
   must prove that the controller has cleared its retained run/restart demand.
@@ -158,12 +227,12 @@ actuator. These functions apply whenever SR2 can pick up, in HOST and LOCAL.
   the transition back to normal service. It must not pick the OEM coil.
 
 The cabinet schematic implements one example for the separately powered 24 V
-DC pilot below. For other profiles the three J2.7/8 proofs are a field
+DC pilot below. For other profiles the three XF2.7/8 proofs are a field
 acceptance interface: select and qualify independent hardware that can observe
 the actual command while the motor feeder is off. With only a
 released actuator, a contactor mirror, a screen that says OFF, or an unpowered
 OEM logic output, the starter is **ineligible for either guarded mode**.
-Leave J2.7/8 open and the installation uncommissioned if the required off-state
+Leave XF2.7/8 open and the installation uncommissioned if the required off-state
 proofs and retained-command behavior cannot be established. Do not bridge
 any missing proof contact.
 `Schneider LADN mechanically linked contact guidance <https://www.se.com/ca/en/faqs/FA115177/>`_.
@@ -185,8 +254,8 @@ from the three PCBs.
   NO, the actual linked seal NO of KHL1, and the switched HOST KCB START
   NO all span **P–D**. **D** connects directly to OEM coil A1. From coil
   A2 use KCA NO in HOST or its dedicated restoration link in LOCAL to **pilot
-  0 V**. Disconnect the KCB branch in LOCAL. Route J10.1 to P and J10.2 to D
-  at the actual switch ladder, and J10.3 to pilot 0 V. A series KCA on the
+  0 V**. Disconnect the KCB branch in LOCAL. Route XP10.1 to P and XP10.2 to D
+  at the actual switch ladder, and XP10.3 to pilot 0 V. A series KCA on the
   P side could hide a bridged START. Trace and exclude every alternate feed.
 * R42 (680 ohms, 1%, 5 W) from D to pilot 0 V provides a return even with
   the KCA contact open. The branch P–R40 (1.60 k, 1%, 0.6 W)–OC3 LED
@@ -198,7 +267,7 @@ from the three PCBs.
 * OC3 pins 3–4 switch cabinet fused +24 V to KID1.A1; A2 returns to cabinet
   0 V. R43 (2.20 k, 1%, 1 W) shunts A1–A2. Use Schneider RE17RAMU power-on
   delay A, 1 s continuously valid, Y1 open. Its timed dry 15–18 contact is
-  the third proof in J2.7/8. Both sensing leads, optical drive and cabinet
+  the third proof in XF2.7/8. Both sensing leads, optical drive and cabinet
   supply must be present. An actual P–D bridge extinguishes the LED with
   KCA either open or closed. The separate OEM stage mirror and linked
   holding NC remain in the proof chain. With a live pilot a tripped motor
@@ -257,7 +326,8 @@ position contacts, floating supply and 24 V cabinet equipment.
   +24 V. Connect a 10 k base-emitter resistor, 10 k between base and opto
   collector, opto emitter to cabinet 0 V. HB's PNP collector drives DD2503.4
   with 10 k to 0 V. PANEL's PNP collector drives KPS (G7SA-2A2B DC24) coil
-  terminal 1, terminal 0 to cabinet 0 V, S1M at the driver, plus 1N4007 across the remote coil with band to 1. KPS NO closes in
+  terminal **0**. Return terminal **1** to cabinet 0 V. D3 (S1M) stays at the
+  driver. D9 (1N4007) goes at the remote coil, band to terminal **0**. KPS NO closes in
   the HOST trip branch. Verify this contact drops for an open OLED STOP or
   panel cable even when K1 and K2 command contacts are bridged on a fixture.
   Confirm 24 V supply tolerance, optocoupler drive, pickup/dropout and dark
@@ -280,7 +350,9 @@ position contacts, floating supply and 24 V cabinet equipment.
   on a powered monitor. Guard RESET and ENABLE remain attended. Test both NOs individually
   and verify both open if F1 is removed while the receiver remains powered.
   The Pilz input is rated 50 mA at 24 V. Verify the complete S11/S12 loop
-  resistance against the Pilz limit of 30 ohms for this single-channel wiring.
+  resistance against the Pilz limit of 30 ohms and check the separate
+  dual-channel, cross-short-detecting SR2 cable circuits against the same
+  limit (750104 manual, p. 23).
 * Nominal heartbeat is 5 Hz. Timing is a measured acceptance criterion.
   With data acquisition on the dummy load, stop the pulse high and low,
   or replace it with a signal below/above the window. Require loss of load
@@ -298,7 +370,7 @@ position contacts, floating supply and 24 V cabinet equipment.
 Open the `external KiCad project <starter-guard.kicad_pro>`_ or the
 `pin-by-pin schematic <guard-schematic.pdf>`_. The `BOM <bom.csv>`_ includes
 specific receiver passives and nonpolar capacitors, cabinet relays and OEM-
-specific field interfaces. Cabinet connectors S1/S2 and J2/J3 represent separate
+specific field interfaces. Cabinet connectors S1/S2 and XF2/XF3 represent separate
 physical contacts. Match the harness IDs to the actual installed pole markings.
 PNOZ terminal diagrams show the used terminals; leave unused outputs insulated.
 The `native ERC <checks/erc.json>`_ and `netlist <checks/guard-netlist.xml>`_
@@ -343,7 +415,10 @@ Bench acceptance
    delayed command-neutral, mirror, original START-release and OEM-off proof.
    SR2 must require release and a subsequent distinct press. Hold RESET and
    restore SR1 input; SR1 must likewise require a new press. Prove the guard will reset from a healthy idle
-   controller with J31 still open. Enable, then issue one fresh start.
+   controller with J31 still open. Press RESET and ENABLE at the same instant
+   from that state. RESET may arm SR1; SR2 must wait for its inputs to settle
+   and for ENABLE to be released and pressed afresh. Verify with the actual
+   Pilz settings and capture both contacts. Enable, then issue a new START.
 4. Leave cabinet 24 V and the main controller energized. Interrupt only the
    starter branch, then independently interrupt only the OEM control supply.
    Check KS1 and KS2 release, J31 opens, and restoration with demand still
@@ -355,7 +430,7 @@ Bench acceptance
    In both modes separately simulate a welded holding NO at the actual seal-in
    element and a copper bridge across the actual OEM START terminal pair.
    Preserve the available mirror and released-actuator indications. Verify
-   each relevant proof at J2.7/8, restore each supply in turn, reset SR1, and
+   each relevant proof at XF2.7/8, restore each supply in turn, reset SR1, and
    press/release guard ENABLE. Both contactors must stay open, J31 must stay
    open and the test load must remain deenergized. For a holding-contact weld
    prove KHL1 itself cannot close. A jumper across an otherwise healthy NO
@@ -370,6 +445,33 @@ Bench acceptance
    shorts separately if additional independent sensor channels are specified.
    Record measured times and OEM revision before enabling unattended service.
 
+7. With every live motor conductor isolated, admit a dummy load. In each
+   transfer position, while running, bridge SR1.13–14 and SR1.23–24 **one
+   at a time** and trip LS1, original STOP and the service shutter separately.
+   Repeat with each shutter contact individually bypassed, then with each
+   conductor individually open. A single interstage bypass must still drop
+   both KS coils. Restore the original wiring and test that both channels
+   open together, reset and enable while neutral, then issue a new start.
+   Use a monitored test fixture for cross-channel shorts per the Pilz manual.
+8. On the isolated dummy circuit, hold both KS contacts closed in turn and
+   together. Verify that the QISO1 key cannot be withdrawn ON, both conductors
+   open before key release, AL1 traps the key with the door open, a cable
+   prevents relocking, and neither mains pole can reclose until the USB cable
+   has been removed and the unique key is returned. Check PE continuity.
+
+9. Prove the shutter removes the guard permissions before USB access with VBUS live
+   and dead, in HOST and LOCAL, with each PCB unpowered, each mode position
+   selected and one SG1 pole simulated closed at a time. A plugged cable
+   must prevent the cover and both contact channels from closing. Record
+   both contactor release times, J31 and dummy-load voltage. With a dead USB
+   cable still inserted, restore controller logic, cabinet 24 V, motor branch
+   and pilot in different orders. Include a retained motor command and both
+   service buttons held. Neither KS coil may pick up and neither QISO1 pole may
+   close. Repeat in LOCAL with the main PCB powered separately. Confirm a new
+   USB attachment, VBUS loss, cable withdrawal, or cover closure cannot
+   restart the pump. Check 0-positive/1-negative polarity and diode bands
+   at KPS1/KCA1/KCB1 before powering, then verify pickup and loaded release.
+
 Manufacturer references
 -----------------------
 
@@ -382,6 +484,9 @@ Manufacturer references
 * `ifm DD2503 operating instructions, sections 6.1–6.4 and 7.1–7.2 <https://media.ifm.com/dam/01a0a55a-bd11-7558-86be-c6ddfbef891d/Original/7390953_01_GB.pdf>`_
   and `DD2503 terminal table <https://media.ifm.com/dam/9b1ea99a-fe2f-4bcc-ae14-f09c75b246f5/Original/DD2503-00_EN-GB.pdf>`_
 * `Schneider motor rating <https://iportal.se.com/Contents/docs/SQD-LC1D09BD.PDF>`_ and `mirror-contact identification <https://www.se.com/nl/nl/faqs/FA142116/>`_
-* `Omron G7SA relays and contact configurations <https://www.ia.omron.com/data_pdf/cat/g7sa_j120-e1_12_13_csm1269.pdf>`_
+* `Omron G7SA relay, socket and polarized coils, pp. 8, 10, 13 <https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf>`_
+* `Fortress mGard key exchange for power isolation and door access <https://fortress-safety.com/wp-content/uploads/2022/03/EN-mGard-Overview-Brochure-October-2021-v1.6-Digital-Version.pdf>`_
+* `Omron D4NS two-contact connections and D4DS-K1 operating travel <https://assets.omron.eu/downloads/latest/datasheet/en/d4ns_d4ns-sk_safety-door_switch_datasheet_en.pdf>`_
+* `Phoenix UT 4 feeder terminal ratings and accessories <https://www.phoenixcontact.com/en-us/products/feed-through-terminal-block-ut-4-3044102>`_
 * `Mean Well DDR-15 power supply <https://www.meanwell.com/Upload/PDF/DDR-15/DDR-15-spec.pdf>`_
 * `TI LM393B <https://www.ti.com/product/LM393B>`_, `Nexperia diode characteristics <https://assets.nexperia.com/documents/data-sheet/BAV199W.pdf>`_ and `Vishay VO617A <https://www.vishay.com/docs/83430/vo617a.pdf>`_

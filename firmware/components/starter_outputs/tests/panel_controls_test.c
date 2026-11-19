@@ -29,7 +29,8 @@ static void qualify_monitor(struct fixture *f)
 static struct fixture init(enum starter_profile profile, bool key, uint32_t t)
 {
     struct fixture f = {.t=t};
-    struct starter_config config = {.profile=profile, .harness_profile=profile, .contact_settle_ms=5,
+    struct starter_config config = {.profile=profile, .harness_profile=profile, .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
+        .contact_settle_ms=5,
         .start_pulse_ms=10, .stop_pulse_ms=10, .independent_shutdown=true};
     assert(panel_controls_configure(&f.p, config, key, 4, 20));
     f.in = (struct panel_sample){.gpio_a=A_LOCAL_N|A_AUTO_N,

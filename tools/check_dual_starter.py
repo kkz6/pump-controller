@@ -33,9 +33,10 @@ def check():
         dest = Path(directory)
         pins = export_pins(BOARD, dest / "dual.xml")
         old = export_pins(ROOT / "hardware/main-compact-led", dest / "original.xml")
-    expected_changes = {"K1.2", "K1.3", "K2.2", "K2.3", "J30.1", "J30.2", "U33.24", "U33.23"}
-    removed_service_switch_pins = {"SW1.1", "SW1.2", "SW2.1", "SW2.2"}
-    equal(old.keys() - pins.keys(), removed_service_switch_pins, "removed service switch pins")
+    expected_changes = {"K1.2", "K1.3", "K2.2", "K2.3", "J30.1", "J30.2", "U33.24", "U33.23",
+                        "D32.1", "K2.1", "J32.1", "U1.5"}
+    removed_service_pins = {"SW1.1", "SW1.2", "SW2.1", "SW2.2", "J2.7", "J2.8"}
+    equal(old.keys() - pins.keys(), removed_service_pins, "removed service pins")
     equal({pin for pin in old.keys() & pins.keys() if pins[pin] != old[pin]}, expected_changes, "baseline changed pins")
     membership = {
         "CTRL_A_COM": {"J30.1", "K1.2"}, "CTRL_A_NO": {"J30.2", "K1.3"},
@@ -51,7 +52,9 @@ def check():
                      "J21.1": "PROBE_INLET", "J21.2": "PROBE_ICOM",
                      "J31.1": "STOP_RETURN", "J31.2": "K1_COIL_PLUS", "J36.1": "GND", "R194.1": "+3V3", "R195.1": "+3V3",
                      "J2.1": "GND", "J2.2": "+3V3", "J2.5": "MCU_EN", "J2.6": "BOOT",
-                     "J2.7": "USB_DM", "J2.8": "USB_DP",
+                     "J40.A6": "USB_CONN_DP", "J40.B6": "USB_CONN_DP", "J40.A7": "USB_CONN_DM", "J40.B7": "USB_CONN_DM",
+                     "J32.1": "+5V_CMD", "K2.1": "+5V_CMD", "D32.1": "+5V_CMD", "U40.6": "+5V_CMD",
+                     "J41.1": "PSU_5V_RAW", "J41.2": "+5V", "J41.3": "GND", "U1.5": "PSU_5V_RAW",
                      "U33.8": "START_CMD_LED", "U33.28": "STOP_CMD_LED"}.items():
         equal(pins[pin], net, pin)
     a1, a2, b1, b2 = (pins[p] for p in ("J30.1", "J30.2", "J35.1", "J35.2"))
@@ -99,8 +102,8 @@ def check():
                 expect = expect and (local_start or holding or (host and b))
                 equal(connected(path, "feed", "coil"), expect, "DOL hardwired coil path")
                 cases += 1
-    return {"ideal_harness_cases": cases, "unchanged_baseline_pin_assignments": len(old) - len(expected_changes) - len(removed_service_switch_pins),
-            "removed_service_switch_pins": sorted(removed_service_switch_pins),
+    return {"ideal_harness_cases": cases, "unchanged_baseline_pin_assignments": len(old) - len(expected_changes) - len(removed_service_pins),
+            "removed_service_pins": sorted(removed_service_pins),
             "changed_baseline_pins": sorted(expected_changes), "passed": True,
             "physical_harness_tested": False}
 

@@ -6,16 +6,16 @@
   },
   "review_scope": "Independent native pin/net and interface topology check; no electrical hardware or firmware test.",
   "source_sha256": {
-    "panel_board": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
-    "main_board": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
-    "panel_source": "15aaac7c64697c61dfad9820bc6af614ac38696b5718b00f5c9c1da8575c31ba",
-    "main_source": "447445d1dd34213638a59852ea8df28e316f40364b2dc21d52436ec9043ce164",
-    "independently_exported_main_netlist": "269452698fa6bfb5b17ebbaaf1eb2672d20531fc4ae105809c21f6843fd5d673",
-    "independently_exported_panel_netlist": "2aab6fe7dad29c97831e34d50b5bb6aa8c34e638c35c614b74244dd6f26c7562"
+    "panel_board": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
+    "main_board": "d211549d9f128d36ca47cd313a6e9e0a5a9278a3c7f11ff3fca4f39272093161",
+    "panel_source": "0ffbaee405fdfa0057d57c3b490d8a86d10c6b5690c617966b8482765d093506",
+    "main_source": "ec4142ecdce431d2556d937154abb1262bc9d727cfd154c26c9b8ca7bb55541b",
+    "independently_exported_main_netlist": "c78277a6869a87501ab5b86fb0b6679d05174e7f0899d345c3b01c5a467a7b08",
+    "independently_exported_panel_netlist": "2ef7ca18665302d78d93daef3b6ac1ff8af4a009d5dde1c0234703a688c6e40d"
   },
-  "main_connected_source_pins_checked": 641,
-  "panel_components_including_mounting_holes": 33,
-  "panel_connected_source_pins_checked": 81,
+  "main_connected_source_pins_checked": 695,
+  "panel_components_including_mounting_holes": 28,
+  "panel_connected_source_pins_checked": 75,
   "native_source_comparison_issues": [],
   "host_harness": [
     {
@@ -23,7 +23,7 @@
       "panel_net": "+5V",
       "main_connector": "J32",
       "main_pin": 1,
-      "main_net": "+5V"
+      "main_net": "+5V_CMD"
     },
     {
       "panel_pin": 2,
@@ -104,14 +104,18 @@
     }
   ],
   "common_ground": "Panel J1.7 returns directly through main J32.7. All twelve host cable cavities connect one-to-one; the former fanout cable is incompatible.",
-  "stop_contact_path_cases_checked": 128,
+  "stop_contact_path_cases_checked": 192,
   "stop_contact_path_passed": true,
-  "stop_path": "+5V -> SW1 COM/NC -> STOP_LOCAL_NC -> external J3 NC contact -> STOP_RETURN -> main J31 external guard auxiliary -> K1 coil",
-  "stop_shunt_rule": "Fit JP1 only when no external NC STOP is fitted. It bypasses the external contact only, never local STOP.",
+  "stop_path": "+5V_CMD at main J32.1 -> panel J1.1 -> SW1 NC -> J2.3 -> remote NC or fixed local-only loop -> J2.4 -> STOP_RETURN at J1.2 -> main J32.2 and guard monitor",
+  "stop_shunt_rule": "Only a single keyed station or local-only plug fits J2. Unplugging it opens STOP, and the factory loop always remains in series with local STOP.",
   "external_no_buttons": [
     {
       "local": "SW2",
       "external": "J2",
+      "external_pins": [
+        1,
+        2
+      ],
       "nets": [
         "GND",
         "START_N"
@@ -120,7 +124,11 @@
     },
     {
       "local": "SW3",
-      "external": "J4",
+      "external": "J2",
+      "external_pins": [
+        5,
+        6
+      ],
       "nets": [
         "MAN_RETURN",
         "STOP_RETURN"
@@ -129,7 +137,11 @@
     },
     {
       "local": "SW4",
-      "external": "J5",
+      "external": "J2",
+      "external_pins": [
+        7,
+        8
+      ],
       "nets": [
         "GND",
         "RESET_N"
@@ -138,7 +150,11 @@
     },
     {
       "local": "SW5",
-      "external": "J6",
+      "external": "J2",
+      "external_pins": [
+        9,
+        10
+      ],
       "nets": [
         "AUTO_RETURN",
         "STOP_RETURN"
@@ -221,8 +237,41 @@
     "Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.",
     "Robu fabrication acceptance and assembled-board functional/thermal/EMC tests."
   ],
+  "host_loom_stop_bridge_negative_control": {
+    "fault": "Direct short between panel J1.1 and J1.2, equivalent to main J32.1 and J32.2 on the straight loom.",
+    "panel_pin_nets": [
+      "+5V",
+      "STOP_RETURN"
+    ],
+    "main_pin_nets": [
+      "+5V_CMD",
+      "STOP_RETURN"
+    ],
+    "scope": "With the HOST command supply energized, the bridge masks both panel STOP contacts. The separate cabinet OEM STOP and high-high circuits are outside this panel model.",
+    "cases": [
+      {
+        "local_NC_closed": false,
+        "remote_NC_closed": true,
+        "return_live_without_bridge": false,
+        "return_live_with_bridge": true
+      },
+      {
+        "local_NC_closed": true,
+        "remote_NC_closed": false,
+        "return_live_without_bridge": false,
+        "return_live_with_bridge": true
+      },
+      {
+        "local_NC_closed": false,
+        "remote_NC_closed": false,
+        "return_live_without_bridge": false,
+        "return_live_with_bridge": true
+      }
+    ]
+  },
+  "remote_button_harness": "One GH10 with permanent switch-end terminations; optional unused NO branches remain empty.",
   "firmware_scope": "Native hardware integration check only. Target application and live switching were not exercised.",
-  "main_native_summary_sha256": "cd32ea3c7b2fbe6cd91d8d200e7f9b8147ca5f738985272506d15e8e4f152c3b",
+  "main_native_summary_sha256": "2c21bfeed30532860149c24d16f4929fee59dbfdd080469aabebf1f71dd1cc18",
   "main_native_evidence_current": true,
   "native_inputs_unchanged": true,
   "integration_passed": true,

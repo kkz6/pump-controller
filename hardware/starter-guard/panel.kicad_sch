@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "51bef986-1cf7-523c-b408-6b8a98bdb84c")
 (paper "A3")
-(title_block (title "Panel STOP receiver and 24 V driver") (rev "1-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Panel STOP receiver and 24 V driver") (rev "R3-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:D2"
 (pin_names (offset 0.508))

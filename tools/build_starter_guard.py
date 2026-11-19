@@ -12,7 +12,10 @@ import generate_cad as cad
 
 OUT = cad.BASE / "hardware/starter-guard"
 PROJECT = "starter-guard"
-OMRON = "https://www.ia.omron.com/data_pdf/cat/g7sa_j120-e1_12_13_csm1269.pdf"
+OMRON = "https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf"
+FEEDER = "https://www.phoenixcontact.com/en-us/products/feed-through-terminal-block-ut-4-3044102"
+TRAPPED_KEY = "https://fortress-safety.com/wp-content/uploads/2022/03/EN-mGard-Overview-Brochure-October-2021-v1.6-Digital-Version.pdf"
+DOOR = "https://assets.omron.eu/downloads/latest/datasheet/en/d4ns_d4ns-sk_safety-door_switch_datasheet_en.pdf"
 PILZ = "https://www.pilz.com/download/open/PNOZ_s4_Operat_Man_21396-EN-20.pdf"
 TELEM = "https://www.se.com/id/en/product/RM17UBE15/"
 MEANWELL = "https://www.meanwell.com/Upload/PDF/DDR-15/DDR-15-spec.pdf"
@@ -119,7 +122,7 @@ def field():
                     TELEM if circuit=="RM17UBE15" else "https://www.se.com/ww/en/product/RM17UBE16/")
     def guided(ref,value,coil,contacts):
         return part(ref,value,"G7SA-2A2B DC24 / P7SA-10F",
-                    [(1,"Coil +",coil),(0,"Coil -","CAB_0")]+contacts,
+                    [(0,"Coil +",coil),(1,"Coil -","CAB_0")]+contacts,
                     "Non-LED terminal base. 33-34 NO, 11-12 NC. Other contacts unused.",OMRON)
     instruments=[
         part("PS2","Cabinet isolated 24V / 2.5A","HDR-60-24",
@@ -130,12 +133,16 @@ def field():
         part("F2","Cabinet DC distribution protection","Site-selected DC branch protection",
              [(1,"Input","CAB_24_RAW"),(2,"Output","FUSED_24")],
              "Select for available fault energy, wire capacity and actual coil loads.",kind="fuse"),
-        part("J1","Protected cabinet supplies","Field terminals",[(1,"Cabinet supply L","CAB_SUPPLY_L"),
-             (2,"Cabinet supply return","CAB_SUPPLY_N"),(3,"Motor branch L","PROTECTED_LINE"),(4,"Motor branch return","MOTOR_RETURN"),
-             (5,"Independent OEM control L","OEM_CTRL_L"),(6,"Independent OEM return","OEM_CTRL_N")],
-             "Downstream of the last independent supply disconnect, upstream of the two guard contactors."),
-        part("J2","OEM and transfer contacts","Profile-specific field loom",
-             [(1,"OEM STOP aux NC in","SR1_S11"),(2,"OEM STOP aux NC out","AFTER_STOP"),
+        part("XT1","Cabinet supply input","Fixed protected supply terminals",
+             [(1,"Cabinet L","CAB_SUPPLY_L"),(2,"Cabinet N","CAB_SUPPLY_N")]),
+        part("XM1","Protected motor feed IN","Phoenix UT 4 3044102 + UT 4 BU 3044115",
+             [(1,"Upstream L","PROTECTED_LINE"),(2,"Upstream N","MOTOR_RETURN")],
+             "Protected motor branch upstream of both contactors. Keep separate from all pilot and control connectors. D-UT 3047028 end covers and rail end stops.",FEEDER),
+        part("XP1","OEM pilot supply","Separate fixed pilot terminals",
+             [(1,"Pilot source","OEM_CTRL_L"),(2,"Pilot return","OEM_CTRL_N")],
+             "Monitored OEM pilot source, separately protected and upstream of the pilot STOP."),
+        part("XF2","OEM and float contacts","Profile-specific field loom",
+             [(1,"OEM STOP aux NC in","AFTER_USB_A"),(2,"OEM STOP aux NC out","AFTER_STOP"),
               (3,"Overload aux NC in","AFTER_STOP"),(4,"Overload aux NC out","AFTER_OL"),
               (5,"Independent float NC in","ALL_SUPPLIES_OK"),(6,"Independent float NC out","AFTER_HH"),
               (7,"OEM proofs in","EDM2"),(8,"OEM proofs out","OEM_IDLE"),
@@ -143,7 +150,7 @@ def field():
              "Use OEM-approved isolated auxiliaries. All pairs open on fault."),
         part("LS1","Independent NC high-high float","SJE 1062686 MilliAmpMaster WPS",
              chain("FLOAT_NC","COM","NC")+[("NO","Unused",None)],
-             "Use COM/NC that opens on rising water at J2.5/6. Verify with the assembled float.",
+             "Use COM/NC that opens on rising water at XF2.5/6. Verify with the assembled float.",
              "https://www.sjerhombus.com/wp-content/uploads/2020/05/9500460A-MilliAmpMaster-WPS.pdf"),
         part("S3","Original STOP / spare NC","Match installed OEM actuator",
              chain("OEM_STOP_RELEASED",11,12),"Linked isolated NC accessory, proof independently at original STOP."),
@@ -152,7 +159,7 @@ def field():
         part("S5","OEM START release proof","Match installed OEM actuator",
              proofs("OEM_START_RELEASED","C","NC"),"Additional isolated NC, open while original START is held."),
         part("KOF1","OEM power stage off","LC1D09BD / verified OEM equivalent",
-             proofs("OEM_OFF_PROOF",21,22),"External stopped-state contact, only one of three proofs on J2.7/8."),
+             proofs("OEM_OFF_PROOF",21,22),"External stopped-state contact, one of three proofs on XF2.7/8."),
         part("KHL1","Actual hold contact released","LADN11 on compatible TeSys D or verified OEM equivalent",
              proofs("OEM_HOLD_RELEASED",61,62) + [(53,"Linked seal NO","PILOT_P"),(54,"Linked seal NO","PILOT_D")],"For a DOL use the linked NC of the actual NO holding pair. "
              "For an electronic starter use independently verified latched-demand-clear feedback.",
@@ -168,7 +175,8 @@ def field():
              +[(15,"NC 1",None),(21,"NC 2",None)],
              "Two series NOs, FO1/2=5, SP1/2=5 Hz, HY1/2=40%. ST, DT, FT, SO=0. Reset pins open. See heartbeat-window.json.",IFM),
         guided("KPS1","PANEL healthy","PANEL_24",chain("PANEL_RELAY_NO",33,34)),diode("D3","PANEL_24"),
-        part("J3","Transfer pole pairs","Profile-matched service socket auxiliaries",
+        diode("D9","PANEL_24"),  # At remote KPS1. D3 stays at the receiver driver.
+        part("XF3","Transfer pole pairs","Profile-matched service socket auxiliaries",
              [(1,"Host position","HOST_LOGIC"),(2,"Host common","ISO_0"),(3,"Local position","LOCAL_LOGIC"),(4,"Local common","ISO_0")]
              +chain("H_SEATED",5,6)+chain("L_RELEASED",7,8)+chain("L_SEATED",9,10)+chain("H_RELEASED",11,12)
              +proofs("H_SEATED",13,14)+proofs("L_SEATED",15,16)+switch("HOST_FEEDBACK","H_SEATED",17,18),
@@ -176,22 +184,44 @@ def field():
         part("S1","Momentary service RESET","Harmony XB5AA31",switch("SR1_RESET","RESET_PRESSED",13,14)),
         part("S2","Momentary guard ENABLE","Harmony XB5AA61",switch("SR2_ENABLE","ENABLE_PRESSED",13,14)),
     ]
+    interlock = [
+        part("QF1","Protected motor branch source","Installed upstream motor branch protection",
+             [("L-OUT","Branch L","BRANCH_LINE"),("N","Branch neutral","BRANCH_NEUTRAL")],
+             "Load-side connection schedule only. N is a supply neutral from the same protected branch. Verify protective device and short-circuit coordination on site."),
+        part("QISO1","Key-trapped motor disconnector","Motor-rated 2-pole disconnector + Fortress mGard bolt interlock",
+             switch("OEM_FEED","ISOLATOR_L","L-IN","L-OUT")+switch("OEM_RETURN","ISOLATOR_N","N-IN","N-OUT"),
+             "Functional terminal IDs; match the approved disconnector drawing. Key captured ON, releasable only with both poles positively isolated OFF. Upstream of XM1. PE never switched.",TRAPPED_KEY),
+        part("AL1","USB shutter access lock","Factory-matched Fortress mGard single-door interlock",
+             [],"Mechanical, no electrical terminals. Same unique key as QISO1. Captures the key until the shutter is closed, bolted and verified to exclude an inserted cable.",TRAPPED_KEY),
+        part("SG1","USB access interlock","D4NS-4BF with captive D4DS-K1",
+             chain("USB_COVER_A",11,12)+switch("SR2_INPUT_B","USB_COVER_B",21,22),
+             "Two direct-opening contacts. The fixed switch and captive tongue must open before the USB socket can be reached.",DOOR),
+        part("XSG1","USB shutter contacts","Dedicated four-terminal field loom",
+             [(1,"SG1.11 / A out","SR1_S11"),(2,"SG1.12 / A back","AFTER_USB_A"),
+              (3,"SG1.21 / B out","SECOND_STAGE"),(4,"SG1.22 / B back","SR2_S22")],
+             "Four distinct insulated cores. Keep both positive-opening contacts independent. Do not use cable shield as a return."),
+    ]
     outputs=[
         part("SR1","Trip and monitored RESET","750104",[("A1","24V","FUSED_24"),("A2","0V","CAB_0"),
              ("S11","Input feed","SR1_S11"),("S12","Input return","SR1_S12"),("S22","Single-channel jumper","SR1_S12"),
-             ("S34","Reset","SR1_S34")]+proofs("SR1_13_14",13,14),"PNOZ s4, monitored rising edge",PILZ),
+             ("S34","Reset","SR1_S34")]+proofs("SR1_13_14",13,14)
+             +switch("SR2_INPUT_B","SR1_23_24",23,24),"PNOZ s4, single-channel input, monitored rising edge",PILZ),
         part("SR2","Run gate and monitored ENABLE","750104",[("A1","24V","FUSED_24"),("A2","0V","CAB_0"),
-             ("S11","Input feed","SR2_S11"),("S12","Proof return","SR2_S12"),("S22","Single-channel jumper","SR2_S12"),
+             ("S11","Channel A feed","SR2_S11"),("S12","Channel A return","SR2_S12"),
+             ("S21","Channel B feed","SR2_S21"),("S22","Channel B return","SR2_S22"),
              ("S34","Enable","SR2_S34")]+switch("KS1_COIL","SR2_13_14",13,14)+switch("KS2_COIL","SR2_23_24",23,24)
-             +proofs("SR2_33_34",33,34),"PNOZ s4, RUN-dependent bypass only around start proofs",PILZ),
+             +proofs("SR2_33_34",33,34),"PNOZ s4, dual channel with cross-short detection, monitored rising edge. No S12-S22 bridge.",PILZ),
         part("J30","Main command A","1836079",[(1,"COM","FUSED_24"),(2,"NO","KCA_COIL")]),
         part("J35","Main command B","1836079",[(1,"COM","FUSED_24"),(2,"NO","KCB_COIL")]),
         guided("KCA1","Command interposer A","KCA_COIL",proofs("KCA_GUIDED_NC",11,12)+[(33,"NO common","A_COM"),(34,"NO output","A_NO")]),
         guided("KCB1","Command interposer B","KCB_COIL",proofs("KCB_GUIDED_NC",11,12)+[(33,"NO common","B_COM"),(34,"NO output","B_NO")]),
         diode("D4","KCA_COIL"),diode("D5","KCB_COIL"),
-        part("J4","Dry OEM command contacts","Profile-specific field transfer",
-             [(1,"A COM","A_COM"),(2,"A NO","A_NO"),(3,"B COM","B_COM"),(4,"B NO","B_NO"),
-              (5,"Motor feed out","OEM_LINE")],"See field wiring guide for matched OEM functions; PE stays continuous."),
+        part("XC1","Four dry OEM commands","Four-pole keyed control transfer",
+             [(1,"B COM","B_COM"),(2,"B NO","B_NO"),(3,"A COM","A_COM"),(4,"A NO","A_NO")],
+             "DOL LOCAL restores only the added A permission via 3-4. See profile-specific field drawing."),
+        part("XM2","Switched motor feed OUT","Phoenix UT 4 3044102 + UT 4 BU 3044115",
+             [(1,"Switched L","OEM_LINE"),(2,"Motor N","MOTOR_RETURN")],
+             "Physically separate from XC1 and RX.J4. Motor power terminals only. Maintain a separate continuous protective-earth bar. D-UT 3047028 end covers and rail end stops.",FEEDER),
     ]
     for n in (1,2):
         ref=f"KS{n}"
@@ -206,14 +236,14 @@ def field():
         diode("D6","KFB_A1"),
         part("J31","Main guard feedback plug","1803578",[(1,"STOP_RETURN","J31_1"),(2,"K1 coil +","J31_2")]),
     ])
-    return instruments,outputs
+    return instruments,outputs,interlock
 
 def pilot_profile():
     # The field adapter applies only to the illustrated conventional 24 V DC pilot.
     def resistor(ref,value,mpn,front,back):
         return part(ref,value,mpn,[(1,"1",front),(2,"2",back)],"24 V pilot field adapter.",kind="resistor")
     return [
-        part("J10","24 VDC pilot pickup taps","Shrouded low-voltage terminals",
+        part("XP10","24 VDC pilot pickup taps","Shrouded low-voltage terminals",
              [(1,"P after STOP / OL","PILOT_P"),(2,"D OEM coil A1","PILOT_D"),(3,"Pilot 0V","OEM_CTRL_N")],
              "KS1/KS2 interrupt all motor energy; SELV pilot stays powered. See field wiring p7."),
         resistor("R40","1.60k 1% 0.6W","1.60 kOhm 1% 0.6 W flameproof","PILOT_P","OPT_SENSE_A"),
@@ -235,15 +265,16 @@ def pilot_profile():
 
 def make_design():
     inputs, transfer = receiver()
-    instruments, outputs = field()
+    instruments, outputs, interlock = field()
     definitions=[
         ("heartbeat", "Heartbeat receiver and common supplies", inputs),
         ("panel", "Panel STOP receiver and 24 V driver", transfer),
         ("field", "Guard inputs and position contacts", instruments),
         ("outputs", "Reset, enable and series contactors", outputs),
         ("pilot", "24 V DC conventional DOL pilot adapter only", pilot_profile()),
+        ("service", "USB programming access and hardwired trip channels", interlock),
     ]
-    return dict(project=PROJECT, revision="1", title="Independent cabinet starter guard",
+    return dict(project=PROJECT, revision="R3", title="Independent cabinet starter guard",
                 sheets=[dict(id=n,title=t,components=c) for n,t,c in definitions])
 
 def main():
@@ -261,7 +292,7 @@ def main():
     checks.mkdir(exist_ok=True)
     def run(*args):
         subprocess.run([cli,*args],cwd=OUT,check=True)
-    run("sch","erc","--format","json","--exit-code-violations","-o","checks/erc.json",project)
+    run("sch","erc","--format","json","--severity-all","--exit-code-violations","-o","checks/erc.json",project)
     run("sch","export","netlist","--format","kicadxml","-o","checks/guard-netlist.xml",project)
     run("sch","export","pdf","-o","guard-schematic.pdf",project)
     cad.validate_netlist(design,checks/"guard-netlist.xml")

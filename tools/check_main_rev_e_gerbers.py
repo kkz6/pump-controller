@@ -22,7 +22,7 @@ from gerbonara import ExcellonFile, GerberFile
 from gerbonara import graphic_primitives as gp
 from gerbonara.apertures import ApertureMacroInstance
 from gerbonara.graphic_objects import Flash, Line
-from gerbonara.ipc356 import Netlist
+from gerbonara.ipc356 import Netlist, PadType
 from gerbonara.layers import LayerStack
 from gerbonara.utils import MM
 from shapely.geometry import GeometryCollection, Point, Polygon, LineString
@@ -349,11 +349,32 @@ def audit(args):
     ipc = parse(ipc_path, Netlist)
     aliases = dict(re.findall(r'^P\s+NNAME(\S+)\s+(\S+)\s*$', ipc_path.read_text(), re.MULTILINE))
     actual = defaultdict(set)
+    # A receptacle can have unnumbered mechanical locator holes. Match each
+    # to its native NPTH by reference, centre and tool diameter, once only.
+    locators = [h for h in native['holes'] if h['ref'] and not re.fullmatch(r'H\d+', h['ref'])
+                and h['kind'] == 'npth' and not h['pin'] and not h['net']]
+    located = []
     for record in ipc.test_records:
-        if record.ref_des and not re.fullmatch(r'H\d+', record.ref_des):
-            actual[(record.ref_des, str(getattr(record, 'pin', record.pin_num)))].add(
-                aliases.get(record.net_name, record.net_name) or '')
+        if not record.ref_des or re.fullmatch(r'H\d+', record.ref_des):
+            continue
+        pin = getattr(record, 'pin', None) or record.pin_num
+        if (pin is None and record.pad_type == PadType.NONPLATED_HOLE
+                and record.is_plated is False and not record.is_connected
+                and not record.net_name and record.hole_dia is not None):
+            dimensions = [MM(record.x, record.unit), -MM(record.y, record.unit),
+                          MM(record.hole_dia, record.unit)]
+            # IPC-D-356A rounds coordinates and diameter to the nearest 0.1 mil.
+            match = next((i for i, h in enumerate(locators)
+                          if h['ref'] == record.ref_des and all(abs(x-y) <= .001271 for x, y
+                          in zip(dimensions, [*h['xy_mm'], h['drill_mm'][0]]))), None)
+            if match is not None:
+                located.append(locators.pop(match)['uuid'])
+                continue
+        actual[(record.ref_des, str(pin))].add(aliases.get(record.net_name, record.net_name) or '')
+    if locators:
+        errors.append('IPC-D-356 omits native unnumbered mechanical locating holes')
     ipc_review = ipc_pin_review(native['source_pins'], source, actual)
+    ipc_review['nonconductive_locators_matched'] = located
     if ipc_review['pin_net_differences'] or ipc_review['unexpected_pins']:
         errors.append('IPC-D-356 pin/net assignments differ from source')
     job_candidates = list(args.cam.glob('*.gbrjob'))

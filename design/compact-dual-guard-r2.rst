@@ -1,6 +1,8 @@
 Guarded R2 electrical review
 ============================
 
+**Historical R2 record.** See the `current R3 engineering release <guarded-r3-release.rst>`_.
+
 The `subsequent system audit <guarded-r2-system-audit.rst>`_ records an
 installation and purchase hold for this revision, with two additional
 reproducible firmware faults and cabinet wiring corrections outstanding.

@@ -1,5 +1,5 @@
 Reference,Value,MPN,Description,Footprint,Datasheet,Sheet,DNP
-J1,AC INPUT L/N,1715721,Phoenix MKDS 1.5/2-5.08 2-way input connector; 400 V rated under III/2,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-15-2-508-1715721,power,False
+J1,AC INPUT L/N,31171102 (RT13702HBWC),"METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral.",CompactGuard:TerminalBlock_MetzConnect_Type171_RT13702HBWC_1x02_P7.50mm_Horizontal,https://www.metz-connect.com/externalfiles/311711/863694.PDF,power,False
 F1,T1A 600VAC,0ADKP1000-RE,Bel 1 A time-delay axial pigtail fuse; 200 A interrupting capacity at 600 VAC; coordinate with upstream protection,Pump:Fuse_Axial_5x20_P27.94,https://www.belfuse.com/media/datasheets/products/circuit-protection/ds-cp-0adkx-series.pdf,power,False
 R1,22R 3W FUSIBLE,AC03000002209JACCS,Vishay AC03-CS 22 ohm 3 W 5% fusible safety resistor; keep heat away from MCU and capacitors,Pump:R_Axial_L13_D6_P20.32,https://www.vishay.com/docs/28909/acxxcs.pdf,power,False
 RV1,TMOV 320VAC,TMOV14RP320EL2B7,"Thermally protected 14 mm MOV, 320 VAC continuous; INLINE crimped L2B7 lead option required for footprint; surge coordination unverified",Pump:TMOV14_Inline_P7.5,https://www.littelfuse.com/assetdocs/tmov-itmov?assetguid=bd475732-1071-4352-b8aa-f78b0007eb05,power,False
@@ -25,7 +25,7 @@ R25,3.3k,Generic 3.3k 1% 0.125 W 0805,I2C SCL pull-up; verify bus capacitance/ri
 R26,10k,Generic 10k 1% 0.125 W 0805,Keep metering IC deselected while ESP32 is resetting,Resistor_SMD:R_0805_2012Metric,,mcu,False
 R27,22R,Generic 22R 1% 0.125 W 0805,Optional internal USB service path; series resistor adjacent to module,Resistor_SMD:R_0805_2012Metric,,mcu,False
 R28,22R,Generic 22R 1% 0.125 W 0805,Optional internal USB service path; route D+/D- as 90-ohm differential pair,Resistor_SMD:R_0805_2012Metric,,mcu,False
-J2,SERVICE 2x4 2.54mm,"SPEC:2x4 2.54mm vertical header,0.64mm square posts","Internal2.54mm service header; pin 4 is ARM_TEST/ARM_CMD, NOT UART RX; native USB is the programming interface: 3.3 V pin is voltage reference only. No VBUS. Service only with mains disconnected and an isolated 5 V bench supply; do not back-power via 3V3 or signal pins.",Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical,,mcu,False
+J2,SERVICE 2x3,Samtec TSW-103-07-G-D,SELV fixture for BOOT / EN / logic debug. Pin 2 is a 3.3 V sense only. Board power at J41. Native USB is at J40.,CompactGuard:PinHeader_2x03_P2.54mm_Vertical,,mcu,False
 U10,ADE7953ACPZ,ADE7953ACPZ,Single phase metering IC; poll registers through SPI at 1MHz,Package_CSP:LFCSP-28-1EP_5x5mm_P0.5mm_EP3.14x3.14mm,https://www.analog.com/media/en/technical-documentation/data-sheets/ade7953.pdf,meter_ic,False
 C40,4.7uF,"SPEC: 4.7uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,,meter_ic,False
 C41,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
@@ -47,14 +47,14 @@ R44,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resis
 R45,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
 R46,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
 R47,1k,RT0603BRD071KL,"0.1%, 25ppm/K, 0603 voltage-divider low leg",Resistor_SMD:R_0603_1608Metric,https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL,meter_inputs,False
-C51,33nF,"SPEC: 33nF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_inputs,False
+C51,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
 R48,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
-C52,33nF,"SPEC: 33nF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_inputs,False
+C52,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
 J10,LIVE CT / FIXED,"Phoenix Contact 1727010 / MKDS 1/2-3,81","Fixed CT-secondary terminal; factory-captive mains-referenced lead, no removable plug. 1 M_CT_HI, 2 M_GND. Support housing during 0.22-0.25 Nm tightening; 5 mm strip; separate strain relief. Disconnect only with pump supply isolated.",TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1-2-3.81_1x02_P3.81mm_Horizontal,https://www.phoenixcontact.com/en-us/products/printed-circuit-board-terminal-mkds-1-2-381-1727010,meter_inputs,False
 R49,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
-C53,33nF,"SPEC: 33nF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_inputs,False
+C53,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
 R50,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
-C54,33nF,"SPEC: 33nF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_inputs,False
+C54,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
 D10,BAV99W,"BAV99W,115",Antiparallel input limiting across CT secondary; not a substitute for the external burden,Package_TO_SOT_SMD:SOT-323_SC-70,https://assets.nexperia.com/documents/data-sheet/BAV99W.pdf,meter_inputs,False
 U11,ADuM6421ABRNZ5,ADUM6421ABRNZ5,"Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage",CompactGuard:ADuM6421A_RN28_Dense,https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf,meter_isolation,False
 FB1,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=,meter_isolation,False
@@ -222,3 +222,19 @@ H4,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live regio
 H5,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
 U37,SN74LVC3G17DCUR,SN74LVC3G17DCUR,Three non-inverting Schmitt inputs; 5.5V-tolerant raw inputs and Ioff support. Outputs use U33 supply; STOP/MODE/NEXT polarity unchanged.,PumpRevE:SN74LVC3G17_DCU_TI,https://www.ti.com/lit/ds/symlink/sn74lvc3g17.pdf,controls_conditioning,False
 C78,100nF,"SPEC: 100nF X7R, 10%, 16V",Local U37 bypass; short direct connection between pins8 and4.,Capacitor_SMD:C_0603_1608Metric,,controls_conditioning,False
+J40,USB-C DATA / SERVICE,USB4110-GF-A,GCT USB 2.0 full-speed service sink. Paired GND and VBUS pins share physical solder lands. SBU pins open. Access via dual-NC interlocked cover.,CompactGuard:USB_C_GCT_USB4110_12Lands,https://gct.co/files/drawings/usb4110.pdf,usb_service,False
+U41,USB DATA SWITCH,TS3USB30EDGSR,TI DGS-10 VSSOP. Hardware gates USB D+/D− on host VBUS; S=0 selects D1+/D1−. OE is active low. Powered-off high-impedance data paths.,CompactGuard:MSOP-10_3x3mm_P0.5mm,https://www.ti.com/lit/ds/symlink/ts3usb30e.pdf,usb_service,False
+D42,USB ESD,USBLC6-2SC6,"ST flow-through USB protector. Internal pin 6 to 1 carries D+, pin 4 to 3 carries D−. VBUS clamps to GND. Both USB paths pass through the ESD device.",CompactGuard:SOT-23-6,https://www.st.com/resource/en/datasheet/usblc6-2.pdf,usb_service,False
+R240,5.1k 1%,RC0603FR-075K1L,CC1 termination,Resistor_SMD:R_0603_1608Metric,,usb_service,False
+R241,5.1k 1%,RC0603FR-075K1L,CC2 termination,Resistor_SMD:R_0603_1608Metric,,usb_service,False
+C241,100nF 16V X7R,GRM188R71C104KA01D,Local supply decoupling.,Capacitor_SMD:C_0603_1608Metric,,usb_service,False
+D43,CLAMP REFERENCE BLOCK,"BAS116H,115","Nexperia BAS116H low-leakage diode. Anode on host VBUS, cathode to D42 clamp reference. Prevents an energized data pull-up from feeding host VBUS or holding the programming inhibit after unplug.",CompactGuard:D_SOD-123F,https://assets.nexperia.com/documents/data-sheet/BAS116H.pdf,usb_service,False
+D44,VBUS TVS 6V,SMF6.0A,"Littelfuse unidirectional SMF TVS, 6 V standoff. Connects host VBUS to GND independently of the data protector; place at J40.",CompactGuard:D_SOD-123F,https://www.littelfuse.com/products/overvoltage-protection/tvs-diodes/surface-mount/smf/smf6-0a,usb_service,False
+J41,RUN LINK / BENCH 5V,B3B-XH-A(LF)(SN),JST XH vertical 3-way. RUN housing shorts 1 to 2 only. Bench housing supplies regulated isolated 5 V to 2 and return to 3; empty cavity 1 isolates converter output. XHP-3 / SXH-001T-P0.6.,CompactGuard:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,service_inhibit,False
+U40,USB MOTOR INHIBIT,TPS22919DCKR,VIN supplied from isolated +5 V. ON pulled up on 3.3 V and grounded by Q40 on USB VBUS. Output powers both coil paths and raw panel host permissive. QOD tied directly to VOUT.,CompactGuard:SOT-363_SC-70-6,https://www.ti.com/lit/ds/symlink/tps22919.pdf,service_inhibit,False
+Q40,VBUS INHIBIT,PMV16XNR,Nexperia SOT-23 logic-level N-MOSFET pulls CMD_ALLOWED low when VBUS is present. RDS(on) specified at 1.8 V and 2.5 V.,CompactGuard:SOT-23,https://assets.nexperia.com/documents/data-sheet/PMV16XN.pdf,service_inhibit,False
+R242,1k 1%,RC0603FR-071KL,Gate series,Resistor_SMD:R_0603_1608Metric,,service_inhibit,False
+R243,47k 1%,RC0603FR-0747KL,Gate pulldown,Resistor_SMD:R_0603_1608Metric,,service_inhibit,False
+R244,10k 1%,RC0603FR-0710KL,Inhibit pull-up,Resistor_SMD:R_0603_1608Metric,,service_inhibit,False
+C240,1uF 16V X7R,GRM188R71C105KA12D,Local supply decoupling.,Capacitor_SMD:C_0603_1608Metric,,service_inhibit,False
+C242,100nF 16V X7R,GRM188R71C104KA01D,Local supply decoupling.,Capacitor_SMD:C_0603_1608Metric,,service_inhibit,False

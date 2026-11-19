@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "9595f68a-5ca7-518d-ad6c-f2a828ea6197")
 (paper "A3")
-(title_block (title "Meter isolation - power and SPI") (rev "COMPACT-DUAL-GUARD-R2") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Meter isolation - power and SPI") (rev "COMPACT-DUAL-GUARD-R3") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:U11"
 (pin_names (offset 0.508))

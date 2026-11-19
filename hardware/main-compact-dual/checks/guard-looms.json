@@ -1,37 +1,40 @@
 {
   "source_sha256": {
-    "hardware/main-compact-dual/controls_conditioning.kicad_sch": "dff297497bd5a9385ac65d3e4a55594d5145a4f013aae3c99b77bb9f793859be",
-    "hardware/main-compact-dual/local_controls_1.kicad_sch": "5775f93ab582eea5a588d77abad037533223e58aa47fec302c43d158d9f8276a",
-    "hardware/main-compact-dual/local_controls_2.kicad_sch": "8654e2012f0c4cefdaded1822fa7fece81f686df833550c390e51c1d9287d894",
-    "hardware/main-compact-dual/mcu.kicad_sch": "23a435f4160f7b9854e1f82d6dcf9726ca6d0dced73093676267dd8d37ee10c3",
-    "hardware/main-compact-dual/mechanical.kicad_sch": "cbb594fe1cb47bc8918ba23bc8361d28bb62890638690892106b83d668199f27",
-    "hardware/main-compact-dual/meter_ic.kicad_sch": "25d6f7487017992346c303b7085dfdd81359752356a3aecb21ae3302380ee626",
-    "hardware/main-compact-dual/meter_inputs.kicad_sch": "e55704198a38ec7dc10849959f641168e1b6729321e4c6f4cc315386142ff3ca",
-    "hardware/main-compact-dual/meter_isolation.kicad_sch": "c5b7bea8689d550758089d631bca2e5e396cab0c592511731bc89adc3be3844a",
-    "hardware/main-compact-dual/power.kicad_sch": "bcf34ebf3cecbb6fd72e7ddc50916dd8bea9bbb75c82af09605494da692411b2",
-    "hardware/main-compact-dual/power_flags.kicad_sch": "b79c5b1e49fd4568196e9f5c21e3a19f4b151b844c1ed600377affc7f0250a3f",
-    "hardware/main-compact-dual/probes_1.kicad_sch": "cd1c42837d3e9974390224bd345a26bdcf5648859ee475bd4ec320a99361fdc4",
-    "hardware/main-compact-dual/probes_2.kicad_sch": "062fff3c54b5aff472c704c63c8a30c3622527f993735f5ca17682251d4a4dd3",
-    "hardware/main-compact-dual/probes_3.kicad_sch": "c1dafe1ed4b726edd1cdab9e3470aa8a16bd8891924bfb2952dcdf66b3c2ce35",
-    "hardware/main-compact-dual/probes_4.kicad_sch": "182142c275ed607a21396d3b69a47451ed82b0a657bf3cc92b04dcb0d01e8cd2",
-    "hardware/main-compact-dual/pump-controller-compact.kicad_sch": "5e1c3755451b12cd212bf9405d6c8ab58e96c47564318e54cc4436505cb3605e",
-    "hardware/main-compact-dual/relay_protection_1.kicad_sch": "7d923b033580d98f172c998be5c5a3449045fdcd96198e49a8bb7e3e9a00b1a8",
-    "hardware/main-compact-dual/relay_protection_2.kicad_sch": "f141ba2c2a33be1efd7d6d786ae1955dda90462eaaac8d5ad8c7ded412b55f8d",
-    "hardware/panel-rev-e/panel-controls.kicad_sch": "e2a150ca7531e356e3acc92d2fd2464e492209897db618dfe4545347f0b845fa",
-    "hardware/panel-rev-e/panel-display.kicad_sch": "c148a55c8a081e3449f47b4c8b4bcaf4ae7f94e5b3023b922791fd99337865ec",
-    "hardware/panel-rev-e/panel-key.kicad_sch": "0af6104243c6e7ed758aa9f8f42813c75f45ab3defab3763958f3b64bd452ad1",
-    "hardware/panel-rev-e/panel-mechanical.kicad_sch": "a106af514f16d557ae3b125497db2e02ea9c13612709a6b324ac707dee5a2503",
-    "hardware/panel-rev-e/pump-panel-rev-e.kicad_sch": "43ff6d15cdd2d67669f4bbf3c9df3fcc606ab54c3ae67a9abe67ef164c35b29c",
+    "hardware/main-compact-dual/controls_conditioning.kicad_sch": "94a05d8777f02cb2a8e20fbc8bbac3f21e807b256e14d5b13a9487a2089cba13",
+    "hardware/main-compact-dual/local_controls_1.kicad_sch": "ec52e19f64c9407376860ae3e87a1a75d911d4b904c93d7cb9195cf18533496b",
+    "hardware/main-compact-dual/local_controls_2.kicad_sch": "9f8c564f9feb7125f6ac499579197451877ae1a09f5deb01758f17e49f6f2533",
+    "hardware/main-compact-dual/mcu.kicad_sch": "f4b05486bb1f15bc3a0dbf68a8ada03262d02ff4a1ea3807bc0fe6fd476f6302",
+    "hardware/main-compact-dual/mechanical.kicad_sch": "b8110fa22472a9fc208f77f69c2cf4e81e52980418d9735e3236cd03f03dd1f8",
+    "hardware/main-compact-dual/meter_ic.kicad_sch": "fa6675d802604e9aafe9092ad93a3478a0623f711ff852ecd9615f7a2ad289be",
+    "hardware/main-compact-dual/meter_inputs.kicad_sch": "8d9088ee216101f3f917816d66475850f1b972a15f79b57a2faec8cf1816ada2",
+    "hardware/main-compact-dual/meter_isolation.kicad_sch": "de755f893e5458a4414d8c0e0197a8df210e69832a599d4a1ca0abfdf191eea8",
+    "hardware/main-compact-dual/power.kicad_sch": "292250851b11a7c754e2046c06e9aba216c6ad861f47a857fb3e00802ace7daf",
+    "hardware/main-compact-dual/power_flags.kicad_sch": "887be0d122ffbfd17b2deb1269e1ddb8a17aa7ba13db06600ac5ac2cd2ceb567",
+    "hardware/main-compact-dual/probes_1.kicad_sch": "4bb0afaed662f8c63dd770480a1c1ab63b5315436c7119823fb510c3879d57dd",
+    "hardware/main-compact-dual/probes_2.kicad_sch": "90690fbd41fb992560b4c094ae839496e02521e0cf99729d7fc45033ff67f168",
+    "hardware/main-compact-dual/probes_3.kicad_sch": "a137f191f30365bba603f7b3a077aff6d462e1da2e92544d17d3ff22084261a0",
+    "hardware/main-compact-dual/probes_4.kicad_sch": "9edfc11c3b8179a325e25780ce79e58646307abc3568bf9c7f283cc376888bfb",
+    "hardware/main-compact-dual/pump-controller-compact.kicad_sch": "95d01a5c7e43fab954d12e932daa37366d14919f76dfca03b450a33d17026ba2",
+    "hardware/main-compact-dual/relay_protection_1.kicad_sch": "3e9df3ef3b6f16379bcc5ece9c17482e70f93b534d986fab90cef3758b9ae423",
+    "hardware/main-compact-dual/relay_protection_2.kicad_sch": "83208029bb04a53d325a023064aa52f42c0e8221e4a1d4af32656a3c8b302819",
+    "hardware/main-compact-dual/service_inhibit.kicad_sch": "8f8ed6ab3023a9479d40debdcd90542f397cbff3d4ea4a3af8a379d8d13c030c",
+    "hardware/main-compact-dual/usb_service.kicad_sch": "e0c6c0c705397c65aa6bbecfb031f7ddc838531b8a2e510150df63d31563efd4",
+    "hardware/panel-rev-f/panel-controls.kicad_sch": "69f3fed7a244387c1ef268d18dd303042879a5d0da33b7b029743ece0774a8b2",
+    "hardware/panel-rev-f/panel-display.kicad_sch": "4f39f18a222117c0d6e97421e61cdab117c57c231271d66124040baf8ee13bc0",
+    "hardware/panel-rev-f/panel-key.kicad_sch": "d6e1d26928c4b1b3c939b3e6062451b201b2688dbe2aa226dcbfd552b3ca7173",
+    "hardware/panel-rev-f/panel-mechanical.kicad_sch": "ed22ea4081b38677bfa7cf053a9c5a5e34876c3524df2a11d693b72fd59638a3",
+    "hardware/panel-rev-f/pump-panel-rev-f.kicad_sch": "c70aed4a88f886ed6437cf13e6de99c2a7e6e5bd579abd798cf3047b34715e5a",
     "hardware/guard-receiver/cabinet.kicad_sch": "0cbc351e1a77d23ea9458b72549b0022adb371ee8ea30ecea3d52fd7a14cb183",
     "hardware/guard-receiver/guard-receiver.kicad_sch": "9024fbc4396b001d614e4b203668e7d51086707b18706cbc490afe8fa9583132",
     "hardware/guard-receiver/plugs.kicad_sch": "68e16bf15d00d93e6471ecc7c0d6667a307ea74f12f97bff5185b197c3c2bcb8",
     "hardware/guard-receiver/receiver.kicad_sch": "7b82512e84ce7d886ce91c8b2071c5b565151990f81d8742422bb01b16404906",
-    "hardware/starter-guard/field.kicad_sch": "e224df5c2abf9db1a5dc5d3d97b6b1955301e3129fc9003fa6c28908610a917a",
-    "hardware/starter-guard/heartbeat.kicad_sch": "951376530359f1dcb470cfef23493f91e28764caa77d7af41068f11b3ccfa003",
-    "hardware/starter-guard/outputs.kicad_sch": "d7e1f6131e43fe0b0c3ccf22ae3c20684d8a251eccec6237f0d94190be5a72a2",
-    "hardware/starter-guard/panel.kicad_sch": "e25aa6fbc59472142d626c729c4a73765181db369080cc6634d1c241bb026acb",
-    "hardware/starter-guard/pilot.kicad_sch": "f1c65d04321def5b02346f058b11074d2ebc099a2536ccf2d56b943b9bc63161",
-    "hardware/starter-guard/starter-guard.kicad_sch": "21391886dcf786845ecd98cde71b1d2c9ec1fb8a8e3eea9b18e4c95d5f1a5e14"
+    "hardware/starter-guard/field.kicad_sch": "f5a7b61b8255e09ae91da94851daec50bbf8432a704b48eeb21fcec3a6d8cc49",
+    "hardware/starter-guard/heartbeat.kicad_sch": "163f62823d1af136233c49994c308e54d79c3590f636ce09c51a5df4018a0159",
+    "hardware/starter-guard/outputs.kicad_sch": "12e794f21ac655f6e4508b7c2ffa1d54a53af1f0cead14b4e253051ecb7c7ba7",
+    "hardware/starter-guard/panel.kicad_sch": "d900de6b2921690fa95ed22fd5dfe97373b95816f07af00b5d6c54b5029291d1",
+    "hardware/starter-guard/pilot.kicad_sch": "0ea3c2b727492093d94b91eb21a12e3074d0564fdd706b0c9ad6d3dcd845ba3c",
+    "hardware/starter-guard/service.kicad_sch": "d69ad7f2c6781808cdca8834ac58035e10c5e6d8b495058a8eee4d6165e6ce9b",
+    "hardware/starter-guard/starter-guard.kicad_sch": "7c6cfc249c7b0aee7c0ca57289e33abd6b85eba37d7d19c72769332567ab790d"
   },
   "checked_ports": {
     "main.J36": {
@@ -56,6 +59,38 @@
       "pins": {
         "2": "PROBE_ICOM",
         "1": "PROBE_INLET"
+      }
+    },
+    "main.J41": {
+      "footprint": "JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+      "pins": {
+        "2": "+5V",
+        "3": "GND",
+        "1": "PSU_5V_RAW"
+      }
+    },
+    "panel.J2": {
+      "footprint": "JST_GH_SM10B-GHS-TB_1x10-1MP_P1.25mm_Horizontal",
+      "pins": {
+        "9": "AUTO_RETURN",
+        "2": "GND",
+        "8": "GND",
+        "5": "MAN_RETURN",
+        "7": "RESET_N",
+        "1": "START_N",
+        "3": "STOP_LOCAL_NC",
+        "10": "STOP_RETURN",
+        "4": "STOP_RETURN",
+        "6": "STOP_RETURN"
+      }
+    },
+    "panel.J7": {
+      "footprint": "JST_PH_S4B-PH-SM4-TB_1x04-1MP_P2.00mm_Horizontal",
+      "pins": {
+        "4": "+3V3",
+        "3": "GND",
+        "1": "I2C_SCL",
+        "2": "I2C_SDA"
       }
     },
     "panel.J8": {

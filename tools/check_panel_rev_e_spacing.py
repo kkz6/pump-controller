@@ -4,6 +4,7 @@
 Complements native ERC/DRC, source/interface checks and exported-mask review.
 Run with KiCad Python. No CAD, project rules or exported CAM is modified.
 """
+import argparse
 from collections import Counter
 import json
 from pathlib import Path
@@ -12,7 +13,9 @@ import check_main_rev_e_geometry as g
 
 p = g.p
 BASE = Path(__file__).resolve().parents[1]
-path = BASE / 'hardware/panel-rev-e/pump-panel-rev-e.kicad_pcb'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--board', type=Path, default=BASE/'hardware/panel-rev-e/pump-panel-rev-e.kicad_pcb')
+path = parser.parse_args().board.resolve()
 before = g.sha(path)
 b = p.LoadBoard(str(path))
 objects, violations, annuli, holes = [], [], [], []

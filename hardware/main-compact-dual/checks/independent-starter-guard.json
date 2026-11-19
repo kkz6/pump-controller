@@ -1,12 +1,45 @@
 {
   "scope": "Ideal external contact connectivity, monitored relay sequences and DC divider calculations",
-  "contact_netlist_sha256": "e7aa362ee49f54148d2e2e689f4e0aa30c1b9aec1a3d3a2ed78261b3caf38b4a",
+  "contact_netlist_sha256": "4a5cee4f2b44e0da233c697053a3caaf20dcebbfd9cb34858fce162066ba2e3c",
   "field_schematic": {
-    "contact_pairs": 34,
-    "populated_net_pins": 264,
-    "components": 78
+    "contact_pairs": 39,
+    "populated_net_pins": 284,
+    "components": 87
   },
-  "input_combinations": 1024,
+  "input_combinations": 2048,
+  "interstage_shorts": {
+    "single_bridge_or_gate_contact_cases_by_demand": {
+      "FLOAT_NC": 36,
+      "OEM_STOP_RELEASED": 36,
+      "USB_ACCESS": 36
+    },
+    "single_open_service_channel_by_mode": 4,
+    "wire_nodes": [
+      "SR2.S11",
+      "RUN_PERMITTED",
+      "SR2.S12",
+      "SR2.S21",
+      "SECOND_STAGE",
+      "SR2.S22"
+    ],
+    "prior_single_channel_bypass_reproduced": true,
+    "dual_bypass_sensitivity_control_reproduced": true
+  },
+  "trapped_key_service": {
+    "reachable_mechanical_states": 6,
+    "contactors_held_closed": true,
+    "scope": "Isolator upstream of XM1 in both modes, independent of VBUS. QISO1/AL1 mechanical action and sole-key control require verification.",
+    "negative_controls_detected": [
+      "QISO1 releases key while on",
+      "AL1 can lock over an inserted cable"
+    ]
+  },
+  "dead_cable_restoration": {
+    "restoration_orders_per_mode_and_gate_fault": 24,
+    "sampled_supply_states": 576,
+    "cable": "Inserted with VBUS at 0 V. A separately supplied main board can energize its command rail.",
+    "result": "No SR2 permission, including with either SG1 contact bridged. Both QISO1 poles remain open with both KS main contacts retained. Physical key exchange/plug capture is assumed."
+  },
   "oem_pickup_restoration_cases": {
     "HOST/healthy": "may accept fresh ENABLE",
     "HOST/welded_seal_no": "blocked",
@@ -35,7 +68,8 @@
     "OEM_STOP_RELEASED": 24,
     "OVERLOAD_HEALTHY": 24,
     "PANEL_RELAY_NO": 12,
-    "UNSEAT": 24
+    "UNSEAT": 24,
+    "USB_ACCESS": 24
   },
   "receiver_tolerance_corners": {
     "HB": {

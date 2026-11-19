@@ -37,7 +37,7 @@ class BoardVariant(NamedTuple):
     @property
     def archive_name(self):
         if self.directory == 'main-compact-dual':
-            return self.cam_name + '-guard-r2'
+            return self.cam_name + '-guard-r3'
         return self.cam_name
 
 
@@ -46,7 +46,7 @@ def board_variant(compact=False, compact_dual=False):
         raise ValueError('Select one main PCB variant')
     if compact_dual:
         return BoardVariant('main-compact-dual', 'pump-controller-compact', 'pump-controller-compact-dual',
-                            'design/main-compact-dual.json', (100, 97), 'COMPACT-DUAL-GUARD-R2')
+                            'design/main-compact-dual.json', (100, 97), 'COMPACT-DUAL-GUARD-R3')
     if compact:
         return BoardVariant('main-compact', 'pump-controller-compact', 'pump-controller-compact',
                             'design/main-compact.json', (100, 75), 'Compact')
@@ -127,6 +127,29 @@ def package(base=BASE, *, compact=False, compact_dual=False):
                 'Bypass routing evidence is stale or incomplete')
         field_gap = geometry['starter_field_to_board_mains_projected']['gap_mm']
         require(field_gap >= 8, 'Starter-to-mains projected clearance is below 8 mm')
+        require(geometry['mains_line_to_neutral_projected']['gap_mm'] >= 3.2,
+                'Pre-fuse line-to-neutral projected clearance is below 3.2 mm')
+        segments = geometry['line_segments_to_neutral_projected']
+        protected = segments['L_PROTECTED']
+        require(segments['L_FUSED']['minimum_same_layer_mm'] >= 3.2
+                and protected['minimum_same_layer_mm'] >= 2.8
+                and protected['minimum_same_layer_excluding_U1_input_pair']['gap_mm'] >= 3.2,
+                'Post-fuse phase-to-neutral spacing below the approved layout limits')
+        usb = read(checks / 'usb-service.json')
+        inputs_checked = usb['input_sha256']
+        required = {str(path.relative_to(base)) for path in [board, *output.glob('*.kicad_sch')]}
+        required.add('hardware/panel-rev-f/pump-panel-rev-f.kicad_pcb')
+        require(required <= inputs_checked.keys(), 'USB service evidence omits hardware sources')
+        for relative, digest in inputs_checked.items():
+            require(sha(watch(base / relative)) == digest, 'Stale USB evidence: ' + relative)
+        scenarios = usb['power_combinations']
+        require({(s['harness'], s['ac_source'], s['host_vbus']) for s in scenarios} ==
+                {(h, ac, vbus) for h in ('open','run','bench') for ac in (False,True)
+                 for vbus in (False,True)}, 'Incomplete USB power combinations')
+        require(all(not (s['coil_A_feed'] or s['coil_B_feed'] or s['raw_panel_permit'])
+                    for s in scenarios if s['host_vbus']), 'USB leaves a motor permission active')
+        require(set(usb['usb_orientations']) == {'normal','flipped'} and usb['negative_controls_rejected'],
+                'USB orientation or fault evidence missing')
     export = read(output / 'fabrication-manifest.json')
     if compact_dual:
         require(export['revision'] == variant.revision, 'CAM export variant mismatch')
@@ -185,7 +208,10 @@ def package(base=BASE, *, compact=False, compact_dual=False):
         'Paste files are supplied in a separate stencil archive.\n'
     )
     if compact_dual:
-        notes += ('Guard R2 requires the separate cabinet shutdown assembly. J31 accepts isolated guard feedback only.\n'
+        notes += ('Guard R3 requires the separate cabinet shutdown assembly. J31 accepts isolated guard feedback only.\n'
+                  'J40: confirm both 0.65 mm NPTH locating holes finish at 0.60 to 0.70 mm, with positions to GCT USB4110 drawing tolerance.\n'
+                  'General +/-0.20 mm NPTH tolerance is insufficient. Confirm local pad corner relief and mask in DFM before accepting the order.\n'
+                  'Maintain at least 3.20 mm finished copper separation between the incoming pre-fuse line (MAINS_L) and MAINS_N.\n'
                   'Maintain at least 8.00 mm finished copper separation from both starter pairs to '
                   'controller mains, metering and isolated logic across all six layers. Report DFM changes.\n')
     common = {

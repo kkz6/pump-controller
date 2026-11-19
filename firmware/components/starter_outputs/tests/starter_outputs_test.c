@@ -13,7 +13,8 @@ static struct starter_drive check(struct starter_outputs *s, uint32_t now, bool 
 /* Test fixture timings, independent of the values required by any real starter. */
 static struct starter_config config(enum starter_profile profile)
 {
-    return (struct starter_config){.profile = profile, .harness_profile = profile, .contact_settle_ms = 20,
+    return (struct starter_config){.profile = profile, .harness_profile = profile, .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
+        .contact_settle_ms = 20,
         .start_pulse_ms = 60, .stop_pulse_ms = 40, .independent_shutdown = true};
 }
 
@@ -84,6 +85,27 @@ static void test_pulse_stop(void)
     assert(check(&s, 266, true, false, STARTER_START, false, true).stop_issued);
 }
 
+static void test_stop_deadline_and_rollover(void)
+{
+    struct starter_outputs s;
+    struct starter_config cfg = config(STARTER_RUN_PAIR);
+    uint32_t start = UINT32_MAX - 50;
+    assert(starter_configure(&s, cfg));
+    check(&s, start, true, true, STARTER_NONE, false, false);
+    check(&s, start + 20, true, true, STARTER_NONE, false, false);
+    assert(check(&s, start + 21, true, true, STARTER_ARM, false, false).arm_issued);
+    check(&s, start + 22, true, true, STARTER_START, true, true);
+    check(&s, start + 23, true, false, STARTER_STOP, false, false);
+    check(&s, start + 23 + cfg.confirm_stop_ms - 1, true, false, STARTER_STOP, false, false);
+    assert(s.phase == STARTER_SETTLING);
+    check(&s, start + 23 + cfg.confirm_stop_ms, true, false, STARTER_STOP, false, false);
+    assert(s.phase == STARTER_FEEDBACK_FAULT);
+    starter_step(&s, 200, TRANSFER_UNKNOWN, false, false, STARTER_NONE);
+    assert(s.phase == STARTER_FEEDBACK_FAULT);
+    check(&s, 210, true, true, STARTER_ACKNOWLEDGE, false, false);
+    assert(s.phase == STARTER_FEEDBACK_FAULT); /* External permission still up. */
+}
+
 int main(void)
 {
     struct starter_outputs s;
@@ -111,6 +133,19 @@ int main(void)
     test_maintained();
     test_open_stop();
     test_pulse_stop();
+    test_stop_deadline_and_rollover();
+    bad = config(STARTER_PULSE_STOP);
+    bad.stop_pulse_ms = bad.stop_range.max_ms + 1;
+    assert(!starter_configure(&s, bad));
+    bad = config(STARTER_PULSE_STOP);
+    bad.start_pulse_ms = bad.start_range.min_ms - 1;
+    assert(!starter_configure(&s, bad));
+    bad = config(STARTER_PULSE_STOP);
+    bad.start_range.max_ms = INT32_MAX;
+    assert(!starter_configure(&s, bad));
+    bad = config(STARTER_PULSE_STOP);
+    bad.confirm_stop_ms = 2 * bad.contact_settle_ms + bad.stop_pulse_ms;
+    assert(!starter_configure(&s, bad));
     assert(starter_configure(&s, config(STARTER_PULSE_STOP)));
     check(&s, UINT32_MAX-9, true, true, STARTER_NONE, false, false);
     assert(check(&s, 10, true, true, STARTER_NONE, false, true).stop_issued);

@@ -1,10 +1,15 @@
 PUMP CONTROLLER — PROGRAMMABILITY AND FUTURE EXPANSION
 Revision: 2026-11-19 / Rev E hardware provision and firmware specification
 
-Guarded R2 exposes boot, reset and native USB data on the internal 2 x 4
-header J2. There is no USB-C receptacle on the main, receiver or OLED board.
-R2 uses a bench fixture for boot and reset. Its operator buttons are on the
-OLED panel. See hardware/main-compact-dual/README.rst for the pinout.
+Guarded R3 provides the native ESP32-C6 USB-C data port at main J40.
+Host VBUS inhibits both command coils and panel operating permission in hardware.
+The installed shutter requires the trapped key from the isolated motor feeder.
+It independently opens the cabinet guard in HOST and LOCAL even with
+an unpowered cable. For bench flashing use externally isolated 5 V at J41
+with AC and field wiring disconnected. For the six-pin recovery fixture and
+current hardware, see hardware/main-compact-dual/README.rst and
+design/guarded-r3-release.rst. The detailed J2/J32 pinouts below describe
+the earlier board revisions unless explicitly identified as R3.
 
 STATUS AND INTENT
 

@@ -15,6 +15,10 @@ for f in b.GetFootprints():
  elif ref=='J36' and any(x.m_Filename.endswith('JST_ZE_SM05B-ZESS-TB_envelope.step') for x in f.Models()):
   filename=R/'hardware/main-compact-dual/libraries/Connector_JST.3dshapes/JST_ZE_SM05B-ZESS-TB_envelope.step'
   f.Models().clear();m=p.FP_3DMODEL();m.m_Filename=str(filename);f.Add3DModel(m);status='conservative_installed_envelope'
+ elif any(x.m_Filename.startswith('${KIPRJMOD}/libraries/CompactGuard.3dshapes/') for x in f.Models()):
+  assert len(f.Models())==1, 'Expected one project connector body: '+ref
+  filename=args.board.resolve().parent / f.Models()[0].m_Filename.removeprefix('${KIPRJMOD}/')
+  f.Models().clear();m=p.FP_3DMODEL();m.m_Filename=str(filename);f.Add3DModel(m);status='nominal_project_body'
  elif ref in lookup:
   filename=R/'hardware/3d/models'/(lookup[ref]+'.step');f.Models().clear();m=p.FP_3DMODEL();m.m_Filename=str(filename);f.Add3DModel(m);status='approximate_project_body'
  elif ref.startswith('H'):status='mounting_hole_without_fastener'

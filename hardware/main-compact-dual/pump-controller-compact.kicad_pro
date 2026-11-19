@@ -1026,6 +1026,74 @@
       {
         "pattern": "PANEL_OK_MON",
         "netclass": "SELV"
+      },
+      {
+        "pattern": "+5V_CMD",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "PSU_5V_RAW",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "unconnected-(U40-NC-Pad4)",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_CC1",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "CMD_ALLOWED",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "unconnected-(U41-D2--Pad7)",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_PRESENT",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_VBUS",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "unconnected-(J40-SBU1-PadA8)",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "unconnected-(J40-SBU2-PadB8)",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_CONN_DP",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_CONN_DM",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "unconnected-(U41-D2+-Pad3)",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_CC2",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_PROT_DP",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_PROT_DM",
+        "netclass": "SELV"
+      },
+      {
+        "pattern": "USB_ESD_REF",
+        "netclass": "SELV"
       }
     ]
   },

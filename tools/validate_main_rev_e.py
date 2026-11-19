@@ -30,10 +30,13 @@ def run(command, allowed=(0, 5)):
 
 
 def isolation_pairs(source):
-    pairs = [('M_GND', 'GND')]
-    if json.loads(source.read_text())['board'].get('variant') == 'compact-dual':
+    design = json.loads(source.read_text())
+    pairs = [('M_GND', 'GND', 8.0)]
+    if design['board'].get('variant') == 'compact-dual':
         for field in ('CTRL_A_COM', 'CTRL_A_NO', 'CTRL_B_COM', 'CTRL_B_NO'):
-            pairs.extend([(field, 'M_GND'), (field, 'GND')])
+            pairs.extend([(field, 'M_GND', 8.0), (field, 'GND', 8.0)])
+    if design.get('revision') == 'COMPACT-DUAL-GUARD-R3':
+        pairs.extend((phase, 'MAINS_N', 3.2) for phase in ('MAINS_L', 'L_FUSED', 'L_PROTECTED'))
     return pairs
 
 
@@ -48,10 +51,11 @@ def make_test_copy(args):
     y = p.ToMM(edge.GetY() + edge.GetHeight()) + 20
     layers = [layer for layer in b.GetEnabledLayers().Seq() if p.IsCopperLayer(layer)]
     records = []
-    for row, nets in enumerate(isolation_pairs(args.source)):
+    for row, (first, second, limit) in enumerate(isolation_pairs(args.source)):
+        gap = round(limit + args.test_offset, 3)
         for i, layer in enumerate(layers):
             pair = []
-            for net, y_offset in [(nets[0], row * 24), (nets[1], row * 24 + args.test_gap + .25)]:
+            for net, y_offset in [(first, row * 24), (second, row * 24 + gap + .25)]:
                 track = p.PCB_TRACK(b)
                 track.SetLayer(layer)
                 track.SetStart(p.VECTOR2I(p.FromMM(x + i * 20), p.FromMM(y + y_offset)))
@@ -60,8 +64,8 @@ def make_test_copy(args):
                 track.SetNetCode(b.FindNet(net).GetNetCode())
                 b.Add(track)
                 pair.append(str(track.m_Uuid.AsString()))
-            records.append({'layer': b.GetLayerName(layer), 'pair_uuids': pair, 'nets': nets,
-                            'copper_edge_gap_mm': args.test_gap})
+            records.append({'layer': b.GetLayerName(layer), 'pair_uuids': pair, 'nets': [first, second],
+                            'required_clearance_mm': limit, 'copper_edge_gap_mm': gap})
     copy_path = dest / args.board.name
     p.SaveBoard(str(copy_path), b)
     # SaveBoard can rewrite project settings. The negative test must use the
@@ -102,10 +106,10 @@ def validate(args):
 
     isolation = []
     with tempfile.TemporaryDirectory(prefix='pump-rev-e-isolation-') as temp:
-        for gap, should_fail in [(7.9, True), (8.1, False)]:
+        for offset, should_fail in [(-.1, True), (.1, False)]:
             dest = Path(temp) / ('below' if should_fail else 'above')
             run([python, Path(__file__).resolve(), '--board', board, '--inject-copy', dest,
-                 '--source', source, '--test-gap', str(gap)], allowed=(0,))
+                 '--source', source, '--test-offset', str(offset)], allowed=(0,))
             report = dest / 'drc.json'
             run([cli, 'pcb', 'drc', '--format', 'json', '--units', 'mm', '--severity-all',
                  '--all-track-errors', '-o', report, dest / board.name])
@@ -119,15 +123,15 @@ def validate(args):
                     match = re.search(r'clearance\s+([0-9.]+)\s+mm', v['description'])
                     if match:
                         limits.append(float(match.group(1)))
-                passed = (8.0 in limits) if should_fail else not found
-                isolation.append({**pair, 'expected_8mm_violation': should_fail,
+                passed = (pair['required_clearance_mm'] in limits) if should_fail else not found
+                isolation.append({**pair, 'expected_clearance_violation': should_fail,
                                   'reported_clearances_mm': limits,
                                   'matching_findings': found, 'passed': passed})
     expected_cases = 12 * len(isolation_pairs(source))
     negative_report = {'source_sha256': frozen, 'cases': isolation,
                        'expected_cases': expected_cases,
                        'passed': len(isolation) == expected_cases and all(x['passed'] for x in isolation),
-                       'method': 'Injected pairs 7.9 and 8.1 mm apart on every copper layer in copies of the actual board/project/rules. Only findings identifying both injected UUIDs determine the result. Other outside-outline/unconnected test artifacts are not interpreted as isolation evidence.',
+                       'method': 'Injected pairs 0.1 mm below and above their required clearance on every copper layer in copies of the actual board/project/rules. Only findings identifying both injected UUIDs determine the result. Other outside-outline/unconnected test artifacts are not interpreted as isolation evidence.',
                        'test_copies_retained': False, 'native_board_changed': False}
     (output / 'isolation-negative-tests.json').write_text(json.dumps(negative_report, indent=2) + '\n')
 
@@ -167,7 +171,7 @@ if __name__ == '__main__':
     ap.add_argument('--source', type=Path, default=BASE / 'design/main-rev-e.json')
     ap.add_argument('--output', type=Path, default=BASE / 'hardware/main-rev-e/checks')
     ap.add_argument('--inject-copy', type=Path, help=argparse.SUPPRESS)
-    ap.add_argument('--test-gap', type=float, default=7.9, help=argparse.SUPPRESS)
+    ap.add_argument('--test-offset', type=float, default=-.1, help=argparse.SUPPRESS)
     args = ap.parse_args()
     if args.inject_copy:
         make_test_copy(args)

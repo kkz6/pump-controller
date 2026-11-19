@@ -24,6 +24,7 @@ int main(void)
 {
     struct panel_controls panel;
     const struct starter_config cfg = {.profile=STARTER_RUN_PAIR, .harness_profile=STARTER_RUN_PAIR,
+        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
         .contact_settle_ms=10, .independent_shutdown=true};
     assert(panel_controls_configure(&panel, cfg, false, 5, 20));
     struct panel_sample sample = {.gpio_a=5,.gpio_b=103,.valid=true,.process_healthy=true,.motor_stopped=true};
