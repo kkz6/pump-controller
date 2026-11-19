@@ -2,24 +2,25 @@
   "schema_version": 1,
   "scope": "Independent freshly exported schematic pin map and contact-only graph audit; no board mutation, hardware measurements or firmware simulation.",
   "input_sha256": {
-    "design/main-rev-e.json": "b232640b6e0c3bf8d94403de1bf628385442a80802a39bfc6ae4a052ae44bc83",
+    "design/main-rev-e.json": "1253f74152c2777181afc5b5971f4873f94dea21c16c7341891ae26177393c30",
     "design/panel-rev-e.json": "15aaac7c64697c61dfad9820bc6af614ac38696b5718b00f5c9c1da8575c31ba",
-    "hardware/main-rev-e/checks/control-main-netlist.xml": "5c1e9265b76f1657f7fb0002beef6fbb4ec926eadbb409e8def2d024d59bb380",
-    "hardware/main-rev-e/checks/control-panel-netlist.xml": "3a8628645937d05fa2fe31abeba04d72607ca0977b75a5cb5b9e74f08e0cb926",
-    "hardware/main-rev-e/local_controls_1.kicad_sch": "b88b13c569e806d3937394a5f414f46293422ed65e48e1935ffa58d3483a6272",
+    "hardware/main-rev-e/checks/control-main-netlist.xml": "58463c0c4d979f24c448fdcaae77c7ede7158c46972264c5aaa0e86f8c09e831",
+    "hardware/main-rev-e/checks/control-panel-netlist.xml": "421bcce6f42575eb4608d3706096157cbc59bf97b9361cacfdb5321f967127ae",
+    "hardware/main-rev-e/controls_conditioning.kicad_sch": "5354477aa9be87d2463cf9b39400a334a026cf2eaada8fea038df6800e2beb65",
+    "hardware/main-rev-e/local_controls_1.kicad_sch": "7c51d08f9388c1bdd699c2b9868e323b2d8037247482b48f92e09132669191e7",
     "hardware/main-rev-e/local_controls_2.kicad_sch": "8aac94bd92ebb373df2b661e5e8bb7103eb76ee2e9d684fbb553a9c200ce5391",
     "hardware/main-rev-e/mcu.kicad_sch": "b0a470181dc629c4fb525e5060eb132c200ab3022e2252ebd45938690e3a4c36",
-    "hardware/main-rev-e/mechanical.kicad_sch": "52ff40b7110a82a24ab7d5510f629e623cd5b18fed73be4d183a76ac4a44ef60",
+    "hardware/main-rev-e/mechanical.kicad_sch": "f6d1963c540375ddee7b8ee5a3f7de36451e645ecfcaa3c2ff0f036d4b4472d1",
     "hardware/main-rev-e/meter_ic.kicad_sch": "81148db5ef99f2b648a8e0f7536b0c0fe06c88ad70473861567737ae4a45f9fa",
     "hardware/main-rev-e/meter_inputs.kicad_sch": "cf3d45d76f4b20f849075dde79b4d4d7c218ad17dca9c1fce178c5424cd4276c",
     "hardware/main-rev-e/meter_isolation.kicad_sch": "6e67df5d37e73424f11eafa38cca2b0f4ef84e2988a4807e7e71daa43684512e",
-    "hardware/main-rev-e/power.kicad_sch": "7318de7b0c8b0ceb8e007731a52850d0aad4b68771de00e4d23f67938a48f0f4",
+    "hardware/main-rev-e/power.kicad_sch": "0d7d4f6bd2f9ef6458c196af68227922120d9269259bf0da03cdac1ad6be43f4",
     "hardware/main-rev-e/power_flags.kicad_sch": "d89723002dd985942cefaec6740627993dd25742430334b9888458342e4db504",
     "hardware/main-rev-e/probes_1.kicad_sch": "96a486f91dbd8098cfdcdc7e4db6ed642b17529e5e423f05cd2bff2bb98dc845",
     "hardware/main-rev-e/probes_2.kicad_sch": "51383cfee7ec08e7b2d551ccd7487e6093edb4350c72ec8e4b43d127837f275b",
     "hardware/main-rev-e/probes_3.kicad_sch": "60e3605a1110cb932f51a4535031f6c9604fdd37baafe3725ca350a05ce4932a",
     "hardware/main-rev-e/probes_4.kicad_sch": "3e86351198076bfc9dcdc5b5c485b1f54c0f47699c4c2bd50e37d847f2d5bca1",
-    "hardware/main-rev-e/pump-controller-main-rev-e.kicad_sch": "540079e8c49690c1f4e416669be1bd99cc658d88df75116416b6cb5cca5b4a8b",
+    "hardware/main-rev-e/pump-controller-main-rev-e.kicad_sch": "a60a9e74c6cd69a015d05284695dbff54a011581f8d7e65722df9bf7742ba669",
     "hardware/main-rev-e/relay_protection_1.kicad_sch": "74671426c5e9a373f259a9cb154ebe64fa707092a4e23ed448c01abaa0f9e8db",
     "hardware/main-rev-e/relay_protection_2.kicad_sch": "2b7bf0f6e2ac40ff34f8f1b846f4ded13f2ca405663f5ef66658af40355151eb",
     "hardware/panel-rev-e/panel-controls.kicad_sch": "e2a150ca7531e356e3acc92d2fd2464e492209897db618dfe4545347f0b845fa",
@@ -751,6 +752,134 @@
     },
     {
       "domain": "main",
+      "ref": "U37",
+      "pin": "1",
+      "expected_net": "STOP_SENSE_RAW",
+      "actual_net": "STOP_SENSE_RAW",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "2",
+      "expected_net": "AUTO_SENSE",
+      "actual_net": "AUTO_SENSE",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "3",
+      "expected_net": "MAN_SENSE_RAW",
+      "actual_net": "MAN_SENSE_RAW",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "4",
+      "expected_net": "GND",
+      "actual_net": "GND",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "5",
+      "expected_net": "MAN_SENSE",
+      "actual_net": "MAN_SENSE",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "6",
+      "expected_net": "AUTO_SENSE_RAW",
+      "actual_net": "AUTO_SENSE_RAW",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "7",
+      "expected_net": "STOP_SENSE",
+      "actual_net": "STOP_SENSE",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "U37",
+      "pin": "8",
+      "expected_net": "+3V3",
+      "actual_net": "+3V3",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C78",
+      "pin": "1",
+      "expected_net": "+3V3",
+      "actual_net": "+3V3",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C78",
+      "pin": "2",
+      "expected_net": "GND",
+      "actual_net": "GND",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C80",
+      "pin": "1",
+      "expected_net": "STOP_SENSE_RAW",
+      "actual_net": "STOP_SENSE_RAW",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C80",
+      "pin": "2",
+      "expected_net": "GND",
+      "actual_net": "GND",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C82",
+      "pin": "1",
+      "expected_net": "MAN_SENSE_RAW",
+      "actual_net": "MAN_SENSE_RAW",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C82",
+      "pin": "2",
+      "expected_net": "GND",
+      "actual_net": "GND",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C84",
+      "pin": "1",
+      "expected_net": "AUTO_SENSE_RAW",
+      "actual_net": "AUTO_SENSE_RAW",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C84",
+      "pin": "2",
+      "expected_net": "GND",
+      "actual_net": "GND",
+      "passed": true
+    },
+    {
+      "domain": "main",
       "ref": "U31",
       "pin": "1",
       "expected_net": "ARM_CMD",
@@ -969,16 +1098,16 @@
       "domain": "main",
       "ref": "R80",
       "pin": "2",
-      "expected_net": "STOP_SENSE",
-      "actual_net": "STOP_SENSE",
+      "expected_net": "STOP_SENSE_RAW",
+      "actual_net": "STOP_SENSE_RAW",
       "passed": true
     },
     {
       "domain": "main",
       "ref": "R81",
       "pin": "1",
-      "expected_net": "STOP_SENSE",
-      "actual_net": "STOP_SENSE",
+      "expected_net": "STOP_SENSE_RAW",
+      "actual_net": "STOP_SENSE_RAW",
       "passed": true
     },
     {
@@ -1001,16 +1130,16 @@
       "domain": "main",
       "ref": "R82",
       "pin": "2",
-      "expected_net": "MAN_SENSE",
-      "actual_net": "MAN_SENSE",
+      "expected_net": "MAN_SENSE_RAW",
+      "actual_net": "MAN_SENSE_RAW",
       "passed": true
     },
     {
       "domain": "main",
       "ref": "R83",
       "pin": "1",
-      "expected_net": "MAN_SENSE",
-      "actual_net": "MAN_SENSE",
+      "expected_net": "MAN_SENSE_RAW",
+      "actual_net": "MAN_SENSE_RAW",
       "passed": true
     },
     {
@@ -1033,16 +1162,16 @@
       "domain": "main",
       "ref": "R84",
       "pin": "2",
-      "expected_net": "AUTO_SENSE",
-      "actual_net": "AUTO_SENSE",
+      "expected_net": "AUTO_SENSE_RAW",
+      "actual_net": "AUTO_SENSE_RAW",
       "passed": true
     },
     {
       "domain": "main",
       "ref": "R85",
       "pin": "1",
-      "expected_net": "AUTO_SENSE",
-      "actual_net": "AUTO_SENSE",
+      "expected_net": "AUTO_SENSE_RAW",
+      "actual_net": "AUTO_SENSE_RAW",
       "passed": true
     },
     {
@@ -1633,6 +1762,20 @@
   "value_checks": [
     {
       "domain": "main",
+      "ref": "U37",
+      "expected": "SN74LVC3G17DCUR",
+      "actual": "SN74LVC3G17DCUR",
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "ref": "C78",
+      "expected": "100nF",
+      "actual": "100nF",
+      "passed": true
+    },
+    {
+      "domain": "main",
       "ref": "R74",
       "expected": "100R",
       "actual": "100R",
@@ -1704,8 +1847,8 @@
     {
       "domain": "main",
       "ref": "R80",
-      "expected": "22k",
-      "actual": "22k",
+      "expected": "10k",
+      "actual": "10k",
       "passed": true
     },
     {
@@ -1718,8 +1861,8 @@
     {
       "domain": "main",
       "ref": "R82",
-      "expected": "22k",
-      "actual": "22k",
+      "expected": "10k",
+      "actual": "10k",
       "passed": true
     },
     {
@@ -1732,8 +1875,8 @@
     {
       "domain": "main",
       "ref": "R84",
-      "expected": "22k",
-      "actual": "22k",
+      "expected": "10k",
+      "actual": "10k",
       "passed": true
     },
     {
@@ -1883,6 +2026,96 @@
         "J31.1",
         "J32.2",
         "R80.1"
+      ],
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "net": "STOP_SENSE_RAW",
+      "expected_members": [
+        "C80.1",
+        "R80.2",
+        "R81.1",
+        "U37.1"
+      ],
+      "actual_members": [
+        "C80.1",
+        "R80.2",
+        "R81.1",
+        "U37.1"
+      ],
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "net": "MAN_SENSE_RAW",
+      "expected_members": [
+        "C82.1",
+        "R82.2",
+        "R83.1",
+        "U37.3"
+      ],
+      "actual_members": [
+        "C82.1",
+        "R82.2",
+        "R83.1",
+        "U37.3"
+      ],
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "net": "AUTO_SENSE_RAW",
+      "expected_members": [
+        "C84.1",
+        "R84.2",
+        "R85.1",
+        "U37.6"
+      ],
+      "actual_members": [
+        "C84.1",
+        "R84.2",
+        "R85.1",
+        "U37.6"
+      ],
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "net": "STOP_SENSE",
+      "expected_members": [
+        "U33.3",
+        "U37.7"
+      ],
+      "actual_members": [
+        "U33.3",
+        "U37.7"
+      ],
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "net": "MAN_SENSE",
+      "expected_members": [
+        "U33.4",
+        "U37.5"
+      ],
+      "actual_members": [
+        "U33.4",
+        "U37.5"
+      ],
+      "passed": true
+    },
+    {
+      "domain": "main",
+      "net": "AUTO_SENSE",
+      "expected_members": [
+        "U33.5",
+        "U37.2"
+      ],
+      "actual_members": [
+        "U33.5",
+        "U37.2"
       ],
       "passed": true
     },

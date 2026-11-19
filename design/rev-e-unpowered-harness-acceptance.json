@@ -9706,7 +9706,7 @@
   "case_count": 669,
   "audit_evidence": {
     "path": "../hardware/main-rev-e/checks/hardwired-control-review.json",
-    "sha256": "2fe4c234db72aaa22e0ada952a101cd1d2b9d904964db9b065256ecb12964414",
+    "sha256": "0de8ca559f2243121550bcf8190531ed35cf14c8e2433a64e31224813f4009ce",
     "pin_and_contact_graph_passed": true
   }
 }

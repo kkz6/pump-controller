@@ -75,8 +75,8 @@ Independent schematic check
 ---------------------------
 
 ``../tools/check_rev_e_controls.py`` exports the current native schematics,
-checks 200 explicit control pins, 34 critical values and exact membership of
-16 critical nets, evaluates 1,024
+checks 216 explicit control pins, 36 critical values and exact membership of
+22 critical nets, evaluates 1,024
 contact-only STOP combinations and all four relay-contact combinations, and
 writes ``../hardware/main-rev-e/checks/hardwired-control-review.json``.
 The graph excludes resistors, semiconductors, stored charge and component

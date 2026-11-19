@@ -1,19 +1,32 @@
 Rev E electrical, reset and noise review
 ========================================
 
-Reviewed 19 November 2026. This reviews the circuit and component specifications;
-it does not record measurements of a manufactured board. Two circuit defects
-were corrected during the review. Final routing, physical fault injection,
-electromagnetic testing and installation qualification remain necessary.
+Reviewed 19 November 2026 for the 100 x 80 mm six-layer Rev E main PCB and
+60 x 45 mm two-layer panel. This reviews circuit specifications and engineering
+limits; it does not record measurements of a manufactured controller. Three
+confirmed circuit defects were corrected. The E11 source/schematic review
+passes; final routed-board and CAM acceptance
+must be refreshed after the input-conditioning ECO. Prototype-package use
+remains conditional on matching source/evidence/archive hashes and fabricator
+acceptance.
+It is not a released mains product.
 
-The reviewed source is ``main-rev-e.json``, SHA-256
-``b3223d34f0a0ecf25b6d411dd0346add15c9ffb58dc9bfd7212b40eda30b00c1``.
-The corresponding native netlist is ``../hardware/main-rev-e/exports/netlist.xml``,
-SHA-256 ``8f2683145c1fdfb60f25aa77cefc1fcae7a0016e50cfdff813595ea46efb602a``.
-The source has 210 board components, including mounting holes. The review
-includes the Rev E panel and its optional active-low key-switch inputs.
-Later routing hashes belong in the final fabrication records; these hashes
-identify the electrical review snapshot, not a released manufacturing package.
+The circuit is defined by ``main-rev-e.json`` and ``panel-rev-e.json`` and the
+`native schematic PDF <../hardware/main-rev-e/exports/schematic.pdf>`_. Exact
+reviewed file hashes are recorded in the
+`native summary <../hardware/main-rev-e/checks/independent-summary.json>`_ and
+`CAM review <../hardware/main-rev-e/checks/independent-gerbers.json>`_; use those
+records rather than an earlier placement snapshot. The main source has 212
+board components, including mounting holes. Panel key conditioning is present
+in native CAD; no physical assembly or firmware has been qualified.
+
+The `bench acceptance plan <rev-e-bench-acceptance.rst>`_ defines T00–T09, all
+NOT RUN. The `unpowered fixture plan <rev-e-unpowered-harness-acceptance.rst>`_
+contains separate wiring/contact screens and cannot close powered reset,
+coil, insulation or EMI conditions. The
+`signal-layout review <rev-e-signal-integrity-review.rst>`_ and final
+`return-path measurements <../hardware/main-rev-e/checks/signal-return-paths.json>`_
+add geometry evidence with explicit electrical limitations.
 
 Corrections implemented
 -----------------------
@@ -80,9 +93,11 @@ See `BAT54WS electrical limits
 The reset-bias and clear-stage source, schematic and BOM changes are repeatable
 through ``../tools/patch_main_rev_e_bias.py`` and
 ``../tools/patch_main_rev_e_safe_clear.py``. Native ERC and schematic-to-board
-parity passed after the changes. The placement check had zero DRC violations
-and 477 unrouted connections: this is evidence of clean placement, not a
-finished electrical layout. The authoritative final routing must pass again.
+parity passed after those changes. The later E11 input-conditioning change
+requires a fresh routed-board record with zero DRC and unconnected findings.
+Final archives must match that record. These checks establish net/layout
+consistency, not the transient behavior discussed
+above. Do not rerun a placement builder over the reviewed routing.
 
 Protection behavior that must be implemented and demonstrated
 -------------------------------------------------------------
@@ -174,7 +189,8 @@ E07 — automatic capacitor starting remains unverified
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The installed arrangement starts automatically, but the component that
-engages and disconnects the starting capacitor has not been identified.
+engages and disconnects the starting capacitor has not been identified. This
+is a concrete installation blocker, not a feature supplied by the new board.
 J30 offers only two series normally open relay contacts for the contactor
 coil loop; it does not provide a timed second capacitor-start contact.
 Identify and preserve the installed sequencing function before disconnecting
@@ -194,7 +210,9 @@ application qualification. Obtain the installed coil's pickup/inrush and
 holding VA and its suppression arrangement; verify electrical endurance and
 release with that load. Each relay must independently interrupt the entire
 coil voltage. Series contacts do not double the permissible switching rating.
-No blanket 10 A motor-switching claim is justified.
+No blanket 10 A motor-switching claim is justified. Record coil frequency,
+duty and cold/hot pickup/release, then establish the load-specific service-life
+programme. T04's initial cold/hot cycle screen is not an endurance rating.
 See `Omron G5Q characteristics and load ratings
 <https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5q.pdf>`_.
 
@@ -204,7 +222,8 @@ Power, insulation and noise constraints
 E09 — the 6 W supply has a small allocation margin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Reserve 5.80 W after the panel/key and new bias/clear-stage allowances. The new
+Reserve 5.81 W after the panel/key, bias/clear-stage and U37 input-buffer
+allowances. The reset
 biases reserve another 7 mA on 3.3 V plus 0.5 mA during U36's slow-input region,
 approximately 0.032 W at an assumed 80% buck efficiency. These are allocations,
 not measured current or a guarantee of efficiency. Both the 1.2 A output-current
@@ -212,11 +231,30 @@ and 6 W output-power limits apply. The local module ambient requirement remains
 at most 50 C for the full allocation. R2 continuously dissipates roughly
 0.68–0.84 W and requires the specified copper area and thermal verification.
 
+C3/C5 are now TDK C3225X7R1C226M250AC, 22 uF/16 V X7R, 1210. Their
+reference bias curves support preliminary selection but do not guarantee
+combined bias/temperature/aging minima. The prototype sourcing gate is at
+least 10 uF effective for C3 and 11 uF for C5, including measurement
+uncertainty, followed by startup/load-step checks. These are the selected
+filter's screening targets, not a general stability proof. See the
+`capacitor sourcing review <rev-e-capacitor-sourcing.rst>`_ for sources and
+conditions.
+
 U1's overvoltage shutdown tolerance is much wider than a tight 5 V regulator
 limit; it must not be described as a clamp protecting every 5 V semiconductor.
 Actual startup, RF load steps, relay pickup, brownout and fault behavior need
-recorded waveforms. Use the separate supply/bench acceptance review for the
-manufacturer input-fuse arrangement and combined temperature/load tests.
+recorded waveforms. The manufacturer's suggested surge/filter network is not
+identical to this board's R1/TMOV choice, so module-level EMC results cannot
+simply be transferred. R1's AC03-CS power rating also derates with temperature;
+its fusible function does not replace F1 or upstream fault coordination.
+
+Follow T02/T03 in the `bench plan <rev-e-bench-acceptance.rst>`_ for AC input,
+inrush, simultaneous loads, startup, efficiency and closed-enclosure thermal
+measurement. Measure local air separately from U1 case temperature and respect
+the lower applicable limit among components, wire insulation and printed
+material. R2's minimum-load function must not be removed to cure overheating.
+For injected low-voltage bench power, U1 must be absent or its output isolated
+by the approved fixture; AC-off alone does not establish back-feed compatibility.
 See `RACM06E-K/277 limits and derating
 <https://recom-power.com/pdf/Powerline_AC-DC/RACM06E-K_277.pdf>`_ and
 `Bourns CRM thermal conditions
@@ -231,28 +269,102 @@ source description was corrected. Prospective installation fault current and
 the complete upstream protective arrangement still need coordination. R1 is
 downstream of F1 and cannot limit a short between those parts. Satisfying an
 AC/DC module's external-fuse condition does not by itself qualify the starter
-assembly's fault interruption. See `Bel 0ADKC/0ADKP data sheet
+assembly's fault interruption. Site acceptance also requires identified
+line/neutral/PE, a verified protective-earth path to metalwork/motor, the actual
+motor overload setting/trip path, and appropriately selected/tested residual-
+current protection. Neither motor-current metering nor the relay output
+provides earth-leakage protection. An upstream MCB, an RCD test-button result
+or a successful fill cycle alone does not establish the complete protective
+arrangement. T07/T09 in the bench plan define the required records; the site
+and applicable equipment requirements determine device selection and limits.
+See `Bel 0ADKC/0ADKP data sheet
 <https://www.belfuse.com/resources/Datasheets/CircuitProtection/ds-CP-0adkx-series.pdf>`_.
 
-E11 — some 5 V sense inputs have limited noise margin and partial-power paths
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+E11 — control sense inputs now have voltage-tolerant Schmitt conditioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-R80–R85 remain 22 kohm/33 kohm dividers into U33. With 1% corners and 1 uA input
-leakage, the conservative static HIGH is about 2.865 V at a 4.835 V source,
-or 2.827 V at a 4.7725 V source. Against 0.8 times 3.432 V = 2.7456 V, those
-margins are only 119 mV and 82 mV. They exclude coupled noise and dynamic
-supply drop. An illustrative 4% load transient can cross the guaranteed HIGH
-boundary. Read these inputs with validation/debounce and fail off on unresolved
-states; never interpret ambiguous mode data as authorization to arm.
+**Confirmed margin and partial-power defect; U37/C78 correct the interface.**
+The former direct 22k/33k dividers into U33 had only about 82 mV calculated
+HIGH margin at the 50 C static corner; a source transient could cross the
+threshold. Increasing the ratio would trade that weakness for input
+overvoltage at low U33 VDD. Any direct positive divider output also needed
+an input-clamp path when U33 was unpowered. Absolute-maximum clamp ratings
+did not make that a qualified operating mode.
 
-If +5 V remains while +3V3 is absent, these dividers can inject current into
-U33's input clamps. A 22 kohm source limits the illustrative current to about
-0.2 mA, but the absolute-maximum clamp rating is not an operating guarantee
-and does not prove absence of phantom powering. Test rail sequencing and
-stalled/shorted buck output. No external interface is hot-pluggable or
-independently powered. The panel key inputs use NPN level shifting and do
-not share the same divider-HIGH margin. See `MCP23017 input and absolute limits
-<https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf>`_.
+U37 is SN74LVC3G17DCUR, a triple non-inverting Schmitt buffer, powered from the
+same +3V3/GND as U33. C78 is 100 nF X7R, 10%, 16 V, 0603, next to pins 8/4.
+R80/R82/R84 change to 10 kohm, 1%; the 33 kohm pull-downs and 10 nF capacitors
+remain on new RAW nets:
+
+.. list-table:: Control input conditioning
+   :header-rows: 1
+
+   * - Raw input
+     - U37 input
+     - U37 output
+     - Conditioned net
+     - Destination
+   * - STOP_SENSE_RAW
+     - 1 / 1A
+     - 7 / 1Y
+     - STOP_SENSE
+     - U33.3 / GPB2
+   * - MAN_SENSE_RAW
+     - 3 / 2A
+     - 5 / 2Y
+     - MAN_SENSE
+     - U33.4 / GPB3
+   * - AUTO_SENSE_RAW
+     - 6 / 3A
+     - 2 / 3Y
+     - AUTO_SENSE
+     - U33.5 / GPB4
+
+U37 pin 4 is GND and pin 8 is +3V3. GPIO polarity is unchanged. Its DCU0008A
+land pattern uses 0.85 x 0.30 mm pads, 0.50 mm pitch and 3.10 mm row centres
+from the manufacturer drawing. The hardwired STOP/HH coil-supply path is unchanged.
+
+For the screening calculation, use the 3.1845–3.432 V logic-rail envelope,
+5 uA buffer-input leakage and 1% resistor corners. At a 4.5725 V source
+(the 50 C low static estimate minus an illustrative 0.20 V step), the RAW
+HIGH remains at least 3.454 V. This exceeds the conservative 2.74 V maximum
+positive threshold listed at 4.5 V; it does not use the lower 3.0 V test-point
+threshold as a guaranteed limit throughout the 3.3 V operating range. At a
+5.5 V source, RAW remains at most 4.279 V, below the buffer's 5.5 V input
+rating. An open contact's LOW is at most 0.167 V from leakage through 33 kohm,
+below the 0.84 V falling-threshold minimum at 3.0 V. Sweep the actual 3.3 V
+operating interval and temperature to confirm transitions and hysteresis.
+
+The output-high minimum is VDD minus 0.1 V at 100 uA, and output-low maximum
+is 0.1 V. Against U33's 0.8 x VDD HIGH and 0.2 x VDD LOW limits, the same-rail
+static margin is at least 0.537 V for either state. U33's 1 uA input load is
+within that 100 uA test condition; leave its internal pull-ups disabled.
+The nominal driven filter constant is 76.7 us; an open contact discharges
+through 33 kohm in 330 us. Keep software debounce and freshness requirements;
+the RC and Schmitt action do not replace them.
+
+U37 accepts input levels up to 5.5 V independently of VDD. Its input leakage
+is specified down to VDD = 0; Ioff bounds powered-down backflow at 5 uA to
+85 C and 10 uA to 125 C. This replaces the former direct U33 clamp path.
+It is not a zero-leakage or every-ramp guarantee: normal functional operation
+begins at 1.65 V, and output states throughout 0–1.65 V remain a physical-test
+condition. Test 5 V present with 3.3 V absent, overshoot, slow/fast collapse
+and recovery. The interface is not qualified for hot plugging or independent
+supplies. U37 is not an external-cable surge clamp. See
+`TI SN74LVC3G17 pinout, operating limits and power-off specifications
+<https://www.ti.com/lit/ds/symlink/sn74lvc3g17.pdf>`_ and
+`MCP23017 input limits <https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf>`_.
+
+Allow 1.51 mA additional 3.3 V current for U37, including a conservative
+three-input transition allowance, and 0.1 mA extra 5 V divider load. At
+3.432 V and 80% buck efficiency this adds about 0.0071 W. Round the total
+supply allocation to 5.81 W and the 3.3 V current reservation to 665 mA;
+both remain allocations requiring T02/T03 measurements. Source/schematic/BOM
+changes are reproducible through ``../tools/patch_main_rev_e_e11.py``; final
+routing and native/CAM acceptance must include U37, C78, all three RAW nets
+and the changed resistor values. The source-bound
+`static screening record <../hardware/main-rev-e/checks/input-conditioning-corners.json>`_
+records the assumptions and arithmetic; it is not physical qualification.
 
 U32's highest release threshold is only 34.5 mV below the buck's conservative
 static minimum. Its lowest falling threshold coincides with the MCU module's
@@ -270,6 +382,11 @@ M_GND is neutral-referenced, not SELV ground. The CT secondary, permanent
 burden, cable and J10 are live once connected. Rev E replaces J10's easily
 confused plug with the fixed terminal; insulation, strain relief and a burden
 permanently attached to the CT remain required. Never bond M_GND and GND.
+The pre-E11 geometric minimum was 8.06 mm at K1 contact/coil pads 2/1, only 0.06 mm
+above the project's 8 mm nominal rule. Confirm that measurement against the final
+board hash. It is not a guaranteed finished-board minimum. Request explicit
+fabricator/assembler review of both relays' pad spacing, copper/process tolerance,
+solder fillets and assembly variation; confirm the finished assembly by inspection.
 Component isolation ratings and PCB clearance checks do not qualify moisture,
 condensation, wiring across the barrier or a metal enclosure. Follow the
 declared insulation environment and verify the assembled system, including
@@ -293,14 +410,56 @@ volume from five level wires. Sensor corrosion, conductive contamination,
 crossed probes and a stuck-wet inlet need explicit fault tests and honest
 display states.
 
+E13 — six layers and RF hardware do not establish signal performance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In1.Cu is reserved for separate GND/M_GND reference domains; In4.Cu carries
+separate +3V3/M_GND domains. Signal routing does not use those reserved planes.
+The source-bound return-path report measures geometry and plane coverage; it
+does not solve actual return current, loop inductance or impedance. The
+fabricator's exact dielectric construction has not been established, and no
+90-ohm USB compliance is claimed. The service header/cable and route transitions
+need actual USB enumeration and signal-quality checks.
+
+The retained metering crystal package and several reference/filter bypass
+placements have documented compromises in the signal-layout review. Validate
+clock startup and frequency, reference/supply ripple, measurement repeatability
+and contactor-noise sensitivity before using calibrated readings for protection.
+More copper layers and a one-point calibration do not establish immunity.
+
+U3 uses an external 2.4 GHz antenna. Its exact antenna/coax/mounting combination
+and usable range remain unqualified. Select it under the module's antenna and
+regulatory conditions, route it in the isolated compartment and validate the
+actual enclosure placement; a hole reserved in the case is not that evidence.
+For each implemented Zigbee, Matter/Thread or Matter/Wi-Fi image, measure control
+cycle deadlines and input freshness during radio traffic, network loss,
+rejoining and hub/WAN interruptions. Keep one selected operational transport
+per build. Native custom Zigbee pairing to Aqara M200 remains unsupported;
+Matter is the planned M200/Apple integration path, pending actual endpoint/hub
+validation. See `wireless architecture <wireless-architecture.rst>`_ and T08
+of the bench plan. No working radio firmware, interoperability, range or RF
+compliance result is represented by the PCB or module capabilities.
+
 Release boundary
 ----------------
 
 The corrected circuit is suitable for continued prototype engineering only.
-The manufacturing package needs final native/ERC/netlist/DRC and independent
-CAM checks after routing. Before use on a pump, close the actual coil/capacitor
-identification, protective-device coordination, firmware freshness/reset
-behavior, thermal/rail limits and physical stop/interlock tests above. Record
-measured results against a particular assembled board, firmware image, starter,
-cable arrangement and operating environment. CAD pass results cannot close
-these application-specific conditions.
+Fresh native/CAM passes after E11 are required for the bare-PCB prototype
+package gate; only a matching final package manifest identifies usable archives. Main
+`bare-board <../hardware/main-rev-e/pump-controller-main-rev-e-gerber-prototype.zip>`_
+and `stencil <../hardware/main-rev-e/pump-controller-main-rev-e-stencil-prototype.zip>`_
+archives are separate from the panel's corresponding review archives and
+from any assembled-product acceptance.
+
+Before use on a pump, close actual coil/capacitor identification, protective-
+device coordination, firmware freshness/reset behavior, thermal/rail limits,
+physical stop/interlock response and applicable insulation/EMC checks. Record
+measurements against a particular assembled board, firmware image, starter,
+antenna, cable arrangement and environment using the bench plan. The board
+sizes exclude plugs, bends, guards and antenna; the separate 170 x 150 x 90 mm
+printed case is a mechanical prototype without claimed mains, fire or ingress
+qualification. Main-board insulating standoffs are 18 mm minimum. C1 is
+Panasonic EEUFR1E470; allow 13.5 mm installed height, comprising a 12.5 mm maximum body
+plus 1 mm mounting allowance. Trim protruding top-side leads and measure actual
+clearance in the assembly. CAD pass results cannot close these
+application-specific limits.

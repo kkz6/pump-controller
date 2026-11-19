@@ -121,8 +121,9 @@ Mechanical retention and electrical noise
 -----------------------------------------
 
 The main PCB has four 3.2 mm NPTH mounts at (4,4), (96,4), (96,76), (4,76) mm.
-Use insulating M3 fasteners and 12 mm minimum standoffs; keep hardware out of
-live copper. The panel has four 2.7 mm holes at (3,3), (57,3), (3,42), (57,42).
+Use insulating M3 fasteners and 18 mm minimum standoffs. The rear-mounted
+C1 reservoir capacitor can project 13.5 mm below the board once installed.
+Keep mounting hardware away from live copper. The panel has four 2.7 mm holes at (3,3), (57,3), (3,42), (57,42).
 The standalone case files provide a screwed lid, board guard, panel carrier,
 OLED retainer, captive button plungers and cable clamps. Plug and cable bend
 clearances are included; actual printed fit remains a first-article check.
