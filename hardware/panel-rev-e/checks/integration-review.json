@@ -2,10 +2,13 @@
   "review_scope": "Independent native pin/net and interface topology check; no electrical hardware or firmware test.",
   "source_sha256": {
     "panel_board": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
-    "main_board": "fc6c86bcb0d494320b89d3ec8e31f188f556abe47e71d20c31727e35340c6c7c",
+    "main_board": "54d5146fc409ca7d3b3b9f0d6670b5fa8eac43eee3d0a5348458dce40b6fe46c",
     "panel_source": "15aaac7c64697c61dfad9820bc6af614ac38696b5718b00f5c9c1da8575c31ba",
-    "independently_exported_panel_netlist": "7cbfd9a118a95542e853deba7377f657dcf6cb6a0b2bd3747cbe34b4d8e2fb64"
+    "main_source": "1253f74152c2777181afc5b5971f4873f94dea21c16c7341891ae26177393c30",
+    "independently_exported_main_netlist": "920c4c163ea68c85d34b7b8d24005fb4f1530537e9b40a4385b1a4f208adcb1f",
+    "independently_exported_panel_netlist": "a272be127bd6d956b9d29337d79c38c70bd77b91bdbce0f2da637e8a40cb2f62"
   },
+  "main_connected_source_pins_checked": 613,
   "panel_components_including_mounting_holes": 33,
   "panel_connected_source_pins_checked": 81,
   "native_source_comparison_issues": [],
@@ -203,7 +206,7 @@
     "https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf",
     "design/oled-selection.txt"
   ],
-  "main_board_routing_frozen_at_review": false,
+  "main_board_routing_frozen_at_review": true,
   "hardware_tested": false,
   "firmware_implemented": false,
   "release_ready": false,
@@ -213,5 +216,10 @@
     "Gold/low-level dry-contact key suitability for approximately 2.7 mA at 5 V.",
     "Mains starter START/STOP isolated auxiliary contacts and capacitor-start path.",
     "Robu fabrication acceptance and assembled-board functional/thermal/EMC tests."
-  ]
+  ],
+  "main_native_summary_sha256": "b8450fba4bafe85565eff65dab76e78fe763ff49d3e0de01aa9c41dff10b6dec",
+  "main_native_evidence_current": true,
+  "native_inputs_unchanged": true,
+  "integration_passed": true,
+  "main_source_and_schematic_compared": true
 }

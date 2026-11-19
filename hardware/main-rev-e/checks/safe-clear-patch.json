@@ -1,0 +1,99 @@
+[
+  {
+    "board": "/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/main-rev-e/pump-controller-main-rev-e.kicad_pcb",
+    "added": [
+      "U36",
+      "C77"
+    ],
+    "removed_raw_clear_tracks_or_vias": 0,
+    "route_required": [
+      "SAFE_CLEAR_N",
+      "ARM_CLEAR_N",
+      "+3V3",
+      "GND"
+    ],
+    "pins": {
+      "U36": {
+        "1": {
+          "net": "unconnected-(U36-NC-Pad1)",
+          "x": 80.8625,
+          "y": 38.45
+        },
+        "2": {
+          "net": "SAFE_CLEAR_N",
+          "x": 80.8625,
+          "y": 37.5
+        },
+        "3": {
+          "net": "GND",
+          "x": 80.8625,
+          "y": 36.55
+        },
+        "4": {
+          "net": "ARM_CLEAR_N",
+          "x": 83.1375,
+          "y": 36.55
+        },
+        "5": {
+          "net": "+3V3",
+          "x": 83.1375,
+          "y": 38.45
+        }
+      },
+      "C77": {
+        "1": {
+          "net": "+3V3",
+          "x": 85.5,
+          "y": 38.275
+        },
+        "2": {
+          "net": "GND",
+          "x": 85.5,
+          "y": 36.725
+        }
+      },
+      "U31": {
+        "1": {
+          "net": "ARM_CMD",
+          "x": 78.75,
+          "y": 31.05
+        },
+        "2": {
+          "net": "+3V3",
+          "x": 78.25,
+          "y": 31.05
+        },
+        "3": {
+          "net": "unconnected-(U31-Q_N-Pad3)",
+          "x": 77.75,
+          "y": 31.05
+        },
+        "4": {
+          "net": "GND",
+          "x": 77.25,
+          "y": 31.05
+        },
+        "5": {
+          "net": "ARM_Q",
+          "x": 77.25,
+          "y": 27.95
+        },
+        "6": {
+          "net": "ARM_CLEAR_N",
+          "x": 77.75,
+          "y": 27.95
+        },
+        "7": {
+          "net": "+3V3",
+          "x": 78.25,
+          "y": 27.95
+        },
+        "8": {
+          "net": "+3V3",
+          "x": 78.75,
+          "y": 27.95
+        }
+      }
+    }
+  }
+]

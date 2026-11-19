@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the passive low-voltage Rev E control panel; never changes the main PCB.
+"""Build the low-voltage Rev E button, OLED and NPN key-conditioning panel; never changes the main PCB.
 Run with KiCad's Python. --build creates the placed PCB/DSN. --finish imports the
 adjacent .ses and runs native checks/exports. Manual review still required.
 """

@@ -1,0 +1,103 @@
+(footprint "R_Axial_L13_D6_P20.32"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Vishay AC03-CS 3 W fusible resistor; lead-formed 20.32 mm pitch")
+	(property "Reference" "REF**"
+		(at 0 -5 0)
+		(layer "F.SilkS")
+		(uuid "ff672975-8659-4da5-a5f3-21ec16425bb5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "R_Axial_L13_D6_P20.32"
+		(at 0 5 0)
+		(layer "F.Fab")
+		(uuid "f0ed10c8-a269-4c41-998a-9ba8cab1b4a1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c33f6f0c-ebd9-4563-9eae-f790b6b96562")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "71d68739-ed18-413b-90c4-c345168b3dae")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -1.5 -3.75)
+		(end 21.82 3.75)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "97780483-4731-45c2-b84b-b55bc4c27cf3")
+	)
+	(fp_rect
+		(start 3.41 -3.25)
+		(end 16.91 3.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "d2ea91f9-2c95-4d70-ba08-47792b4ce79a")
+	)
+	(fp_rect
+		(start 3.41 -3.25)
+		(end 16.91 3.25)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "f4084b85-97a7-4dc1-aeb3-8029a60f08af")
+	)
+	(pad "1" thru_hole rect
+		(at 0 0)
+		(size 2.4 2.4)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d35b294a-9859-4c8a-8bf7-9e5e92e8977e")
+	)
+	(pad "2" thru_hole circle
+		(at 20.32 0)
+		(size 2.4 2.4)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "5894b0a9-242a-46e0-a8bf-3e3dd75a3cfc")
+	)
+	(embedded_fonts no)
+)

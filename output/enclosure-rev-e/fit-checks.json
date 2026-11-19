@@ -1,0 +1,83 @@
+{
+  "provisional_panel_plug_reservation_interferences": [],
+  "panel_connector_manifest_pcb_sha256": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
+  "reference_component_interferences": [],
+  "panel_step_sha256": "bcbaa1a238067e8107192862ff0fa6db721ed7f35d5119b71aca4618e4811274",
+  "main_step_sha256": "557eef5e966c783f45d5dc68772f191849d736f7537986546084dbdc9ae6da06",
+  "all_print_parts_valid_watertight_single_solid": true,
+  "printed_part_collisions": [],
+  "main_hole_centres_global_mm": [
+    [
+      39.0,
+      113.0
+    ],
+    [
+      131.0,
+      113.0
+    ],
+    [
+      131.0,
+      41.0
+    ],
+    [
+      39.0,
+      41.0
+    ]
+  ],
+  "panel_hole_centres_global_mm": [
+    [
+      58.0,
+      48.0
+    ],
+    [
+      112.0,
+      48.0
+    ],
+    [
+      58.0,
+      87.0
+    ],
+    [
+      112.0,
+      87.0
+    ]
+  ],
+  "main_standoff_mm": 18.0,
+  "main_bottom_component_clearance_mm": 4.4,
+  "main_top_envelope_to_guard_roof_mm": 3.3999999999999986,
+  "guard_to_panel_back_mm": 20.900000000000006,
+  "key_reserved_body_to_guard_roof_mm": 9.799999999999997,
+  "printed_material_qualified_for_mains": false,
+  "actual_connector_plug_and_wire_bend_fit_verified": false,
+  "button_travel_physically_verified": false,
+  "OLED_received_module_fit_verified": false,
+  "main_pcb_sha256": "54d5146fc409ca7d3b3b9f0d6670b5fa8eac43eee3d0a5348458dce40b6fe46c",
+  "main_model_export_provenance_sha256": "cdfa94ce5ae9115237dfd7e2d8e8d22dc94b0a9943503fd6399e52a0f30b791e",
+  "main_step_status": "Current independently checked native PCB; approximate body and physical fit limitations remain",
+  "main_model_bounds_global_mm": [
+    [
+      34.9999999,
+      36.9999999,
+      8.414999899999998
+    ],
+    [
+      135.0000001,
+      117.0000001,
+      43.5950001
+    ]
+  ],
+  "main_model_underside_depth_mm": 13.585000100000002,
+  "main_model_top_height_above_pcb_mm": 19.9950001,
+  "panel_model_bounds_global_mm": [
+    [
+      54.9999999,
+      44.9999999,
+      64.2749998999998
+    ],
+    [
+      115.0000001,
+      90.0000001,
+      76.09500010000001
+    ]
+  ]
+}

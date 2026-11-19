@@ -1,0 +1,248 @@
+(footprint "PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Generic Phoenix Contact connector footprint for: MC_1,5/2-G-5.08; number of pins: 02; pin pitch: 5.08mm; Angled || order number: 1836189 8A 320V")
+	(tags "phoenix_contact connector MC_01x02_G_5.08mm")
+	(property "Reference" "REF**"
+		(at 2.54 -3 0)
+		(layer "F.SilkS")
+		(uuid "35a7d6de-5e5c-443f-bdd2-2c79475b663b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal"
+		(at 2.54 9.2 0)
+		(layer "F.Fab")
+		(uuid "a6e68c83-e004-43b0-a10e-b3fe22485cb6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bf62eb7a-65c0-4ec6-9dc1-07ad688f801f")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "79dd8d32-2653-40e1-8813-8ef86d7bfdff")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "KiLib_Generator" "connector/PhoenixContact"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "60a1d4e6-8339-41fa-a6e8-0e33aa3643fc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -3.15 -2.3)
+		(end 8.13 8.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "4b010eed-9806-459e-94d5-9cef807a88bd")
+	)
+	(fp_line
+		(start -2.65 -1.31)
+		(end -2.65 8.11)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "8cf45abc-c031-413f-a81b-7b3d7b5de4c9")
+	)
+	(fp_line
+		(start -2.65 -1.31)
+		(end -1.05 -1.31)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6cdd094f-1450-4914-b1b4-ebad6b976d81")
+	)
+	(fp_line
+		(start -2.65 4.8)
+		(end 7.73 4.8)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "93bdb10a-4ae5-4d72-819f-d0e4ebf37152")
+	)
+	(fp_line
+		(start -2.65 8.11)
+		(end 7.73 8.11)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "b165939f-0c2b-4548-83fa-3f2db92f1dea")
+	)
+	(fp_line
+		(start -0.3 -2.6)
+		(end 0.3 -2.6)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d36f34a6-7e3a-4ce2-928f-9d02cfaab57f")
+	)
+	(fp_line
+		(start 0 -2)
+		(end -0.3 -2.6)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "0fd09df3-2ebd-4d42-b283-1ae1a0587e2c")
+	)
+	(fp_line
+		(start 0 0)
+		(end -0.8 -1.2)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d89a1390-c772-4048-85e7-17ccb8c43a40")
+	)
+	(fp_line
+		(start 0.3 -2.6)
+		(end 0 -2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "572df44d-7d70-4b0c-9362-efdc50c6b6d5")
+	)
+	(fp_line
+		(start 0.8 -1.2)
+		(end 0 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "ce578b27-ddb5-40ac-81bd-33d9efff18a6")
+	)
+	(fp_line
+		(start 1.05 -1.31)
+		(end 4.03 -1.31)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6e25a4d6-b361-47a7-9823-640d4ed2b743")
+	)
+	(fp_line
+		(start 7.73 -1.31)
+		(end 6.13 -1.31)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "4799ee9d-7ad3-416f-a77d-306235feecda")
+	)
+	(fp_line
+		(start 7.73 8.11)
+		(end 7.73 -1.31)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c6b7053d-a833-4bc6-8c4a-8505005511c3")
+	)
+	(fp_rect
+		(start -2.54 -1.2)
+		(end 7.62 8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "c96d8b75-b4cf-40ab-9cb2-86c679954c47")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 2.54 -0.5 0)
+		(layer "F.Fab")
+		(uuid "b1a25c8e-57e1-4cb1-ba33-103f8e138e5c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole roundrect
+		(at 0 0)
+		(size 1.8 3.6)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.138889)
+		(uuid "7275a48f-907c-44c7-83d0-94c2b0010b7b")
+	)
+	(pad "2" thru_hole oval
+		(at 5.08 0)
+		(size 1.8 3.6)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "9a4b2c77-e8b9-4377-9076-e58bacba68c6")
+	)
+	(embedded_fonts no)
+	(model "${KICAD10_3DMODEL_DIR}/Connector_Phoenix_MC_HighVoltage.3dshapes/PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

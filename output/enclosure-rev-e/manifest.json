@@ -1,0 +1,1170 @@
+{
+  "revision": "E-mechanical-prototype",
+  "units": "mm",
+  "outer_body_mm": [
+    170.0,
+    150.0,
+    90.0
+  ],
+  "external_features": "key plate +3.2mm, buttons above lid, purchased glands outside body",
+  "parameters_sha256": "4129ce9cce6f58f51d5f791f85a1856b7d79313a0fd7f0d9ce5e9d62dfd8a931",
+  "parts": {
+    "base": {
+      "quantity": 1,
+      "color": [
+        0.69,
+        0.73,
+        0.76
+      ],
+      "notes": "170 x150 x86.8 mm; four main mounts, four case mounts, separate cable entries",
+      "bounds_mm": [
+        [
+          -1.5e-07,
+          -1.5e-07,
+          -1.5e-07
+        ],
+        [
+          170.00000015,
+          150.00000015,
+          86.80000015
+        ]
+      ],
+      "size_mm": [
+        170.0000003,
+        150.0000003,
+        86.80000030000001
+      ],
+      "step_to_assembly_translation_mm": [
+        -1.5e-07,
+        -1.5e-07,
+        -1.5e-07
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.5e-07
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -1.5e-07
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -1.5e-07
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 298525.1080062458,
+      "triangles": 17018,
+      "step": "base.step",
+      "stl": "base.stl",
+      "step_sha256": "0562bf312fcbeb925b1fa6d62502df62ef4d30119cc5bea661b3caadaacf8070",
+      "sha256": "19368e7dabe755e3349c95d5e7614a42ebfecd4337362aa2e322c4cc3916601c"
+    },
+    "panel_carrier": {
+      "quantity": 1,
+      "color": [
+        0.27,
+        0.42,
+        0.53
+      ],
+      "notes": "Four M2.5 PCB mounts; four separate M3 lid attachments",
+      "bounds_mm": [
+        [
+          47.99999985,
+          37.99999985,
+          59.49999985
+        ],
+        [
+          122.00000015,
+          97.00000015,
+          72.90000015000001
+        ]
+      ],
+      "size_mm": [
+        74.00000030000001,
+        59.0000003,
+        13.40000030000001
+      ],
+      "step_to_assembly_translation_mm": [
+        47.99999985,
+        37.99999985,
+        59.49999985
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          47.99999985
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          37.99999985
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          59.49999985
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 4319.008849308213,
+      "triangles": 4540,
+      "step": "panel_carrier.step",
+      "stl": "panel_carrier.stl",
+      "step_sha256": "bcbc9111ee27ce7457bb117de1cf368f4d1d6530cfdbc66731c442a0438ce64f",
+      "sha256": "c317c0a653626b8bba44a20cc87b6c742239311ef7707ab15201d34e8c7052a7"
+    },
+    "plunger_start": {
+      "quantity": 1,
+      "color": [
+        0.12,
+        0.51,
+        0.3
+      ],
+      "notes": "Adjust stem after measured switch fit; never preload; shoulder stroke 0.4mm",
+      "bounds_mm": [
+        [
+          58.4999999,
+          55.9999999,
+          76.2499999
+        ],
+        [
+          66.5000001,
+          64.0000001,
+          91.8000001
+        ]
+      ],
+      "size_mm": [
+        8.000000199999995,
+        8.000000199999995,
+        15.5500002
+      ],
+      "step_to_assembly_translation_mm": [
+        58.4999999,
+        55.9999999,
+        76.2499999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          58.507586685126476
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          63.99810304178467
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          91.80000009073487
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 283.4344892068714,
+      "triangles": 914,
+      "step": "plunger_start.step",
+      "stl": "plunger_start.stl",
+      "step_sha256": "13131e93b7ee9fa1ba7ab8976546c553c179889783fe8af93b13e2490c132146",
+      "sha256": "8d11b6a80537b4b765f9469d0804844301d4555a2989666dd9921a07d6e2ec66"
+    },
+    "plunger_stop": {
+      "quantity": 1,
+      "color": [
+        0.77,
+        0.13,
+        0.12
+      ],
+      "notes": "Adjust stem after measured switch fit; never preload; shoulder stroke 0.85mm",
+      "bounds_mm": [
+        [
+          70.9999999,
+          55.9999999,
+          82.14999990000001
+        ],
+        [
+          79.0000001,
+          64.0000001,
+          92.2500001
+        ]
+      ],
+      "size_mm": [
+        8.000000199999988,
+        8.000000199999995,
+        10.100000199999982
+      ],
+      "step_to_assembly_translation_mm": [
+        70.9999999,
+        55.9999999,
+        82.14999990000001
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          71.00758668512648
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          63.99810304178467
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          92.25000028146974
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 259.8285620077974,
+      "triangles": 914,
+      "step": "plunger_stop.step",
+      "stl": "plunger_stop.stl",
+      "step_sha256": "c3204fb3e00d6bc69b98bb7cd310e4b9df6da711e5b42f70cb41f65db24d7e33",
+      "sha256": "764d062829049bfe67d59e37a631a30c4bd33d49da191d0c311060f4cf319f79"
+    },
+    "plunger_mode": {
+      "quantity": 1,
+      "color": [
+        0.24,
+        0.29,
+        0.32
+      ],
+      "notes": "Adjust stem after measured switch fit; never preload; shoulder stroke 0.4mm",
+      "bounds_mm": [
+        [
+          85.4999999,
+          55.9999999,
+          76.2499999
+        ],
+        [
+          93.5000001,
+          64.0000001,
+          91.8000001
+        ]
+      ],
+      "size_mm": [
+        8.000000199999988,
+        8.000000199999995,
+        15.5500002
+      ],
+      "step_to_assembly_translation_mm": [
+        85.4999999,
+        55.9999999,
+        76.2499999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          85.50758668512648
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          63.99810304178467
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          91.80000009073487
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 283.43448920687143,
+      "triangles": 914,
+      "step": "plunger_mode.step",
+      "stl": "plunger_mode.stl",
+      "step_sha256": "3830880b12e34e8f783572ae62bab6fd70603df9671591e0680e238220fda8cc",
+      "sha256": "8d11b6a80537b4b765f9469d0804844301d4555a2989666dd9921a07d6e2ec66"
+    },
+    "plunger_set": {
+      "quantity": 1,
+      "color": [
+        0.24,
+        0.29,
+        0.32
+      ],
+      "notes": "Adjust stem after measured switch fit; never preload; shoulder stroke 0.4mm",
+      "bounds_mm": [
+        [
+          95.9999999,
+          55.9999999,
+          76.2499999
+        ],
+        [
+          104.0000001,
+          64.0000001,
+          91.8000001
+        ]
+      ],
+      "size_mm": [
+        8.000000199999988,
+        8.000000199999995,
+        15.5500002
+      ],
+      "step_to_assembly_translation_mm": [
+        95.9999999,
+        55.9999999,
+        76.2499999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          96.00758668512648
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          63.99810304178467
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          91.80000009073487
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 283.43448920687143,
+      "triangles": 914,
+      "step": "plunger_set.step",
+      "stl": "plunger_set.stl",
+      "step_sha256": "1f41a2aab6973b3c1e4f21887a586730a84b631be9c2595d3f96d5d47fadab18",
+      "sha256": "8d11b6a80537b4b765f9469d0804844301d4555a2989666dd9921a07d6e2ec66"
+    },
+    "plunger_next": {
+      "quantity": 1,
+      "color": [
+        0.24,
+        0.29,
+        0.32
+      ],
+      "notes": "Adjust stem after measured switch fit; never preload; shoulder stroke 0.4mm",
+      "bounds_mm": [
+        [
+          104.9999999,
+          55.9999999,
+          76.2499999
+        ],
+        [
+          113.0000001,
+          64.0000001,
+          91.8000001
+        ]
+      ],
+      "size_mm": [
+        8.000000199999988,
+        8.000000199999995,
+        15.5500002
+      ],
+      "step_to_assembly_translation_mm": [
+        104.9999999,
+        55.9999999,
+        76.2499999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          105.00758668512648
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          63.99810304178467
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          91.80000009073487
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 283.43448920687143,
+      "triangles": 914,
+      "step": "plunger_next.step",
+      "stl": "plunger_next.stl",
+      "step_sha256": "7f8771f03b32468957e7226fe64357925922e4e804e1f570426c0e979ad4cca7",
+      "sha256": "8d11b6a80537b4b765f9469d0804844301d4555a2989666dd9921a07d6e2ec66"
+    },
+    "display_retainer": {
+      "quantity": 1,
+      "color": [
+        0.22,
+        0.3,
+        0.36
+      ],
+      "notes": "Two M2.5 screws; verify edge bearing pads and actual module thickness",
+      "bounds_mm": [
+        [
+          59.99999985,
+          70.24999985,
+          80.09999984999999
+        ],
+        [
+          110.00000015,
+          89.25000015,
+          85.80000015
+        ]
+      ],
+      "size_mm": [
+        50.0000003,
+        19.00000030000001,
+        5.7000003000000135
+      ],
+      "step_to_assembly_translation_mm": [
+        59.99999985,
+        70.24999985,
+        80.09999984999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          59.99999985
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          70.24999985
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          80.09999984999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 1146.5916351801961,
+      "triangles": 832,
+      "step": "display_retainer.step",
+      "stl": "display_retainer.stl",
+      "step_sha256": "981d1e15a4c644afd988713aa6fc4dd6ed2fbb0e76da8dfdfd6078338c9e0044",
+      "sha256": "8e02e03d2567346f213629124a204c72213fc2e0d13da791372b4ff9350477af"
+    },
+    "key_blank_plate": {
+      "quantity": 1,
+      "color": [
+        0.84,
+        0.87,
+        0.88
+      ],
+      "notes": "Default fitted blank. Four M3 through-fasteners; optional key plate replaces it",
+      "bounds_mm": [
+        [
+          114.9999999,
+          94.9999999,
+          87.9999999
+        ],
+        [
+          159.0000001,
+          139.0000001,
+          93.2000001
+        ]
+      ],
+      "size_mm": [
+        44.00000019999999,
+        44.00000019999999,
+        5.200000199999991
+      ],
+      "step_to_assembly_translation_mm": [
+        114.9999999,
+        94.9999999,
+        87.9999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          115.0
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          138.9999999
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          93.2000001861023
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 8310.106204558411,
+      "triangles": 860,
+      "step": "key_blank_plate.step",
+      "stl": "key_blank_plate.stl",
+      "step_sha256": "eb058df53ebffc5be57c341e8cb59c9aaa54ad9ff2d49aa75a2fba07ae513034",
+      "sha256": "d1a104c7d9c7d572f9de4bcc8826e29e1079f01bea66c0af4f43d755e3a22228"
+    },
+    "key_22p5_adapter_OPTIONAL": {
+      "quantity": 1,
+      "color": [
+        0.84,
+        0.87,
+        0.88
+      ],
+      "notes": "Alternative to blank only;22.5mm hole does not establish compatibility with an unspecified key",
+      "bounds_mm": [
+        [
+          114.9999999,
+          94.9999999,
+          87.9999999
+        ],
+        [
+          159.0000001,
+          139.0000001,
+          93.2000001
+        ]
+      ],
+      "size_mm": [
+        44.00000019999999,
+        44.00000019999999,
+        5.200000199999991
+      ],
+      "step_to_assembly_translation_mm": [
+        114.9999999,
+        94.9999999,
+        87.9999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          115.0
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          138.9999999
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          93.2000001861023
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 6242.545539414627,
+      "triangles": 1068,
+      "step": "key_22p5_adapter_OPTIONAL.step",
+      "stl": "key_22p5_adapter_OPTIONAL.stl",
+      "step_sha256": "3a51752186b9b64f459851f58a32010e0448a44a48e939daa8d090b18bd496e0",
+      "sha256": "1fa3f0c232997c2b5cb80beb6b5222f9b4fa80ae0922c1444d0db0ff51318385"
+    },
+    "lid": {
+      "quantity": 1,
+      "color": [
+        0.84,
+        0.87,
+        0.88
+      ],
+      "notes": "Captured plungers, OLED window and four-column panel mounting",
+      "bounds_mm": [
+        [
+          -1.5e-07,
+          -1.5e-07,
+          62.69999985000001
+        ],
+        [
+          170.00000015,
+          150.00000015,
+          90.00000015
+        ]
+      ],
+      "size_mm": [
+        170.0000003,
+        150.0000003,
+        27.300000299999994
+      ],
+      "step_to_assembly_translation_mm": [
+        -1.5e-07,
+        -1.5e-07,
+        62.69999985000001
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          5.3056282990503374e-15
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          149.99999985
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          89.99999908706057
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 83822.3694704112,
+      "triangles": 8026,
+      "step": "lid.step",
+      "stl": "lid.stl",
+      "step_sha256": "4a9e8fd8a4a47e579f7504b55e98825ba75a205c62630d6e113fbfe4c2d82791",
+      "sha256": "b6a5b2933f96d7ce4a2c404dc2fbd6ff923f4a3a8865bc4e7087e08acc85576a"
+    },
+    "main_board_guard": {
+      "quantity": 1,
+      "color": [
+        0.91,
+        0.64,
+        0.24
+      ],
+      "notes": "Full-board removable guard; screw retained; segregated wire apertures; not a qualified electrical enclosure",
+      "bounds_mm": [
+        [
+          13.49999985,
+          15.49999985,
+          3.99999985
+        ],
+        [
+          156.50000015,
+          136.50000015,
+          52.00000015
+        ]
+      ],
+      "size_mm": [
+        143.0000003,
+        121.00000030000001,
+        48.000000299999996
+      ],
+      "step_to_assembly_translation_mm": [
+        13.49999985,
+        15.49999985,
+        3.99999985
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          13.501374912973239
+        ],
+        [
+          0.0,
+          -1.0,
+          1.2246467991473532e-16,
+          136.49565109511718
+        ],
+        [
+          0.0,
+          -1.2246467991473532e-16,
+          -1.0,
+          51.999999850000016
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "front/roof/head down",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 105081.09614753898,
+      "triangles": 2044,
+      "step": "main_board_guard.step",
+      "stl": "main_board_guard.stl",
+      "step_sha256": "7dce7977fee6f2fef9a2578e6bd8ff6d6a7aa67a8fa7212afc92091ea250756b",
+      "sha256": "f764a18599cb8976bf2e94e9913431321720b81c708ee335a616435c7d3b100e"
+    },
+    "cable_clamp_mains": {
+      "quantity": 1,
+      "color": [
+        0.22,
+        0.3,
+        0.36
+      ],
+      "notes": "Nominal 9mm cable saddle; liner/actual cable outside diameter must be checked",
+      "bounds_mm": [
+        [
+          19.9999999,
+          41.9999999,
+          13.4999999
+        ],
+        [
+          30.0000001,
+          68.0000001,
+          18.5000001
+        ]
+      ],
+      "size_mm": [
+        10.000000200000002,
+        26.000000199999995,
+        5.000000200000001
+      ],
+      "step_to_assembly_translation_mm": [
+        19.9999999,
+        41.9999999,
+        13.4999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          19.9999999
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          41.9999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          13.4999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 891.1217161352885,
+      "triangles": 536,
+      "step": "cable_clamp_mains.step",
+      "stl": "cable_clamp_mains.stl",
+      "step_sha256": "6b3de6291414a4a6a4ff69928071532821a407d980f73c9ffe09d5ca9d850f31",
+      "sha256": "0f9ca083939fdcba509f29a07aeb0265c484af9b6dda6d3d7ee6935a4cb3c411"
+    },
+    "cable_clamp_coil": {
+      "quantity": 1,
+      "color": [
+        0.22,
+        0.3,
+        0.36
+      ],
+      "notes": "Nominal 9mm cable saddle; liner/actual cable outside diameter must be checked",
+      "bounds_mm": [
+        [
+          19.9999999,
+          81.9999999,
+          13.4999999
+        ],
+        [
+          30.0000001,
+          108.0000001,
+          18.5000001
+        ]
+      ],
+      "size_mm": [
+        10.000000200000002,
+        26.000000199999988,
+        5.000000200000001
+      ],
+      "step_to_assembly_translation_mm": [
+        19.9999999,
+        81.9999999,
+        13.4999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          19.9999999
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          81.9999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          13.4999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 891.1217161352884,
+      "triangles": 536,
+      "step": "cable_clamp_coil.step",
+      "stl": "cable_clamp_coil.stl",
+      "step_sha256": "49464731319627bc5a8d03a2fc871cac5b65ff156d9d618b49ac32b04c0f9c0e",
+      "sha256": "1802bbb29682fd4abb0ae867add3a9ddfbb25aee45c30a067f764212161cc547"
+    },
+    "cable_clamp_live_CT": {
+      "quantity": 1,
+      "color": [
+        0.22,
+        0.3,
+        0.36
+      ],
+      "notes": "Nominal 7mm cable saddle; liner/actual cable outside diameter must be checked",
+      "bounds_mm": [
+        [
+          46.9999999,
+          25.9999999,
+          13.4999999
+        ],
+        [
+          73.0000001,
+          36.0000001,
+          18.5000001
+        ]
+      ],
+      "size_mm": [
+        26.000000199999995,
+        10.000000200000002,
+        5.000000200000001
+      ],
+      "step_to_assembly_translation_mm": [
+        46.9999999,
+        25.9999999,
+        13.4999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          46.9999999
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          25.9999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          13.4999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 1016.7854222788803,
+      "triangles": 536,
+      "step": "cable_clamp_live_CT.step",
+      "stl": "cable_clamp_live_CT.stl",
+      "step_sha256": "77ea5abbf11ef966412cbd73b551e613dc3303a31e63fcba6677969100db0f24",
+      "sha256": "54b5ae60912a3042a1f041c7787ab253a919664b65a679b1411a61059e3d936a"
+    },
+    "cable_clamp_probes": {
+      "quantity": 1,
+      "color": [
+        0.22,
+        0.3,
+        0.36
+      ],
+      "notes": "Nominal 9mm cable saddle; liner/actual cable outside diameter must be checked",
+      "bounds_mm": [
+        [
+          91.9999999,
+          25.9999999,
+          13.4999999
+        ],
+        [
+          118.0000001,
+          36.0000001,
+          18.5000001
+        ]
+      ],
+      "size_mm": [
+        26.000000199999988,
+        10.000000200000002,
+        5.000000200000001
+      ],
+      "step_to_assembly_translation_mm": [
+        91.9999999,
+        25.9999999,
+        13.4999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          91.9999999
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          25.9999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          13.4999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 891.1217161352881,
+      "triangles": 536,
+      "step": "cable_clamp_probes.step",
+      "stl": "cable_clamp_probes.stl",
+      "step_sha256": "9a52deab06a5787e191b795cbcd907ee942fe2abf449e50f0087482a63d29973",
+      "sha256": "58c45fc656a309037966c1229a3bc10a2ec3748b51c1fa940d29e240cef1819d"
+    },
+    "cable_clamp_sensors": {
+      "quantity": 1,
+      "color": [
+        0.22,
+        0.3,
+        0.36
+      ],
+      "notes": "Nominal 7mm cable saddle; liner/actual cable outside diameter must be checked",
+      "bounds_mm": [
+        [
+          123.9999999,
+          24.9999999,
+          13.4999999
+        ],
+        [
+          150.0000001,
+          35.0000001,
+          18.5000001
+        ]
+      ],
+      "size_mm": [
+        26.000000199999988,
+        10.000000200000002,
+        5.000000200000001
+      ],
+      "step_to_assembly_translation_mm": [
+        123.9999999,
+        24.9999999,
+        13.4999999
+      ],
+      "stl_to_assembly_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          123.9999999
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          24.9999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          13.4999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "stl_print_orientation": "as designed, lowest surface on build plate",
+      "brep_valid": true,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "volume_mm3": 1016.7854222788801,
+      "triangles": 536,
+      "step": "cable_clamp_sensors.step",
+      "stl": "cable_clamp_sensors.stl",
+      "step_sha256": "3a5ac66c1a73717625a1873cc0adb84c23cbe1ab89c6e6b66eb3ae1149874ae8",
+      "sha256": "5ba4c82bcf0f06577f264dba3f8a2a84bbe7184501d1f6a0ae8579d416333395"
+    }
+  },
+  "status": "Mechanical prototype; physical fit and material qualification outstanding"
+}

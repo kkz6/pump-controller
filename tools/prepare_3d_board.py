@@ -21,7 +21,14 @@ lookup={ref:name for name,d in definitions.items() for ref in d['references']}
 coverage=[]
 for footprint in board.GetFootprints():
     ref=footprint.GetReference()
-    if ref in lookup:
+    if ref == 'C1' and args.tag == 'rev-e':
+        assert any('C1_EEUFR1E470_max_envelope.step' in model.m_Filename for model in footprint.Models()), 'Apply the C1 installed-envelope patch first'
+        footprint.Models().clear()
+        model=pcbnew.FP_3DMODEL()
+        model.m_Filename=str(ROOT/'hardware/3d/models/C1_EEUFR1E470_max_envelope.step')
+        footprint.Add3DModel(model)
+        status='approximate_project_body'
+    elif ref in lookup:
         footprint.Models().clear()
         model=pcbnew.FP_3DMODEL()
         model.m_Filename=str(ROOT/'hardware/3d/models'/(lookup[ref]+'.step'))
