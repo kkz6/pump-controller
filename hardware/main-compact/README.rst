@@ -11,6 +11,8 @@ through the existing keyed harness.
 buttons.** J30 exposes a single maintained contact path. The
 `starter compatibility review <../../design/compact-starter-compatibility.rst>`_
 explains the output mismatch, six-wire probe arrangement and remaining tests.
+The proposed `manual transfer plug <../../design/manual-transfer.rst>`_
+restores the starter's original buttons independently of controller power.
 
 Circuit and layout changes
 --------------------------
