@@ -7,6 +7,11 @@ contacts, metering and level-probe circuits are retained. Motor current flows
 through the existing starter. The 60 x 45 mm two-layer user panel connects
 through the existing keyed harness.
 
+**Purchase hold for a retrofit controlled through the existing START and STOP
+buttons.** J30 exposes a single maintained contact path. The
+`starter compatibility review <../../design/compact-starter-compatibility.rst>`_
+explains the output mismatch, six-wire probe arrangement and remaining tests.
+
 Circuit and layout changes
 --------------------------
 
