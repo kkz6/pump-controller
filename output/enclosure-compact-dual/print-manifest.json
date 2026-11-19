@@ -1,14 +1,14 @@
 {
-  "source_pcb_sha256": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
+  "source_pcb_sha256": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
   "packed_stl_count": 17,
-  "print_file_sha256": "a62bab73342431a39255da81f527a6f0f81d1a0147fd0c69a626410a7592ae1b",
+  "print_file_sha256": "bd4bb64f9058facd347c15deb847bba91fc00573a29e125a1cfa0a03a8f836eb",
   "print_part_sha256": {
     "base.stl": "a416493c170f335e71976d8bb9828be3bba0c8df84124cb2913e4ae6406a2fbd",
     "display_retainer.stl": "8e02e03d2567346f213629124a204c72213fc2e0d13da791372b4ff9350477af",
     "key_22p5_adapter_OPTIONAL.stl": "1fa3f0c232997c2b5cb80beb6b5222f9b4fa80ae0922c1444d0db0ff51318385",
     "key_blank_plate.stl": "d1a104c7d9c7d572f9de4bcc8826e29e1079f01bea66c0af4f43d755e3a22228",
     "lid.stl": "b6a5b2933f96d7ce4a2c404dc2fbd6ff923f4a3a8865bc4e7087e08acc85576a",
-    "main_board_guard.stl": "4078b4f89603cd5b5bf583c27422b44089d50c3dda1bd95dfc41e1c94206a326",
+    "main_board_guard.stl": "82d33885722f519193a1d18b0450f648d31b10723c0978b6e914f5410807d9d9",
     "mode_cap.stl": "28dedd2a1837503f7f83937e7e8c87fd135ae7d5c3861daca02336335f63aa3f",
     "mode_stem.stl": "029e729df6415981b749c7d40bc6affc4f30e1d42c20275d213c1e7d8a6357f8",
     "next_cap.stl": "9667a73ccedd90d4fbd9f907b8dd9852988a3a14f9165d8d4ca38d1fe584c4ad",

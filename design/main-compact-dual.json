@@ -1,7 +1,7 @@
 {
   "project": "pump-controller-compact",
-  "revision": "COMPACT-DUAL-PROTOTYPE",
-  "title": "Compact controller with two field contacts",
+  "revision": "COMPACT-DUAL-GUARD-R2",
+  "title": "Compact controller with independent starter guard",
   "board": {
     "width": 100,
     "height": 97,
@@ -2308,7 +2308,7 @@
         {
           "ref": "U11",
           "value": "ADuM6421ABRNZ5",
-          "footprint": "Pump:ADuM6421A_RN28",
+          "footprint": "CompactGuard:ADuM6421A_RN28_Dense",
           "pins": [
             {
               "num": "1",
@@ -2580,7 +2580,7 @@
         {
           "ref": "C56",
           "value": "100nF",
-          "footprint": "Capacitor_SMD:C_0603_1608Metric",
+          "footprint": "CompactGuard:C_0402_1005Metric",
           "pins": [
             {
               "num": "1",
@@ -2596,20 +2596,20 @@
             }
           ],
           "kind": "capacitor",
-          "mpn": "SPEC: 100nF X7R, 10%, 16V",
-          "description": "X7R, 10%, 16V",
-          "datasheet": "",
+          "mpn": "GRM155R71C104KA88D",
+          "description": "Local U11 supply/return pins 11/10. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",
+          "datasheet": "https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23",
           "placement": {
-            "x": 49.0,
-            "y": 25.275,
-            "rotation": 0.0,
+            "x": 47.18,
+            "y": 24.95,
+            "rotation": 90,
             "side": "B"
           }
         },
         {
           "ref": "C57",
           "value": "100nF",
-          "footprint": "Capacitor_SMD:C_0603_1608Metric",
+          "footprint": "CompactGuard:C_0402_1005Metric",
           "pins": [
             {
               "num": "1",
@@ -2625,13 +2625,13 @@
             }
           ],
           "kind": "capacitor",
-          "mpn": "SPEC: 100nF X7R, 10%, 16V",
-          "description": "X7R, 10%, 16V",
-          "datasheet": "",
+          "mpn": "GRM155R71C104KA88D",
+          "description": "Local U11 supply/return pins 1/2. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",
+          "datasheet": "https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23",
           "placement": {
-            "x": 49.0,
-            "y": 17.5,
-            "rotation": 0.0,
+            "x": 47.18,
+            "y": 19.1,
+            "rotation": -90,
             "side": "B"
           }
         },
@@ -2667,7 +2667,7 @@
         {
           "ref": "C59",
           "value": "100nF",
-          "footprint": "Capacitor_SMD:C_0603_1608Metric",
+          "footprint": "CompactGuard:C_0402_1005Metric",
           "pins": [
             {
               "num": "1",
@@ -2683,20 +2683,20 @@
             }
           ],
           "kind": "capacitor",
-          "mpn": "SPEC: 100nF X7R, 10%, 16V",
-          "description": "X7R, 10%, 16V",
-          "datasheet": "",
+          "mpn": "GRM155R71C104KA88D",
+          "description": "Local U11 supply/return pins 18/19. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",
+          "datasheet": "https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23",
           "placement": {
-            "x": 33.25,
-            "y": 25.275,
-            "rotation": 180.0,
+            "x": 34.82,
+            "y": 24.95,
+            "rotation": 90,
             "side": "B"
           }
         },
         {
           "ref": "C60",
           "value": "100nF",
-          "footprint": "Capacitor_SMD:C_0603_1608Metric",
+          "footprint": "CompactGuard:C_0402_1005Metric",
           "pins": [
             {
               "num": "1",
@@ -2712,13 +2712,13 @@
             }
           ],
           "kind": "capacitor",
-          "mpn": "SPEC: 100nF X7R, 10%, 16V",
-          "description": "X7R, 10%, 16V",
-          "datasheet": "",
+          "mpn": "GRM155R71C104KA88D",
+          "description": "Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance.",
+          "datasheet": "https://www.murata.com/en-global/api/pdfdownloadapi?cate=luCeramicCapacitorsSMD&partno=GRM155R71C104KA88%23",
           "placement": {
-            "x": 33.25,
-            "y": 19.5,
-            "rotation": 180.0,
+            "x": 34.82,
+            "y": 19.1,
+            "rotation": -90,
             "side": "B"
           }
         }
@@ -2727,7 +2727,7 @@
     {
       "id": "relay_protection_1",
       "title": "Relay drivers and independent watchdog / 1",
-      "notes": "Independent Form A field contacts: K1 to J30; K2 to J35. Separate COM terminals. Control inputs only.",
+      "notes": "J30 and J35 independently switch the external guard command interposer coils A and B. Keep their separately fused 24 V pairs independent.",
       "components": [
         {
           "ref": "U30",
@@ -3164,7 +3164,7 @@
           ],
           "kind": "ic",
           "mpn": "SN74LVC1G17DBVR",
-          "description": "Schmitt detector of K1 coil positive rail; STOP or high-high loop break clears ARM independently of software",
+          "description": "Schmitt detector for the K1 coil-positive permit. Opening panel STOP or the external J31 permit auxiliary clears ARM in hardware.",
           "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf",
           "placement": {
             "x": 58.5,
@@ -3550,7 +3550,7 @@
     {
       "id": "relay_protection_2",
       "title": "Relay drivers and independent watchdog / 2",
-      "notes": "OUT A and OUT B are separate normally open contacts. RUN loom connects them in series. Two-port profiles use both pairs independently. Verify OEM pilot ratings and terminal functions.",
+      "notes": "The external guard interrupts the starter in every mode. J31 accepts a separate guard auxiliary contact. Never bridge J31. J30 / J35 switch pilot contacts only.",
       "components": [
         {
           "ref": "K2",
@@ -3642,7 +3642,7 @@
           ],
           "kind": "connector",
           "mpn": "1836189",
-          "description": "Starter output A. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.",
+          "description": "Cabinet guard command interposer A. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.",
           "datasheet": "https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf",
           "placement": {
             "x": 30,
@@ -3653,7 +3653,7 @@
         },
         {
           "ref": "J31",
-          "value": "STOP-fed high-high NC float loop / fitted shorting link",
+          "value": "EXTERNAL PERMIT AUX",
           "footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
           "pins": [
             {
@@ -3670,9 +3670,9 @@
             }
           ],
           "kind": "connector",
-          "mpn": "Phoenix MC 1,5/2-G-3,81",
-          "description": "STOP-fed high-high NC float loop / fitted shorting link",
-          "datasheet": "",
+          "mpn": "1803277",
+          "description": "Isolated NO auxiliary contact from external guard. Closed only with guard proven and controller authority enabled. Open inhibits K1. No shunt. Independent high-high float and OEM STOP act off-board.",
+          "datasheet": "https://www.phoenixcontact.com/en-gb/products/pcb-header-mc-15-2-g-381-1803277",
           "placement": {
             "x": 48,
             "y": 71,
@@ -3892,7 +3892,7 @@
           ],
           "kind": "connector",
           "mpn": "1836189",
-          "description": "Starter output B. Phoenix 1836189 header with 1836079 mating plug. Pin 1 COM, pin 2 NO. Dedicated pilot pair for one starter only.",
+          "description": "Cabinet guard command interposer B. Phoenix 1836189 header, plug 1836079. Pin 1 COM and pin 2 NO. Switch only the separately fused 24 V interposer coil.",
           "datasheet": "https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf",
           "placement": {
             "x": 43,
@@ -4831,7 +4831,7 @@
     {
       "id": "local_controls_2",
       "title": "OLED and manual transfer position feedback",
-      "notes": "Rev E: OLED plugs into panel J7: 1 SCL, 2 SDA, 3 GND, 4 +3V3. Main J32 carries power/I2C to panel J1. Main J33/J34 and settings keys are removed.",
+      "notes": "Main J32 mates with panel J1. The four-wire OLED cable plugs into panel J7. J36 carries the independent guard monitor and HOST / LOCAL feedback.",
       "components": [
         {
           "ref": "OLED1",
@@ -4871,11 +4871,11 @@
         },
         {
           "ref": "J36",
-          "value": "MANUAL TRANSFER SENSE",
-          "description": "3.3 V logic-side feedback from separate insulated position contacts only. GHR-03V-S mating housing. Cavity 1 GND, 2 HOST, 3 LOCAL.",
-          "mpn": "SM03B-GHS-TB(LF)(SN)",
+          "value": "TRANSFER / GUARD MONITOR",
+          "description": "Internal SELV harness. ZER-05V-S. 1 logic GND, 2 HOST and 3 LOCAL dry-contact returns, 4 protected 3.3 V heartbeat out, 5 protected 5 V panel STOP return out. Guard inputs are high impedance and galvanically isolated from the 24 V circuit.",
+          "mpn": "SM05B-ZESS-TB(LF)(SN)",
           "kind": "connector",
-          "footprint": "Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal",
+          "footprint": "Connector_JST:JST_ZE_SM05B-ZESS-TB_1x05-1MP_P1.50mm_Horizontal",
           "pins": [
             {
               "num": "1",
@@ -4896,6 +4896,18 @@
               "type": "passive"
             },
             {
+              "num": "4",
+              "name": "HB_OUT",
+              "net": "HB_MON",
+              "type": "passive"
+            },
+            {
+              "num": "5",
+              "name": "PANEL_OK_OUT",
+              "net": "PANEL_OK_MON",
+              "type": "passive"
+            },
+            {
               "num": "MP",
               "name": "SHIELD",
               "net": "GND",
@@ -4903,12 +4915,12 @@
             }
           ],
           "placement": {
-            "x": 96.5,
-            "y": 60,
+            "x": 94,
+            "y": 61,
             "rotation": 90,
             "side": "F"
           },
-          "datasheet": "https://www.jst.com/wp-content/uploads/2025/06/eGH.pdf"
+          "datasheet": "https://www.jst.com/wp-content/uploads/2025/06/eZE.pdf"
         },
         {
           "ref": "R192",
@@ -5022,6 +5034,64 @@
             "x": 64,
             "y": 56.9,
             "rotation": 0,
+            "side": "F"
+          },
+          "datasheet": "https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors"
+        },
+        {
+          "ref": "R196",
+          "value": "1k",
+          "description": "1 k\u03a9 series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.",
+          "mpn": "RC0603FR-071KL",
+          "kind": "resistor",
+          "footprint": "Resistor_SMD:R_0603_1608Metric",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "HEARTBEAT",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "HB_MON",
+              "type": "passive"
+            }
+          ],
+          "placement": {
+            "x": 87.75,
+            "y": 60.9,
+            "rotation": 180,
+            "side": "F"
+          },
+          "datasheet": "https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors"
+        },
+        {
+          "ref": "R197",
+          "value": "1k",
+          "description": "1 k\u03a9 series isolation for the internal guard monitor output. External input must be high impedance with no backfeed.",
+          "mpn": "RC0603FR-071KL",
+          "kind": "resistor",
+          "footprint": "Resistor_SMD:R_0603_1608Metric",
+          "pins": [
+            {
+              "num": "1",
+              "name": "1",
+              "net": "STOP_RETURN",
+              "type": "passive"
+            },
+            {
+              "num": "2",
+              "name": "2",
+              "net": "PANEL_OK_MON",
+              "type": "passive"
+            }
+          ],
+          "placement": {
+            "x": 87.75,
+            "y": 59.1,
+            "rotation": 180,
             "side": "F"
           },
           "datasheet": "https://www.yageo.com/en/Product/Index/rchip/rchip_f/F-Chip-Resistors"
@@ -5942,7 +6012,7 @@
           "ref": "C102",
           "value": "100nF",
           "mpn": "SPEC: 100nF X7R 16V 10%",
-          "description": "X7R 16V 10%",
+          "description": "Local 100 nF X7R bypass for U20 supply/return pins 4/11. 16 V, 10%.",
           "datasheet": "",
           "footprint": "Capacitor_SMD:C_0603_1608Metric",
           "kind": "capacitor",
@@ -5961,9 +6031,9 @@
             }
           ],
           "placement": {
-            "x": 72.0,
-            "y": 47.0,
-            "rotation": 0.0,
+            "x": 66.513,
+            "y": 53,
+            "rotation": 180,
             "side": "B"
           }
         },
@@ -5971,7 +6041,7 @@
           "ref": "C103",
           "value": "100nF",
           "mpn": "SPEC: 100nF X7R 16V 10%",
-          "description": "X7R 16V 10%",
+          "description": "Local 100 nF X7R bypass for U21 supply/return pins 13/14. 16 V, 10%.",
           "datasheet": "",
           "footprint": "Capacitor_SMD:C_0603_1608Metric",
           "kind": "capacitor",
@@ -5990,17 +6060,17 @@
             }
           ],
           "placement": {
-            "x": 71.5,
-            "y": 59.5,
-            "rotation": 90.0,
-            "side": "B"
+            "x": 89.94,
+            "y": 52.35,
+            "rotation": 90,
+            "side": "F"
           }
         },
         {
           "ref": "C104",
           "value": "100nF",
           "mpn": "SPEC: 100nF X7R 16V 10%",
-          "description": "X7R 16V 10%",
+          "description": "Local 100 nF X7R bypass for U22 supply/return pins 8/3. 16 V, 10%.",
           "datasheet": "",
           "footprint": "Capacitor_SMD:C_0603_1608Metric",
           "kind": "capacitor",
@@ -6019,10 +6089,10 @@
             }
           ],
           "placement": {
-            "x": 75.0,
-            "y": 61.0,
-            "rotation": 0.0,
-            "side": "B"
+            "x": 82.025,
+            "y": 46.225,
+            "rotation": 90,
+            "side": "F"
           }
         },
         {
@@ -6141,9 +6211,9 @@
             }
           ],
           "placement": {
-            "x": 82.5,
-            "y": 48.0,
-            "rotation": 90.0,
+            "x": 83.875,
+            "y": 44.375,
+            "rotation": 90,
             "side": "F"
           }
         },
@@ -6681,10 +6751,10 @@
             }
           ],
           "placement": {
-            "x": 91.0,
-            "y": 53.0,
-            "rotation": 90.0,
-            "side": "F"
+            "x": 92.875,
+            "y": 49,
+            "rotation": 0,
+            "side": "B"
           }
         },
         {
@@ -6948,9 +7018,9 @@
             }
           ],
           "placement": {
-            "x": 91.0,
-            "y": 56.0,
-            "rotation": 0.0,
+            "x": 87.75,
+            "y": 56.75,
+            "rotation": 0,
             "side": "F"
           }
         },
@@ -7518,8 +7588,8 @@
           ],
           "placement": {
             "x": 92.5,
-            "y": 66.0,
-            "rotation": 90.0,
+            "y": 70,
+            "rotation": 90,
             "side": "F"
           }
         },
@@ -7723,11 +7793,11 @@
         },
         {
           "ref": "J21",
-          "value": "INLET PROBES",
-          "mpn": "1803277",
-          "description": "Phoenix MC 1,5/2-G-3,81 header; mating screw plug 1803578, verify fit",
-          "datasheet": "https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-381-1803277",
-          "footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
+          "value": "INLET / RETURN",
+          "mpn": "S2B-XH-A(LF)(SN)",
+          "description": "Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.",
+          "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf",
+          "footprint": "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal",
           "kind": "connector",
           "pins": [
             {
@@ -7745,7 +7815,7 @@
           ],
           "placement": {
             "x": 84,
-            "y": 71,
+            "y": 70.2,
             "rotation": 0,
             "side": "F"
           }
@@ -8038,6 +8108,7 @@
     "Pump": "hardware/Pump.pretty",
     "PumpRevE": "hardware/main-rev-e/PumpRevE.pretty",
     "Connector_JST": "hardware/main-compact-dual/libraries/Connector_JST.pretty",
-    "LED_SMD": "hardware/main-compact-led/libraries/LED_SMD.pretty"
+    "LED_SMD": "hardware/main-compact-led/libraries/LED_SMD.pretty",
+    "CompactGuard": "hardware/main-compact-dual/libraries/CompactGuard.pretty"
   }
 }

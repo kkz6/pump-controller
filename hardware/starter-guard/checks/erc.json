@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.kicad.org/erc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-11-19T21:52:57",
+  "ignored_checks": [
+    {
+      "description": "Global label only appears once in the schematic",
+      "key": "single_global_label"
+    },
+    {
+      "description": "Four connection points are joined together",
+      "key": "four_way_junction"
+    },
+    {
+      "description": "SPICE model issue",
+      "key": "simulation_model_issue"
+    },
+    {
+      "description": "Assigned footprint doesn't match footprint filters",
+      "key": "footprint_filter"
+    }
+  ],
+  "included_severities": [
+    "error",
+    "warning"
+  ],
+  "kicad_version": "10.0.8",
+  "sheets": [
+    {
+      "path": "/",
+      "uuid_path": "/055dd30f-861b-52d8-b311-0fc35c911239",
+      "violations": []
+    },
+    {
+      "path": "/Heartbeat receiver and common supplies/",
+      "uuid_path": "/055dd30f-861b-52d8-b311-0fc35c911239/b67f9d11-b9a1-5a9f-b925-51123dbc6092",
+      "violations": []
+    },
+    {
+      "path": "/Panel STOP receiver and 24 V driver/",
+      "uuid_path": "/055dd30f-861b-52d8-b311-0fc35c911239/39c7c84b-fb8e-5c32-8765-3b833ecf3021",
+      "violations": []
+    },
+    {
+      "path": "/Guard inputs and position contacts/",
+      "uuid_path": "/055dd30f-861b-52d8-b311-0fc35c911239/9f2d829b-74d2-59c6-8d21-be6b64c8b12c",
+      "violations": []
+    },
+    {
+      "path": "/Reset, enable and series contactors/",
+      "uuid_path": "/055dd30f-861b-52d8-b311-0fc35c911239/109e96e3-1cb7-5473-84fa-5005dd02d685",
+      "violations": []
+    },
+    {
+      "path": "/24 V DC conventional DOL pilot adapter only/",
+      "uuid_path": "/055dd30f-861b-52d8-b311-0fc35c911239/c78cd3ac-75b2-5812-9111-2309727b16d4",
+      "violations": []
+    }
+  ],
+  "source": "starter-guard.kicad_sch"
+}

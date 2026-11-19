@@ -40,13 +40,16 @@ def check():
     membership = {
         "CTRL_A_COM": {"J30.1", "K1.2"}, "CTRL_A_NO": {"J30.2", "K1.3"},
         "CTRL_B_COM": {"J35.1", "K2.2"}, "CTRL_B_NO": {"J35.2", "K2.3"},
+        "HB_MON": {"J36.4", "R196.2"}, "PANEL_OK_MON": {"J36.5", "R197.2"},
         "HOST_AUX_N": {"J36.2", "R192.1"}, "LOCAL_AUX_N": {"J36.3", "R193.1"},
         "HOST_SENSE_N": {"U33.24", "R192.2", "R194.2"},
         "LOCAL_SENSE_N": {"U33.23", "R193.2", "R195.2"},
     }
     for net, terminals in membership.items():
         equal({pin for pin, name in pins.items() if name == net}, terminals, net)
-    for pin, net in {"J36.1": "GND", "R194.1": "+3V3", "R195.1": "+3V3",
+    for pin, net in {"R196.1": "HEARTBEAT", "R197.1": "STOP_RETURN",
+                     "J21.1": "PROBE_INLET", "J21.2": "PROBE_ICOM",
+                     "J31.1": "STOP_RETURN", "J31.2": "K1_COIL_PLUS", "J36.1": "GND", "R194.1": "+3V3", "R195.1": "+3V3",
                      "J2.1": "GND", "J2.2": "+3V3", "J2.5": "MCU_EN", "J2.6": "BOOT",
                      "J2.7": "USB_DM", "J2.8": "USB_DP",
                      "U33.8": "START_CMD_LED", "U33.28": "STOP_CMD_LED"}.items():

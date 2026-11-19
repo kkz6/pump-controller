@@ -18,4 +18,5 @@
 (lib (name "Resistor_SMD") (type "KiCad") (uri "${KIPRJMOD}/../main-compact/libraries/Resistor_SMD.pretty") (options "") (descr "Shared compact baseline land patterns"))
 (lib (name "TerminalBlock_Phoenix") (type "KiCad") (uri "${KIPRJMOD}/../main-compact/libraries/TerminalBlock_Phoenix.pretty") (options "") (descr "Shared compact baseline land patterns"))
 (lib (name "LED_SMD") (type "KiCad") (uri "${KIPRJMOD}/../main-compact-led/libraries/LED_SMD.pretty") (options "") (descr "Kingbright specified 0603 LED lands"))
+(lib (name "CompactGuard") (type "KiCad") (uri "${KIPRJMOD}/libraries/CompactGuard.pretty") (options "") (descr "Compact guard R2 isolation and local bypass land patterns"))
 )

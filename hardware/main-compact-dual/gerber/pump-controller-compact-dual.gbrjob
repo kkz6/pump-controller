@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "10.0.8"
     },
-    "CreationDate": "2026-11-19T20:23:35+05:30"
+    "CreationDate": "2026-11-19T21:37:30+05:30"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "pump-controller-compact",
       "GUID": "70756d70-2d63-46f6-9e74-726f6c6c6572",
-      "Revision": "COMPACT-DUAL-PROTOTYPE"
+      "Revision": "COMPACT-DUAL-GUARD-R2"
     },
     "Size": {
       "X": 100,

@@ -12,6 +12,9 @@ for f in b.GetFootprints():
  if ref=='C1':
   assert any('C1_EEUFR1E470_max_envelope.step' in x.m_Filename for x in f.Models()),'C1 maximum installed envelope is absent'
   filename=R/'hardware/3d/models/C1_EEUFR1E470_max_envelope.step';f.Models().clear();m=p.FP_3DMODEL();m.m_Filename=str(filename);f.Add3DModel(m);status='conservative_installed_envelope'
+ elif ref=='J36' and any(x.m_Filename.endswith('JST_ZE_SM05B-ZESS-TB_envelope.step') for x in f.Models()):
+  filename=R/'hardware/main-compact-dual/libraries/Connector_JST.3dshapes/JST_ZE_SM05B-ZESS-TB_envelope.step'
+  f.Models().clear();m=p.FP_3DMODEL();m.m_Filename=str(filename);f.Add3DModel(m);status='conservative_installed_envelope'
  elif ref in lookup:
   filename=R/'hardware/3d/models'/(lookup[ref]+'.step');f.Models().clear();m=p.FP_3DMODEL();m.m_Filename=str(filename);f.Add3DModel(m);status='approximate_project_body'
  elif ref.startswith('H'):status='mounting_hole_without_fastener'

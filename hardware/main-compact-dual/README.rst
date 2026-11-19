@@ -1,188 +1,136 @@
-Dual-output main PCB for single-phase pump starters
-===================================================
+Guarded single-phase pump controller, revision R2
+=================================================
 
-**Hold the main PCB order for a layout and protection revision.**
-Review the `electrical audit <../../design/compact-dual-electrical-audit.rst>`_
-before using the fabrication files. The measured bypass routing, connector
-ambiguities and failure paths require action before unattended use.
+**Engineering prototype for the bench.** The 100 × 97 mm six-layer main PCB,
+60 × 45 mm OLED panel, isolated signal receiver and external cabinet guard
+work together. The starter
+and its capacitor circuit still carry the motor current. The independent guard
+adds two series motor contactors ahead of the starter. Allow cabinet space for
+them, the control supply, monitoring and terminals before ordering hardware.
+For assembly, U11 and its four specified 0402 capacitors require the placement
+and inspection tolerances in the `R2 electrical review <../../design/compact-dual-guard-r2.rst>`_.
 
-J30 and J35 provide two independently controlled, normally open dry contacts.
-Use the fitted series harness for a starter with one maintained RUN input,
-or use the two contact pairs separately for a starter with dedicated inputs.
-The starter continues to carry motor current and operate its own capacitor
-and overload. Changing the installation profile requires a matching harness.
-Select the profile from the starter's documented control inputs. The presence
-of a starting capacitor alone does not identify a maintained RUN input.
-Start with the `illustrated wiring drawing <exports/starter-wiring.pdf>`_.
+Start with the `field assembly and wiring <../starter-guard/README.rst>`_ and
+`connection drawing <exports/starter-wiring.pdf>`_. The original starter STOP,
+overload and a separate normally closed high-high float act on the hardwired
+guard in HOST and LOCAL. Opening a float wire also trips it. One stuck float or
+a short across its wires needs a separate level-protection design if that fault
+must be tolerated. Keep the original capacitor-start cutout and overload in service.
 
-The main PCB measures 100 × 97 mm and uses six copper layers. Four corner
-mounts and a fifth mount behind the output plugs support the PCB during
-insertion and removal. The extra 22 mm of board depth compared with the
-LED revision provides a separate area for starter wiring and relay contacts.
+Connections
+-----------
 
-Starter cable and contact selection
------------------------------------
+* J1 powers the controller from a protected AC branch. The voltage circuit
+  monitors the controller supply. Pass one motor-current conductor through the
+  specified CT and connect its secondary to J10. Keep that mains-referenced
+  secondary segregated from the isolated probe and panel wiring.
+* J20 accepts tank common and four level probes. J21 is a shrouded two-way
+  JST XH header for the inlet electrode and its qualified return. Confirm the
+  existing inlet probe return before connecting it. Do not tie the two
+  excitation outputs together. The **independent float goes to the cabinet
+  guard**, on its own cable, so loss of the tank common cannot defeat it.
+* J30 and J35 are dry contacts. Each pin 1 is COM, pin 2 NO. In R2 they switch
+  the guard's separately fused 24 V **command interposer coils** A and B. The
+  interposers provide the contacts for the OEM commands and physically prove
+  that each command has released before re-enable. Route the original OEM
+  controls through the chosen profile harness as shown in the drawing.
+* J31, the two-way 3.81 mm Phoenix plug, accepts **only the external guard's
+  isolated NO feedback contact**. It closes in permitted HOST operation. Leave
+  the PCB unpowered for wiring. A shunt, cabinet voltage or a direct connection
+  to the tank float is incompatible with this design.
+* J36 is five-way JST ZE. Pin 1 is logic GND, pin 2 HOST auxiliary, pin 3
+  LOCAL auxiliary, pin 4 the 3.3 V heartbeat and pin 5 the raw OLED STOP-loop
+  health signal (nominal 5 V). Pins 2 and 3 take separate dry contacts to pin 1.
+  Pins 4 and 5 feed only the specified high-impedance receiver. Connect main J36 to receiver J36 with five straight-through cores. The separate
+  J31-to-J31 two-core cable carries only the permit contact. Number both ends
+  by cavity, then test continuity before installation. The isolated receiver
+  connects the logic domain to the cabinet controls. See the
+  `receiver PCB and connectors <../guard-receiver/README.rst>`_. Never apply 24 V
+  to J36. The `harness parts list <starter-harness-parts.csv>`_ specifies the
+  mating housings and terminals.
+* J32 connects to OLED panel J1 through a pin-for-pin 12-way cable. The panel
+  carries START, STOP, MODE, SET/RESET and NEXT/+. Optional external operator
+  buttons terminate on the panel. When fitting remote NC STOP at panel J3,
+  remove JP1 and verify opening either STOP breaks the loop. The optional
+  maintained AUTO/MANUAL selector uses panel J8 (JST GH3), pin 1 common +5 V,
+  pin 2 MANUAL, pin 3 AUTO. J8 selects the operating mode. The separate
+  mechanical service transfer at the starter determines whether the PCB can
+  issue commands. See the `panel drawings <../panel-rev-e/README.rst>`_.
+* J2 supports service programming. Pins 7 and 8 are native USB D− and D+,
+  pin 1 logic GND, pins 5 and 6 EN and BOOT. Pin 2 is 3.3 V. Leave pin 4
+  (ARM_CMD) open for native USB. Use an isolated bench with mains and starter
+  wiring disconnected. USB VBUS must stay off the 3.3 V rail.
 
-=============================  ========================  =================================
-Verified starter interface     J30 A (K1)                J35 B (K2)
-=============================  ========================  =================================
-Maintained RUN                 Both contacts in series   Both contacts close for RUN
-Close START, open STOP         Maintained permission     Momentary START closure
-Close START, close STOP        Momentary START closure   Momentary STOP closure
-=============================  ========================  =================================
-
-Each header uses pin 1 COM and pin 2 NO. Its two contacts are voltage-free.
-The board supplies no voltage to these four terminals. Both outputs serve
-one starter control circuit. Keep the starter's physical STOP and overload
-effective in every mode. Viewed from the component side with the output
-headers at the top, the PCB terminals run left to right as A NO, A COM,
-B NO, B COM. Match the connector pin numbers when working from the wire side.
-
-* **Two wires:** The RUN harness links J30.2 to J35.1 and presents J30.1
-  and J35.2 to the single RUN input. This link is inside the removable
-  harness. Either relay opening breaks RUN.
-* **Four wires:** Carry both complete pairs separately. This also covers a
-  conventional holding circuit where START needs a parallel contact and the
-  existing STOP path needs a series interruption.
-* **Three wires:** Use only a documented shared common on the OEM remote
-  interface. A terminated splice in the loom joins J30.1 and J35.1 to the
-  single OEM common. J30.2 and J35.2 remain independent. Never assume a
-  common from wire color, or join it to controller GND, neutral or earth.
-  A local NC STOP must still interrupt every permitted start/holding path.
-
-The two front-side output headers at the starter cable edge are Phoenix
-1836189, each with a removable 1836079 screw plug. Fit Phoenix CP-MSTB
-1734634 coding elements at pole 1 for A and pole 2 for B. With power
-isolated, verify each plug mates only with its intended header, and check
-the assembled loom for continuity against the drawing. The `harness parts list
-<starter-harness-parts.csv>`_ identifies the mating parts. The `enclosure and cable entry
-<../../mechanical/compact-dual/README.rst>`_ provides a separate opening
-for the round starter-control cable.
-`Phoenix header and mating parts <https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189>`_.
-
-OLED panel and programming
+Choosing a starter profile
 --------------------------
 
-The `60 × 45 mm secondary board <../panel-rev-e/README.rst>`_ carries every
-operator button. Its five lid positions are START, STOP, MODE, SET/RESET
-and NEXT/+. In MANUAL a fresh START press requests a protected start. In
-AUTO a fresh START press enables filling when the tank requests water. An
-operator STOP clears that permission until another deliberate START.
-The normally closed STOP
-opens K1's coil supply directly. In the electronic pulse-STOP profile
-the controller also has to issue the separate K2 STOP command. The two
-settings buttons stay available to acknowledge a fault or edit settings
-without commanding a start. Optional external buttons
-terminate on the same panel at J2 through J6.
+============================  ==========================  =========================
+Verified OEM interface        Guard contact A              Guard contact B
+============================  ==========================  =========================
+Maintained RUN                Series RUN contact           Second series RUN contact
+Close START, open STOP        Series holding permission    Momentary START closure
+Close START, close STOP       Momentary START closure      Momentary STOP closure
+============================  ==========================  =========================
 
-One 12-way cable connects main J32 to panel J1. With the optional
-maintained AUTO/MANUAL key enabled, panel J8 selects the operating mode.
-Pin 1 is the isolated 5 V common, pin 2 is MANUAL and pin 3 is AUTO. Use
-voltage-free switch contacts. Neither or both positions active inhibit
-starting. The key takes precedence over MODE. A mode change stops and
-disarms the controller. The separate physical service transfer at main J36
-selects whether the controller can command the starter at all.
+The two-, three- and four-wire alternatives describe the **OEM side of the
+interposers**. A shared common needs explicit OEM approval. The guard still
+requires its independent STOP, float, overload, voltage and restart-proof
+connections in each case. The pictured electronic starters have no verified
+terminal mapping or restart proof. An electronic keypad by itself cannot
+establish compatibility. Keep that profile disabled until its documented
+power-restoration behavior and field tests meet the guard requirements.
+For a holding-circuit starter, prove that a welded seal-in contact or short
+across START cannot create a false idle indication when its feeder is off.
 
-Main J2 retains programming access with the boot and reset switches
-removed. J2.7 and J2.8 carry native USB D− and D+, J2.1 is isolated
-logic ground, and J2.5 and J2.6 expose EN and BOOT for recovery. J2.2 is
-3.3 V. Never connect USB's 5 V VBUS to this pin. Leave J2.4 (ARM_CMD)
-open when using native USB. A future detachable USB-C
-service adapter would save space and preserve recovery access. Use an
-isolated bench setup with mains and starter control disconnected for flashing.
-`Espressif native USB guide <https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/usb-serial-jtag-console.html>`_.
+With the motor isolated, mark and secure the physical harness, exercise both
+commands individually into a low-voltage simulator, check neutral proof and
+verify the polarity and timing on the actual OEM interface. Record the harness
+identity and accepted profile in service configuration separately from the
+requested profile. A missing or mismatched profile disables the sequencer.
+Seal or lock access to the transfer and harness. Recommission after changing
+either. The PCB does not automatically identify a swapped OEM harness.
 
-Manual override and indications
--------------------------------
+Power return and loss of control
+--------------------------------
 
-The external keyed transfer socket physically disconnects the controller
-outputs in LOCAL MANUAL. In the open-to-stop DOL harness the manual insert
-restores only the segment of the original permission loop inserted for K1.
-For a maintained RUN input or a two-button close-to-command keypad use
-the corresponding blank local insert. Bridging the RUN pair could start
-the pump. The OEM must support operation from its original buttons with
-remote RUN removed. Change inserts only while stopped with all supplies
-isolated. The three-wire position indication is electrically separate from
-all starter conductors. For LOCAL MANUAL, disable any automatic start or
-retry in the original starter and verify that it stays disabled after a
-power cycle. Disconnect any independent automatic start source.
+The cabinet guard drops the motor contactors on a trip. Restoring supply or
+releasing STOP alone must leave them open. The wired sequence requires a
+separate monitored reset and a new guarded enable with commands released and
+the starter proven off. Only then can a fresh START operate the pump. Verify
+loss and restoration of the starter feeder while cabinet 24 V stays live, and
+the reverse, on the actual installation. Coordinate the feeder monitor with
+the earliest voltage dip that resets this particular starter.
 
-J36.1 is isolated GND. J36.2 senses HOST (U33 GPA3) and J36.3 senses
-LOCAL (U33 GPA2). Each
-confirmed position closes its own contact to pin 1. Use low-level contacts
-suitable for approximately 0.30 mA with a 3.3 V supply. Confirmed HOST alone
-allows controller commands. LOCAL, an open cable, contradictory inputs or
-stale readings inhibit them. The PCB's optional AUTO/MANUAL key and mode
-button keep their earlier functions. They cannot override the physical transfer.
-With the controller disconnected, any required dry-run, overflow and operator
-STOP protection must work through the starter or an independent protection path.
+In HOST, the external guard also checks the OLED STOP return directly and
+requires heartbeat edges from GPIO21. The firmware component accepts a new
+heartbeat edge no faster than every 100 ms, only after fresh panel data and a
+new, successful protection evaluation. Service this control task and refresh the
+qualified input assessment at least every 25 ms for the nominal 5 Hz signal.
+Use the original conversion timestamps to check sample freshness. Boot or a failed sample holds the
+heartbeat low for at least 3 s. Healthy readings can qualify the external
+monitor while J31 is open. J31 is required to start. A power cycle clears
+AUTO run authorization even when the maintained key still selects AUTO. The
+operator must release START and press it again after recovery. A live task,
+radio connection or running timer alone must never service the guard.
 
-Green **START CMD** and red **STOP CMD** flash on issued commands. CT current
-is separate evidence of motor response. Use the `profile sequencer
-<../../firmware/components/starter_outputs/starter_outputs.c>`_ with the
-`command LED component <../../firmware/components/command_leds/command_leds.c>`_.
-GPIO20 PERMIT_D controls A through the existing hardware arm/STOP/watchdog
-chain. GPIO19 RUN_CMD controls B. The sequencer exposes an accepted arm
-event for the GPIO17 hardware latch. Startup must clear that latch and
-validate fresh inputs before accepting an arm. Apply a STOP before display or radio work.
-Use the starter's documented pulse times and measured relay release/operate
-times. The sequencer ships disabled until explicitly configured. It settles
-the stop/permission path before issuing START, drops START before pulsing
-STOP, suppresses commands in LOCAL, and requires a fresh arm after a stop,
-fault or transfer. The pulse-STOP profile issues a synchronization STOP when
-HOST is first established, even when the motor state is unknown.
+Field use requires the complete application to make a fresh conversion-based
+health assessment, apply ``guard_gpio_step`` from its control task, drive
+the sequenced relay and arm pins and fail closed on errors. This repository
+provides control components. There is no commissioned application or
+pump-specific metering and dry-run calibration. The two SMD command LEDs show
+accepted commands. Use independent feedback to establish actual motor state.
 
-Electrical limits and qualification
------------------------------------
-
-A latching electronic starter that requires a STOP pulse can keep running
-if the replacement controller loses power. Use that profile for unattended
-operation only with an independently qualified OEM shutdown/inhibit path.
-The software timer cannot limit a welded contact or a stalled output driver.
-Any button that engages a starting capacitor needs independently enforced
-cutout. Keep the original overload, hardwired STOP and anti-restart functions
-effective and verify that a stuck START cannot restart after STOP release.
-The pictured Crompton/RMG models have no verified drop-in pin assignment.
-The G5Q power relay's published minimum-load reliability reference is
-10 mA at 5 V DC. Verify the actual input voltage/current and inductive
-rating. A very low-current scanned keypad may require a rated signal adapter.
-`Omron G5Q data sheet <https://components.omron.com/us-en/system/files/2025-06/datasheet_pdf/J155-E1.pdf>`_.
-
-The physical PCB, harness and starter have not been powered or tested together.
-The minimum nominal PCB copper gap from the four starter terminals and their
-nets to onboard mains/metering is 9.425 mm. The minimum nominal
-live-to-isolated gap is 8.060 mm at a relay pad pair. Both measurements project
-all six layers onto the same plane. Component insulation, wiring, board
-material and finished production tolerances need separate qualification.
-This is an engineering prototype. Confirm the finished copper dimensions,
-PCB dielectric construction, connector barriers, cable insulation, dielectric
-withstand, heating, EMC, contact behavior and pump protection before a mains
-installation. The earlier Robu archives correspond to other board revisions.
-
-Design and verification files
+Design files and verification
 -----------------------------
 
-* `KiCad project <pump-controller-compact.kicad_pro>`_, `PCB
-  <pump-controller-compact.kicad_pcb>`_, `schematic PDF <exports/schematic.pdf>`_
-  and `parts list <bom.csv>`_.
-* `Populated top view from KiCad <exports/board-top.png>`_. The two green
-  headers at the top edge are A and B. The drawing includes approximate
-  component bodies. Mating plugs belong to the cable harness.
-* `OLED panel front and rear <exports/oled-panel-3d.png>`_ shows the five
-  buttons, J7 display cable and J8 key input. The OLED, STOP switch body
-  and J7 housing are represented by approximate assembly models.
-* `Starter connector close-up <exports/main-starter-contacts.png>`_ identifies
-  the COM and NO terminals on both J30 and J35.
-* `Native CAD validation <checks/independent-summary.json>`_,
-  `clearances and mounting geometry <checks/independent-geometry.json>`_
-  and `isolation rule tests <checks/isolation-negative-tests.json>`_.
-* `OLED panel and cable validation <checks/panel-integration.json>`_,
-  `five-button front view <../../output/enclosure-compact-dual/five-button-panel.png>`_
-  and `panel control component <../../firmware/components/starter_outputs/panel_controls.c>`_.
-* `Main board prototype Gerbers and drills <pump-controller-compact-dual-gerber-prototype.zip>`_,
-  `separate stencil <pump-controller-compact-dual-stencil-prototype.zip>`_
-  and `independent CAM inspection <checks/independent-gerbers.json>`_.
-* `Starter harness continuity result <checks/starter-harness.json>`_,
-  `harness tests <../../tools/check_dual_starter.py>`_
-  and `firmware profile tests
-  <../../firmware/components/starter_outputs/tests/starter_outputs_test.c>`_.
+* `KiCad project <pump-controller-compact.kicad_pro>`_, `PCB <pump-controller-compact.kicad_pcb>`_,
+  `schematic PDF <exports/schematic.pdf>`_ and `BOM <bom.csv>`_.
+* `Board top <exports/board-top.png>`_, `starter connector view <exports/main-starter-contacts.png>`_,
+  `panel front and rear <exports/oled-panel-3d.png>`_ and `enclosure <../../mechanical/compact-dual/README.rst>`_.
+* `Native rule checks <checks/independent-summary.json>`_, `copper measurements <checks/independent-geometry.json>`_,
+  `panel and cable checks <checks/panel-integration.json>`_ and `harness continuity <checks/starter-harness.json>`_.
+* `Prototype copper and drill archive <pump-controller-compact-dual-guard-r2-gerber-prototype.zip>`_,
+  `stencil archive <pump-controller-compact-dual-guard-r2-stencil-prototype.zip>`_ and
+  `fabrication file checks <checks/independent-gerbers.json>`_.
+* `R2 release conditions <../../design/compact-dual-guard-r2.rst>`_ and
+  `electrical findings on the previous layout <../../design/compact-dual-electrical-audit.rst>`_.

@@ -4,7 +4,9 @@ Manual override for the starter's original buttons
 For the two-relay main board use the current `dual-output wiring drawing
 <../hardware/main-compact-dual/exports/starter-wiring.pdf>`_ and
 `J36 transfer feedback <../hardware/main-compact-dual/README.rst>`_.
-The earlier K3 circuit below documents the three-relay proposal only.
+Guarded R2 also requires the `independent cabinet guard <../hardware/starter-guard/README.rst>`_
+in both positions. J31 receives its dry HOST-permit auxiliary and has no shunt.
+The K3 proposal and float wiring below refer only to the earlier board.
 
 One keyed service socket selects who can command the pump. In **CONTROLLER**
 the replacement controller has access to the starter's command inputs. In

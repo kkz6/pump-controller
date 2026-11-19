@@ -1,5 +1,5 @@
 {
-  "pcb_hash": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
+  "pcb_hash": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
   "outline": [
     [
       0.0,
@@ -44,38 +44,48 @@
     "J21": {
       "position": [
         84.0,
-        71.0
+        70.2
       ],
       "side": "F",
       "rotation": 0.0,
       "pads": {
         "1": [
           84.0,
-          71.0
+          70.2
         ],
         "2": [
-          87.81,
-          71.0
+          86.5,
+          70.2
         ]
-      }
+      },
+      "footprint": "JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal",
+      "fab_max_xy_mm": [
+        88.95,
+        79.4
+      ]
     },
     "J36": {
       "position": [
-        96.5,
-        60.0
+        94.0,
+        61.0
       ],
       "side": "F",
       "rotation": 90.0,
       "pads": {
         "1": [
-          94.65,
-          61.25
+          91.425,
+          64.0
         ],
         "2": [
-          94.65,
-          60.0
+          91.425,
+          62.5
         ]
-      }
+      },
+      "footprint": "JST_ZE_SM05B-ZESS-TB_1x05-1MP_P1.50mm_Horizontal",
+      "fab_max_xy_mm": [
+        99.475,
+        67.0
+      ]
     },
     "J31": {
       "position": [
@@ -93,7 +103,12 @@
           51.81,
           71.0
         ]
-      }
+      },
+      "footprint": "PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
+      "fab_max_xy_mm": [
+        54.52,
+        79.11
+      ]
     },
     "J10": {
       "position": [
@@ -263,13 +278,13 @@
       "height_mm": 32.0,
       "hole_diameter_mm": 16.1
     },
-    "FLOAT": {
+    "PERMIT AUX": {
       "wall": "near",
       "centre_along_wall_mm": 24.0,
       "height_mm": 30.0,
       "hole_diameter_mm": 12.1
     },
-    "TRANSFER SENSE": {
+    "GUARD I/O": {
       "wall": "near",
       "centre_along_wall_mm": 52.0,
       "height_mm": 30.0,
@@ -286,6 +301,53 @@
       "centre_along_wall_mm": 135.0,
       "height_mm": 57.0,
       "hole_diameter_mm": 6.5
+    }
+  },
+  "signal_plug_checks": {
+    "J21": {
+      "housing": "XHP-2",
+      "cabinet_entry": "INLET",
+      "guard_slot_width_mm": 12.0,
+      "front_face_case_xy_mm": [
+        32.6,
+        39.75
+      ],
+      "reserved_width_mm": 8.0,
+      "reserved_outward_mm": 8.0,
+      "reserved_height_mm": 9.0,
+      "additional_withdrawal_mm": 8.0,
+      "seated_clear_of_base_and_guard": true,
+      "withdrawn_clear_of_base_and_glands": true
+    },
+    "J31": {
+      "housing": "Phoenix 1803578",
+      "cabinet_entry": "PERMIT AUX",
+      "guard_slot_width_mm": 11.0,
+      "front_face_case_xy_mm": [
+        32.89,
+        75.095
+      ],
+      "reserved_width_mm": 8.6,
+      "reserved_outward_mm": 16.2,
+      "reserved_height_mm": 12.0,
+      "additional_withdrawal_mm": 8.0,
+      "seated_clear_of_base_and_guard": true,
+      "withdrawn_clear_of_base_and_glands": true
+    },
+    "J36": {
+      "housing": "ZER-05V-S",
+      "cabinet_entry": "GUARD I/O",
+      "guard_slot_width_mm": 15.0,
+      "front_face_case_xy_mm": [
+        51.0,
+        25.525
+      ],
+      "reserved_width_mm": 10.0,
+      "reserved_outward_mm": 8.0,
+      "reserved_height_mm": 9.0,
+      "additional_withdrawal_mm": 8.0,
+      "seated_clear_of_base_and_guard": true,
+      "withdrawn_clear_of_base_and_glands": true
     }
   },
   "starter_plug_checks": {
@@ -313,15 +375,15 @@
     "LIVE CT",
     "TANK",
     "INLET",
-    "FLOAT",
-    "TRANSFER SENSE",
+    "PERMIT AUX",
+    "GUARD I/O",
     "MODE KEY"
   ],
   "base_guard_and_board_nominal_intersections": 0,
   "printed_parts": {
     "base": {
       "watertight_single_solid": true,
-      "STEP_sha256": "13bd281838f949ae75343cf3d648f2a20a8b9cef7847ddbfc26939a8e2d96e0b",
+      "STEP_sha256": "af1c97c4756c3abe86b9565437789404dea588b3e1bed5dc6a69a997c7ca5ab8",
       "STL_sha256": "a416493c170f335e71976d8bb9828be3bba0c8df84124cb2913e4ae6406a2fbd",
       "STL_size_mm": [
         170.0,
@@ -331,8 +393,8 @@
     },
     "main_board_guard": {
       "watertight_single_solid": true,
-      "STEP_sha256": "5772ddec30b19d57b92fd0d98028b02fcb2b34900c0fba09a92def8ddc12476f",
-      "STL_sha256": "4078b4f89603cd5b5bf583c27422b44089d50c3dda1bd95dfc41e1c94206a326",
+      "STEP_sha256": "4c50391c6cef77c548727bc0e4e1dc76f18398f1bdd82f4a14a55a4fe61927a1",
+      "STL_sha256": "82d33885722f519193a1d18b0450f648d31b10723c0978b6e914f5410807d9d9",
       "STL_size_mm": [
         137.0,
         127.996,

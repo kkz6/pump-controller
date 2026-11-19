@@ -27,8 +27,8 @@ PORTS = [
     ('LIVE CT', 'left', 105., 32., 16.1),
     ('TANK', 'left', 54., 32., 20.1),
     ('INLET', 'left', 26., 32., 16.1),
-    ('FLOAT', 'near', 24., 30., 12.1),
-    ('TRANSFER SENSE', 'near', 52., 30., 12.1),
+    ('PERMIT AUX', 'near', 24., 30., 12.1),
+    ('GUARD I/O', 'near', 52., 30., 12.1),
     ('MODE KEY', 'near', 93., 68., 12.1),
     ('ANTENNA', 'near', 135., 57., 6.5),
 ]
@@ -52,6 +52,7 @@ def read_board(path):
                and isinstance(g, k.PCB_SHAPE) and g.GetShape() == k.SHAPE_T_SEGMENT
                for p in (g.GetStart(), g.GetEnd())}
     assert corners == {(0., -17.), (100., -17.), (100., 80.), (0., 80.)}, corners
+    assert board.GetTitleBlock().GetRevision() == 'COMPACT-DUAL-GUARD-R2'
     holes, ports = {}, {}
     for f in board.GetFootprints():
         ref = f.GetReference()
@@ -64,6 +65,16 @@ def read_board(path):
                     if p.GetNumber() in ('1','2')}
             ports[ref] = dict(position=xy(f.GetPosition()), side='B' if f.IsFlipped() else 'F',
                               rotation=round(f.GetOrientationDegrees(), 4), pads=pads)
+            if ref in ('J21','J31','J36'):
+                fab = [point for item in f.GraphicalItems()
+                       if isinstance(item, k.PCB_SHAPE) and item.GetLayer() == k.F_Fab
+                       for point in (xy(item.GetStart()), xy(item.GetEnd()))]
+                ports[ref]['footprint'] = str(f.GetFPID().GetLibItemName())
+                ports[ref]['fab_max_xy_mm'] = [max(point[axis] for point in fab) for axis in (0,1)]
+    assert ports['J21']['footprint'] == 'JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal'
+    assert ports['J21']['side'] == 'F' and ports['J21']['rotation'] == 0
+    assert ports['J36']['footprint'] == 'JST_ZE_SM05B-ZESS-TB_1x05-1MP_P1.50mm_Horizontal'
+    assert ports['J36']['side'] == 'F' and ports['J36']['rotation'] == 90
     assert set(holes) == {'H1','H2','H3','H4','H5'}, holes
     assert holes['H5'] == [50., -12.8], holes
     assert set(ports) == {'J1','J10','J20','J21','J30','J31','J32','J35','J36'}, ports
@@ -160,13 +171,13 @@ def build(geometry, out):
         guard=cut(guard,box(gx+gw-3.5,y-4.5,gz-.1,4,9,36-gz+.1))
     supply_x,_=pad_mid('J1')
     guard=cut(guard,box(supply_x-7,gy+gd-3.5,gz-.1,14,4,38-gz+.1))
-    for ref,width in [('J10',12),('J31',9),('J20',20),('J21',10)]:
+    for ref,width in [('J10',12),('J31',11),('J20',20),('J21',12)]:
         # Centre the longer J20 window between first and last contacts.
         x,y=pad_mid(ref)
         if ref=='J20':
             y -= 1.5*(ports[ref]['pads']['2'][0]-ports[ref]['pads']['1'][0])
         guard=cut(guard,box(gx-.5,y-width/2,gz-.1,4,width,38-gz+.1))
-    for ref,width in [('J32',19),('J36',11)]:
+    for ref,width in [('J32',19),('J36',15)]:
         x,_=case_xy(ports[ref]['position'])
         guard=cut(guard,box(x-width/2,gy-.5,gz-.1,width,4,40-gz+.1))
     # Tongue relief lets the guard straddle the fixed CT/probe divider.
@@ -213,6 +224,36 @@ def build(geometry, out):
             for other in glands.values():
                 assert all(overlap(reserve,prior)<1e-4 for prior in other), name
         glands[name] = (nut,thread)
+    # Full housing depth outside the front face overstates the seated envelope.
+    # Measure clearance with dressed cables on the first assembly.
+    signal_plugs = {}
+    for ref, housing, width, depth, height, slot, gland in (
+        ('J21','XHP-2',8.,8.,9.,12.,'INLET'),
+        ('J31','Phoenix 1803578',8.6,16.2,12.,11.,'PERMIT AUX'),
+        ('J36','ZER-05V-S',10.,8.,9.,15.,'GUARD I/O'),
+    ):
+        face = ports[ref]['fab_max_xy_mm']
+        x, y = case_xy(face)
+        if ref in ('J21','J31'):
+            _, y = pad_mid(ref)
+        else:
+            x, _ = case_xy(ports[ref]['position'])
+        z = BOARD_Z + 1.6
+        def envelope(length):
+            if ref in ('J21','J31'):
+                return box(x-length,y-width/2,z,length,width,height)
+            return box(x-width/2,y-length,z,width,length,height)
+        installed, extracted = envelope(depth), envelope(depth+8.)
+        for condition, shell in [('seated in guard',guard),('seated in base',base),
+                                 ('8 mm withdrawal in base',base)]:
+            solid = extracted if condition.startswith('8 mm') else installed
+            assert overlap(solid,shell) < 1e-4, (ref,condition)
+        for net, reserves in glands.items():
+            assert all(overlap(extracted,r) < 1e-4 for r in reserves), (ref,net)
+        signal_plugs[ref] = dict(housing=housing, cabinet_entry=gland, guard_slot_width_mm=slot,
+            front_face_case_xy_mm=[round(x,3),round(y,3)], reserved_width_mm=width,
+            reserved_outward_mm=depth, reserved_height_mm=height, additional_withdrawal_mm=8.,
+            seated_clear_of_base_and_guard=True, withdrawn_clear_of_base_and_glands=True)
     starter_port=PORTS[0]
     nut=wall_hole('right',starter_port[2],starter_port[3],29.7/2,WALL+.02,6.)
     thread=wall_hole('right',starter_port[2],starter_port[3],10.,WALL+.02,13.-WALL)
@@ -237,7 +278,7 @@ def build(geometry, out):
     return dict(**geometry,case_mm=[W,D,90.],transform='X=112-y; Y=125-x; board underside Z=24',
                 mount_centres_case_mm={n:case_xy(x) for n,x in sorted(geometry['holes'].items())},
                 ports_case_coordinates=dict((n,dict(wall=s,centre_along_wall_mm=p,height_mm=z,hole_diameter_mm=h)) for n,s,p,z,h in PORTS),
-                starter_plug_checks=plugs,starter_gland_nut_and_thread_clear=True, gland_envelopes_clear=list(glands),
+                signal_plug_checks=signal_plugs,starter_plug_checks=plugs,starter_gland_nut_and_thread_clear=True, gland_envelopes_clear=list(glands),
                 base_guard_and_board_nominal_intersections=0,printed_parts=check,
                 nominal_guard_roof_to_retained_panel_carrier_mm=59.5-(gz+gh),
                 nominal_distance_J35_pin1_to_H5_mm=round(math.dist(geometry['holes']['H5'],ports['J35']['pads']['1']),3),

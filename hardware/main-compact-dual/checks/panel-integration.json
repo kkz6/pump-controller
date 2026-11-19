@@ -7,13 +7,13 @@
   "review_scope": "Independent native pin/net and interface topology check; no electrical hardware or firmware test.",
   "source_sha256": {
     "panel_board": "21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b",
-    "main_board": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
+    "main_board": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
     "panel_source": "15aaac7c64697c61dfad9820bc6af614ac38696b5718b00f5c9c1da8575c31ba",
-    "main_source": "2fc1d1f6eebf79ccbc0ffada3c5c3ef5bd347e4e062675b11bcfea8c97a0ffd8",
-    "independently_exported_main_netlist": "bc7bb9e59b0a9a57531c7ac42d7750771d1ed645f786e976695f145d306df75f",
-    "independently_exported_panel_netlist": "2d3381fda23594d1514c0e93398674eb3cbc21f21970aea747fa62673cd11eb4"
+    "main_source": "447445d1dd34213638a59852ea8df28e316f40364b2dc21d52436ec9043ce164",
+    "independently_exported_main_netlist": "269452698fa6bfb5b17ebbaaf1eb2672d20531fc4ae105809c21f6843fd5d673",
+    "independently_exported_panel_netlist": "2aab6fe7dad29c97831e34d50b5bb6aa8c34e638c35c614b74244dd6f26c7562"
   },
-  "main_connected_source_pins_checked": 635,
+  "main_connected_source_pins_checked": 641,
   "panel_components_including_mounting_holes": 33,
   "panel_connected_source_pins_checked": 81,
   "native_source_comparison_issues": [],
@@ -106,7 +106,7 @@
   "common_ground": "Panel J1.7 returns directly through main J32.7. All twelve host cable cavities connect one-to-one; the former fanout cable is incompatible.",
   "stop_contact_path_cases_checked": 128,
   "stop_contact_path_passed": true,
-  "stop_path": "+5V -> SW1 COM/NC -> STOP_LOCAL_NC -> external J3 NC contact -> STOP_RETURN -> main J31 high-high loop -> K1 coil",
+  "stop_path": "+5V -> SW1 COM/NC -> STOP_LOCAL_NC -> external J3 NC contact -> STOP_RETURN -> main J31 external guard auxiliary -> K1 coil",
   "stop_shunt_rule": "Fit JP1 only when no external NC STOP is fitted. It bypasses the external contact only, never local STOP.",
   "external_no_buttons": [
     {
@@ -222,7 +222,7 @@
     "Robu fabrication acceptance and assembled-board functional/thermal/EMC tests."
   ],
   "firmware_scope": "Native hardware integration check only. Target application and live switching were not exercised.",
-  "main_native_summary_sha256": "66bf11832da2e48a353275901f373d284119377ea8be0ec2f59c5dccfee0a1fc",
+  "main_native_summary_sha256": "cd32ea3c7b2fbe6cd91d8d200e7f9b8147ca5f738985272506d15e8e4f152c3b",
   "main_native_evidence_current": true,
   "native_inputs_unchanged": true,
   "integration_passed": true,

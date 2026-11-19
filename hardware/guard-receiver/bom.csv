@@ -1,0 +1,48 @@
+Reference,Value,MPN,Description,Footprint,Datasheet,Sheet,DNP
+D1,BAV199W blocking diode,"BAV199W,115",Use diode 1 only. SC-70 pin 2 open.,Package_TO_SOT_SMD:SOT-323_SC-70,https://assets.nexperia.com/documents/data-sheet/BAV199W.pdf,receiver,False
+D2,BAV199W blocking diode,"BAV199W,115",Use diode 1 only. SC-70 pin 2 open.,Package_TO_SOT_SMD:SOT-323_SC-70,https://assets.nexperia.com/documents/data-sheet/BAV199W.pdf,receiver,False
+R11,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R12,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+C3,10nF,GRM21BR71H103KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,receiver,False
+R13,115k,RC0805FR-07115KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R14,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R15,4.7k,RC0805FR-074K7L,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R16,100k,RC0805FR-07100KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+Q1,2N7002 / optical LED driver,"2N7002,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/2N7002.pdf,receiver,False
+R17,560R,RC0805FR-07560RL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+U2,VO617A-3 / isolation,VO617A-3,Phototransistor DIP-4. Keep galvanic domains separate.,Package_DIP:DIP-4_W7.62mm,https://www.vishay.com/docs/83430/vo617a.pdf,receiver,False
+U1,HB and PANEL comparators,LM393BDR,"TI dual comparator, SOIC-8.",Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,https://www.ti.com/lit/ds/symlink/lm393b.pdf,receiver,False
+C1,100nF,GRM21BR71H104KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,receiver,False
+C2,1uF,GRM21BR71C105KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,receiver,False
+R21,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R22,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+C4,10nF,GRM21BR71H103KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,receiver,False
+R23,33k,RC0805FR-0733KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R24,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R25,4.7k,RC0805FR-074K7L,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+R26,100k,RC0805FR-07100KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+Q2,2N7002 / optical LED driver,"2N7002,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/2N7002.pdf,receiver,False
+R27,560R,RC0805FR-07560RL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,receiver,False
+U3,VO617A-3 / isolation,VO617A-3,Phototransistor DIP-4. Keep galvanic domains separate.,Package_DIP:DIP-4_W7.62mm,https://www.vishay.com/docs/83430/vo617a.pdf,receiver,False
+R18,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,cabinet,False
+R19,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,cabinet,False
+Q3,BC807-40 / 24V driver,"BC807-40,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BC807_SER.pdf,cabinet,False
+R30,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,cabinet,False
+R28,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,cabinet,False
+R29,10k,RC0805FR-0710KL,Yageo 1% 0805,Resistor_SMD:R_0805_2012Metric,,cabinet,False
+Q4,BC807-40 / 24V driver,"BC807-40,215",Nexperia SOT-23,Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BC807_SER.pdf,cabinet,False
+KFB1,HOST guard feedback,G5V-2-H1 DC24,"Omron single-side stable, isolated bifurcated gold-alloy NO.",Relay_THT:Relay_DPDT_Omron_G5V-2,https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5v_2.pdf,cabinet,False
+D3,S1M,S1M-E3/61T,SMA suppression diode. Band to coil positive.,Diode_SMD:D_SMA,https://www.vishay.com/docs/88711/s1a.pdf,cabinet,False
+D6,S1M,S1M-E3/61T,SMA suppression diode. Band to coil positive.,Diode_SMD:D_SMA,https://www.vishay.com/docs/88711/s1a.pdf,cabinet,False
+D7,24V SELV transient clamp,SMBJ26A-E3/52,"Unidirectional 26 V TVS, use a regulated 24 V rail.",Diode_SMD:D_SMB,https://www.vishay.com/docs/88392/smbj.pdf,cabinet,False
+C5,100nF,GRM21BR71H104KA01L,"Murata X7R ceramic, nonpolar",Capacitor_SMD:C_0805_2012Metric,,cabinet,False
+C6,4.7uF / 50V,GRM32ER71H475KA88L,Murata X7R ceramic 1210; nonpolar.,Capacitor_SMD:C_1210_3225Metric,,cabinet,False
+J36,Logic loom,S05B-ZESK-2D(T)(LF)(SN),,Connector_JST:JST_ZE_S05B-ZESK-2D_1x05_P1.50mm_Horizontal,,plugs,False
+J2,Position aux,B3B-PH-K-S(LF)(SN),,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,,plugs,False
+J3,Floating 5 V,B2B-PH-K-S(LF)(SN),,Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,,plugs,False
+J4,Cabinet 24 V I/O,S5P-VH(LF)(SN),,Connector_JST:JST_VH_S5P-VH_1x05_P3.96mm_Horizontal,,plugs,False
+J31,Guard feedback,1803277,,"Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",,plugs,False
+H1,M2.5 mount,2.7 mm NPTH,,MountingHole:MountingHole_2.7mm_M2.5,,plugs,False
+H2,M2.5 mount,2.7 mm NPTH,,MountingHole:MountingHole_2.7mm_M2.5,,plugs,False
+H3,M2.5 mount,2.7 mm NPTH,,MountingHole:MountingHole_2.7mm_M2.5,,plugs,False
+H4,M2.5 mount,2.7 mm NPTH,,MountingHole:MountingHole_2.7mm_M2.5,,plugs,False

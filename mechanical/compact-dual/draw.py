@@ -16,8 +16,8 @@ FIELD, LIVE, LOGIC = '#6c477d', '#aa5818', '#167a78'
 
 def layout(d):
     fig=plt.figure(figsize=(11.7,7.8),facecolor='white')
-    fig.text(.055,.947,"Starter button cable entry",size=23,weight='bold',color=INK)
-    fig.text(.056,.902,"Compact dual-output enclosure  ·  Top view with lid and PCB guard removed",size=11,color=MUTED)
+    fig.text(.055,.947,"Cabinet guard cable entry",size=23,weight='bold',color=INK)
+    fig.text(.056,.902,"GUARD-R2 enclosure  ·  Top view with lid and PCB guard removed",size=11,color=MUTED)
     ax=fig.add_axes([.04,.17,.57,.65],aspect='equal')
     ax.add_patch(Rectangle((0,0),170,150,fc='#f4f7f8',ec=INK,lw=1.5))
     ax.add_patch(Rectangle((3.2,3.2),163.6,143.6,fc='white',ec='#c2cccf'))
@@ -58,13 +58,13 @@ def layout(d):
     ax.set_xlim(-6,178);ax.set_ylim(-11,164);ax.set_axis_off()
     def t(y,main,size=10,col=INK,weight='normal'):
         fig.text(.64,y,main,ha='left',va='top',fontsize=size,color=col,fontweight=weight,linespacing=1.5)
-    t(.805,"Dedicated starter-control entry",14,FIELD,'bold')
+    t(.805,"Guard command entry",14,FIELD,'bold')
     t(.748,"One round, insulated, jacketed cable\nthrough a 20.1 mm M20 gland hole.")
     t(.622,"J30  ·  OUT A   |   Key at pole 1",12,FIELD,'bold')
     t(.584,"J35  ·  OUT B   |   Key at pole 2",12,FIELD,'bold')
     t(.509,"Both removable plugs face the right wall.\nIsolate both supplies before termination\nor service.")
-    t(.363,"2 wires   One maintained RUN input.\n4 wires   Two independent contact pairs.\n3 wires   Only for an OEM-approved shared\n                common in one control circuit.")
-    t(.190,"The manual transfer plug stays at the starter.\nIts isolated position signal uses a separate\nTRANSFER SENSE entry for HOST control.",9,MUTED)
+    t(.363,"4 cores to the guard: two independent pairs.\nJ30 drives 24 V command interposer A.\nJ35 drives 24 V command interposer B.\nOEM profile wiring is at the guard.")
+    t(.190,"J31 PERMIT AUX carries guard feedback.\nJ36 GUARD I/O carries the five-core logic loom.\nOEM STOP and high-high wire to the external guard.",9,MUTED)
     fig.text(.055,.065,"Footprints and mounting centres follow the KiCad PCB. Plug bodies show conservative fit envelopes.  ·  Dimensions in mm",size=9,color=MUTED)
     return fig
 

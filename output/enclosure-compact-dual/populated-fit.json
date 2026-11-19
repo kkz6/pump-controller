@@ -1,6 +1,6 @@
 {
-  "source_pcb_sha256": "7edc2d5db5a9a4a666da2751a1a0c8738b47938608f8efaa1cf833787718e756",
-  "populated_STEP_solids_checked": 271,
+  "source_pcb_sha256": "bd045e01cb40edbe605350337012684309340ad1c9fab1847b5f2922f03c3a7a",
+  "populated_STEP_solids_checked": 273,
   "native_export_missing_model_refs": [],
   "populated_bounds_case_xyzxyz_mm": [
     32.0,
@@ -27,8 +27,9 @@
     "U2",
     "U3"
   ],
-  "component_footprints_represented": 216,
+  "component_footprints_represented": 218,
   "installed_envelope_refs": [
-    "C1"
+    "C1",
+    "J36"
   ]
 }
