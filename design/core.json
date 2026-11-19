@@ -563,7 +563,7 @@
           "kind": "resistor",
           "mpn": "TNPW1206249KBEEA",
           "description": "0.1%, 25ppm/K, 200V working, 1206; 4 in series",
-          "datasheet": ""
+          "datasheet": "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
         },
         {
           "ref": "R44",
@@ -586,7 +586,7 @@
           "kind": "resistor",
           "mpn": "TNPW1206249KBEEA",
           "description": "0.1%, 25ppm/K, 200V working, 1206; 4 in series",
-          "datasheet": ""
+          "datasheet": "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
         },
         {
           "ref": "R45",
@@ -609,7 +609,7 @@
           "kind": "resistor",
           "mpn": "TNPW1206249KBEEA",
           "description": "0.1%, 25ppm/K, 200V working, 1206; 4 in series",
-          "datasheet": ""
+          "datasheet": "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
         },
         {
           "ref": "R46",
@@ -632,7 +632,7 @@
           "kind": "resistor",
           "mpn": "TNPW1206249KBEEA",
           "description": "0.1%, 25ppm/K, 200V working, 1206; 4 in series",
-          "datasheet": ""
+          "datasheet": "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
         },
         {
           "ref": "R47",
@@ -655,7 +655,7 @@
           "kind": "resistor",
           "mpn": "RT0603BRD071KL",
           "description": "0.1%, 25ppm/K, 0603 voltage-divider low leg",
-          "datasheet": ""
+          "datasheet": "https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL"
         },
         {
           "ref": "C51",
@@ -1125,7 +1125,7 @@
           "kind": "inductor",
           "mpn": "BLM18HE152SN1D",
           "description": "Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane",
-          "datasheet": ""
+          "datasheet": "https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000="
         },
         {
           "ref": "FB2",
@@ -1148,7 +1148,7 @@
           "kind": "inductor",
           "mpn": "BLM18HE152SN1D",
           "description": "Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane",
-          "datasheet": ""
+          "datasheet": "https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000="
         },
         {
           "ref": "C55",
@@ -1734,7 +1734,7 @@
           "kind": "diode",
           "mpn": "BAT54WS-7-F",
           "description": "Physical interlock low asynchronously clears arm latch; prevents restart on STOP release",
-          "datasheet": ""
+          "datasheet": "https://www.diodes.com/part/view/BAT54WS"
         },
         {
           "ref": "D30",
@@ -1757,7 +1757,7 @@
           "kind": "diode",
           "mpn": "BAT54WS-7-F",
           "description": "MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop",
-          "datasheet": ""
+          "datasheet": "https://www.diodes.com/part/view/BAT54WS"
         },
         {
           "ref": "R74",
@@ -1890,7 +1890,7 @@
           "kind": "diode",
           "mpn": "1N4148W-7-F",
           "description": "Flyback directly across relay coil",
-          "datasheet": ""
+          "datasheet": "https://www.diodes.com/part/view/1N4148W"
         },
         {
           "ref": "R76",
@@ -2023,7 +2023,7 @@
           "kind": "diode",
           "mpn": "1N4148W-7-F",
           "description": "Flyback directly across relay coil",
-          "datasheet": ""
+          "datasheet": "https://www.diodes.com/part/view/1N4148W"
         },
         {
           "ref": "J30",
@@ -2046,7 +2046,7 @@
           "kind": "connector",
           "mpn": "1836189",
           "description": "Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required",
-          "datasheet": ""
+          "datasheet": "https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf"
         },
         {
           "ref": "J31",
@@ -2075,7 +2075,7 @@
     },
     {
       "id": "local_controls",
-      "title": "Low-voltage physical controls and indicator interface",
+      "title": "Low-voltage physical controls and OLED interface",
       "notes": "All J32 controls are isolated low voltage. Existing mains button wiring must be removed before reusing buttons here.",
       "components": [
         {
@@ -2133,7 +2133,7 @@
         },
         {
           "ref": "D33",
-          "value": "SS14",
+          "value": "B140",
           "footprint": "Diode_SMD:D_SMA",
           "pins": [
             {
@@ -2150,13 +2150,13 @@
             }
           ],
           "kind": "diode",
-          "mpn": "SS14-13-F",
-          "description": "OR of selector outputs; OFF or STOP removes K1 coil supply physically",
-          "datasheet": ""
+          "mpn": "B140-13-F",
+          "description": "OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C",
+          "datasheet": "https://www.diodes.com/datasheet/download/B140.pdf"
         },
         {
           "ref": "D34",
-          "value": "SS14",
+          "value": "B140",
           "footprint": "Diode_SMD:D_SMA",
           "pins": [
             {
@@ -2173,9 +2173,9 @@
             }
           ],
           "kind": "diode",
-          "mpn": "SS14-13-F",
-          "description": "OR of selector outputs; OFF or STOP removes K1 coil supply physically",
-          "datasheet": ""
+          "mpn": "B140-13-F",
+          "description": "OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C",
+          "datasheet": "https://www.diodes.com/datasheet/download/B140.pdf"
         },
         {
           "ref": "U33",
@@ -2901,7 +2901,7 @@
           "kind": "connector",
           "mpn": "BM04B-GHS-TBT(LF)(SN)",
           "description": "OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance",
-          "datasheet": ""
+          "datasheet": "https://www.jst-mfg.com/product/index.php?lang=2&series=105"
         },
         {
           "ref": "J34",

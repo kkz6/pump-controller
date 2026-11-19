@@ -173,6 +173,8 @@ def make_board(data,out,project):
         fp=p.FootprintLoad(str(libdir),name)
         if fp is None:raise ValueError('KiCad cannot load '+str(filename))
         fp.SetReference(c['ref']); fp.SetValue(c.get('value',''))
+        for key,value in [('MPN',c.get('mpn','')),('Datasheet',c.get('datasheet',''))]:
+            fp.SetField(key,value);fp.GetField(key).SetVisible(False)
         fp.SetFPID(p.LIB_ID(lib,name)); fp.SetPath(p.KIID_PATH())
         for sid,s in enumerate(data['sheets']):
             if any(x is c for x in s['components']):

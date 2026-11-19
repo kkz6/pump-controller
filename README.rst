@@ -6,19 +6,28 @@ pump operated through an existing DOL contactor. It combines local water-level
 control, motor metering, load-based dry-run protection, physical controls and
 planned Matter connectivity.
 
-**Status: hardware design and PCB development; not released for fabrication or
-mains installation. Firmware and physical validation are not complete.**
+**Status: detailed schematic and routed prototype PCB complete. Not released
+for fabrication or mains installation. Firmware and physical validation are
+not complete.**
+
+The final native checks report zero ERC violations, zero DRC errors or
+warnings, and zero unconnected items. All 208 main-board components match the
+electrical source. An independent native DRC run confirms the layout result;
+these checks cover the CAD design, not an assembled controller.
 
 Start here
 ----------
 
-* ``output/pdf/pump-controller-rev-b-design-pack.pdf``: readable overview,
-  integration diagrams, detailed KiCad circuit sheets and complete parts list.
-* ``hardware/pump-controller-rev-b.kicad_pro``: editable main-board project.
-* ``design/oled-selection.txt``: compact display selection, cable mapping and bus timing.
-* ``design/parts-complete.csv``: all main-board and external components,
+* `Design pack PDF <output/pdf/pump-controller-rev-b-design-pack.pdf>`_:
+  readable overview, integration diagrams, detailed KiCad circuit sheets,
+  complete parts list and PCB review drawings.
+* `KiCad project <hardware/pump-controller-rev-b.kicad_pro>`_:
+  editable main-board project.
+* `OLED selection <design/oled-selection.txt>`_:
+  compact display selection, cable mapping and bus timing.
+* `Complete parts list <design/parts-complete.csv>`_: all main-board and external components,
   values, procurement requirements and manufacturer source links.
-* ``hardware/checks/``: native electrical/layout checks and layout status.
+* `Verification records <hardware/checks/>`_: native electrical/layout checks and layout status.
 * ``design/core-review.txt``, ``design/power-budget-review.txt`` and
   ``design/probe-front-end.txt``: calculations, decisions and remaining tests.
 * ``design/operation-and-bringup.txt``: proposed firmware behavior and
@@ -63,10 +72,11 @@ normal voltage sensing up to 264 V. The actual starter's supply, contactor
 coil voltage, inrush VA, spare space and enclosure temperature are unverified.
 Do not infer universal starter compatibility from the 1 HP motor rating.
 
-The current placement targets a 90 x 70 mm four-layer main PCB with a
+The routed layout uses a 90 x 70 mm four-layer main PCB with a
 separate 36 x 12.5 mm purchased OLED module. Board dimensions exclude terminal plugs,
 wiring bends, mounting spacers, antenna and protective covers. The detailed
-layout status and remaining routing/DRC findings govern usability.
+layout reports record the checked revision; installation fit still needs
+measurement in the intended starter.
 
 Important retained findings:
 
@@ -74,6 +84,11 @@ Important retained findings:
   300 mm2 of specified heat-spreading copper and verify temperature in the
   closed starter. The current 5.7 W conservative allocation requires no more
   than 50 C local ambient around the 5 V PSU.
+* The compact routing includes vias overlapping surface-mount pads. These
+  require filled and plated-over vias, or rerouting before fabrication;
+  ordinary tenting is insufficient. See the exact
+  `via inventory <hardware/checks/via-in-pad-audit.json>`_ and
+  `fabrication constraints <design/fabrication-constraints.txt>`_.
 * The 200 A fuse interrupting rating is not the controller's SCCR. Prospective
   fault current and upstream protection need a coordinated assessment.
 * New panel controls are isolated low voltage. Old mains START/holding wiring

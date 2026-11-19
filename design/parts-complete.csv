@@ -44,11 +44,11 @@ Y1,3.579545MHz / CL18pF,ABLS-3.579545MHZ-B2-T,18pF load; 27pF caps assume 4.5pF 
 C49,27pF,"SPEC: 27pF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,main,
 C50,27pF,"SPEC: 27pF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,main,
 R42,0R,RC0603JR-070RL,Neutral bond inside live domain only,Resistor_SMD:R_0603_1608Metric,main,
-R43,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,
-R44,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,
-R45,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,
-R46,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,
-R47,1k,RT0603BRD071KL,"0.1%, 25ppm/K, 0603 voltage-divider low leg",Resistor_SMD:R_0603_1608Metric,main,
+R43,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,https://www.vishay.com/docs/28758/tnpw_e3.pdf
+R44,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,https://www.vishay.com/docs/28758/tnpw_e3.pdf
+R45,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,https://www.vishay.com/docs/28758/tnpw_e3.pdf
+R46,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,main,https://www.vishay.com/docs/28758/tnpw_e3.pdf
+R47,1k,RT0603BRD071KL,"0.1%, 25ppm/K, 0603 voltage-divider low leg",Resistor_SMD:R_0603_1608Metric,main,https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL
 C51,33nF,"SPEC: 33nF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,main,
 R48,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 C52,33nF,"SPEC: 33nF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,main,
@@ -61,8 +61,8 @@ D10,BAV99W,"BAV99W,115",Antiparallel input limiting across CT secondary; not a s
 CT1,AC1020 20A / 1000:1,AC1020,"External to main PCB, insulated enclosure around one motor conductor; 20A nominal,60A maximum",,external,https://talema.com/wp-content/uploads/datasheets/AC-1020.pdf
 RB1,6.8R 0.1% 0.5W,SPEC: 6.8 ohm 0.1% metal film 0.5W,Permanently solder across CT secondary in insulated sensor assembly; stays attached when main-board connector is unplugged,,external,
 U11,ADuM6421ABRNZ5,ADUM6421ABRNZ5,"Reinforced signal and isolated-power barrier; 3 forward,1 reverse channel; 8.3mm package creepage",Pump:ADuM6421A_RN28,main,https://www.analog.com/media/en/technical-documentation/data-sheets/adum6420a-6421a-6422a_6423a_6424a.pdf
-FB1,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,main,
-FB2,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,main,
+FB1,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,main,https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=
+FB2,1.5k @100MHz,BLM18HE152SN1D,Ferrite explicitly listed by ADI; keep converter loop isolated from meter ground plane,Inductor_SMD:L_0603_1608Metric,main,https://www.murata.com/products/productdata/8796741599262/ENFA0004.pdf?1531144803000=
 C55,10uF,"SPEC: 10uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0805_2012Metric,main,
 C56,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
 C57,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
@@ -83,23 +83,23 @@ U34,SN74LVC1G08DBVR,SN74LVC1G08DBVR,Hardware-armed AND software-healthy gating o
 U35,SN74LVC1G17DBVR,SN74LVC1G17DBVR,Schmitt detector of K1 coil positive rail; opens after STOP/OFF/high-high loop break,Package_TO_SOT_SMD:SOT-23-5,main,https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf
 C75,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
 C76,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
-D35,BAT54WS,BAT54WS-7-F,Physical interlock low asynchronously clears arm latch; prevents restart on STOP release,Diode_SMD:D_SOD-323,main,
-D30,BAT54WS,BAT54WS-7-F,MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop,Diode_SMD:D_SOD-323,main,
+D35,BAT54WS,BAT54WS-7-F,Physical interlock low asynchronously clears arm latch; prevents restart on STOP release,Diode_SMD:D_SOD-323,main,https://www.diodes.com/part/view/BAT54WS
+D30,BAT54WS,BAT54WS-7-F,MCU EN low pulls permission clear low; supervisor/WD do not feed a hard MCU reset loop,Diode_SMD:D_SOD-323,main,https://www.diodes.com/part/view/BAT54WS
 R74,100R,"SPEC: 100R 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 R75,100k,"SPEC: 100k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 Q30,AO3400A,AO3400A,30V N-MOSFET; specified at 2.5V gate drive,Package_TO_SOT_SMD:SOT-23,main,https://www.aosmd.com/sites/default/files/res/datasheets/AO3400A.pdf
 K1,G5Q-1A4 DC5,G5Q-1A4 DC5,5V 40mA coil; contactor coil only; verify actual inductive/inrush rating before installation,Pump:Relay_G5Q_8mm,main,https://components.omron.com/sg-en/products/relays/G5Q
-D31,1N4148W,1N4148W-7-F,Flyback directly across relay coil,Diode_SMD:D_SOD-123,main,
+D31,1N4148W,1N4148W-7-F,Flyback directly across relay coil,Diode_SMD:D_SOD-123,main,https://www.diodes.com/part/view/1N4148W
 R76,100R,"SPEC: 100R 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 R77,100k,"SPEC: 100k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 Q31,AO3400A,AO3400A,30V N-MOSFET; specified at 2.5V gate drive,Package_TO_SOT_SMD:SOT-23,main,https://www.aosmd.com/sites/default/files/res/datasheets/AO3400A.pdf
 K2,G5Q-1A4 DC5,G5Q-1A4 DC5,5V 40mA coil; contactor coil only; verify actual inductive/inrush rating before installation,Pump:Relay_G5Q_8mm,main,https://components.omron.com/sg-en/products/relays/G5Q
-D32,1N4148W,1N4148W-7-F,Flyback directly across relay coil,Diode_SMD:D_SOD-123,main,
-J30,Coil control series contacts - mains,1836189,"Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required","Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal",main,
+D32,1N4148W,1N4148W-7-F,Flyback directly across relay coil,Diode_SMD:D_SOD-123,main,https://www.diodes.com/part/view/1N4148W
+J30,Coil control series contacts - mains,1836189,"Phoenix MC1,5/2-G-5,08; 320V OVCIII/PD2; mating plug required","Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal",main,https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-2-g-508-1836189?type=pdf
 J31,High-high NC float loop / fitted shorting link,"Phoenix MC 1,5/2-G-3,81",High-high NC float loop / fitted shorting link,"Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",main,
 J32,STOP + selector + START + RESET,"Phoenix MC 1,5/7-G-3,81",STOP + selector + START + RESET,"Connector_Phoenix_MC:PhoenixContact_MC_1,5_7-G-3.81_1x07_P3.81mm_Horizontal",main,
-D33,SS14,SS14-13-F,OR of selector outputs; OFF or STOP removes K1 coil supply physically,Diode_SMD:D_SMA,main,
-D34,SS14,SS14-13-F,OR of selector outputs; OFF or STOP removes K1 coil supply physically,Diode_SMD:D_SMA,main,
+D33,B140,B140-13-F,"OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C",Diode_SMD:D_SMA,main,https://www.diodes.com/datasheet/download/B140.pdf
+D34,B140,B140-13-F,"OR of selector outputs; OFF or STOP removes K1 coil supply physically;40V 1A SMA,VF<=0.5V at1A/25C",Diode_SMD:D_SMA,main,https://www.diodes.com/datasheet/download/B140.pdf
 U33,MCP23017-E/SS,MCP23017-E/SS,"I2C0x20,400kHz. GPA unused: configure inputs with internal pullups, no PCB connections; GPB controls/expansion",Package_SO:SSOP-28_5.3x10.2mm_P0.65mm,main,https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
 C73,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
 C74,1uF,"SPEC: 1uF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
@@ -123,7 +123,7 @@ C88,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608M
 R90,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 R91,10k,"SPEC: 10k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,main,
 C90,100nF,"SPEC: 100nF X7R, 10%, 16V","X7R, 10%, 16V",Capacitor_SMD:C_0603_1608Metric,main,
-J33,OLED I2C 3V3,BM04B-GHS-TBT(LF)(SN),"OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance",Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical,main,
+J33,OLED I2C 3V3,BM04B-GHS-TBT(LF)(SN),"OLED harness: GH1.25mm board end to display PH2.0mm; map signal labels, not blind cable order;3.3V only,100mA engineering allowance",Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical,main,https://www.jst-mfg.com/product/index.php?lang=2&series=105
 J34,EXPANSION 3V3 I2C + 2 GPIO,SPEC: 2x3 1.27mm vertical SMD header; match KiCad land pattern,"Internal short-cable expansion only;3.3V logic,25mA maximum allocated;not hot-pluggable;MCP GPIO defaults input with100k pulldown;reserve I2C0x20 and0x48",Connector_PinHeader_1.27mm:PinHeader_2x03_P1.27mm_Vertical_SMD,main,
 OLED1,0.91 inch OLED 128x32 SSD1306,Waveshare 14657 / 0.91inch OLED Module,"External36x12.5mm PCB;3.3V supply;PH2.0 4pin;modulePH2.0 numericpins1SCL2SDA3GND4VCC;J33->OLED mapping1->4,2->3,3->2,4->1;0x3C default;100mA reserved,not datasheet maximum",,external,https://www.waveshare.com/0.91inch-oled-module.htm
 U20,TLV9004,TLV9004IPWR,"Quad RRIO op-amp; reference, two excitation drivers, mux buffer",Package_SO:TSSOP-14_4.4x5mm_P0.65mm,main,https://www.ti.com/lit/ds/symlink/tlv9004.pdf

@@ -1,0 +1,214 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-19T09:27:30",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [],
+    "source": "pump-controller-rev-b.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 12 [M_VP] of U10 on B.Cu",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 39.1125
+                    },
+                    "uuid": "d05fa73c-3e47-4c40-a7d5-f8f9bb14be8e"
+                },
+                {
+                    "description": "Track [M_VP] on F.Cu, length 0.0250 mm",
+                    "pos": {
+                        "x": 18.2,
+                        "y": 34.0
+                    },
+                    "uuid": "6d5ca764-d961-4e28-a1b0-f53d687c6e38"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [L_PROTECTED] of R43 on F.Cu",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 30.4625
+                    },
+                    "uuid": "16bbfeba-4f1b-40ca-9f3a-a3eba6810e42"
+                },
+                {
+                    "description": "Track [L_PROTECTED] on In2.Cu, length 5.5284 mm",
+                    "pos": {
+                        "x": 9.0908,
+                        "y": 42.4108
+                    },
+                    "uuid": "dec076a4-ce7f-4f5a-ad9b-d00b290c7eae"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [STOP_SENSE] of R80 on B.Cu",
+                    "pos": {
+                        "x": 80.825,
+                        "y": 19.0
+                    },
+                    "uuid": "b5987d6e-5582-453d-8aa1-15108444548c"
+                },
+                {
+                    "description": "Track [STOP_SENSE] on B.Cu, length 0.3752 mm",
+                    "pos": {
+                        "x": 65.825,
+                        "y": 21.0
+                    },
+                    "uuid": "15841fb8-b3d4-4efb-a31b-95cc4970f99c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [M_XIN] on F.Cu, length 1.1314 mm",
+                    "pos": {
+                        "x": 18.0,
+                        "y": 38.8
+                    },
+                    "uuid": "75ea6630-4642-46fd-9bcb-88c5064e42e0"
+                },
+                {
+                    "description": "Pad 18 [M_XIN] of U10 on B.Cu",
+                    "pos": {
+                        "x": 20.3875,
+                        "y": 41.5
+                    },
+                    "uuid": "96893015-fdd1-41aa-9bdb-a62bc2a28dd3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 19 [M_XOUT] of U10 on B.Cu",
+                    "pos": {
+                        "x": 20.3875,
+                        "y": 42.0
+                    },
+                    "uuid": "2cfb4d51-e77e-4f1a-842d-45cc92f8b431"
+                },
+                {
+                    "description": "Pad 1 [M_XOUT] of C50 on F.Cu",
+                    "pos": {
+                        "x": 17.725,
+                        "y": 40.5
+                    },
+                    "uuid": "5019590d-98b7-4297-a2ee-86a32a109bf6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 2 [STOP_RETURN] of J32",
+                    "pos": {
+                        "x": 76.5,
+                        "y": 10.81
+                    },
+                    "uuid": "b38a15f0-0f43-436b-bce7-d8fcc15a20c2"
+                },
+                {
+                    "description": "Pad 1 [STOP_RETURN] of R80 on B.Cu",
+                    "pos": {
+                        "x": 79.175,
+                        "y": 19.0
+                    },
+                    "uuid": "5d6dd172-7e47-4054-b20b-525f45baa236"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [M_RESET_N] of U10 on B.Cu",
+                    "pos": {
+                        "x": 15.6125,
+                        "y": 42.5
+                    },
+                    "uuid": "2ae31343-66fd-4637-a1ea-8f3cea98700d"
+                },
+                {
+                    "description": "Pad 1 [M_RESET_N] of C48 on B.Cu",
+                    "pos": {
+                        "x": 22.5,
+                        "y": 42.275
+                    },
+                    "uuid": "0084f5ad-3397-4109-a677-7a694af35ecb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [STOP_SENSE] on B.Cu, length 0.3752 mm",
+                    "pos": {
+                        "x": 65.825,
+                        "y": 21.0
+                    },
+                    "uuid": "15841fb8-b3d4-4efb-a31b-95cc4970f99c"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

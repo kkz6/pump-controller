@@ -4,6 +4,20 @@ This package is the active Rev B engineering prototype draft. It is not a
 manufacturing release. Review/calculation is not an assembled-hardware test,
 production approval or installation acceptance.
 
+Completed native CAD checks:
+- 90 x 70 mm, four-layer main board; 208 electrical components.
+- Native schematic ERC: zero violations. All 606 connected main-board
+  schematic pins match the circuit definitions.
+- Native PCB DRC: zero errors, zero warnings, zero unconnected items.
+  A separate final native DRC run confirms these counts.
+- Every onboard pad net and component footprint matches the circuit source.
+  No project DRC exclusions suppress shorts, clearance or unconnected items.
+- R2 filled heat-spreading copper: 327.12 mm2, above the 300 mm2 constraint.
+- Exact SMT-pad via overlaps are inventoried in via-in-pad-audit.json;
+  filled and plated-over treatment or rerouting is required before fabrication.
+- Reports under hardware/checks apply to this revision. Historical routing
+  reports under archive/layout-iterations are not current acceptance records.
+
 Completed within the electrical review:
 - Manufacturer pin/connection cross-checks of the probe front end, metering
   interface, local I/O and independent ARM/watchdog/interlock logic.

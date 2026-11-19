@@ -1,0 +1,8 @@
+{
+  "electrical_component_count": 208,
+  "physical_pad_count": 656,
+  "mismatches": [],
+  "passed": true,
+  "pcb_sha256": "7d5b673c80b85336321920ecac454928ebdc92d13bcde9e29b882098c60659b7",
+  "circuit_sha256": "d6de6d193a035c1176d5d7831a97db090bd7691bb0e3ce1e743ac73cc6c658bb"
+}

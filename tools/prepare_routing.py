@@ -8,7 +8,7 @@ def live(n):return n in {'MAINS_L','MAINS_N','L_FUSED','L_PROTECTED','CTRL_IN','
 data=json.load(open(BASE/'design/circuit.json'));nets=sorted({pin['net'] for sh in data['sheets'] for c in sh['components'] for pin in c['pins'] if pin.get('net')})
 pro=json.load(open(file.with_suffix('.kicad_pro')))
 pro['net_settings']={'meta':{'version':3},'classes':[{'name':name,'clearance':.15,'track_width':.2,'via_diameter':.55,'via_drill':.25,'microvia_diameter':.3,'microvia_drill':.1,'diff_pair_width':.2,'diff_pair_gap':.2} for name in ['Default','LIVE','SELV']], 'netclass_patterns':[{'netclass':'LIVE' if live(n) else 'SELV','pattern':n} for n in nets]}
-pro['board']={'design_settings':{'rules':{'min_clearance':.15,'min_track_width':.15,'min_via_diameter':.45,'min_through_hole_diameter':.2,'min_copper_edge_clearance':.3,'min_hole_clearance':.25}}}
+pro['board']={'design_settings':{'rules':{'min_clearance':.15,'min_track_width':.15,'min_via_diameter':.4,'min_through_hole_diameter':.2,'min_copper_edge_clearance':.3,'min_hole_clearance':.25}}}
 file.with_suffix('.kicad_pro').write_text(json.dumps(pro,indent=2)+'\n')
 file.with_suffix('.kicad_dru').write_text('''(version 1)
 (rule "Reinforced live to isolated control separation"
