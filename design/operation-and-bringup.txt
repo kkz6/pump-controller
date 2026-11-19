@@ -1,10 +1,10 @@
 PUMP CONTROLLER — OPERATING CONTRACT AND BRING-UP PLAN
-Revision: 2026-11-19 / Rev C three-front-button engineering prototype
+Revision: 2026-11-19 / Rev E separate-panel engineering prototype
 
 STATUS
 
 This document specifies intended firmware behavior and commissioning checks.
-Matter firmware, the local dashboard, control logic and calibration software
+Zigbee/Matter firmware, the local dashboard, control logic and calibration software
 have not been implemented or tested. The circuit and PCB are a prototype;
 schematic generation and CAD checks do not establish mains safety, EMC,
 protection performance or compatibility with every starter.
@@ -42,36 +42,33 @@ integration hold, not a claim that the existing installation is defective.
 
 LOCAL CONNECTION AND APP BEHAVIOR
 
-Use Matter over 2.4 GHz Wi-Fi on ESP32-C6-MINI-1U-H8. The same Wi-Fi link can
-serve an authenticated local browser dashboard with voltage, current, real
-power, power factor, energy, water band, sensor validity and fault history.
-No additional local server is required by this proposed architecture. Place
-the approved external antenna outside the metal starter enclosure using an
-insulated mounting arrangement; keep its cable in the isolated low-voltage
-compartment and observe the module manufacturer's antenna restrictions.
+Native Zigbee is the primary firmware target on ESP32-C6-MINI-1U-H8. Retain
+Matter over Thread and Matter over 2.4 GHz Wi-Fi as separate alternative builds;
+select one operational transport per image. See wireless-architecture.rst and
+wireless-variants.json for the detailed plan, sources and implementation status.
+Local protection, physical controls and armed AUTO operation must work without
+any network. Radio adapters submit requests to local control, never relay GPIO.
 
-Matter uses local IP communication. Once commissioned, routine local control
-must work with the internet/WAN disconnected while the Wi-Fi router, local
-network and relevant controller remain powered. Setup, Apple account services,
-remote access, updates and some voice functions may still require internet.
-Do not describe this as operation without Wi-Fi or without a powered LAN.
-Allow local IPv6 and discovery traffic; avoid client isolation between the
-phone, HomePod and controller. Test WAN failure explicitly. [1, 2]
+The identified Aqara M200 is a Matter controller and Thread border router.
+Its published Zigbee support accepts Aqara child devices only, so direct pairing
+of this custom Zigbee controller is unsupported. The native Zigbee build needs
+a coordinator accepting the custom endpoint/profile. Matter/Thread is the
+planned M200 integration route; Matter/Wi-Fi is retained. Exact endpoint and
+hub interoperability remain untested. Apple Home integration likewise uses a
+Matter build, not direct Zigbee. [1, 2, 3, 8]
 
-The existing HomePod mini or HomePod (2nd generation) can be the Apple Home
-hub. Its Thread capability does not require this device to use Thread.
-Apple's supported accessory categories and displayed attributes are limited;
-native Home tiles for water quantity, volts, amps and watts are not guaranteed.
-Implement and validate a supported on/off endpoint for basic control, and use
-the local dashboard for detailed telemetry. Matter attribute availability does
-not itself establish that Apple Home will display that attribute. [1]
+Once commissioned, local network control must work with WAN disconnected while
+the needed coordinator/controller, local network and border router stay powered.
+Setup, account services, remote access, updates and some voice functions may
+need internet. Test the selected variant's network and WAN failures separately.
+All variants use the OLED for detailed water band, V/A/W/PF, validity and faults.
+A local browser dashboard is planned only for the Matter/Wi-Fi build. Native
+Apple Home or Aqara tiles for arbitrary litres, volts, amps and watts are not
+guaranteed by the protocol's attributes. [1, 2]
 
-The Aqara hub model is unspecified. A Matter bridge and a Matter controller
-have different roles: a bridge exposing Aqara devices does not necessarily
-accept this third-party device. Aqara lists compatible Matter controllers,
-including M3, separately. If the installed hub supports the endpoint, it may
-be added through Matter multi-admin; pump operation must not depend on Aqara
-being present. Verify behavior with the actual model and firmware. [2, 3]
+Place the approved external antenna outside the metal starter enclosure using
+an insulated mounting arrangement; keep its cable in the isolated low-voltage
+compartment and observe the module manufacturer's antenna restrictions. [4]
 
 Proposed app name: "Pump enable". ON means an enabled request, subject to the
 physical mode, arm latch, water level and every protective inhibit. In AUTO,
@@ -87,32 +84,41 @@ fault, configuration mode or the need for physical re-arm.
 
 PHYSICAL CONTROLS, MODE BUTTON AND RE-ARM
 
-Rev C has three external momentary controls: existing STOP and START actuators,
-plus one new MODE button. It has no rotary selector or physical OFF position.
-Two small internal keys provide settings: SW3 SET/RESET and SW4 NEXT/+. The
-external J32 harness uses:
+Rev E uses a separate panel with SW1 STOP (NC), SW2 START, SW3 MODE, SW4
+SET/RESET and SW5 NEXT/+. Main-board SW3/SW4 are removed. Main SW1 RESET and
+SW2 BOOT remain programming/recovery controls. There is no rotary OFF selector.
+A factory-made GH12 cable connects main J32.n to panel J1.n, pins 1 through 12:
 
-  STOP NC:   J32.1 (+5 V) to J32.2 (STOP_RETURN)
-  MODE NO:   J32.2 to J32.3 (legacy MAN_RETURN net, sense-only)
-  START NO:  J32.5 (START_N) to J32.7 (isolated GND)
-  J32.4:     reserved for internal NEXT signal; leave externally unwired
-  J32.6:     reserved for internal SET/RESET signal; leave externally unwired
+  1 +5V       2 STOP_RETURN    3 MODE/MAN_RETURN   4 NEXT/AUTO_RETURN
+  5 START_N   6 SET/RESET_N    7 GND               8 +3V3
+  9 I2C_SDA  10 I2C_SCL       11 KEY_MAN_N        12 KEY_AUTO_N
 
-SW3 connects RESET_N to isolated GND. SW4 connects AUTO_RETURN to STOP_RETURN.
-Those are internal PCB keys, not additional front-panel buttons or external
-wires. Existing legacy net names do not imply separate MANUAL/AUTO buttons.
+Host pins 11/12 retain the native names SPARE_B6/SPARE_B7. They are dedicated
+to key sensing when that optional feature is enabled. The former J33/J34
+headers are absent. Detailed signal assignments are in rev-e-integration.rst.
+
+Local panel STOP and external panel J3 NC STOP are in series. Fit JP1 only
+when the external STOP is absent; it never bypasses the onboard STOP. Other
+external contacts parallel their corresponding local NO key:
+
+  Panel J2 START: pin 1 START_N to pin 2 GND
+  Panel J3 STOP:  pin 1 STOP_LOCAL_NC to pin 2 STOP_RETURN, NC contact
+  Panel J4 MODE:  pin 1 MAN_RETURN to pin 2 STOP_RETURN
+  Panel J5 SET:   pin 1 RESET_N to pin 2 GND
+  Panel J6 NEXT:  pin 1 AUTO_RETURN to pin 2 STOP_RETURN
 
 Retain the original START/STOP actuators and necessary power/capacitor-start
 contacts. Where mechanically and electrically compatible, fit separate isolated
-auxiliary contacts on those same actuators for J32: NC for STOP, NO for START.
-Do not connect J32 to a contact still carrying mains or a capacitor-start feed.
+auxiliary contacts on those same actuators: NC STOP to panel J3, NO START to
+panel J2. Do not connect the panel to any contact carrying mains or a
+capacitor-start feed.
 If the actual actuators cannot accept suitable separate contacts, the mechanical
 control arrangement needs revision before installation; shared contacts are not
 an acceptable substitute. The original power/capacitor function must be traced
 and preserved without allowing any START/holding path to bypass J30.
 
 STOP_RETURN directly supplies J31.1 and the independent high-high loop. D33
-and D34 are removed. MODE and internal NEXT are sense-only inputs; neither
+and D34 are removed. MODE and panel NEXT are sense-only inputs; neither
 supplies relay-coil power. STOP opens the hardware permission supply and clears
 ARM. Closing STOP or reclosing a high-high float must not itself restart the
 pump. A held START through boot or fault recovery is not a fresh START.
@@ -142,19 +148,30 @@ menu exit or a fault. Reject stuck inputs, ambiguous simultaneous button events
 and stale control data; cancel requests and require release plus the normal
 fresh STOP/START sequence. Debounce must not delay physical STOP/high-high.
 
-INTERNAL SETTINGS KEYS AND OLED MENU
+OPTIONAL MAINTAINED KEY
 
-SW3 SET/RESET short press acknowledges a displayed fault only after its cause
+Panel J8 accepts a break-before-make SPDT key:1 = +5V common,2 = MAN raw,3 = AUTO raw.
+Enable it explicitly only after wiring/logic validation. Host GPB6/7 must be
+inputs with internal pullups disabled. Active-low MAN/AUTO states 0/1 and1/0
+select the mode; 0/0 and 1/1 inhibit starting. MODE must not override the enabled
+maintained key. A key transition cancels run demand and disarms; require the
+defined STOP acknowledgement and fresh START before operation. Neither a new
+key position nor restored wiring may start or re-arm. Unplugged key normally
+reads 1/1, unplugged whole panel 0/0; not every individual wire fault is detected.
+
+PANEL SETTINGS KEYS AND OLED MENU
+
+Panel SW4 SET/RESET short press acknowledges a displayed fault only after its cause
 is gone and required healthy observations have completed. It never re-arms.
 Hold SET to enter settings only after physical STOP press/release, with the
 motor confirmed stopped, ARM clear and no unresolved fault. An armed/full-tank
 standby or running state must instead show PRESS STOP and reject editing.
 
 Inside settings:
-  SW4 NEXT short press = next item or increase the selected value.
-  SW4 NEXT held press  = previous item or decrease the selected value.
-  SW3 SET short press  = select/edit, or validate and save the edited value.
-  SW3 SET held press   = back/exit; do not save an unconfirmed edit.
+  Panel SW5 NEXT short press = next item or increase the selected value.
+  Panel SW5 NEXT held press  = previous item or decrease the selected value.
+  Panel SW4 SET short press  = select/edit, or validate and save the edited value.
+  Panel SW4 SET held press   = back/exit; do not save an unconfirmed edit.
 
 One press must never generate both short and held actions. Consume the short
 event once a hold is recognized; emit a short event only after release below
@@ -171,15 +188,21 @@ Incomplete commissioning inhibits run. Loss of the display while editing
 cancels the edit and leaves the controller unarmed; a stuck shared bus remains
 a protective fault.
 
-The small PCB keys are internal service controls. Use the isolated low-voltage
-service/bench procedure with mains and coil supplies disconnected. Operation
-inside a powered starter would require a separately verified insulated access
-and cover arrangement; exposed mains components are not a normal user-access
-area. The front MODE/START/STOP and OLED remain the normal closed-lid interface.
+SET and NEXT are on the low-voltage panel PCB. Use verified insulated external
+plungers where provided. If reaching a bare key requires opening the enclosure,
+use the isolated service procedure with mains and coil supplies disconnected.
+Exposed mains components are not a normal user-access area. The main J2 service
+header is now 2 x 4 at 2.54 mm pitch; pin functions remain as documented in
+programmability.txt, including ARM_TEST on pin 4 and no USB VBUS pin.
 
 The SN74LVC1G74 ARM latch is clocked only by a deliberate ARM_CMD pulse after
-a valid START. HEARTBEAT never clocks it. Supervisor, watchdog, MCU reset and
-physical interlock clear permission. Drop PERMIT_D and RUN_CMD on every
+a valid START. HEARTBEAT never clocks it. Supervisor, watchdog, external MCU_EN
+reset and physical interlock clear permission through U36. Internal CPU/system
+resets need not assert MCU_EN and may leave ARM_Q set. At every boot establish
+a hardware-clear event before resuming a session; a verified implementation
+can withhold HEARTBEAT longer than its 2.24 s maximum timeout before accepting
+a fresh START. ARM_CMD low alone does not clear the latch.
+Drop PERMIT_D and RUN_CMD on every
 software fault, clear the request, and never pulse ARM_CMD merely because the
 loop recovers. Heartbeat advances only after a complete healthy control cycle;
 a free-running interrupt must not conceal stalled control or stale sensors.
@@ -347,7 +370,7 @@ ORDERED BRING-UP AND ACCEPTANCE CHECKS
    current; the on-board fuse rating alone does not establish board SCCR.
 
 2. Isolated low-voltage supply only. Keep all mains terminals and contactor
-   wiring disconnected. Feed +5 V/GND through a current-limited bench supply
+   wiring disconnected. Feed +5V/GND through a current-limited bench supply
    with the AC/DC source unpowered and an approved isolation arrangement.
    Start at a low current limit and inspect consumption, 3.3 V and heating.
    The permanent 33 ohm PSU bleeder draws about 152 mA at 5 V by itself.
@@ -355,11 +378,12 @@ ORDERED BRING-UP AND ACCEPTANCE CHECKS
    assembly permits. Never back-feed a powered AC/DC module from USB/debug.
 
 3. Supply and reset tests. With dummy loads, sweep the allowed 5 V range,
-   apply MCU/Wi-Fi load steps, and scope +3V3, SAFE_CLEAR_N, ARM_Q, PERMIT_Q
+   apply MCU/Wi-Fi load steps, and scope +3V3, SAFE_CLEAR_N, ARM_CLEAR_N, ARM_Q, PERMIT_Q
    and both coil drives. Test slow ramps, fast dips, power interruption and
    recovery. Verify zero unintended pickup and no automatic re-arm. Test
    the new supervisor threshold and release delay, finite reset propagation,
-   watchdog timing and actual relay pickup/release at temperature. The
+   watchdog timing, all internal/external reset modes, U36 conditioning and
+   actual relay pickup/release at temperature. Follow rev-e-electrical-review.rst. The
    nominal voltage/tolerance calculation does not replace those tests.
 
 4. Hardware stop chain without a motor. Use the actual three-button front panel, internal keys and
@@ -387,13 +411,15 @@ ORDERED BRING-UP AND ACCEPTANCE CHECKS
    short/hold exclusion,
    history timestamp and unknown-data indication.
 
-7. Network acceptance with relay dummy loads. Pair with the actual Apple
-   Home/HomePod combination and optional supported Aqara controller. Confirm
-   ON/OFF meaning in MAN and AUTO. Disconnect WAN, then disconnect Wi-Fi,
-   then power down hubs. Local physical controls and protective logic must
-   continue; network loss must not fabricate telemetry or cause a restart.
-   Check repeated/late commands, reboot, update and factory-reset paths.
-   All firmware update and factory-reset operations first stop and unarm.
+7. Network acceptance with relay dummy loads for each implemented variant.
+   For native Zigbee, use an explicitly compatible coordinator; M200 direct
+   custom-Zigbee pairing is unsupported. For Matter, pair with the actual
+   Apple Home/HomePod and M200 combinations. Confirm ON/OFF semantics in MAN
+   and AUTO. Disconnect WAN, the active radio network, and then hubs in turn.
+   Physical controls/protection must continue; lost connectivity never causes
+   a restart or fabricated telemetry. Test late/repeated commands, mode
+   changes, fresh physical re-arm, reboot, update, rollback and pairing reset.
+   Updates, factory reset and transport-image changes first stop and unarm.
 
 8. Qualified mains bench validation. Only after the earlier checks, use a
    qualified electrical test setup to validate insulation, protective earth,
@@ -405,8 +431,9 @@ ORDERED BRING-UP AND ACCEPTANCE CHECKS
 
 9. Thermal/full-load check in the closed starter enclosure. Operate both
    relays, Wi-Fi transmit bursts, OLED worst-case pattern and metering. The
-   conservative 5 V budget is 5.7 W including the minimum-load resistor,
-   100 mA OLED engineering reservation and 25 mA at 3.3 V for J34; keep
+   conservative 5 V budget is 5.81 W including the minimum-load resistor,
+   100 mA OLED reservation, 25 mA at 3.3 V spare/key allowance, panel/key loads
+   and the revised reset-stage reserve. Check both 1.2 A and 6 W limits; keep
    the AC/DC module local ambient at or below 50 degrees C. At 65 degrees C
    its 5 W derated output is insufficient for that budget. Verify the 33 ohm
    resistor's 0.677–0.844 W dissipation, required heat-spreading copper and
@@ -427,8 +454,8 @@ SELECTED PRIMARY SOURCES
     https://support.apple.com/en-us/102135
 [2] Connectivity Standards Alliance, Matter local connectivity and multi-admin:
     https://csa-iot.org/all-solutions/matter/matter-faq/
-[3] Aqara, controller versus bridge roles and supported device categories:
-    https://www.aqara.com/us/explore/everything-matter
+[3] Aqara M200, Matter controller/Thread border router and Aqara Zigbee roles:
+    https://www.aqara.com/us/product/hub-m200/
 [4] Espressif, ESP32-C6-MINI-1/MINI-1U electrical and antenna requirements:
     https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf
 [5] Analog Devices, ADE7953 metering and calibration:
@@ -440,3 +467,16 @@ SELECTED PRIMARY SOURCES
 
 Implementation-specific thresholds, timings and operating policies above
 are design proposals; they are not manufacturer-certified pump settings.
+
+[8] Aqara UK M200 FAQ, restriction to Aqara Zigbee child devices:
+    https://www.aqara-shop.co.uk/product/aqara-hub-m200/
+
+CONTROL-INPUT CONDITIONING ACCEPTANCE
+U37 SN74LVC3G17DCUR now separates the 5 V-derived STOP/MODE/NEXT raw dividers
+from U33. R80/R82/R84 are 10 kohm; their 33 kohm pull-downs and 10 nF filters remain.
+Measure each RAW node and corresponding U33 input during button operation,
+open harnesses, supply extremes and contactor interference. Polarity is
+unchanged. Require stable debounced states and disable U33 internal pull-ups
+on these externally driven inputs. The 3.3 V rail and all three outputs must be
+checked through collapse/recovery; Ioff at 0 V does not define the entire ramp.
+See rev-e-electrical-review.rst E11 and bench acceptance T01/T05.

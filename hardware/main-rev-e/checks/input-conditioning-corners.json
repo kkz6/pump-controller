@@ -1,0 +1,50 @@
+{
+  "scope": "Static component-level screening calculation from the E11 source values; not a SPICE, transient, EMI, thermal or physical measurement. Threshold rows are screening references; actual rail and temperature sweeps remain required.",
+  "source_sha256": "1253f74152c2777181afc5b5971f4873f94dea21c16c7341891ae26177393c30",
+  "part": "SN74LVC3G17DCUR",
+  "primary_source": "https://www.ti.com/lit/ds/symlink/sn74lvc3g17.pdf",
+  "model": {
+    "series_ohm": 10000.0,
+    "pulldown_ohm": 33000.0,
+    "resistor_fractional_tolerance": 0.01,
+    "input_leakage_abs_A": 5e-06,
+    "raw_source_low_V": 4.5725,
+    "raw_source_high_V": 5.5,
+    "rail_min_V": 3.1845,
+    "rail_max_V": 3.432,
+    "positive_threshold_screen_V": 2.74,
+    "positive_threshold_source_test_VCC_V": 4.5,
+    "negative_threshold_screen_V": 0.84,
+    "negative_threshold_source_test_VCC_V": 3.0
+  },
+  "results": {
+    "raw_high_min_V": 3.454144026186579,
+    "raw_high_max_V": 4.27862213740458,
+    "open_contact_low_max_V": 0.16665000000000002,
+    "positive_threshold_screen_margin_V": 0.7141440261865788,
+    "negative_threshold_screen_margin_V": 0.6733499999999999,
+    "same_rail_U33_static_HIGH_and_LOW_margin_V": 0.5369,
+    "nominal_driven_RC_us": 76.74418604651163,
+    "nominal_open_RC_us": 330.0,
+    "extra_reserved_W": 0.007027899999999999,
+    "rounded_total_allocation_W": 5.81,
+    "rounded_3V3_allocation_mA": 665
+  },
+  "power_off": {
+    "input_operating_max_V": 5.5,
+    "Ioff_abs_max_uA_up_to_85C": 5,
+    "Ioff_abs_max_uA_up_to_125C": 10,
+    "Ioff_test_VCC_V": 0,
+    "normal_function_min_VCC_V": 1.65,
+    "ramp_output_state_0_to_1p65V_guaranteed": false
+  },
+  "required_physical_tests": [
+    "Rail and temperature sweep with actual harness/load",
+    "5 V present with 3.3 V absent; backfeed/current measurement",
+    "Fast and slow ramps, ripple and load steps",
+    "Raw input overshoot less than operating maximum",
+    "Contactor disturbance, stable polarity and software debounce/freshness"
+  ],
+  "passed_static_screen": true,
+  "hardware_tested": false
+}

@@ -89,15 +89,18 @@ def audit():
         'U35': {1:None,2:'HH_SENSE',3:'GND',4:'INTERLOCK_OK',5:'+3V3'},
         'U36': {1:None,2:'SAFE_CLEAR_N',3:'GND',4:'ARM_CLEAR_N',5:'+3V3'},
         'C77': {1:'+3V3',2:'GND'},
+        'U37': {1:'STOP_SENSE_RAW',2:'AUTO_SENSE',3:'MAN_SENSE_RAW',4:'GND',5:'MAN_SENSE',6:'AUTO_SENSE_RAW',7:'STOP_SENSE',8:'+3V3'},
+        'C78': {1:'+3V3',2:'GND'},
+        'C80': {1:'STOP_SENSE_RAW',2:'GND'},'C82': {1:'MAN_SENSE_RAW',2:'GND'},'C84': {1:'AUTO_SENSE_RAW',2:'GND'},
         'U31': {1:'ARM_CMD',2:'+3V3',3:None,4:'GND',5:'ARM_Q',
                 6:'ARM_CLEAR_N',7:'+3V3',8:'+3V3'},
         'U34': {1:'ARM_Q',2:'PERMIT_D',3:'GND',4:'PERMIT_Q',5:'+3V3'},
         'U33': {1:'START_FILTER',2:'RESET_FILTER',3:'STOP_SENSE',4:'MAN_SENSE',
                 5:'AUTO_SENSE',6:'INTERLOCK_OK',7:'SPARE_B6',8:'SPARE_B7',18:'MCU_EN'},
         'R92': {1:'SPARE_B6',2:'GND'}, 'R93': {1:'SPARE_B7',2:'GND'},
-        'R80': {1:'STOP_RETURN',2:'STOP_SENSE'},'R81': {1:'STOP_SENSE',2:'GND'},
-        'R82': {1:'MAN_RETURN',2:'MAN_SENSE'},'R83': {1:'MAN_SENSE',2:'GND'},
-        'R84': {1:'AUTO_RETURN',2:'AUTO_SENSE'},'R85': {1:'AUTO_SENSE',2:'GND'},
+        'R80': {1:'STOP_RETURN',2:'STOP_SENSE_RAW'},'R81': {1:'STOP_SENSE_RAW',2:'GND'},
+        'R82': {1:'MAN_RETURN',2:'MAN_SENSE_RAW'},'R83': {1:'MAN_SENSE_RAW',2:'GND'},
+        'R84': {1:'AUTO_RETURN',2:'AUTO_SENSE_RAW'},'R85': {1:'AUTO_SENSE_RAW',2:'GND'},
         'R86': {1:'K1_COIL_PLUS',2:'HH_SENSE'},'R87': {1:'HH_SENSE',2:'GND'},
         'C86': {1:'HH_SENSE',2:'GND'},
         'R88': {1:'START_N',2:'START_FILTER'},'R89': {1:'+3V3',2:'START_FILTER'},
@@ -133,6 +136,10 @@ def audit():
     expected_members={
         'main':{
             'STOP_RETURN':['J31.1','J32.2','R80.1'],
+            'STOP_SENSE_RAW':['R80.2','R81.1','C80.1','U37.1'],
+            'MAN_SENSE_RAW':['R82.2','R83.1','C82.1','U37.3'],
+            'AUTO_SENSE_RAW':['R84.2','R85.1','C84.1','U37.6'],
+            'STOP_SENSE':['U33.3','U37.7'],'MAN_SENSE':['U33.4','U37.5'],'AUTO_SENSE':['U33.5','U37.2'],
             'K1_COIL_PLUS':['D31.1','J31.2','K1.1','R86.1'],
             'CTRL_IN':['J30.1','K1.2'],'CTRL_MID':['K1.3','K2.2'],'CTRL_OUT':['J30.2','K2.3'],
             'ARM_CLEAR_N':['U31.6','U36.4'],
@@ -153,9 +160,9 @@ def audit():
             membership_checks.append(record)
             if not record['passed']:issues.append(record)
     value_checks=[]
-    main_values={'R74':'100R','R70':'47k','R71':'2.2k','R72':'2.2k','R78':'2.2k','R76':'22R',
+    main_values={'U37':'SN74LVC3G17DCUR','C78':'100nF','R74':'100R','R70':'47k','R71':'2.2k','R72':'2.2k','R78':'2.2k','R76':'22R',
                  'R77':'2.2k','R75':'100k','C77':'100nF','U36':'SN74LVC1G17DBVR',
-                 'R80':'22k','R81':'33k','R82':'22k','R83':'33k','R84':'22k',
+                 'R80':'10k','R81':'33k','R82':'10k','R83':'33k','R84':'10k',
                  'R85':'33k','R86':'22k','R87':'100k','C86':'10nF',
                  'R92':'100k','R93':'100k'}
     panel_values={'R1':'2.2k','R2':'2.2k','R6':'2.2k','R3':'10k','R7':'10k',

@@ -1,15 +1,15 @@
 PUMP CONTROLLER — PROGRAMMABILITY AND FUTURE EXPANSION
-Revision: 2026-11-19 / Rev C hardware provision and firmware specification
+Revision: 2026-11-19 / Rev E hardware provision and firmware specification
 
 STATUS AND INTENT
 
 The selected ESP32-C6-MINI-1U-H8 provides a programmable controller with 8 MiB
 of flash. The circuit provides native USB service access and boot/reset
-buttons. Firmware, OTA update service, configuration editor, Matter endpoints
+buttons. Firmware, OTA update service, configuration editor, Zigbee/Matter adapters
 and dashboard are not implemented. This document specifies their intended
 design; it does not claim the application currently builds, fits or operates.
-J34 is included as an internal expansion provision; final physical fit and
-routing remain part of prototype qualification.
+The Rev E GH12 panel connection consolidates the former J32/J33/J34
+interfaces. There is no separate general-purpose expansion connector on Rev E.
 
 Changing tank bands, delays, dry-run limits, motor ratings, OLED pages
 and communication features should normally require configuration or firmware
@@ -26,7 +26,7 @@ GPIO8 strap state must be preserved. Firmware must not repurpose USB pins.
 Native USB Serial/JTAG supports programming, logging and debugging; it is
 not a general USB host or arbitrary USB peripheral interface. [1, 2]
 
-J2 is the existing internal 2 x 4 service header at 1.27 mm pitch:
+J2 is the internal 2 x 4 service header at 2.54 mm pitch:
 
   Pin  Signal        Purpose
    1   GND           Isolated low-voltage reference
@@ -55,8 +55,10 @@ security fuses or implement an update/recovery service.
 
 PLANNED LOCAL UPDATES
 
-Provide a local authenticated update page/API using encrypted transport and
-signed firmware packages. Package metadata must identify board revision,
+For the optional Matter/Wi-Fi build, plan a local authenticated update page/API
+using encrypted transport and signed firmware packages. Zigbee and Matter OTA
+need separately implemented transport/server support; USB recovery is common
+to all builds. No OTA path is implemented. Package metadata must identify board revision,
 firmware version, partition-layout compatibility and required configuration
 schema. No cloud service is required to upload an approved package locally.
 Reject incompatible hardware, oversized images and invalid signatures before
@@ -65,7 +67,13 @@ slot; bootloader and partition-table changes require a separately validated
 service procedure because their update failure behavior differs. [3]
 
 Before update/reboot, cancel requests, command both relays off and clear
-permission. Enable ESP-IDF application rollback. A new image starts unarmed,
+permission. An internal CPU/system reset need not pull external MCU_EN low,
+so it can leave the hardware ARM latch set. Boot must establish a hardware-clear
+event before enabling a new session; for example, hold HEARTBEAT static longer
+than the 2.24 s maximum watchdog timeout before resuming service and accepting
+a fresh user action. Driving ARM_CMD low alone does not clear U31. Verify this
+sequence for every reset mode; see rev-e-electrical-review.rst.
+Enable ESP-IDF application rollback. A new image starts unarmed,
 tests its configuration, essential sensors and safe output state, and confirms
 itself only after those checks pass. Do not require internet or a reachable
 home hub to pass the local startup checks. Failed validation or reboot before
@@ -83,7 +91,7 @@ next start. App slots are aligned to 64 KiB, data regions to 4 KiB. [4]
 
   Start      Size       Capacity    Intended use
   0x000000   0x010000     64 KiB     Bootloader/partition table and reserved space
-  0x010000   0x010000     64 KiB     NVS configuration and Matter/network state
+  0x010000   0x010000     64 KiB     NVS configuration and selected-network state
   0x020000   0x001000      4 KiB     NVS encryption-key partition
   0x021000   0x002000      8 KiB     OTA selection metadata
   0x023000   0x001000      4 KiB     PHY initialization reservation
@@ -123,12 +131,12 @@ invalid setting cannot silently disable a required check.
 Store meter gain/phase/offset and probe calibration separately, recording
 board identity, calibration version, conditions and integrity checks. Normal
 OTA and ordinary settings reset preserve calibration. Define separate user
-actions for network/Matter reset, settings reset and calibration erase; never
+actions for selected-network reset, settings reset and calibration erase; never
 erase calibration as an accidental side effect of re-pairing.
 
 Provide local configuration/calibration export and import with schema and
 hardware checks, a readable preview, checksum and explicit commissioning
-status. Do not export Wi-Fi passwords, Matter private keys or other secrets
+status. Do not export Wi-Fi passwords, Zigbee network keys, Matter private keys or other secrets
 in an ordinary settings backup. Reject calibration from another device unless
 the operator deliberately performs and records a new calibration process.
 Persist new settings atomically; stage migrations so the previous image can
@@ -143,8 +151,8 @@ MODULAR FIRMWARE BOUNDARIES
   Meter service: calibrated V/A/W/PF/energy plus timestamp and quality flags.
   Probe service: electrode states, water bands, phase/self-check validity.
   Configuration: validation, persistence, migration and calibration records.
-  Matter adapter: translates authenticated requests and reports state.
-  Local UI/API: uses the same requests/state model as Matter; no raw GPIO API.
+  Selected Zigbee/Matter adapter: authenticated requests and state reporting.
+  Local UI/API: same request/state model as every transport; no raw GPIO API.
   OLED renderer: read-only state snapshots, configurable pages, bounded I2C work.
   Update/diagnostics: signed updates, rollback checks and bounded event history.
 
@@ -157,13 +165,15 @@ added without duplicating the pump decision logic.
 The OLED replaces all separate level/status lights. Its page order, text,
 units, water-band graphic, brightness, idle dimming and rotation interval
 can change in firmware/configuration with no new PCB. Fault pages take
-priority. Rev C uses three external momentary controls: existing STOP and START
-actuators plus one MODE button. Two small internal PCB keys, SW3 SET/RESET and
-SW4 NEXT/+, provide menu navigation. SW1 MCU RESET and SW2 BOOT remain distinct
-service buttons, not menu keys. There is no rotary selector or physical
-OFF position. Original power/capacitor-start contacts are retained; J32 needs
-separate isolated auxiliary contacts on the same START/STOP actuators where
-compatible, never contacts still carrying mains.
+priority. Rev E has five keys on the separate low-voltage panel: panel SW1
+STOP (NC), SW2 START, SW3 MODE, SW4 SET/RESET and SW5 NEXT/+. Main-board SW3/SW4
+are removed; main SW1 MCU RESET and SW2 BOOT remain distinct service buttons.
+Panel J2 through J6 accept matching external button contacts; START, MODE, SET
+and NEXT are NO in parallel, while the optional NC STOP is in series with local
+STOP. JP1 bypasses only an absent external STOP. There is no rotary OFF selector.
+Retain original starter power/capacitor-start contacts; reuse their actuators
+with separate isolated auxiliary contacts for panel J2/J3, never live contacts.
+The single GH12 cable is main J32.n to panel J1.n, cavities 1 through 12.
 
 Press and release physical STOP before mode changes or configuration. ARM
 remains clear after release and MODE/NEXT regain their STOP_RETURN supply.
@@ -172,8 +182,8 @@ it never starts or arms. MODE while armed cancels the request and displays
 PRESS STOP until a fresh physical STOP cycle; it does not claim to clear the
 hardware ARM latch. Fresh START after selection is required to operate.
 
-Hold internal SET to enter settings only when stopped/unarmed after that STOP
-cycle. Internal NEXT short press moves next/increases, held NEXT moves previous/
+Hold panel SET to enter settings only when stopped/unarmed after that STOP
+cycle. Panel NEXT short press moves next/increases, held NEXT moves previous/
 decreases. Short SET selects or validates/saves; held SET backs out/exits without
 committing an unconfirmed edit. With a fault displayed, short SET/RESET only
 acknowledges a cleared fault. Consume short events when a hold is recognized,
@@ -183,8 +193,8 @@ navigate menus. Require button release after boot/exit and a fresh START to run.
 Use shared validated, versioned configuration APIs for OLED and web editing.
 Settings cannot override physical protection or remove mandatory checks. Reject
 out-of-range edits, save atomically and show confirmation. Display loss during
-editing cancels the edit and leaves the controller unarmed. Internal keys are
-service controls: use the isolated low-voltage service procedure with mains/
+editing cancels the edit and leaves the controller unarmed. Keys without
+verified insulated external actuators are service controls: use the isolated low-voltage service procedure with mains/
 coil supplies disconnected, unless a verified insulated access/cover arrangement
 is provided. The closed-lid front controls and OLED are the ordinary interface.
 See operation-and-bringup.txt for pin mapping, transitions and fault/re-arm rules.
@@ -198,46 +208,81 @@ latch the controller. See oled-selection.txt for timing and harness details.
 MCP23017 port A pins formerly driving indicators are now unused internal
 spares. Leave them as inputs with configured internal pull-ups; do not
 drive them as display outputs or count them as extra ESP32 GPIO. Only the
-documented J34 signals are a supported expansion connector.
+documented J32 signals are brought out on the panel harness. Port A spares
+are not an additional external connector.
 
-The first firmware target is Matter over Wi-Fi with a local browser dashboard.
-ESP32-C6 also supports Thread hardware, so a future firmware variant may use
-Matter over Thread. That change requires a compatible border router, renewed
-commissioning and a revised plan for browser telemetry. Do not promise
-simultaneous Wi-Fi/Thread Matter operation, seamless fabric migration or a
-Thread browser dashboard merely because both radios/protocols are supported.
+The primary firmware target is native Zigbee. Retain separate Matter/Thread
+and Matter/Wi-Fi targets on the same ESP32-C6-MINI-1U hardware. Select exactly
+one operational transport per build. No runtime switching, concurrent stacks,
+seamless credential migration or working firmware is claimed. The local browser
+dashboard is optional in the Wi-Fi build; OLED/USB remain common interfaces.
+See wireless-architecture.rst and wireless-variants.json for the selected plan.
 
-J34 INTERNAL EXPANSION
+The identified Aqara M200 is a Matter controller and Thread border router, but
+its Zigbee child-device support is restricted to Aqara products. The custom
+Zigbee build therefore needs a compatible third-party coordinator; it is not
+supported for direct M200 pairing. Matter/Thread is the planned M200 integration
+path, pending endpoint and real-hub tests. A radio variant change stops/disarms,
+installs a compatible image, preserves calibration, recommissions networking
+and requires fresh physical START. Sources and acceptance checks are recorded
+in wireless-architecture.rst. Control/protection never depends on connectivity.
 
-  Pin  Signal       Meaning
-   1   +3V3         Internal expansion supply, 25 mA total reserved maximum
-   2   GND          Isolated low-voltage reference
-   3   I2C_SDA      Existing 3.3 V bus, ESP32 GPIO22
-   4   I2C_SCL      Existing 3.3 V bus, ESP32 GPIO23
-   5   SPARE_B6     MCP23017 GPB6; ordinary 3.3 V GPIO subject to chip limits
-   6   SPARE_B7     MCP23017 GPB7; ordinary 3.3 V GPIO subject to chip limits
+REV E PANEL INTERFACE AND FUTURE EXPANSION
 
-Use 7-bit I2C addresses: 0x20 is reserved for the on-board MCP23017, 0x48
-for ADS1115 and 0x3C for the OLED (confirm on the received module). Select a
-nonconflicting address for any added device; verify its
-speed, bus capacitance and pull-ups with the existing bus. Candidate sensors
-must operate from 3.3 V and within the aggregate 25 mA budget, including their
-startup peaks and GPIO loads. GPB6/7 are not high-current outputs or additional
-ESP32 pins; keep them inputs/high impedance until deliberately configured.
-J33 supplies only the OLED's 100 mA engineering reservation, not additional
-loads; J2 provides no load allowance.
+Main J32 is a horizontal JST GH 1.25 mm twelve-way header. Its cable is numbered
+one-to-one to panel J1. The former separate J33 OLED and J34 expansion headers
+are removed from this revision.
 
-J34 is for short wiring inside the isolated low-voltage compartment only.
-No hot plugging, external 5 V logic, mains signals, long tank/field cables,
-unisolated RS485, motors or relay coils. External field expansion needs a
-separate protected interface and a new isolation/EMC/power review. The added
-25 mA expansion and 100 mA OLED allocations produce a 5.7 W 5 V budget, leaving 0.3 W
-below the 6 W PSU limit at no more than 50 degrees C local module ambient.
+  Pin  Signal        Purpose
+   1   +5V           Hardwired panel STOP supply
+   2   STOP_RETURN   Final NC STOP return; feeds high-high / permission path
+   3   MAN_RETURN    Panel MODE request
+   4   AUTO_RETURN   Panel NEXT request
+   5   START_N       Panel START, normally open to GND
+   6   RESET_N       Panel SET/acknowledge, normally open to GND
+   7   GND           Isolated logic ground
+   8   +3V3          OLED and key conditioning
+   9   I2C_SDA       Existing shared 3.3 V bus, ESP32 GPIO22
+  10   I2C_SCL       Existing shared 3.3 V bus, ESP32 GPIO23
+  11   SPARE_B6      MCP23017 GPB6; panel KEY_MAN_N, active low
+  12   SPARE_B7      MCP23017 GPB7; panel KEY_AUTO_N, active low
+
+The optional key inputs retain host 100k pulldowns and must remain inputs with
+internal pullups disabled. Panel 10k pullups and NPN stages supply valid 3.3 V-
+domain levels. With key mode enabled, MAN/AUTO = 0/1 or 1/0 is valid; 0/0 and 1/1
+inhibit starting. A maintained key cannot be overridden by the MODE button.
+Mode changes disarm and require the defined physical STOP/fresh START sequence.
+The unused-key case is ignored only when the feature is explicitly disabled.
+
+A 25 mA aggregate 3.3 V spare/key allowance is a power reservation, not a physical
+J34 outlet. Future peripherals require a reviewed internal adapter/harness,
+nonconflicting I2C address, verified power/timing, and preservation of the
+hardwired STOP path. GPB6/7 are not high-current outputs or ESP32 pins. Do not
+repurpose them while maintained-key sensing is enabled. Port A internal spares
+are not exposed by this harness. J2 has no load-power allowance.
+
+Reserve 7-bit addresses 0x20 for MCP23017, 0x48 for ADS1115 and 0x3C for the selected
+OLED; confirm the purchased display. Preserve 400 kHz scheduling for 2 ms probe
+slots and at most 16-byte OLED data chunks. Nominal host 150 mm plus OLED 100 mm
+is a 250 mm total cable target, not a demonstrated electrical limit. Verify
+Fast-mode rise time<=300 ns, sink levels, noise and transaction deadlines on
+the populated harness. Add no panel pullups; the main and OLED already have
+pullups. Slowing the whole bus requires requalification of probe timing.
+
+These connections remain inside the isolated low-voltage compartment. No hot
+plugging, external 5 V logic, mains signals, long field cables, unisolated RS485,
+motors or relay coils. Field expansion requires a protected interface and a
+new isolation/EMC/power review. Including the 100 mA OLED reservation, 25 mA at 3.3 V
+spare/key allowance, panel/key loads and revised reset-stage reserve, the Rev E
+conservative 5 V allocation
+is 5.81 W, leaving 0.19 W below 6 W at no more than 50 degC local module ambient.
+See the power-budget review and rev-e-electrical-review.rst; verify actual
+thermal/loading margins and both the 1.2 A and 6 W limits.
 
 NON-BYPASSABLE HARDWARE LIMITS
 
 Software changes cannot turn physical STOP or the independent high-high loop
-into advisory inputs. There is no physical OFF selector in Rev C. Preserve
+into advisory inputs. There is no physical OFF selector in Rev E. Preserve
 their hardware interruption of permission,
 the hardware watchdog/re-arm arrangement, and the existing motor overload
 and upstream protection. A configurable product still requires calibration
@@ -255,9 +300,9 @@ PRIMARY SOURCES
 [4] ESP-IDF partition layout and alignment rules:
     https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/partition-tables.html
 
-J2 mappings were checked against design/power-mcu.json; J33/J34 mappings
-were checked against design/core.json. Physical fit and wiring require
-verification on the manufactured prototype.
+Rev E J2/J32 mappings are defined in design/main-rev-e.json and panel mappings
+in design/panel-rev-e.json. Physical fit and wiring require verification on
+the manufactured prototype.
 
 INLET ROLE CONFIGURATION
 
@@ -266,3 +311,14 @@ startup deadline. The latter supports a normally dry pipe that fills after
 the pump starts; requiring it wet before every start would prevent priming.
 See operation-and-bringup.txt for bounded-start and latched-stop semantics.
 An unset role/deadline must inhibit unattended AUTO.
+
+REV E BUFFERED CONTROL INPUTS
+
+U37 provides non-inverting Schmitt conditioning for STOP/MODE/NEXT. U33 GPB2,
+GPB3 and GPB4 keep their existing logical polarity and names. Configure them as
+inputs with internal pull-ups disabled. The 10k/33k/10nF raw networks filter
+short disturbances; their nominal driven time constant is 76.7 us and their
+open-contact discharge is 330 us. These are not software debounce intervals.
+Keep stable-state validation, fresh START/re-arm and bus-freshness checks.
+A raw terminal HIGH does not authorize running. Validate inputs and reset
+behavior over rail ramps, including 5 V present with 3.3 V absent.

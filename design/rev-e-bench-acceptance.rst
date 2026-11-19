@@ -1,5 +1,5 @@
 Rev E assembled-prototype bench acceptance plan
-==============================================
+===============================================
 
 Status: NOT RUN. No assembled controller, firmware image, instrument records
 or installation test results are represented by this plan. CAD checks and
@@ -59,13 +59,17 @@ means NOT RUN/INCOMPLETE, not PASS. If firmware is absent, only the hardware
 portion can be exercised; the application portion stays NOT RUN.
 
 T00 — Unpowered assembly and wiring inspection — NOT RUN
----------------------------------------------------------
+--------------------------------------------------------
 
 Setup: inspect the assembled boards and every supplied cable before applying
 power. Check component orientation/identity, solder bridges, contamination,
 isolation slots/corridor, fasteners, leads and enclosure clearance. Confirm the
 J10 fixed 1727010 termination and its separate strain relief; test every GH/PH
 cable by numbered cavity, including OLED 1=SCL, 2=SDA, 3=GND, 4=3V3.
+Use 18 mm minimum insulating main-board standoffs. Confirm the C1
+Panasonic EEUFR1E470 installed height fits within the 13.5 mm allowance
+(12.5 mm maximum body plus 1 mm mounting allowance); trim top-side leads
+and measure actual clearance in the 170 x 150 x 90 mm case.
 
 Observe: continuity agrees with the exact schematic; live-domain conductors
 have no connection to isolated GND or probes. External NC STOP is in series
@@ -77,12 +81,18 @@ conductive mounting intrusion, an interchangeable live-CT plug, incorrect
 STOP bypass, loose termination or an unidentified capacitor-start function.
 
 T01 — DC rails, reset and hardware permission — NOT RUN
-------------------------------------------------------
+-------------------------------------------------------
 
 Setup: use the isolated fixture with contactor/motor absent. Apply the planned
 4.75/5.00/5.25 V static corners, startup/shutdown, slow ramps and fast dips;
 log the actual edge rates. Exercise radio/OLED load steps after firmware exists.
 Scope +5V, +3V3, SAFE_CLEAR_N, ARM_CLEAR_N, ARM_Q, PERMIT_Q and both relay drives.
+Also scope STOP_SENSE_RAW/MAN_SENSE_RAW/AUTO_SENSE_RAW and their U37 outputs
+at U33. Exercise static supply corners, the declared load-step envelope and
+open/closed contacts. Verify non-inverting polarity, stable thresholds, LOW
+release, no extra edges, and absence of harmful phantom powering. Record input
+overshoot against U37's 5.5 V operating limit. Normal logic behavior below 1.65 V
+is not established by its Ioff specification at 0 V.
 Include external EN, CPU/system/watchdog reset, download mode and firmware
 update. An internal MCU reset need not assert the external MCU_EN line, so
 record ARM_Q retention separately from the relay-command pins' reset behavior.
@@ -110,7 +120,7 @@ operating range while the controller still permits running. Establish and
 record the actual stop latency, including the real coil, before pump testing.
 
 T02 — AC supply, inrush and load allocation — NOT RUN
-----------------------------------------------------
+-----------------------------------------------------
 
 Setup: after T00/T01, use the protected mains bench with the final F1/R1/RV1
 and U1 fitted. Test the declared operating supply endpoints and nominal line,
@@ -119,20 +129,38 @@ then both relays, full OLED pattern/highest permitted contrast, metering and
 the most demanding implemented radio mode together. Capture inrush and rail
 dips with suitable instrumentation.
 
+Before the energized-board test, qualify the exact C3/C5 capacitor lot with
+an LCR instrument and a rated DC-bias fixture, or obtain manufacturer-guaranteed
+combined limits. Measure individual samples rather than the parallel board
+capacitor bank. Follow the manufacturer's conditioning, measurement frequency
+and AC amplitude; compensate fixture parasitics and record uncertainty,
+temperature, DC bias and sample/lot identity. Test the declared temperature
+range and rail corners up to 5.5 V for C3 and 3.432 V for C5. After subtracting
+measurement uncertainty and the accepted aging allowance, require C3 >=10 uF
+and C5 >=11 uF effective. These are prototype screening targets; the C5 target
+applies to the selected 22 uF nominal / 2.2 uH design, not a general stability
+criterion. A zero-bias reading or a reference-curve estimate does not close
+this gate. See ``rev-e-capacitor-sourcing.rst`` for exact candidate parts and
+remaining supplier limits.
+
 Observe: output current and output power separately, input current, minimum
 load, startup recovery and component heating. The current design reserves
-5.80 W including R2, panel/key and revised reset-bias loads. It is an allocation,
+5.81 W including R2, panel/key and revised reset-bias loads. It is an allocation,
 not a measured maximum. Check both 1.2 A and 6 W ceilings over relevant corners;
 also apply the input/temperature derating. Verify 3V3 buck efficiency instead
-of silently relying on the budget's 80% assumption.
+of silently relying on the budget's 80% assumption. Capture buck load steps
+with the final C20/other output capacitors, cable loads and radio bursts;
+record ripple, recovery and any sustained ringing or oscillation across the
+accepted capacitor/inductor and input/load corners.
 
-Fail: exceeded rating, unexplained peak/droop, nuisance fuse operation,
+Fail: missing capacitor qualification, an effective-capacitance lower bound
+below its target, exceeded rating, unexplained peak/droop, nuisance fuse operation,
 hiccup/chatter, unstable startup or thermal damage. Do not remove R2, uprate
 the fuse or increase permitted load just to make the test pass. Any replacement
 requires a revised protection/load review and repeat tests.
 
 T03 — Closed-enclosure temperature — NOT RUN
--------------------------------------------
+--------------------------------------------
 
 Setup: test the actual mounting, guard, harnesses and closed enclosure at the
 declared ambient extremes, using T02's worst sustained load and repeated coil
@@ -199,7 +227,7 @@ access that disables mandatory protection, or an undocumented undetectable
 fault relied upon as the sole protection against overflow/dry running.
 
 T06 — Metering and dry-run discrimination — NOT RUN
--------------------------------------------------
+---------------------------------------------------
 
 Setup: first inject calibrated voltage/current equivalents in an isolated
 meter test fixture, then use a water-filled supervised pump loop. Record actual
@@ -217,7 +245,7 @@ retry, or presenting current-only logic as protection against every loss of
 water. Record calibration and final thresholds before any unattended use.
 
 T07 — Insulation, leakage and fault coordination — NOT RUN
----------------------------------------------------------
+----------------------------------------------------------
 
 Setup: the qualified lab first identifies the applicable equipment category,
 installation overvoltage/pollution conditions, accessible parts and test matrix.
@@ -232,6 +260,11 @@ including accessible OLED/buttons and probe wiring. Check actual separation
 with screws, strands, harnesses and guard installed. Coordinate F1 with the
 measured/calculated prospective fault current and upstream protective devices;
 R1 cannot limit a fault occurring before R1.
+The pre-E11 nearest nominal live/isolated copper separation was 8.06 mm at
+K1 pads 2/1, leaving only 0.06 mm over the 8 mm project rule. Reconfirm this in the
+final hash-bound geometry record. Have fabrication and assembly reviewers
+assess both relays' pad/fillet spacing and process tolerances; measure the
+finished assembly. Do not report 8.06 mm as a guaranteed manufactured minimum.
 
 Fail: flashover, breakdown, excessive leakage, damaged insulation, inadequate
 fault interruption or any missing applicable limit. Printed material is still

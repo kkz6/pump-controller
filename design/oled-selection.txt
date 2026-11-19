@@ -1,5 +1,5 @@
 PUMP CONTROLLER — OLED SELECTION, HARNESS AND TIMING
-Revision: 2026-11-19 / engineering prototype
+Revision: 2026-11-19 / Rev E engineering prototype
 
 SELECTED MODULE
 
@@ -28,54 +28,62 @@ maximum. Measure startup peaks, full-white pixels, highest allowed contrast,
 temperature and supply corners. Chip logic-current figures do not include
 the complete OLED panel and charge-pump load.
 
-With the former 25 mA indicator allocation removed, 100 mA OLED allocation
-added and J34 expansion retained at 25 mA, the 3.3 V reservation is 655 mA.
-The full conservative 5 V power allocation is 5.7 W, leaving 0.3 W against
-the 6 W supply at no more than 50 degrees C local module ambient. This is
+With 100 mA reserved for the OLED and 25 mA for spare/key 3.3 V loads, the 3.3 V
+base reservation is 655 mA, plus 9.01 mA reserved for the revised reset biases,
+clear-stage and three-channel input-buffer transition current (round total to 665 mA). Rev E has no physical
+J34 expansion connector. Including the panel/key and reset-stage loads, the conservative 5 V allocation is 5.81 W, leaving
+0.19 W against the 6 W supply at no more than 50 degrees C local module ambient. This is
 a narrow reserve; actual OLED current and charge-pump load steps need bench
-verification. See power-budget-review.txt for the complete calculation.
+verification. See power-budget-review.txt for the original allocation and
+rev-e-electrical-review.rst for the current reset/input-buffer delta and limits.
 
 CONNECTORS AND EXACT WIRE MAPPING
 
-Controller J33: four-position JST GH, 1.25 mm pitch, vertical board header
-BM04B-GHS-TBT(LF)(SN), mating housing GHR-04V-S with SSHL-002T-P0.2 contacts.
-The final native PCB/BOM must confirm that exact header variant. The OLED
-module connector is specified by Waveshare as PH2.0-4P, 2.0 mm pitch; it is
-not GH and is not directly interchangeable. Use the supplied Waveshare PH2.0
-pigtail, terminated correctly at the GH end, or a qualified custom harness.
-A JST PH cable-end candidate is PHR-4 with SPH-002T-P0.5S contacts; confirm
-physical mating with the actual module connector. Select compatible wire
-diameter and crimp tooling for both connector families. [1, 2, 4, 5]
+Rev E uses a direct one-to-one GH 1.25 mm twelve-way cable from main J32 to panel
+J1. The horizontal receptacle at each end is SM12B-GHS-TB(LF)(SN), mating with
+GHR-12V-S housings. Nominal host cable length is 150 mm. Main J33/J34 were removed;
+the old reversed four-wire J33 loom is not compatible with this revision.
 
-The official module schematic numbers PH2.0 J1 from SCL toward VCC. This
-reverses the proposed controller's numeric order:
+Panel J7 is the horizontal PH 2.0 mm four-way S4B-PH-SM4-TB(LF)(SN). Its numeric
+order matches the Waveshare module PH 2.0 mm J1 exactly, permitting a factory-made
+100 mm PH4-to-PH4 cable with no installer soldering:
 
-  Controller J33 pin/net    OLED module J1 pin/net
-          1  +3V3                   4  VCC
-          2  GND                    3  GND
-          3  I2C_SDA                2  SDA
-          4  I2C_SCL                1  SCL
+  Main J32 / panel J1      Panel J7       OLED module J1
+        10 I2C_SCL            1 SCL             1 SCL
+         9 I2C_SDA            2 SDA             2 SDA
+         7 GND                3 GND             3 GND
+         8 +3V3               4 VCC             4 VCC
 
-Verify pin numbers from the respective mating-face drawings and continuity,
-not cable colors or apparent left/right orientation. This is NOT numbered
-1:1 wiring. Both module connectors J1 and P1 have the same numeric mapping
-in the published schematic. Keep the harness short, provisionally <=100 mm,
-entirely in the isolated low-voltage compartment with strain relief. No hot
-plugging and no route beside motor/contact-coil wiring. Do not supply the
-module separately from 5 V while its signals remain on this connector.
+Pololu 5623 is a procurement candidate for the PH-style 100 mm lead; verify the
+actual connector fit and numeric 1-to-1 continuity at acceptance. The factory
+harness alternative and exact cavity/contact specifications are recorded in
+hardware/panel-rev-e/parts-and-interface.rst. A PH-to-loose-Dupont cable does
+not meet this retained plug-to-plug interface. [1,2,4,5,6]
+
+Use connector cavity numbers from mating-face drawings and continuity, not
+wire colors or assumed left/right orientation. Both module connectors J1 and
+P1 share the published numeric mapping. No hot plugging, separate 5 V supply,
+or cable alongside motor/contactor leads. Keep all display wiring in the
+isolated compartment with strain relief. Nominal 150 mm host+100 mm OLED gives a
+250 mm total target; this is not a validated I2C cable-length limit.
 
 I2C SIGNAL INTEGRITY AND ADDRESS PLAN
 
 Use 7-bit addresses: MCP23017 0x20, ADS1115 0x48, OLED expected 0x3C; Waveshare
 documents 0x3C for its 128 x 32 SSD1306 setup. Confirm the supplied unit before
 commissioning. The shifted write byte 0x78 is not a different 7-bit address.
-Do not assign a J34 expansion device to an occupied address. [3]
+A future internal adapter/peripheral must use a nonconflicting address. [3]
 
 The controller already has 3.3 kohm pull-ups. The module's 4.7 kohm pull-ups
 give approximately 1.94 kohm combined pull-up resistance when their supply
 nodes are close. Verify rise time, low-level sink current and noise with the
-actual cable and any J34 accessory at 400 kHz. Extra pull-ups are not to be
-added indiscriminately. Test unpowered-module behavior: the pull-ups and input
+populated main/panel/OLED harness at 400 kHz. Fit no extra panel pullups.
+Verify Fast-mode rise time<=300 ns; 3300 ohm alone gives an approximately 107 pF
+nominal total-capacitance estimate using tr=0.8473*Rp*C. Module pullups change
+the effective resistance and sink current, so measured rise time/low level
+is the acceptance criterion. Do not lower the entire bus speed without
+requalifying the 2 ms probe slots and bounded OLED chunks below.
+Test unpowered-module behavior: the pull-ups and input
 structures can back-feed an unpowered device. The normal installation powers
 the module and controller together; avoid partial-power connection sequences.
 Measure whether OLED charge-pump noise alters probe/meter readings.
@@ -89,7 +97,7 @@ state, then voltage/current/real power/power factor. Display source-water and
 sensor validity. Fault text overrides normal page rotation; clear any stale
 numeric value or mark it unknown. A full screen need not show every value at
 once. Larger text and page rotation keep normal readings clear. The front MODE button
-toggles MANUAL/AUTO. Onboard SET/RESET and NEXT/+ provide settings navigation.
+toggles MANUAL/AUTO. Panel SW4 SET/RESET and SW5 NEXT/+ provide settings navigation.
 Brightness, page order, units and intervals are configuration choices, subject
 to display power limits. Dim during inactivity and shift/rotate content to
 reduce persistent-image wear; important fault status must remain readable.
@@ -114,7 +122,8 @@ a justification to miss ADC deadlines.
 
 The renderer consumes immutable/timestamped status and has no direct motor
 output access. A missing OLED that simply NACKs can be reported locally over
-the LAN and disabled without changing healthy pump control. An OLED holding
+the active transport or USB service and disabled without changing healthy
+pump control. An OLED holding
 SDA/SCL low affects essential MCP/ADC traffic: time out, invalidate stale
 measurements and perform the specified protective stop and latched fault.
 No busy retry loop may continue a false heartbeat. If a software deadlock
@@ -136,13 +145,15 @@ PRIMARY SOURCES
     https://www.jst-mfg.com/product/index.php?lang=2&series=105
 [5] JST PH connector family:
     https://www.jst-mfg.com/product/index.php?lang=2&series=199
+[6] Factory PH-style four-way 100 mm cable candidate:
+    https://www.pololu.com/product/5623
 
 Module dimensions/pinout are manufacturer information. Harness length,
 100 mA allocation, page behavior and scheduling bounds are design proposals
 requiring physical and firmware verification.
 
-PHOTO-STYLE ENCLOSURE INTEGRATION
-The earlier <=100mm cable length is a provisional electrical assumption. A
-lid-mounted OLED may require a longer loom to open the pictured starter.
-Measure hinge travel and slack, then validate bus rise time/noise and timing
-at the actual length. The assembly image/model is not cable qualification.
+ENCLOSURE INTEGRATION
+The 250 mm total cable target includes main-to-panel and panel-to-OLED wiring.
+Check the actual case routing, retention and service slack, then qualify rise
+time, noise and transaction deadlines with that completed harness. A 3D model
+or assembled-looking image does not establish electrical cable qualification.
