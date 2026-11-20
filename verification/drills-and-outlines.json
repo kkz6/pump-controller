@@ -1,0 +1,18 @@
+{
+  "main": {
+    "zip_sha256": "5f3b5e54c76444b95989f7b2b8203acbc3a7c526470148cd8a7e89141fadca8c",
+    "PTH_holes": 593,
+    "PTH_max_axis_rounding_mm": 0.0005,
+    "NPTH_holes": 7,
+    "NPTH_max_axis_rounding_mm": 0,
+    "outline_segments": 8
+  },
+  "panel": {
+    "zip_sha256": "edd92df576a69bfb1f9bbeccb9ec94a4cbd96ff491e6a4fd27624cd403fba9ce",
+    "PTH_holes": 31,
+    "PTH_max_axis_rounding_mm": 0.0005,
+    "NPTH_holes": 4,
+    "NPTH_max_axis_rounding_mm": 0,
+    "outline_segments": 4
+  }
+}

@@ -1,5 +1,6 @@
 {
-  "main_named_terminals": 104,
-  "panel_named_terminals": 6,
+  "main_copper_nets_with_isolation_domain": 183,
+  "main_named_terminals": 259,
+  "panel_named_terminals": 45,
   "physical_usb_and_starter_tested": false
 }

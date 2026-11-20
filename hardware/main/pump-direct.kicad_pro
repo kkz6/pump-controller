@@ -1111,6 +1111,22 @@
         "pattern": "USB_ESD_REF"
       },
       {
+        "netclass": "SELV",
+        "pattern": "USB_TX_IND"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "USB_RX_IND"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "USB_TX_LED_A"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "USB_RX_LED_A"
+      },
+      {
         "netclass": "CABINET",
         "pattern": "FUSED_24"
       },

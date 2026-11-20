@@ -3573,7 +3573,7 @@
 				)
 			)
 		)
-		(property "Description" "Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE."
+		(property "Description" "JST XHP-2. Pin 1 inlet electrode. Pin 2 optional driven inlet return. Shared tank-common mode uses J20.1 through the water and leaves J21.2 open. Keep the driven returns separate from each other, neutral and PE."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)

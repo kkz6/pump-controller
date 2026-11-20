@@ -206,7 +206,7 @@ R173,22k,"SPEC: 22k 1%, >=0.1 W 0603","1%, >=0.1 W",Resistor_SMD:R_0603_1608Metr
 D119,BAS70-04,"BAS70-04,215","Dual series Schottky rail clamp: pin1 ground, pin2 rail, pin3 signal",Package_TO_SOT_SMD:SOT-23,https://assets.nexperia.com/documents/data-sheet/BAS70-04.pdf,probes_4,False
 C129,1nF,SPEC: 1nF C0G 50V 5%,C0G 50V 5%,Capacitor_SMD:C_0603_1608Metric,,probes_4,False
 J20,TANK PROBES,1803303,"Phoenix MC 1,5/5-G-3,81 header; mating screw plug 1803604, verify fit","Connector_Phoenix_MC:PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal",https://www.phoenixcontact.com/en-us/products/pcb-header-mc-15-5-g-381-1803303,probes_4,False
-J21,INLET / RETURN,S2B-XH-A(LF)(SN),"Dedicated low-voltage inlet probe pair. JST XHP-2 polarized housing. Cavity 1 inlet electrode, 2 driven inlet return electrode. Keep the driven inlet return separate from tank common, AC neutral and PE.",Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,probes_4,False
+J21,INLET / RETURN,S2B-XH-A(LF)(SN),"JST XHP-2. Pin 1 inlet electrode. Pin 2 optional driven inlet return. Shared tank-common mode uses J20.1 through the water and leaves J21.2 open. Keep the driven returns separate from each other, neutral and PE.",Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,probes_4,False
 H1,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
 H2,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
 H3,M3 nylon mount,,3.2mm NPTH; no conductive mounting hardware inside live region,MountingHole:MountingHole_3.2mm_M3,,mechanical,False
