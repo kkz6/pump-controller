@@ -1,3 +1,0 @@
-Binary GLTF file '/Users/kk/Documents/ChatGPT/Electronics projects/pump-controller/hardware/main-rev-e/exports/pump-controller-main-rev-e.glb' created.
-
-Export time 1.672 s

@@ -1,8 +1,0 @@
-FAIL M_XOUT no path
-FAIL M_XIN search limit
-FAIL M_VP no path
-FAIL M_RESET_N no path
-ROUTED M_IAN 23 points 48185
-ROUTED M_IAP 29 points 137741
-FAIL STOP_RETURN no path
-RESULT 2 routes 5 failed

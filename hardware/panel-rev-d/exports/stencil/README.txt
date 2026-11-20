@@ -1,1 +1,0 @@
-Stencil review only. Front and rear paste apertures from Rev D panel. Requires assembler review of paste volume, stencil thickness and two-sided assembly. Do not add these paste layers to the bare-board manufacturing ZIP. Source PCB SHA2566b85b968fdaa5b8524018d4f0972232ee2e1979a254ebbc7d08e5de322ee4418.

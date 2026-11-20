@@ -1,5 +1,0 @@
-FAIL M_RESET_N no path
-ROUTED M_IAP 50 points 95996
-ROUTED STOP_RETURN 5 points 87300
-FAIL STOP_SENSE search limit
-RESULT 2 routes 2 failed

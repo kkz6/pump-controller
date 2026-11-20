@@ -1,1 +1,0 @@
-Bare PCB engineering prototype. 60 x 45 mm, 2 copper layers, 1.6 mm FR-4, 1 oz copper, separate plated and non-plated drills. Electrical test against the included IPC-D-356 netlist. Supplier DFM pending. Board SHA256 e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9

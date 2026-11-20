@@ -16,12 +16,7 @@ from gerbonara.ipc356 import Netlist
 from gerbonara.utils import MM
 
 ROOT = Path(__file__).resolve().parents[2]
-FILES = {
-    "integrated": "hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip",
-    "main": "hardware/main-compact-dual/pump-controller-compact-dual-guard-r3-gerber-prototype.zip",
-    "panel": "hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip",
-    "receiver": "hardware/guard-receiver/guard-receiver-rev-a-gerber-prototype.zip",
-}
+FILES = {name: f"manufacturing/{name}-gerbers.zip" for name in ("main", "panel")}
 UPSTREAM = "7d797b51b13da8060e27d5b16444052a73c5fc32"
 
 
@@ -82,14 +77,14 @@ def compare(driver, directory, layers, count, expect_fault=False):
 def check(name, driver, relative=None):
     relative = relative or FILES[name]
     archive = ROOT / relative
-    layers = 6 if name in ("main", "integrated") else 2
+    layers = 6 if name == "main" else 2
     with tempfile.TemporaryDirectory() as temporary:
         directory = Path(temporary)
         extract(archive, directory, layers)
         pads, counts = witnesses(directory, layers)
         compare(driver, directory, layers, counts["layer_witnesses"])
         # Bridge two unlike nets using the independently exported connector pad centres.
-        ref = {"integrated": "J1", "main": "J1", "panel": "J2", "receiver": "J4"}[name]
+        ref = {"main": "J1", "panel": "J2"}[name]
         a, b = [pads[ref, pin] for pin in ("1", "2")]
         face = next(iter(sorted(set(a[2]) & set(b[2]), reverse=True)))
         plot = directory / f"L{face}.gbr"
@@ -105,7 +100,7 @@ def check(name, driver, relative=None):
             raise ValueError(f"Incorrect fault diagnostic: {findings}")
         controls = [dict(board=name, injected=f"Bridge {ref}.1 and {ref}.2 on layer {face} (bottom = 0)",
                          findings=findings)]
-        if name in ("main", "integrated"):
+        if name == "main":
             # Retain the R2 inner-layer open control as well as the inlet short.
             plot.write_text(original)
             inner = directory / "L2.gbr"  # G4L / In3.Cu in a six-layer board
@@ -128,17 +123,6 @@ def check(name, driver, relative=None):
             if not any(net in finding and "divided" in finding for finding in findings):
                 raise ValueError(f"Incorrect remote STOP open diagnostic: {findings}")
             controls.append(dict(board=name, injected="Isolate J2.3 from the panel STOP trace", findings=findings))
-        if name == "receiver":
-            top = directory / "L1.gbr"
-            # Disconnect R17 from its routed trace while retaining its IPC landing.
-            clear = ("%ADD900C,1.90*%\n%ADD901C,0.40*%\n%LPC*%\nD900*\nX30000000Y-8288000D03*\n"
-                     "%LPD*%\nD901*\nX30000000Y-8288000D03*\n")
-            top.write_text(original.replace("M02*", clear + "M02*"))
-            findings = compare(driver, directory, layers, counts["layer_witnesses"], True)
-            if findings != ["logical net HB_LED_A is divided up into 2 islands"]:
-                raise ValueError(f"Incorrect open-circuit diagnostic: {findings}")
-            controls.append(dict(board=name, injected="Isolate R17 on front copper at (30.000, -8.288) mm",
-                                 findings=findings))
     return dict(path=relative, sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
                 copper_layers=layers, **counts, opens_shorts=0), controls
 
@@ -146,7 +130,7 @@ def check(name, driver, relative=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("driver", type=Path)
-    parser.add_argument("--boards", nargs="+", choices=FILES, default=["main","panel","receiver"])
+    parser.add_argument("--boards", nargs="+", choices=FILES, default=["main","panel"])
     parser.add_argument("--output", type=Path)
     options = parser.parse_args()
     result = dict(tool="jvanstraten/gerbertools", upstream_commit=UPSTREAM,

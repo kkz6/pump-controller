@@ -1,1 +1,0 @@
-Separate stencil review files for both faces. Apertures, stencil thickness and assembly process need assembler review. Not included in the bare-board ZIP. Source SHA256 21f6c8f9cc8d2e4c7b40b82c5decf19d203063827d514fa97ab0cea1f58e154b
