@@ -16,6 +16,7 @@ static struct panel_result step(struct fixture *f, uint32_t delta)
 {
     f->t += delta;
     f->in.sampled_at_ms = f->t;
+    if (f->p.direct_starter) f->in.voltage.acquired_ms = f->t;
     f->in.tank_scanned_at_ms = f->in.protection_checked_at_ms = f->t;
     return panel_controls_step(&f->p, f->t, f->in);
 }
@@ -468,8 +469,38 @@ static void test_timeout_rejects_set_begun_before_trip(void)
     assert(r.set_reset_pressed && !r.run_timed_out && !r.auto_enabled && !r.drive.arm_issued);
 }
 
+static void check_direct_profile(enum starter_profile profile)
+{
+    struct fixture f=init(profile,false,0);
+    struct voltage_limits limits={200000,250000,5000,20,230000,5750000};
+    assert(direct_starter_configure(&f.p,f.p.outputs.config,false,4,20,limits));
+    f.in.voltage=(struct voltage_sample){.valid=true,.counts=5750000};
+    f.in.gpio_a=A_AUTO_N; /* No external cabinet or transfer inputs on this PCB. */
+    for (unsigned i=0;i<320;i++) step(&f,10);
+    assert(press_start(&f).drive.arm_issued);
+    struct panel_result r=step(&f,5);
+    if (profile==STARTER_OPEN_STOP) r=step(&f,5);
+    assert(r.drive.start_issued && r.drive.permit_d);
+    assert(r.drive.run_cmd==(profile==STARTER_OPEN_STOP));
+    f.in.gpio_b &= ~B_GUARD_OK; /* Actual coil supply low even if the STOP input reads closed. */
+    r=step(&f,1); assert(!r.drive.permit_d && !r.drive.run_cmd);
+    if (profile==STARTER_PULSE_STOP) {
+        r=step(&f,5); assert(r.drive.run_cmd && r.drive.stop_issued);
+    }
+    f.in.gpio_b |= B_GUARD_OK;
+    for (unsigned i=0;i<330;i++) assert(!step(&f,10).drive.permit_d);
+    release_start(&f);
+    f.p.outputs.phase=STARTER_FEEDBACK_FAULT;
+    f.in.gpio_b &= ~B_SET_N;
+    step(&f,1); r=step(&f,5);
+    assert(!r.feedback_fault && !r.drive.permit_d && !f.p.outputs.armed);
+}
+
 int main(void)
 {
+    check_direct_profile(STARTER_RUN_PAIR);
+    check_direct_profile(STARTER_OPEN_STOP);
+    check_direct_profile(STARTER_PULSE_STOP);
     test_auto_at_full_and_loss_of_low_before_start();
     test_independent_scan_age();
     test_timeout_rejects_set_begun_before_trip();

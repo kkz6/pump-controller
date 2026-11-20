@@ -1,0 +1,25 @@
+{
+  "target": "esp32c6",
+  "idf_version": "v5.4.2",
+  "sdk_image": "espressif/idf@sha256:4317595a911886e04cbc6d731315d5fc2918e510b6733fc7d03381ab2d270082",
+  "fixture": "Disabled ESP32-C6 configuration, links legacy guard and metered SPI/control entry points",
+  "source_sha256": {
+    "design/review-fixtures/guard-target/CMakeLists.txt": "d828af7bc5174bbd653b632e45cde24ff0bbef1de5737e56b702f78e98545f68",
+    "design/review-fixtures/guard-target/main/CMakeLists.txt": "30cbfe86eb0518c6cb38d573090f3668ab24d9f38873d06976fcd4a1da7d9885",
+    "design/review-fixtures/guard-target/main/smoke.c": "c0d254c4f2d4ab121b27eb7ce9bbde44f7acb172dcdd23541209037ee7b035eb",
+    "firmware/components/starter_outputs/CMakeLists.txt": "a9e9953c1188468ef17a60510f63517f0af38268d89f54adf161acf8e2776c6e",
+    "firmware/components/starter_outputs/guard_gpio.c": "5ad29fe9a4d75e8a66b2a7ae026d3716092aa4bd9c44ce3c85f1571158674b8e",
+    "firmware/components/starter_outputs/include/guard_gpio.h": "3d6999ea5f256118375538497f5ce965620d64d20b727b9c4d14766f326c4cf7",
+    "firmware/components/starter_outputs/include/metered_gpio.h": "bc5bb4ad3fd647b5db740fc76fc5255c0f8657a41d5ff6c7ddf16005c7246787",
+    "firmware/components/starter_outputs/include/onboard_voltage.h": "e5c27d1ada7423d351ff7ff70772501731c4b47bb8c25f342655d1a35c182a32",
+    "firmware/components/starter_outputs/include/panel_controls.h": "27200b361ec17c8bfd55d7bccd216f72746acb870dd9ed6fed8e181695054fc6",
+    "firmware/components/starter_outputs/include/starter_outputs.h": "b1e51c72016c34395dcd6d875ab0c15d6ddc23afc1f50d928a9c657564722e82",
+    "firmware/components/starter_outputs/metered_gpio.c": "eeb124ecf0088e09afb1c8bf9d1f5b05422ff62d4e271db3d642d580f6a77f97",
+    "firmware/components/starter_outputs/onboard_voltage.c": "6d270d395eb564b257c956c2fd7f113424ee78abc4cdfd21aab6de1183957e04",
+    "firmware/components/starter_outputs/panel_controls.c": "f7d2b2cb106e3bf0e0d30b75605718eb7b5946cb14905246cd4ee286e4beb308",
+    "firmware/components/starter_outputs/starter_outputs.c": "9d59183134ebda8b147b3b336dd6e690f587ba8ab78a4cd1e94590c77a5d1cbb"
+  },
+  "elf_machine": "RISC-V",
+  "target_executed": false,
+  "physical_motor_or_guard_tested": false
+}

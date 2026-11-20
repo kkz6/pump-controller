@@ -31,17 +31,30 @@ bool panel_controls_configure(struct panel_controls *p, struct starter_config co
     return starter_configure(&p->outputs, config);
 }
 
-bool metered_dol_configure(struct panel_controls *p, struct starter_config config, bool key_fitted,
-                         uint32_t debounce_ms, uint32_t max_age_ms, struct voltage_limits limits)
+static bool configure_voltage_control(struct panel_controls *p, struct starter_config config, bool key_fitted,
+                         uint32_t debounce_ms, uint32_t max_age_ms, struct voltage_limits limits, bool direct)
 {
-    if (config.profile != STARTER_OPEN_STOP || !voltage_limits_valid(limits) ||
+    if ((!direct && config.profile != STARTER_OPEN_STOP) || !voltage_limits_valid(limits) ||
         !panel_controls_configure(p, config, key_fitted, debounce_ms, max_age_ms)) {
         *p = (struct panel_controls){0};
         return false;
     }
+    p->direct_starter = direct;
     p->onboard_voltage_required = true;
     p->voltage_limits = limits;
     return true;
+}
+
+bool metered_dol_configure(struct panel_controls *p, struct starter_config config, bool key_fitted,
+                          uint32_t debounce_ms, uint32_t max_age_ms, struct voltage_limits limits)
+{
+    return configure_voltage_control(p, config, key_fitted, debounce_ms, max_age_ms, limits, false);
+}
+
+bool direct_starter_configure(struct panel_controls *p, struct starter_config config, bool key_fitted,
+                              uint32_t debounce_ms, uint32_t max_age_ms, struct voltage_limits limits)
+{
+    return configure_voltage_control(p, config, key_fitted, debounce_ms, max_age_ms, limits, true);
 }
 
 static void update_heartbeat(struct panel_controls *p, uint32_t now, const struct panel_sample *in,
@@ -104,6 +117,9 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     if (fresh) p->last_sample_ms = in.sampled_at_ms;
     enum starter_transfer transfer = fresh
         ? starter_transfer_decode((in.gpio_a & 8) != 0, (in.gpio_a & 4) != 0) : TRANSFER_UNKNOWN;
+    /* The direct PCB has no cabinet position inputs. B5 still reads the actual
+     * panel STOP return after USB inhibit and remains required for a start. */
+    if (p->direct_starter && fresh) transfer = TRANSFER_HOST;
     uint8_t raw = ((in.gpio_b & 1) ? 0 : START) | ((in.gpio_b & 2) ? 0 : SET)
                   | ((in.gpio_b & 8) ? MODE : 0) | ((in.gpio_b & 16) ? NEXT : 0);
     uint8_t key = ((in.gpio_b & 64) ? 0 : KEY_MANUAL) | ((in.gpio_a & 1) ? 0 : KEY_AUTO);
@@ -211,10 +227,15 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     /* An actual post-trip SET edge is required. Confirm the external guard
      * has dropped before accepting it, and keep START and automatic demand
      * disarmed through the normal external RESET/ENABLE procedure. */
-    if (faulted && monitor_eligible && !(in.gpio_b & 32) && confirmed_stopped &&
+    if (faulted && monitor_eligible && (p->direct_starter || !(in.gpio_b & 32)) && confirmed_stopped &&
         !(raw & START) && !(p->buttons.stable & START) && (pressed & SET))
         command = STARTER_ACKNOWLEDGE;
-    result.drive = starter_step(&p->outputs, now, transfer, ready, confirmed_stopped, command);
+    /* Direct-board B5 follows the panel STOP loop. A deliberate neutral SET
+     * after confirmed stop may clear a fault while keeping drive disarmed. */
+    result.drive = starter_step(&p->outputs, now, transfer, ready && command != STARTER_ACKNOWLEDGE,
+                                confirmed_stopped, command);
+    if (p->direct_starter && p->outputs.config.profile == STARTER_RUN_PAIR)
+        result.drive.run_cmd = false; /* A alone drives a documented maintained RUN input. */
     /* Start once at acceptance, including permission settling and start pulses.
      * Repeated samples, changing demand and phase changes never extend a run. */
     if (command == STARTER_START && (result.drive.start_issued || p->outputs.phase == STARTER_PERMISSION))
