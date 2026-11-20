@@ -1,0 +1,58 @@
+Reference,Value,MPN,Description,Footprint,Datasheet,Sheet,DNP
+PS2,Cabinet isolated 24V / 2.5A,HDR-60-24,"Separate always-on supply. Qualify DC inrush, protection and cabinet temperature.",,https://www.meanwell.com/Upload/PDF/HDR-60/HDR-60-SPEC.PDF,field,False
+F2,Cabinet DC distribution protection,Site-selected DC branch protection,"Select for available fault energy, wire capacity and actual coil loads.",,,field,False
+XT1,Cabinet supply input,Fixed protected supply terminals,,,,field,False
+XM1,Protected motor feed IN,Phoenix UT 4 3044102 + UT 4 BU 3044115,Protected motor branch upstream of both contactors. Keep separate from all pilot and control connectors. D-UT 3047028 end covers and rail end stops.,,https://www.phoenixcontact.com/en-us/products/feed-through-terminal-block-ut-4-3044102,field,False
+XP1,OEM pilot supply,Separate fixed pilot terminals,"Monitored OEM pilot source, separately protected and upstream of the pilot STOP.",,,field,False
+XF2,OEM auxiliary contacts,Profile-specific field loom,Dedicated auxiliary contacts. Positions 5 and 6 are unused in this profile.,,,field,False
+S3,Original STOP / spare NC,Match installed OEM actuator,"Linked isolated NC accessory, proof independently at original STOP.",,,field,False
+S4,OEM overload / spare NC,Match installed OEM overload,"Additional isolated NC, keep original overload circuit intact.",,,field,False
+S5,OEM START release proof,Match installed OEM actuator,"Additional isolated NC, open while original START is held.",,,field,False
+KOF1,OEM power stage off,LC1D09BD / verified OEM equivalent,"Actual DOL contactor with 24 V DC coil, linked off proof and motor power contact.",,,field,False
+KHL1,Actual hold contact released,LADN11 on compatible TeSys D or verified OEM equivalent,For a DOL use the linked NC of the actual NO holding pair. For an electronic starter use independently verified latched-demand-clear feedback.,,https://www.se.com/ca/en/faqs/FA115177/,field,False
+KV1,KV_IN_RANGE_NO,RM17UBE15,Dry NO closed only in range; select exact source and timing for installation.,,https://www.se.com/id/en/product/RM17UBE15/,field,False
+KC1,KC_IN_RANGE_NO,RM17UBE16,Dry NO closed only in range; select exact source and timing for installation.,,https://www.se.com/ww/en/product/RM17UBE16/,field,False
+KPS1,PANEL healthy,G7SA-2A2B DC24 / P7SA-10F,"Non-LED terminal base. 33-34 NO, 11-12 NC. Other contacts unused.",,https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf,field,False
+D9,1N4007,1N4007-E3/54,Band to coil positive,,https://www.vishay.com/docs/88503/1n4001.pdf,field,False
+XF3,Transfer pole pairs,Profile-matched service socket auxiliaries,Separate isolated dry poles; all seat-dependent contacts mechanically linked to the exclusive transfer.,,,field,False
+J52,Main selector auxiliary mating plug,JST PHR-3 / SPH-002T-P0.5S,Low-level isolated transfer auxiliary. Only these three cores share the main logic domain.,,,field,False
+J54,Main cabinet I/O mating plug,JST VHR-5N / SVH-21T-P1.1,"Cabinet +24 V, return, unused position 3, panel-permit feed and actual HOST/KS feedback.",,,field,False
+S1,Manual guard RESET / spring-return,Harmony XB5AA31 + compatible ZBE102 NC block,Both poles on one mechanically linked spring-return actuator; prove break-before-make on press and release.,,https://www.se.com/ww/en/product/ZBE102/,field,False
+J30,Main command A,1836079,,,,outputs,False
+J35,Main command B,1836079,,,,outputs,False
+KCA1,Command interposer A,G7SA-2A2B DC24 / P7SA-10F,"Non-LED terminal base. 33-34 NO, 11-12 NC. Other contacts unused.",,https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf,outputs,False
+KCB1,Command interposer B,G7SA-2A2B DC24 / P7SA-10F,"Non-LED terminal base. 33-34 NO, 11-12 NC. Other contacts unused.",,https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf,outputs,False
+D4,1N4007,1N4007-E3/54,Band to coil positive,,https://www.vishay.com/docs/88503/1n4001.pdf,outputs,False
+D5,1N4007,1N4007-E3/54,Band to coil positive,,https://www.vishay.com/docs/88503/1n4001.pdf,outputs,False
+XC1,Four dry OEM commands,Four-pole keyed control transfer,DOL LOCAL restores only the added A permission via 3-4. See profile-specific field drawing.,,,outputs,False
+XM2,Switched motor feed OUT,Phoenix UT 4 3044102 + UT 4 BU 3044115,"Motor L and N only. Segregate from J52, J54 and XC1. Keep PE continuous on the separate earth bar. Fit rail end stops and 3047028 end covers.",,https://www.phoenixcontact.com/en-us/products/feed-through-terminal-block-ut-4-3044102,outputs,False
+KS1,Motor isolation contactor,LC1D09BD,Representative protected line shown; qualify pole usage and whole starter for the installation.,,https://iportal.se.com/Contents/docs/SQD-LC1D09BD.PDF,outputs,False
+KS2,Motor isolation contactor,LC1D09BD,Representative protected line shown; qualify pole usage and whole starter for the installation.,,https://iportal.se.com/Contents/docs/SQD-LC1D09BD.PDF,outputs,False
+KREADY1,Reset released memory,G7SA-2A2B DC24 / P7SA-10F,24 V DC coil and direct-wired socket. Unused NC contacts have no connections.,,https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf,outputs,False
+KEN1,Manual permission memory,G7SA-2A2B DC24 / P7SA-10F,24 V DC coil and direct-wired socket. Unused NC contacts have no connections.,,https://assets.omron.eu/downloads/latest/datasheet/en/j120_g7sa_relays_with_forcibly_guided_contacts_datasheet_en.pdf,outputs,False
+D10,1N4007,1N4007-E3/54,Band to coil positive,,https://www.vishay.com/docs/88503/1n4001.pdf,outputs,False
+D11,1N4007,1N4007-E3/54,Band to coil positive,,https://www.vishay.com/docs/88503/1n4001.pdf,outputs,False
+D12,Reset pickup isolation,1N4007-E3/54,Observe cathode band and keep flyback loop local to the coil.,,https://www.vishay.com/docs/88503/1n4001.pdf,outputs,False
+XP10,24 VDC pilot pickup taps,Shrouded low-voltage terminals,KS1/KS2 interrupt the motor feeder. The SELV pilot stays powered. Only for the verified 24 V DC pilot profile.,,,pilot,False
+R40,1.60k 1% 0.6W,1.60 kOhm 1% 0.6 W flameproof,24 V pilot field adapter.,,,pilot,False
+R41,1.60k 1% 0.6W,1.60 kOhm 1% 0.6 W flameproof,24 V pilot field adapter.,,,pilot,False
+R42,680R 1% 5W,680 Ohm 1% 5 W flameproof,24 V pilot field adapter.,,,pilot,False
+OC3,Open START / hold detector,AQY212EH,Detect open pickup path. The separate RAW_IDLE proof chain supplies the timer only through OC3.,,https://industry.panasonic.com/ap/en/products/control/relay/photomos/number/aqy212eh,pilot,False
+D8,1N4148 reverse LED clamp,1N4148,"Reverse protection across OC3 LED, band to pin 1.",,,pilot,False
+R43,2.20k 1% 1W,2.20 kOhm 1% 1 W flameproof,24 V pilot field adapter.,,,pilot,False
+KID1,Timed pickup-open proof,RE17RAMU,"Power-on delay mode A, no pause. Engineering setting 1 s. Check reset time, timer tolerance and actual command release/pickup.",,https://iportal.se.com/Contents/docs/SQD-RE17RAMU.PDF,pilot,False
+XPF1,DOL service plug mating positions,Same XC1 profile-matched break-before-make transfer,"Functional view of the XC1 inserts, not an additional device. HOST connects H1-F1 through H4-F4. LOCAL connects only L3-L4. All are open during transfer.",,,pilot,False
+QF1,Protected motor branch source,Installed upstream motor branch protection,Load-side connection schedule only. N is a supply neutral from the same protected branch. Verify protective device and short-circuit coordination on site.,,,service,False
+QISO1,Key-trapped motor disconnector,Motor-rated 2-pole disconnector + Fortress mGard bolt interlock,"Functional terminal IDs; match the approved disconnector drawing. Key captured ON, releasable only with both poles positively isolated OFF. Upstream of XM1. PE never switched.",,https://fortress-safety.com/wp-content/uploads/2022/03/EN-mGard-Overview-Brochure-October-2021-v1.6-Digital-Version.pdf,service,False
+AL1,USB shutter access lock,Factory-matched Fortress mGard single-door interlock,"Mechanical, no electrical terminals. Same unique key as QISO1. Captures the key until the shutter is closed, bolted and verified to exclude an inserted cable.",,https://fortress-safety.com/wp-content/uploads/2022/03/EN-mGard-Overview-Brochure-October-2021-v1.6-Digital-Version.pdf,service,False
+SG1,USB access interlock,D4NS-4BF with captive D4DS-K1,Both direct-opening NC contacts in series. USB shutter mechanically interlocked with QISO1.,,https://assets.omron.eu/downloads/latest/datasheet/en/d4ns_d4ns-sk_safety-door_switch_datasheet_en.pdf,service,False
+XSG1,USB shutter contacts,Dedicated four-terminal field loom,Four insulated cores; USB_MID joins the two field pairs at the cabinet end.,,,service,False
+XO1,Retained OEM motor circuit,"Existing capacitor starter, motor and overload power elements","Functional load boundary. Retain OEM overload elements, capacitor sequencing and continuous PE per the identified starter.",,,service,False
+KT1,One-second reclose inhibit,Autonics CT6S-1P2,Non-communications version. TIMER / PNP / OND / 1 ms INA / retained time-output / zero PV on power loss. Set 1.000 s. Verify actual INA-low to semiconductor OFF timing.,,https://www.autonics.com/in/model/CT6S-1P2,fast_permit,False
+KH1,Cabinet reclose gate,G3RV-ST500-D-H DC24,"Exact DC-input, high-speed module. Check DC load and switching peaks at the installed coil.",,https://www.ia.omron.com/products/family/3869/specification.html,fast_permit,False
+KO1,Factory coil reclose gate,G3RV-ST500-D-H DC24,"Exact DC-input, high-speed module. Check DC load and switching peaks at the installed coil.",,https://www.ia.omron.com/products/family/3869/specification.html,fast_permit,False
+D14,Factory coil flyback,1N4007-E3/54,Observe cathode band and keep flyback loop local to the coil.,,https://www.vishay.com/docs/88503/1n4001.pdf,fast_permit,False
+D15,KS coil flyback,1N4007-E3/54,Observe cathode band and keep flyback loop local to the coil.,,https://www.vishay.com/docs/88503/1n4001.pdf,fast_permit,False
+R44,2.20k 1% 1W,2.20 kOhm 1% 1 W flameproof,Discharges the node and defines the off voltage with leakage.,,,fast_permit,False
+R45,2.20k 1% 1W,2.20 kOhm 1% 1 W flameproof,Discharges the node and defines the off voltage with leakage.,,,fast_permit,False
+R46,2.20k 1% 1W,2.20 kOhm 1% 1 W flameproof,Discharges the node and defines the off voltage with leakage.,,,fast_permit,False
