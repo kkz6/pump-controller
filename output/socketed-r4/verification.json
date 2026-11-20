@@ -1,0 +1,129 @@
+{
+  "kicad_version": "10.0.8",
+  "gerbertools_commit": "7d797b51b13da8060e27d5b16444052a73c5fc32",
+  "boards": {
+    "main": {
+      "source_sha256": {
+        "hardware/main-socketed/pump-controller-integrated.kicad_pcb": "c98c9cf832819aa4a1e7b8e3b935eabbb8d5921e3f277271b8338c4152b6b510",
+        "hardware/main-socketed/pump-controller-integrated.kicad_pro": "4dc8e10c40a96ed74e9b6bd93569155cb6a096c4d71790e35dd65b8f01999054",
+        "hardware/main-socketed/pump-controller-integrated.kicad_dru": "7de012a81e104ae0bd411e25fc95f376357bbc14d1fb32a9370e803f9060ccd1",
+        "hardware/main-socketed/bom.csv": "686fd780e7345334c2251393c80fb7ec96550404a30b6080587f52ff4d1c66b9",
+        "hardware/main-socketed/Pump.kicad_sym": "f04980c7fc8da94f979aa1ee3479cbdd907731e9c0d5e54ff72ddb5061c15ba8",
+        "hardware/main-socketed/fp-lib-table": "beb072455dd2da11b0afc588d48460dec478ad71f0cd503e5b55f74512538b94",
+        "hardware/main-socketed/relay_protection_1.kicad_sch": "78c70c0925cd18d74e2a86f52f7fe713adced3768ee8ca0972174062661e1dc0",
+        "hardware/main-socketed/guard_ports.kicad_sch": "5b871f0880379090ab2b7e07ccec878ccae16e3ca02b8caf54df4219b3c65a35",
+        "hardware/main-socketed/local_controls_2.kicad_sch": "173dc3b898953bede768b5595b4ebb7539f62971499014e38ccf2159b568d6af",
+        "hardware/main-socketed/probes_4.kicad_sch": "93484c5e97f08a9f9e3884b1a53ed9f04b27082267127e3015ccf69f4967cce1",
+        "hardware/main-socketed/usb_service.kicad_sch": "f4253bf79a416bf502dd95c99d7f8c40cebf4207592ee3f86545ac9025117fd3",
+        "hardware/main-socketed/meter_isolation.kicad_sch": "98a872b6d3136ff13b5333ed1c33a644bebb19e6056a49af8512d480b5a2c487",
+        "hardware/main-socketed/probes_2.kicad_sch": "6e0e62f3f224a755230285295221832f9859d45579688365420201002b338323",
+        "hardware/main-socketed/guard_inputs.kicad_sch": "e6c79feda03b70afd0585de5235d670ecff7330374a621fcc395667edc6064f4",
+        "hardware/main-socketed/power_flags.kicad_sch": "b991cebbd68c34d1326aa66b8cb6c22810783dec6dcba6e51bcf0ffb4c64be77",
+        "hardware/main-socketed/power.kicad_sch": "7fac95657a2769c406020e10b51771a43c21fc0d2edaf0fdbb8b1d1ede3a29cf",
+        "hardware/main-socketed/probes_3.kicad_sch": "57a2dc1c71e14e65422a25fde4b6fd93af15769e5eda4b136cb645f71334ebbd",
+        "hardware/main-socketed/pump-controller-integrated.kicad_sch": "09718c89cc03d36cf80738b6f639e51284886bce4e719ee34cd56f573f843824",
+        "hardware/main-socketed/meter_inputs.kicad_sch": "61d3ec294d5e3d9438235fd496f9beea5c09f75079b83b1f0f01da6626180c1b",
+        "hardware/main-socketed/service_inhibit.kicad_sch": "4ebb2e241a78f58626fcc9f1a557fcd845f451771eb66b0c782c80c75cf7f093",
+        "hardware/main-socketed/mechanical.kicad_sch": "baef4753a236cfe52b4731c2b9cf9ef7401f2cb10cfbaacf4de35b990be7511e",
+        "hardware/main-socketed/local_controls_1.kicad_sch": "8e8cb2d4a7990e5dbcbedb57f4528b34c480590d1ad66ed2dfc82e8f1115c14c",
+        "hardware/main-socketed/meter_ic.kicad_sch": "641d9f74c166d2549974ad6bd42f206c8b10f5af6f0f7aa21a4f1551b92b2862",
+        "hardware/main-socketed/relay_protection_2.kicad_sch": "b45d7918f3056694ea62ab5e867e547a5844bf8e965a6779920bc850d0e0049a",
+        "hardware/main-socketed/controls_conditioning.kicad_sch": "22e7dee365754a8d28d5eb7f0608ed2d87edc29b1a08903f038d3817dada7bf6",
+        "hardware/main-socketed/mcu.kicad_sch": "899da1e98a192dc77d586b9947147440a2db0647313c1736d6331d60736a8231",
+        "hardware/main-socketed/guard_field.kicad_sch": "5cc1baa83bbcfb0f8faf23a4ac90a1468397e665c1636bdcff5ee49a84a36a97",
+        "hardware/main-socketed/probes_1.kicad_sch": "7224b6f29abb7940d7068a8562a024370437279a8600b6e4803e152ff6f00ce5",
+        "hardware/main-socketed/Socket.pretty/P6B-04P.kicad_mod": "9f446f0210a181828a767d18ca4db0cb096c47449fe96e3bf52f97aeb30b4572"
+      },
+      "cut_dimensions_mm": [
+        100,
+        117
+      ],
+      "copper_layers": 6,
+      "connectivity": {
+        "path": "output/socketed-r4/main-gerbers.zip",
+        "sha256": "c8d93c091366114d1aa46a09f2735659b533d16bac134d05ee343e0f32ad9dd5",
+        "copper_layers": 6,
+        "ipc_records": 1429,
+        "ipc_named_nets": 213,
+        "layer_witnesses": 2085,
+        "opens_shorts": 0
+      },
+      "injected_faults_detected": [
+        {
+          "board": "integrated",
+          "injected": "Bridge J1.1 and J1.2 on layer 5 (bottom = 0)",
+          "findings": [
+            "logical nets MAINS_L and MAINS_N are short-circuited"
+          ]
+        },
+        {
+          "board": "integrated",
+          "injected": "Open M_MISO on In3.Cu at (35.400, -31.875) mm",
+          "findings": [
+            "logical net M_MISO is divided up into 2 islands"
+          ]
+        }
+      ]
+    },
+    "panel": {
+      "source_sha256": {
+        "hardware/panel-rev-f/pump-panel-rev-f.kicad_pcb": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
+        "hardware/panel-rev-f/pump-panel-rev-f.kicad_pro": "7b9aa7bc1d78397724543f6b95612154c480eaedb2eb4d2772ec8b566e62b54b",
+        "hardware/panel-rev-f/pump-panel-rev-f.kicad_dru": "221177c8e3c714c06e929063386ccdfe17b9fc024e3fcbf13aed4b1d79d89802",
+        "hardware/panel-rev-f/bom.csv": "68b4c13dbcddfd85338ed7fbdc10f433655282a331e23da22a444abded2a5538",
+        "hardware/panel-rev-f/Pump.kicad_sym": "949f9198908e219bfaa59fa727134a5ddbf94c316043e845841f2406d1547dca",
+        "hardware/panel-rev-f/fp-lib-table": "737a31579173efdf3ad58829e646701e6020d0f0c586451c85f583b94ab5cfe1",
+        "hardware/panel-rev-f/pump-panel-rev-f.kicad_sch": "c70aed4a88f886ed6437cf13e6de99c2a7e6e5bd579abd798cf3047b34715e5a",
+        "hardware/panel-rev-f/panel-controls.kicad_sch": "69f3fed7a244387c1ef268d18dd303042879a5d0da33b7b029743ece0774a8b2",
+        "hardware/panel-rev-f/panel-display.kicad_sch": "4f39f18a222117c0d6e97421e61cdab117c57c231271d66124040baf8ee13bc0",
+        "hardware/panel-rev-f/panel-mechanical.kicad_sch": "ed22ea4081b38677bfa7cf053a9c5a5e34876c3524df2a11d693b72fd59638a3",
+        "hardware/panel-rev-f/panel-key.kicad_sch": "d6e1d26928c4b1b3c939b3e6062451b201b2688dbe2aa226dcbfd552b3ca7173"
+      },
+      "cut_dimensions_mm": [
+        60,
+        45
+      ],
+      "copper_layers": 2,
+      "connectivity": {
+        "path": "output/socketed-r4/panel-gerbers.zip",
+        "sha256": "d949f55976453d25bac132b4be69b587dccd01b5702e6fbdb670fa31dfd0629d",
+        "copper_layers": 2,
+        "ipc_records": 108,
+        "ipc_named_nets": 18,
+        "layer_witnesses": 139,
+        "opens_shorts": 0
+      },
+      "injected_faults_detected": [
+        {
+          "board": "panel",
+          "injected": "Bridge J2.1 and J2.2 on layer 0 (bottom = 0)",
+          "findings": [
+            "logical nets GND and START_N are short-circuited"
+          ]
+        },
+        {
+          "board": "panel",
+          "injected": "Isolate J2.3 from the panel STOP trace",
+          "findings": [
+            "connection at coordinate (34.3738, -39.8501) on layer 0 should be connected to logical net GND, but there is no copper here",
+            "logical net STOP_LOCAL_NC is divided up into 2 islands"
+          ]
+        }
+      ]
+    }
+  },
+  "output_sha256": {
+    "main-BOM.csv": "9b725ad1c40244c3fde506df8316d81c578f6677ae1246ba61c9f94fac0feef2",
+    "main-CPL.csv": "dac75d80595d78811a4ee2b15ac43f48616bc58e869770b2853ee49ed149bf72",
+    "main-drc.json": "32b952eb9683ce2c8f350f8a3cb0059459f9912e8cf603590083037110019e6d",
+    "main-erc.json": "66fa32607c65c7868170b2a0d15c33767ab611caa7c98aab35f8e51b012ecfe7",
+    "main-gerbers.zip": "c8d93c091366114d1aa46a09f2735659b533d16bac134d05ee343e0f32ad9dd5",
+    "main-stencil.zip": "b17f36a894304e33aed926a88ccef60b4146ec3c2f462b404959b4e8d4063b5c",
+    "panel-BOM.csv": "0da57c23e575f56a29b8878db75cd34ab15db7da86b6a236d113986d4101f778",
+    "panel-CPL.csv": "a2b3559c97dc98f489ee286bcb77ddc5a5e181768dad05703b7aba826bf12f02",
+    "panel-drc.json": "27867c33092307574c19480c51c5536797a870238da7b478a1490de5b187d937",
+    "panel-erc.json": "808de1946b5e173eefb56d5b56edfcbbcbbf0c7645c03bce2524a2792f0890db",
+    "panel-gerbers.zip": "d949f55976453d25bac132b4be69b587dccd01b5702e6fbdb670fa31dfd0629d",
+    "panel-stencil.zip": "a7e6ef67e3dfdf25feb6070c2a7982befa130e073d098c5020f25dd7e7526a36"
+  }
+}

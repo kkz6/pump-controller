@@ -5,6 +5,7 @@ Compact single-phase pump controller
 
 The budget cabinet is a reference for a conventional three-wire, 24 V DC pilot. Fitting it to an existing starter requires confirming the pilot voltage, linked STOP and overload contacts, and measured stop/restart timing on that unit.
 
+* `Socketed R4 prototype Gerbers, assembly lists and one-starter cost <output/socketed-r4/README.md>`_
 * `R4 main board, plug assignments and schematic <hardware/main-integrated/README.rst>`_
 * `Robu main Gerbers <hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip>`_ and `OLED panel Gerbers <hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip>`_
 * `JLCPCB procurement for one installed controller and one spare board set <output/jlc-r4/README.md>`_
