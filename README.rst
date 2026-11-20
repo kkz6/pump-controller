@@ -1,12 +1,13 @@
 Compact single-phase pump controller
 ====================================
 
-**Integrated R4** combines the controller and the guard receiver on one PCB. The second PCB is the five-button OLED panel. The independent 24 V cabinet guard controls two external motor contactors. The original red STOP and the separate high-high float interrupt this guard in both HOST and LOCAL.
+**Integrated R4** combines the controller and the guard receiver on one PCB. The second PCB is the five-button OLED panel. The selected cabinet uses the tank's four level probes and their common. The controller requests a stop at FULL or at its configured run-time limit. The original STOP and overload have a separate hardwired shutdown path in both HOST and LOCAL. Tank-level control applies only when the controller commands the starter.
 
 * `R4 main board, plug assignments and schematic <hardware/main-integrated/README.rst>`_
 * `Robu main Gerbers <hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip>`_ and `OLED panel Gerbers <hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip>`_
 * `JLCPCB procurement for one installed controller and one spare board set <output/jlc-r4/README.md>`_
-* `R4 cabinet wiring drawing <hardware/starter-guard-r4/starter-wiring.pdf>`_ and `fault results <hardware/starter-guard-r4/checks/faults.json>`_
+* `Selected four-probe cabinet reference and verification <hardware/starter-guard-r4-probes/README.rst>`_
+* `Earlier R4 cabinet drawing with a separate high-high float <hardware/starter-guard-r4/starter-wiring.pdf>`_ and `its fault results <hardware/starter-guard-r4/checks/faults.json>`_
 * `OLED/button panel F <hardware/panel-rev-f/README.rst>`_
 
 **Earlier guarded R3 prototype.** The three

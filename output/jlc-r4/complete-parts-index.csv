@@ -126,7 +126,7 @@ Cabinet,"Preterminated selector loom, 3 circuits — JST PHR-3 + 3 × SPH-002T-P
 Cabinet,"Preterminated 24 V guard loom, 5 circuits — JST VHR-5N + 5 × SVH-21T-P1.1",cab.J54,1,0,1,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet command mating plug — Phoenix Contact 1836079,cab.J30 cab.J35,2,0,2,Required / Exact MPN,cabinet-one-starter.csv,offboard-parts.csv
 Field or panel,Individual plug coding elements — Phoenix Contact 1734634 CP-MSTB,main.J30 / main.J35,2 elements,0,2 elements,Exact component; priced per individual coding profile,field-one-starter.csv,offboard-parts.csv
-Cabinet,Independent NC high-high float — SJE 1062686 MilliAmpMaster WPS,cab.LS1,0,0,0,Excluded from purchasing; released R4 cabinet requires a revised shutdown design,cabinet-one-starter.csv,offboard-parts.csv
+Cabinet,Independent NC high-high float — SJE 1062686 MilliAmpMaster WPS,cab.LS1,0,0,0,Excluded from the four-probe cabinet; retained only in the earlier R4 reference,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet isolated 24V / 2.5A — HDR-60-24,cab.PS2,1,0,1,Required / Exact MPN,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet DC distribution protection — Site-selected DC branch protection,cab.F2,1,0,1,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet supply input — Fixed protected supply terminals,cab.XT1,per cabinet,0,per cabinet,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
@@ -134,7 +134,7 @@ Cabinet,OEM pilot supply — Separate fixed pilot terminals,cab.XP1,per cabinet,
 Cabinet,"Motor feed terminals, line — Phoenix Contact UT 4 3044102",cab.XM1 cab.XM2,2,0,2,Required / Exact MPN,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,"Motor feed terminals, neutral — Phoenix Contact UT 4 BU 3044115",cab.XM1 cab.XM2,2,0,2,Required / Exact MPN,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Terminal group end covers and rail end stops — Phoenix Contact D-UT 3047028; end stops site-selected,cab.XM1 cab.XM2,per terminal layout,0,per terminal layout,Required / Unit reference only; layout quantity pending,cabinet-one-starter.csv,offboard-parts.csv
-Cabinet,OEM and float contacts — Profile-specific field loom,cab.XF2,1,0,1,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
+Cabinet,OEM control and feedback contacts — Profile-specific field loom,cab.XF2,1,0,1,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Original STOP / spare NC — Match installed OEM actuator,cab.S3,1,0,1,Inspect existing first / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,OEM overload / spare NC — Match installed OEM overload,cab.S4,1,0,1,Inspect existing first / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,OEM START release proof — Match installed OEM actuator,cab.S5,1,0,1,Inspect existing first / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv

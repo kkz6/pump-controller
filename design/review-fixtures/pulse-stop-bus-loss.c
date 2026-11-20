@@ -8,7 +8,7 @@ enum { MONITOR_LIMIT_MS=1000 }; /* Maximum permitted receiver dropout. Bench mea
 
 static struct panel_result sample(struct panel_controls *p, struct panel_sample *in, uint32_t t)
 {
-    in->protection_checked_at_ms = in->sampled_at_ms = t;
+    in->tank_scanned_at_ms = in->protection_checked_at_ms = in->sampled_at_ms = t;
     return panel_controls_step(p, t, *in);
 }
 
@@ -16,10 +16,10 @@ int main(void)
 {
     struct panel_controls p;
     struct starter_config cfg = {.profile=STARTER_PULSE_STOP, .harness_profile=STARTER_PULSE_STOP,
-        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
+        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150, .max_run_ms=60000,
         .contact_settle_ms=5, .start_pulse_ms=10, .stop_pulse_ms=10, .independent_shutdown=true};
     struct panel_sample in = {.gpio_a=AUTO_N|LOCAL_N, .gpio_b=START_N|SET_N|STOP_OK|MAN_N,
-        .valid=true, .process_healthy=true, .motor_stopped=true};
+        .valid=true, .process_healthy=true, .tank_levels_valid=true, .motor_stopped=true};
     assert(panel_controls_configure(&p, cfg, false, 4, 20));
     bool previous = false;
     uint32_t last_rise = 0;

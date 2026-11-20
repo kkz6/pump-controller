@@ -1,0 +1,152 @@
+{
+  "profile": "starter-guard-r4-probes",
+  "native_contact_pairs": {
+    "contact_pairs": 49,
+    "populated_net_pins": 211,
+    "components": 48
+  },
+  "R4_reference_interfaces_before_verified_pin_delta": {
+    "matched_cabinet_header_pins": 12,
+    "exclusive_cabinet_nodes": 16,
+    "onboard_privately_wired_feedback": "KFB1.4 STOP_RETURN to KFB1.8 K1_COIL_PLUS",
+    "safety_nets_on_main_board": []
+  },
+  "all_independent_SR1_contact_vectors": 4096,
+  "direct_stop_and_overload_feeder_cases_by_mode": {
+    "HOST": 60,
+    "LOCAL": 60
+  },
+  "direct_restart_and_retained_proof_cases_by_mode": {
+    "HOST": 72,
+    "LOCAL": 72
+  },
+  "restart_sequence_cases_by_demand_from_equivalent_R4_state_machine": {
+    "CABINET_24": 24,
+    "HB_WINDOW_1_NO": 12,
+    "HB_WINDOW_2_NO": 12,
+    "KC_IN_RANGE_NO": 24,
+    "KV_IN_RANGE_NO": 24,
+    "OEM_STOP_RELEASED": 24,
+    "OVERLOAD_HEALTHY": 24,
+    "PANEL_RELAY_NO": 12,
+    "UNSEAT": 24,
+    "USB_ACCESS": 24
+  },
+  "cascade_results_for_retained_demands_from_equivalent_R4_state_machine": {
+    "single_bridge_or_gate_contact_cases_by_demand": {
+      "OEM_STOP_RELEASED": 36,
+      "USB_ACCESS": 36
+    },
+    "single_open_service_channel_by_mode": 4,
+    "wire_nodes": [
+      "SR2.S11",
+      "RUN_PERMITTED",
+      "SR2.S12",
+      "SR2.S21",
+      "SECOND_STAGE",
+      "SR2.S22"
+    ],
+    "prior_single_channel_bypass_reproduced": true,
+    "dual_bypass_sensitivity_control_reproduced": true
+  },
+  "oem_rearm_proofs": {
+    "HOST/healthy": "may accept fresh ENABLE",
+    "HOST/welded_seal_no": "blocked",
+    "HOST/bridged_start_terminals": "blocked",
+    "HOST/lost_monitor_power": "blocked",
+    "HOST/open_monitor_output_lead": "blocked",
+    "HOST/open_positive_sense_lead": "blocked",
+    "HOST/open_negative_sense_lead": "blocked",
+    "HOST/retained_electronic_demand": "blocked",
+    "LOCAL/healthy": "may accept fresh ENABLE",
+    "LOCAL/welded_seal_no": "blocked",
+    "LOCAL/bridged_start_terminals": "blocked",
+    "LOCAL/lost_monitor_power": "blocked",
+    "LOCAL/open_monitor_output_lead": "blocked",
+    "LOCAL/open_positive_sense_lead": "blocked",
+    "LOCAL/open_negative_sense_lead": "blocked",
+    "LOCAL/retained_electronic_demand": "blocked"
+  },
+  "usb_trapped_key": {
+    "reachable_mechanical_states": 6,
+    "contactors_held_closed": true,
+    "scope": "Isolator upstream of XM1 in both modes, independent of VBUS. QISO1/AL1 mechanical action and sole-key control require verification.",
+    "negative_controls_detected": [
+      "QISO1 releases key while on",
+      "AL1 can lock over an inserted cable"
+    ]
+  },
+  "supply_restorations_with_dead_usb_cable": {
+    "restoration_orders_per_mode_and_gate_fault": 24,
+    "sampled_supply_states": 576,
+    "cable": "Inserted with VBUS at 0 V. A separately supplied main board can energize its command rail.",
+    "result": "No SR2 permission, including with either SG1 contact bridged. Both QISO1 poles remain open with both KS main contacts retained. Physical key exchange/plug capture is assumed."
+  },
+  "heartbeat_reference_configuration": {
+    "configured_windows_hz": {
+      "1": [
+        3.0,
+        7.0
+      ],
+      "2": [
+        3.0,
+        7.0
+      ]
+    },
+    "ideal_interior_test_points": {
+      "0": false,
+      "1": false,
+      "2.5": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7.5": false,
+      "10": false,
+      "50": false,
+      "60": false,
+      "100": false,
+      "120": false
+    },
+    "permitted_monitor_pickup_seconds_after_valid_train": 1.0,
+    "permitted_end_to_end_trip_seconds": 1.0,
+    "actual_timing_and_emi_test": "Pending assembled hardware. In-band spurious edges can imitate the heartbeat."
+  },
+  "conventional_pilot_corners": {
+    "corners": 384,
+    "healthy_idle_LED_mA": [
+      5.129,
+      8.17
+    ],
+    "idle_coil_max_V": 0.988,
+    "one_limit_resistor_short_coil_max_V": 1.904,
+    "minimum_drop_out_V": 2.4,
+    "bridged_START_LED_max_mA": 0.065,
+    "LED_turnoff_min_mA": 0.4,
+    "closed_START_R42_max_mA": 39.216,
+    "closed_START_R42_max_W": 1.035,
+    "timer_off_1uA_leakage_max_mV": 2.222,
+    "scope": "Conventional continuously supplied 21.6\u201326.4 V DC pilot, coil 70\u2013150 ohm. Bench qualification pending."
+  },
+  "limits": "No independent water-level trip. Ideal settled contacts. Installed starter, firmware, open/short electrode faults, DC protection, EMC and measured motor stopping remain unverified.",
+  "sha256": {
+    "hardware/main-integrated/checks/source.xml": "f6a984f955075e00557c1e2ce976a78624095b1bc7261d059711b9bd0a6cc1c6",
+    "hardware/starter-guard/heartbeat-window.json": "59ea6cf5de5c69a6c4be3e583c3b0d2ed0adc2130420f15bab4b84e3ee37f3a6",
+    "hardware/starter-guard-r4/checks/guard-netlist.xml": "52f62d3d4c91ae3e34e7d386dc05d5aa5c7c7cff67cd49daae027cedcfa6fbd5",
+    "hardware/starter-guard-r4/contacts.csv": "994425e41307730e9b5a8c022cbe88a66a05b79dc9184d46ad6bf1a0ddf96819",
+    "hardware/starter-guard-r4-probes/checks/erc.json": "89c066e46412bb0c52ee45805fd55c10b32e0671080990eb5d134cbaeeb67464",
+    "hardware/starter-guard-r4-probes/checks/guard-netlist.xml": "753fe760f52b02201774fcc81df0e102b8fbc7c0d7b20a148b703d490e87afd4",
+    "hardware/starter-guard-r4-probes/contacts.csv": "dbb59f97f8d00e15b9d9aaff34760aaca560d150f40e7b92a85496c21f9b723f",
+    "hardware/starter-guard-r4-probes/field.kicad_sch": "13de951373af00f65b54294b1caea4d09f2f678f5720e2139d98966513cbb3ee",
+    "hardware/starter-guard-r4-probes/outputs.kicad_sch": "2d69fffdb93de9189ba580d869dac3630d1343b8127f7472b74109d0e173005c",
+    "hardware/starter-guard-r4-probes/pilot.kicad_sch": "6e89c1e2f2528a2fb95c2c2c8785fa5879b79544668b9195b06efd5ad4b88372",
+    "hardware/starter-guard-r4-probes/service.kicad_sch": "6d4519a6781e06dd209f24d396dffe488a8b1352a326965b72e6cf9c1d9fc6ab",
+    "hardware/starter-guard-r4-probes/starter-guard-r4-probes.kicad_sch": "40b47c006ceba62d968043053ff2c2cc92ff449a2c23a1a5be24c096ae1e4021",
+    "tools/build_integrated_cabinet.py": "8858648d9b73e51a3d3bed99ec70e824360b587fea827f45be54aa6cffb8c3e6",
+    "tools/build_probe_cabinet.py": "4b1c190ae8ff48254fa37134ec83d1e911538f56c879c38f2ef462122ddd0b27",
+    "tools/build_starter_guard.py": "ad4c5a88dd75a677c29d6a5c929ac47fae20c602db9c9c243d17bffbf5f986f8",
+    "tools/check_independent_starter_guard.py": "43946834b77e25589be74a6e788f83d104618b6e9f5843db771f0435372b1b5f",
+    "tools/check_integrated_cabinet.py": "9ebc625887e79b5272a500d3db41e02349e56d5d240d78aa2390ae22fcf8cfd3",
+    "tools/check_probe_cabinet.py": "ffad5b88f4d43fc3dfe1e4356372c51cefa72b115133a3d04f47c156bbf3b989",
+    "tools/generate_cad.py": "38967d393526f8fcd67710eb5bb3c3fa17d4a3bfec8d398cfde86f11ffde4300"
+  }
+}

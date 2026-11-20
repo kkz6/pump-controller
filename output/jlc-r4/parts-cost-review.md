@@ -22,9 +22,9 @@ Bare-board fabrication, feeder loading, soldering, inspection, freight and taxes
 | Omron G7SA-2A2B DC24 guided relays and P7SA-10F sockets | 3 relays and 3 sockets | ₹31,001.49 | 15.4% |
 | Schneider RM17UBE15 supply-voltage monitor | 1 | ₹16,550.39 | 8.2% |
 
-SR1 and SR2 stage the independent shutdown and monitored re-enable, including the original STOP, high-high float and power contactors. WD1 checks that the controller continues to pulse at the expected rate. Its specification includes stuck, missing, too-slow and too-fast pulses. The two largest lines total ₹1,32,784.21. The two motor contactors together account for ₹5,076.40. [Single-cabinet price evidence](cabinet-one-starter.csv) · [Guard functions and factory profile limits](../../hardware/starter-guard-r4/README.rst)
+SR1 and SR2 handle the independent shutdown and monitored re-enable for the original STOP, overload and power contactors. WD1 checks that the controller continues to pulse at the expected rate. Its specification includes stuck, missing, too-slow and too-fast pulses. The two largest lines total ₹1,32,784.21. The two motor contactors together account for ₹5,076.40. [Single-cabinet price evidence](cabinet-one-starter.csv) · [Four-probe cabinet profile](../../hardware/starter-guard-r4-probes/README.rst)
 
-ABB India's Sentry SSR10 (2TLA010050R0000) is a lower-cost candidate for the Pilz pair. The advertised ₹19,389 unit price implies ₹38,778 for two, a nominal ₹36,114 difference. Two-unit availability and the comparable GST basis require a quote. ABB's monitored manual reset acts on release. Qualify the revised RESET/ENABLE sequence, contactor feedback, independent STOP/float trips and restart inhibition before changing the cabinet BOM. This candidate leaves the independent pulse monitor as a separate item. [ABB India offer](https://shop.in.abb.com/2tla010050r0000/safety-relay-sentry-ssr10-24vdc-3-no-1-nc-no-time-delay.html) · [ABB product manual](https://library.e.abb.com/public/3c46423cdbda434990ee8ec3cba1fd03/Sentry%20SSR10%20Product%20Manual%20%28EN%29%20revH%202TLC010063M0201.pdf)
+ABB India's Sentry SSR10 (2TLA010050R0000) is a lower-cost candidate for the Pilz pair. The advertised ₹19,389 unit price implies ₹38,778 for two, a nominal ₹36,114 difference. Two-unit availability and the comparable GST basis require a quote. ABB's monitored manual reset acts on release. Qualify the revised RESET/ENABLE sequence, contactor feedback, independent STOP and overload trips and restart inhibition before changing the cabinet BOM. This candidate leaves the independent pulse monitor as a separate item. [ABB India offer](https://shop.in.abb.com/2tla010050r0000/safety-relay-sentry-ssr10-24vdc-3-no-1-nc-no-time-delay.html) · [ABB product manual](https://library.e.abb.com/public/3c46423cdbda434990ee8ec3cba1fd03/Sentry%20SSR10%20Product%20Manual%20%28EN%29%20revH%202TLC010063M0201.pdf)
 
 ## Board components
 
@@ -57,7 +57,7 @@ Three original Murata capacitor lines have conventional JLC preorder lots costin
 
 ## Cabinet and field equipment for the installed starter
 
-The current cost reference includes both specified motor isolation contactors, both Pilz safety relays, the ifm monitor and the original starter STOP interface. The separate LS1 float has a purchase quantity of zero. The R4 reference drawing depends on LS1 and requires revision for this scope. The shelf spare reuses this equipment when installed. A cabinet quantity of one still requires every device in its safety circuit. [Cabinet items and purchasing conditions](cabinet-one-starter.csv)
+The current cost reference includes both specified motor isolation contactors, both Pilz safety relays, the ifm monitor and the original starter STOP interface. The four-probe cabinet omits the LS1 float. J20 on the main PCB accepts the tank probes directly. The shelf spare reuses the installed cabinet equipment. [Cabinet items and purchasing conditions](cabinet-one-starter.csv) · [Four-probe cabinet profile](../../hardware/starter-guard-r4-probes/README.rst)
 
 | Active purchase scope | Partial catalog amount | Coverage |
 |---|---:|---|
