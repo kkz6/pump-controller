@@ -38,7 +38,7 @@ def build():
         image = subprocess.check_output(['docker', 'image', 'inspect', IMAGE, '--format',
                                          '{{index .RepoDigests 0}}'], text=True).strip()
         result = dict(target=desc['target'], idf_version=desc['git_revision'], sdk_image=image,
-                      fixture='Disabled configuration, compiles and links guard_gpio_init and guard_gpio_step',
+                      fixture='Disabled ESP32-C6 configuration, links legacy guard and metered SPI/control entry points',
                       source_sha256=before, elf_machine='RISC-V', target_executed=False,
                       physical_motor_or_guard_tested=False)
         REPORT.write_text(json.dumps(result, indent=2) + '\n')

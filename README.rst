@@ -1,6 +1,8 @@
 Compact single-phase pump controller
 ====================================
 
+**Onboard voltage revision.** The `socketed R4 with a common 24 V DC pilot <hardware/starter-metered-r4/README.md>`_ uses the ADE7953 for high and low AC voltage in controller-operated modes. The `updated schematic <hardware/starter-metered-r4/cabinet-schematic.pdf>`_ and `one-starter parts and cost <hardware/starter-metered-r4/cost.md>`_ apply to that configuration.
+
 **Integrated R4** combines the controller and the guard receiver on one PCB. The second PCB is the five-button OLED panel. The selected cabinet uses the tank's four level probes and their common. The controller requests a stop at FULL or at its configured run-time limit. The original STOP and overload have a separate hardwired shutdown path in both HOST and LOCAL. Tank-level control applies only when the controller commands the starter.
 
 The budget cabinet is a reference for a conventional three-wire, 24 V DC pilot. Fitting it to an existing starter requires confirming the pilot voltage, linked STOP and overload contacts, and measured stop/restart timing on that unit.

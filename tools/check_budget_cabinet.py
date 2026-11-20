@@ -163,15 +163,18 @@ class Relays:
     oem: bool = False
 
 class Circuit:
-    def __init__(self, pins):
+    def __init__(self, pins, field=FIELD, shared_supply=False):
+        self.shared_supply = shared_supply
         self.pins = pins
         self.edges = {}
         for name, data in POLES.items():
+            if shared_supply and name in ("branch_ok", "pilot_ok"):
+                continue
             ref, a, b = data.split()
             self.edges[name] = (pins[ref,a],pins[ref,b])
             assert self.edges[name][0] != self.edges[name][1], name
         # Each declared drawing contact must refer to a checked physical pole.
-        with (FIELD / "contacts.csv").open(newline="") as source:
+        with (field / "contacts.csv").open(newline="") as source:
             rows = list(csv.DictReader(source))
         checked = {tuple(s.split()) for s in POLES.values()}
         for row in rows:
@@ -210,6 +213,12 @@ class Circuit:
         return groups,forward
 
     def evaluate(self, c, r, timer):
+        if self.shared_supply:
+            # Settled supplies only. Pilot lead failure can interrupt just the OEM coil.
+            dc = c.cabinet and c.branch and c.isolator
+            c = replace(c, cabinet=dc, pilot=dc and c.pilot)
+        pilot_plus = self.pins["S3","OEM-IN"]
+        pilot_return = self.pins["XP1","2"]
         host, local = c.mode == "HOST", c.mode == "LOCAL"
         ks1_contact = r.ks1 or c.weld_power == "KS1"
         ks2_contact = r.ks2 or c.weld_power == "KS2"
@@ -234,7 +243,7 @@ class Circuit:
             ks1_main=ks1_contact,ks2_main=ks2_contact,oem_main=r.oem,
             photo=False,timer=timer,ka_board=c.weld_a,kb_board=c.weld_b or (c.board and c.request_b))
         def network():
-            return self.connected(tuple(k for k,v in state.items() if v))
+            return self.connected(tuple(k for k in self.edges if state[k]))
         nets = network()
         def linked(a,b):
             roots,arcs=nets
@@ -252,13 +261,13 @@ class Circuit:
         # Main K1's coil is gated by KFB1. K1/K2 dry contacts can weld
         # independently of either coil command and independently of the main supply.
         state["ka_board"] |= c.board and c.request_a and feedback
-        state["photo"] = c.pilot and linked("OEM_CTRL_L","PILOT_P") and not linked("PILOT_P","PILOT_D")
+        state["photo"] = c.pilot and linked(pilot_plus,"PILOT_P") and not linked("PILOT_P","PILOT_D")
         nets = network()
         wanted = Relays(ka=coil("KCA1","0","1"), kb=coil("KCB1","0","1"),
             ready=coil("KREADY1","0","1"), enable=coil("KEN1","0","1"),
             ks1=coil("KS1","A1","A2"), ks2=coil("KS2","A1","A2"),
-            oem=c.pilot and linked("OEM_CTRL_L",self.pins["KOF1","A1"])
-                and linked(self.pins["KOF1","A2"],"OEM_CTRL_N"))
+            oem=c.pilot and linked(pilot_plus,self.pins["KOF1","A1"])
+                and linked(self.pins["KOF1","A2"],pilot_return))
         feeder = c.branch and linked("BRANCH_LINE","OEM_LINE") and linked("BRANCH_NEUTRAL","MOTOR_RETURN")
         assert (feeder and r.oem) == (c.branch and linked("BRANCH_LINE","OEM_SWITCHED_LINE")
                                        and linked("MOTOR_RETURN","BRANCH_NEUTRAL"))
