@@ -17,9 +17,9 @@ Bare-board fabrication, feeder loading, soldering, inspection, freight and taxes
 
 For the one installed starter, the operator can use the original red STOP if the controller fails during a fill. This choice requires someone present to notice the fault and act. L4 and the run timer cover routine filling. The factory overload remains in service.
 
-The lower-cost design must let the physical STOP drop the motor with the controller's START or RUN output stuck on, and keep it stopped after button release or power restoration until deliberate re-enable. The installed starter's pilot diagram and a qualified check of this behavior are still needed. The OLED-panel STOP and app both depend on the controller. The present R4 board expects external guard feedback before it permits operation. The two Pilz relays and the ifm monitor below are therefore cost-reduction targets for a revised design. Their combined reference cost of ₹1,32,784.21 is the amount under review. [R4 cabinet and feedback paths](../../hardware/starter-guard-r4-probes/README.rst) · [Starter identification](../../design/rev-e-integration.rst)
+The budget reference supersedes the Pilz cabinet for conventional 24 V DC starters. Its hardwired stop and reset logic and its priced parts schedule are published separately. The installed starter's actual pilot diagram, compatible auxiliary contacts and measured stop/restart behavior are still needed. The original cabinet prices below provide a comparison baseline. [Budget cabinet reference](../../hardware/starter-budget-r4/README.rst) · [Revised cost and exclusions](budget-cabinet-cost.md)
 
-## Highest cabinet costs
+## Previous cabinet costs
 
 | Item | Installed quantity | Reference line cost | Share of ₹2,01,757.50 cabinet subtotal |
 |---|---:|---:|---:|
@@ -63,7 +63,7 @@ Three original Murata capacitor lines have conventional JLC preorder lots costin
 
 ## Cabinet and field equipment for the installed starter
 
-The current cost reference includes both specified motor isolation contactors, both Pilz safety relays, the ifm monitor and the original starter STOP interface. The four-probe cabinet omits the LS1 float. J20 on the main PCB accepts the tank probes directly. The shelf spare reuses the installed cabinet equipment. [Cabinet items and purchasing conditions](cabinet-one-starter.csv) · [Four-probe cabinet profile](../../hardware/starter-guard-r4-probes/README.rst)
+The earlier Pilz cabinet cost reference includes both specified motor isolation contactors, both Pilz safety relays, the ifm monitor and the original starter STOP interface. The four-probe cabinet omits the LS1 float. J20 on the main PCB accepts the tank probes directly. The shelf spare reuses the installed cabinet equipment. [Cabinet items and purchasing conditions](cabinet-one-starter.csv) · [Four-probe cabinet profile](../../hardware/starter-guard-r4-probes/README.rst)
 
 | Active purchase scope | Partial catalog amount | Coverage |
 |---|---:|---|

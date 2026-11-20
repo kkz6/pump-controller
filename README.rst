@@ -3,10 +3,13 @@ Compact single-phase pump controller
 
 **Integrated R4** combines the controller and the guard receiver on one PCB. The second PCB is the five-button OLED panel. The selected cabinet uses the tank's four level probes and their common. The controller requests a stop at FULL or at its configured run-time limit. The original STOP and overload have a separate hardwired shutdown path in both HOST and LOCAL. Tank-level control applies only when the controller commands the starter.
 
+The budget cabinet is a reference for a conventional three-wire, 24 V DC pilot. Fitting it to an existing starter requires confirming the pilot voltage, linked STOP and overload contacts, and measured stop/restart timing on that unit.
+
 * `R4 main board, plug assignments and schematic <hardware/main-integrated/README.rst>`_
 * `Robu main Gerbers <hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip>`_ and `OLED panel Gerbers <hardware/panel-rev-f/pump-panel-rev-f-gerber-prototype.zip>`_
 * `JLCPCB procurement for one installed controller and one spare board set <output/jlc-r4/README.md>`_
-* `Selected four-probe cabinet reference and verification <hardware/starter-guard-r4-probes/README.rst>`_
+* `Lower-cost conventional DOL cabinet, hardwired STOP and manual re-enable <hardware/starter-budget-r4/README.rst>`_ and `one-starter cost estimate <output/jlc-r4/budget-cabinet-cost.md>`_
+* `Previous four-probe cabinet with two Pilz units and a heartbeat monitor <hardware/starter-guard-r4-probes/README.rst>`_
 * `Earlier R4 cabinet drawing with a separate high-high float <hardware/starter-guard-r4/starter-wiring.pdf>`_ and `its fault results <hardware/starter-guard-r4/checks/faults.json>`_
 * `OLED/button panel F <hardware/panel-rev-f/README.rst>`_
 
