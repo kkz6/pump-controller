@@ -28,6 +28,7 @@ def run():
         subprocess.run([os.environ.get('CC', 'cc'), '-std=c11', '-Wall', '-Wextra', '-Werror',
                         '-fsanitize=address,undefined', '-fno-omit-frame-pointer',
                         '-I', STARTER / 'include', STARTER / 'starter_outputs.c', STARTER / 'panel_controls.c',
+                        STARTER / 'onboard_voltage.c',
                         STARTER / 'tests/panel_controls_test.c', '-o', program], check=True)
         subprocess.run([program], check=True)
     if frozen != hashes():

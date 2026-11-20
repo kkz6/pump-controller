@@ -197,13 +197,13 @@ def design():
     return data
 
 
-def write_contacts(data):
+def write_contacts(data, output=OUT, poles=POLES):
     pins = {part["ref"]: {pin["num"]: pin["net"] for pin in part["pins"]}
             for sheet in data["sheets"] for part in sheet["components"]}
-    with (OUT / "contacts.csv").open("w", newline="") as stream:
+    with (output / "contacts.csv").open("w", newline="") as stream:
         writer = csv.writer(stream, lineterminator="\n")
         writer.writerow(["circuit", "from", "to", "conducts_when", "ref", "pin_a", "pin_b"])
-        for circuit, paths in POLES.items():
+        for circuit, paths in poles.items():
             for line in paths.strip().splitlines():
                 ref, pin_a, pin_b, state = line.split()
                 a, b = pins[ref][pin_a], pins[ref][pin_b]
@@ -211,28 +211,27 @@ def write_contacts(data):
                 writer.writerow([circuit, a, b, state, ref, pin_a, pin_b])
 
 
-def main():
-    data = design()
-    checks = OUT / "checks"
+def export(data, output, project, poles):
+    checks = output / "checks"
     checks.mkdir(parents=True, exist_ok=True)
-    write_contacts(data)
-    cad.write_schematics(data, OUT, PROJECT)
-    cad.write_bom(data, OUT)
-    (OUT / (PROJECT + ".kicad_pro")).write_text(json.dumps(
-        {"meta": {"filename": PROJECT + ".kicad_pro", "version": 3}}, indent=2) + "\n")
+    write_contacts(data, output, poles)
+    cad.write_schematics(data, output, project)
+    cad.write_bom(data, output)
+    (output / (project + ".kicad_pro")).write_text(json.dumps(
+        {"meta": {"filename": project + ".kicad_pro", "version": 3}}, indent=2) + "\n")
     cli = os.environ.get("KICAD_CLI") or shutil.which("kicad-cli") or str(cad.BASE / ".tools/kicad-cli")
     for job in [
         ["erc", "--format", "json", "--severity-all", "--exit-code-violations", "-o", "checks/erc.json"],
         ["export", "netlist", "--format", "kicadxml", "-o", "checks/guard-netlist.xml"],
         ["export", "pdf", "-o", "cabinet-schematic.pdf"],
     ]:
-        subprocess.run([cli, "sch", *job, PROJECT + ".kicad_sch"], cwd=OUT, check=True)
+        subprocess.run([cli, "sch", *job, project + ".kicad_sch"], cwd=output, check=True)
     netlist = checks / "guard-netlist.xml"
     cad.validate_netlist(data, netlist)
     xml = ET.parse(netlist)
     for element in xml.findall(".//source") + xml.findall(".//uri"):
         if element.text:
-            element.text = element.text.replace(str(OUT) + "/", "")
+            element.text = element.text.replace(str(output) + "/", "")
     xml.write(netlist, encoding="utf-8", xml_declaration=True)
     erc = checks / "erc.json"
     result = json.loads(erc.read_text())
@@ -240,6 +239,10 @@ def main():
         if "source" in sheet:
             sheet["source"] = Path(sheet["source"]).name
     erc.write_text(json.dumps(result, indent=2) + "\n")
+
+
+def main():
+    export(design(), OUT, PROJECT, POLES)
 
 
 if __name__ == "__main__":

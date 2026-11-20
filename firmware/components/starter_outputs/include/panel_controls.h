@@ -2,6 +2,7 @@
 #define PUMP_PANEL_CONTROLS_H
 
 #include "starter_outputs.h"
+#include "onboard_voltage.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,6 +29,7 @@ struct panel_sample {
     uint32_t tank_scanned_at_ms;
     uint8_t tank_wet_mask;
     bool tank_levels_valid;
+    struct voltage_sample voltage;
 };
 
 struct panel_debounce {
@@ -37,6 +39,9 @@ struct panel_debounce {
 
 struct panel_controls {
     struct starter_outputs outputs;
+    struct voltage_limits voltage_limits;
+    struct voltage_window voltage_window;
+    bool onboard_voltage_required;
     struct panel_debounce buttons, key;
     enum panel_mode mode;
     uint32_t debounce_ms, max_age_ms, released_since_ms, arm_sample_ms, last_sample_ms;
@@ -50,6 +55,8 @@ struct panel_controls {
 
 struct panel_result {
     struct starter_drive drive;
+    enum voltage_status voltage_status;
+    uint32_t mains_mv; /* Meaningful for a valid onboard measurement. */
     bool heartbeat_high; /* GPIO21 output level from this control cycle. Never use a free-running timer. */
     enum panel_mode mode;
     bool auto_enabled;
@@ -71,6 +78,10 @@ struct panel_result {
  * live trip here. This instance is the sole owner of its starter sequencer. */
 bool panel_controls_configure(struct panel_controls *panel, struct starter_config starter,
                               bool key_fitted, uint32_t debounce_ms, uint32_t max_age_ms);
+/* Required entry point for the socketed, common-supply 24 V DC cabinet. */
+bool metered_dol_configure(struct panel_controls *panel, struct starter_config starter,
+                         bool key_fitted, uint32_t debounce_ms, uint32_t max_age_ms,
+                         struct voltage_limits limits);
 struct panel_result panel_controls_step(struct panel_controls *panel, uint32_t now_ms,
                                         struct panel_sample sample);
 

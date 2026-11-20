@@ -31,6 +31,19 @@ bool panel_controls_configure(struct panel_controls *p, struct starter_config co
     return starter_configure(&p->outputs, config);
 }
 
+bool metered_dol_configure(struct panel_controls *p, struct starter_config config, bool key_fitted,
+                         uint32_t debounce_ms, uint32_t max_age_ms, struct voltage_limits limits)
+{
+    if (config.profile != STARTER_OPEN_STOP || !voltage_limits_valid(limits) ||
+        !panel_controls_configure(p, config, key_fitted, debounce_ms, max_age_ms)) {
+        *p = (struct panel_controls){0};
+        return false;
+    }
+    p->onboard_voltage_required = true;
+    p->voltage_limits = limits;
+    return true;
+}
+
 static void update_heartbeat(struct panel_controls *p, uint32_t now, const struct panel_sample *in,
                              bool healthy)
 {
@@ -114,7 +127,14 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     }
     bool low = tank_valid && in.tank_wet_mask == 0;
     bool full = tank_valid && in.tank_wet_mask == 0x0F;
-    bool healthy = fresh && !interrupted && process_fresh && in.process_healthy &&
+    bool voltage_ok = true;
+    if (p->onboard_voltage_required) {
+        result.voltage_status = voltage_update(&p->voltage_window, p->voltage_limits,
+                                               in.voltage, now, p->max_age_ms);
+        result.mains_mv = p->voltage_window.millivolts;
+        voltage_ok = result.voltage_status == VOLTAGE_OK;
+    }
+    bool healthy = voltage_ok && fresh && !interrupted && process_fresh && in.process_healthy &&
                    tank_valid && key_ok && (in.gpio_b & 4);
     bool monitor_eligible = healthy && transfer == TRANSFER_HOST && p->outputs.config.profile != STARTER_DISABLED;
     enum panel_mode mode = p->mode;
