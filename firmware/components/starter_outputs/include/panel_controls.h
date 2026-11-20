@@ -41,7 +41,7 @@ struct panel_controls {
     struct starter_outputs outputs;
     struct voltage_limits voltage_limits;
     struct voltage_window voltage_window;
-    bool onboard_voltage_required;
+    bool onboard_voltage_required, direct_starter;
     struct panel_debounce buttons, key;
     enum panel_mode mode;
     uint32_t debounce_ms, max_age_ms, released_since_ms, arm_sample_ms, last_sample_ms;
@@ -82,6 +82,10 @@ bool panel_controls_configure(struct panel_controls *panel, struct starter_confi
 bool metered_dol_configure(struct panel_controls *panel, struct starter_config starter,
                          bool key_fitted, uint32_t debounce_ms, uint32_t max_age_ms,
                          struct voltage_limits limits);
+/* Direct two-board harness, commissioned with its factory STOP and overload. */
+bool direct_starter_configure(struct panel_controls *panel, struct starter_config starter,
+                              bool key_fitted, uint32_t debounce_ms, uint32_t max_age_ms,
+                              struct voltage_limits limits);
 struct panel_result panel_controls_step(struct panel_controls *panel, uint32_t now_ms,
                                         struct panel_sample sample);
 

@@ -1,0 +1,27 @@
+{
+  "main_INR": "15396.37",
+  "panel_INR": "3762.43",
+  "field_INR": "2398.33",
+  "two_starter_plugs_INR": "483.84",
+  "installed_priced_INR": "22040.97",
+  "single_pair_production_priced_INR": "28345.57",
+  "rate_INR_per_USD": "93.3461",
+  "eliminated_two_main_purchase_lots_USD": {
+    "2N7002,215": "0.1640",
+    "B3B-PH-K-S(LF)(SN)": "0.1254",
+    "BAV199W,115": "6.3190",
+    "BC807-40,215": "2.9380",
+    "G5V-2-H1 DC24": "3.4378",
+    "GRM32ER71H475KA88L": "0.7845",
+    "RC0805FR-07100KL": "0.0760",
+    "RC0805FR-07115KL": "0.0640",
+    "RC0805FR-0733KL": "0.1140",
+    "RC0805FR-074K7L": "0.1280",
+    "RC0805FR-07560RL": "0.1400",
+    "S1M-E3/61T": "0.4368",
+    "S5P-VH(LF)(SN)": "0.6094",
+    "SMBJ26A-E3/52": "0.8075",
+    "VO617A-3": "2.2732"
+  },
+  "unquoted": "Radio U3, input connector J1, factory fabrication/placement/through-hole costs, antenna, completed CT and cables, site-specific fitting, optional key or factory-only insert, landed charges."
+}

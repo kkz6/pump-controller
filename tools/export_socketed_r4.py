@@ -39,14 +39,16 @@ def archive(path, members):
             z.writestr(name, data)
 
 
-def board_outputs(name, temp, driver):
-    directory, stem, dimensions, layers, profile = BOARDS[name]
+def board_outputs(name, temp, driver, boards, output):
+    directory, stem, dimensions, layers, profile = boards[name]
     source = ROOT / 'hardware' / directory
     pcb = source / (stem + '.kicad_pcb')
     schematic = pcb.with_suffix('.kicad_sch')
     inputs = [pcb, pcb.with_suffix('.kicad_pro'), pcb.with_suffix('.kicad_dru'),
               source / 'bom.csv', source / 'Pump.kicad_sym', source / 'fp-lib-table',
               *source.glob('*.kicad_sch'), *source.glob('Socket.pretty/*.kicad_mod')]
+    if directory == 'main-direct':
+        inputs.append(ROOT / 'hardware/main-socketed/Socket.pretty/P6B-04P.kicad_mod')
     snapshot = {p: digest(p) for p in inputs}
     erc, drc = [temp / (name + '-' + kind + '.json') for kind in ('erc','drc')]
     run('sch','erc','--severity-all','--exit-code-violations','--format','json','-o',erc,schematic)
@@ -108,7 +110,7 @@ def board_outputs(name, temp, driver):
                       for side,ext in [('F','GTP'),('B','GBP')]})
     prepare(name, directory, stem, catalog(), destination=temp)
     record, controls = check(profile, driver, str(fab.relative_to(ROOT)))
-    record['path'] = 'output/socketed-r4/'+fab.name
+    record['path'] = str((output / fab.name).relative_to(ROOT))
     if any(digest(p) != old for p,old in snapshot.items()):
         raise ValueError(f'{name}: source changed during validation')
     return {'source_sha256':{str(p.relative_to(ROOT)):h for p,h in snapshot.items()},
@@ -119,18 +121,25 @@ def board_outputs(name, temp, driver):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--compare', type=Path, required=True, help='Built tools/cam/compare.cpp')
-    driver = parser.parse_args().compare.resolve()
-    OUTPUT.mkdir(exist_ok=True)
-    with tempfile.TemporaryDirectory(dir=OUTPUT) as work:
+    parser.add_argument('--direct', action='store_true', help='Export the two-board direct-starter revision')
+    args = parser.parse_args()
+    driver = args.compare.resolve()
+    boards = dict(BOARDS)
+    output = OUTPUT
+    if args.direct:
+        boards['main'] = ('main-direct', 'pump-direct', (100, 117), 6, 'integrated')
+        output = ROOT / 'output/direct-starter'
+    output.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=output) as work:
         temp = Path(work)
-        checks = {n:board_outputs(n,temp,driver) for n in BOARDS}
+        checks = {n:board_outputs(n,temp,driver,boards,output) for n in boards}
         results = [p for p in temp.iterdir() if p.is_file() and p.suffix in ('.csv','.zip','.json')]
         report = {'kicad_version':subprocess.check_output([CLI,'version'],text=True).strip(),
                   'gerbertools_commit':UPSTREAM,'boards':checks,
                   'output_sha256':{p.name:digest(p) for p in sorted(results)}}
         (temp/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
         for p in [*results,temp/'verification.json']:
-            p.replace(OUTPUT / p.name)
+            p.replace(output / p.name)
 
 
 if __name__ == '__main__':
