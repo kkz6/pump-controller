@@ -19,6 +19,9 @@
 (rule "Reinforced live to isolated control separation"
   (condition "(A.hasNetclass('LIVE') && B.hasNetclass('SELV')) || (A.hasNetclass('SELV') && B.hasNetclass('LIVE'))")
   (constraint clearance (min 8mm)))
+(rule "Live to isolated control surface distance"
+  (condition "(A.hasNetclass('LIVE') && B.hasNetclass('SELV')) || (A.hasNetclass('SELV') && B.hasNetclass('LIVE'))")
+  (constraint creepage (min 8mm)))
 (rule "First divider resistor differential voltage spacing"
   (condition "(A.NetName == 'L_PROTECTED' && B.NetName == 'M_VDIV_0') || (B.NetName == 'L_PROTECTED' && A.NetName == 'M_VDIV_0')")
   (constraint clearance (min 0.6mm)))

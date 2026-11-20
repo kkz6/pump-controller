@@ -23,10 +23,16 @@ K1 and K2 each take one Omron G6B-1114P-US-P6B DC5 in one P6B-04P socket with a 
 | J1 MAINS | Protected supply ahead of the contactor, on the same supply as the motor. The onboard meter reads this voltage with the motor on or off. |
 | J10 LIVE CT | Fixed-burden CT harness around one insulated motor-feed conductor. J10 is mains-referenced. Fit the burden and verify the insulated harness before using the CT. |
 | J20 TANK | Five tank wires. Pin 1 is common, with levels 1–4 on pins 2–5. |
-| J21 INLET / RET | Inlet electrode and dedicated inlet return. This revision drives the return separately. A single inlet wire that depends on tank common needs a compatible sensing interface. |
+| J21 INLET / RET | Pin 1 is the inlet electrode. For the six-wire installation, use the existing tank common on J20.1 and leave J21.2 empty. An inlet with its own return electrode uses J21.2. |
 | J32 PANEL | Straight 12-way keyed loom to panel J1. Use only a pinned and continuity-checked harness. |
 | J30 A, J35 B | Starter control contacts. Four terminals support independent inputs. Share a common only where the starter diagram specifies it. |
 | J40 USB, J41 supply selection, J2 debug | Bench service and programming. [USB guide](programming.md) |
+
+### One inlet wire sharing the tank common
+
+The AC excitation from U20 reaches the tank common through R115, C106/C108, R116 and R117. Water that electrically connects the inlet electrode to that common completes the sensing path through J21.1, R170/R171 and C128 into U21 channel 5 and the ADC. Leave the second driven output on J21.2 open in this arrangement. The two driven outputs must stay separate.
+
+An air gap, a free-falling stream that breaks into droplets, or an unsubmerged common can leave this circuit open while the pump delivers water. With the motor disconnected, first verify the inlet indicator changes between a dry pipe and actual flowing water, including at the lowest tank level. Until that distinction is established, treat the inlet reading as unverified for dry-run control. A dedicated return at the inlet is the alternative for an electrically isolated inlet.
 
 ## Panel connections
 
