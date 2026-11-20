@@ -1,0 +1,21 @@
+{
+  "main": {
+    "zip_sha256": "c8d93c091366114d1aa46a09f2735659b533d16bac134d05ee343e0f32ad9dd5",
+    "PTH_holes": 656,
+    "PTH_max_axis_rounding_mm": 0.0005,
+    "NPTH_holes": 7,
+    "NPTH_max_axis_rounding_mm": 0,
+    "outline_segments": 8,
+    "socket_drills_checked": 8,
+    "socket_drill_mm": 1.1,
+    "socket_pinout_and_clamp_polarity_verified": true
+  },
+  "panel": {
+    "zip_sha256": "d949f55976453d25bac132b4be69b587dccd01b5702e6fbdb670fa31dfd0629d",
+    "PTH_holes": 31,
+    "PTH_max_axis_rounding_mm": 0.0005,
+    "NPTH_holes": 4,
+    "NPTH_max_axis_rounding_mm": 0,
+    "outline_segments": 4
+  }
+}

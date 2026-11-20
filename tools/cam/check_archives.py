@@ -79,8 +79,8 @@ def compare(driver, directory, layers, count, expect_fault=False):
     return lines[1:]
 
 
-def check(name, driver):
-    relative = FILES[name]
+def check(name, driver, relative=None):
+    relative = relative or FILES[name]
     archive = ROOT / relative
     layers = 6 if name in ("main", "integrated") else 2
     with tempfile.TemporaryDirectory() as temporary:

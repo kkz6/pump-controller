@@ -115,7 +115,7 @@ def catalog():
     return result
 
 
-def prepare(board, location, stem, parts):
+def prepare(board, location, stem, parts, destination=OUT):
     base = ROOT / 'hardware' / location
     rows = read_csv(base/'bom.csv')
     with tempfile.TemporaryDirectory() as work:
@@ -161,8 +161,8 @@ def prepare(board, location, stem, parts):
     for (part,footprint), refs in groups.items():
         desc = fitted[refs[0]]['Value']
         bom.append((part+' '+desc,','.join(refs),footprint,parts.get(part,''),part,len(refs)))
-    write_csv(OUT/(board+'-BOM.csv'),('Comment','Designator','Footprint','JLCPCB Part #','Manufacturer Part Number','Quantity'),bom)
-    write_csv(OUT/(board+'-CPL.csv'),('Designator','Mid X','Mid Y','Layer','Rotation'),cpl)
+    write_csv(destination/(board+'-BOM.csv'),('Comment','Designator','Footprint','JLCPCB Part #','Manufacturer Part Number','Quantity'),bom)
+    write_csv(destination/(board+'-CPL.csv'),('Designator','Mid X','Mid Y','Layer','Rotation'),cpl)
     print(f'{board}: {len(fitted)} placements; {len(bom)} lines; {sum(bool(b[3]) for b in bom)} matched catalog lines')
     return notes, decisions
 
