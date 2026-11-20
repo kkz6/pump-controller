@@ -4,6 +4,8 @@ The order covers **one installed DOL starter and one shelf-spare board set**. Fa
 
 Size component quantities to fill every position on both sets. The preference for small lots of two on parts at or above US$1 and five below US$1 applies only where it permits a complete build. Show unavoidable supplier minimums and assembly losses separately. Exclude discretionary extras from the estimate.
 
+The installed starter is being considered for a lower-cost cabinet that relies on an operator pressing the original red STOP after a controller failure. Defer purchase of the external guard equipment during this review. The listed R4 assembly and its guard form a matched reference design. [Manual-stop design target and cost impact](parts-cost-review.md#manual-stop-design-target)
+
 | Design | PCB fabrication upload | Assembly uploads | Board specification |
 |---|---|---|---|
 | Integrated main R4 | [Main Gerber ZIP](../../hardware/main-integrated/pump-controller-integrated-r4-gerber-prototype.zip) | [BOM](main-BOM.csv) · [Placement file](main-CPL.csv) | 100 × 115.5 mm, six layers, 1.6 mm Tg155 FR-4 or confirmed equivalent, 1 oz outer/0.5 oz inner copper, green mask, white legend, ENIG |
