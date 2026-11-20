@@ -1,0 +1,12 @@
+panel_controls_test passed
+starter_outputs_test passed
+command_leds_test passed
+Latched START followed by bus failure: no K2 pulse, heartbeat stopped. Simulated external guard expired; healthy data alone could not restart.
+pulse-stop-bus-loss passed
+Ignored STOP: reported running for 10000 ms, STOP events=1, heartbeat edges=2 (final second=0), IDLE=0, AUTO authorized=0.
+STOP timeout latched; held SET rejected; deliberate acknowledgement required guard open and stopped feedback.
+OPEN_STOP: stopped feedback went false before START, START event=0, START output=0.
+r2-stop-feedback passed
+guard_gpio_test passed (mock GPIO)
+metered_dol_test passed (mock ADE7953 SPI, control and GPIO)
+usb_activity_test passed

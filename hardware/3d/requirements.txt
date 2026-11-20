@@ -1,5 +1,0 @@
-# Model/export helper versions used with Python 3.12.
-# KiCad pcbnew comes from the separate KiCad 10 installation.
-cadquery-ocp==8.0.1.1.0
-numpy==2.5.5
-trimesh==5.2.1

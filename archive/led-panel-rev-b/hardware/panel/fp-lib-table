@@ -1,6 +1,0 @@
-(fp_lib_table (version 7)
-(lib (name "Connector_JST") (type "KiCad") (uri "${KIPRJMOD}/../libraries/Connector_JST.pretty") (options "") (descr "Project-local portable footprint cache"))
-(lib (name "LED_SMD") (type "KiCad") (uri "${KIPRJMOD}/../libraries/LED_SMD.pretty") (options "") (descr "Project-local portable footprint cache"))
-(lib (name "MountingHole") (type "KiCad") (uri "${KIPRJMOD}/../libraries/MountingHole.pretty") (options "") (descr "Project-local portable footprint cache"))
-(lib (name "Resistor_SMD") (type "KiCad") (uri "${KIPRJMOD}/../libraries/Resistor_SMD.pretty") (options "") (descr "Project-local portable footprint cache"))
-)

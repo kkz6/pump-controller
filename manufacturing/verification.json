@@ -1,0 +1,186 @@
+{
+  "kicad_version": "10.0.8",
+  "gerbertools_commit": "7d797b51b13da8060e27d5b16444052a73c5fc32",
+  "boards": {
+    "main": {
+      "source_sha256": {
+        "hardware/main/pump-direct.kicad_pcb": "2487b295525af1656d7bbedc589a61332275efae43589efd198ec5e469e9b5d0",
+        "hardware/main/pump-direct.kicad_pro": "c7fa32824787fcc5359a46b6c1354020a01554679c4ba832ec99f96f3c595418",
+        "hardware/main/pump-direct.kicad_dru": "7de012a81e104ae0bd411e25fc95f376357bbc14d1fb32a9370e803f9060ccd1",
+        "hardware/main/bom.csv": "6a159059038a195a5c9ef65c1e7829aaed912046c072710c2e1597befd5c2005",
+        "hardware/main/Pump.kicad_sym": "789e42e4a1886966e81bb608d29b050da284f2d5ec965c2d4f3063ec0fc04106",
+        "hardware/main/fp-lib-table": "8505570602c2af54390a87e3a7d344b58fbd533779b5af567cbac6ab8d799e21",
+        "hardware/main/relay_protection_1.kicad_sch": "01f7bff9c0c4f6eb1b46f57d4f3538f55f8d024ba825e292875ca87186cd9b56",
+        "hardware/main/local_controls_2.kicad_sch": "d3ffaa5d47ee1dec71fa14831cb4532934825aea9d17dbb2e4cbefe429316edf",
+        "hardware/main/probes_4.kicad_sch": "0b41f231b7d59d21cbb32999ad20c7c0d64a22f788046305c063081e91a90e4f",
+        "hardware/main/usb_service.kicad_sch": "2745c6c7561e2c5ad7395f423a8e066d8d25bb0df8d1aa8407121cae03fd200a",
+        "hardware/main/meter_isolation.kicad_sch": "ba9b7eed49c63204dc60a6e95a533dec85e63b26a2a54a25c50d570e737ffb2b",
+        "hardware/main/probes_2.kicad_sch": "e3eab75f4737ae63fb2ae846d14d159ecc4278c36140f8905cfb51ec81607d19",
+        "hardware/main/power_flags.kicad_sch": "571c006d42e4fe36e212eb662a4538dbac991674d98461e8f5706a22def906b0",
+        "hardware/main/power.kicad_sch": "a916ec53c49c7251ce620f330d73761507eb6a6ad0b9e76e1ff7d2011015bd03",
+        "hardware/main/probes_3.kicad_sch": "856731fef38b90bf99a674f59cd3b69717fcba3ae5a9ab60a45170ea98eaa169",
+        "hardware/main/pump-direct.kicad_sch": "4eb5ea9b8e3d2d62b6aab823c2acb3f8415c0f7a9203e702fff0621b041e2c3f",
+        "hardware/main/meter_inputs.kicad_sch": "0d05979c22f7070ae5094fc97d16d2bc38854e398228bdabeffdcea0a46024b9",
+        "hardware/main/service_inhibit.kicad_sch": "7870f89731a235a6290ac8777582e03835e58c92fe9bcb1b60eb6696ee0eaca9",
+        "hardware/main/mechanical.kicad_sch": "a779413c4020eebd3b3923131a9ae6f3d62092dcca98ef7459392ce0ece38bd3",
+        "hardware/main/local_controls_1.kicad_sch": "abb05330ce3d28dcf19c7dd07246eba10ae5a73baa672fdd7417dc6b15842adf",
+        "hardware/main/meter_ic.kicad_sch": "fd95d9738cd3972d25a293df07ab0554f701183cb7fa990e603c89222e0d9127",
+        "hardware/main/relay_protection_2.kicad_sch": "bc583043e84f3783c9f5369a9e0ab27385c50978061b9c8944735f60a945bc9a",
+        "hardware/main/controls_conditioning.kicad_sch": "c740ee60a7d1367726db828f513e1965765a7c72d337972aa12173c9561bafb3",
+        "hardware/main/mcu.kicad_sch": "471abfea167f5646ef5727e95ef967f3b1d0a48a98c91fbb22f36ecbde198aa7",
+        "hardware/main/probes_1.kicad_sch": "cbcf0913f620c0bd52225cf868bfe63cd17014540255b11dfc45a4631ad63bce",
+        "hardware/main/libraries/Button_Switch_SMD.pretty/SW_SPST_B3U-1000P.kicad_mod": "fdd962da5bbdf06598b62a31d66099bebedf4642de6d606f93e50d1e01a15d6e",
+        "hardware/main/libraries/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod": "419c4a37d554d24bb36e00759fd3dc52fc1049bfe34607d5783d242c200c0a19",
+        "hardware/main/libraries/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod": "550a2ba35eb0cca5877bd70997ab06e4cada72c5f9e02d9d60a4837792eb9544",
+        "hardware/main/libraries/Capacitor_SMD.pretty/C_1210_3225Metric.kicad_mod": "91d302b5f70f84d4b9b94479ea6672e5b50f4d7a76f63b8765ff79ff045637e4",
+        "hardware/main/libraries/CompactGuard.pretty/ADuM6421A_RN28_Dense.kicad_mod": "d4118e1b1f9a81e523e71cf7003e3744a876c11c629eff166cbb0a9205f5a787",
+        "hardware/main/libraries/CompactGuard.pretty/C_0402_1005Metric.kicad_mod": "55b27eec0fa0ce81eb0780f4e6965be142581487777ab4fbd38ae0dc9bc71c7f",
+        "hardware/main/libraries/CompactGuard.pretty/D_SOD-123F.kicad_mod": "891be4ce248f17d05cdb04c9d5cae1e081ca11063ed087c2446d3801219c2b05",
+        "hardware/main/libraries/CompactGuard.pretty/JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical.kicad_mod": "f26fabfacd5fc4bad23d6924c82233c77c0eeaa77c1f5fb6764740a279324e30",
+        "hardware/main/libraries/CompactGuard.pretty/MSOP-10_3x3mm_P0.5mm.kicad_mod": "ccaded3355ef655956f6f452159b806b387a5188fe8046dd3a732e10f9bd2a33",
+        "hardware/main/libraries/CompactGuard.pretty/PinHeader_2x03_P2.54mm_Vertical.kicad_mod": "7fbd609ca23c5f07fe01a24df80bd1b3fa673d6ff8089ce2132e30c78e75ef5d",
+        "hardware/main/libraries/CompactGuard.pretty/SOT-23-6.kicad_mod": "8b1a4128c63b8519f7a09ecaa8997cac1aa1e32b604a88b3b844f27db4ce33e6",
+        "hardware/main/libraries/CompactGuard.pretty/SOT-23.kicad_mod": "88d36005f9d0cc3afd071ab164362e6fcc9fabb28e37e2c1766028122a3b8518",
+        "hardware/main/libraries/CompactGuard.pretty/SOT-363_SC-70-6.kicad_mod": "4067c1fec81c4ee85961ca0fec3b7e775c059e55e832005dce14a4c055198018",
+        "hardware/main/libraries/CompactGuard.pretty/TerminalBlock_MetzConnect_Type171_RT13702HBWC_1x02_P7.50mm_Horizontal.kicad_mod": "05fa5f53198619b41a73a7c42fb5ffbb9664b089e346717810617b97d8575003",
+        "hardware/main/libraries/CompactGuard.pretty/USB_C_GCT_USB4110_12Lands.kicad_mod": "d7805511182a5493ae3212bbc7ee480ba08b9827efbe86f4d9a7e4303274a7a9",
+        "hardware/main/libraries/Connector_JST.pretty/JST_GH_SM12B-GHS-TB_1x12-1MP_P1.25mm_Horizontal.kicad_mod": "c7ef7656c97535f548c94843f28181ee6a57b99b390e21f01c8ea7f06be68e53",
+        "hardware/main/libraries/Connector_JST.pretty/JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal.kicad_mod": "7c0f3e5a344af0ea6527810f81bf57ab270386bd1f403cf42ecf0bdabdefcd15",
+        "hardware/main/libraries/Connector_Phoenix_MC.pretty/PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal.kicad_mod": "b8638a2f5909860d751eadbb03de273666145c0b5ca4e1a1246fb61d14867e47",
+        "hardware/main/libraries/Connector_Phoenix_MC_HighVoltage.pretty/PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal.kicad_mod": "2249a89c59ec0fc5270bf15e738c7cfc39cfa5ab4cf1bf64f9da7d6194dae7bb",
+        "hardware/main/libraries/Crystal.pretty/Crystal_SMD_HC49-SD.kicad_mod": "75de90c5557b0c62a97af7d8939969b5f85853740adea8799241fa4d56c64423",
+        "hardware/main/libraries/Diode_SMD.pretty/D_SOD-123.kicad_mod": "a3e213aade9087051216bd7de0888e0a4171146af318bdf1549d7b7e5a31cee6",
+        "hardware/main/libraries/Diode_SMD.pretty/D_SOD-323.kicad_mod": "12f0866a805a64d975ed0c9cddb95d445e3f396ef398ca6888f43bf628872d02",
+        "hardware/main/libraries/Inductor_SMD.pretty/L_0603_1608Metric.kicad_mod": "469f88a3c4ea8d76443864be4b5f83af28450dcd3527b98474d5ca1278935d4e",
+        "hardware/main/libraries/Inductor_SMD.pretty/L_Wuerth_MAPI-4030.kicad_mod": "0b12983cbe3bb475d1d7454c739ff38335deccdf5a2076126a13a74f6581edec",
+        "hardware/main/libraries/LED_SMD.pretty/Kingbright_1608_LowCurrent.kicad_mod": "48e3a9151c87d1e0b73c870ff71e85f217d659666400af9e149feada0305f1ed",
+        "hardware/main/libraries/MountingHole.pretty/MountingHole_3.2mm_M3.kicad_mod": "22b532b95bfba308085ec2b7104298beea3e9d90f6c44dd52227a18a1efe3c03",
+        "hardware/main/libraries/Package_CSP.pretty/LFCSP-28-1EP_5x5mm_P0.5mm_EP3.14x3.14mm.kicad_mod": "96bb25a6761249891d5284ef32cf7235ef13b49a31dd2107e0adb349b16e680e",
+        "hardware/main/libraries/Package_SO.pretty/SSOP-28_5.3x10.2mm_P0.65mm.kicad_mod": "6ad9111c4b35b4936c94d3f657afe2d61119ea80c3c584e5e1c0ac5e4e23725b",
+        "hardware/main/libraries/Package_SO.pretty/TSSOP-10_3x3mm_P0.5mm.kicad_mod": "1f69da71a3dbdc4b81e3124e5743f4da4576244c5467dd255e394f010a055bc5",
+        "hardware/main/libraries/Package_SO.pretty/TSSOP-14_4.4x5mm_P0.65mm.kicad_mod": "05abaa1afc0b0c27a4b7b5b09724b2b82c1d31c97e6e9ce7e371ee70ad9007b0",
+        "hardware/main/libraries/Package_SO.pretty/TSSOP-16_4.4x5mm_P0.65mm.kicad_mod": "55d543ec06c10a293eecd63fb9fb31c1602e33e10d0396bd4d161234b490a7f6",
+        "hardware/main/libraries/Package_SON.pretty/Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm.kicad_mod": "b6b8be0d7a6ee7f0bee66adf971fc6cd139dd6cb4846a36319aabde3bc077247",
+        "hardware/main/libraries/Package_TO_SOT_SMD.pretty/SOT-23-5.kicad_mod": "f4647a0a9b06399e7831952b2a9faae0ae93e02c70f9055569af45fcdb9e8357",
+        "hardware/main/libraries/Package_TO_SOT_SMD.pretty/SOT-23.kicad_mod": "383f62cdf8f3be1954319f511e4b758df5f6df50a9dafd0e397991626ad2f5c3",
+        "hardware/main/libraries/Package_TO_SOT_SMD.pretty/SOT-323_SC-70.kicad_mod": "d54f66d2adb50af02ebfcae0aac96179852bd1e96423fc80b5e9eb2a24b9987a",
+        "hardware/main/libraries/Pump.pretty/ESP32-C6-MINI-1U.kicad_mod": "d558c8bae30044029d654a8ddd500af1308030bca4d80b6ed82030a23b1a2f69",
+        "hardware/main/libraries/Pump.pretty/Fuse_Axial_5x20_P27.94.kicad_mod": "2ea591320e254b991894ff2bd8a0270043a5a9e0ea904c41cf8d6d883a292349",
+        "hardware/main/libraries/Pump.pretty/RACM06E.kicad_mod": "756064df59e9bce243b97d1aa2cd32a9c221d9bc64aad10079ed8893a703794b",
+        "hardware/main/libraries/Pump.pretty/R_Axial_L13_D6_P20.32.kicad_mod": "de25ff2f7c10cd6cc6b4157252cb059bffab1a213887a4e567c4e217472b36cc",
+        "hardware/main/libraries/Pump.pretty/TMOV14_Inline_P7.5.kicad_mod": "d2a358e0e402521ff99c7187122eb1af7a399984a0c0078e2479468f3362a7a2",
+        "hardware/main/libraries/PumpRevE.pretty/CP_Radial_D5_P2_Pads1p5.kicad_mod": "8dd6df251aa60c6085926c022fcda8c19951e261ff0ce86bde241bae5602011b",
+        "hardware/main/libraries/PumpRevE.pretty/SN74LVC1G74_DCU_TI.kicad_mod": "8dc43a740d93200f886ac81f7cf77fe68110a238c4b91aa208fd85cc5520fcba",
+        "hardware/main/libraries/PumpRevE.pretty/SN74LVC3G17_DCU_TI.kicad_mod": "990d2df7b96cfa736f48c769116fd9da42536467769c3cac45b765317f47c5f7",
+        "hardware/main/libraries/Resistor_SMD.pretty/R_0603_1608Metric.kicad_mod": "f92771838aaae193e655844f8c0175e4729095f044d991af58aa1dcae9c3790c",
+        "hardware/main/libraries/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod": "0ed1538980e488474ad3854ce95e0c4807b6f827c6beee484cdeafdf488e6787",
+        "hardware/main/libraries/Resistor_SMD.pretty/R_1206_3216Metric.kicad_mod": "89aabfdf8bfabe25ebbd9e53722b9de121c31bbdf200c00f38654d9d514197fb",
+        "hardware/main/libraries/Resistor_SMD.pretty/R_2512_6332Metric.kicad_mod": "5f43ad8855786e4560c2b11701e25fdbb025ab3bb913fae00bb0b1349216b128",
+        "hardware/main/libraries/Socket.pretty/P6B-04P.kicad_mod": "9f446f0210a181828a767d18ca4db0cb096c47449fe96e3bf52f97aeb30b4572",
+        "hardware/main/libraries/TerminalBlock_Phoenix.pretty/TerminalBlock_Phoenix_MKDS-1-2-3.81_1x02_P3.81mm_Horizontal.kicad_mod": "9a8928543d6faf390fbd69351bb6a68e8cdf24ade40e900df282402af323a82f",
+        "hardware/main/sym-lib-table": "e852788926d914a0a23493c450866861a2033a77e4d84fab8df9c06707760c25"
+      },
+      "cut_dimensions_mm": [
+        100,
+        117
+      ],
+      "copper_layers": 6,
+      "connectivity": {
+        "path": "manufacturing/main-gerbers.zip",
+        "sha256": "2eceee3a56cae931b4a026e04e81e7eb466bc64faea0bd577f2b2d4fa8171621",
+        "copper_layers": 6,
+        "ipc_records": 1284,
+        "ipc_named_nets": 183,
+        "layer_witnesses": 1877,
+        "opens_shorts": 0
+      },
+      "injected_faults_detected": [
+        {
+          "board": "main",
+          "injected": "Bridge J1.1 and J1.2 on layer 5 (bottom = 0)",
+          "findings": [
+            "logical nets MAINS_L and MAINS_N are short-circuited"
+          ]
+        },
+        {
+          "board": "main",
+          "injected": "Open M_MISO on In3.Cu at (35.400, -31.875) mm",
+          "findings": [
+            "logical net M_MISO is divided up into 2 islands"
+          ]
+        }
+      ]
+    },
+    "panel": {
+      "source_sha256": {
+        "hardware/panel/pump-panel-rev-f.kicad_pcb": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
+        "hardware/panel/pump-panel-rev-f.kicad_pro": "7b9aa7bc1d78397724543f6b95612154c480eaedb2eb4d2772ec8b566e62b54b",
+        "hardware/panel/pump-panel-rev-f.kicad_dru": "221177c8e3c714c06e929063386ccdfe17b9fc024e3fcbf13aed4b1d79d89802",
+        "hardware/panel/bom.csv": "68b4c13dbcddfd85338ed7fbdc10f433655282a331e23da22a444abded2a5538",
+        "hardware/panel/Pump.kicad_sym": "949f9198908e219bfaa59fa727134a5ddbf94c316043e845841f2406d1547dca",
+        "hardware/panel/fp-lib-table": "b621214658906933adc85dbddd73e4414f2ffb1d886067743a35f739aa97fe09",
+        "hardware/panel/pump-panel-rev-f.kicad_sch": "c70aed4a88f886ed6437cf13e6de99c2a7e6e5bd579abd798cf3047b34715e5a",
+        "hardware/panel/panel-controls.kicad_sch": "69f3fed7a244387c1ef268d18dd303042879a5d0da33b7b029743ece0774a8b2",
+        "hardware/panel/panel-display.kicad_sch": "4f39f18a222117c0d6e97421e61cdab117c57c231271d66124040baf8ee13bc0",
+        "hardware/panel/panel-mechanical.kicad_sch": "ed22ea4081b38677bfa7cf053a9c5a5e34876c3524df2a11d693b72fd59638a3",
+        "hardware/panel/panel-key.kicad_sch": "d6e1d26928c4b1b3c939b3e6062451b201b2688dbe2aa226dcbfd552b3ca7173",
+        "hardware/panel/libraries/Button_Switch_SMD.pretty/SW_SPST_B3U-1000P.kicad_mod": "fdd962da5bbdf06598b62a31d66099bebedf4642de6d606f93e50d1e01a15d6e",
+        "hardware/panel/libraries/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod": "ff6f1641f2c698d8d0659f964e7e0744de226223767dac739eb125aab5f977f8",
+        "hardware/panel/libraries/Connector_JST.pretty/JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal.kicad_mod": "ebc0320ba14450cee091ac232760f43a9395a2cf4068e42585ed057e50676e18",
+        "hardware/panel/libraries/Connector_JST.pretty/JST_GH_SM10B-GHS-TB_1x10-1MP_P1.25mm_Horizontal.kicad_mod": "563ee1689a16691e773ac3cceae13f71a70129af3d06196ea7fd20b927fbdc8a",
+        "hardware/panel/libraries/Connector_JST.pretty/JST_GH_SM12B-GHS-TB_1x12-1MP_P1.25mm_Horizontal.kicad_mod": "e20f16535c36645b1e317549eb3479f19eb2c0dfbffe8d6beb2af0690f15e66f",
+        "hardware/panel/libraries/Connector_JST.pretty/JST_PH_S4B-PH-SM4-TB_1x04-1MP_P2.00mm_Horizontal.kicad_mod": "4bacd0860cd5919b345f4b0f581efb18b170894e2bfc4ac35f19de81f6212f5c",
+        "hardware/panel/libraries/MountingHole.pretty/MountingHole_2.7mm_M2.5.kicad_mod": "9200d14a48c6d96ceacab7378ccfc4409c5af9cec7c453cc37d0f421df38aa78",
+        "hardware/panel/libraries/Package_TO_SOT_SMD.pretty/SOT-23.kicad_mod": "afebfadf10a5437f630fb06b22e65fa9d3b94b5eabb2458f0b3510043bfb52cc",
+        "hardware/panel/libraries/Panel.pretty/Omron_D2F-01F.kicad_mod": "29548189b8c175d3c5b61a595ca88d15f2d5289cdaa66dfae8223c905f6f329e",
+        "hardware/panel/libraries/Resistor_SMD.pretty/R_0603_1608Metric.kicad_mod": "977276e3b482a103e1b95e4ee2381244c3fc8ec4d69635bda75a0637711344e4",
+        "hardware/panel/sym-lib-table": "e852788926d914a0a23493c450866861a2033a77e4d84fab8df9c06707760c25"
+      },
+      "cut_dimensions_mm": [
+        60,
+        45
+      ],
+      "copper_layers": 2,
+      "connectivity": {
+        "path": "manufacturing/panel-gerbers.zip",
+        "sha256": "6940a57ce9303868383eabad8002c1526cf8493121b2333e0cb4ae18b6fd9465",
+        "copper_layers": 2,
+        "ipc_records": 108,
+        "ipc_named_nets": 18,
+        "layer_witnesses": 139,
+        "opens_shorts": 0
+      },
+      "injected_faults_detected": [
+        {
+          "board": "panel",
+          "injected": "Bridge J2.1 and J2.2 on layer 0 (bottom = 0)",
+          "findings": [
+            "logical nets GND and START_N are short-circuited"
+          ]
+        },
+        {
+          "board": "panel",
+          "injected": "Isolate J2.3 from the panel STOP trace",
+          "findings": [
+            "connection at coordinate (34.3738, -39.8501) on layer 0 should be connected to logical net GND, but there is no copper here",
+            "logical net STOP_LOCAL_NC is divided up into 2 islands"
+          ]
+        }
+      ]
+    }
+  },
+  "output_sha256": {
+    "main-BOM.csv": "df7aafa7d35ba0481c75fdfa779a548d731f5d5e75e767c0edf13c6bd78095fa",
+    "main-CPL.csv": "f4828cbad71babc4083c79587267878eca524b7517d3ff1e3db56d839cd9cff3",
+    "main-drc.json": "c4aa65ae017be528154e022b0a110534714d51ccd2e93cbea5383b9da798d937",
+    "main-erc.json": "772af60ec3007d47851487c38dba10343c38be9dbf399b6ec0b74e62bcefd606",
+    "main-gerbers.zip": "2eceee3a56cae931b4a026e04e81e7eb466bc64faea0bd577f2b2d4fa8171621",
+    "main-stencil.zip": "842224d8fda6d9ccc9e0d8e1c403f4535fb63cccddd31b543b7a4c37a6bfcb1b",
+    "panel-BOM.csv": "0da57c23e575f56a29b8878db75cd34ab15db7da86b6a236d113986d4101f778",
+    "panel-CPL.csv": "a2b3559c97dc98f489ee286bcb77ddc5a5e181768dad05703b7aba826bf12f02",
+    "panel-drc.json": "c819ac3d1966e29fba1699f4427a8b8640f7afcfb5792bf28b793ab1af61e907",
+    "panel-erc.json": "8cdd2fc2a6fd1df0f5f4bdb7e5a24fda51c275c668d68ef7f7368d8a15df315f",
+    "panel-gerbers.zip": "6940a57ce9303868383eabad8002c1526cf8493121b2333e0cb4ae18b6fd9465",
+    "panel-stencil.zip": "1712385b20100c1a5e59bcd1fa6565d1e98cb9f00ca93049ca5c54acda457b03"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "removed_positions": 46,
-  "native_terminal_assignments_compared": 719,
-  "dol_pilot_contact_combinations": 64,
-  "physical_starter_tested": false,
-  "welded_pickup": "If A remains enabled and B is stuck closed, releasing the factory STOP can energize a conventional DOL coil.",
-  "electronic": "Two NO dry contacts require documented remote inputs and a verified independent factory STOP/overload path."
-}

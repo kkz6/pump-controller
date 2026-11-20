@@ -1,1 +1,0 @@
-Engineering prototype for manufacturer review. Not a fabrication release. 60x45mm,2layers,1.6mm. Isolated low voltage only. Source SHA256 6b85b968fdaa5b8524018d4f0972232ee2e1979a254ebbc7d08e5de322ee4418

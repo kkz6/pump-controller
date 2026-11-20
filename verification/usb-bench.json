@@ -1,0 +1,7 @@
+{
+  "target": "esp32c6",
+  "idf_version": "v5.4.2",
+  "image": "manufacturing/usb-bench.bin",
+  "sha256": "314f6d141b6a840035de10f246bc29cd229955c7d629d0b5e8c0a4bc5d16add9",
+  "tested_on_hardware": false
+}

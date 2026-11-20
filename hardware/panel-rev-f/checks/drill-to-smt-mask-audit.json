@@ -1,7 +1,0 @@
-{
-  "pcb_sha256": "e0e822d6b1f78935aebeb878600a29301fe08689392ad0b715785c95f5cb85e9",
-  "method": "Every native effective drill shape against each SMT copper shape inflated by its effective solder-mask expansion, on both board faces; includes vias, PTH and NPTH; nominal geometry without fabrication registration tolerance",
-  "drilled_feature_count": 35,
-  "overlap_count": 0,
-  "overlaps": []
-}
