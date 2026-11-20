@@ -2,6 +2,30 @@
 
 Prices checked on 20 November 2026. One set runs the existing DOL starter. The second is a shelf spare. The factory build consists of **two R4 main boards and two F button panels**. The single installed kit includes one plug-in display, one CT harness, one high-high float and one cabinet assembly. Together they have 592 fitted positions across 110 unique manufacturer part numbers. The installation inventory separately lists 60 lines, including assemblies, retained equipment, optional controls and hardware selected for the actual starter. [All 170 purchasing lines](complete-parts-index.csv) · [Board quantities](component-quantity-plan.csv) · [Installation quantities and applicability](offboard-parts.csv)
 
+## ₹20,000 ceiling per assembled PCB
+
+Apply the ceiling separately to each main board and each panel. Treat the single external cabinet as an independently priced item requiring budget approval. For comparison, the 19 November 2026 reference rate was ₹93.3461 per US dollar. The lowest researched exact-part lots and published Standard double-sided setup and stencil fees, allocated over two assemblies of each design, give the following partial costs. [RBI exchange-rate reference](https://www.rbi.org.in/?Id=94) · [JLC assembly fees](https://jlcpcb.com/help/article/pcb-assembly-price)
+
+| Per physical PCB | Selected and provisionally sourced components | Half the setup and stencil | Partial cost per board | Balance to the ceiling |
+|---|---:|---:|---:|---:|
+| Main R4 | US$118.1238 | US$33.77 | ₹14,179 | ₹5,821 |
+| Front-panel F | US$6.5362 | US$33.77 | ₹3,762 | ₹16,238 |
+
+Bare-board fabrication, feeder loading, soldering, inspection, freight and taxes still have to fit within each balance. Five main-board part numbers also remain outside the estimate. The plug-in OLED belongs to the separate installation bill. A complete, delivered factory quote is outstanding.
+
+## Highest cabinet costs
+
+| Item | Installed quantity | Reference line cost | Share of ₹2,01,757.50 cabinet subtotal |
+|---|---:|---:|---:|
+| Pilz 750104 PNOZ s4 safety relays (SR1 and SR2) | 2 at ₹37,445.98 | ₹74,891.96 | 37.1% |
+| ifm DD2503 heartbeat monitor (WD1) | 1 | ₹57,892.25 | 28.7% |
+| Omron G7SA-2A2B DC24 guided relays and P7SA-10F sockets | 3 relays and 3 sockets | ₹31,001.49 | 15.4% |
+| Schneider RM17UBE15 supply-voltage monitor | 1 | ₹16,550.39 | 8.2% |
+
+SR1 and SR2 stage the independent shutdown and monitored re-enable, including the original STOP, high-high float and power contactors. WD1 checks that the controller continues to pulse at the expected rate. Its specification includes stuck, missing, too-slow and too-fast pulses. The two largest lines total ₹1,32,784.21. The two motor contactors together account for ₹5,076.40. [Single-cabinet price evidence](cabinet-one-starter.csv) · [Guard functions and factory profile limits](../../hardware/starter-guard-r4/README.rst)
+
+ABB India's Sentry SSR10 (2TLA010050R0000) is a lower-cost candidate for the Pilz pair. The advertised ₹19,389 unit price implies ₹38,778 for two, a nominal ₹36,114 difference. Two-unit availability and the comparable GST basis require a quote. ABB's monitored manual reset acts on release. Qualify the revised RESET/ENABLE sequence, contactor feedback, independent STOP/float trips and restart inhibition before changing the cabinet BOM. This candidate leaves the independent pulse monitor as a separate item. [ABB India offer](https://shop.in.abb.com/2tla010050r0000/safety-relay-sentry-ssr10-24vdc-3-no-1-nc-no-time-delay.html) · [ABB product manual](https://library.e.abb.com/public/3c46423cdbda434990ee8ec3cba1fd03/Sentry%20SSR10%20Product%20Manual%20%28EN%29%20revH%202TLC010063M0201.pdf)
+
 ## Board components
 
 | Scope | Quantity covered | USD | Meaning |
