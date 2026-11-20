@@ -24,16 +24,16 @@ int main(void)
 {
     struct panel_controls panel;
     const struct starter_config cfg = {.profile=STARTER_RUN_PAIR, .harness_profile=STARTER_RUN_PAIR,
-        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
+        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150, .max_run_ms=60000,
         .contact_settle_ms=10, .independent_shutdown=true};
     assert(panel_controls_configure(&panel, cfg, false, 5, 20));
-    struct panel_sample sample = {.gpio_a=5,.gpio_b=103,.valid=true,.process_healthy=true,.motor_stopped=true};
+    struct panel_sample sample = {.gpio_a=5,.gpio_b=103,.valid=true,.process_healthy=true, .tank_levels_valid=true,.motor_stopped=true};
     struct panel_result result;
     fail_once = true;
     assert(guard_gpio_init() == ESP_FAIL && !initialized);
     assert(guard_gpio_init() == ESP_OK && initialized && !line);
     for (uint32_t now=0; now<=GUARD_QUIET_MS; now+=10) {
-        sample.protection_checked_at_ms = sample.sampled_at_ms = now;
+        sample.tank_scanned_at_ms = sample.protection_checked_at_ms = sample.sampled_at_ms = now;
         assert(guard_gpio_step(&panel,now,sample,&result) == ESP_OK);
         assert(line == result.heartbeat_high && line == (now == GUARD_QUIET_MS));
     }

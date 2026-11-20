@@ -24,7 +24,7 @@ struct fixture {
 static struct panel_result tick(struct fixture *f, uint32_t ms)
 {
     f->now += ms;
-    f->sample.sampled_at_ms = f->sample.protection_checked_at_ms = f->now;
+    f->sample.tank_scanned_at_ms = f->sample.sampled_at_ms = f->sample.protection_checked_at_ms = f->now;
     return panel_controls_step(&f->panel, f->now, f->sample);
 }
 
@@ -38,14 +38,14 @@ static void setup(struct fixture *f, enum starter_profile profile)
 {
     struct starter_config config = {
         .profile = profile, .harness_profile = profile, .independent_shutdown = true,
-        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150,
+        .start_range={5,100}, .stop_range={5,100}, .confirm_stop_ms=150, .max_run_ms=60000,
         .contact_settle_ms = 5, .start_pulse_ms = 10, .stop_pulse_ms = 10
     };
     assert(panel_controls_configure(&f->panel, config, false, 4, 20));
     f->sample = (struct panel_sample){
         .gpio_a = A_LOCAL_N | A_AUTO_N,
         .gpio_b = B_START_N | B_SET_N | B_STOP_OK | B_GUARD_OK | B_MAN_N,
-        .valid = true, .process_healthy = true, .motor_stopped = true
+        .valid = true, .process_healthy = true, .tank_levels_valid = true, .motor_stopped = true
     };
     tick(f, 0);
     settle_guard(f);

@@ -24,9 +24,12 @@ struct starter_config {
     uint32_t start_pulse_ms;
     uint32_t stop_pulse_ms;
     enum starter_profile harness_profile; /* Read back from separately commissioned service configuration. */
-    bool independent_shutdown; /* External hardwired float, STOP and guard commissioned for this harness. */
+    /* Selected cabinet guard, original hardwired STOP and overload are commissioned.
+     * Earlier cabinet profiles also require the independent float LS1. */
+    bool independent_shutdown;
     struct starter_pulse_range start_range, stop_range;
     uint32_t confirm_stop_ms; /* From the STOP request, including relay release, OEM response and coast. */
+    uint32_t max_run_ms; /* Required by panel_controls: commissioned time limit for each HOST run. */
 };
 
 struct starter_outputs {
@@ -49,7 +52,7 @@ bool starter_configure(struct starter_outputs *s, struct starter_config config);
 enum starter_transfer starter_transfer_decode(bool host_n, bool local_n);
 
 /* Single control task. Resolve competing input events to STOP before this call.
- * Use fresh, debounced J36 inputs. A read failure supplies TRANSFER_UNKNOWN.
+ * Use fresh, debounced HOST/LOCAL inputs. A read failure supplies TRANSFER_UNKNOWN.
  * healthy includes permission to run and a verified hardware latch clear after reset;
  * stopped requires valid, fresh feedback.
  * ARM is a fresh operator event. ACKNOWLEDGE is a separate local operator

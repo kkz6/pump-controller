@@ -1,0 +1,39 @@
+{
+  "host_tests": [
+    "panel_controls_test passed",
+    "starter_outputs_test passed",
+    "command_leds_test passed",
+    "Latched START followed by bus failure: no K2 pulse, heartbeat stopped. Simulated external guard expired; healthy data alone could not restart.",
+    "pulse-stop-bus-loss passed",
+    "Ignored STOP: reported running for 10000 ms, STOP events=1, heartbeat edges=2 (final second=0), IDLE=0, AUTO authorized=0.",
+    "STOP timeout latched; held SET rejected; deliberate acknowledgement required guard open and stopped feedback.",
+    "OPEN_STOP: stopped feedback went false before START, START event=0, START output=0.",
+    "r2-stop-feedback passed",
+    "guard_gpio_test passed (mock GPIO)"
+  ],
+  "panel_controls_asan_ubsan": "passed",
+  "source_sha256": {
+    "firmware/components/command_leds/CMakeLists.txt": "98583d270bb748b90a849cd3fc5dc0de9fd6d8917dd273ac74c9d235a610f11c",
+    "firmware/components/command_leds/command_leds.c": "68e4e14f0caf6431331bd07b524602b78baefa52f66f4a7fe1ddf07a3f8a5809",
+    "firmware/components/command_leds/include/command_leds.h": "a96a92ce3aba43d85499ca353c93e920293c500b50e95a2ca5b456a2e5388235",
+    "firmware/components/command_leds/tests/command_leds_test.c": "f3ccc5a126d3c5e78b676a283ddf02e5d1aecc97ea79f5eee5d32cf8c64ebd76",
+    "firmware/components/starter_outputs/CMakeLists.txt": "68f561129417bc326a595a2ffe02ae12837b3345f7dbdf2a3bccc6b44464c8dd",
+    "firmware/components/starter_outputs/guard_gpio.c": "5ad29fe9a4d75e8a66b2a7ae026d3716092aa4bd9c44ce3c85f1571158674b8e",
+    "firmware/components/starter_outputs/include/guard_gpio.h": "3d6999ea5f256118375538497f5ce965620d64d20b727b9c4d14766f326c4cf7",
+    "firmware/components/starter_outputs/include/panel_controls.h": "37e0509e6deacf049854e07ab1b540d9904395e3c5287f3d60c6728e443ad2e7",
+    "firmware/components/starter_outputs/include/starter_outputs.h": "b1e51c72016c34395dcd6d875ab0c15d6ddc23afc1f50d928a9c657564722e82",
+    "firmware/components/starter_outputs/panel_controls.c": "04a18d6c121a5dfd8635c4383827524aa8e42a9eabccfda5442a299b71914838",
+    "firmware/components/starter_outputs/starter_outputs.c": "9d59183134ebda8b147b3b336dd6e690f587ba8ab78a4cd1e94590c77a5d1cbb",
+    "firmware/components/starter_outputs/tests/gpio_mock/driver/gpio.h": "6d8e419701ae0c6b5b9314a4e254d3965c42f6abe6ff17b72a3aab030779200c",
+    "firmware/components/starter_outputs/tests/gpio_mock/esp_err.h": "10a137eb69696f46a8bf9713ff965b6f343c09f539955b32b87d7f994415ee1e",
+    "firmware/components/starter_outputs/tests/guard_gpio_test.c": "7a7b5de1e108b06bbd0875d71fe06231ffb8835516ecf6c3b973d57b0a3cea3d",
+    "firmware/components/starter_outputs/tests/panel_controls_test.c": "96015fa0a54e8cd1d5664bae10ee510cdad4c585dd09b41106969a842bdf8456",
+    "firmware/components/starter_outputs/tests/run-host.sh": "d4c2b02875894baf0649331e6e53695afeb95e83f139a7c8eb4f3cb63f4cfc12",
+    "firmware/components/starter_outputs/tests/starter_outputs_test.c": "902e0aa403c744b36c299e7c81d31c1474952dc78e5a876457664cfeb6c22e55",
+    "design/review-fixtures/pulse-stop-bus-loss.c": "267a77c47895d71cb503d21f8297912e9e03515bb0b444b8fd36449abe534472",
+    "design/review-fixtures/r2-stop-feedback.c": "3e699d04605f55224de667c436325145e498a299f20de739ef56880ddb72ed9c"
+  },
+  "gpio_driver": "host mock",
+  "target_flashed": false,
+  "physical_motor_or_guard_tested": false
+}

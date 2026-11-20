@@ -22,6 +22,7 @@ bool panel_controls_configure(struct panel_controls *p, struct starter_config co
                               bool key_fitted, uint32_t debounce_ms, uint32_t max_age_ms)
 {
     *p = (struct panel_controls){0}; /* MANUAL, disarmed, no automatic permission. */
+    if (!config.max_run_ms || config.max_run_ms > INT32_MAX) return false;
     if (!debounce_ms || debounce_ms > INT32_MAX || !max_age_ms || max_age_ms > GUARD_MAX_SAMPLE_AGE_MS)
         return false;
     p->key_fitted = key_fitted;
@@ -55,6 +56,27 @@ static void update_heartbeat(struct panel_controls *p, uint32_t now, const struc
     p->guard_process_sample_ms = in->protection_checked_at_ms;
 }
 
+/* A held SET or a press begun before confirmed stop cannot acknowledge the timeout. */
+static bool timeout_reset_pressed(struct panel_controls *p, bool eligible, uint8_t raw,
+                                  uint8_t pressed, uint32_t sample_ms)
+{
+    if (!eligible) {
+        p->timeout_set_released = p->timeout_set_timing = false;
+    } else if (!((raw | p->buttons.stable) & SET)) {
+        if (!p->timeout_set_timing) p->timeout_set_released_ms = sample_ms;
+        p->timeout_set_timing = true;
+        if (sample_ms - p->timeout_set_released_ms >= p->debounce_ms)
+            p->timeout_set_released = true;
+    } else {
+        p->timeout_set_timing = false;
+        if (p->timeout_set_released && (pressed & SET)) {
+            p->timeout_set_released = false;
+            return true;
+        }
+    }
+    return false;
+}
+
 struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, struct panel_sample in)
 {
     struct panel_result result = {0};
@@ -79,7 +101,21 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     p->initialized = fresh;
     bool key_ok = !p->key_fitted ||
                   ((key == KEY_MANUAL || key == KEY_AUTO) && key == p->key.stable);
-    bool healthy = fresh && !interrupted && process_fresh && in.process_healthy && key_ok && (in.gpio_b & 4);
+    /* A valid scan has consecutive wet electrodes starting at L1:
+     * empty, L1, L1+L2, L1+L2+L3 or full. An invalid scan is a process fault. */
+    bool previous_scan_recent = p->have_tank_scan && now - p->last_tank_scan_ms <= TANK_MAX_SCAN_AGE_MS;
+    bool scan_fresh = now - in.tank_scanned_at_ms <= TANK_MAX_SCAN_AGE_MS &&
+                      (!previous_scan_recent || in.tank_scanned_at_ms - p->last_tank_scan_ms <= INT32_MAX);
+    bool tank_valid = in.tank_levels_valid && scan_fresh && in.tank_wet_mask <= 0x0F &&
+                      (in.tank_wet_mask & (in.tank_wet_mask + 1u)) == 0;
+    if (tank_valid) {
+        p->have_tank_scan = true;
+        p->last_tank_scan_ms = in.tank_scanned_at_ms;
+    }
+    bool low = tank_valid && in.tank_wet_mask == 0;
+    bool full = tank_valid && in.tank_wet_mask == 0x0F;
+    bool healthy = fresh && !interrupted && process_fresh && in.process_healthy &&
+                   tank_valid && key_ok && (in.gpio_b & 4);
     bool monitor_eligible = healthy && transfer == TRANSFER_HOST && p->outputs.config.profile != STARTER_DISABLED;
     enum panel_mode mode = p->mode;
     if (monitor_eligible) {
@@ -91,7 +127,7 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     bool faulted = p->outputs.phase == STARTER_FEEDBACK_FAULT;
     update_heartbeat(p, now, &in, monitor_eligible && !mode_changed && !faulted);
     /* The monitor must be able to qualify before the independent manual reset.
-     * Only the separate guard contact on J31 permits an actual start. */
+     * An actual start requires feedback from the commissioned cabinet guard. */
     bool ready = monitor_eligible && p->guard_recovered && (in.gpio_b & 32);
     /* Viewing settings or acknowledging a trip does not grant permission to run. */
     result.set_reset_pressed = fresh && (pressed & SET);
@@ -100,10 +136,19 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
     bool editing = in.settings_open || ((raw | p->buttons.stable) & (SET | NEXT));
     enum starter_command command = STARTER_NONE;
 
-    if (!ready || mode_changed) {
+    bool filling = p->outputs.phase == STARTER_PERMISSION || p->outputs.phase == STARTER_STARTING ||
+                   p->outputs.phase == STARTER_RUNNING;
+    if (filling && now - p->run_started_ms >= p->outputs.config.max_run_ms)
+        p->run_timed_out = true;
+
+    if (!ready || mode_changed || p->run_timed_out) {
         /* Clear automatic permission even if the same demand or START stays asserted. */
         p->auto_enabled = p->pending_start = p->start_released = p->release_timing = false;
         command = STARTER_STOP;
+        bool reset_eligible = ready && p->outputs.phase == STARTER_IDLE && in.motor_stopped &&
+                              !((raw | p->buttons.stable) & START);
+        if (p->run_timed_out && timeout_reset_pressed(p, reset_eligible, raw, pressed, in.sampled_at_ms))
+            p->run_timed_out = false;
     } else {
         if (!(raw & START) && !(p->buttons.stable & START)) {
             if (!p->release_timing) p->released_since_ms = in.sampled_at_ms;
@@ -125,14 +170,19 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
             p->pending_start = p->demand_used = false;
         }
         if (editing && in.fill_demand) p->demand_used = true;
-        if (p->pending_start && (editing || !in.motor_stopped)) {
+        if (full) {
+            if (p->outputs.armed || p->pending_start) command = STARTER_STOP;
+            p->pending_start = false;
+            /* AUTO may be enabled in standby at full, without energizing either relay. */
+            p->demand_used = in.fill_demand;
+        } else if (p->pending_start && (editing || !in.motor_stopped || (mode == PANEL_AUTO && !low))) {
             p->pending_start = false;
             command = STARTER_STOP;
         } else if (p->pending_start && in.sampled_at_ms != p->arm_sample_ms) {
             command = STARTER_START;
             p->pending_start = false;
         } else if (!p->pending_start && !editing && idle && in.motor_stopped) {
-            bool auto_start = mode == PANEL_AUTO && p->auto_enabled && in.fill_demand && !p->demand_used;
+            bool auto_start = mode == PANEL_AUTO && p->auto_enabled && low && in.fill_demand && !p->demand_used;
             if ((mode == PANEL_MANUAL && start) || auto_start) command = STARTER_ARM;
             if (auto_start) p->demand_used = true;
         }
@@ -145,6 +195,11 @@ struct panel_result panel_controls_step(struct panel_controls *p, uint32_t now, 
         !(raw & START) && !(p->buttons.stable & START) && (pressed & SET))
         command = STARTER_ACKNOWLEDGE;
     result.drive = starter_step(&p->outputs, now, transfer, ready, confirmed_stopped, command);
+    /* Start once at acceptance, including permission settling and start pulses.
+     * Repeated samples, changing demand and phase changes never extend a run. */
+    if (command == STARTER_START && (result.drive.start_issued || p->outputs.phase == STARTER_PERMISSION))
+        p->run_started_ms = now;
+    result.run_timed_out = p->run_timed_out;
     result.feedback_fault = p->outputs.phase == STARTER_FEEDBACK_FAULT;
     if (result.feedback_fault && !faulted) {
         update_heartbeat(p, now, &in, false);
