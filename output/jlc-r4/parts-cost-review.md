@@ -1,6 +1,6 @@
 # Cost and availability for one installed starter and one spare board set
 
-Prices checked on 20 November 2026. One set runs the existing DOL starter. The second is a shelf spare. The factory build consists of **two R4 main boards and two F button panels**. The single installed kit includes one plug-in display, one CT harness, one high-high float and one cabinet assembly. Together they have 592 fitted positions across 110 unique manufacturer part numbers. The installation inventory separately lists 60 lines, including assemblies, retained equipment, optional controls and hardware selected for the actual starter. [All 170 purchasing lines](complete-parts-index.csv) · [Board quantities](component-quantity-plan.csv) · [Installation quantities and applicability](offboard-parts.csv)
+Prices checked on 20 November 2026. One set runs the existing DOL starter. The second is a shelf spare. The factory build consists of **two R4 main boards and two F button panels**. The single installed kit includes one plug-in display, one CT harness and one cabinet assembly. Together they have 592 fitted positions across 110 unique manufacturer part numbers. The installation inventory separately lists 60 lines, including assemblies, retained equipment, optional controls and hardware selected for the actual starter. [All 170 purchasing lines](complete-parts-index.csv) · [Board quantities](component-quantity-plan.csv) · [Installation quantities and applicability](offboard-parts.csv)
 
 ## ₹20,000 ceiling per assembled PCB
 
@@ -57,12 +57,12 @@ Three original Murata capacitor lines have conventional JLC preorder lots costin
 
 ## Cabinet and field equipment for the installed starter
 
-One cabinet includes both specified motor isolation contactors, both Pilz safety relays, the ifm monitor, the independent high-high float and the original starter STOP interface. The shelf spare reuses this equipment when installed. A cabinet quantity of one still requires every device in its safety circuit. [Cabinet items and purchasing conditions](cabinet-one-starter.csv)
+The current cost reference includes both specified motor isolation contactors, both Pilz safety relays, the ifm monitor and the original starter STOP interface. The separate LS1 float has a purchase quantity of zero. The R4 reference drawing depends on LS1 and requires revision for this scope. The shelf spare reuses this equipment when installed. A cabinet quantity of one still requires every device in its safety circuit. [Cabinet items and purchasing conditions](cabinet-one-starter.csv)
 
 | Active purchase scope | Partial catalog amount | Coverage |
 |---|---:|---|
 | Common cabinet hardware for one starter | **₹2,01,757.50** | 15 priced INR lines. Includes two Pilz 750104 relays, one ifm DD2503, three forced-guided relays and two motor isolation contactors. Stock and tax treatment vary by supplier. |
-| Independent high-high float | **US$114.00** | One SJE 1062686 at the overseas reference price, before delivery. |
+| Separate LS1 float | **US$0** | Removing this purchase drops the US$114 overseas reference line. The ₹2,01,757.50 subtotal covers separate INR-priced items. |
 | Field materials for one starter | **₹2,398.33** | Nine priced material lines with the local-only external-button plug. Includes one Waveshare 14657 OLED at ₹513.30 and one Talema AC1020 CT body at ₹611.52. The installed set uses one of each. |
 
 The smaller quantities change some supplier price breaks. The three Omron G7SA-2A2B DC24 relays use the ₹4,982.07 unit tier. The previous two-cabinet basket qualified for the ₹4,859.36 tier at five or more. One starter reduces the same 15 priced cabinet lines by **₹2,01,021.24**. A domestic seller also advertises the same relay at ₹1,999 before GST, subject to quantity, traceability and delivery confirmation. [Single-starter cabinet pricing](cabinet-one-starter.csv) · [Distributor tiers](https://in.element14.com/omron-sti/g7sa-2a2b-dc24/relay-safety-2no-nc-250vac-6a/dp/1221753) · [Domestic offer](https://www.industrybuying.com/safety-relay-omron-IND.OMR.93892282)

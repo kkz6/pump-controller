@@ -126,7 +126,7 @@ Cabinet,"Preterminated selector loom, 3 circuits — JST PHR-3 + 3 × SPH-002T-P
 Cabinet,"Preterminated 24 V guard loom, 5 circuits — JST VHR-5N + 5 × SVH-21T-P1.1",cab.J54,1,0,1,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet command mating plug — Phoenix Contact 1836079,cab.J30 cab.J35,2,0,2,Required / Exact MPN,cabinet-one-starter.csv,offboard-parts.csv
 Field or panel,Individual plug coding elements — Phoenix Contact 1734634 CP-MSTB,main.J30 / main.J35,2 elements,0,2 elements,Exact component; priced per individual coding profile,field-one-starter.csv,offboard-parts.csv
-Cabinet,Independent NC high-high float — SJE 1062686 MilliAmpMaster WPS,cab.LS1,1,0,1,Required / Overseas reference only,cabinet-one-starter.csv,offboard-parts.csv
+Cabinet,Independent NC high-high float — SJE 1062686 MilliAmpMaster WPS,cab.LS1,0,0,0,Excluded from purchasing; released R4 cabinet requires a revised shutdown design,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet isolated 24V / 2.5A — HDR-60-24,cab.PS2,1,0,1,Required / Exact MPN,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet DC distribution protection — Site-selected DC branch protection,cab.F2,1,0,1,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
 Cabinet,Cabinet supply input — Fixed protected supply terminals,cab.XT1,per cabinet,0,per cabinet,Required / Quote or verify on site,cabinet-one-starter.csv,offboard-parts.csv
