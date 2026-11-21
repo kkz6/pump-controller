@@ -28,13 +28,16 @@ MAIN = {
     "R242": {1: "USB_VBUS", 2: "USB_PRESENT"}, "R243": {1: "USB_PRESENT", 2: "GND"},
     "Q40": {1: "USB_PRESENT", 2: "GND", 3: "CMD_ALLOWED"}, "R244": {1: "+3V3", 2: "CMD_ALLOWED"},
     "U40": {1: "+5V", 2: "GND", 3: "CMD_ALLOWED", 5: "+5V_CMD", 6: "+5V_CMD"},
+    # TPS2553 current limit between the coil supply and the panel loom (J32.1).
+    "U42": {1: "+5V_CMD", 2: "GND", 3: "+5V_CMD", 5: "PANEL_ILIM", 6: "PANEL_5V"},
+    "R245": {1: "PANEL_ILIM", 2: "GND"}, "C243": {1: "+5V_CMD", 2: "GND"},
     "J41": {1: "PSU_5V_RAW", 2: "+5V", 3: "GND"},
     "K1": {1: "K1_LOW", 3: "CTRL_A_COM", 4: "CTRL_A_NO", 6: "STOP_RETURN"},
     "K2": {1: "K2_LOW", 3: "CTRL_B_COM", 4: "CTRL_B_NO", 6: "+5V_CMD"},
     "J30": {1: "CTRL_A_COM", 2: "CTRL_A_NO"}, "J35": {1: "CTRL_B_COM", 2: "CTRL_B_NO"}
 }
 # Listed in cavity order for a straight main-to-door-panel loom.
-MAIN_LOOM = ("+5V_CMD", "STOP_RETURN", "MAN_RETURN", "AUTO_RETURN", "START_N", "RESET_N",
+MAIN_LOOM = ("PANEL_5V", "STOP_RETURN", "MAN_RETURN", "AUTO_RETURN", "START_N", "RESET_N",
              "GND", "+3V3", "I2C_SDA", "I2C_SCL", "SPARE_B6", "SPARE_B7")
 PANEL_LOOM = ("+5V", "STOP_RETURN", "MAN_RETURN", "AUTO_RETURN", "START_N", "RESET_N",
               "GND", "+3V3", "I2C_SDA", "I2C_SCL", "KEY_MAN_N", "KEY_AUTO_N")

@@ -18,13 +18,24 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'manufacturing'
 CLI = os.getenv('KICAD_CLI') or shutil.which('kicad-cli') or 'kicad-cli'
 # Same-footprint procurement choices for spec-only capacitors. C20 has a separate bias check.
+# JLC Basic parts where one exists (no loading-fee difference on Standard assembly, but lower
+# price and deep stock). 27 pF and 1 nF stay C0G/NP0 (Extended); 22 uF 1210 stays X7R (Extended).
 CAPACITORS = {
-    ('100nF', '0805'): 'GRM21BR71H104KA01L', ('22uF', '1210'): 'C3225X7R1C226M250AC',
-    ('1uF', '0805'): 'GRM21BR71C105KA01L', ('100nF', '0603'): 'GRM188R71C104KA01D',
-    ('1uF', '0603'): 'GRM188R71C105KA12D', ('10nF', '0603'): 'GRM188R71C103KA01D',
-    ('4.7uF', '0805'): 'EMK212AB7475KGHT', ('10uF', '0805'): 'TCC0805X7R106K160FT',
-    ('4.7uF', '0603'): 'TCC0603X7R475K160CT', ('27pF', '0603'): 'GRM1885C1H270JA01D',
-    ('1nF', '0603'): 'GRM1885C1H102JA01D',
+    ('100nF', '0805'): 'CC0805KRX7R9BB104', ('22uF', '1210'): 'CL32B226KOJNNNE',
+    ('1uF', '0805'): 'CL21B105KBFNNNE', ('100nF', '0603'): 'CC0603KRX7R9BB104',
+    ('1uF', '0603'): 'CL10A105KB8NNNC', ('10nF', '0603'): '0603B103K500NT',
+    ('4.7uF', '0805'): 'CL21A475KAQNNNE', ('10uF', '0805'): 'CL21A106KAYNNNE',
+    ('4.7uF', '0603'): 'CL10A475KO8NNNC', ('27pF', '0603'): 'CC0603JRNPO9BN270',
+    ('1nF', '0603'): 'CC0603JRNPO9BN102',
+}
+# UNI-ROYAL 1% thick film, all JLC Basic.
+RESISTORS = {
+    '0603': {'10k': '0603WAF1002T5E', '1k': '0603WAF1001T5E', '2.2k': '0603WAF2201T5E',
+             '47k': '0603WAF4702T5E', '100k': '0603WAF1003T5E', '22k': '0603WAF2202T5E',
+             '33k': '0603WAF3302T5E', '100R': '0603WAF1000T5E', '100': '0603WAF1000T5E',
+             '22R': '0603WAF220JT5E', '1M': '0603WAF1004T5E', '47': '0603WAF470JT5E',
+             '47R': '0603WAF470JT5E', '5.1k': '0603WAF5101T5E'},
+    '0805': {'10k': '0805W8F1002T5E', '3.3k': '0805W8F3301T5E', '22R': '0805W8F220JT5E'},
 }
 NORMALIZE = {'31171102 (RT13702HBWC)': '31171102', 'Samtec TSW-103-07-G-D': 'TSW-103-07-G-D',
              'Phoenix Contact 1727010 / MKDS 1/2-3,81': '1727010'}
@@ -62,16 +73,9 @@ def nominated(row):
             if package != '0603' or value != '10k':
                 raise ValueError(f'Unknown precision resistor {source}')
             return 'RT0603BRD0710KL'
-        if '1%' not in source or package not in ('0603', '0805'):
+        if '1%' not in source or value not in RESISTORS.get(package, {}):
             raise ValueError(f'Unknown resistor class {source}')
-        token = value.upper()
-        if token == '2.2K':
-            token = '2K2'
-        elif token == '3.3K':
-            token = '3K3'
-        elif token.isdigit():
-            token += 'R'
-        return 'RC' + package + 'FR-07' + token + 'L'
+        return RESISTORS[package][value]
     raise ValueError(f'Unknown specification {source}')
 
 
