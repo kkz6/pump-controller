@@ -107,7 +107,7 @@
     },
     {
       "reference": "J2",
-      "part": "SM10B-GHS-TB(LF)(SN)",
+      "part": "SM10B-GHS-TB",
       "origin_mm": [
         30.0,
         41.7
@@ -176,7 +176,7 @@
     },
     {
       "reference": "J7",
-      "part": "S4B-PH-SM4-TB(LF)(SN)",
+      "part": "ZX-PH2.0-WT4P",
       "origin_mm": [
         54.8,
         21.0

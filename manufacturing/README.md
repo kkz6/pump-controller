@@ -9,7 +9,7 @@ Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, b
 
 The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. The main board's 15 through-hole parts are also left out of the JLC files and fitted by hand after assembly: C1, F1, J1, J2, J10, J20, J21, J30, J35, J41, K1, K2, R1, RV1 and U1. Buy them with the order or separately (U1 from DigiKey).
 
-Stock checked on JLC on 2026-11-21. Every factory-mounted line on both boards is in stock, including U3, which is now the ESP32-C6-MINI-1U-H4 (C20627095). The exception is panel J7 (S4B-PH-SM4-TB, C265102), which is pre-order only at JLC with about 9 days' lead time. Allow for that, or consign J7.
+Stock checked on JLC on 2026-11-21. Every factory-mounted line on both boards is in stock, including U3, which is now the ESP32-C6-MINI-1U-H4 (C20627095). Panel J7 is the Megastar ZX-PH2.0-WT4P (C7429691), a JST PH-compatible header on the same land, because the JST S4B-PH-SM4-TB is pre-order only.
 
 For the hand-fitted parts:
 - **U1:** no JLC stock. Buy it from DigiKey at about $10 rather than accepting JLC's $22.94 pre-order estimate.
@@ -29,11 +29,11 @@ Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assemb
 | Item, per installed controller | Priced portion |
 | --- | ---: |
 | Populated main board, including both relays and half the board's fees | ₹14,254.95 |
-| Populated OLED/button PCB, including half its fees | ₹1,492.77 |
+| Populated OLED/button PCB, including half its fees | ₹1,469.56 |
 | Shipping, half of one order | ₹1,213.03 |
 | Display, CT and other priced field materials | ₹2,398.33 |
 | Two mating starter plugs | ₹483.84 |
-| **One installed controller** | **₹19,842.92** |
+| **One installed controller** | **₹19,819.71** |
 
 Of that total, ₹8,391.81 is JLC setup, stencil and per-line loading fees:
 - **Main board:** double-sided, so it needs Standard assembly. Its through-hole parts are hand-fitted, which leaves 59 JLC lines.
@@ -43,13 +43,13 @@ JLC's monthly assembly coupons are not deducted. The fees are charged per order,
 
 | Complete sets per order | 2 | 5 | 10 | 20 |
 | --- | ---: | ---: | ---: | ---: |
-| Per installed controller, approximate | ₹19,840 | ₹12,830 | ₹10,580 | ₹9,430 |
+| Per installed controller, approximate | ₹19,820 | ₹12,810 | ₹10,560 | ₹9,410 |
 
 Above five sets, the larger bare-board and shipping quotes are estimated.
 
 How the parts are priced:
 - **Main board:** $52.33 of components, including both relays and the hand-fitted parts, and a $40.60 bare-board quote for five 6-layer boards.
-- **Panel:** $2.87 of components and a $4.00 bare-board quote.
+- **Panel:** $2.62 of components and a $4.00 bare-board quote.
 
 Still unpriced: customs duty and GST, the antenna, the CT burden, harness labour, the enclosure and site fitting. U1 has no JLC stock. It is priced at DigiKey's single-unit price of $10.04 (945-RACM06E-05SK/277-ND), to be consigned or bought through JLC global sourcing; JLC's own pre-order estimate is $22.94. The existing starter, motor and compatible tank probes are reused. [Cost assumptions](costs.json) · [Parts and cost review](../verification/bom-and-cost-review.md)
 
@@ -57,7 +57,7 @@ Check the connector orientation, part availability, capacitor DC-bias margin and
 
 ### Cost target for the next revision
 
-Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹8,391.81 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,451.11 before unquoted items.
+Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹8,391.81 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,427.90 before unquoted items.
 
 | Subsystem | Maximum target |
 | --- | ---: |

@@ -38,7 +38,7 @@ The design is internally consistent. Every part has a sound rating, and the deco
 | C48, C74, C101, C240 | 1 µF 0603 | 0 | C15849, Basic. This is X5R 50 V, which is adequate for these decoupling and RC positions. |
 | C49, C50 | 27 pF C0G | 0 | C107045 NP0. |
 | R2 | 33 Ω 2 W | 24 | Remove the part (DNP) and keep the footprint. |
-| Panel J2, J7 | SM10B-GHS-TB, S4B-PH-SM4-TB | 0 | J2: the plain SM10B-GHS-TB (C2683602) is in stock. J7 stays the JST part on pre-order. |
+| Panel J2, J7 | SM10B-GHS-TB, S4B-PH-SM4-TB | 0 | J2: the plain SM10B-GHS-TB (C2683602) is in stock. J7: Megastar ZX-PH2.0-WT4P (C7429691), 47551 in stock. |
 
 Low stock, but enough for a prototype run: ADE7953 (107), TS3USB30E (151) and J20 Phoenix 1803303 (41).
 
@@ -121,7 +121,6 @@ These need a decision or another supplier.
 
 Resolved by the availability check below, except:
 - **No JLC stock:** U1. Buy it from DigiKey.
-- **Pre-order:** panel J7.
 - **Low stock:** RV1, J20, the ADE7953 and TS3USB30E.
 
 ## U1 and U11 replacement findings
@@ -211,11 +210,11 @@ Where a footprint shrank from 0805 to 0603, the existing tracks were extended to
 - **Effect:** this removes their loading lines, JLC's through-hole joint charges and its hand-soldering labour fee.
 - **Quality:** these include the mains-side parts, so solder them carefully and inspect them before the insulation test.
 
-**Result:** one installed controller prices at ₹20,013 for two sets, about ₹13,000 for five and about ₹10,700 for ten. The availability substitutes below bring this to ₹19,843.
+**Result:** one installed controller prices at ₹20,013 for two sets, about ₹13,000 for five and about ₹10,700 for ten. The availability substitutes below bring this to ₹19,820.
 
 ## Availability check 2026-11-21
 
-Every JLC line on both boards was checked on the JLC parts library on 2026-11-21. Six parts were changed so the order can be placed from stock. Each substitute keeps its existing footprint, so the layout is unchanged.
+Every JLC line on both boards was checked on the JLC parts library on 2026-11-21. Seven parts were changed so the order can be placed from stock. Each substitute keeps its existing footprint, so the layout is unchanged.
 
 | Ref | Was | Now | JLC stock | Notes |
 | --- | --- | --- | ---: | --- |
@@ -225,7 +224,8 @@ Every JLC line on both boards was checked on the JLC parts library on 2026-11-21
 | J1 | METZ 31171102 (no JLC entry) | Kefa KF128-7.5-2P, C474954 | 901 | Hand-fitted. 7.5 mm pitch, UL 300 V 10 A, IEC 450 V 24 A. Its 0.8 mm pins fit the 1.3 mm holes. The body is about 0.5 mm wider than the Metz courtyard. |
 | RV1 | TMOV14RP320EL2B7 (0) | TMOV14RP320EL2T7, C22815876 | 3 | Hand-fitted. Same varistor and inline crimped L2 leads, supplied on tape. Buy both sets' worth together, or buy the L2B7 bulk pack from a distributor. |
 | Panel J2 | SM10B-GHS-TB(LF)(SN) (0) | SM10B-GHS-TB, C2683602 | 24492 | Same JST GH 10-way side-entry header and mating GHR-10V-S housing. |
+| Panel J7 | JST S4B-PH-SM4-TB (pre-order) | Megastar ZX-PH2.0-WT4P, C7429691 | 47551 | JST PH-compatible 2.0 mm 4-way side-entry SMD header that mates with the PHR-4 housing. Its datasheet land matches the existing JST footprint: 1.0 × 3.5 mm signal pads on a 2.0 mm pitch, and 1.5 × 3.5 mm tab pads at ±5.35 mm. The tab-to-signal gap is 2.2 mm against 2.3 mm, and the body is 12.0 × 7.59 mm against 11.9 × 7.6 mm. XUNPU WAFER-PH2.0-4PWB (C3029442, 27395 in stock) has the same drawing and is the second source. Check the OLED plug's latch and fit on the first article. |
 
-Still not stocked: panel J7 (S4B-PH-SM4-TB, C265102) is pre-order only, about 9 days, and U1 is bought from DigiKey.
+Still not stocked: U1 is bought from DigiKey.
 
 These lines are factory-mounted but have fewer than 1,000 in stock: 74LVC1G08GV (794), TS3USB30E (151) and ADE7953 (107). MCP23017 has 1,271 and the panel LEDs have 1,522 and 2,489. Every other line has several thousand or more. The JLC BOMs now match all 59 main and 11 panel lines to catalogue IDs. ERC is 0 and DRC is 0/0/0 with schematic parity on both boards.

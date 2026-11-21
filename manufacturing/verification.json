@@ -88,7 +88,7 @@
       "copper_layers": 6,
       "connectivity": {
         "path": "manufacturing/main-gerbers.zip",
-        "sha256": "7a1e54d8ebedff787761c4b692c5e001f276c87129b4c18b487bb07a65015189",
+        "sha256": "28dbf7fa48af9dabeb1af343403456dc5923bfb8151e90c806843375aa73c86b",
         "copper_layers": 6,
         "ipc_records": 1278,
         "ipc_named_nets": 185,
@@ -114,15 +114,15 @@
     },
     "panel": {
       "source_sha256": {
-        "hardware/panel/pump-panel-rev-f.kicad_pcb": "873ae334c1c098f1d89c8546b210430348ca770afce146b3eee064e03ec1579f",
+        "hardware/panel/pump-panel-rev-f.kicad_pcb": "d3d69e8f58e1d00e13acec6fa6777130d99ad9803e0af5bfcc61c4182c351c7c",
         "hardware/panel/pump-panel-rev-f.kicad_pro": "7b9aa7bc1d78397724543f6b95612154c480eaedb2eb4d2772ec8b566e62b54b",
         "hardware/panel/pump-panel-rev-f.kicad_dru": "221177c8e3c714c06e929063386ccdfe17b9fc024e3fcbf13aed4b1d79d89802",
-        "hardware/panel/bom.csv": "30813cb055b26f84d0255e33f5f6eaed6a8151210f42771f61d747d08e0c8b79",
-        "hardware/panel/Pump.kicad_sym": "bffa21c7171b079e55d561760d5e8e27892b5836290d13efd558325c2ed752f0",
+        "hardware/panel/bom.csv": "ce64b1e3eeddf2a1d957c74091c1194dab6e57682e473b2de4df6ea0810088d7",
+        "hardware/panel/Pump.kicad_sym": "82ac5302a8c5105447e331f3d3465e933af4864e8f46d9090fd77a56a339cf69",
         "hardware/panel/fp-lib-table": "b621214658906933adc85dbddd73e4414f2ffb1d886067743a35f739aa97fe09",
         "hardware/panel/pump-panel-rev-f.kicad_sch": "c70aed4a88f886ed6437cf13e6de99c2a7e6e5bd579abd798cf3047b34715e5a",
         "hardware/panel/panel-controls.kicad_sch": "0c5759641abb89403ccc8971412f5bd163ebb744e50c1a8bff368307526180c4",
-        "hardware/panel/panel-display.kicad_sch": "1fdb6530264ec48ee3224cb651480769e3570f597ce5240b66509a56c8a3b679",
+        "hardware/panel/panel-display.kicad_sch": "775dd1f5263bb7a28797ed8326133f3fa556c8612fe005ad0a165ae14a053c26",
         "hardware/panel/panel-mechanical.kicad_sch": "ed22ea4081b38677bfa7cf053a9c5a5e34876c3524df2a11d693b72fd59638a3",
         "hardware/panel/panel-key.kicad_sch": "164a5e184ee4e20dce6be01d173d87d0bafc05f7f3ae896d893d618c31bf5032",
         "hardware/panel/libraries/Button_Switch_SMD.pretty/SW_SPST_B3U-1000P.kicad_mod": "fdd962da5bbdf06598b62a31d66099bebedf4642de6d606f93e50d1e01a15d6e",
@@ -144,7 +144,7 @@
       "copper_layers": 2,
       "connectivity": {
         "path": "manufacturing/panel-gerbers.zip",
-        "sha256": "3442c9df4a56c1418622fceeeeb3fb110f84c20eaf2256f811f6dc8485035c5d",
+        "sha256": "0d8c44df6d4b277070c99c80dde5c23a472546aeba68a861fe343851cf8bdfd2",
         "copper_layers": 2,
         "ipc_records": 108,
         "ipc_named_nets": 18,
@@ -173,15 +173,15 @@
   "output_sha256": {
     "main-BOM.csv": "fcd1505b43120bfcc9b5cfef418ad36019e787451ebe08508f802cc86b7fdd14",
     "main-CPL.csv": "5d2d12c471a9c90142d4afa36d3e7fabe276af8882bc842ef66495ac800e61b6",
-    "main-drc.json": "cda965f6af7bb95156155fec8e4ecf79c54a019f6afb5c00299d9e3752526283",
-    "main-erc.json": "307aa0734852461431002a0c646e9ae172a41c23eeaafbd8c1d0fd471f3c11a2",
-    "main-gerbers.zip": "7a1e54d8ebedff787761c4b692c5e001f276c87129b4c18b487bb07a65015189",
-    "main-stencil.zip": "0c8ba8a71c75efa2128dfa0b694d75e857e9daee9183acd9c131623e3b67a61f",
-    "panel-BOM.csv": "b4d84ef631e0b968bce57fdc119cb6ab127278fc224306b9967cc6dd2d1910cd",
+    "main-drc.json": "dfd9935dfa737a9f546241757be159dd1dca488c33aed7c0302a076212898bb3",
+    "main-erc.json": "319f7fda74ce93166434af71528956ad38da1b5b6ce9511c23c4f30c156a4afa",
+    "main-gerbers.zip": "28dbf7fa48af9dabeb1af343403456dc5923bfb8151e90c806843375aa73c86b",
+    "main-stencil.zip": "2324e19740f9c8907028bd6aeb264cddf1d9d0fe2292b58f3e56455a869b87b0",
+    "panel-BOM.csv": "38a509ca0289ab595f472d5310d025e891f29c71abea3e0fc9a79ec17908f453",
     "panel-CPL.csv": "6775f206474015bd8b1db818cc07956862106d2afff0fac395a433be0025c4b3",
-    "panel-drc.json": "40651559a6ec5db592e5457338cafd8eea4a992a428e8ebc2a6f4e63d00d03de",
-    "panel-erc.json": "bcd3519f500b139dec6a1e3c2cece655dcb0027ef9816cf9dfeb3a29a01c52ba",
-    "panel-gerbers.zip": "3442c9df4a56c1418622fceeeeb3fb110f84c20eaf2256f811f6dc8485035c5d",
-    "panel-stencil.zip": "67a4acb8eca5203db28b1462722d2fd7d1d1122e368dabd88931bcfdeef9a897"
+    "panel-drc.json": "36cb71bbee4b99def2fd280f450f1da311c73aa5e3c5817a9fad6aa24dfe287a",
+    "panel-erc.json": "d0b34a75b1d2a730ec6e871a0b7c2ec621b35d4c0c3c7ad1bf730ba5766284b2",
+    "panel-gerbers.zip": "0d8c44df6d4b277070c99c80dde5c23a472546aeba68a861fe343851cf8bdfd2",
+    "panel-stencil.zip": "0f15ba90e3a50dccecfb4f59e285a4ca661a53a49a7630a930e1232ad36deec4"
   }
 }
