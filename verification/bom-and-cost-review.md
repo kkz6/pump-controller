@@ -86,7 +86,7 @@ These need layout work and safety review, so they belong in a later revision. Ge
 - **Six-layer board:** layer count is usually the biggest fabrication cost on a board this size, so compare a quote for a 4-layer re-layout.
 - **Double-sided assembly:** both boards are assembled on both sides. Moving the panel's 19 bottom-side parts to the top would make the panel eligible for Economic assembly.
 
-The cost figures in `manufacturing/costs.json` and `manufacturing/README.md` predate this review. They don't include U42, R245 or C243, or the stock problems above.
+`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹28,911.08 per installed controller. ₹12,945.70 of that is assembly fees.
 
 ## Applied
 
