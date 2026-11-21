@@ -42,11 +42,11 @@ Y1,3.579545MHz / CL20pF,X49SM3579545MSD2SC-1,"YXC HC-49S SMD, 20 pF load, 20 ppm
 C49,27pF,"SPEC: 27pF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
 C50,27pF,"SPEC: 27pF C0G, 5%, 50V","C0G, 5%, 50V",Capacitor_SMD:C_0603_1608Metric,,meter_ic,False
 R42,0R,0603WAF0000T5E,Neutral bond inside live domain only,Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
-R43,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
-R44,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
-R45,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
-R46,249k,TNPW1206249KBEEA,"0.1%, 25ppm/K, 200V working, 1206; 4 in series",Resistor_SMD:R_1206_3216Metric,https://www.vishay.com/docs/28758/tnpw_e3.pdf,meter_inputs,False
-R47,1k,RT0603BRD071KL,"0.1%, 25ppm/K, 0603 voltage-divider low leg",Resistor_SMD:R_0603_1608Metric,https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL,meter_inputs,False
+R43,249k,1206W4F2493T5E,"1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware.",Resistor_SMD:R_1206_3216Metric,https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578,meter_inputs,False
+R44,249k,1206W4F2493T5E,"1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware.",Resistor_SMD:R_1206_3216Metric,https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578,meter_inputs,False
+R45,249k,1206W4F2493T5E,"1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware.",Resistor_SMD:R_1206_3216Metric,https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578,meter_inputs,False
+R46,249k,1206W4F2493T5E,"1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware.",Resistor_SMD:R_1206_3216Metric,https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578,meter_inputs,False
+R47,1k,0603WAF1001T5E,"1%, 100 ppm/K, 0603 voltage-divider low leg. Divider ratio is calibrated in firmware.",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
 C51,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False
 R48,1k,"SPEC: 1k 1%, 0.1W, 0603","1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,meter_inputs,False
 C52,33nF 50V C0G 5%,C2012C0G1H333J125AA,"TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V.",Capacitor_SMD:C_0805_2012Metric,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA,meter_inputs,False

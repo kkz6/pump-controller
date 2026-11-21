@@ -3968,7 +3968,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3979,7 +3979,7 @@
 				)
 			)
 		)
-		(property "Description" "0.1%, 25ppm/K, 200V working, 1206; 4 in series"
+		(property "Description" "1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4002,7 +4002,7 @@
 				)
 			)
 		)
-		(property "MPN" "TNPW1206249KBEEA"
+		(property "MPN" "1206W4F2493T5E"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -8406,7 +8406,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8417,7 +8417,7 @@
 				)
 			)
 		)
-		(property "Description" "0.1%, 25ppm/K, 200V working, 1206; 4 in series"
+		(property "Description" "1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware."
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8440,7 +8440,7 @@
 				)
 			)
 		)
-		(property "MPN" "TNPW1206249KBEEA"
+		(property "MPN" "1206W4F2493T5E"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -13021,7 +13021,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -13032,7 +13032,7 @@
 				)
 			)
 		)
-		(property "Description" "0.1%, 25ppm/K, 200V working, 1206; 4 in series"
+		(property "Description" "1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware."
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -13055,7 +13055,7 @@
 				)
 			)
 		)
-		(property "MPN" "TNPW1206249KBEEA"
+		(property "MPN" "1206W4F2493T5E"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -14253,7 +14253,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28758/tnpw_e3.pdf"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/35547-1206W4F2493T5E/C34578"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14264,7 +14264,7 @@
 				)
 			)
 		)
-		(property "Description" "0.1%, 25ppm/K, 200V working, 1206; 4 in series"
+		(property "Description" "1%, 100 ppm/K thick film, 200 V working, 1206; 4 in series. Divider ratio is calibrated in firmware."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14287,7 +14287,7 @@
 				)
 			)
 		)
-		(property "MPN" "TNPW1206249KBEEA"
+		(property "MPN" "1206W4F2493T5E"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -27012,7 +27012,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.yageogroup.com/component-documentation/download/specsheet/RT0603BRD071KL"
+		(property "Datasheet" ""
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -27024,7 +27024,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "0.1%, 25ppm/K, 0603 voltage-divider low leg"
+		(property "Description" "1%, 100 ppm/K, 0603 voltage-divider low leg. Divider ratio is calibrated in firmware."
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -27049,7 +27049,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RT0603BRD071KL"
+		(property "MPN" "0603WAF1001T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
