@@ -1,5 +1,7 @@
 # Verification
 
+[Independent electrical audit of the direct two-board controller](direct-controller-audit.md)
+
 The release exporter runs KiCad schematic ERC and PCB DRC with schematic parity, checks the cut outline and dimension, verifies the assembly BOM against native placements, and compares the Gerber copper and drill connectivity with the PCB's IPC-D-356 netlist. The CAM comparison also intentionally opens and shorts each board to test the checker. [KiCad and CAM evidence](../manufacturing/verification.json) · [Named interface pin checks](interfaces.json) · [Fabrication drill and outline comparison](drills-and-outlines.json)
 
 | Check | How to reproduce |
