@@ -115,5 +115,16 @@
 		(remove_unused_layers no)
 		(uuid "2fec32d4-5373-4202-b31f-6f514fa79130")
 	)
+	(model "${KIPRJMOD}/models/RACM06E-envelope.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 	(embedded_fonts no)
 )

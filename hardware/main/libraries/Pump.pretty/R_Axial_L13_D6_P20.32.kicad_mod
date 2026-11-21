@@ -99,5 +99,16 @@
 		(remove_unused_layers no)
 		(uuid "5894b0a9-242a-46e0-a8bf-3e3dd75a3cfc")
 	)
+	(model "${KIPRJMOD}/models/R_Axial_L13_D6-envelope.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 	(embedded_fonts no)
 )

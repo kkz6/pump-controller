@@ -6,6 +6,7 @@ The release exporter runs KiCad schematic ERC and PCB DRC with schematic parity,
 
 | Check | How to reproduce |
 | --- | --- |
+| Datasheet-level design review | Three subsystem reviews of every IC pin, rail and value. Findings, fixes and the revision 2 list: [design review 2026-11-21](design-review-2026-11-21.md) |
 | Schematic, layout and CAM | Install KiCad 10.0.8 and make `kicad-cli` available, or set `KICAD_CLI`. Use Python with Gerbonara and Shapely. Build `tools/cam/compare.cpp` against [GerberTools](https://github.com/jvanstraten/gerbertools) at commit `7d797b51b13da8060e27d5b16444052a73c5fc32` using C++17, its `src/*.cpp` and include directories `include` and `src`. From the project root run `python3 tools/export_boards.py --compare /path/to/compare`. |
 | Programming and control connections | `python3 tools/check_interfaces.py` |
 | Control profiles and application LED timing | `sh firmware/components/starter_outputs/tests/run-host.sh`. [Host results](firmware-host.txt) |

@@ -481,5 +481,16 @@
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(uuid "0be0f92f-2693-4859-b6f0-f2c83e7a189b")
 	)
+	(model "${KIPRJMOD}/models/ESP32-C6-MINI-1U-envelope.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 	(embedded_fonts no)
 )

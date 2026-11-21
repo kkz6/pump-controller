@@ -6515,6 +6515,17 @@
 			(uuid "e23525b0-4449-464e-9fc7-5e56237e8139")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/G6B-1114P-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -8318,7 +8329,7 @@
 				)
 			)
 		)
-		(property "Value" "100"
+		(property "Value" "1k"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8341,7 +8352,7 @@
 				)
 			)
 		)
-		(property "Description" "1%, >=0.1 W"
+		(property "Description" "1%, >=0.1 W. Isolates U20B from C112 (zero at 16 kHz, well below the 1 MHz GBW)."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8364,7 +8375,7 @@
 				)
 			)
 		)
-		(property "MPN" "SPEC: 100 1%, >=0.1 W 0603"
+		(property "MPN" "SPEC: 1k 1%, >=0.1 W 0603"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -9022,6 +9033,17 @@
 			(uuid "50354cf5-7f9f-4433-8fab-178413a76d33")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/ESP32-C6-MINI-1U-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(layer "F.Cu")
@@ -10908,7 +10930,7 @@
 				)
 			)
 		)
-		(property "Value" "100"
+		(property "Value" "1k"
 			(at 0 1.43 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -10931,7 +10953,7 @@
 				)
 			)
 		)
-		(property "Description" "1%, >=0.1 W"
+		(property "Description" "1%, >=0.1 W. Isolates U20C from C110 (zero at 16 kHz, well below the 1 MHz GBW); 10 us RC settles long before the ADS1115 sample."
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -10954,7 +10976,7 @@
 				)
 			)
 		)
-		(property "MPN" "SPEC: 100 1%, >=0.1 W 0603"
+		(property "MPN" "SPEC: 1k 1%, >=0.1 W 0603"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -17401,6 +17423,17 @@
 			(uuid "9604b727-7983-4d9b-a7e6-4783b7ebb072")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/R_Axial_L13_D6-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Pump:RACM06E"
 		(layer "F.Cu")
@@ -17547,6 +17580,17 @@
 			(uuid "12d72e8e-583e-4499-8abb-4ca453d868e6")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/RACM06E-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Pump:Fuse_Axial_5x20_P27.94"
 		(layer "F.Cu")
@@ -17667,6 +17711,17 @@
 			(uuid "84704eb9-b246-4459-9f14-02c473067c30")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/Fuse_5x20_axial-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -21173,6 +21228,17 @@
 			(uuid "01521d90-727c-4a69-a26e-0a14a40aeb5d")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/G6B-1114P-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -22301,6 +22367,17 @@
 			(uuid "88818bc3-a613-43d8-8e11-7f42a4505fe8")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/models/TMOV14-inline-envelope.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "CompactGuard:PinHeader_2x03_P2.54mm_Vertical"
 		(layer "F.Cu")
@@ -27144,7 +27221,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "27pF"
+		(property "Value" "33pF"
 			(at 0 -1.43 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -27169,7 +27246,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "C0G, 5%, 50V"
+		(property "Description" "C0G, 5%, 50V. With about 4.5 pF stray, 33 pF gives about 21 pF load for Y1 (20 pF)."
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -27194,7 +27271,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "SPEC: 27pF C0G, 5%, 50V"
+		(property "MPN" "SPEC: 33pF C0G, 5%, 50V"
 			(at 0 0 270)
 			(layer "B.SilkS")
 			(hide yes)
@@ -31515,7 +31592,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "0R link in place of the former ADuM isoPower ferrite. CA-IS3641 is a low-emission part whose application circuit has no ferrites; the 0603 land can take a ferrite again if EMI testing needs it."
+		(property "Description" "Fixed 0R link. C58 is the only part behind FB1/FB2, so a ferrite here would isolate C58 rather than filter VISO; keep 0R. CA-IS3641 application circuits use no ferrites."
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -37596,7 +37673,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "YXC HC-49S SMD, 20 pF load, 20 ppm. 27 pF caps with about 4.5 pF stray give about 18 pF, so it runs a few ppm high; confirm start-up and accuracy."
+		(property "Description" "YXC HC-49S SMD, 20 pF load, 20 ppm. 33 pF caps with about 4.5 pF stray give about 21 pF; confirm start-up and accuracy at bring-up."
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -44262,7 +44339,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "27pF"
+		(property "Value" "33pF"
 			(at 0 -1.43 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -44287,7 +44364,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "C0G, 5%, 50V"
+		(property "Description" "C0G, 5%, 50V. With about 4.5 pF stray, 33 pF gives about 21 pF load for Y1 (20 pF)."
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -44312,7 +44389,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "SPEC: 27pF C0G, 5%, 50V"
+		(property "MPN" "SPEC: 33pF C0G, 5%, 50V"
 			(at 0 0 270)
 			(layer "B.SilkS")
 			(hide yes)
@@ -45304,7 +45381,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "Chipanalog CA-IS3641HW: reinforced 5 kVrms digital isolator with integrated isolated DC-DC; 3 forward, 1 reverse channel; default-high outputs. VDD from +3V3; SEL to GNDB gives VISO = 3.3 V (0-130 mA). Wide-body SOIC-16; land pattern keeps an 8.6 mm copper gap."
+		(property "Description" "Chipanalog CA-IS3641HW: reinforced 5 kVrms digital isolator with integrated isolated DC-DC; 3 forward, 1 reverse channel; default-high outputs. VDD from +3V3; SEL to GNDB gives VISO = 3.3 V (about 73 mA available at VDD = 3.3 V; meter load about 10 mA). Wide-body SOIC-16; land pattern keeps an 8.6 mm copper gap."
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -45522,6 +45599,17 @@
 			(uuid "252fbd84-374f-4fe3-bc39-5d3d646e7a02")
 		)
 		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-16W_7.5x10.3mm_P1.27mm.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Diode_SMD:D_SOD-123"
 		(layer "B.Cu")
@@ -47420,7 +47508,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "0R link in place of the former ADuM isoPower ferrite. CA-IS3641 is a low-emission part whose application circuit has no ferrites; the 0603 land can take a ferrite again if EMI testing needs it."
+		(property "Description" "Fixed 0R link. C58 is the only part behind FB1/FB2, so a ferrite here would isolate C58 rather than filter VISO; keep 0R. CA-IS3641 application circuits use no ferrites."
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -47976,7 +48064,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "Local U11 supply/return pins 28/27. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance."
+		(property "Description" "Local U11 supply/return pins 16/15. 100 nF X7R, 10%, 16 V, 0402. Check actual assembly registration against the 0.04 mm per-axis layout allowance."
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)

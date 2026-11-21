@@ -99,5 +99,16 @@
 		(remove_unused_layers no)
 		(uuid "5fd9c495-03c0-4766-a98a-1d30248fdb85")
 	)
+	(model "${KIPRJMOD}/models/TMOV14-inline-envelope.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 	(embedded_fonts no)
 )

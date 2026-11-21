@@ -99,5 +99,16 @@
 		(remove_unused_layers no)
 		(uuid "7cfd90be-5d97-4933-92d3-d205b82536a2")
 	)
+	(model "${KIPRJMOD}/models/Fuse_5x20_axial-envelope.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 	(embedded_fonts no)
 )

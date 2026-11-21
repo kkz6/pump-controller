@@ -225,4 +225,15 @@
 		(roundrect_rratio 0.25)
 		(uuid "d8c40bc8-f6a2-4b3a-ab8c-bc71a65e934c")
 	)
+	(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-16W_7.5x10.3mm_P1.27mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )

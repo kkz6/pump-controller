@@ -19,7 +19,7 @@ OUT = ROOT / 'manufacturing'
 CLI = os.getenv('KICAD_CLI') or shutil.which('kicad-cli') or 'kicad-cli'
 # Same-footprint procurement choices for spec-only capacitors. C20 has a separate bias check.
 # JLC Basic parts where one exists (no loading-fee difference on Standard assembly, but lower
-# price and deep stock). 27 pF and 1 nF stay C0G/NP0 (Extended); 22 uF 1210 stays X7R (Extended).
+# price and deep stock). 33 pF and 1 nF stay C0G/NP0 (Extended); 22 uF 1210 stays X7R (Extended).
 CAPACITORS = {
     ('100nF', '0805'): 'CC0805KRX7R9BB104', ('22uF', '1210'): 'CL32B226KOJNNNE',
     ('1uF', '0805'): 'CL21B105KBFNNNE', ('100nF', '0603'): 'CC0603KRX7R9BB104',
@@ -27,6 +27,7 @@ CAPACITORS = {
     ('4.7uF', '0805'): 'CL21A475KAQNNNE', ('10uF', '0805'): 'CL21A106KAYNNNE',
     ('4.7uF', '0603'): 'CL10A475KO8NNNC', ('27pF', '0603'): 'CC0603JRNPO9BN270',
     ('1nF', '0603'): 'CC0603JRNPO9BN102', ('22uF', '0805'): 'CL21A226MAQNNNE',
+    ('33pF', '0603'): '0603CG330J500NT',
 }
 # UNI-ROYAL 1% thick film, all JLC Basic.
 RESISTORS = {

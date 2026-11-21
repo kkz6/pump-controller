@@ -9,7 +9,10 @@ A two-board prototype for an existing 1 HP single-phase pump starter. The main b
 | Identify a terminal or relay | [Starter interfaces and connectors](docs/connections.md) |
 | Program or recover the processor | [USB bench guide](docs/programming.md) · [Bench firmware](firmware/bench) |
 | Request bare boards and assembly | [Manufacturing package and cost](manufacturing/README.md) |
-| Reproduce the design checks | [Verification](verification/README.md) |
+| Order parts and boards | [Order checklist](manufacturing/order-checklist.md) |
+| Bring up a new board | [First power-up checks](docs/bring-up.md) |
+| Reproduce the design checks | [Verification](verification/README.md) · [Design review 2026-11-21](verification/design-review-2026-11-21.md) |
+| See the boards in 3D | [3D views](docs/3d/README.md) · [Main board STL](docs/3d/main.stl) · [Panel STL](docs/3d/panel.stl) |
 
 ![Main PCB fabrication artwork showing both relay channels, the USB recovery buttons and the dedicated traffic indicators](docs/main-fabrication.png)
 

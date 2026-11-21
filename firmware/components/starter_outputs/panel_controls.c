@@ -2,7 +2,10 @@
 
 /* Main U33 port B: START_N B0, SET/RESET_N B1, NC STOP closed B2, MODE B3,
  * NEXT B4, external guard auxiliary closed B5 and KEY_MAN_N B6.
- * Port A: KEY_AUTO_N A0, LOCAL_N A2 and HOST_N A3. */
+ * Port A: KEY_AUTO_N A0. Cabinet boards read LOCAL_N A2 and HOST_N A3; on the
+ * direct main board A2/A3 drive the USB TX/RX indicators and the direct profile
+ * forces HOST, so it never decodes them. A1 and A4-A6 are unused: configure
+ * them as inputs with GPPU enabled. */
 enum { START = 1, SET = 2, MODE = 4, NEXT = 8 };
 enum { KEY_MANUAL = 1, KEY_AUTO = 2 };
 

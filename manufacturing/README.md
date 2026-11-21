@@ -1,5 +1,7 @@
 # Manufacturing package
 
+**Ordering:** follow the [order checklist](order-checklist.md). It covers the JLC upload, hand-soldered parts, cables, field parts and programming kit for two complete controllers.
+
 Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, both silkscreens and plated and non-plated drill files. Request standard FR-4, 1.6 mm thickness, 1 oz outer copper and electrical testing. Verify the displayed layer count and dimensions on the fabricator's preview.
 
 | Board | Bare PCB | Assembly | Optional paste stencils |
@@ -28,12 +30,12 @@ Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assemb
 
 | Item, per installed controller | Priced portion |
 | --- | ---: |
-| Populated main board, including both relays and half the board's fees | ₹14,254.95 |
+| Populated main board, including both relays and half the board's fees | ₹14,255.17 |
 | Populated OLED/button PCB, including half its fees | ₹1,469.56 |
 | Shipping, half of one order | ₹1,213.03 |
 | Display, CT and other priced field materials | ₹2,398.33 |
 | Two mating starter plugs | ₹483.84 |
-| **One installed controller** | **₹19,819.71** |
+| **One installed controller** | **₹19,819.93** |
 
 Of that total, ₹8,391.81 is JLC setup, stencil and per-line loading fees:
 - **Main board:** double-sided, so it needs Standard assembly. Its through-hole parts are hand-fitted, which leaves 59 JLC lines.
@@ -57,7 +59,7 @@ Check the connector orientation, part availability, capacitor DC-bias margin and
 
 ### Cost target for the next revision
 
-Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹8,391.81 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,427.90 before unquoted items.
+Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹8,391.81 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,428.12 before unquoted items.
 
 | Subsystem | Maximum target |
 | --- | ---: |
