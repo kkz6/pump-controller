@@ -21,7 +21,7 @@ The design is internally consistent. Every part has a sound rating, and the deco
 
 | Ref | Part | JLC stock | Fix |
 | --- | --- | --- | --- |
-| U1 | RACM06E-05SK/277 | 0 (est $22.09) | Global sourcing or consign. Alternatives are discussed under larger options. |
+| U1 | RACM06E-05SK/277 | 0 (est $22.09) | Buy from DigiKey at about $10 and consign, or use JLC global sourcing. See "U1 sourcing" below. |
 | U11 | ADuM6421ABRNZ5 | 0 (est $16.68) | Replaced by Chipanalog CA-IS3641HW (C2890052). See U11 below. |
 | U3 | ESP32-C6-MINI-1U-H8 | Not in library | Consign. JLC stocks the -H4 (C20627095, $4.19), but it has 4 MB flash and the bench build uses 8 MB. |
 | U32 | STM1001TWX6F | 0 | Alternate source, or a pin-compatible open-drain 3.08 V supervisor. |
@@ -86,7 +86,7 @@ These need layout work and safety review, so they belong in a later revision. Ge
 - **Six-layer board:** layer count is usually the biggest fabrication cost on a board this size, so compare a quote for a 4-layer re-layout.
 - **Double-sided assembly:** both boards are assembled on both sides. Moving the panel's 19 bottom-side parts to the top would make the panel eligible for Economic assembly.
 
-`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹27,278.84 per installed controller. ₹12,945.70 of that is assembly fees.
+`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹26,074.46 per installed controller. ₹12,945.70 of that is assembly fees.
 
 ## Applied
 
@@ -159,3 +159,14 @@ Applied 2026-11-21. Chipanalog CA-IS3641HW (C2890052, $3.00, 7,251 in stock) rep
   - the land pattern, which should be reviewed with the assembler
   - +3V3 decoupling: the datasheet shows 10–22 µF at VDD, but only C57 (100 nF) is local. The supply relies on the +3V3 plane and the bulk capacitors elsewhere on the rail.
 - **Saving:** about $14.30 per board. Main-board parts go from $81.21 to $66.87.
+
+## U1 sourcing
+
+Checked 2026-11-21.
+
+- **Real price:** JLC's $22.94 for the RECOM RACM06E-05SK/277 is a pre-order estimate. DigiKey lists the same part (945-RACM06E-05SK/277-ND) at $10.04 for one and about $9.01 at 100, from search-indexed listings; DigiKey's live page was behind a bot check. Re-check the live price and stock before ordering.
+- **Saving:** buying U1 from DigiKey and consigning it, or ordering it through JLC global sourcing, saves about $12.90 per board with no design change.
+- **Redesign not worth it:**
+  - **Same-size modules:** the 25.4 × 25.4 mm alternatives (TRACO TMPS 05, Bel PSK-5E, Adam Tech AC5E) sell for about the same price.
+  - **MEAN WELL IRM-05-5:** $4.93 with 3,023 in stock at JLC. It is reinforced, UL/IEC 62368, EMI class B with no external parts, and has 38.5 mm between input and output pins. But at 45.7 × 25.4 × 21.5 mm it does not fit the mains corner without a re-layout, and it is taller than the RECOM. It would save only about $5 more per board.
+  - **Mornsun LS05:** cheaper still, but its 6.8 mm primary-to-secondary pin gap falls below the board's 8 mm target.
