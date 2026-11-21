@@ -15,6 +15,21 @@ The enclosure, the USB cable, board standoffs and the panel front are left for l
 
 Check the layer count, size and part placement on JLC's preview before paying.
 
+### Rotation corrections made in JLC's placement viewer (order of 2026-11-21)
+
+JLC's library models for these parts are rotated against KiCad's footprints. With the uploaded `main-CPL.csv`, they would be soldered sideways or back to front. Each one was corrected in the viewer by checking JLC's pin-1 dot against the silkscreen pin-1 mark and the copper pads. The saved order carries the corrections. On a new upload, apply them again or fold them into `tools/prepare_jlc_assembly.py`.
+
+| Side | Parts | Correction in the viewer |
+| --- | --- | --- |
+| Top | U21, U22, U33, U41, D42 | Rotate right (clockwise) 90° |
+| Top | U40, Q30, Q31, Q40 | 180° |
+| Bottom (viewed from below) | U11, U20, U34 | Rotate left (anticlockwise) 90° |
+| Bottom | U10, U31, U37, U42, D10, D31, D32, D43, D113 | 180° |
+
+All other parts matched as uploaded. D40, D60 and D61 have no model in JLC's viewer, so the order remark asks JLC to check their polarity: the cathode is pad 1, on the side with the silkscreen bracket. The panel needed no corrections. Its single-row connectors only need their leads on the pads and their openings facing the board edge.
+
+The panel uses Economic PCBA, which does not accept OSP finish, so the panel is ordered with lead-free HASL.
+
 ## 2. Hand-soldered parts — LCSC (can ship with the JLC order)
 
 These parts are left out of the JLC assembly files on purpose. Solder them after the boards arrive.
