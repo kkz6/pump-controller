@@ -2,27 +2,27 @@ Reference,Value,MPN,Description,Footprint,Datasheet,Sheet,DNP
 J1,MAIN / JST GH 12,SM12B-GHS-TB(LF)(SN),"Rear horizontal cable connector; mating GHR-12V-S housing, SSHL-002T-P0.2 contacts; verify purchased keying.",Connector_JST:JST_GH_SM12B-GHS-TB_1x12-1MP_P1.25mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eGH.pdf,panel-controls,False
 J2,REMOTE BUTTON STATION / GH10,SM10B-GHS-TB(LF)(SN),"One GHR-10V-S station plug. Fixed remote-button pairs 1/2 START, 3/4 NC STOP, 5/6 MODE, 7/8 SET, 9/10 NEXT. An unplugged station opens STOP.",Connector_JST:JST_GH_SM10B-GHS-TB_1x10-1MP_P1.25mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eGH.pdf,panel-controls,False
 SW1,STOP / NC,D2F-01F,Normally closed STOP. COM to NC opens while pressed. Pin numbering1=COM2=NO3=NC is this project convention; manufacturer uses names.,Panel:Omron_D2F-01F,https://omronfs.omron.com/en_US/ecb/products/pdf/en-d2f.pdf,panel-controls,False
-R1,2.2k,RC0603FR-072K2L,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-controls,False
+R1,2.2k,0603WAF2201T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-controls,False
 SW2,START,B3U-1000P,Momentary normally open tactile switch; external contact wired in parallel.,Button_Switch_SMD:SW_SPST_B3U-1000P,https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf,panel-controls,False
 SW3,AUTO / MANUAL,B3U-1000P,Momentary normally open tactile switch; external contact wired in parallel.,Button_Switch_SMD:SW_SPST_B3U-1000P,https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf,panel-controls,False
 SW4,SET / RESET,B3U-1000P,Momentary normally open tactile switch; external contact wired in parallel.,Button_Switch_SMD:SW_SPST_B3U-1000P,https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf,panel-controls,False
 SW5,NEXT / +,B3U-1000P,Momentary normally open tactile switch; external contact wired in parallel.,Button_Switch_SMD:SW_SPST_B3U-1000P,https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf,panel-controls,False
 J7,OLED / PH4,S4B-PH-SM4-TB(LF)(SN),"Waveshare14657 numeric order1SCL2SDA3GND4VCC; match pin numbers at both harness ends, not wire colors.",Connector_JST:JST_PH_S4B-PH-SM4-TB_1x04-1MP_P2.00mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/ePH.pdf,panel-display,False
-C1,100nF,GRM188R71C104KA01D,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-display,False
-C2,4.7uF,GRM188R60J475KE19D,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-display,False
+C1,100nF,CC0603KRX7R9BB104,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-display,False
+C2,4.7uF,CL10A475KO8NNNC,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-display,False
 J8,KEY / JST GH 3,SM03B-GHS-TB(LF)(SN),"Rear horizontal cable connector; mating GHR-03V-S housing, SSHL-002T-P0.2 contacts; verify purchased keying.",Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal,https://www.jst-mfg.com/product/pdf/eng/eGH.pdf,panel-key,False
-R2,2.2k,RC0603FR-072K2L,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-R3,10k,RC0603FR-0710KL,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-R4,100k,RC0603FR-07100KL,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-R5,10k,RC0603FR-0710KL,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-C3,10nF,GRM188R71H103KA01D,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-key,False
-Q1,MMBT3904,MMBT3904LT1G,NPN active-low5V-to3.3V key input; pin1B2E3C. Existing main100k sense pulldown retained.,Package_TO_SOT_SMD:SOT-23,https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf,panel-key,False
-R6,2.2k,RC0603FR-072K2L,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-R7,10k,RC0603FR-0710KL,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-R8,100k,RC0603FR-07100KL,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-R9,10k,RC0603FR-0710KL,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
-C4,10nF,GRM188R71H103KA01D,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-key,False
-Q2,MMBT3904,MMBT3904LT1G,NPN active-low5V-to3.3V key input; pin1B2E3C. Existing main100k sense pulldown retained.,Package_TO_SOT_SMD:SOT-23,https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf,panel-key,False
+R2,2.2k,0603WAF2201T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+R3,10k,0603WAF1002T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+R4,100k,0603WAF1003T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+R5,10k,0603WAF1002T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+C3,10nF,0603B103K500NT,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-key,False
+Q1,MMBT3904,MMBT3904(RANGE:100-300),NPN active-low5V-to3.3V key input; pin1B2E3C. Existing main100k sense pulldown retained.,Package_TO_SOT_SMD:SOT-23,https://jlcpcb.com/partdetail/21237-MMBT3904_RANGE_100_300/C20526,panel-key,False
+R6,2.2k,0603WAF2201T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+R7,10k,0603WAF1002T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+R8,100k,0603WAF1003T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+R9,10k,0603WAF1002T5E,"1%, 0.1W, 0603",Resistor_SMD:R_0603_1608Metric,,panel-key,False
+C4,10nF,0603B103K500NT,"X7R/X5R ceramic, voltage rating per selected MPN",Capacitor_SMD:C_0603_1608Metric,,panel-key,False
+Q2,MMBT3904,MMBT3904(RANGE:100-300),NPN active-low5V-to3.3V key input; pin1B2E3C. Existing main100k sense pulldown retained.,Package_TO_SOT_SMD:SOT-23,https://jlcpcb.com/partdetail/21237-MMBT3904_RANGE_100_300/C20526,panel-key,False
 H1,M2.5 mount,,Non-plated mounting hole; insulating standoffs and metal-panel clearance required.,MountingHole:MountingHole_2.7mm_M2.5,,panel-mechanical,False
 H2,M2.5 mount,,Non-plated mounting hole; insulating standoffs and metal-panel clearance required.,MountingHole:MountingHole_2.7mm_M2.5,,panel-mechanical,False
 H3,M2.5 mount,,Non-plated mounting hole; insulating standoffs and metal-panel clearance required.,MountingHole:MountingHole_2.7mm_M2.5,,panel-mechanical,False

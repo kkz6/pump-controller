@@ -616,6 +616,14 @@
       },
       {
         "netclass": "SELV",
+        "pattern": "PANEL_5V"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "PANEL_ILIM"
+      },
+      {
+        "netclass": "SELV",
         "pattern": "PERMIT_D"
       },
       {
@@ -1053,6 +1061,10 @@
       {
         "netclass": "SELV",
         "pattern": "unconnected-(U40-NC-Pad4)"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "unconnected-(U42-FAULT_N-Pad4)"
       },
       {
         "netclass": "SELV",

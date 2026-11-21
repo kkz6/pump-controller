@@ -26,7 +26,7 @@ If the starter contactor coil needs additional suppression, use the starter manu
 | J10 LIVE CT | Fixed-burden CT harness around one insulated motor-feed conductor. J10 is mains-referenced. Fit the burden and verify the insulated harness before using the CT. |
 | J20 TANK | Five tank wires. Pin 1 is common, with levels 1–4 on pins 2–5. |
 | J21 INLET / RET | Pin 1 is the inlet sense electrode. Pin 2 is the separately driven return for a dedicated inlet pair. Leave pin 2 empty when the inlet shares J20.1. |
-| J32 PANEL | Straight 12-way keyed loom to panel J1. Use only a pinned and continuity-checked harness. |
+| J32 PANEL | Straight 12-way keyed loom to panel J1. Use only a pinned and continuity-checked harness. Pin 1 is fed through U42, a TPS2553 limited to 110–150 mA, so a short in the loom, STOP chain or external station drops only K1 and the panel inputs and leaves the board's 5 V rail up. |
 | J30 A, J35 B | Starter control contacts. Four terminals support independent inputs. Share a common only where the starter diagram specifies it. |
 | J40 USB, J41 supply selection, J2 debug | Bench service and programming. [USB guide](programming.md) |
 

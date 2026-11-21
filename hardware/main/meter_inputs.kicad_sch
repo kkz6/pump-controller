@@ -234,7 +234,7 @@
 (property "Value" "0R" (at 50.8 40.64 0) (effects (font (size 1.05 1.05))))
 (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 50.8 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (property "Datasheet" "" (at 50.8 45.72 0) (effects (font (size 1 1)) (hide yes)))
-(property "MPN" "RC0603JR-070RL" (at 50.8 45.72 0) (effects (font (size 1 1)) (hide yes)))
+(property "MPN" "0603WAF0000T5E" (at 50.8 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (property "Description" "Neutral bond inside live domain only" (at 50.8 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (pin "1" (uuid "6da6ccae-83f7-50e3-8e6b-59cd7cc60c3a"))
 (pin "2" (uuid "e3429edc-0207-58af-b41f-0c08d98809ee"))

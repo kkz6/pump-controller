@@ -1799,7 +1799,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/21237-MMBT3904_RANGE_100_300/C20526"
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -1836,7 +1836,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "MMBT3904LT1G"
+		(property "MPN" "MMBT3904(RANGE:100-300)"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -2224,7 +2224,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "GRM188R71H103KA01D"
+		(property "MPN" "0603B103K500NT"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -2822,7 +2822,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-07100KL"
+		(property "MPN" "0603WAF1003T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -2953,7 +2953,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/21237-MMBT3904_RANGE_100_300/C20526"
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -2990,7 +2990,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "MMBT3904LT1G"
+		(property "MPN" "MMBT3904(RANGE:100-300)"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -3378,7 +3378,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -4064,7 +4064,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "GRM188R71C104KA01D"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -4232,7 +4232,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-07100KL"
+		(property "MPN" "0603WAF1003T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -4400,7 +4400,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-072K2L"
+		(property "MPN" "0603WAF2201T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -5070,7 +5070,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -5724,7 +5724,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "GRM188R60J475KE19D"
+		(property "MPN" "CL10A475KO8NNNC"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -5892,7 +5892,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-072K2L"
+		(property "MPN" "0603WAF2201T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -6060,7 +6060,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "GRM188R71H103KA01D"
+		(property "MPN" "0603B103K500NT"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -6228,7 +6228,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -6396,7 +6396,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -6564,7 +6564,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "RC0603FR-072K2L"
+		(property "MPN" "0603WAF2201T5E"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)

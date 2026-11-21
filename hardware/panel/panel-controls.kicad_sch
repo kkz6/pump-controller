@@ -227,7 +227,7 @@
 (property "Value" "2.2k" (at 355.6 40.64 0) (effects (font (size 1.05 1.05))))
 (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (property "Datasheet" "" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
-(property "MPN" "RC0603FR-072K2L" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
+(property "MPN" "0603WAF2201T5E" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (property "Description" "1%, 0.1W, 0603" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (pin "1" (uuid "f3bd083c-2025-5e35-a701-8d3fcd3cd52f"))
 (pin "2" (uuid "ee507693-33d0-593b-8870-aeac8f1aa634"))
