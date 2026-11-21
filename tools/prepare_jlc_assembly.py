@@ -39,10 +39,14 @@ RESISTORS = {
 }
 NORMALIZE = {'31171102 (RT13702HBWC)': '31171102', 'Samtec TSW-103-07-G-D': 'TSW-103-07-G-D',
              'Phoenix Contact 1727010 / MKDS 1/2-3,81': '1727010'}
-# Parts left out of the JLC files and fitted by hand after assembly. The panel's front buttons are the
-# only front-side parts, so leaving them out lets JLC assemble the rear side alone on single-sided
-# Economic PCBA instead of double-sided Standard PCBA.
-HAND_FIT = {'panel': {'SW1', 'SW2', 'SW3', 'SW4', 'SW5'}}
+# Parts left out of the JLC files and fitted by hand after assembly.
+# Panel: the front buttons are the only front-side parts, so leaving them out lets JLC assemble the rear
+# side alone on single-sided Economic PCBA instead of double-sided Standard PCBA.
+# Main: the through-hole parts. Each would cost a $1.53 loading line plus hand-soldering labour and joint
+# charges at JLC; U1 is bought from DigiKey anyway, and F1/J1 have no JLC catalogue entry.
+HAND_FIT = {'panel': {'SW1', 'SW2', 'SW3', 'SW4', 'SW5'},
+            'main': {'C1', 'F1', 'J1', 'J2', 'J10', 'J20', 'J21', 'J30', 'J35', 'J41', 'K1', 'K2', 'R1', 'RV1', 'U1'}}
+SINGLE_SIDED = {'panel'}
 
 
 def read_csv(path):
@@ -121,7 +125,7 @@ def prepare(board, location, stem, parts, destination=OUT):
     if not hand <= fitted.keys():
         raise ValueError(f'{board}: hand-fit references missing from BOM {hand - fitted.keys()}')
     sides = {placements[r]['Side'] for r in fitted if r not in hand}
-    if board in HAND_FIT and len(sides) != 1:
+    if board in SINGLE_SIDED and len(sides) != 1:
         raise ValueError(f'{board}: JLC-placed parts must be on one side for Economic assembly, found {sides}')
     for ref in sorted(fitted, key=ref_order):
         if ref in hand:

@@ -86,7 +86,7 @@ These need layout work and safety review, so they belong in a later revision. Ge
 - **Six-layer board:** layer count is usually the biggest fabrication cost on a board this size, so compare a quote for a 4-layer re-layout.
 - **Double-sided assembly:** both boards are assembled on both sides. Moving the panel's 19 bottom-side parts to the top would make the panel eligible for Economic assembly.
 
-`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹21,559.54 per installed controller. ₹9,891.42 of that is assembly fees.
+`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹20,013.09 per installed controller. ₹8,391.81 of that is assembly fees.
 
 ## Applied
 
@@ -184,3 +184,32 @@ Applied 2026-11-21.
   - **Fitted by hand:** SW1 (D2F-01F, through-hole) and SW2–SW5 (B3U-1000P) after assembly. `tools/prepare_jlc_assembly.py` lists them in `HAND_FIT` and fails the export if any JLC-placed panel part is on the other side.
   - **Saving:** about ₹3,050 per controller at two sets.
 - **Result:** one installed controller prices at ₹21,559.54 for two sets. Because the remaining fees are per order, it comes to about ₹13,650 for five sets and about ₹11,100 for ten.
+
+## Main-board assembly lines
+
+Applied 2026-11-21. The JLC fee for the main board is $51.12 setup, $16.42 stencils and $1.53 for each unique BOM line. The main board's JLC lines go from 80 to 59, and the per-order fee from $189.94 to $157.81.
+
+**Merged onto existing lines.** None of these needed a layout change beyond same-position footprint swaps. DRC was re-run after each swap.
+
+| Change | Reason |
+| --- | --- |
+| R102 47 Ω → 100 Ω | Op-amp isolation into C101; a larger value is more stable, and the bias is measured on ADS1115 AIN1. |
+| R27/R28 22 Ω 0805 → 0603 | USB series resistors; same value. |
+| R20, R21, R22, R26 10k 0805 → 0603 | Pull-ups. |
+| R24/R25 3.3k 0805 → 2.2k 0603 | I²C pull-ups, 1.5 mA sink. |
+| FB1/FB2 → resistor 0603 footprint | 0 Ω links that join R42's line; a ferrite still fits the land. |
+| R116, R117, R119, R120 4.99k → 10k 1206 | Probe drive series. About 15% less excitation and more surge margin; recheck probe thresholds when the firmware is calibrated. |
+| C105 4.7 µF → 1 µF 0603 | Local +3V3 bypass. |
+| C46/C55 10 µF → 22 µF 0805 | Same footprint, more capacitance. |
+| C2, C4, C6, C21 100 nF → 1 µF 0805 X7R | Bypass. |
+| D102/D103 BAT54S → BAS70-04 | Same SOT-23 series-pair pinout. |
+| Q40 PMV16XN → AO3400A | Same SOT-23 pinout; the gate sees at most 5.5 V. Moved to the standard SOT-23 footprint, whose pads are identical. |
+
+Where a footprint shrank from 0805 to 0603, the existing tracks were extended to the new pad centres.
+
+**Hand-fitted through-hole parts.** The 15 through-hole parts are listed in `HAND_FIT` in `tools/prepare_jlc_assembly.py` and fitted after assembly:
+- **Parts:** C1, F1, J1, J2, J10, J20, J21, J30, J35, J41, K1, K2, R1, RV1 and U1.
+- **Effect:** this removes their loading lines, JLC's through-hole joint charges and its hand-soldering labour fee.
+- **Quality:** these include the mains-side parts, so solder them carefully and inspect them before the insulation test.
+
+**Result:** one installed controller prices at ₹20,013 for two sets, about ₹13,000 for five and about ₹10,700 for ten.
