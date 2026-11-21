@@ -1,0 +1,10 @@
+Manufacturer Part Number,Manufacturer,Quantity,Use (1 controller) - parts LCSC does not stock
+RACM06E-05SK/277,RECOM,1,Main U1 AC-DC 5V module (out of stock at LCSC element14 and Tanotis)
+0ADKP1000-RE,Bel Fuse,2,Main F1 T1A 5x20 axial fuse (1 spare)
+1836189,Phoenix Contact,2,Main J30 J35 starter output headers (not available at LCSC)
+1734634,Phoenix Contact,2,J30 J35 plug coding profiles (optional)
+AC1020,Talema,1,Current transformer 20 A 1000:1 (out of stock at LCSC)
+AGHGH28K152,JST,12,Panel loom pre-crimped leads
+AGHGH28K51,JST,1,STOP loop lead (cavity 3 to 4)
+ASPHSPH24K102,JST,4,OLED cable pre-crimped leads
+146153-0100,Molex,1,Flat 2.4 GHz antenna with U.FL (or buy a generic U.FL FPC antenna locally)

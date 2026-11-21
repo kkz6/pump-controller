@@ -1,0 +1,32 @@
+Manufacturer Part Number,Manufacturer,Quantity,Use (2 complete sets)
+EEU-FR1E470,Panasonic,2,Main C1 47uF 25V 105C (design part; SamYoung NXB is the LCSC substitute)
+31171102,METZ CONNECT,2,Main J1 mains terminal 7.5 mm (design part)
+TSW-103-07-G-D,Samtec,2,Main J2 service header
+1727010,Phoenix Contact,2,Main J10 CT terminal
+1803303,Phoenix Contact,2,Main J20 tank probe header
+S2B-XH-A(LF)(SN),JST,2,Main J21 inlet header
+1836189,Phoenix Contact,4,Main J30 J35 starter output headers
+B3B-XH-A(LF)(SN),JST,2,Main J41 RUN/BENCH header
+G6B-1114P-US DC5,Omron,4,Main K1 K2 relays
+AC03000002209JAC00,Vishay,2,Main R1 22R 3W fusible
+TMOV14RP320EL2B7,Littelfuse,2,Main RV1 thermally protected MOV inline leads
+RACM06E-05SK/277,RECOM,2,Main U1 AC-DC 5V module
+0ADKP1000-RE,Bel Fuse,4,Main F1 T1A 5x20 fuse (2 spare)
+D2F-01F,Omron,2,Panel SW1 STOP switch
+B3U-1000P,Omron,8,Panel SW2-SW5 buttons
+GHR-12V-S,JST,4,Panel loom housings (2 per loom)
+AGHGH28K152,JST,24,Panel loom pre-crimped leads (12 per loom)
+PHR-4,JST,4,OLED cable housings (2 per cable)
+ASPHSPH24K102,JST,8,OLED cable pre-crimped leads (4 per cable)
+GHR-10V-S,JST,2,Panel J2 STOP loop plug housing
+AGHGH28K51,JST,2,STOP loop lead (cavity 3 to 4)
+1757019,Phoenix Contact,4,J30 J35 starter plugs
+1734634,Phoenix Contact,4,J30 J35 plug coding profiles
+1803604,Phoenix Contact,2,J20 tank probe plug
+XHP-2,JST,2,J21 inlet plug housing
+ASXHSXH22K305,JST,2,J21 inlet pigtail lead
+XHP-3,JST,2,J41 RUN plug housing
+ASXHSXH22K51,JST,2,J41 RUN plug link lead
+146153-0100,Molex,2,Flat 2.4 GHz antenna with U.FL
+AC1020,Talema,2,Current transformer 20 A 1000:1
+MFR-25FBF52-6R8,Yageo,2,RB1 CT burden 6.8R 1% metal film

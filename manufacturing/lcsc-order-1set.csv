@@ -1,0 +1,21 @@
+LCSC Part Number,Quantity,Manufacturer Part Number,Use (1 controller)
+C371231,1,NXB25V47M5*11 LO,Main C1 47uF 25V
+C474954,1,KF128-7.5-2P,Main J1 mains terminal
+C6339671,1,TSW-103-07-G-D,Main J2 service header
+C89123,1,1727010,Main J10 CT terminal
+C480548,1,1803303,Main J20 tank probe header
+C157931,1,S2B-XH-A(LF)(SN),Main J21 inlet header
+C5355140,2,1836189,Main J30 J35 starter output headers
+C144394,1,B3B-XH-A(LF)(SN),Main J41 RUN/BENCH header
+C397224,2,G6B-1114P-US DC5,Main K1 K2 relays
+C1364992,1,AC03000002209JACCS,Main R1 22R 3W fusible
+C22815876,1,TMOV14RP320EL2T7,Main RV1 thermally protected MOV
+C403989,1,D2F-01F,Panel SW1 STOP switch
+C231329,4,B3U-1000P,Panel SW2-SW5 buttons
+C489720,2,GHR-12V-S,Panel loom housings
+C111514,2,PHR-4,OLED cable housings
+C485359,1,GHR-10V-S,Panel J2 STOP loop plug housing
+C90073,2,1757019,J30 J35 starter plugs
+C480513,1,1803604,J20 tank probe plug
+C144401,1,XHP-2,J21 inlet plug housing
+C144402,1,XHP-3,J41 RUN plug housing
