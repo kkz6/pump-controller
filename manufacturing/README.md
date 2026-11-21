@@ -27,17 +27,17 @@ Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assemb
 
 | Item, per installed controller | Priced portion |
 | --- | ---: |
-| Populated main board, including both removable relay assemblies and half the board's fees | ₹20,211.74 |
+| Populated main board, including both removable relay assemblies and half the board's fees | ₹19,846.92 |
 | Populated OLED/button PCB, including half its fees | ₹4,604.14 |
 | Shipping, half of one order | ₹1,213.03 |
 | Display, CT and other priced field materials | ₹2,398.33 |
 | Two mating starter plugs | ₹483.84 |
-| **One installed controller** | **₹28,911.08** |
+| **One installed controller** | **₹28,546.26** |
 
-Of that total, ₹12,945.70 is JLC setup, stencil and per-line loading fees. Both boards are double-sided, so both need Standard assembly. Its fees are charged per order, not per board, so they shrink per controller as the order quantity grows.
+Of that total, ₹12,874.29 is JLC setup, stencil and per-line loading fees. Both boards are double-sided, so both need Standard assembly. Its fees are charged per order, not per board, so they shrink per controller as the order quantity grows.
 
 How the parts are priced:
-- **Main board:** $84.35 of components and a $40.60 bare-board quote for five 6-layer boards.
+- **Main board:** $81.21 of components and a $40.60 bare-board quote for five 6-layer boards.
 - **Panel:** $3.48 of components and a $4.00 bare-board quote.
 - **Relays:** the two relays and clips are ₹1,406.26.
 
@@ -47,7 +47,7 @@ Check the connector orientation, relay removal clearance, part availability, cap
 
 ### Cost target for the next revision
 
-Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹12,945.70 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹15,965.38 before unquoted items. Moving the panel to single-sided assembly, or hand-fitting it, removes most of its share of those fees.
+Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹12,874.29 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹15,671.97 before unquoted items. Moving the panel to single-sided assembly, or hand-fitting it, removes most of its share of those fees.
 
 | Subsystem | Maximum target |
 | --- | ---: |

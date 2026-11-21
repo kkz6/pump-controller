@@ -4,11 +4,11 @@
   "boards": {
     "main": {
       "source_sha256": {
-        "hardware/main/pump-direct.kicad_pcb": "b125e325a06cc8823ba457e0769407b5f0bf6cba52d03ba48d9d273906de1d99",
+        "hardware/main/pump-direct.kicad_pcb": "d1be5b5789be42726fed805a4c8f780af286358cf57bf2b9ddbc7c32b34eef74",
         "hardware/main/pump-direct.kicad_pro": "b5d3025d9253a519d49a3f9574847517158a4b86af45367c3bd6cb19ab764448",
         "hardware/main/pump-direct.kicad_dru": "3d48773c7d6f783c929a94cd7cd5dce3f43d4c14635f0f364a3e85b2154a59fa",
-        "hardware/main/bom.csv": "7462c4b85005a29251f057cdbbf4447823eddc9c4d4fe490389eb956210450d3",
-        "hardware/main/Pump.kicad_sym": "d455f26c05262b75ee176b3313d5d434006b06d20df35c4902c51425bf165985",
+        "hardware/main/bom.csv": "94b518b907da65ff8315a0f8ac63c9ca150142ee87c5881a5fb1bf90f4136b69",
+        "hardware/main/Pump.kicad_sym": "1e5ec54ef97c25ab8a4b535af4991a429225867ae3ccd8ba64944218a93d0945",
         "hardware/main/fp-lib-table": "8505570602c2af54390a87e3a7d344b58fbd533779b5af567cbac6ab8d799e21",
         "hardware/main/relay_protection_1.kicad_sch": "f7f6bced65fdf4ec4a26122c38f0be4a325d080c48d494a9d633f5911c5aabb7",
         "hardware/main/local_controls_2.kicad_sch": "d3ffaa5d47ee1dec71fa14831cb4532934825aea9d17dbb2e4cbefe429316edf",
@@ -20,7 +20,7 @@
         "hardware/main/power.kicad_sch": "42d01b9492bb37a4d72ccbeefe64527f8b920c3a7b23137b1df26eb2c4e85c08",
         "hardware/main/probes_3.kicad_sch": "d3a19e0ea713de2056a4f0f0a869c44fd0cda14aa2d82adc3c72a8c290c98609",
         "hardware/main/pump-direct.kicad_sch": "4eb5ea9b8e3d2d62b6aab823c2acb3f8415c0f7a9203e702fff0621b041e2c3f",
-        "hardware/main/meter_inputs.kicad_sch": "8f04aab05bfd1075fc42ed14bd8ecce1c4c382fa096aeffebb52df90682b2da7",
+        "hardware/main/meter_inputs.kicad_sch": "5e921f742092d4ed0351ce0a848132c51c4427b1b22e06063afbd6dd06a19ba8",
         "hardware/main/service_inhibit.kicad_sch": "a26f72aae3ee06536d71f7d1303712c3c85755afdb958b326a49b127eb084028",
         "hardware/main/mechanical.kicad_sch": "a779413c4020eebd3b3923131a9ae6f3d62092dcca98ef7459392ce0ece38bd3",
         "hardware/main/local_controls_1.kicad_sch": "d6efd2392c7650cc5da520b5408a07d843b756a4199e9a7b496c5892419d9dda",
@@ -87,7 +87,7 @@
       "copper_layers": 6,
       "connectivity": {
         "path": "manufacturing/main-gerbers.zip",
-        "sha256": "3dae24f40ab0665edbb4b48dda8d3d6eacb257b24b8acd2ecbed01edf0871e30",
+        "sha256": "e0a4d084a89b9ac0526726e6fb4862cd26d253f6abb23da28771d73796eb0817",
         "copper_layers": 6,
         "ipc_records": 1298,
         "ipc_named_nets": 186,
@@ -143,7 +143,7 @@
       "copper_layers": 2,
       "connectivity": {
         "path": "manufacturing/panel-gerbers.zip",
-        "sha256": "af8145753ec09a637fd04cdf2e6f490a200ed91d8a1d861d6fb802d6500a685c",
+        "sha256": "8738270ac3c7e24bc9acf9a5f701a3c5398e29c594863c959597e1f4c54d7d35",
         "copper_layers": 2,
         "ipc_records": 108,
         "ipc_named_nets": 18,
@@ -170,17 +170,17 @@
     }
   },
   "output_sha256": {
-    "main-BOM.csv": "0c5e36c459a57db2911199dcd7df7cd58882b2aec47d8c279d0191121b7ceaf3",
+    "main-BOM.csv": "c5a0ed916e19926fc30273e27e85f8ef98bc37d3fa119263854f3d09f0b37eb2",
     "main-CPL.csv": "15fb00f62ca0068b69ac9241ae2eda3b5863c4de77ba72bb3fea4b71b0c0d4d3",
-    "main-drc.json": "6fc8be9935b49ae001ade55232246754138ccf2fb5e7625f2cdfc6cc397c2a4a",
-    "main-erc.json": "c1b6bd137290f8f1661c536b911fcbe42571d4b46a2c4b0f4a64ad91dd7beed1",
-    "main-gerbers.zip": "3dae24f40ab0665edbb4b48dda8d3d6eacb257b24b8acd2ecbed01edf0871e30",
-    "main-stencil.zip": "adb15347653796e856f3f773cea14e8f14eae08929635f445d6b00eac4f9719a",
+    "main-drc.json": "36861741acd5d85e9db2063889e39d4426607f3a4d4ae4659f255a8eb9fa206a",
+    "main-erc.json": "019983e612d77e515d087b6337dc55e4d4fd3cd8b261852148a5392250e86473",
+    "main-gerbers.zip": "e0a4d084a89b9ac0526726e6fb4862cd26d253f6abb23da28771d73796eb0817",
+    "main-stencil.zip": "69172a766e20e9f94ba2336679950ce3922bd634696981c9a76cddf951895207",
     "panel-BOM.csv": "97742d4dc1793841fe12efec926725a2fe11985881e9976d3cc40c07d865e06c",
     "panel-CPL.csv": "a2b3559c97dc98f489ee286bcb77ddc5a5e181768dad05703b7aba826bf12f02",
-    "panel-drc.json": "12e861e406c11fe0d3ba264d165ce1418a38e14747afc9b7caa5a98b9dccfd2a",
-    "panel-erc.json": "b1b00ca4224838009d5bc3d79f34adc2fc07335d7f819a537212eff27dd47773",
-    "panel-gerbers.zip": "af8145753ec09a637fd04cdf2e6f490a200ed91d8a1d861d6fb802d6500a685c",
-    "panel-stencil.zip": "6279322a77bb871c7f764ada8fdcb23d9a423471019ea5bc1ca6a114396974d2"
+    "panel-drc.json": "a7acfd01ffa528c0047c03936802992ca1154ce40a92675aedce6639112d61a0",
+    "panel-erc.json": "c3501f20408bc2fc19da1b5131e691656d0c1fdddc60bd51de8ed6b52252c56d",
+    "panel-gerbers.zip": "8738270ac3c7e24bc9acf9a5f701a3c5398e29c594863c959597e1f4c54d7d35",
+    "panel-stencil.zip": "837b5793832c3b25c7ec12b368b352b485e01a00a44f8cada26f407cb6c48b5b"
   }
 }

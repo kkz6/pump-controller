@@ -73,7 +73,7 @@ The panel board would get the same treatment: Basic resistors, capacitors and MM
 
 | Option | Saves per board | Trade-off |
 | --- | --- | --- |
-| R43–R46 0.1% thin film → 1% thick film | about $3.00 | Divider drift rises from about 25 to 100 ppm/K. The voltage reading is calibrated, but it will drift about 0.4% over 40 K. |
+| R43–R46 0.1% thin film → 1% thick film (applied, with R47) | about $3.00 | Divider drift rises from about 25 to 100 ppm/K. The voltage reading is calibrated, but it will drift about 0.4% over 40 K. |
 | Merge C2, C4, C6, C21 (100 nF 0805) into the 1 µF 0805 line | One line | None significant: 1 µF X7R decouples at least as well. |
 | Merge D102 and D103 BAT54S into the BAS70-04 line | One line | BAS70 has a higher forward voltage and lower surge rating. Acceptable behind the 2.2 k drive resistors. |
 
@@ -86,7 +86,7 @@ These need layout work and safety review, so they belong in a later revision. Ge
 - **Six-layer board:** layer count is usually the biggest fabrication cost on a board this size, so compare a quote for a 4-layer re-layout.
 - **Double-sided assembly:** both boards are assembled on both sides. Moving the panel's 19 bottom-side parts to the top would make the panel eligible for Economic assembly.
 
-`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹28,911.08 per installed controller. ₹12,945.70 of that is assembly fees.
+`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹28,546.26 per installed controller. ₹12,874.29 of that is assembly fees.
 
 ## Applied
 
@@ -124,3 +124,18 @@ These need a decision or another supplier.
 - **RV1:** the footprint needs the crimped L2B7 lead form, so the straight-lead C444866 isn't a drop-in.
 - **Panel J2 and J7:** no stock.
 - **Low stock:** J20, the ADE7953 and TS3USB30E, and the P6B-04P sockets.
+
+## U1 and U11 replacement findings
+
+Checked 2026-11-21 before any layout work.
+
+- **Mornsun LS05-13B05R3 for U1:**
+  - **Pin spacing:** its datasheet puts the input and output pins 6.6 mm apart (6.8 mm with the slot). That is certified for the module itself, but it is below this board's 8 mm mains-to-SELV target. The RECOM has 20 mm between its input and output pins.
+  - **External parts:** it needs seven: a 10 µF 450 V bulk capacitor, 470 µF and 100 µF output capacitors, a 4.7 µH inductor, a 100 nF capacitor, a 1 nF Y capacitor across the barrier and an SMBJ7.0A TVS. Its datasheet also asks for extra EMC filtering, where the RECOM has class B filtering built in.
+  - **Sourcing:** genuine Mornsun is not in JLC's library. The JLC listings under that part number are YLPTEC and HENIPER parts with unknown certification.
+  - **Net saving:** about $17 per board before the extra BOM lines and layout work.
+- **RECOM RAC05 family:** no cheaper. It has no JLC stock either, at an estimated $15–37.
+- **NSi8241W in place of U11:**
+  - **Isolator:** a reinforced 5 kV, wide-body part at $1.86 with 885 in stock. It can keep the 8 mm gap if it uses a pad pattern like the current ADuM6421A dense footprint.
+  - **Meter supply:** it needs a separate 3.3 V supply on the mains-referenced meter side. The candidates are a half-wave capacitive dropper (an X2 capacitor, bleeders, a rectifier, a zener and an LDO) or a second small isolated AC-DC module.
+  - **Saving:** about $14 per board before about six added BOM lines.
