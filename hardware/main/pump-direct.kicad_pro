@@ -911,14 +911,6 @@
         "pattern": "unconnected-(U10-*"
       },
       {
-        "netclass": "LIVE",
-        "pattern": "unconnected-(U11-NIC-Pad16)"
-      },
-      {
-        "netclass": "SELV",
-        "pattern": "unconnected-(U11-NIC-Pad13)"
-      },
-      {
         "netclass": "SELV",
         "pattern": "unconnected-(U2-*"
       },
@@ -1065,6 +1057,10 @@
       {
         "netclass": "SELV",
         "pattern": "unconnected-(U42-FAULT_N-Pad4)"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "unconnected-(U11-NC-Pad7)"
       },
       {
         "netclass": "SELV",
