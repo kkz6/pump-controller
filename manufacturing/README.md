@@ -13,6 +13,8 @@ Two published JLCPCB entries can be used for the quote. The U3 entry gives the e
 
 The assembly BOM fits **sockets** at main K1 and K2. Buy two G6B-1114P-US-P6B DC5 relays and two P6B-C2 clips for each populated main board. Insert the relays after soldering and cleaning. A functional installation also needs the plug-in display, CT and burden, antenna and harnesses. [One-starter parts list](parts-one-starter.csv) · [Field parts and sourcing](field-parts.csv)
 
+The fully populated board supports the six-core shared-common inlet harness with J21.2 left open. For a separately identified bench prototype dedicated to that harness, the unused J21.2 excitation branch can be left unpopulated at R118, R119, R120, C107, C109, D101 and D103. Keep U20 and its local feedback, the J20.1 protection, and the entire J21.1 sense path. The inlet driver output still reaches the ADC multiplexer, so its reading alone cannot confirm excitation at the probes. Qualify the shared driver with fresh readings on all five channels at the intended cable lengths, water conductivity and contactor switching conditions before approving a production assembly variant. [Inlet wiring options](../docs/connections.md#inlet-sensing-on-a-six-core-cable)
+
 ## One-starter budget
 
 | Item | Priced portion |
