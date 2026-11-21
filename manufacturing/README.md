@@ -10,7 +10,7 @@ Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, b
 The panel assembly BOM has a catalogue ID for every line. Four main-board lines still require sourcing confirmation for full assembly: F1 (fuse), J1 (mains connector), K1/K2 (sockets) and U3 (radio module). Obtain written confirmation that all four will be fitted before paying for full assembly.
 
 As of 2026-11-21, several more parts have no JLC stock:
-- **Main board:** U1, U11, U32, C51–C54 and RV1
+- **Main board:** U1, U32, C51–C54 and RV1
 - **Panel:** J2 and J7
 
 Arrange those through global sourcing or consignment before ordering. [Stock status](../verification/bom-and-cost-review.md)
@@ -27,27 +27,27 @@ Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assemb
 
 | Item, per installed controller | Priced portion |
 | --- | ---: |
-| Populated main board, including both removable relay assemblies and half the board's fees | ₹19,846.92 |
+| Populated main board, including both removable relay assemblies and half the board's fees | ₹18,579.50 |
 | Populated OLED/button PCB, including half its fees | ₹4,604.14 |
 | Shipping, half of one order | ₹1,213.03 |
 | Display, CT and other priced field materials | ₹2,398.33 |
 | Two mating starter plugs | ₹483.84 |
-| **One installed controller** | **₹28,546.26** |
+| **One installed controller** | **₹27,278.84** |
 
-Of that total, ₹12,874.29 is JLC setup, stencil and per-line loading fees. Both boards are double-sided, so both need Standard assembly. Its fees are charged per order, not per board, so they shrink per controller as the order quantity grows.
+Of that total, ₹12,945.70 is JLC setup, stencil and per-line loading fees. Both boards are double-sided, so both need Standard assembly. Its fees are charged per order, not per board, so they shrink per controller as the order quantity grows.
 
 How the parts are priced:
-- **Main board:** $81.21 of components and a $40.60 bare-board quote for five 6-layer boards.
+- **Main board:** $66.87 of components and a $40.60 bare-board quote for five 6-layer boards.
 - **Panel:** $3.48 of components and a $4.00 bare-board quote.
 - **Relays:** the two relays and clips are ₹1,406.26.
 
-Still unpriced: customs duty and GST, the antenna, the CT burden, harness labour, the enclosure and site fitting. U1 and U11 have no JLC stock and are priced at JLC's estimate. The existing starter, motor and compatible tank probes are reused. [Cost assumptions](costs.json) · [Parts and cost review](../verification/bom-and-cost-review.md)
+Still unpriced: customs duty and GST, the antenna, the CT burden, harness labour, the enclosure and site fitting. U1 has no JLC stock and is priced at JLC's estimate. The existing starter, motor and compatible tank probes are reused. [Cost assumptions](costs.json) · [Parts and cost review](../verification/bom-and-cost-review.md)
 
 Check the connector orientation, relay removal clearance, part availability, capacitor DC-bias margin and the actual starter interface before assembly. Design-file verification and first-article tests are tracked separately. [Design checks](../verification/README.md)
 
 ### Cost target for the next revision
 
-Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹12,874.29 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹15,671.97 before unquoted items. Moving the panel to single-sided assembly, or hand-fitting it, removes most of its share of those fees.
+Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹12,945.70 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹14,333.14 before unquoted items. Moving the panel to single-sided assembly, or hand-fitting it, removes most of its share of those fees.
 
 | Subsystem | Maximum target |
 | --- | ---: |

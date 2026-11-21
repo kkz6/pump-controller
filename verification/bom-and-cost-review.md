@@ -22,7 +22,7 @@ The design is internally consistent. Every part has a sound rating, and the deco
 | Ref | Part | JLC stock | Fix |
 | --- | --- | --- | --- |
 | U1 | RACM06E-05SK/277 | 0 (est $22.09) | Global sourcing or consign. Alternatives are discussed under larger options. |
-| U11 | ADuM6421ABRNZ5 | 0 (est $16.68) | Global sourcing or consign. |
+| U11 | ADuM6421ABRNZ5 | 0 (est $16.68) | Replaced by Chipanalog CA-IS3641HW (C2890052). See U11 below. |
 | U3 | ESP32-C6-MINI-1U-H8 | Not in library | Consign. JLC stocks the -H4 (C20627095, $4.19), but it has 4 MB flash and the bench build uses 8 MB. |
 | U32 | STM1001TWX6F | 0 | Alternate source, or a pin-compatible open-drain 3.08 V supervisor. |
 | U34 | SN74LVC1G08DBVR | 5 | Nexperia 74LVC1G08GV,125 C282347: same SOT-23-5 pinout, 794 in stock. |
@@ -86,7 +86,7 @@ These need layout work and safety review, so they belong in a later revision. Ge
 - **Six-layer board:** layer count is usually the biggest fabrication cost on a board this size, so compare a quote for a 4-layer re-layout.
 - **Double-sided assembly:** both boards are assembled on both sides. Moving the panel's 19 bottom-side parts to the top would make the panel eligible for Economic assembly.
 
-`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹28,546.26 per installed controller. ₹12,874.29 of that is assembly fees.
+`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹27,278.84 per installed controller. ₹12,945.70 of that is assembly fees.
 
 ## Applied
 
@@ -119,7 +119,7 @@ These changes were applied the same day and are carried through the schematic, s
 
 These need a decision or another supplier.
 
-- **No JLC stock:** U1, U11, U3 (8 MB) and U32.
+- **No JLC stock:** U1, U3 (8 MB) and U32.
 - **C51–C54:** the meter's 33 nF C0G caps.
 - **RV1:** the footprint needs the crimped L2B7 lead form, so the straight-lead C444866 isn't a drop-in.
 - **Panel J2 and J7:** no stock.
@@ -139,3 +139,23 @@ Checked 2026-11-21 before any layout work.
   - **Isolator:** a reinforced 5 kV, wide-body part at $1.86 with 885 in stock. It can keep the 8 mm gap if it uses a pad pattern like the current ADuM6421A dense footprint.
   - **Meter supply:** it needs a separate 3.3 V supply on the mains-referenced meter side. The candidates are a half-wave capacitive dropper (an X2 capacitor, bleeders, a rectifier, a zener and an LDO) or a second small isolated AC-DC module.
   - **Saving:** about $14 per board before about six added BOM lines.
+
+## U11 replaced with CA-IS3641HW
+
+Applied 2026-11-21. Chipanalog CA-IS3641HW (C2890052, $3.00, 7,251 in stock) replaces the ADuM6421ABRNZ5 ($17.32, no stock).
+
+- **What it is:** one part, like the ADuM6421A. It is a reinforced 5 kVrms digital isolator with an integrated isolated DC-DC, 3 forward and 1 reverse channel, and default-high outputs, so the meter's chip select is deselected if the processor side loses power.
+- **Supply:** VDD runs from +3V3, which matches the ESP32 logic levels. SEL is tied to GNDB, giving VISO = 3.3 V (up to 130 mA; the meter needs about 10 mA). VISO feeds M_3V3 directly, and GNDB goes to M_GND, as in the datasheet's SPI application circuit.
+- **Land pattern:** a new `CA-IS3641_SOIC16W_Dense` footprint keeps the ADuM footprint's 1.3 × 0.6 mm pads at ±4.95 mm, so the inner copper gap stays 8.6 mm. DRC passes the 8 mm LIVE-to-SELV clearance and creepage rules.
+- **Support parts:**
+  - FB1 and FB2 are now 0 Ω links. The CA-IS36xx is a low-emission part and its application circuit has no ferrites; the 0603 lands can take ferrites again if EMI testing needs them.
+  - C58 is now 22 µF. With C46, VISO has about 32 µF against the datasheet's recommended 47 µF.
+  - C60 now sits at the VISO and GNDB pins as their 100 nF decoupling.
+  - C56 (the old 5 V isolator supply cap) and C59 (VISO decoupling) are removed.
+- **Not verified on hardware:**
+  - isolated-supply start-up with the meter load
+  - SPI timing through the isolator
+  - EMI with the ferrites shorted
+  - the land pattern, which should be reviewed with the assembler
+  - +3V3 decoupling: the datasheet shows 10–22 µF at VDD, but only C57 (100 nF) is local. The supply relies on the +3V3 plane and the bulk capacitors elsewhere on the rail.
+- **Saving:** about $14.30 per board. Main-board parts go from $81.21 to $66.87.

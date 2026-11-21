@@ -60,9 +60,9 @@ MAIN.update({
     "R49": terminals("M_CT_HI", "M_IAP"), "R50": terminals("M_GND", "M_IAN"),
     "U10": {5: "M_IAP", 6: "M_IAN", 11: "M_VN", 12: "M_VP", 18: "M_XIN", 19: "M_XOUT",
             25: "M_SCLK", 26: "M_MISO", 27: "M_MOSI", 28: "M_CS"},
-    "U11": {1: "+3V3", 4: "METER_SCLK", 5: "METER_MOSI", 6: "METER_CS", 7: "METER_MISO",
-            9: "GND", 11: "+5V", 18: "M_ISO_RAW", 20: "M_ISO_GND",
-            22: "M_MISO", 23: "M_CS", 24: "M_MOSI", 25: "M_SCLK", 28: "M_3V3"},
+    # Chipanalog CA-IS3641HW: VDD from +3V3, SEL to GNDB for VISO = 3.3 V, VISO feeds M_3V3 directly.
+    "U11": {1: "+3V3", 2: "GND", 3: "METER_SCLK", 4: "METER_MOSI", 5: "METER_CS", 6: "METER_MISO", 8: "GND",
+            9: "M_GND", 10: "M_GND", 11: "M_MISO", 12: "M_CS", 13: "M_MOSI", 14: "M_SCLK", 15: "M_GND", 16: "M_3V3"},
     "FB1": terminals("M_ISO_RAW", "M_3V3"), "FB2": terminals("M_ISO_GND", "M_GND"),
     "D31": terminals("STOP_RETURN", "K1_LOW"), "D32": terminals("+5V_CMD", "K2_LOW"),
     "Q30": terminals("K1_GATE", "GND", "K1_LOW"), "Q31": terminals("K2_GATE", "GND", "K2_LOW"),
