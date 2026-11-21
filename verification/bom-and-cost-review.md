@@ -23,24 +23,24 @@ The design is internally consistent. Every part has a sound rating, and the deco
 | --- | --- | --- | --- |
 | U1 | RACM06E-05SK/277 | 0 (est $22.09) | Buy from DigiKey at about $10 and consign, or use JLC global sourcing. See "U1 sourcing" below. |
 | U11 | ADuM6421ABRNZ5 | 0 (est $16.68) | Replaced by Chipanalog CA-IS3641HW (C2890052). See U11 below. |
-| U3 | ESP32-C6-MINI-1U-H8 | Not in library | Consign. JLC stocks the -H4 (C20627095, $4.19), but it has 4 MB flash and the bench build uses 8 MB. |
-| U32 | STM1001TWX6F | 0 | Alternate source, or a pin-compatible open-drain 3.08 V supervisor. |
+| U3 | ESP32-C6-MINI-1U-H8 | Not in library | Replaced by the -H4 (C20627095, $4.19, 3653 in stock). The bench build and image now target 4 MB flash. |
+| U32 | STM1001TWX6F | 0 | Replaced by Microchip MCP120T-300I/TT (C625180): same SOT-23 pinout, open-drain. Trips at 2.85–3.00 V rather than 3.00–3.15 V. |
 | U34 | SN74LVC1G08DBVR | 5 | Nexperia 74LVC1G08GV,125 C282347: same SOT-23-5 pinout, 794 in stock. |
 | U37 | SN74LVC3G17DCUR | 5 | Nexperia 74LVC3G17DC,125 C458193, 2992 in stock. Confirm the VSSOP-8 pinout before swapping. |
 | Y1 | ABLS-3.579545MHZ-B2-T | 6 | YXC X49SM3579545MSD2SC C2237: same HC-49S SMD package, 20 pF load, 9299 in stock. The existing 27 pF caps then pull it a few ppm high, which doesn't matter for metering. |
 | L1 | Würth 74438357022 | 1 ($3.11) | Sunlord SWPA4030S2R2MT C36409: 4×4 mm, $0.058. Confirm saturation current ≥ 1.5 A against TPS62162 peaks. |
-| RV1 | TMOV14RP320EL2B7 | 0 | Source the L2B7 lead form elsewhere. Straight-lead TMOV14RP320E (C444866) is in stock, but the footprint notes require the crimped inline L2B7 leads. |
+| RV1 | TMOV14RP320EL2B7 | 0 | TMOV14RP320EL2T7 (C22815876) has the same inline L2 leads on tape; JLC holds only 3. |
 | C1 | EEUFR1E470 | 0 | NXB 25V 47µF 5×11 C371231, 105 °C. |
 | C3, C5, C20 | 22 µF 1210 TDK | 0 | Samsung CL32B226KOJNNNE C55530: 16 V X7R 1210. |
-| C51–C54 | 33 nF C0G 0805 | 0 | No in-stock 0805 C0G was found. Keep C0G for V/I phase matching: either source this part or move to 1206 (C2443230). |
+| C51–C54 | 33 nF C0G 0805 | 0 | FH 0805B333K500NT X7R 10% (C1739, Basic). See the availability check below for the phase effect. |
 | 9 × C106–C128 | 1 µF 50 V 0805 | 0 | Samsung CL21B105KBFNNNE C28323, Basic. |
 | 8 × C80–C113 | 10 nF 0603 | 0 | C57112, Basic, 50 V. |
 | C48, C74, C101, C240 | 1 µF 0603 | 0 | C15849, Basic. This is X5R 50 V, which is adequate for these decoupling and RC positions. |
 | C49, C50 | 27 pF C0G | 0 | C107045 NP0. |
 | R2 | 33 Ω 2 W | 24 | Remove the part (DNP) and keep the footprint. |
-| Panel J2, J7 | SM10B-GHS-TB, S4B-PH-SM4-TB | 0 | Alternate source needed. Both are field-wiring connectors, so the mating housings must stay the same. |
+| Panel J2, J7 | SM10B-GHS-TB, S4B-PH-SM4-TB | 0 | J2: the plain SM10B-GHS-TB (C2683602) is in stock. J7 stays the JST part on pre-order. |
 
-Low stock, but enough for a prototype run: ADE7953 (107), TS3USB30E (151), J20 Phoenix 1803303 (41) and the P6B-04P sockets (10).
+Low stock, but enough for a prototype run: ADE7953 (107), TS3USB30E (151) and J20 Phoenix 1803303 (41).
 
 ## Cost
 
@@ -119,11 +119,10 @@ These changes were applied the same day and are carried through the schematic, s
 
 These need a decision or another supplier.
 
-- **No JLC stock:** U1, U3 (8 MB) and U32.
-- **C51–C54:** the meter's 33 nF C0G caps.
-- **RV1:** the footprint needs the crimped L2B7 lead form, so the straight-lead C444866 isn't a drop-in.
-- **Panel J2 and J7:** no stock.
-- **Low stock:** J20, the ADE7953 and TS3USB30E, and the P6B-04P sockets.
+Resolved by the availability check below, except:
+- **No JLC stock:** U1. Buy it from DigiKey.
+- **Pre-order:** panel J7.
+- **Low stock:** RV1, J20, the ADE7953 and TS3USB30E.
 
 ## U1 and U11 replacement findings
 
@@ -212,4 +211,21 @@ Where a footprint shrank from 0805 to 0603, the existing tracks were extended to
 - **Effect:** this removes their loading lines, JLC's through-hole joint charges and its hand-soldering labour fee.
 - **Quality:** these include the mains-side parts, so solder them carefully and inspect them before the insulation test.
 
-**Result:** one installed controller prices at ₹20,013 for two sets, about ₹13,000 for five and about ₹10,700 for ten.
+**Result:** one installed controller prices at ₹20,013 for two sets, about ₹13,000 for five and about ₹10,700 for ten. The availability substitutes below bring this to ₹19,843.
+
+## Availability check 2026-11-21
+
+Every JLC line on both boards was checked on the JLC parts library on 2026-11-21. Six parts were changed so the order can be placed from stock. Each substitute keeps its existing footprint, so the layout is unchanged.
+
+| Ref | Was | Now | JLC stock | Notes |
+| --- | --- | --- | ---: | --- |
+| U3 | ESP32-C6-MINI-1U-H8 (not stocked) | ESP32-C6-MINI-1U-H4, C20627095 | 3653 | 4 MB flash. `firmware/bench/sdkconfig.defaults` now selects 4 MB. The prebuilt `manufacturing/usb-bench.bin` header was re-stamped from 8 MB to 4 MB with `esptool merge_bin --flash_size 4MB`, which also updates the bootloader digest. Its partition table ends at 1.06 MB. A Matter build with OTA needs two app slots inside 4 MB. |
+| U32 | STM1001TWX6F (0) | MCP120T-300I/TT, C625180 | 1081 | Same SOT-23 pinout (1 RST, 2 VDD, 3 VSS), open-drain, active low. Trips at 2.85–3.00 V rather than 3.00–3.15 V, and releases after 150–700 ms rather than 140–280 ms. R70 (47 kΩ) still pulls SAFE_CLEAR_N up. The longer release only keeps the relays disarmed longer at power-up. The 3.00–3.15 V MCP120T-315I/TT is not stocked at JLC. |
+| C51–C54 | TDK C0G 5% (0) | FH 0805B333K500NT X7R 10%, C1739 (Basic) | 148658 | At 1 kΩ and 33 nF the anti-alias pole is 4.8 kHz, so the filter's phase shift at 50 Hz is 0.59°. A 10% mismatch between the channels shifts that by about 0.06°, which ADE7953 phase calibration removes. Fit all four from one reel. |
+| J1 | METZ 31171102 (no JLC entry) | Kefa KF128-7.5-2P, C474954 | 901 | Hand-fitted. 7.5 mm pitch, UL 300 V 10 A, IEC 450 V 24 A. Its 0.8 mm pins fit the 1.3 mm holes. The body is about 0.5 mm wider than the Metz courtyard. |
+| RV1 | TMOV14RP320EL2B7 (0) | TMOV14RP320EL2T7, C22815876 | 3 | Hand-fitted. Same varistor and inline crimped L2 leads, supplied on tape. Buy both sets' worth together, or buy the L2B7 bulk pack from a distributor. |
+| Panel J2 | SM10B-GHS-TB(LF)(SN) (0) | SM10B-GHS-TB, C2683602 | 24492 | Same JST GH 10-way side-entry header and mating GHR-10V-S housing. |
+
+Still not stocked: panel J7 (S4B-PH-SM4-TB, C265102) is pre-order only, about 9 days, and U1 is bought from DigiKey.
+
+These lines are factory-mounted but have fewer than 1,000 in stock: 74LVC1G08GV (794), TS3USB30E (151) and ADE7953 (107). MCP23017 has 1,271 and the panel LEDs have 1,522 and 2,489. Every other line has several thousand or more. The JLC BOMs now match all 59 main and 11 panel lines to catalogue IDs. ERC is 0 and DRC is 0/0/0 with schematic parity on both boards.

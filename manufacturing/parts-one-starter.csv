@@ -7,7 +7,7 @@ Main,"C41,C43,C45,C47,C70,C71,C72,C73,C75,C76,C77,C78,C88,C90,C100,C102,C103,C10
 Main,"C46,C55,C58",CL21A226MAQNNNE,3,Factory mount
 Main,"C48,C74,C101,C105,C240",CL10A105KB8NNNC,5,Factory mount
 Main,"C49,C50",CC0603JRNPO9BN270,2,Factory mount
-Main,"C51,C52,C53,C54",C2012C0G1H333J125AA,4,Factory mount
+Main,"C51,C52,C53,C54",0805B333K500NT,4,Factory mount
 Main,"C57,C60",GRM155R71C104KA88D,2,Factory mount
 Main,"C80,C82,C84,C86,C110,C111,C112,C113",0603B103K500NT,8,Factory mount
 Main,"C121,C123,C125,C127,C129",CC0603JRNPO9BN102,5,Factory mount
@@ -23,7 +23,7 @@ Main,"D100,D101,D110,D112,D114,D116,D118","PESD5V0S1BA,115",7,Factory mount
 Main,"D102,D103,D111,D113,D115,D117,D119","BAS70-04,215",7,Factory mount
 Main,F1,0ADKP1000-RE,1,Hand fit after JLC assembly (through-hole)
 Main,"FB1,FB2,R42",0603WAF0000T5E,3,Factory mount
-Main,J1,31171102,1,Hand fit after JLC assembly (through-hole)
+Main,J1,KF128-7.5-2P,1,Hand fit after JLC assembly (through-hole)
 Main,J2,TSW-103-07-G-D,1,Hand fit after JLC assembly (through-hole)
 Main,J10,1727010,1,Hand fit after JLC assembly (through-hole)
 Main,J20,1803303,1,Hand fit after JLC assembly (through-hole)
@@ -50,11 +50,11 @@ Main,R114,0603WAF1004T5E,1,Factory mount
 Main,"R116,R117,R119,R120,R130,R131,R140,R141,R150,R151,R160,R161,R170,R171",1206W4F1002T5E,14,Factory mount
 Main,"R240,R241",0603WAF5101T5E,2,Factory mount
 Main,R245,0603WAF2103T5E,1,Factory mount
-Main,RV1,TMOV14RP320EL2B7,1,Hand fit after JLC assembly (through-hole)
+Main,RV1,TMOV14RP320EL2T7,1,Hand fit after JLC assembly (through-hole)
 Main,"SW60,SW61",B3U-1000P,2,Factory mount
 Main,U1,RACM06E-05SK/277,1,Hand fit after JLC assembly (through-hole)
 Main,U2,TPS62162DSGR,1,Factory mount
-Main,U3,ESP32-C6-MINI-1U-H8,1,Factory mount
+Main,U3,ESP32-C6-MINI-1U-H4,1,Factory mount
 Main,U10,ADE7953ACPZ,1,Factory mount
 Main,U11,CA-IS3641HW,1,Factory mount
 Main,U20,TLV9004IPWR,1,Factory mount
@@ -62,7 +62,7 @@ Main,U21,TMUX1208PWR,1,Factory mount
 Main,U22,ADS1115IDGSR,1,Factory mount
 Main,U30,STWD100NYWY3F,1,Factory mount
 Main,U31,SN74LVC1G74DCUR,1,Factory mount
-Main,U32,STM1001TWX6F,1,Factory mount
+Main,U32,MCP120T-300I/TT,1,Factory mount
 Main,U33,MCP23017-E/SS,1,Factory mount
 Main,U34,"74LVC1G08GV,125",1,Factory mount
 Main,"U35,U36",SN74LVC1G17DBVR,2,Factory mount
@@ -75,7 +75,7 @@ Panel,C1,CC0603KRX7R9BB104,1,Factory mount
 Panel,C2,CL10A475KO8NNNC,1,Factory mount
 Panel,"C3,C4",0603B103K500NT,2,Factory mount
 Panel,J1,SM12B-GHS-TB(LF)(SN),1,Factory mount
-Panel,J2,SM10B-GHS-TB(LF)(SN),1,Factory mount
+Panel,J2,SM10B-GHS-TB,1,Factory mount
 Panel,J7,S4B-PH-SM4-TB(LF)(SN),1,Factory mount
 Panel,J8,SM03B-GHS-TB(LF)(SN),1,Factory mount
 Panel,"Q1,Q2",MMBT3904(RANGE:100-300),2,Factory mount

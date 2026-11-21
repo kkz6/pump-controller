@@ -9,7 +9,7 @@ The release exporter runs KiCad schematic ERC and PCB DRC with schematic parity,
 | Schematic, layout and CAM | Install KiCad 10.0.8 and make `kicad-cli` available, or set `KICAD_CLI`. Use Python with Gerbonara and Shapely. Build `tools/cam/compare.cpp` against [GerberTools](https://github.com/jvanstraten/gerbertools) at commit `7d797b51b13da8060e27d5b16444052a73c5fc32` using C++17, its `src/*.cpp` and include directories `include` and `src`. From the project root run `python3 tools/export_boards.py --compare /path/to/compare`. |
 | Programming and control connections | `python3 tools/check_interfaces.py` |
 | Control profiles and application LED timing | `sh firmware/components/starter_outputs/tests/run-host.sh`. [Host results](firmware-host.txt) |
-| Flashable bench image | Build the ESP32-C6 bench project with ESP-IDF v5.4.2. The build uses the 8 MB flash setting. [Build record](usb-bench.json) · [Flash and test](../docs/programming.md) |
+| Flashable bench image | Build the ESP32-C6 bench project with ESP-IDF v5.4.2. The build uses the 4 MB flash setting. [Build record](usb-bench.json) · [Flash and test](../docs/programming.md) |
 
 The named pin checks cover the 12-way harness, five panel buttons, external station, key selector and display, both pilot contacts and flyback diode polarities, relay inhibit, tank and inlet sensors, isolated supply and meter paths. The isolation-class check requires every named main-board copper net to belong to one domain. KiCad checks the project’s 8 mm live-to-control clearance and board-surface creepage targets. This value is a layout target. Enclosure conditions, insulation construction and assembled-board performance require separate qualification.
 

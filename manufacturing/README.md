@@ -7,15 +7,16 @@ Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, b
 | Main R2, 100 × 117 mm, six layers | [Gerbers and drills](main-gerbers.zip) | [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | [Both sides](main-stencil.zip) |
 | OLED panel F, 60 × 45 mm, two layers | [Gerbers and drills](panel-gerbers.zip) | [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv), rear side only | [Both sides](panel-stencil.zip) |
 
-The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. The main board's 15 through-hole parts are also left out of the JLC files and fitted by hand after assembly: C1, F1, J1, J2, J10, J20, J21, J30, J35, J41, K1, K2, R1, RV1 and U1. Buy them with the order or separately (U1 from DigiKey). U3 (radio module) has no JLC stock; confirm in writing that it will be consigned and fitted before paying for assembly.
+The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. The main board's 15 through-hole parts are also left out of the JLC files and fitted by hand after assembly: C1, F1, J1, J2, J10, J20, J21, J30, J35, J41, K1, K2, R1, RV1 and U1. Buy them with the order or separately (U1 from DigiKey).
 
-As of 2026-11-21, several more parts have no JLC stock:
-- **Main board:** U1, U32, C51–C54 and RV1
-- **Panel:** J2 and J7
+Stock checked on JLC on 2026-11-21. Every factory-mounted line on both boards is in stock, including U3, which is now the ESP32-C6-MINI-1U-H4 (C20627095). The exception is panel J7 (S4B-PH-SM4-TB, C265102), which is pre-order only at JLC with about 9 days' lead time. Allow for that, or consign J7.
 
-Arrange those through global sourcing or consignment before ordering. Buy U1 from DigiKey at about $10 rather than accepting JLC's $22.94 pre-order estimate. [Stock status](../verification/bom-and-cost-review.md)
+For the hand-fitted parts:
+- **U1:** no JLC stock. Buy it from DigiKey at about $10 rather than accepting JLC's $22.94 pre-order estimate.
+- **RV1:** JLC lists only 3 of TMOV14RP320EL2T7 (C22815876). Buy both sets' worth at once, or buy the TMOV14RP320EL2B7 bulk pack from a distributor. Both have the same inline crimped L2 leads.
+- **Everything else:** in stock. J1 is now the Kefa KF128-7.5-2P (C474954).
 
-A published JLCPCB entry can be used for U3 in the quote. It gives the exact module number and lists JLCPCB Assembly as the manufacturer. Confirm genuine Espressif supply and availability. [Radio catalogue entry](https://jlcpcb.com/partdetail/ESPRESSIF-ESP32_C6_MINI_1UH8/C9900163889)
+[Stock status](../verification/bom-and-cost-review.md#availability-check-2026-11-21)
 
 K1 and K2 are Omron G6B-1114P-US DC5 relays (C397224) soldered directly into the P6B-04P land pattern, which matches the relay's own PCB holes. There is no socket or clip, so replacing a relay means desoldering it. A functional installation also needs the plug-in display, CT and burden, antenna and harnesses. [One-starter parts list](parts-one-starter.csv) · [Field parts and sourcing](field-parts.csv)
 
@@ -27,12 +28,12 @@ Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assemb
 
 | Item, per installed controller | Priced portion |
 | --- | ---: |
-| Populated main board, including both relays and half the board's fees | ₹14,368.04 |
-| Populated OLED/button PCB, including half its fees | ₹1,549.85 |
+| Populated main board, including both relays and half the board's fees | ₹14,254.95 |
+| Populated OLED/button PCB, including half its fees | ₹1,492.77 |
 | Shipping, half of one order | ₹1,213.03 |
 | Display, CT and other priced field materials | ₹2,398.33 |
 | Two mating starter plugs | ₹483.84 |
-| **One installed controller** | **₹20,013.09** |
+| **One installed controller** | **₹19,842.92** |
 
 Of that total, ₹8,391.81 is JLC setup, stencil and per-line loading fees:
 - **Main board:** double-sided, so it needs Standard assembly. Its through-hole parts are hand-fitted, which leaves 59 JLC lines.
@@ -42,13 +43,13 @@ JLC's monthly assembly coupons are not deducted. The fees are charged per order,
 
 | Complete sets per order | 2 | 5 | 10 | 20 |
 | --- | ---: | ---: | ---: | ---: |
-| Per installed controller, approximate | ₹20,010 | ₹13,000 | ₹10,750 | ₹9,600 |
+| Per installed controller, approximate | ₹19,840 | ₹12,830 | ₹10,580 | ₹9,430 |
 
 Above five sets, the larger bare-board and shipping quotes are estimated.
 
 How the parts are priced:
-- **Main board:** $53.54 of components, including both relays and the hand-fitted parts, and a $40.60 bare-board quote for five 6-layer boards.
-- **Panel:** $3.48 of components and a $4.00 bare-board quote.
+- **Main board:** $52.33 of components, including both relays and the hand-fitted parts, and a $40.60 bare-board quote for five 6-layer boards.
+- **Panel:** $2.87 of components and a $4.00 bare-board quote.
 
 Still unpriced: customs duty and GST, the antenna, the CT burden, harness labour, the enclosure and site fitting. U1 has no JLC stock. It is priced at DigiKey's single-unit price of $10.04 (945-RACM06E-05SK/277-ND), to be consigned or bought through JLC global sourcing; JLC's own pre-order estimate is $22.94. The existing starter, motor and compatible tank probes are reused. [Cost assumptions](costs.json) · [Parts and cost review](../verification/bom-and-cost-review.md)
 
@@ -56,7 +57,7 @@ Check the connector orientation, part availability, capacitor DC-bias margin and
 
 ### Cost target for the next revision
 
-Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹8,391.81 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,621.28 before unquoted items.
+Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹8,391.81 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,451.11 before unquoted items.
 
 | Subsystem | Maximum target |
 | --- | ---: |

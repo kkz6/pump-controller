@@ -2,6 +2,8 @@
   "target": "esp32c6",
   "idf_version": "v5.4.2",
   "image": "manufacturing/usb-bench.bin",
-  "sha256": "314f6d141b6a840035de10f246bc29cd229955c7d629d0b5e8c0a4bc5d16add9",
-  "tested_on_hardware": false
+  "sha256": "fafbc5986a0a0ea0aef55abc9df7ce395521e52bb9e97d97b229c0420d8e0fc7",
+  "tested_on_hardware": false,
+  "flash_size": "4MB",
+  "note": "Header re-stamped from 8MB to 4MB with esptool 4.8.1 merge_bin --flash_size 4MB for the ESP32-C6-MINI-1U-H4; application unchanged."
 }

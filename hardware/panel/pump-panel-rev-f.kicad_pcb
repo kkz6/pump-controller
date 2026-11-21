@@ -5238,7 +5238,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "SM10B-GHS-TB(LF)(SN)"
+		(property "MPN" "SM10B-GHS-TB"
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(hide yes)

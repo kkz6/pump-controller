@@ -166,7 +166,7 @@
 (property "Value" "REMOTE BUTTON STATION / GH10" (at 152.4 36.83 0) (effects (font (size 1.05 1.05))))
 (property "Footprint" "Connector_JST:JST_GH_SM10B-GHS-TB_1x10-1MP_P1.25mm_Horizontal" (at 152.4 49.53 0) (effects (font (size 1 1)) (hide yes)))
 (property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf" (at 152.4 49.53 0) (effects (font (size 1 1)) (hide yes)))
-(property "MPN" "SM10B-GHS-TB(LF)(SN)" (at 152.4 49.53 0) (effects (font (size 1 1)) (hide yes)))
+(property "MPN" "SM10B-GHS-TB" (at 152.4 49.53 0) (effects (font (size 1 1)) (hide yes)))
 (property "Description" "One GHR-10V-S station plug. Fixed remote-button pairs 1/2 START, 3/4 NC STOP, 5/6 MODE, 7/8 SET, 9/10 NEXT. An unplugged station opens STOP." (at 152.4 49.53 0) (effects (font (size 1 1)) (hide yes)))
 (pin "1" (uuid "090a5f5e-ba83-568a-a585-49fdaf0baef0"))
 (pin "2" (uuid "a5e33942-5c63-5e5b-a6be-e569d8fc9e58"))

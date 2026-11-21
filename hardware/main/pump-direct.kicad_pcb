@@ -7324,7 +7324,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.metz-connect.com/externalfiles/311711/863694.PDF"
+		(property "Datasheet" "https://jlcpcb.com/parts/componentSearch?searchTxt=C474954"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -7335,7 +7335,7 @@
 				)
 			)
 		)
-		(property "Description" "METZ CONNECT Type 171, 2 positions on 7.50 mm pitch, 16 A, side wire entry. Pin 1 line, pin 2 neutral."
+		(property "Description" "Cixi Kefa KF128-7.5, 2 positions on 7.50 mm pitch, rising-clamp screw terminal; UL 300 V 10 A, IEC 450 V 24 A OVC III. Pin 1 line, pin 2 neutral. Body is 0.5 mm wider than the Metz Type 171 courtyard; the footprint's 1.3 mm holes take its 0.8 mm pins."
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -7358,7 +7358,7 @@
 				)
 			)
 		)
-		(property "MPN" "31171102 (RT13702HBWC)"
+		(property "MPN" "KF128-7.5-2P"
 			(at 0 0 270)
 			(layer "F.SilkS")
 			(hide yes)
@@ -7664,7 +7664,7 @@
 				)
 			)
 		)
-		(property "Value" "33nF 50V C0G 5%"
+		(property "Value" "33nF 50V X7R 10%"
 			(at 0 1.68 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7676,7 +7676,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA"
+		(property "Datasheet" "https://jlcpcb.com/parts/componentSearch?searchTxt=C1739"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7687,7 +7687,7 @@
 				)
 			)
 		)
-		(property "Description" "TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."
+		(property "Description" "FH 0805 X7R metering anti-alias capacitor, 33 nF ±10%, 50 V. Fit C51-C54 from one reel; ADE7953 phase calibration absorbs the residual current/voltage channel mismatch."
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7710,7 +7710,7 @@
 				)
 			)
 		)
-		(property "MPN" "C2012C0G1H333J125AA"
+		(property "MPN" "0805B333K500NT"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -8479,7 +8479,7 @@
 				)
 			)
 		)
-		(property "Value" "ESP32-C6-MINI-1U-H8"
+		(property "Value" "ESP32-C6-MINI-1U-H4"
 			(at 0 5 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8502,7 +8502,7 @@
 				)
 			)
 		)
-		(property "Description" "8 MB flash; external antenna; hardware supports Matter over Wi-Fi or Thread. Antenna must be outside metal starter enclosure. GPIO17 drives ARM_CMD interlock rearm; GPIO16 UART TX logs only; GPIO4/5/15 unused; strap levels preserved."
+		(property "Description" "4 MB flash (H8 out of stock at JLC; same module and footprint); external antenna; hardware supports Matter over Wi-Fi or Thread. Antenna must be outside metal starter enclosure. GPIO17 drives ARM_CMD interlock rearm; GPIO16 UART TX logs only; GPIO4/5/15 unused; strap levels preserved."
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8513,7 +8513,7 @@
 				)
 			)
 		)
-		(property "MPN" "ESP32-C6-MINI-1U-H8"
+		(property "MPN" "ESP32-C6-MINI-1U-H4"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -20714,7 +20714,7 @@
 				)
 			)
 		)
-		(property "Value" "33nF 50V C0G 5%"
+		(property "Value" "33nF 50V X7R 10%"
 			(at 0 1.68 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -20726,7 +20726,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA"
+		(property "Datasheet" "https://jlcpcb.com/parts/componentSearch?searchTxt=C1739"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -20737,7 +20737,7 @@
 				)
 			)
 		)
-		(property "Description" "TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."
+		(property "Description" "FH 0805 X7R metering anti-alias capacitor, 33 nF ±10%, 50 V. Fit C51-C54 from one reel; ADE7953 phase calibration absorbs the residual current/voltage channel mismatch."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -20760,7 +20760,7 @@
 				)
 			)
 		)
-		(property "MPN" "C2012C0G1H333J125AA"
+		(property "MPN" "0805B333K500NT"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -22222,7 +22222,7 @@
 				)
 			)
 		)
-		(property "Description" "Thermally protected 14 mm MOV, 320 VAC continuous; INLINE crimped L2B7 lead option required for footprint; surge coordination unverified"
+		(property "Description" "Thermally protected 14 mm MOV, 320 VAC continuous; INLINE crimped L2 lead option (L2T7 tape or L2B7 bulk) required for footprint; surge coordination unverified"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -22233,7 +22233,7 @@
 				)
 			)
 		)
-		(property "MPN" "TMOV14RP320EL2B7"
+		(property "MPN" "TMOV14RP320EL2T7"
 			(at 0 0 270)
 			(layer "F.SilkS")
 			(hide yes)
@@ -36892,7 +36892,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "33nF 50V C0G 5%"
+		(property "Value" "33nF 50V X7R 10%"
 			(at 0 -1.68 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -36905,7 +36905,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA"
+		(property "Datasheet" "https://jlcpcb.com/parts/componentSearch?searchTxt=C1739"
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -36917,7 +36917,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."
+		(property "Description" "FH 0805 X7R metering anti-alias capacitor, 33 nF ±10%, 50 V. Fit C51-C54 from one reel; ADE7953 phase calibration absorbs the residual current/voltage channel mismatch."
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -36942,7 +36942,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "C2012C0G1H333J125AA"
+		(property "MPN" "0805B333K500NT"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -44431,7 +44431,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "33nF 50V C0G 5%"
+		(property "Value" "33nF 50V X7R 10%"
 			(at 0 -1.68 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -44444,7 +44444,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C2012C0G1H333J125AA"
+		(property "Datasheet" "https://jlcpcb.com/parts/componentSearch?searchTxt=C1739"
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -44456,7 +44456,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "TDK 0805 C0G metering anti-alias capacitor, 33 nF ±5%, 50 V."
+		(property "Description" "FH 0805 X7R metering anti-alias capacitor, 33 nF ±10%, 50 V. Fit C51-C54 from one reel; ADE7953 phase calibration absorbs the residual current/voltage channel mismatch."
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -44481,7 +44481,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "C2012C0G1H333J125AA"
+		(property "MPN" "0805B333K500NT"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
@@ -50184,7 +50184,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "STM1001TWX6F"
+		(property "Value" "MCP120T-300I/TT"
 			(at 0 -2.4 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -50197,7 +50197,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm1001.pdf"
+		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/11184d.pdf"
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -50209,7 +50209,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "3.08V nominal reset threshold,3.00-3.15V over -40..85C;140-280ms release delay. ST pin1=RESET,2=VCC,3=GND"
+		(property "Description" "Microchip MCP120-300 open-drain active-low reset. Trip 2.85-3.00 V (2.925 V typ) over -40..85C; 150-700 ms release (350 ms typ). SOT-23 pin1=RST, 2=VDD, 3=VSS, same as the former STM1001. Trips up to 150 mV lower than the STM1001's 3.00-3.15 V; MCP120T-315I/TT restores that window if it can be sourced."
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -50234,7 +50234,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "STM1001TWX6F"
+		(property "MPN" "MCP120T-300I/TT"
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)

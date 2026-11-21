@@ -15,7 +15,7 @@ The ROM download sequence runs before application firmware. Watch the flashing t
 
 1. Use a de-energized board on the bench. Disconnect mains J1 and the two starter plugs J30 and J35. With the RUN link removed, the BENCH plug supplies isolated +5 V at J41 pin 2 and GND at pin 3, leaving pin 1 empty. USB VBUS also removes the relay command supply in hardware.
 2. Connect a USB data cable at J40. Hold **BOOT**, press and release **EN RESET**, then release **BOOT**. The ESP32-C6 ROM should enumerate. The OLED panel is unnecessary for this test.
-3. From an ESP-IDF v5.4.2 environment, replace PORT with the actual serial device and run the command below at the repository root. This writes the supplied bench image, bootloader and partition table. Preserve any firmware you need before programming.
+3. From an ESP-IDF v5.4.2 environment, replace PORT with the actual serial device and run the command below at the repository root. This writes the supplied bench image, bootloader and partition table. The image is set for the 4 MB flash of the ESP32-C6-MINI-1U-H4. Preserve any firmware you need before programming.
 
    ```sh
    python -m esptool --chip esp32c6 --port PORT write_flash 0x0 manufacturing/usb-bench.bin
