@@ -5,9 +5,9 @@ Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, b
 | Board | Bare PCB | Assembly | Optional paste stencils |
 | --- | --- | --- | --- |
 | Main R2, 100 × 117 mm, six layers | [Gerbers and drills](main-gerbers.zip) | [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | [Both sides](main-stencil.zip) |
-| OLED panel F, 60 × 45 mm, two layers | [Gerbers and drills](panel-gerbers.zip) | [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv) | [Both sides](panel-stencil.zip) |
+| OLED panel F, 60 × 45 mm, two layers | [Gerbers and drills](panel-gerbers.zip) | [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv), rear side only | [Both sides](panel-stencil.zip) |
 
-The panel assembly BOM has a catalogue ID for every line. Four main-board lines still require sourcing confirmation for full assembly: F1 (fuse), J1 (mains connector), K1/K2 (sockets) and U3 (radio module). Obtain written confirmation that all four will be fitted before paying for full assembly.
+The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. Three main-board lines still require sourcing confirmation for full assembly: F1 (fuse), J1 (mains connector) and U3 (radio module). Obtain written confirmation that they will be fitted before paying for full assembly.
 
 As of 2026-11-21, several more parts have no JLC stock:
 - **Main board:** U1, U32, C51–C54 and RV1
@@ -15,9 +15,9 @@ As of 2026-11-21, several more parts have no JLC stock:
 
 Arrange those through global sourcing or consignment before ordering. Buy U1 from DigiKey at about $10 rather than accepting JLC's $22.94 pre-order estimate. [Stock status](../verification/bom-and-cost-review.md)
 
-Two published JLCPCB entries can be used for the quote. The U3 entry gives the exact module number and lists JLCPCB Assembly as the manufacturer. Confirm genuine Espressif supply and availability. The socket entry shows zero stock and describes an SMT operation for a through-hole socket. Confirm the fitting process and supply before accepting it. [Radio catalogue entry](https://jlcpcb.com/partdetail/ESPRESSIF-ESP32_C6_MINI_1UH8/C9900163889) · [Relay socket catalogue entry](https://jlcpcb.com/partdetail/OmronElectronics-P6B_04P_FORG6B/C2756282)
+A published JLCPCB entry can be used for U3 in the quote. It gives the exact module number and lists JLCPCB Assembly as the manufacturer. Confirm genuine Espressif supply and availability. [Radio catalogue entry](https://jlcpcb.com/partdetail/ESPRESSIF-ESP32_C6_MINI_1UH8/C9900163889)
 
-The assembly BOM fits **sockets** at main K1 and K2. Buy two G6B-1114P-US-P6B DC5 relays and two P6B-C2 clips for each populated main board. Insert the relays after soldering and cleaning. A functional installation also needs the plug-in display, CT and burden, antenna and harnesses. [One-starter parts list](parts-one-starter.csv) · [Field parts and sourcing](field-parts.csv)
+K1 and K2 are Omron G6B-1114P-US DC5 relays (C397224) soldered directly into the P6B-04P land pattern, which matches the relay's own PCB holes. There is no socket or clip, so replacing a relay means desoldering it. A functional installation also needs the plug-in display, CT and burden, antenna and harnesses. [One-starter parts list](parts-one-starter.csv) · [Field parts and sourcing](field-parts.csv)
 
 The fully populated board supports the six-core shared-common inlet harness with J21.2 left open. For a separately identified bench prototype dedicated to that harness, the unused J21.2 excitation branch can be left unpopulated at R118, R119, R120, C107, C109, D101 and D103. Keep U20 and its local feedback, the J20.1 protection, and the entire J21.1 sense path. The inlet driver output still reaches the ADC multiplexer, so its reading alone cannot confirm excitation at the probes. Qualify the shared driver with fresh readings on all five channels at the intended cable lengths, water conductivity and contactor switching conditions before approving a production assembly variant. [Inlet wiring options](../docs/connections.md#inlet-sensing-on-a-six-core-cable)
 
@@ -27,27 +27,36 @@ Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assemb
 
 | Item, per installed controller | Priced portion |
 | --- | ---: |
-| Populated main board, including both removable relay assemblies and half the board's fees | ₹17,375.12 |
-| Populated OLED/button PCB, including half its fees | ₹4,604.14 |
+| Populated main board, including both relays and half the board's fees | ₹15,914.49 |
+| Populated OLED/button PCB, including half its fees | ₹1,549.85 |
 | Shipping, half of one order | ₹1,213.03 |
 | Display, CT and other priced field materials | ₹2,398.33 |
 | Two mating starter plugs | ₹483.84 |
-| **One installed controller** | **₹26,074.46** |
+| **One installed controller** | **₹21,559.54** |
 
-Of that total, ₹12,945.70 is JLC setup, stencil and per-line loading fees. Both boards are double-sided, so both need Standard assembly. Its fees are charged per order, not per board, so they shrink per controller as the order quantity grows.
+Of that total, ₹9,891.42 is JLC setup, stencil and per-line loading fees:
+- **Main board:** double-sided, so it needs Standard assembly.
+- **Panel:** goes on single-sided Economic assembly, with its front buttons fitted by hand.
+
+JLC's monthly assembly coupons are not deducted. The fees are charged per order, not per board, so the cost per controller falls quickly with order size:
+
+| Complete sets per order | 2 | 5 | 10 | 20 |
+| --- | ---: | ---: | ---: | ---: |
+| Per installed controller, approximate | ₹21,560 | ₹13,650 | ₹11,100 | ₹9,800 |
+
+Above five sets, the larger bare-board and shipping quotes are estimated.
 
 How the parts are priced:
-- **Main board:** $53.97 of components and a $40.60 bare-board quote for five 6-layer boards.
+- **Main board:** $53.38 of components, including both relays, and a $40.60 bare-board quote for five 6-layer boards.
 - **Panel:** $3.48 of components and a $4.00 bare-board quote.
-- **Relays:** the two relays and clips are ₹1,406.26.
 
 Still unpriced: customs duty and GST, the antenna, the CT burden, harness labour, the enclosure and site fitting. U1 has no JLC stock. It is priced at DigiKey's single-unit price of $10.04 (945-RACM06E-05SK/277-ND), to be consigned or bought through JLC global sourcing; JLC's own pre-order estimate is $22.94. The existing starter, motor and compatible tank probes are reused. [Cost assumptions](costs.json) · [Parts and cost review](../verification/bom-and-cost-review.md)
 
-Check the connector orientation, relay removal clearance, part availability, capacitor DC-bias margin and the actual starter interface before assembly. Design-file verification and first-article tests are tracked separately. [Design checks](../verification/README.md)
+Check the connector orientation, part availability, capacitor DC-bias margin and the actual starter interface before assembly. Design-file verification and first-article tests are tracked separately. [Design checks](../verification/README.md)
 
 ### Cost target for the next revision
 
-Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹12,945.70 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹13,128.76 before unquoted items. Moving the panel to single-sided assembly, or hand-fitting it, removes most of its share of those fees.
+Target ₹10,000 delivered for one complete controller on one existing starter, including both populated boards, display, CT and burden, harnesses, enclosure, fitting and tax. The present budget allocates ₹9,891.42 in assembly fees per controller when buying two sets. Even with those fees removed, the priced items come to ₹11,668.12 before unquoted items.
 
 | Subsystem | Maximum target |
 | --- | ---: |

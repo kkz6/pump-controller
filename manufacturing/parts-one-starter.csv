@@ -36,7 +36,7 @@ Main,"J30,J35",1836189,2,Factory mount
 Main,J32,SM12B-GHS-TB(LF)(SN),1,Factory mount
 Main,J40,USB4110-GF-A,1,Factory mount
 Main,J41,B3B-XH-A(LF)(SN),1,Factory mount
-Main,"K1,K2",P6B-04P,2,Factory mount
+Main,"K1,K2",G6B-1114P-US DC5,2,Factory mount
 Main,L1,SWPA4030S2R2MT,1,Factory mount
 Main,"Q30,Q31",AO3400A,2,Factory mount
 Main,Q40,PMV16XNR,1,Factory mount
@@ -82,8 +82,6 @@ Main,U40,TPS22919DCKR,1,Factory mount
 Main,U41,TS3USB30EDGSR,1,Factory mount
 Main,U42,TPS2553DBVR,1,Factory mount
 Main,Y1,X49SM3579545MSD2SC-1,1,Factory mount
-Main,K1 K2,G6B-1114P-US-P6B DC5,2,Insert after soldering and cleaning
-Main,K1 K2,P6B-C2,2,Retain each plugged relay with one clip
 Panel,C1,CC0603KRX7R9BB104,1,Factory mount
 Panel,C2,CL10A475KO8NNNC,1,Factory mount
 Panel,"C3,C4",0603B103K500NT,2,Factory mount
@@ -95,8 +93,8 @@ Panel,"Q1,Q2",MMBT3904(RANGE:100-300),2,Factory mount
 Panel,"R1,R2,R6",0603WAF2201T5E,3,Factory mount
 Panel,"R3,R5,R7,R9",0603WAF1002T5E,4,Factory mount
 Panel,"R4,R8",0603WAF1003T5E,2,Factory mount
-Panel,SW1,D2F-01F,1,Factory mount
-Panel,"SW2,SW3,SW4,SW5",B3U-1000P,4,Factory mount
+Panel,SW1,D2F-01F,1,Hand fit after JLC assembly (front side)
+Panel,"SW2,SW3,SW4,SW5",B3U-1000P,4,Hand fit after JLC assembly (front side)
 Field,OLED1,Display module,1 module,Exact finished component
 Field,CT1,"Current transformer, 20 A, 1000:1",1 CT in one fitted harness,Exact component; finished harness labor excluded
 Field,RB1,CT burden in the CT harness,1 installed burden,Quote only

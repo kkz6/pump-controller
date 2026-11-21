@@ -6619,7 +6619,7 @@
 				)
 			)
 		)
-		(property "Value" "P6B-04P"
+		(property "Value" "G6B-1114P-US DC5"
 			(at 8.8 3 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -6644,7 +6644,7 @@
 				)
 			)
 		)
-		(property "Description" "Four-pin P6B-04P socket. After soldering fit G6B-1114P-US-P6B DC5 and P6B-C2 clip. Coil pin 6 positive, pin 1 negative."
+		(property "Description" "Omron G6B-1114P-US DC5 soldered directly to the PCB (no socket or clip). Its four 1.1 mm PCB holes match this P6B-04P land pattern. Coil pin 6 positive, pin 1 negative."
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6657,7 +6657,7 @@
 				)
 			)
 		)
-		(property "MPN" "P6B-04P"
+		(property "MPN" "G6B-1114P-US DC5"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -21061,7 +21061,7 @@
 				)
 			)
 		)
-		(property "Value" "P6B-04P"
+		(property "Value" "G6B-1114P-US DC5"
 			(at 8.8 3 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -21086,7 +21086,7 @@
 				)
 			)
 		)
-		(property "Description" "Four-pin P6B-04P socket. After soldering fit G6B-1114P-US-P6B DC5 and P6B-C2 clip. Coil pin 6 positive, pin 1 negative."
+		(property "Description" "Omron G6B-1114P-US DC5 soldered directly to the PCB (no socket or clip). Its four 1.1 mm PCB holes match this P6B-04P land pattern. Coil pin 6 positive, pin 1 negative."
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -21099,7 +21099,7 @@
 				)
 			)
 		)
-		(property "MPN" "P6B-04P"
+		(property "MPN" "G6B-1114P-US DC5"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)

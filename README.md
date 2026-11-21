@@ -1,6 +1,6 @@
 # Pump starter controller
 
-A two-board prototype for an existing 1 HP single-phase pump starter. The main board measures supply voltage, reads a current transformer and tank probes, and issues starter commands through two replaceable relays. The door panel has a plug-in OLED, five operator buttons, an optional key selector and an external button connector. The existing starter switches the motor and capacitors.
+A two-board prototype for an existing 1 HP single-phase pump starter. The main board measures supply voltage, reads a current transformer and tank probes, and issues starter commands through two PCB-mounted relays. The door panel has a plug-in OLED, five operator buttons, an optional key selector and an external button connector. The existing starter switches the motor and capacitors.
 
 | What you need | Files |
 | --- | --- |

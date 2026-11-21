@@ -39,6 +39,12 @@ RESISTORS = {
 }
 NORMALIZE = {'31171102 (RT13702HBWC)': '31171102', 'Samtec TSW-103-07-G-D': 'TSW-103-07-G-D',
              'Phoenix Contact 1727010 / MKDS 1/2-3,81': '1727010'}
+# Parts left out of the JLC files and fitted by hand after assembly. The panel's front buttons are the
+# only front-side parts, so leaving them out lets JLC assemble the rear side alone on single-sided
+# Economic PCBA instead of double-sided Standard PCBA.
+HAND_FIT = {'panel': {'SW1', 'SW2', 'SW3', 'SW4', 'SW5'}}
+
+
 def read_csv(path):
     with path.open(encoding='utf-8-sig', newline='') as stream:
         return list(csv.DictReader(stream))
@@ -111,7 +117,15 @@ def prepare(board, location, stem, parts, destination=OUT):
         raise ValueError(f'{board}: duplicate placements or BOM/CPL reference mismatch {placements.keys() ^ fitted.keys()}')
     groups = defaultdict(list)
     cpl = []
+    hand = HAND_FIT.get(board, set())
+    if not hand <= fitted.keys():
+        raise ValueError(f'{board}: hand-fit references missing from BOM {hand - fitted.keys()}')
+    sides = {placements[r]['Side'] for r in fitted if r not in hand}
+    if board in HAND_FIT and len(sides) != 1:
+        raise ValueError(f'{board}: JLC-placed parts must be on one side for Economic assembly, found {sides}')
     for ref in sorted(fitted, key=ref_order):
+        if ref in hand:
+            continue
         row = fitted[ref]
         part = nominated(row)
         pos = placements[ref]
@@ -130,4 +144,5 @@ def prepare(board, location, stem, parts, destination=OUT):
         bom.append((part+' '+desc,','.join(refs),footprint,parts.get(part,''),part,len(refs)))
     write_csv(destination/(board+'-BOM.csv'),('Comment','Designator','Footprint','JLCPCB Part #','Manufacturer Part Number','Quantity'),bom)
     write_csv(destination/(board+'-CPL.csv'),('Designator','Mid X','Mid Y','Layer','Rotation'),cpl)
-    print(f'{board}: {len(fitted)} placements; {len(bom)} lines; {sum(bool(b[3]) for b in bom)} matched catalog lines')
+    print(f'{board}: {len(cpl)} JLC placements ({len(hand)} hand-fitted); {len(bom)} lines; '
+          f'{sum(bool(b[3]) for b in bom)} matched catalog lines')

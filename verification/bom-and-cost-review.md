@@ -86,7 +86,7 @@ These need layout work and safety review, so they belong in a later revision. Ge
 - **Six-layer board:** layer count is usually the biggest fabrication cost on a board this size, so compare a quote for a 4-layer re-layout.
 - **Double-sided assembly:** both boards are assembled on both sides. Moving the panel's 19 bottom-side parts to the top would make the panel eligible for Economic assembly.
 
-`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹26,074.46 per installed controller. ₹12,945.70 of that is assembly fees.
+`manufacturing/costs.json` and the budget in `manufacturing/README.md` were repriced after the changes below were applied. The model is one order of two sets with every fee split evenly, which gives ₹21,559.54 per installed controller. ₹9,891.42 of that is assembly fees.
 
 ## Applied
 
@@ -170,3 +170,17 @@ Checked 2026-11-21.
   - **Same-size modules:** the 25.4 × 25.4 mm alternatives (TRACO TMPS 05, Bel PSK-5E, Adam Tech AC5E) sell for about the same price.
   - **MEAN WELL IRM-05-5:** $4.93 with 3,023 in stock at JLC. It is reinforced, UL/IEC 62368, EMI class B with no external parts, and has 38.5 mm between input and output pins. But at 45.7 × 25.4 × 21.5 mm it does not fit the mains corner without a re-layout, and it is taller than the RECOM. It would save only about $5 more per board.
   - **Mornsun LS05:** cheaper still, but its 6.8 mm primary-to-secondary pin gap falls below the board's 8 mm target.
+
+## Relays and panel assembly
+
+Applied 2026-11-21.
+
+- **Relays:** K1 and K2 are now Omron G6B-1114P-US DC5 relays (C397224, $3.27, 253 in stock) soldered directly to the board. Omron's datasheet gives the relay's four 1.1 mm PCB holes at the same 10.16 mm and 7.62 mm spacing as the P6B-04P socket, so the existing land pattern and copper are unchanged.
+  - **Same relay:** it is the same relay and coil as before, so contact ratings, coil-to-contact insulation and coil polarity (pin 6 positive) are unchanged.
+  - **Trade-off:** replacing a relay now means desoldering it. The P6B-04P socket ($3.56 each, 10 in stock) and the P6B-C2 clip are no longer needed. The relay also sits lower, at 10 mm.
+  - **Saving:** about ₹1,460 per controller.
+- **Panel:** the panel's only front-side parts are its five buttons. Leaving them out of the JLC files means JLC assembles only the rear side, on single-sided Economic PCBA.
+  - **Panel fees:** setup $8.18, stencil $1.53, and $3.07 for each of the 4 extended connector lines.
+  - **Fitted by hand:** SW1 (D2F-01F, through-hole) and SW2–SW5 (B3U-1000P) after assembly. `tools/prepare_jlc_assembly.py` lists them in `HAND_FIT` and fails the export if any JLC-placed panel part is on the other side.
+  - **Saving:** about ₹3,050 per controller at two sets.
+- **Result:** one installed controller prices at ₹21,559.54 for two sets. Because the remaining fees are per order, it comes to about ₹13,650 for five sets and about ₹11,100 for ten.

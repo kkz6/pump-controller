@@ -257,7 +257,7 @@
 				)
 			)
 		)
-		(property "Description" "Momentary normally open tactile switch; external contact wired in parallel."
+		(property "Description" "Hand-fitted after JLC assembly (front side). Momentary normally open tactile switch; external contact wired in parallel."
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -638,7 +638,7 @@
 				)
 			)
 		)
-		(property "Description" "Momentary normally open tactile switch; external contact wired in parallel."
+		(property "Description" "Hand-fitted after JLC assembly (front side). Momentary normally open tactile switch; external contact wired in parallel."
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -898,7 +898,7 @@
 				)
 			)
 		)
-		(property "Description" "Momentary normally open tactile switch; external contact wired in parallel."
+		(property "Description" "Hand-fitted after JLC assembly (front side). Momentary normally open tactile switch; external contact wired in parallel."
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1279,7 +1279,7 @@
 				)
 			)
 		)
-		(property "Description" "Momentary normally open tactile switch; external contact wired in parallel."
+		(property "Description" "Hand-fitted after JLC assembly (front side). Momentary normally open tactile switch; external contact wired in parallel."
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1536,7 +1536,7 @@
 				)
 			)
 		)
-		(property "Description" "Normally closed STOP. COM to NC opens while pressed. Pin numbering1=COM2=NO3=NC is this project convention; manufacturer uses names."
+		(property "Description" "Hand-fitted after JLC assembly (front side). Normally closed STOP. COM to NC opens while pressed. Pin numbering1=COM2=NO3=NC is this project convention; manufacturer uses names."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
