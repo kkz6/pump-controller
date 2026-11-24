@@ -1,0 +1,23 @@
+Subject: SMT026112161707_Y2 - enable Replace File for revised R3 files
+
+Thank you. Please enable the Replace File function for our held order so we can upload the revised Gerber, BOM and CPL files. Please keep the selected components reserved and let us know when the upload function is available. We are requesting file replacement, not a separate cancellation.
+
+The revised main PCB is R3, 100 x 139 mm, six layers. It is 22 mm taller and its upper corner mounting holes have moved and the centre mount was removed. Please use the complete revised matching file set, including the revised paste stencil.
+
+Please supply the Standard-PCBA process rails, fiducials and tooling holes. The files define the finished board, not a manufacturing panel. Keep rail tabs clear of the overhanging output terminals and USB/other edge connectors, and provide the proposed panel arrangement for review. R246's supply via has been moved outside its solder land; R2 remains DNP and now has no stencil apertures. Please use the revised paste layers and finalize the stencil treatment for U2/U10 exposed pads.
+
+L1 remains Sunlord SWPA4030S2R2MT (C36409). Its revised pads are each 1.10 x 3.70 mm, with 3.00 mm centres and a 1.90 mm inner gap. Please assess solder coverage using the revised lands.
+
+K1/K2 are now G5RL-1-E-HR DC5 changeover relays, C1563288 (two per board). J30/J35 are now Phoenix 1711738 terminals, C91156 (two per board). Both pairs are included in the JLC assembly BOM/CPL; please include their through-hole assembly. Please confirm relay reservation/lead time before proceeding. Do not substitute the SPST G5RL-1A version: we require NC, COM and NO.
+
+Both output terminals face outward over the top board edge. Their pin map is 1 NO, 2 COM, 3 NC; use the revised CPL positions and 180-degree orientation, not the former inward-facing placement.
+
+The four new through-hole parts use nominal package-centre coordinates in the CPL; please align their actual pads in the revised preview. The revised CPL automatically includes the 21 exact-part rotation corrections documented for our earlier JLC placement review. Please do not apply those old manual offsets again. The attached top/bottom reference sheets describe the actual required physical orientations; please compare the new placement previews against them. Also verify Q50 pin 1 gate, 2 source, 3 drain and Q51 pin 1 base, 2 emitter, 3 collector against their datasheets.
+
+Your latest query lists U10, D32, D31, D30, U31, U20 and U37 on the bottom side; the earlier query listed U22, D35, U33, U21, U3 and U2 on the top side. The revised PCB has visible orientation marks for all thirteen.
+
+The final revision also prints consistent filled pin-1 arrows for all 19 U-designated parts, on their respective mounted sides. Arrow tips point toward the numbered pin-1 pads. Please compare actual lead/pad alignment; the arrows do not replace verification of the supplier library's rotation convention.
+
+All four LEDs retain their cathode brackets and six single-diode/unidirectional-TVS parts retain their cathode bars. C1 now has a printed positive sign. Pin-1 arrows also cover all transistors and multi-pin diode packages, including Q1/Q2 on the panel. The bidirectional PESD5V0S1BA parts are non-polarized and should not be interpreted as having a cathode mark.
+
+The inline link available to us shows the attachment list rather than the actual placements. Please send the updated Top and Bottom DFM PNGs for the revised files, including the new relays and transistors. Please keep fabrication and assembly on hold until we confirm those actual placements and your acceptance of L1 solder coverage. We have not approved Option D.

@@ -1,0 +1,452 @@
+{
+  "main": {
+    "pin1_arrows": {
+      "D10": {
+        "mpn": "BAV99W,115",
+        "side": "B",
+        "pin1_xy_mm": [
+          27.65,
+          66.3875
+        ],
+        "triangle_xy_mm": [
+          [
+            28.158956,
+            66.868087
+          ],
+          [
+            28.343991,
+            67.400405
+          ],
+          [
+            28.700999,
+            67.022323
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-323_SC-70"
+      },
+      "D42": {
+        "mpn": "USBLC6-2SC6",
+        "side": "F",
+        "pin1_xy_mm": [
+          88.0625,
+          18.95
+        ],
+        "triangle_xy_mm": [
+          [
+            87.198724,
+            18.446124
+          ],
+          [
+            86.897844,
+            17.969604
+          ],
+          [
+            86.635828,
+            18.418768
+          ]
+        ],
+        "footprint": "CompactGuard:SOT-23-6"
+      },
+      "D102": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          77.5625,
+          50.95
+        ],
+        "triangle_xy_mm": [
+          [
+            77.168176,
+            51.528367
+          ],
+          [
+            76.671694,
+            51.795024
+          ],
+          [
+            77.101338,
+            52.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "D103": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          77.5625,
+          56.95
+        ],
+        "triangle_xy_mm": [
+          [
+            77.168176,
+            57.528367
+          ],
+          [
+            76.671694,
+            57.795024
+          ],
+          [
+            77.101338,
+            58.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "D111": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          91.9375,
+          49.95
+        ],
+        "triangle_xy_mm": [
+          [
+            91.543176,
+            50.528367
+          ],
+          [
+            91.046694,
+            50.795024
+          ],
+          [
+            91.476338,
+            51.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "D113": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          90.95,
+          53.9375
+        ],
+        "triangle_xy_mm": [
+          [
+            91.528367,
+            54.331824
+          ],
+          [
+            91.795024,
+            54.828306
+          ],
+          [
+            92.08795,
+            54.398662
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "D115": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          88.0625,
+          49.95
+        ],
+        "triangle_xy_mm": [
+          [
+            87.668176,
+            50.528367
+          ],
+          [
+            87.171694,
+            50.795024
+          ],
+          [
+            87.601338,
+            51.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "D117": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          80.5625,
+          60.95
+        ],
+        "triangle_xy_mm": [
+          [
+            80.153879,
+            60.381644
+          ],
+          [
+            80.073111,
+            59.823901
+          ],
+          [
+            79.650903,
+            60.127448
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "D119": {
+        "mpn": "BAS70-04,215",
+        "side": "B",
+        "pin1_xy_mm": [
+          84.0625,
+          45.95
+        ],
+        "triangle_xy_mm": [
+          [
+            83.668176,
+            46.528367
+          ],
+          [
+            83.171694,
+            46.795024
+          ],
+          [
+            83.601338,
+            47.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "Q30": {
+        "mpn": "AO3400A",
+        "side": "F",
+        "pin1_xy_mm": [
+          49.05,
+          44.4375
+        ],
+        "triangle_xy_mm": [
+          [
+            48.471633,
+            44.831824
+          ],
+          [
+            47.91205,
+            44.898662
+          ],
+          [
+            48.204976,
+            45.328306
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "Q31": {
+        "mpn": "AO3400A",
+        "side": "F",
+        "pin1_xy_mm": [
+          49.05,
+          54.9375
+        ],
+        "triangle_xy_mm": [
+          [
+            48.471633,
+            55.331824
+          ],
+          [
+            47.91205,
+            55.398662
+          ],
+          [
+            48.204976,
+            55.828306
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "Q40": {
+        "mpn": "AO3400A",
+        "side": "F",
+        "pin1_xy_mm": [
+          87.4375,
+          11.45
+        ],
+        "triangle_xy_mm": [
+          [
+            87.831824,
+            12.028367
+          ],
+          [
+            87.898662,
+            12.58795
+          ],
+          [
+            88.328306,
+            12.295024
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "Q50": {
+        "mpn": "AO3401A",
+        "side": "F",
+        "pin1_xy_mm": [
+          58.0625,
+          -3.95
+        ],
+        "triangle_xy_mm": [
+          [
+            57.88977,
+            -4.628354
+          ],
+          [
+            58.018352,
+            -5.17705
+          ],
+          [
+            57.514431,
+            -5.048736
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "Q51": {
+        "mpn": "MMBT3904LT1G",
+        "side": "F",
+        "pin1_xy_mm": [
+          53.5625,
+          -3.95
+        ],
+        "triangle_xy_mm": [
+          [
+            53.168176,
+            -4.528367
+          ],
+          [
+            53.101338,
+            -5.08795
+          ],
+          [
+            52.671694,
+            -4.795024
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      }
+    },
+    "positive_marks": {
+      "C1": {
+        "mpn": "NXB25V47M5*11 LO",
+        "positive_pad": "1",
+        "positive_net": "+5V",
+        "side": "F",
+        "text": "+",
+        "xy_mm": [
+          55.2,
+          6.6
+        ]
+      }
+    },
+    "cathode_bar_parts": {
+      "D30": {
+        "mpn": "BAT54WS-7-F",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D31": {
+        "mpn": "1N4148W",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D32": {
+        "mpn": "1N4148W",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D35": {
+        "mpn": "BAT54WS-7-F",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D40": {
+        "mpn": "APTD1608LCGCK",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D41": {
+        "mpn": "APT1608LSECK/J3-PRV",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D43": {
+        "mpn": "BAS116H,115",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D44": {
+        "mpn": "SMF6.0A",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D60": {
+        "mpn": "APTD1608LCGCK",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      },
+      "D61": {
+        "mpn": "APTD1608LCGCK",
+        "cathode_pad": "1",
+        "anode_pad": "2"
+      }
+    },
+    "bidirectional_TVS_without_polarity": {
+      "D100": "PESD5V0S1BA,115",
+      "D101": "PESD5V0S1BA,115",
+      "D110": "PESD5V0S1BA,115",
+      "D112": "PESD5V0S1BA,115",
+      "D114": "PESD5V0S1BA,115",
+      "D116": "PESD5V0S1BA,115",
+      "D118": "PESD5V0S1BA,115"
+    }
+  },
+  "panel": {
+    "pin1_arrows": {
+      "Q1": {
+        "mpn": "MMBT3904(RANGE:100-300)",
+        "side": "B",
+        "pin1_xy_mm": [
+          26.0625,
+          13.95
+        ],
+        "triangle_xy_mm": [
+          [
+            25.668176,
+            14.528367
+          ],
+          [
+            25.171694,
+            14.795024
+          ],
+          [
+            25.601338,
+            15.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      },
+      "Q2": {
+        "mpn": "MMBT3904(RANGE:100-300)",
+        "side": "B",
+        "pin1_xy_mm": [
+          37.0625,
+          13.95
+        ],
+        "triangle_xy_mm": [
+          [
+            36.668176,
+            14.528367
+          ],
+          [
+            36.171694,
+            14.795024
+          ],
+          [
+            36.601338,
+            15.08795
+          ]
+        ],
+        "footprint": "Package_TO_SOT_SMD:SOT-23"
+      }
+    }
+  }
+}

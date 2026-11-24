@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "bd3562a7-09da-5301-a963-c4e56cd831d7")
 (paper "A3")
-(title_block (title "Panel F GH12 control interface / 1") (rev "DIRECT-R2-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Panel F GH12 control interface / 1") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:J32"
 (pin_names (offset 0.508))

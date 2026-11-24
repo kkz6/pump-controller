@@ -6663,6 +6663,30 @@
 			)
 		)
 	)
+	(gr_poly
+		(pts
+			(xy 25.668176 14.528367) (xy 25.171694 14.795024) (xy 25.601338 15.08795)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill yes)
+		(layer "B.SilkS")
+		(uuid "48e4d9c3-20f1-46e6-b70b-b2efda27c54d")
+	)
+	(gr_poly
+		(pts
+			(xy 36.668176 14.528367) (xy 36.171694 14.795024) (xy 36.601338 15.08795)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill yes)
+		(layer "B.SilkS")
+		(uuid "392f5ff3-d8dc-4cea-80a5-4d091f82f384")
+	)
 	(gr_line
 		(start 0 0)
 		(end 60 0)
@@ -8986,6 +9010,14 @@
 		(layer "B.Cu")
 		(net "+3V3")
 		(uuid "fa0e42cb-87ae-49bf-96be-aa899e3ae14f")
+	)
+	(group "POL_PIN1_Q2"
+		(uuid "827ba118-6168-4737-b1e9-a2197ae5e430")
+		(members "392f5ff3-d8dc-4cea-80a5-4d091f82f384")
+	)
+	(group "POL_PIN1_Q1"
+		(uuid "a6649ba9-934d-4561-9754-4fd61a15497e")
+		(members "48e4d9c3-20f1-46e6-b70b-b2efda27c54d")
 	)
 	(embedded_fonts no)
 )

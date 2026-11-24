@@ -1,4 +1,4 @@
-# Order checklist — revision 1 prototype
+# Order checklist — R3 prototype
 
 This list is for two complete controllers. That is the JLCPCB assembly minimum. JLC makes five bare boards of each design and assembles two of each.
 
@@ -10,14 +10,14 @@ The enclosure, the USB cable, board standoffs and the panel front are left for l
 
 | Board | Upload | Options |
 | --- | --- | --- |
-| Main R2, 100 × 117 mm | [Gerbers](main-gerbers.zip) · [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | 6 layers, FR-4 1.6 mm, 1 oz outer copper, 5 pcs. **Standard PCBA, both sides**, 2 boards. 217 parts on 59 BOM lines, every line in stock. |
+| Main R3, 100 × 139 mm | [Gerbers](main-gerbers.zip) · [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | 6 layers, FR-4 1.6 mm, 1 oz outer copper, 5 pcs. **Standard PCBA, both sides**, 2 boards. 226 placements on 63 BOM lines, with relays and output terminals factory-fitted. Confirm the new relay reservation/lead time. |
 | OLED panel F, 60 × 45 mm | [Gerbers](panel-gerbers.zip) · [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv) | 2 layers, FR-4 1.6 mm, 5 pcs. **Economic PCBA, bottom side only**, 2 boards. 19 parts on 11 lines. |
 
-Check the layer count, size and part placement on JLC's preview before paying.
+Check the layer count, size and part placement on JLC's preview before paying. R3 is 22 mm taller, with relocated upper mounting holes. Relays are G5RL-1-E-HR DC5 / C1563288 (4 pieces for two boards); terminal blocks are 1711738 / C91156 (4 pieces). The old two-position output plugs are obsolete.
 
 ### Rotation corrections made in JLC's placement viewer (order of 2026-11-21)
 
-JLC's library models for these parts are rotated against KiCad's footprints. With the uploaded `main-CPL.csv`, they would be soldered sideways or back to front. Each one was corrected in the viewer by checking JLC's pin-1 dot against the silkscreen pin-1 mark and the copper pads. The saved order carries the corrections. On a new upload, apply them again or fold them into `tools/prepare_jlc_assembly.py`.
+JLC's library models for these parts are rotated against KiCad's footprints. With the uploaded `main-CPL.csv`, they would be soldered sideways or back to front. Each one was corrected in the viewer by checking JLC's pin-1 dot against the silkscreen pin-1 mark and the copper pads. The saved order carries the corrections. R3 now applies all 21 exact-part corrections automatically in `tools/prepare_jlc_assembly.py`, using `tools/data/jlc-placement-corrections.json`. Do not apply this table a second time to the revised CPL. The native footprints and pads retain their physical orientation; these are supplier-library angle offsets. Reconfirm the revised DFM preview, particularly the new relay and transistor models.
 
 | Side | Parts | Correction in the viewer |
 | --- | --- | --- |
@@ -29,6 +29,14 @@ JLC's library models for these parts are rotated against KiCad's footprints. Wit
 All other parts matched as uploaded. D40, D60 and D61 have no model in JLC's viewer, so the order remark asks JLC to check their polarity: the cathode is pad 1, on the side with the silkscreen bracket. The panel needed no corrections. Its single-row connectors only need their leads on the pads and their openings facing the board edge.
 
 The panel uses Economic PCBA, which does not accept OSP finish, so the panel is ordered with lead-free HASL.
+
+### Assembly tooling and stencil
+
+For the main board's Standard PCBA, select **Edge Rails/Fiducials: Added by JLCPCB** and have JLC provide suitable tooling holes. The supplied Gerbers describe the finished 100 × 139 mm board, not a manufacturing panel. Request at least 5 mm process rails and ask JLC to keep panel tabs/rails clear of the outward-facing J30/J35 bodies, USB-C J40 and the other edge connectors. Confirm the panel/depaneling arrangement in the engineering preview. These corner mounting holes are for nylon enclosure hardware, not a substitute for assembly fiducials.
+
+Use the supplied paste layers as the stencil basis. Main-board minimum paste aperture width is 0.25 mm; a 0.12 mm stencil gives a minimum rectangular area-ratio screening estimate of 0.735. Have JLC finalize stencil thickness/aperture treatment for the exact process, including the exposed pads at U2 and U10. Do not add paste to the through-hole-only components or DNP R2. R246's supply via is now outside its solder land, avoiding an unfilled via beneath that paste aperture.
+
+References: [JLC assembly tooling](https://jlcpcb.com/help/article/how-to-add-edge-rails-fiducials-for-pcb-assembly-order), [JLC assembly terms](https://jlcpcb.com/help/article/terms-and-conditions-of-jlcpcb-assembly-service), [via-in-pad guidance](https://jlcpcb.com/help/article/via-in-pad-pofv-guide).
 
 ## 2. Hand-soldered parts — LCSC (can ship with the JLC order)
 
@@ -42,9 +50,7 @@ These parts are left out of the JLC assembly files on purpose. Solder them after
 | Main | J10 | Phoenix 1727010 CT terminal | C89123 | 2 |
 | Main | J20 | Phoenix 1803303 tank-probe header | C480548 | 2 |
 | Main | J21 | JST S2B-XH-A inlet header | C157931 | 2 |
-| Main | J30, J35 | Phoenix 1836189 starter-output header | C5355140 | 4 |
 | Main | J41 | JST B3B-XH-A RUN/BENCH header | C144394 | 2 |
-| Main | K1, K2 | Omron G6B-1114P-US DC5 relay | C397224 | 4 |
 | Main | R1 | 22 Ω 3 W fusible resistor | C1364992 | 2 |
 | Main | RV1 | Littelfuse TMOV14RP320EL2T7 | C22815876 | 2. Only 3 in stock; buy both at once. |
 | Panel | SW1 | Omron D2F-01F STOP switch | C403989 | 2 |
@@ -64,7 +70,7 @@ These parts are left out of the JLC assembly files on purpose. Solder them after
 | **Panel loom** (main J32 to panel J1), 12-way JST GH, about 150 mm, wired pin 1→1 … 12→12 | 2× GHR-12V-S housing (LCSC C489720) + 12× JST AGHGH28K152 pre-crimped lead | Housings: LCSC. Leads: DigiKey. | 2 looms |
 | **OLED cable** (panel J7), 4-way JST PH, about 100 mm. Pin order: 1 SCL, 2 SDA, 3 GND, 4 +3.3 V | 2× PHR-4 (LCSC C111514) + 4× JST ASPHSPH24K102 pre-crimped lead | LCSC + DigiKey | 2 cables |
 | **STOP loop plug** (panel J2), needed when no remote button station is fitted. Without it STOP reads as pressed and the pump never runs. | 1× GHR-10V-S (LCSC C485359) + 1× AGHGH28K51 lead, looped from cavity 3 to cavity 4 only | LCSC + DigiKey | 2 |
-| **Starter output plugs** (J30, J35) | Phoenix MSTB 2,5/2-ST-5,08, 1757019 (LCSC C90073) + coding profile 1734634 | LCSC / DigiKey | 4 plugs |
+| **Starter output wiring** (J30, J35) | Fixed Phoenix 1711738 screw terminals, included in main PCBA. Each block: 1 NO, 2 COM, 3 NC. Use identified wires/ferrules; no mating plugs. | JLC assembly | 4 terminal blocks already in BOM |
 | **Tank probe plug** (J20) | Phoenix 1803604 (LCSC C480513) | LCSC | 2 |
 | **Inlet probe plug** (J21) | JST XHP-2 + SXH crimps or a pre-crimped XH lead | LCSC / DigiKey | 2 |
 | **RUN plug** (J41), links pins 1–2 for normal running | JST XHP-3 (LCSC C144402) + 1 pre-crimped XH lead | LCSC / DigiKey | 2 |

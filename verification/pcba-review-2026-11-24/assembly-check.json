@@ -1,0 +1,3022 @@
+{
+  "board": "hardware/main/pump-direct.kicad_pcb",
+  "board_sha256": "ca23ffe41cd5f1349781352f1919ea32d6a8737cdf8393733101d65646de9a25",
+  "assembler_images_reviewed": false,
+  "parts": {
+    "U22": {
+      "mpn": "ADS1115IDGSR",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        78.0,
+        47.0
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": -90.0,
+      "jlc_CPL_rotation_deg": 270.0,
+      "pin1_or_cathode_xy_mm": [
+        75.85,
+        46.0
+      ],
+      "pin1_or_cathode_net": "GND",
+      "body_corners_xy_mm": [
+        [
+          76.5,
+          45.5
+        ],
+        [
+          79.5,
+          45.5
+        ],
+        [
+          79.5,
+          48.5
+        ],
+        [
+          76.5,
+          48.5
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            75.85,
+            46.0
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            75.85,
+            46.5
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_ADC_RDY"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            75.85,
+            47.0
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            75.85,
+            47.5
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_ADC_SIGNAL"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            75.85,
+            48.0
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_ADC_BIAS"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            80.15,
+            48.0
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_ADC_TX"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            80.15,
+            47.5
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_ADC_BIAS2"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            80.15,
+            47.0
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            80.15,
+            46.5
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "I2C_SDA"
+        },
+        {
+          "number": "10",
+          "xy_mm": [
+            80.15,
+            46.0
+          ],
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "angle_deg": 0.0,
+          "net": "I2C_SCL"
+        }
+      ]
+    },
+    "D35": {
+      "mpn": "BAT54WS-7-F",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        70.5,
+        37.5
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 0.0,
+      "jlc_CPL_rotation_deg": 0.0,
+      "pin1_or_cathode_xy_mm": [
+        69.45,
+        37.5
+      ],
+      "pin1_or_cathode_net": "INTERLOCK_OK",
+      "body_corners_xy_mm": [
+        [
+          69.65,
+          36.85
+        ],
+        [
+          71.35,
+          36.85
+        ],
+        [
+          71.35,
+          38.15
+        ],
+        [
+          69.65,
+          38.15
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            69.45,
+            37.5
+          ],
+          "size_mm": [
+            0.6,
+            0.45
+          ],
+          "angle_deg": 0.0,
+          "net": "INTERLOCK_OK"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            71.55,
+            37.5
+          ],
+          "size_mm": [
+            0.6,
+            0.45
+          ],
+          "angle_deg": 0.0,
+          "net": "SAFE_CLEAR_N"
+        }
+      ]
+    },
+    "U33": {
+      "mpn": "MCP23017-E/SS",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        58.5,
+        45.0
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": -90.0,
+      "jlc_CPL_rotation_deg": 270.0,
+      "pin1_or_cathode_xy_mm": [
+        55.0,
+        40.775
+      ],
+      "pin1_or_cathode_net": "START_FILTER",
+      "body_corners_xy_mm": [
+        [
+          55.85,
+          39.9
+        ],
+        [
+          61.15,
+          39.9
+        ],
+        [
+          61.15,
+          50.1
+        ],
+        [
+          55.85,
+          50.1
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            55.0,
+            40.775
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "START_FILTER"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            55.0,
+            41.425
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "RESET_FILTER"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            55.0,
+            42.075
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "STOP_SENSE"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            55.0,
+            42.725
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "MAN_SENSE"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            55.0,
+            43.375
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "AUTO_SENSE"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            55.0,
+            44.025
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "INTERLOCK_OK"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            55.0,
+            44.675
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "SPARE_B6"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            55.0,
+            45.325
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "START_CMD_LED"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            55.0,
+            45.975
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "10",
+          "xy_mm": [
+            55.0,
+            46.625
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "11",
+          "xy_mm": [
+            55.0,
+            47.275
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-NC-Pad11)"
+        },
+        {
+          "number": "12",
+          "xy_mm": [
+            55.0,
+            47.925
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "I2C_SCL"
+        },
+        {
+          "number": "13",
+          "xy_mm": [
+            55.0,
+            48.575
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "I2C_SDA"
+        },
+        {
+          "number": "14",
+          "xy_mm": [
+            55.0,
+            49.225
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-NC-Pad14)"
+        },
+        {
+          "number": "15",
+          "xy_mm": [
+            62.0,
+            49.225
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "16",
+          "xy_mm": [
+            62.0,
+            48.575
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "17",
+          "xy_mm": [
+            62.0,
+            47.925
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "18",
+          "xy_mm": [
+            62.0,
+            47.275
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "MCU_EN"
+        },
+        {
+          "number": "19",
+          "xy_mm": [
+            62.0,
+            46.625
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-INTB-Pad19)"
+        },
+        {
+          "number": "20",
+          "xy_mm": [
+            62.0,
+            45.975
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-INTA-Pad20)"
+        },
+        {
+          "number": "21",
+          "xy_mm": [
+            62.0,
+            45.325
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "SPARE_B7"
+        },
+        {
+          "number": "22",
+          "xy_mm": [
+            62.0,
+            44.675
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-GPA1-Pad22)"
+        },
+        {
+          "number": "23",
+          "xy_mm": [
+            62.0,
+            44.025
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "USB_TX_IND"
+        },
+        {
+          "number": "24",
+          "xy_mm": [
+            62.0,
+            43.375
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "USB_RX_IND"
+        },
+        {
+          "number": "25",
+          "xy_mm": [
+            62.0,
+            42.725
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-GPA4-Pad25)"
+        },
+        {
+          "number": "26",
+          "xy_mm": [
+            62.0,
+            42.075
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-GPA5-Pad26)"
+        },
+        {
+          "number": "27",
+          "xy_mm": [
+            62.0,
+            41.425
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U33-GPA6-Pad27)"
+        },
+        {
+          "number": "28",
+          "xy_mm": [
+            62.0,
+            40.775
+          ],
+          "size_mm": [
+            1.9,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "STOP_CMD_LED"
+        }
+      ]
+    },
+    "U21": {
+      "mpn": "TMUX1208PWR",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        85.0,
+        53.0
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": -90.0,
+      "jlc_CPL_rotation_deg": 270.0,
+      "pin1_or_cathode_xy_mm": [
+        82.1375,
+        50.725
+      ],
+      "pin1_or_cathode_net": "MUX_A0",
+      "body_corners_xy_mm": [
+        [
+          82.8,
+          50.5
+        ],
+        [
+          87.2,
+          50.5
+        ],
+        [
+          87.2,
+          55.5
+        ],
+        [
+          82.8,
+          55.5
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            82.1375,
+            50.725
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "MUX_A0"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            82.1375,
+            51.375
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            82.1375,
+            52.025
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U21-NC-Pad3)"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            82.1375,
+            52.675
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_L1_ADC"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            82.1375,
+            53.325
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_L2_ADC"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            82.1375,
+            53.975
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_L3_ADC"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            82.1375,
+            54.625
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_L4_ADC"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            82.1375,
+            55.275
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_MUX_OUT"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            87.8625,
+            55.275
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_INLET"
+        },
+        {
+          "number": "10",
+          "xy_mm": [
+            87.8625,
+            54.625
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_TANK"
+        },
+        {
+          "number": "11",
+          "xy_mm": [
+            87.8625,
+            53.975
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_BIAS"
+        },
+        {
+          "number": "12",
+          "xy_mm": [
+            87.8625,
+            53.325
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_INLET_ADC"
+        },
+        {
+          "number": "13",
+          "xy_mm": [
+            87.8625,
+            52.675
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "14",
+          "xy_mm": [
+            87.8625,
+            52.025
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "15",
+          "xy_mm": [
+            87.8625,
+            51.375
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "MUX_A2"
+        },
+        {
+          "number": "16",
+          "xy_mm": [
+            87.8625,
+            50.725
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "MUX_A1"
+        }
+      ]
+    },
+    "U3": {
+      "mpn": "ESP32-C6-MINI-1U-H4",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        66.5,
+        29.0
+      ],
+      "native_rotation_deg": 90.0,
+      "jlc_rotation_correction_deg": 0.0,
+      "jlc_CPL_rotation_deg": 90.0,
+      "pin1_or_cathode_xy_mm": [
+        62.5,
+        34.9
+      ],
+      "pin1_or_cathode_net": "GND",
+      "body_corners_xy_mm": [
+        [
+          59.6,
+          35.6
+        ],
+        [
+          59.6,
+          22.4
+        ],
+        [
+          72.1,
+          22.4
+        ],
+        [
+          72.1,
+          35.6
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            62.5,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            63.3,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            64.1,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            64.9,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-NC-Pad4)"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            65.7,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "MUX_A1"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            66.5,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "MUX_A2"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            67.3,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-NC-Pad7)"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            68.1,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "MCU_EN"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            68.9,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-GPIO4-Pad9)"
+        },
+        {
+          "number": "10",
+          "xy_mm": [
+            69.7,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-GPIO5-Pad10)"
+        },
+        {
+          "number": "11",
+          "xy_mm": [
+            70.5,
+            34.9
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "12",
+          "xy_mm": [
+            71.4,
+            33.8
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "PROBE_EXC"
+        },
+        {
+          "number": "13",
+          "xy_mm": [
+            71.4,
+            33.0
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "MUX_A0"
+        },
+        {
+          "number": "14",
+          "xy_mm": [
+            71.4,
+            32.2
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "15",
+          "xy_mm": [
+            71.4,
+            31.4
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "METER_SCLK"
+        },
+        {
+          "number": "16",
+          "xy_mm": [
+            71.4,
+            30.6
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "METER_MOSI"
+        },
+        {
+          "number": "17",
+          "xy_mm": [
+            71.4,
+            29.8
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "USB_DM_MCU"
+        },
+        {
+          "number": "18",
+          "xy_mm": [
+            71.4,
+            29.0
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "USB_DP_MCU"
+        },
+        {
+          "number": "19",
+          "xy_mm": [
+            71.4,
+            28.2
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "METER_MISO"
+        },
+        {
+          "number": "20",
+          "xy_mm": [
+            71.4,
+            27.4
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "unconnected-(U3-GPIO15-Pad20)"
+        },
+        {
+          "number": "21",
+          "xy_mm": [
+            71.4,
+            26.6
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "unconnected-(U3-NC-Pad21)"
+        },
+        {
+          "number": "22",
+          "xy_mm": [
+            71.4,
+            25.8
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "STRAP_GPIO8"
+        },
+        {
+          "number": "23",
+          "xy_mm": [
+            71.4,
+            25.0
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "BOOT"
+        },
+        {
+          "number": "24",
+          "xy_mm": [
+            71.4,
+            24.2
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "METER_CS"
+        },
+        {
+          "number": "25",
+          "xy_mm": [
+            70.5,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "RUN_CMD"
+        },
+        {
+          "number": "26",
+          "xy_mm": [
+            69.7,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "PERMIT_D"
+        },
+        {
+          "number": "27",
+          "xy_mm": [
+            68.9,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "HEARTBEAT"
+        },
+        {
+          "number": "28",
+          "xy_mm": [
+            68.1,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "I2C_SDA"
+        },
+        {
+          "number": "29",
+          "xy_mm": [
+            67.3,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "I2C_SCL"
+        },
+        {
+          "number": "30",
+          "xy_mm": [
+            66.5,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "ARM_CMD"
+        },
+        {
+          "number": "31",
+          "xy_mm": [
+            65.7,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "UART_TX"
+        },
+        {
+          "number": "32",
+          "xy_mm": [
+            64.9,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-NC-Pad32)"
+        },
+        {
+          "number": "33",
+          "xy_mm": [
+            64.1,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-NC-Pad33)"
+        },
+        {
+          "number": "34",
+          "xy_mm": [
+            63.3,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-NC-Pad34)"
+        },
+        {
+          "number": "35",
+          "xy_mm": [
+            62.5,
+            23.1
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U3-NC-Pad35)"
+        },
+        {
+          "number": "36",
+          "xy_mm": [
+            61.6,
+            24.2
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "37",
+          "xy_mm": [
+            61.6,
+            25.0
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "38",
+          "xy_mm": [
+            61.6,
+            25.8
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "39",
+          "xy_mm": [
+            61.6,
+            26.6
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "40",
+          "xy_mm": [
+            61.6,
+            27.4
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "41",
+          "xy_mm": [
+            61.6,
+            28.2
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "42",
+          "xy_mm": [
+            61.6,
+            29.0
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "43",
+          "xy_mm": [
+            61.6,
+            29.8
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "44",
+          "xy_mm": [
+            61.6,
+            30.6
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "45",
+          "xy_mm": [
+            61.6,
+            31.4
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "46",
+          "xy_mm": [
+            61.6,
+            32.2
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "47",
+          "xy_mm": [
+            61.6,
+            33.0
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "48",
+          "xy_mm": [
+            61.6,
+            33.8
+          ],
+          "size_mm": [
+            0.8,
+            0.4
+          ],
+          "angle_deg": 180.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            64.525,
+            30.975
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            66.5,
+            30.975
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            68.475,
+            30.975
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            64.525,
+            29.0
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            66.5,
+            29.0
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            68.475,
+            29.0
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            64.525,
+            27.025
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            66.5,
+            27.025
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "49",
+          "xy_mm": [
+            68.475,
+            27.025
+          ],
+          "size_mm": [
+            1.45,
+            1.45
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "50",
+          "xy_mm": [
+            61.55,
+            23.05
+          ],
+          "size_mm": [
+            0.7,
+            0.7
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "51",
+          "xy_mm": [
+            71.45,
+            23.05
+          ],
+          "size_mm": [
+            0.7,
+            0.7
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "52",
+          "xy_mm": [
+            71.45,
+            34.95
+          ],
+          "size_mm": [
+            0.7,
+            0.7
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "53",
+          "xy_mm": [
+            61.55,
+            34.95
+          ],
+          "size_mm": [
+            0.7,
+            0.7
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        }
+      ]
+    },
+    "U2": {
+      "mpn": "TPS62162DSGR",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        60.75,
+        19.5
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 0.0,
+      "jlc_CPL_rotation_deg": 0.0,
+      "pin1_or_cathode_xy_mm": [
+        59.8,
+        18.75
+      ],
+      "pin1_or_cathode_net": "GND",
+      "body_corners_xy_mm": [
+        [
+          59.75,
+          18.5
+        ],
+        [
+          61.75,
+          18.5
+        ],
+        [
+          61.75,
+          20.5
+        ],
+        [
+          59.75,
+          20.5
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            59.8,
+            18.75
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            59.8,
+            19.25
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "+5V"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            59.8,
+            19.75
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "+5V"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            59.8,
+            20.25
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            61.7,
+            20.25
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            61.7,
+            19.75
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            61.7,
+            19.25
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "BUCK_SW"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            61.7,
+            18.75
+          ],
+          "size_mm": [
+            0.6,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U2-PG-Pad8)"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            60.75,
+            19.5
+          ],
+          "size_mm": [
+            0.9,
+            1.6
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        }
+      ]
+    },
+    "L1": {
+      "mpn": "SWPA4030S2R2MT",
+      "side": "Top",
+      "native_datum_xy_mm": [
+        65.0,
+        19.5
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 0.0,
+      "jlc_CPL_rotation_deg": 0.0,
+      "pin1_or_cathode_xy_mm": [
+        63.5,
+        19.5
+      ],
+      "pin1_or_cathode_net": "BUCK_SW",
+      "body_corners_xy_mm": [
+        [
+          63.0,
+          17.5
+        ],
+        [
+          67.0,
+          17.5
+        ],
+        [
+          67.0,
+          21.5
+        ],
+        [
+          63.0,
+          21.5
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            63.5,
+            19.5
+          ],
+          "size_mm": [
+            1.1,
+            3.7
+          ],
+          "angle_deg": 0.0,
+          "net": "BUCK_SW"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            66.5,
+            19.5
+          ],
+          "size_mm": [
+            1.1,
+            3.7
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        }
+      ],
+      "manufacturer_pad_gap_mm": 1.9
+    },
+    "U10": {
+      "mpn": "ADE7953ACPZ",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        23.0,
+        46.5
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 180.0,
+      "jlc_CPL_rotation_deg": 180.0,
+      "pin1_or_cathode_xy_mm": [
+        20.6125,
+        48.0
+      ],
+      "pin1_or_cathode_net": "unconnected-(U10-ZX-Pad1)",
+      "body_corners_xy_mm": [
+        [
+          20.5,
+          44.0
+        ],
+        [
+          25.5,
+          44.0
+        ],
+        [
+          25.5,
+          49.0
+        ],
+        [
+          20.5,
+          49.0
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            20.6125,
+            48.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U10-ZX-Pad1)"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            20.6125,
+            47.5
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_RESET_N"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            20.6125,
+            47.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_VINTD"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            20.6125,
+            46.5
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_GND"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            20.6125,
+            46.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_IAP"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            20.6125,
+            45.5
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_IAN"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            20.6125,
+            45.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_3V3"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            21.5,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_3V3"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            22.0,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_GND"
+        },
+        {
+          "number": "10",
+          "xy_mm": [
+            22.5,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_GND"
+        },
+        {
+          "number": "11",
+          "xy_mm": [
+            23.0,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_VN"
+        },
+        {
+          "number": "12",
+          "xy_mm": [
+            23.5,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_VP"
+        },
+        {
+          "number": "13",
+          "xy_mm": [
+            24.0,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_REF"
+        },
+        {
+          "number": "14",
+          "xy_mm": [
+            24.5,
+            44.1125
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_GND"
+        },
+        {
+          "number": "15",
+          "xy_mm": [
+            25.3875,
+            45.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_VINTA"
+        },
+        {
+          "number": "16",
+          "xy_mm": [
+            25.3875,
+            45.5
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_GND"
+        },
+        {
+          "number": "17",
+          "xy_mm": [
+            25.3875,
+            46.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_3V3"
+        },
+        {
+          "number": "18",
+          "xy_mm": [
+            25.3875,
+            46.5
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_XIN"
+        },
+        {
+          "number": "19",
+          "xy_mm": [
+            25.3875,
+            47.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "M_XOUT"
+        },
+        {
+          "number": "20",
+          "xy_mm": [
+            25.3875,
+            47.5
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U10-REVP-Pad20)"
+        },
+        {
+          "number": "21",
+          "xy_mm": [
+            25.3875,
+            48.0
+          ],
+          "size_mm": [
+            0.925,
+            0.25
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U10-ZX_I-Pad21)"
+        },
+        {
+          "number": "22",
+          "xy_mm": [
+            24.5,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U10-IRQ-Pad22)"
+        },
+        {
+          "number": "23",
+          "xy_mm": [
+            24.0,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U10-CF1-Pad23)"
+        },
+        {
+          "number": "24",
+          "xy_mm": [
+            23.5,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "unconnected-(U10-CF2-Pad24)"
+        },
+        {
+          "number": "25",
+          "xy_mm": [
+            23.0,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_SCLK"
+        },
+        {
+          "number": "26",
+          "xy_mm": [
+            22.5,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_MISO"
+        },
+        {
+          "number": "27",
+          "xy_mm": [
+            22.0,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_MOSI"
+        },
+        {
+          "number": "28",
+          "xy_mm": [
+            21.5,
+            48.8875
+          ],
+          "size_mm": [
+            0.25,
+            0.925
+          ],
+          "angle_deg": 0.0,
+          "net": "M_CS"
+        },
+        {
+          "number": "29",
+          "xy_mm": [
+            23.0,
+            46.5
+          ],
+          "size_mm": [
+            3.14,
+            3.14
+          ],
+          "angle_deg": 0.0,
+          "net": "M_GND"
+        }
+      ]
+    },
+    "D32": {
+      "mpn": "1N4148W",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        74.19,
+        3.0
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 180.0,
+      "jlc_CPL_rotation_deg": 180.0,
+      "pin1_or_cathode_xy_mm": [
+        72.54,
+        3.0
+      ],
+      "pin1_or_cathode_net": "+5V_CMD",
+      "body_corners_xy_mm": [
+        [
+          72.39,
+          2.15
+        ],
+        [
+          75.99,
+          2.15
+        ],
+        [
+          75.99,
+          3.85
+        ],
+        [
+          72.39,
+          3.85
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            72.54,
+            3.0
+          ],
+          "size_mm": [
+            0.9,
+            1.2
+          ],
+          "angle_deg": 0.0,
+          "net": "+5V_CMD"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            75.84,
+            3.0
+          ],
+          "size_mm": [
+            0.9,
+            1.2
+          ],
+          "angle_deg": 0.0,
+          "net": "K2_LOW"
+        }
+      ]
+    },
+    "D31": {
+      "mpn": "1N4148W",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        60.19,
+        3.0
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 180.0,
+      "jlc_CPL_rotation_deg": 180.0,
+      "pin1_or_cathode_xy_mm": [
+        58.54,
+        3.0
+      ],
+      "pin1_or_cathode_net": "K1_5V",
+      "body_corners_xy_mm": [
+        [
+          58.39,
+          2.15
+        ],
+        [
+          61.989999999999995,
+          2.15
+        ],
+        [
+          61.989999999999995,
+          3.85
+        ],
+        [
+          58.39,
+          3.85
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            58.54,
+            3.0
+          ],
+          "size_mm": [
+            0.9,
+            1.2
+          ],
+          "angle_deg": 0.0,
+          "net": "K1_5V"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            61.84,
+            3.0
+          ],
+          "size_mm": [
+            0.9,
+            1.2
+          ],
+          "angle_deg": 0.0,
+          "net": "K1_LOW"
+        }
+      ]
+    },
+    "D30": {
+      "mpn": "BAT54WS-7-F",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        75.5,
+        30.0
+      ],
+      "native_rotation_deg": 90.0,
+      "jlc_rotation_correction_deg": 0.0,
+      "jlc_CPL_rotation_deg": 90.0,
+      "pin1_or_cathode_xy_mm": [
+        75.5,
+        31.05
+      ],
+      "pin1_or_cathode_net": "MCU_EN",
+      "body_corners_xy_mm": [
+        [
+          74.85,
+          30.85
+        ],
+        [
+          74.85,
+          29.15
+        ],
+        [
+          76.15,
+          29.15
+        ],
+        [
+          76.15,
+          30.85
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            75.5,
+            31.05
+          ],
+          "size_mm": [
+            0.6,
+            0.45
+          ],
+          "angle_deg": 90.0,
+          "net": "MCU_EN"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            75.5,
+            28.95
+          ],
+          "size_mm": [
+            0.6,
+            0.45
+          ],
+          "angle_deg": 90.0,
+          "net": "SAFE_CLEAR_N"
+        }
+      ]
+    },
+    "U31": {
+      "mpn": "SN74LVC1G74DCUR",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        78.0,
+        29.5
+      ],
+      "native_rotation_deg": 90.0,
+      "jlc_rotation_correction_deg": 180.0,
+      "jlc_CPL_rotation_deg": 270.0,
+      "pin1_or_cathode_xy_mm": [
+        78.75,
+        31.05
+      ],
+      "pin1_or_cathode_net": "ARM_CMD",
+      "body_corners_xy_mm": [
+        [
+          76.75,
+          30.6
+        ],
+        [
+          76.75,
+          28.4
+        ],
+        [
+          79.25,
+          28.4
+        ],
+        [
+          79.25,
+          30.6
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            78.75,
+            31.05
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "ARM_CMD"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            78.25,
+            31.05
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            77.75,
+            31.05
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "unconnected-(U31-Q_N-Pad3)"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            77.25,
+            31.05
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            77.25,
+            27.95
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "ARM_Q"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            77.75,
+            27.95
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "ARM_CLEAR_N"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            78.25,
+            27.95
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            78.75,
+            27.95
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "+3V3"
+        }
+      ]
+    },
+    "U20": {
+      "mpn": "TLV9004IPWR",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        72.0,
+        53.0
+      ],
+      "native_rotation_deg": 0.0,
+      "jlc_rotation_correction_deg": 90.0,
+      "jlc_CPL_rotation_deg": 90.0,
+      "pin1_or_cathode_xy_mm": [
+        69.1375,
+        54.95
+      ],
+      "pin1_or_cathode_net": "PROBE_BIAS_RAW",
+      "body_corners_xy_mm": [
+        [
+          69.8,
+          50.5
+        ],
+        [
+          74.2,
+          50.5
+        ],
+        [
+          74.2,
+          55.5
+        ],
+        [
+          69.8,
+          55.5
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            69.1375,
+            54.95
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_BIAS_RAW"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            69.1375,
+            54.3
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_BIAS_RAW"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            69.1375,
+            53.65
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_BIAS_DIV"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            69.1375,
+            53.0
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "+3V3"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            69.1375,
+            52.35
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_SET"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            69.1375,
+            51.7
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_TANK"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            69.1375,
+            51.05
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_TANK"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            74.8625,
+            51.05
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_MUX_BUF"
+        },
+        {
+          "number": "9",
+          "xy_mm": [
+            74.8625,
+            51.7
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_MUX_BUF"
+        },
+        {
+          "number": "10",
+          "xy_mm": [
+            74.8625,
+            52.35
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_MUX_OUT"
+        },
+        {
+          "number": "11",
+          "xy_mm": [
+            74.8625,
+            53.0
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "GND"
+        },
+        {
+          "number": "12",
+          "xy_mm": [
+            74.8625,
+            53.65
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_SET"
+        },
+        {
+          "number": "13",
+          "xy_mm": [
+            74.8625,
+            54.3
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_INLET"
+        },
+        {
+          "number": "14",
+          "xy_mm": [
+            74.8625,
+            54.95
+          ],
+          "size_mm": [
+            1.475,
+            0.4
+          ],
+          "angle_deg": 0.0,
+          "net": "PROBE_TX_INLET"
+        }
+      ]
+    },
+    "U37": {
+      "mpn": "74LVC3G17DC,125",
+      "side": "Bottom",
+      "native_datum_xy_mm": [
+        54.0,
+        43.0
+      ],
+      "native_rotation_deg": 90.0,
+      "jlc_rotation_correction_deg": 180.0,
+      "jlc_CPL_rotation_deg": 270.0,
+      "pin1_or_cathode_xy_mm": [
+        54.75,
+        44.55
+      ],
+      "pin1_or_cathode_net": "STOP_SENSE_RAW",
+      "body_corners_xy_mm": [
+        [
+          52.75,
+          44.1
+        ],
+        [
+          52.75,
+          41.9
+        ],
+        [
+          55.25,
+          41.9
+        ],
+        [
+          55.25,
+          44.1
+        ]
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "xy_mm": [
+            54.75,
+            44.55
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "STOP_SENSE_RAW"
+        },
+        {
+          "number": "2",
+          "xy_mm": [
+            54.25,
+            44.55
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "AUTO_SENSE"
+        },
+        {
+          "number": "3",
+          "xy_mm": [
+            53.75,
+            44.55
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "MAN_SENSE_RAW"
+        },
+        {
+          "number": "4",
+          "xy_mm": [
+            53.25,
+            44.55
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "GND"
+        },
+        {
+          "number": "5",
+          "xy_mm": [
+            53.25,
+            41.45
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "MAN_SENSE"
+        },
+        {
+          "number": "6",
+          "xy_mm": [
+            53.75,
+            41.45
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "AUTO_SENSE_RAW"
+        },
+        {
+          "number": "7",
+          "xy_mm": [
+            54.25,
+            41.45
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "STOP_SENSE"
+        },
+        {
+          "number": "8",
+          "xy_mm": [
+            54.75,
+            41.45
+          ],
+          "size_mm": [
+            0.85,
+            0.3
+          ],
+          "angle_deg": 90.0,
+          "net": "+3V3"
+        }
+      ]
+    }
+  },
+  "errors": []
+}

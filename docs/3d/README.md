@@ -2,9 +2,9 @@
 
 Rendered from the released KiCad layouts with `kicad-cli pcb render`. GitHub shows the STL files in an interactive viewer: open [main.stl](main.stl) or [panel.stl](panel.stl) and drag to rotate. The GLB files ([main.glb](main.glb), [panel.glb](panel.glb)) keep the part colours and open in any glTF viewer, Blender or Windows 3D Viewer.
 
-U1, U3, K1, K2, R1, F1 and RV1 use simplified body models sized from their datasheets (`hardware/main/models/*-envelope.wrl`). They show position and height only and are not mechanical references. The other parts use KiCad library models or the project's STEP models.
+U1, U3, K1, K2, L1, R1, F1 and RV1 use simplified body models sized from their datasheets (`hardware/main/models/*-envelope.wrl`). They show position and height only and are not mechanical references. The other parts use KiCad library models or the project's STEP models.
 
-## Main board R2, 100 × 117 mm
+## Main board R3, 100 × 139 mm
 
 | Top | Bottom |
 | --- | --- |

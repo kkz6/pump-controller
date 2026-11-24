@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CLI = os.environ.get('KICAD_CLI') or shutil.which('kicad-cli') or 'kicad-cli'
 OUTPUT = ROOT / 'manufacturing'
 BOARDS = {
-    'main': ('main', 'pump-direct', (100, 117), 6, 'main'),
+    'main': ('main', 'pump-direct', (100, 139), 6, 'main'),
     'panel': ('panel', 'pump-panel-rev-f', (60, 45), 2, 'panel'),
 }
 
@@ -47,7 +47,12 @@ def board_outputs(name, temp, driver, boards, output):
     schematic = pcb.with_suffix('.kicad_sch')
     inputs = [pcb, pcb.with_suffix('.kicad_pro'), pcb.with_suffix('.kicad_dru'),
               source / 'bom.csv', source / 'Pump.kicad_sym', source / 'fp-lib-table',
-              *source.glob('*.kicad_sch'), *sorted(source.glob('libraries/*/*.kicad_mod')), source/'sym-lib-table']
+              *source.glob('*.kicad_sch'), *sorted(source.glob('libraries/*/*.kicad_mod')), source/'sym-lib-table',
+              ROOT/'tools/prepare_jlc_assembly.py', ROOT/'tools/data/jlc-parts-verified.csv',
+              ROOT/'tools/data/jlc-placement-corrections.json', Path(__file__),
+              ROOT/'tools/check_manufacturing.py', ROOT/'tools/check_ic_pin1_markers.py',
+              ROOT/'tools/data/ic-pin1-markers.json', ROOT/'tools/check_polarity_markers.py',
+              ROOT/'tools/data/polarity-markers.json']
     snapshot = {p: digest(p) for p in inputs}
     erc, drc = [temp / (name + '-' + kind + '.json') for kind in ('erc','drc')]
     run('sch','erc','--severity-all','--exit-code-violations','--format','json','-o',erc,schematic)

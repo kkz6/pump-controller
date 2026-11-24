@@ -1229,6 +1229,42 @@
       {
         "netclass": "SELV",
         "pattern": "PANEL_LED_K"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "K1_5V"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "K1_PGATE"
+      },
+      {
+        "netclass": "SELV",
+        "pattern": "K1_PBASE"
+      },
+      {
+        "netclass": "LIVE",
+        "pattern": "CTRL_A_NC"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "CTRL_A_NC"
+      },
+      {
+        "netclass": "STARTER_FIELD",
+        "pattern": "CTRL_A_NC"
+      },
+      {
+        "netclass": "LIVE",
+        "pattern": "CTRL_B_NC"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "CTRL_B_NC"
+      },
+      {
+        "netclass": "STARTER_FIELD",
+        "pattern": "CTRL_B_NC"
       }
     ]
   },

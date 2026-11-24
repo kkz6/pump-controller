@@ -1,4 +1,8 @@
+**R3 update, 2026-11-24:** K1/K2 are now G5RL-1-E-HR DC5 (C1563288), J30/J35 are 1711738 (C91156), and the main board is 100 x 139 mm. Five STOP-supply components were added. The cost/stock totals below are historical R2 figures; obtain a revised JLC quote and confirm relay reservation. See manufacturing/main-BOM.csv for current assembly selections.
+
 # Parts, ratings and cost review
+
+**2026-11-24 correction:** the earlier L1 substitution did not preserve the manufacturer's recommended solder lands. A dedicated Sunlord SWPA4030S footprint now replaces the Würth footprint in the revised design. The previous blanket compatibility assessment does not apply to this substitution or approve the assembler's unreviewed orientation pictures. [PCBA query findings and corrected release](pcba-review-2026-11-24/README.md)
 
 Reviewed 2026-11-21 against the main board with the U42 panel-supply limit, and the panel F board. JLC stock and prices come from the JLCPCB parts library on the same day at quantity 1. Prices marked *est* are JLC's estimate for parts with no stock.
 

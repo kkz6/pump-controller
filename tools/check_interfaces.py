@@ -32,9 +32,13 @@ MAIN = {
     "U42": {1: "+5V_CMD", 2: "GND", 3: "+5V_CMD", 5: "PANEL_ILIM", 6: "PANEL_5V"},
     "R245": {1: "PANEL_ILIM", 2: "GND"}, "C243": {1: "+5V_CMD", 2: "GND"},
     "J41": {1: "PSU_5V_RAW", 2: "+5V", 3: "GND"},
-    "K1": {1: "K1_LOW", 3: "CTRL_A_COM", 4: "CTRL_A_NO", 6: "STOP_RETURN"},
-    "K2": {1: "K2_LOW", 3: "CTRL_B_COM", 4: "CTRL_B_NO", 6: "+5V_CMD"},
-    "J30": {1: "CTRL_A_COM", 2: "CTRL_A_NO"}, "J35": {1: "CTRL_B_COM", 2: "CTRL_B_NO"}
+    "K1": {1: "K1_LOW", 8: "K1_5V", 3: "CTRL_A_COM", 6: "CTRL_A_COM", 4: "CTRL_A_NO", 5: "CTRL_A_NO", 2: "CTRL_A_NC", 7: "CTRL_A_NC"},
+    "K2": {1: "K2_LOW", 8: "+5V_CMD", 3: "CTRL_B_COM", 6: "CTRL_B_COM", 4: "CTRL_B_NO", 5: "CTRL_B_NO", 2: "CTRL_B_NC", 7: "CTRL_B_NC"},
+    "J30": {1: "CTRL_A_NO", 2: "CTRL_A_COM", 3: "CTRL_A_NC"}, "J35": {1: "CTRL_B_NO", 2: "CTRL_B_COM", 3: "CTRL_B_NC"},
+    "Q50": {1: "K1_PGATE", 2: "+5V_CMD", 3: "K1_5V"},
+    "Q51": {1: "K1_PBASE", 2: "GND", 3: "K1_PGATE"},
+    "R246": {1: "+5V_CMD", 2: "K1_PGATE"}, "R247": {1: "STOP_RETURN", 2: "K1_PBASE"},
+    "R248": {1: "K1_PBASE", 2: "GND"}
 }
 # Listed in cavity order for a straight main-to-door-panel loom.
 MAIN_LOOM = ("PANEL_5V", "STOP_RETURN", "MAN_RETURN", "AUTO_RETURN", "START_N", "RESET_N",
@@ -64,7 +68,7 @@ MAIN.update({
     "U11": {1: "+3V3", 2: "GND", 3: "METER_SCLK", 4: "METER_MOSI", 5: "METER_CS", 6: "METER_MISO", 8: "GND",
             9: "M_GND", 10: "M_GND", 11: "M_MISO", 12: "M_CS", 13: "M_MOSI", 14: "M_SCLK", 15: "M_GND", 16: "M_3V3"},
     "FB1": terminals("M_ISO_RAW", "M_3V3"), "FB2": terminals("M_ISO_GND", "M_GND"),
-    "D31": terminals("STOP_RETURN", "K1_LOW"), "D32": terminals("+5V_CMD", "K2_LOW"),
+    "D31": terminals("K1_5V", "K1_LOW"), "D32": terminals("+5V_CMD", "K2_LOW"),
     "Q30": terminals("K1_GATE", "GND", "K1_LOW"), "Q31": terminals("K2_GATE", "GND", "K2_LOW"),
     "J20": terminals("PROBE_TCOM", "PROBE_L1", "PROBE_L2", "PROBE_L3", "PROBE_L4"),
     "J21": terminals("PROBE_INLET", "PROBE_ICOM"),
@@ -123,9 +127,9 @@ def check(directory, stem, expected):
                 raise ValueError(f"{directory} {ref}.{pin}: wanted {name}, found {actual}")
     if directory == "main":
         for ref, other, channel in (("K1","J30","A"), ("K2","J35","B")):
-            for net, coil_pin, plug_pin in (("COM","3","1"), ("NO","4","2")):
+            for net, coil_pins, plug_pin in (("NC",("2","7"),"3"), ("COM",("3","6"),"2"), ("NO",("4","5"),"1")):
                 name = f"CTRL_{channel}_{net}"
-                if {key for key, value in pins.items() if value == name} != {(ref,coil_pin),(other,plug_pin)}:
+                if {key for key, value in pins.items() if value == name} != {(ref,p) for p in coil_pins} | {(other,plug_pin)}:
                     raise ValueError(f"Unexpected connection to dry contact {name}")
     return sum(len(values) for values in expected.values())
 

@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "7e4527d2-e65d-5614-bb9a-6841bf02d443")
 (paper "A3")
-(title_block (title "USB Type-C data, ESD protection and cable detection") (rev "DIRECT-R2-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "USB Type-C data, ESD protection and cable detection") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:J40"
 (pin_names (offset 0.508))

@@ -1,0 +1,22 @@
+{
+  "main": {
+    "board_sha256": "ca23ffe41cd5f1349781352f1919ea32d6a8737cdf8393733101d65646de9a25",
+    "via_drills_beneath_paste": [],
+    "DNP_paste_pads": [],
+    "minimum_PTH_annular_ring_mm": 0.3,
+    "minimum_rectangular_paste_area_ratio_at_0_12mm": 0.7353,
+    "limits": "Nominal geometry screen; actual lead tolerances, paste process and solder joints need assembler/first-article review.",
+    "in_memory_negative_controls": [
+      "R246 via-in-paste detected",
+      "R2 DNP paste detected"
+    ]
+  },
+  "panel": {
+    "board_sha256": "447fb910eabbe8229325a4e1f2d429e936c31d8784a75c68e4c0988e4e63ec04",
+    "via_drills_beneath_paste": [],
+    "DNP_paste_pads": [],
+    "minimum_PTH_annular_ring_mm": 0.4,
+    "minimum_rectangular_paste_area_ratio_at_0_12mm": 1.7771,
+    "limits": "Nominal geometry screen; actual lead tolerances, paste process and solder joints need assembler/first-article review."
+  }
+}

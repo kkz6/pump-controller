@@ -1,0 +1,100 @@
+{
+  "board_sha256": "ca23ffe41cd5f1349781352f1919ea32d6a8737cdf8393733101d65646de9a25",
+  "errors": [],
+  "relays": "G5RL-1-E-HR DC5 / C1563288",
+  "terminal_order": {
+    "1": "NO",
+    "2": "COM",
+    "3": "NC"
+  },
+  "field_routes": {
+    "CTRL_A_NC": {
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_width_mm": 2.8,
+      "separate_vias": 0,
+      "isolated_from_control_nets": true,
+      "net_classes": [
+        "HV",
+        "LIVE",
+        "STARTER_FIELD"
+      ]
+    },
+    "CTRL_A_COM": {
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_width_mm": 2.8,
+      "separate_vias": 0,
+      "isolated_from_control_nets": true,
+      "net_classes": [
+        "HV",
+        "LIVE",
+        "STARTER_FIELD"
+      ]
+    },
+    "CTRL_A_NO": {
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_width_mm": 2.8,
+      "separate_vias": 0,
+      "isolated_from_control_nets": true,
+      "net_classes": [
+        "HV",
+        "LIVE",
+        "STARTER_FIELD"
+      ]
+    },
+    "CTRL_B_NC": {
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_width_mm": 2.8,
+      "separate_vias": 0,
+      "isolated_from_control_nets": true,
+      "net_classes": [
+        "HV",
+        "LIVE",
+        "STARTER_FIELD"
+      ]
+    },
+    "CTRL_B_COM": {
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_width_mm": 2.8,
+      "separate_vias": 0,
+      "isolated_from_control_nets": true,
+      "net_classes": [
+        "HV",
+        "LIVE",
+        "STARTER_FIELD"
+      ]
+    },
+    "CTRL_B_NO": {
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_width_mm": 2.8,
+      "separate_vias": 0,
+      "isolated_from_control_nets": true,
+      "net_classes": [
+        "HV",
+        "LIVE",
+        "STARTER_FIELD"
+      ]
+    }
+  },
+  "STOP_loop_carries_relay_coil_current": false,
+  "nominal_total_coil_current_mA": 160,
+  "physical_load_and_thermal_qualification": "PENDING",
+  "supplier_reservation_and_DFM_approval": "PENDING"
+}

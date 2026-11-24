@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "dee63e4f-1373-51bc-ad7f-1005a28535be")
 (paper "A3")
-(title_block (title "Four corner mounts and edge support") (rev "DIRECT-R2-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Four corner mounts and edge support") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:H1"
 (pin_names (offset 0.508))
@@ -111,14 +111,5 @@
 (property "MPN" "" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (property "Description" "3.2mm NPTH; no conductive mounting hardware inside live region" (at 355.6 45.72 0) (effects (font (size 1 1)) (hide yes)))
 (instances (project "pump-direct" (path "/c9ccec4e-42a5-5ee7-8517-2040e122c714/be21912b-015b-5b89-b236-bbb08287e1c9" (reference "H4") (unit 1)))))
-(symbol (lib_id "Pump:H5") (at 50.8 76.2 0) (unit 1)
-(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-(uuid "8b3b3891-e0bf-5e92-9a37-3ca59f5e67fa")
-(property "Reference" "H5" (at 50.8 66.04 0) (effects (font (size 1.27 1.27))))
-(property "Value" "M3 nylon mount" (at 50.8 68.58 0) (effects (font (size 1.05 1.05))))
-(property "Footprint" "MountingHole:MountingHole_3.2mm_M3" (at 50.8 76.2 0) (effects (font (size 1 1)) (hide yes)))
-(property "Datasheet" "" (at 50.8 76.2 0) (effects (font (size 1 1)) (hide yes)))
-(property "MPN" "" (at 50.8 76.2 0) (effects (font (size 1 1)) (hide yes)))
-(property "Description" "3.2mm NPTH; no conductive mounting hardware inside live region" (at 50.8 76.2 0) (effects (font (size 1 1)) (hide yes)))
-(instances (project "pump-direct" (path "/c9ccec4e-42a5-5ee7-8517-2040e122c714/be21912b-015b-5b89-b236-bbb08287e1c9" (reference "H5") (unit 1)))))
+
 )

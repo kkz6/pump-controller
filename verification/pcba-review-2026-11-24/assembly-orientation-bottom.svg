@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1640" viewBox="0 0 1560 1640">
+<rect width="1560" height="1640" fill="#f2f5f7"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#163044">
+<text x="45" y="48" font-size="28" font-weight="bold">R3 PCBA orientation reference - SMT026112161707_Y2</text>
+<text x="45" y="80" font-size="18">BOTTOM (X mirrored) VIEW. Every card keeps the same board direction. Orange identifies pin 1 or the cathode.</text>
+<text x="45" y="108" font-size="17" fill="#9b4b00">Expected native design only. Assembler pictures are still required before production approval.</text>
+<rect x="35" y="130" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="53" y="164" font-size="24" font-weight="bold">U10</text>
+<text x="53" y="190" font-size="16">ADE7953ACPZ</text>
+<polygon points="358.57,256.43 201.43,256.43 201.43,413.57 358.57,413.57" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="340.50" y="378.21" width="29.07" height="7.86" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 382.14)"/>
+<rect x="340.50" y="362.50" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 366.43)"/>
+<rect x="340.50" y="346.79" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 350.71)"/>
+<rect x="340.50" y="331.07" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 335.00)"/>
+<rect x="340.50" y="315.36" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 319.29)"/>
+<rect x="340.50" y="299.64" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 303.57)"/>
+<rect x="340.50" y="283.93" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 355.04 287.86)"/>
+<rect x="323.21" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 327.14 259.96)"/>
+<rect x="307.50" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 311.43 259.96)"/>
+<rect x="291.79" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 295.71 259.96)"/>
+<rect x="276.07" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 280.00 259.96)"/>
+<rect x="260.36" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 264.29 259.96)"/>
+<rect x="244.64" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 248.57 259.96)"/>
+<rect x="228.93" y="245.43" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 232.86 259.96)"/>
+<rect x="190.43" y="283.93" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 287.86)"/>
+<rect x="190.43" y="299.64" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 303.57)"/>
+<rect x="190.43" y="315.36" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 319.29)"/>
+<rect x="190.43" y="331.07" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 335.00)"/>
+<rect x="190.43" y="346.79" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 350.71)"/>
+<rect x="190.43" y="362.50" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 366.43)"/>
+<rect x="190.43" y="378.21" width="29.07" height="7.86" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 204.96 382.14)"/>
+<rect x="228.93" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 232.86 410.04)"/>
+<rect x="244.64" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 248.57 410.04)"/>
+<rect x="260.36" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 264.29 410.04)"/>
+<rect x="276.07" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 280.00 410.04)"/>
+<rect x="291.79" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 295.71 410.04)"/>
+<rect x="307.50" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 311.43 410.04)"/>
+<rect x="323.21" y="395.50" width="7.86" height="29.07" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 327.14 410.04)"/>
+<rect x="230.66" y="285.66" width="98.69" height="98.69" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 280.00 335.00)"/>
+<circle cx="355.04" cy="382.14" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="53" y="475" font-size="17" fill="#ae5900" font-weight="bold">Pin 1 - unconnected-(U10-ZX-Pad1)</text>
+<text x="53" y="503" font-size="16">Native X 20.6125, Y 48.0000 mm (Y down)</text>
+<text x="53" y="530" font-size="13">Pin-1 corner must align with the orange pad.</text>
+<rect x="545" y="130" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="563" y="164" font-size="24" font-weight="bold">D32</text>
+<text x="563" y="190" font-size="16">1N4148W</text>
+<polygon points="896.07,284.91 683.93,284.91 683.93,385.09 896.07,385.09" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="860.71" y="299.64" width="53.04" height="70.71" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(0.00 887.23 335.00)"/>
+<rect x="666.25" y="299.64" width="53.04" height="70.71" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 692.77 335.00)"/>
+<circle cx="887.23" cy="335.00" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="563" y="475" font-size="17" fill="#ae5900" font-weight="bold">K / pin 1 - +5V_CMD</text>
+<text x="563" y="503" font-size="16">Native X 72.5400, Y 3.0000 mm (Y down)</text>
+<text x="563" y="530" font-size="13">Cathode band faces RIGHT in this bottom view.</text>
+<rect x="1055" y="130" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="1073" y="164" font-size="24" font-weight="bold">D31</text>
+<text x="1073" y="190" font-size="16">1N4148W</text>
+<polygon points="1406.07,284.91 1193.93,284.91 1193.93,385.09 1406.07,385.09" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="1370.71" y="299.64" width="53.04" height="70.71" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(0.00 1397.23 335.00)"/>
+<rect x="1176.25" y="299.64" width="53.04" height="70.71" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1202.77 335.00)"/>
+<circle cx="1397.23" cy="335.00" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="1073" y="475" font-size="17" fill="#ae5900" font-weight="bold">K / pin 1 - K1_5V</text>
+<text x="1073" y="503" font-size="16">Native X 58.5400, Y 3.0000 mm (Y down)</text>
+<text x="1073" y="530" font-size="13">Cathode band faces RIGHT in this bottom view.</text>
+<rect x="35" y="570" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="53" y="604" font-size="24" font-weight="bold">D30</text>
+<text x="53" y="630" font-size="16">BAT54WS-7-F</text>
+<polygon points="314.88,820.61 314.88,729.39 245.12,729.39 245.12,820.61" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="263.90" y="819.27" width="32.20" height="24.15" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(90.00 280.00 831.34)"/>
+<rect x="263.90" y="706.59" width="32.20" height="24.15" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 280.00 718.66)"/>
+<circle cx="280.00" cy="831.34" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="53" y="915" font-size="17" fill="#ae5900" font-weight="bold">K / pin 1 - MCU_EN</text>
+<text x="53" y="943" font-size="16">Native X 75.5000, Y 31.0500 mm (Y down)</text>
+<text x="53" y="970" font-size="13">Cathode band faces BOTTOM in this view.</text>
+<rect x="545" y="570" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="563" y="604" font-size="24" font-weight="bold">U31</text>
+<text x="563" y="630" font-size="16">SN74LVC1G74DCUR</text>
+<polygon points="843.92,822.45 843.92,727.55 736.08,727.55 736.08,822.45" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="739.31" y="835.39" width="36.67" height="12.94" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(90.00 757.65 841.86)"/>
+<rect x="760.88" y="835.39" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 779.22 841.86)"/>
+<rect x="782.45" y="835.39" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 800.78 841.86)"/>
+<rect x="804.02" y="835.39" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 822.35 841.86)"/>
+<rect x="804.02" y="701.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 822.35 708.14)"/>
+<rect x="782.45" y="701.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 800.78 708.14)"/>
+<rect x="760.88" y="701.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 779.22 708.14)"/>
+<rect x="739.31" y="701.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 757.65 708.14)"/>
+<circle cx="757.65" cy="841.86" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="563" y="915" font-size="17" fill="#ae5900" font-weight="bold">Pin 1 - ARM_CMD</text>
+<text x="563" y="943" font-size="16">Native X 78.7500, Y 31.0500 mm (Y down)</text>
+<text x="563" y="970" font-size="13">Pin-1 corner must align with the orange pad.</text>
+<rect x="1055" y="570" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="1073" y="604" font-size="24" font-weight="bold">U20</text>
+<text x="1073" y="630" font-size="16">TLV9004IPWR</text>
+<polygon points="1369.14,696.43 1230.86,696.43 1230.86,853.57 1369.14,853.57" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="1366.79" y="830.00" width="46.36" height="12.57" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 836.29)"/>
+<rect x="1366.79" y="809.57" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 815.86)"/>
+<rect x="1366.79" y="789.14" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 795.43)"/>
+<rect x="1366.79" y="768.71" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 775.00)"/>
+<rect x="1366.79" y="748.29" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 754.57)"/>
+<rect x="1366.79" y="727.86" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 734.14)"/>
+<rect x="1366.79" y="707.43" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1389.96 713.71)"/>
+<rect x="1186.86" y="707.43" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 713.71)"/>
+<rect x="1186.86" y="727.86" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 734.14)"/>
+<rect x="1186.86" y="748.29" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 754.57)"/>
+<rect x="1186.86" y="768.71" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 775.00)"/>
+<rect x="1186.86" y="789.14" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 795.43)"/>
+<rect x="1186.86" y="809.57" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 815.86)"/>
+<rect x="1186.86" y="830.00" width="46.36" height="12.57" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(0.00 1210.04 836.29)"/>
+<circle cx="1389.96" cy="836.29" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="1073" y="915" font-size="17" fill="#ae5900" font-weight="bold">Pin 1 - PROBE_BIAS_RAW</text>
+<text x="1073" y="943" font-size="16">Native X 69.1375, Y 54.9500 mm (Y down)</text>
+<text x="1073" y="970" font-size="13">Pin-1 corner must align with the orange pad.</text>
+<rect x="35" y="1010" width="490" height="420" rx="12" fill="white" stroke="#ccd6de"/>
+<text x="53" y="1044" font-size="24" font-weight="bold">U37</text>
+<text x="53" y="1070" font-size="16">74LVC3G17DC,125</text>
+<polygon points="333.92,1262.45 333.92,1167.55 226.08,1167.55 226.08,1262.45" fill="#e5edf2" stroke="#537083" stroke-width="2"/>
+<rect x="229.31" y="1275.39" width="36.67" height="12.94" fill="#ed8a23" stroke="white" stroke-width="1" transform="rotate(90.00 247.65 1281.86)"/>
+<rect x="250.88" y="1275.39" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 269.22 1281.86)"/>
+<rect x="272.45" y="1275.39" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 290.78 1281.86)"/>
+<rect x="294.02" y="1275.39" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 312.35 1281.86)"/>
+<rect x="294.02" y="1141.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 312.35 1148.14)"/>
+<rect x="272.45" y="1141.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 290.78 1148.14)"/>
+<rect x="250.88" y="1141.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 269.22 1148.14)"/>
+<rect x="229.31" y="1141.67" width="36.67" height="12.94" fill="#8aa7b8" stroke="white" stroke-width="1" transform="rotate(90.00 247.65 1148.14)"/>
+<circle cx="247.65" cy="1281.86" r="13" fill="none" stroke="#c76700" stroke-width="3"/>
+<text x="53" y="1355" font-size="17" fill="#ae5900" font-weight="bold">Pin 1 - STOP_SENSE_RAW</text>
+<text x="53" y="1383" font-size="16">Native X 54.7500, Y 44.5500 mm (Y down)</text>
+<text x="53" y="1410" font-size="13">Pin-1 corner must align with the orange pad.</text>
+<text x="45" y="1490" font-size="21" font-weight="bold">Latest seven references: all on the BOTTOM side.</text>
+<text x="45" y="1525" font-size="18">X is mirrored for the physical bottom view. Coordinate labels remain native KiCad coordinates.</text>
+<text x="45" y="1560" font-size="18">Register the board outline before comparing a supplier image; do not infer polarity from text direction.</text>
+<text x="45" y="1600" font-size="16">Expected design only. The actual supplier DFM images and final placement still require review.</text>
+</g></svg>

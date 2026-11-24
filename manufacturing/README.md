@@ -1,30 +1,38 @@
 # Manufacturing package
 
+[Download the matching R3 main-board upload and review bundle](pump-controller-R3-JLC-upload.zip). Extract it first, then upload its inner Gerber ZIP, BOM and CPL in their respective fields. It includes the outward-facing terminals, L1 correction and placement references; internal motor-feed/CT integration is a proposed future change and is not included.
+
+**R3 relay revision, 2026-11-24:** native schematic and PCB now use two Omron G5RL-1-E-HR DC5 high-inrush SPDT relays (C1563288), Phoenix Contact 1711738 three-way power terminals (C91156), dual-outer-layer 2.8 mm field routes, and a separate STOP-controlled K1 coil supply. Main PCB is now **100 × 139 mm**; the two upper corner mounting holes moved and the centre mount was removed. J30/J35 are **1 NO, 2 COM, 3 NC**, replacing the two-way plugs. Wire entry faces outward from the top edge; four corner nylon mounts are retained. Both relays and output terminals are included in JLC assembly. [Revision review and checks](../verification/relay-upgrade-2026-11-24/design-status.txt)
+
 **Ordering:** follow the [order checklist](order-checklist.md). It covers the JLC upload, hand-soldered parts, cables, field parts and programming kit for two complete controllers.
+
+**PCBA corrections are retained:** Sunlord's recommended L1 solder lands and orientation marks for all thirteen queried parts are in the revised PCB. Retain Sunlord SWPA4030S2R2MT (C36409). Request Replace File for the held order, upload the matching R3 files, and compare JLC's actual placement previews before production approval. Confirm the new relay reservation/lead time; a catalogue ID does not establish reserved stock. [Expected orientation sheets](../verification/pcba-review-2026-11-24/README.md)
 
 Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, both silkscreens and plated and non-plated drill files. Request standard FR-4, 1.6 mm thickness, 1 oz outer copper and electrical testing. Verify the displayed layer count and dimensions on the fabricator's preview.
 
 | Board | Bare PCB | Assembly | Optional paste stencils |
 | --- | --- | --- | --- |
-| Main R2, 100 × 117 mm, six layers | [Gerbers and drills](main-gerbers.zip) | [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | [Both sides](main-stencil.zip) |
+| Main R3, 100 × 139 mm, six layers | [Gerbers and drills](main-gerbers.zip) | [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | [Both sides](main-stencil.zip) |
 | OLED panel F, 60 × 45 mm, two layers | [Gerbers and drills](panel-gerbers.zip) | [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv), rear side only | [Both sides](panel-stencil.zip) |
 
-The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. The main board's 15 through-hole parts are also left out of the JLC files and fitted by hand after assembly: C1, F1, J1, J2, J10, J20, J21, J30, J35, J41, K1, K2, R1, RV1 and U1. Buy them with the order or separately (U1 from DigiKey).
+The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. The main board's remaining 11 hand-fitted parts are C1, F1, J1, J2, J10, J20, J21, J41, R1, RV1 and U1. K1/K2 and J30/J35 are now JLC-fitted through-hole parts; request their wave/selective solder assembly in the revised quote.
 
-Stock checked on JLC on 2026-11-21. Every factory-mounted line on both boards is in stock, including U3, which is now the ESP32-C6-MINI-1U-H4 (C20627095). Panel J7 is the Megastar ZX-PH2.0-WT4P (C7429691), a JST PH-compatible header on the same land, because the JST S4B-PH-SM4-TB is pre-order only.
+Historical R2 stock check on 2026-11-21: the then-selected factory-mounted lines were listed in stock, including U3, which is now the ESP32-C6-MINI-1U-H4 (C20627095). Panel J7 is the Megastar ZX-PH2.0-WT4P (C7429691), a JST PH-compatible header on the same land, because the JST S4B-PH-SM4-TB is pre-order only.
 
-For the hand-fitted parts:
+Historical 2026-11-21 procurement notes for the hand-fitted parts; recheck stock and price before ordering:
 - **U1:** no JLC stock. Buy it from DigiKey at about $10 rather than accepting JLC's $22.94 pre-order estimate.
 - **RV1:** JLC lists only 3 of TMOV14RP320EL2T7 (C22815876). Buy both sets' worth at once, or buy the TMOV14RP320EL2B7 bulk pack from a distributor. Both have the same inline crimped L2 leads.
 - **Everything else:** in stock. J1 is now the Kefa KF128-7.5-2P (C474954).
 
 [Stock status](../verification/bom-and-cost-review.md#availability-check-2026-11-21)
 
-K1 and K2 are Omron G6B-1114P-US DC5 relays (C397224) soldered directly into the P6B-04P land pattern, which matches the relay's own PCB holes. There is no socket or clip, so replacing a relay means desoldering it. A functional installation also needs the plug-in display, CT and burden, antenna and harnesses. [One-starter parts list](parts-one-starter.csv) · [Field parts and sourcing](field-parts.csv)
+K1 and K2 are soldered G5RL-1-E-HR DC5 relays with eight 1.3 mm holes. Both physical terminals of every contact are connected. The **relay component** ratings are 16 A NO and 5 A NC at 250 V AC resistive; the larger copper paths do not establish a tested board-current or arbitrary capacitor-switching rating. The actual 1.5 HP / 220 V starter still needs capacitor-disconnect, waveform and first-article thermal checks. USB-C programming at J40, BOOT/EN recovery and the keyed J41 bench supply remain present.
 
 The fully populated board supports the six-core shared-common inlet harness with J21.2 left open. For a separately identified bench prototype dedicated to that harness, the unused J21.2 excitation branch can be left unpopulated at R118, R119, R120, C107, C109, D101 and D103. Keep U20 and its local feedback, the J20.1 protection, and the entire J21.1 sense path. The inlet driver output still reaches the ADC multiplexer, so its reading alone cannot confirm excitation at the probes. Qualify the shared driver with fresh readings on all five channels at the intended cable lengths, water conductivity and contactor switching conditions before approving a production assembly variant. [Inlet wiring options](../docs/connections.md#inlet-sensing-on-a-six-core-cable)
 
-## One-starter budget
+## Historical R2 one-starter budget
+
+The prices and availability below are the earlier R2 snapshot. They do not include the larger R3 PCB, new relays, terminals, transistors or added assembly operations. Obtain JLC's revised quote before payment; do not use these totals as the R3 cost.
 
 Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assembly minimum. Every fee is split evenly between the two sets.
 

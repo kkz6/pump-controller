@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650"><rect width="1200" height="650" fill="#f5f7fa"/><g font-family="Arial,Helvetica,sans-serif" fill="#17364a">
+<text x="40" y="48" font-size="28" font-weight="bold">L1 solder-land correction</text>
+<text x="40" y="82" font-size="19">Sunlord SWPA4030S2R2MT - same 2.2 uH circuit value; corrected PCB copper geometry</text>
+<text x="300" y="140" text-anchor="middle" font-size="24" font-weight="bold">Previous Wuerth land</text>
+<rect x="150" y="150" width="300" height="300" fill="#dbe4eb" stroke="#627f91" stroke-width="2"/>
+<rect x="174.375" y="161.25" width="73.5" height="277.5" fill="#d88938" opacity="0.85"/>
+<rect x="352.125" y="161.25" width="73.5" height="277.5" fill="#d88938" opacity="0.85"/>
+<text x="300" y="490" text-anchor="middle" font-size="22">Pads: 0.98 x 3.70 mm</text>
+<text x="300" y="522" text-anchor="middle" font-size="20">Centre spacing: 2.37 mm; gap: 1.39 mm</text>
+<text x="900" y="140" text-anchor="middle" font-size="24" font-weight="bold">Correct Sunlord land</text>
+<rect x="750" y="150" width="300" height="300" fill="#dbe4eb" stroke="#627f91" stroke-width="2"/>
+<rect x="746.25" y="161.25" width="82.5" height="277.5" fill="#2279aa" opacity="0.85"/>
+<rect x="971.25" y="161.25" width="82.5" height="277.5" fill="#2279aa" opacity="0.85"/>
+<text x="900" y="490" text-anchor="middle" font-size="22">Pads: 1.10 x 3.70 mm</text>
+<text x="900" y="522" text-anchor="middle" font-size="20">Centre spacing: 3.00 mm; gap: 1.90 mm</text>
+<text x="40" y="577" font-size="18">Grey outline: nominal 4 x 4 mm Sunlord body. Coloured areas: PCB solder pads.</text>
+<text x="40" y="610" font-size="18">New copper requires new fabrication. For existing boards, use a confirmed pad-matching replacement.</text>
+<text x="40" y="637" font-size="14">Source: Sunlord SWPA1102230000 Rev.11, Fig.4-1/Table4-1. Comparison uses the native pre-fix and revised pad dimensions.</text>
+</g></svg>

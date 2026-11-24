@@ -1,0 +1,10 @@
+#VRML V2.0 utf8
+# Nominal mechanical envelope only, not a detailed manufacturer model.
+# KiCad VRML units are 0.1 inch. Body 4 x 4 x 3 mm.
+Transform {
+ translation 0 0 0.5905511811
+ children [ Shape {
+  appearance Appearance { material Material { diffuseColor 0.16 0.17 0.18 } }
+  geometry Box { size 1.5748031496 1.5748031496 1.1811023622 }
+ } ]
+}

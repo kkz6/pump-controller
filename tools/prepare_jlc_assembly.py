@@ -5,6 +5,8 @@ match the absolute origin of the released Gerber/drill files. Standard placement
 columns follow https://jlcpcb.com/help/article/how-to-generate-the-bom-and-centroid-file-from-kicad
 """
 import csv
+import json
+import math
 import os
 from collections import defaultdict
 from decimal import Decimal
@@ -46,8 +48,40 @@ NORMALIZE = {'31171102 (RT13702HBWC)': '31171102', 'Samtec TSW-103-07-G-D': 'TSW
 # Main: the through-hole parts. Each would cost a $1.53 loading line plus hand-soldering labour and joint
 # charges at JLC; U1 is bought from DigiKey anyway, and F1/J1 have no JLC catalogue entry.
 HAND_FIT = {'panel': {'SW1', 'SW2', 'SW3', 'SW4', 'SW5'},
-            'main': {'C1', 'F1', 'J1', 'J2', 'J10', 'J20', 'J21', 'J30', 'J35', 'J41', 'K1', 'K2', 'R1', 'RV1', 'U1'}}
+            'main': {'C1', 'F1', 'J1', 'J2', 'J10', 'J20', 'J21', 'J41', 'R1', 'RV1', 'U1'}}
 SINGLE_SIDED = {'panel'}
+
+
+def rotation_offset(board, ref, mpn, footprint, side):
+    """Carry exact-part historical JLC viewer corrections into the CPL only."""
+    if board != 'main':
+        return Decimal(0)
+    record = json.loads((ROOT/'tools/data/jlc-placement-corrections.json').read_text())
+    rule = record['corrections'].get(ref)
+    if rule is None:
+        return Decimal(0)
+    actual = (mpn, footprint.split(':')[-1], side.lower())
+    expected = (rule['mpn'], rule['footprint'], rule['side'].lower())
+    if actual != expected:
+        raise ValueError(f'{ref}: historical JLC correction no longer matches the exact part/package/side; review before export: {actual} vs {expected}')
+    return Decimal(rule['delta_ccw_deg'])
+
+
+def centroid_offset(board, ref, mpn, footprint, side, native_angle):
+    """Translate the four new THT datum origins to nominal package centres."""
+    if board != 'main':
+        return Decimal(0), Decimal(0)
+    record = json.loads((ROOT/'tools/data/jlc-placement-corrections.json').read_text())
+    rule = record.get('centroid_offsets', {}).get(ref)
+    if rule is None:
+        return Decimal(0), Decimal(0)
+    if (mpn, footprint.split(':')[-1], side.lower()) != (rule['mpn'], rule['footprint'], rule['side'].lower()):
+        raise ValueError(f'{ref}: centroid correction requires exact MPN/package/side review')
+    dx, dy = rule['native_local_centre_mm']
+    angle = math.radians(float(native_angle))
+    # Native local Y is down; the released CPL Y is up.
+    return (Decimal(str(round(dx*math.cos(angle)+dy*math.sin(angle), 6))),
+            Decimal(str(round(dx*math.sin(angle)-dy*math.cos(angle), 6))))
 
 
 def read_csv(path):
@@ -140,7 +174,9 @@ def prepare(board, location, stem, parts, destination=OUT):
         x, y, angle = [Decimal(pos[k]) for k in ('PosX','PosY','Rot')]
         if not all(n.is_finite() for n in (x,y,angle)):
             raise ValueError(f'{ref}: invalid coordinates')
-        angle = (angle + Decimal(360)) % Decimal(360)
+        dx, dy = centroid_offset(board, ref, part, footprint, pos['Side'], angle)
+        x, y = x+dx, y+dy
+        angle = (angle + rotation_offset(board, ref, part, footprint, pos['Side']) + Decimal(360)) % Decimal(360)
         cpl.append((ref, str(x), str(y), pos['Side'].title(), format(angle, 'f')))
         groups[part,footprint].append(ref)
     bom = []

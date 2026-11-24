@@ -28,11 +28,11 @@ Main,J2,TSW-103-07-G-D,1,Hand fit after JLC assembly (through-hole)
 Main,J10,1727010,1,Hand fit after JLC assembly (through-hole)
 Main,J20,1803303,1,Hand fit after JLC assembly (through-hole)
 Main,J21,S2B-XH-A(LF)(SN),1,Hand fit after JLC assembly (through-hole)
-Main,"J30,J35",1836189,2,Hand fit after JLC assembly (through-hole)
+Main,"J30,J35",1711738,2,"Factory mount via JLC C91156; fixed terminals 1 NO, 2 COM, 3 NC"
 Main,J32,SM12B-GHS-TB(LF)(SN),1,Factory mount
 Main,J40,USB4110-GF-A,1,Factory mount
 Main,J41,B3B-XH-A(LF)(SN),1,Hand fit after JLC assembly (through-hole)
-Main,"K1,K2",G6B-1114P-US DC5,2,Hand fit after JLC assembly (through-hole)
+Main,"K1,K2",G5RL-1-E-HR DC5,2,Factory mount via JLC C1563288; 16 A NO / 5 A NC relay component ratings
 Main,L1,SWPA4030S2R2MT,1,Factory mount
 Main,"Q30,Q31,Q40",AO3400A,3,Factory mount
 Main,R1,AC03000002209JACCS,1,Hand fit after JLC assembly (through-hole)
@@ -97,10 +97,13 @@ Field,panel.J2,Keyed local-only plug OR external button station loom,1 local-onl
 Field,panel.J8,Optional AUTO/MANUAL key and loom,0 by default; 1 optional key kit,Optional; key variant pending
 Field,main.J41,RUN plug,1 finished RUN plug,RUN-only plug material; assembly/label and continuity labor excluded
 Field,main.J41 service,Bench service plug and 5 V source,0 if bench equipped; otherwise 1 shared bench kit,Shared service bench; quote only if equipment absent
-Field,main.J30 / main.J35,Individual plug coding elements,"2 individual profiles, one per mating pair",Exact component; priced per individual coding profile
 Field,Board mounts,Insulating PCB support sets,"5 M3 main + 4 M2.5 panel mounts, active unit only",Quote only
 Field,Panel mechanics,"OLED window, retainer and switch actuators","1 fitted window, retainer and actuator set",Quote only
 Field,OEM equipment,"Existing motor, starter, overload and capacitor-start gear",1 existing motor and starter set,Conditional reuse
-Starter,J30 / J35,Phoenix Contact 1836079 mating plug,2,Both counted for the universal set
 Starter,Interface loom,Terminated starter-specific loom,1,"Quote for actual input, pilot rating and routing"
 Starter,Factory-only service insert,Keyed passive manual restoration plug,Only for a three-wire starter needing board-independent factory operation without an existing factory transfer,Quote as part of the selected starter loom
+Main,Q50,AO3401A,1,Factory mount; R3 STOP-controlled relay supply
+Main,Q51,MMBT3904LT1G,1,Factory mount; R3 STOP-controlled relay supply
+Main,R246,0603WAF1003T5E,1,Factory mount; R3 STOP-controlled relay supply
+Main,R247,0603WAF1002T5E,1,Factory mount; R3 STOP-controlled relay supply
+Main,R248,0603WAF1003T5E,1,Factory mount; R3 STOP-controlled relay supply

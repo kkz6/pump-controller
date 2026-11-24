@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "4bf5d27f-a0c3-5ce7-91f5-f2a12c143d91")
 (paper "A3")
-(title_block (title "Single-phase metering - LIVE DOMAIN") (rev "DIRECT-R2-DRAFT") (company "1 HP single-phase pump controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Single-phase metering - LIVE DOMAIN") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:U10"
 (pin_names (offset 0.508))

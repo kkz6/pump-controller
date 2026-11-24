@@ -1,0 +1,178 @@
+(footprint "L_Sunlord_SWPA4030S"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Sunlord SWPA4030S, 4.0x4.0x3.0 mm; manufacturer land pattern: two 1.10x3.70 mm pads at +/-1.50 mm, 1.90 mm gap. Non-polarized.")
+	(tags "Würth SMT")
+	(property "Reference" "L1"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "3072f67f-5d85-4204-9300-276174d6493f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "2.2uH"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "513127d0-324b-4d2d-bfa3-4235a8572fda")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://jlcpcb.com/partdetail/Sunlord-SWPA4030S2R2MT/C36409"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ce5516a7-563b-4346-8c3f-1da36344eb8b")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" "Sunlord SWPA4030S, 4.0x4.0x3.0 mm; manufacturer land pattern: two 1.10x3.70 mm pads at +/-1.50 mm, 1.90 mm gap. Non-polarized. 2.2 uH 20%, 4.9 A saturation, 39 mOhm max DCR."
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "21497b56-35df-4041-b8f3-af7d5a702755")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "KiLib_Generator" "inductor/SMD"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "2c7b879d-d862-4a56-9c1d-6c7f22bc5981")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "SWPA4030S2R2MT"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "0d7834a0-8691-426f-9080-72844c1d7bf0")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(sheetname "Isolated AC input, 5 V and 3.3 V supplies")
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -2.35 -2.35)
+		(end 2.35 2.35)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "0af60982-a673-49c4-9176-d2795bcd8b0f")
+	)
+	(fp_line
+		(start -2.16 -2.16)
+		(end 2.16 -2.16)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "10c1321c-7aea-473f-a71c-849966aaa34f")
+	)
+	(fp_line
+		(start -2.16 2.16)
+		(end -2.16 -2.16)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c9fcbee1-a373-48ce-b6e8-0024c6aa34f4")
+	)
+	(fp_line
+		(start 2.16 -2.16)
+		(end 2.16 2.16)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "aa795142-31a3-46aa-98e5-d1eb31a81d42")
+	)
+	(fp_line
+		(start 2.16 2.16)
+		(end -2.16 2.16)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "fb5fc5eb-537b-466b-99da-27403db684ad")
+	)
+	(fp_rect
+		(start -2 -2)
+		(end 2 2)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "dcc2e750-d0aa-4181-817a-2e27883302c7")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "158a9a3a-1915-4d1d-bb52-1b704b38798e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.5 0)
+		(size 1.1 3.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3dce3e44-b3a6-4e70-9642-41cd4519d53e")
+	)
+	(pad "2" smd rect
+		(at 1.5 0)
+		(size 1.1 3.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3df77eb2-8f81-4c7e-a100-ebfb1f0a91db")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/models/SWPA4030S-envelope.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
