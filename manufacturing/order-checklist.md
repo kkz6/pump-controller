@@ -1,4 +1,4 @@
-# Order checklist — R4 prototype
+# Order checklist — R4 prototype, locally fitted relays
 
 This list is for two complete controllers. That is the JLCPCB assembly minimum. JLC makes five bare boards of each design and assembles two of each.
 
@@ -10,10 +10,10 @@ The enclosure, the USB cable, board standoffs and the panel front are left for l
 
 | Board | Upload | Options |
 | --- | --- | --- |
-| Main R4, 100 × 118.5 mm | [Gerbers](main-gerbers.zip) · [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | 6 layers, FR-4 1.6 mm, 1 oz outer copper, 5 pcs. **Standard PCBA, both sides**, 2 boards. 226 placements on 63 BOM lines, with relays and output terminals factory-fitted. Confirm the new relay reservation/lead time. |
+| Main R4, 100 × 118.5 mm | [Gerbers](local-relays/main-gerbers.zip) · [BOM](local-relays/main-BOM.csv) · [Placement](local-relays/main-CPL.csv) | 6 layers, FR-4 1.6 mm, 1 oz outer copper, 5 pcs. **Standard PCBA, both sides**, 2 boards. 224 placements on 62 BOM lines. J30/J35 output terminals are factory-fitted; K1/K2 are fitted locally. |
 | OLED panel F, 60 × 45 mm | [Gerbers](panel-gerbers.zip) · [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv) | 2 layers, FR-4 1.6 mm, 5 pcs. **Economic PCBA, bottom side only**, 2 boards. 19 parts on 11 lines. |
 
-Check the layer count, size and part placement on JLC's preview before paying. R4 is 20.5 mm shorter than R3. All four corner mounting holes moved to suit the compact outline. Relay outputs face out of the bottom edge; tank and inlet ports face out of the top edge. Relays are G5RL-1-E-HR DC5 / C1563288 (4 pieces for two boards); terminal blocks are 1711738 / C91156 (4 pieces). The old two-position output plugs are obsolete.
+Check the layer count, size and part placement on JLC's preview before paying. R4 is 20.5 mm shorter than R3. All four corner mounting holes moved to suit the compact outline. Relay outputs face out of the bottom edge; tank and inlet ports face out of the top edge. Buy G5RL-1-E-HR DC5 relays locally: 5 V coil, eight-pin SPDT, four pieces for two boards. JLC assembles four 1711738 / C91156 terminal blocks. K1/K2 are deliberately absent from this assembly variant’s BOM/CPL, but their lands remain on the PCB. The old two-position output plugs are obsolete.
 
 ### Rotation corrections made in JLC's placement viewer (order of 2026-11-21)
 
@@ -99,3 +99,9 @@ See [programming](../docs/programming.md).
 - Nylon standoffs: 5× M3 for the main board, 4× M2.5 for the panel
 - Panel front: OLED window and button caps
 - Optional AUTO/MANUAL key switch with a GHR-03V-S plug
+
+## Local-relay assembly variant
+
+Run `python3 tools/prepare_local_relay_assembly.py` after validating the full release. Upload all three files from `manufacturing/local-relays/` together; their PCB/stencil files are identical to R4, and only K1/K2 are omitted from the BOM/CPL. The remaining hand-fitted main-board list gains K1 and K2, for 13 parts total. The full factory-relay files remain separately available.
+
+For this replacement, JLC reported zero stock for C1563288; no relay purchase was completed. Its temporary preorder cart entry was removed when local fitting was selected. The live replacement BOM must show 62/62 matched and selected groups, including J40 USB-C and FB1/FB2/R42, which were initially unchecked by the replacement flow. Verify the final quantity, quote and placement-approval settings before submission. Standard PCBA currently requires at least two assembled boards. Its assembly stencil is used at the factory and is not shipped with the PCBs.

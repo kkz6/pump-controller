@@ -1,5 +1,9 @@
 # Manufacturing package
 
+**Current order: locally fitted relays.** Use the [R4 local-relay upload bundle](pump-controller-R4-local-relays-JLC-upload.zip), or its [Gerber](local-relays/main-gerbers.zip), [BOM](local-relays/main-BOM.csv) and [CPL](local-relays/main-CPL.csv). JLC fits J30/J35; leave K1/K2 unpopulated. This variant has 62 BOM lines, 224 placements and 13 hand-fitted parts per main board. Buy exact G5RL-1-E-HR DC5 relays locally (5 V coil, eight-pin SPDT). The 12 V coil and SPST 1A versions do not match. The PCB and all remaining placements are unchanged.
+
+The full factory-relay assembly option is retained below for reference.
+
 [Download the matching R4 main-board upload and review bundle](pump-controller-R4-JLC-upload.zip). Extract it first, then upload its inner Gerber ZIP, BOM and CPL in their respective fields. It includes the outward-facing terminals, L1 correction and placement references; internal motor-feed/CT integration is a proposed future change and is not included.
 
 **R4 compact layout, 2026-11-24:** the main PCB is **100 × 118.5 mm**, 20.5 mm shorter than R3. K1/K2 lie horizontally along the lower edge, with outward-facing J30/J35 terminals. Tank J20 and inlet J21 moved to the top edge. The circuit, Omron G5RL-1-E-HR DC5 relays (C1563288), Phoenix 1711738 terminals (C91156), COM/NO/NC pinout, STOP-controlled coil supply, USB-C programming and six-layer stack are retained. Contact paths remain 2.8 mm on both outer layers. [Layout and validation record](../verification/compact-layout-2026-11-24.md)
