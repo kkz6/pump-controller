@@ -1,0 +1,11 @@
+Hello,
+
+Please enable Replace File for our held order SMT026112161707_Y2. We will provide the matching DIRECT-R4-PROTOTYPE Gerber, BOM and CPL files together. Please keep the order on hold while the replacement is reviewed.
+
+The revised main board is 100 x 118.5 mm, six layers. It retains Sunlord SWPA4030S2R2MT (C36409) on the corrected L1 lands. The relay output connectors are now on the bottom edge and the tank/inlet connectors on the top. K1/K2 are G5RL-1-E-HR DC5 (C1563288), not the SPST 1A variant; J30/J35 are Phoenix 1711738 (C91156). Both relays and terminal blocks require factory THT assembly. Please confirm relay availability/reservation and lead time.
+
+Please use the new CPL positions and rotations; it already includes the recorded supplier-library angle corrections. Please do not add those offsets again. Kindly provide the revised Top and Bottom placement previews, including U22, D35, U33, U21, U3, U2 and U10, D32, D31, D30, U31, U20, U37, plus the relocated relays and terminals, for comparison before production approval.
+
+Please also review L1 solder coverage, THT lead fit, stencil and process-rail/fiducial/tooling arrangements, keeping tabs clear of all outward-facing connectors. This message requests file replacement and review; it does not approve unseen placement images.
+
+Thank you.

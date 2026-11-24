@@ -1,4 +1,4 @@
-"""Package the validated R3 main-board release and its current review evidence."""
+"""Package the validated R4 main-board release and its current review evidence."""
 import csv
 import hashlib
 import json
@@ -8,9 +8,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MF = ROOT/'manufacturing'
-REVIEW = ROOT/'verification/pcba-review-2026-11-24'
-RELAY = ROOT/'verification/relay-upgrade-2026-11-24'
-DFM = ROOT/'verification/dfm-review-2026-11-24'
+REVIEW = ROOT/'verification/pcba-review-2026-11-24/R4'
+RELAY = ROOT/'verification/relay-upgrade-2026-11-24/R4'
+DFM = ROOT/'verification/dfm-review-2026-11-24/R4'
 
 
 def digest(path):
@@ -38,7 +38,9 @@ def main():
         checks += 1
     assembly = read(REVIEW/'assembly-check.json')
     relay = read(RELAY/'relay-check.json')
+    layout = read(RELAY/'layout-change-check.json')
     dfm = read(DFM/'manufacturing-check.json')
+    bodies = read(DFM/'body-spacing.json')
     markers = read(DFM/'ic-pin1-check.json')
     polarity = read(DFM/'polarity-check.json')
     current = digest(ROOT/'hardware/main/pump-direct.kicad_pcb')
@@ -46,6 +48,13 @@ def main():
     assert markers['board_sha256'] == current and markers['all_ICs_marked']
     assert polarity['main']['board_sha256'] == current
     assert polarity['panel']['board_sha256'] == digest(ROOT/'hardware/panel/pump-panel-rev-f.kicad_pcb')
+    for name,stem in [('main','pump-direct'),('panel','pump-panel-rev-f')]:
+        assert bodies[name]['board_sha256'] == digest(ROOT/'hardware'/name/(stem+'.kicad_pcb'))
+        assert bodies[name]['checker_sha256'] == digest(ROOT/'tools/check_body_spacing.py')
+        assert not bodies[name]['nominal_body_overlaps']
+    assert relay['checker_sha256'] == digest(ROOT/'tools/check_relay_revision.py')
+    assert layout['board_sha256'] == current and len(layout['moved_footprints']) == 10
+    assert not layout['component_pad_net_changes'] and not layout['retained_copper_net_reassignments']
     assert not assembly['errors'] and not relay['errors']
     assert not any(d['via_drills_beneath_paste'] or d['DNP_paste_pads'] for d in dfm.values())
     with (MF/'main-BOM.csv').open() as stream:
@@ -57,18 +66,18 @@ def main():
     with zipfile.ZipFile(MF/'main-stencil.zip') as stencil:
         assert b'%TO.C,R2*%' not in stencil.read('main.GBP')
     summary = {
-        'date':'2026-11-24', 'revision':'DIRECT-R3-PROTOTYPE',
-        'board_sha256':current, 'board_dimensions_mm':[100,139],
+        'date':'2026-11-24', 'revision':'DIRECT-R4-PROTOTYPE',
+        'board_sha256':current, 'board_dimensions_mm':[100,118.5],
         'release_source_and_output_hashes_match':True,
         'release_source_and_output_hashes_checked':checks,
         'main_erc_drc_parity_creepage':'PASS', 'panel_erc_drc_parity':'PASS',
         'gerber_drill_connectivity':'PASS', 'cam_injected_fault_controls':'PASS',
-        'named_interface_checks':read(RELAY/'r3-interface-check.json'),
+        'named_interface_checks':read(RELAY/'interface-check.json'),
         'hardware_redesign_implemented':True,
         'relay':'G5RL-1-E-HR DC5', 'relay_JLC_code':'C1563288',
         'relay_reserved_stock_and_lead_time':'UNCONFIRMED',
         'terminal_pin_map':{'1':'NO','2':'COM','3':'NC'},
-        'terminal_wire_entry':'OUTWARD / top edge',
+        'terminal_wire_entry':'OUTWARD / bottom edge',
         'L1_manufacturer_land_corrected':True,
         'orientation_pin_maps_checked':13,
         'printed_IC_pin1_arrows':markers['marked_IC_count'],
@@ -98,13 +107,14 @@ def main():
     for n in ['panel-gerbers.zip','panel-BOM.csv','panel-CPL.csv','panel-stencil.zip']:
         files['panel/'+n] = (MF/n).read_bytes()
     files['READ-ME-FIRST.txt'] = (
-        'DIRECT-R3-PROTOTYPE — matching main PCB files, 2026-11-24\n\n'
+        'DIRECT-R4-PROTOTYPE — matching main PCB files, 2026-11-24\n\n'
         'Extract this outer ZIP. Upload main-gerbers.zip as Gerbers, main-BOM.csv\n'
         'as BOM and main-CPL.csv as placement data. The outer review bundle is\n'
         'NOT the Gerber archive. main-stencil.zip contains revised paste layers.\n\n'
         'The panel/ folder contains matching panel files with added transistor\n'
         'pin-1 arrows. Upload those separately for a panel-board order.\n\n'
-        'Finished main board: 100 x 139 mm, six layers. J30/J35 face outward:\n'
+        'Finished main board: 100 x 118.5 mm, six layers. J30/J35 face out the bottom;\n'
+        'tank J20 and inlet J21 face out the top. Output terminal pin order:\n'
         '1 NO, 2 COM, 3 NC. K1/K2: G5RL-1-E-HR DC5 / C1563288 (SPDT, not 1A).\n'
         'Both relays and Phoenix 1711738 / C91156 terminals require factory THT\n'
         'assembly. 226 factory placements, 63 BOM lines, 11 hand-fitted parts.\n'
@@ -127,20 +137,22 @@ def main():
                  'additional-orientation-reference.txt','assembly-orientation.png','assembly-orientation.pdf',
                  'assembly-orientation-bottom.png','assembly-orientation-bottom.pdf','validation-summary.json',
                  'main-erc.json','main-drc.json']),
-        (RELAY,['design-status.txt','relay-check.json','r3-interface-check.json','firmware-profile-check.txt',
+        (RELAY,['design-status.txt','relay-check.json','layout-change-check.json','interface-check.json','firmware-profile-check.txt',
                 'rotation-guard-negative-controls.json','outward-ports-3d.png']),
         (DFM,['README.md','manufacturing-check.json','body-spacing.json','ic-pin1-check.json','polarity-check.json']),
     ]:
         prefix = 'review/dfm/' if base == DFM else 'review/'
         for name in names:
             files[prefix+name] = (base/name).read_bytes()
+    files['review/check_relay_revision.py'] = (ROOT/'tools/check_relay_revision.py').read_bytes()
+    files['review/dfm/check_body_spacing.py'] = (ROOT/'tools/check_body_spacing.py').read_bytes()
     files['review/verification.json'] = (MF/'verification.json').read_bytes()
     for target, source in [('jlc-placement-corrections.json','tools/data/jlc-placement-corrections.json'),
-                           ('connections.md','docs/connections.md'),('main-schematic.pdf','docs/main-schematic.pdf')]:
+                           ('connections.md','docs/connections.md'),('compact-layout.md','verification/compact-layout-2026-11-24.md'),('main-schematic.pdf','docs/main-schematic.pdf')]:
         files['review/'+target] = (ROOT/source).read_bytes()
     manifest = {name:hashlib.sha256(data).hexdigest() for name,data in sorted(files.items())}
     files['SHA256.json'] = (json.dumps(manifest,indent=2)+'\n').encode()
-    bundle = MF/'pump-controller-R3-JLC-upload.zip'
+    bundle = MF/'pump-controller-R4-JLC-upload.zip'
     with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED) as archive:
         for name,data in sorted(files.items()):
             archive.writestr(name,data)

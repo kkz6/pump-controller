@@ -1,0 +1,23 @@
+Additional orientation reference - latest supplier query
+Order SMT026112161707_Y2
+EXPECTED NATIVE DESIGN ONLY - actual assembler images NOT reviewed.
+ALL SEVEN PARTS ARE ON THE BOTTOM SIDE (B.Cu).
+Coordinates below are the native KiCad board coordinates, Y increasing downward. They are NOT a bottom-side photograph. Bottom views can be mirrored/rotated; register the board outline and pad numbers before comparison.
+The original six-card top-side sheet covers a different reference list.
+
+U10 | ADE7953ACPZ | Bottom | Pin 1 X=20.6125, Y=48.0000 mm | net unconnected-(U10-ZX-Pad1)
+D32 | 1N4148W | Bottom | Cathode K / pad 1 X=72.5400, Y=3.0000 mm | net +5V_CMD
+D31 | 1N4148W | Bottom | Cathode K / pad 1 X=58.5400, Y=3.0000 mm | net K1_5V
+D30 | BAT54WS-7-F | Bottom | Cathode K / pad 1 X=75.5000, Y=31.0500 mm | net MCU_EN
+U31 | SN74LVC1G74DCUR | Bottom | Pin 1 X=78.7500, Y=31.0500 mm | net ARM_CMD
+U20 | TLV9004IPWR | Bottom | Pin 1 X=69.1375, Y=54.9500 mm | net PROBE_BIAS_RAW
+U37 | 74LVC3G17DC,125 | Bottom | Pin 1 X=54.7500, Y=44.5500 mm | net STOP_SENSE_RAW
+
+Reference datasheets:
+https://www.analog.com/media/en/technical-documentation/data-sheets/ADE7953.pdf (page 9)
+https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf (page 4)
+https://www.ti.com/lit/ds/symlink/tlv9004.pdf (PW top-view pinout)
+https://assets.nexperia.com/documents/data-sheet/74LVC3G17.pdf (pages 2-3)
+https://www.diodes.com/datasheet/download/BAT54WS.pdf
+Diode pad 1 is cathode in the native footprints. Confirm the exact assembled diode manufacturer marking against its datasheet.
+The seven physical component positions and native rotations are retained. R4 changes D31's cathode net to K1_5V for the upgraded relay supply; the complete R4 circuit, larger board and relay/terminal placement changes are described in README.md. The JLC CPL includes the recorded supplier angle calibrations and must not receive those old manual offsets a second time.

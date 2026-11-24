@@ -1,6 +1,6 @@
 # Verification
 
-Current revision: **DIRECT-R3-PROTOTYPE**, 100 × 139 mm main board. [R3 DFM review](dfm-review-2026-11-24/README.md) records the via/paste fixes and manufacturing limits; [PCBA orientation review](pcba-review-2026-11-24/README.md) covers L1 and the supplier's thirteen queried parts. Earlier audits below describe their recorded revisions and are retained as historical evidence.
+Current revision: **DIRECT-R4-PROTOTYPE**, 100 × 118.5 mm main board. [R4 DFM review](dfm-review-2026-11-24/R4/README.md) records the via/paste fixes and manufacturing limits; [PCBA orientation review](pcba-review-2026-11-24/R4/README.md) covers L1 and the supplier's thirteen queried parts. Earlier audits below describe their recorded revisions and are retained as historical evidence.
 
 [Independent electrical audit of the direct two-board controller](direct-controller-audit.md)
 

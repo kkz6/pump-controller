@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CLI = os.environ.get('KICAD_CLI') or shutil.which('kicad-cli') or 'kicad-cli'
 OUTPUT = ROOT / 'manufacturing'
 BOARDS = {
-    'main': ('main', 'pump-direct', (100, 139), 6, 'main'),
+    'main': ('main', 'pump-direct', (100, 118.5), 6, 'main'),
     'panel': ('panel', 'pump-panel-rev-f', (60, 45), 2, 'panel'),
 }
 

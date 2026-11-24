@@ -2,7 +2,7 @@
 
 Run with KiCad's Python (pcbnew module), from any directory. This checks native
 pad geometry/net assignments, not the assembler's proposed component pictures.
-The default output is verification/pcba-review-2026-11-24. Nothing is sent to JLC.
+The default output is verification/pcba-review-2026-11-24/R4. Nothing is sent to JLC.
 """
 import argparse
 import csv
@@ -123,7 +123,7 @@ def svg(result, bottom=False):
     text = ['<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="{}" viewBox="0 0 1560 {}">'.format(height, height),
             '<rect width="1560" height="{}" fill="#f2f5f7"/>'.format(height),
             '<g font-family="Arial,Helvetica,sans-serif" fill="#163044">',
-            '<text x="45" y="48" font-size="28" font-weight="bold">R3 PCBA orientation reference - SMT026112161707_Y2</text>',
+            '<text x="45" y="48" font-size="28" font-weight="bold">R4 PCBA orientation reference - SMT026112161707_Y2</text>',
             '<text x="45" y="80" font-size="18">{} VIEW. Every card keeps the same board direction. Orange identifies pin 1 or the cathode.</text>'.format('BOTTOM (X mirrored)' if bottom else 'TOP'),
             '<text x="45" y="108" font-size="17" fill="#9b4b00">Expected native design only. Assembler pictures are still required before production approval.</text>']
     for index, ref in enumerate(BOTTOM_REFS if bottom else ['U22', 'D35', 'U33', 'U21', 'U3', 'U2']):
@@ -175,7 +175,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--board', type=Path, default=ROOT/'hardware/main/pump-direct.kicad_pcb')
     parser.add_argument('--cpl', type=Path, default=ROOT/'manufacturing/main-CPL.csv')
-    parser.add_argument('--output', type=Path, default=ROOT/'verification/pcba-review-2026-11-24')
+    parser.add_argument('--output', type=Path, default=ROOT/'verification/pcba-review-2026-11-24/R4')
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     result = check(args.board.resolve(), args.cpl.resolve())

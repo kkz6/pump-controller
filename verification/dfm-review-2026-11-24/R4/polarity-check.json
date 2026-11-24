@@ -1,0 +1,87 @@
+{
+  "main": {
+    "board_sha256": "aa42bb44df6f596b3816f96efeb5fa558c9cb4cb15f2258c126ab0f74a67228f",
+    "multi_pin_device_arrows": 14,
+    "cathode_bar_parts": {
+      "D30": [
+        [
+          75.5,
+          31.75
+        ]
+      ],
+      "D31": [
+        [
+          57.6,
+          3.0
+        ]
+      ],
+      "D32": [
+        [
+          71.6,
+          3.0
+        ]
+      ],
+      "D35": [
+        [
+          68.85,
+          37.5
+        ]
+      ],
+      "D40": [
+        [
+          62.84,
+          7.4
+        ]
+      ],
+      "D41": [
+        [
+          76.84,
+          7.4
+        ]
+      ],
+      "D43": [
+        [
+          91.61,
+          20.0
+        ]
+      ],
+      "D44": [
+        [
+          95.6,
+          18.609999
+        ]
+      ],
+      "D60": [
+        [
+          89.54,
+          59.0
+        ]
+      ],
+      "D61": [
+        [
+          89.54,
+          62.5
+        ]
+      ]
+    },
+    "positive_marks": [
+      "C1"
+    ],
+    "bidirectional_TVS_without_polarity": [
+      "D100",
+      "D101",
+      "D110",
+      "D112",
+      "D114",
+      "D116",
+      "D118"
+    ]
+  },
+  "panel": {
+    "board_sha256": "447fb910eabbe8229325a4e1f2d429e936c31d8784a75c68e4c0988e4e63ec04",
+    "multi_pin_device_arrows": 2,
+    "cathode_bar_parts": {},
+    "positive_marks": [],
+    "bidirectional_TVS_without_polarity": []
+  }
+}

@@ -49,7 +49,7 @@ def main():
     result = {'board_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
               'marked_IC_count':len(checked), 'all_ICs_marked':True, 'parts':checked,
               'supplier_model_orientation_approved':False}
-    (ROOT/'verification/dfm-review-2026-11-24/ic-pin1-check.json').write_text(json.dumps(result,indent=2)+'\n')
+    (ROOT/'verification/dfm-review-2026-11-24/R4/ic-pin1-check.json').write_text(json.dumps(result,indent=2)+'\n')
     print('PASS:',len(checked),'ICs have side-correct arrows pointing to actual pad 1; exact MPN/footprint/positions checked.')
 
 

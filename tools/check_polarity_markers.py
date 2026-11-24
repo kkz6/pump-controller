@@ -98,7 +98,7 @@ def main():
                          'multi_pin_device_arrows':len(expected), 'cathode_bar_parts':bars,
                          'positive_marks':list(rule.get('positive_marks',{})),
                          'bidirectional_TVS_without_polarity':list(rule.get('bidirectional_TVS_without_polarity',{}))}
-    (ROOT/'verification/dfm-review-2026-11-24/polarity-check.json').write_text(json.dumps(results,indent=2)+'\n')
+    (ROOT/'verification/dfm-review-2026-11-24/R4/polarity-check.json').write_text(json.dumps(results,indent=2)+'\n')
     print('PASS: 16 transistor/multi-pin diode arrows, 10 LED/diode cathode bars, C1 positive mark; bidirectional TVS parts not marked as polarized.')
 
 

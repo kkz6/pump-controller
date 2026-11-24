@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "04743d92-b90f-5ec9-91e0-c503ceedd0e0")
 (paper "A3")
-(title_block (title "AC conductive probe interface - prototype / 4") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "AC conductive probe interface - prototype / 4") (rev "DIRECT-R4-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:D117"
 (pin_names (offset 0.508))

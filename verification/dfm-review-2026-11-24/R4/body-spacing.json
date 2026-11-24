@@ -1,0 +1,61 @@
+{
+  "main": {
+    "board_sha256": "aa42bb44df6f596b3816f96efeb5fa558c9cb4cb15f2258c126ab0f74a67228f",
+    "checker_sha256": "bb136bd76a0db4a02483034623f7250fb3fe9550d7ca3a057a9895f8f716dec1",
+    "native_footprints_including_DNP_and_mounts": 242,
+    "method": "Union of closed nominal F.Fab/B.Fab polygons; largest connected region per part; excludes text, circles and open decorations. Adjacent closed body compartments are merged. Maximum tolerances and physical solderability remain unqualified.",
+    "nominal_body_overlaps": [],
+    "body_pairs_below_0_65mm": [
+      {
+        "refs": [
+          "R246",
+          "Q51"
+        ],
+        "nominal_body_gap_mm": 0.6395,
+        "body_bbox": [
+          [
+            55.2,
+            -5.9125,
+            56.8,
+            -5.0875
+          ],
+          [
+            53.85,
+            -4.45,
+            55.15,
+            -1.55
+          ]
+        ]
+      },
+      {
+        "refs": [
+          "U3",
+          "L1"
+        ],
+        "nominal_body_gap_mm": 0.59,
+        "body_bbox": [
+          [
+            59.45,
+            22.25,
+            72.25,
+            35.75
+          ],
+          [
+            62.84,
+            17.34,
+            67.16,
+            21.66
+          ]
+        ]
+      }
+    ]
+  },
+  "panel": {
+    "board_sha256": "447fb910eabbe8229325a4e1f2d429e936c31d8784a75c68e4c0988e4e63ec04",
+    "checker_sha256": "bb136bd76a0db4a02483034623f7250fb3fe9550d7ca3a057a9895f8f716dec1",
+    "native_footprints_including_DNP_and_mounts": 28,
+    "method": "Union of closed nominal F.Fab/B.Fab polygons; largest connected region per part; excludes text, circles and open decorations. Adjacent closed body compartments are merged. Maximum tolerances and physical solderability remain unqualified.",
+    "nominal_body_overlaps": [],
+    "body_pairs_below_0_65mm": []
+  }
+}

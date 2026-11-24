@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "dee63e4f-1373-51bc-ad7f-1005a28535be")
 (paper "A3")
-(title_block (title "Four corner mounts and edge support") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Four corner mounts and edge support") (rev "DIRECT-R4-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:H1"
 (pin_names (offset 0.508))

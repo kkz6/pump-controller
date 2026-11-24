@@ -1,18 +1,18 @@
 # Manufacturing package
 
-[Download the matching R3 main-board upload and review bundle](pump-controller-R3-JLC-upload.zip). Extract it first, then upload its inner Gerber ZIP, BOM and CPL in their respective fields. It includes the outward-facing terminals, L1 correction and placement references; internal motor-feed/CT integration is a proposed future change and is not included.
+[Download the matching R4 main-board upload and review bundle](pump-controller-R4-JLC-upload.zip). Extract it first, then upload its inner Gerber ZIP, BOM and CPL in their respective fields. It includes the outward-facing terminals, L1 correction and placement references; internal motor-feed/CT integration is a proposed future change and is not included.
 
-**R3 relay revision, 2026-11-24:** native schematic and PCB now use two Omron G5RL-1-E-HR DC5 high-inrush SPDT relays (C1563288), Phoenix Contact 1711738 three-way power terminals (C91156), dual-outer-layer 2.8 mm field routes, and a separate STOP-controlled K1 coil supply. Main PCB is now **100 × 139 mm**; the two upper corner mounting holes moved and the centre mount was removed. J30/J35 are **1 NO, 2 COM, 3 NC**, replacing the two-way plugs. Wire entry faces outward from the top edge; four corner nylon mounts are retained. Both relays and output terminals are included in JLC assembly. [Revision review and checks](../verification/relay-upgrade-2026-11-24/design-status.txt)
+**R4 compact layout, 2026-11-24:** the main PCB is **100 × 118.5 mm**, 20.5 mm shorter than R3. K1/K2 lie horizontally along the lower edge, with outward-facing J30/J35 terminals. Tank J20 and inlet J21 moved to the top edge. The circuit, Omron G5RL-1-E-HR DC5 relays (C1563288), Phoenix 1711738 terminals (C91156), COM/NO/NC pinout, STOP-controlled coil supply, USB-C programming and six-layer stack are retained. Contact paths remain 2.8 mm on both outer layers. [Layout and validation record](../verification/compact-layout-2026-11-24.md)
 
 **Ordering:** follow the [order checklist](order-checklist.md). It covers the JLC upload, hand-soldered parts, cables, field parts and programming kit for two complete controllers.
 
-**PCBA corrections are retained:** Sunlord's recommended L1 solder lands and orientation marks for all thirteen queried parts are in the revised PCB. Retain Sunlord SWPA4030S2R2MT (C36409). Request Replace File for the held order, upload the matching R3 files, and compare JLC's actual placement previews before production approval. Confirm the new relay reservation/lead time; a catalogue ID does not establish reserved stock. [Expected orientation sheets](../verification/pcba-review-2026-11-24/README.md)
+**PCBA corrections are retained:** Sunlord's recommended L1 solder lands and orientation marks for all thirteen queried parts are in the revised PCB. Retain Sunlord SWPA4030S2R2MT (C36409). Request Replace File for the held order, upload the matching R4 files, and compare JLC's actual placement previews before production approval. Confirm the new relay reservation/lead time; a catalogue ID does not establish reserved stock. [Expected orientation sheets](../verification/pcba-review-2026-11-24/R4/README.md)
 
 Use one Gerber ZIP per board. Each includes the outline, copper, solder masks, both silkscreens and plated and non-plated drill files. Request standard FR-4, 1.6 mm thickness, 1 oz outer copper and electrical testing. Verify the displayed layer count and dimensions on the fabricator's preview.
 
 | Board | Bare PCB | Assembly | Optional paste stencils |
 | --- | --- | --- | --- |
-| Main R3, 100 × 139 mm, six layers | [Gerbers and drills](main-gerbers.zip) | [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | [Both sides](main-stencil.zip) |
+| Main R4, 100 × 118.5 mm, six layers | [Gerbers and drills](main-gerbers.zip) | [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | [Both sides](main-stencil.zip) |
 | OLED panel F, 60 × 45 mm, two layers | [Gerbers and drills](panel-gerbers.zip) | [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv), rear side only | [Both sides](panel-stencil.zip) |
 
 The panel assembly BOM has a catalogue ID for every line. Order the panel as **single-sided Economic PCBA on the bottom (rear) side**. The five front buttons are not in the JLC files: fit SW1 (D2F-01F) and SW2–SW5 (B3U-1000P) by hand after assembly. The main board's remaining 11 hand-fitted parts are C1, F1, J1, J2, J10, J20, J21, J41, R1, RV1 and U1. K1/K2 and J30/J35 are now JLC-fitted through-hole parts; request their wave/selective solder assembly in the revised quote.
@@ -32,7 +32,7 @@ The fully populated board supports the six-core shared-common inlet harness with
 
 ## Historical R2 one-starter budget
 
-The prices and availability below are the earlier R2 snapshot. They do not include the larger R3 PCB, new relays, terminals, transistors or added assembly operations. Obtain JLC's revised quote before payment; do not use these totals as the R3 cost.
+The prices and availability below are the earlier R2 snapshot. They do not include the revised PCB, new relays, terminals, transistors or added assembly operations. Obtain JLC's revised quote before payment; do not use these totals as the R4 cost.
 
 Priced 2026-11-21 for one JLCPCB order of two complete sets, which is the assembly minimum. Every fee is split evenly between the two sets.
 

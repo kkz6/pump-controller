@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "c9ccec4e-42a5-5ee7-8517-2040e122c714")
 (paper "A2")
-(title_block (title "Two-board pump controller / direct starter contacts") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Two-board pump controller / direct starter contacts") (rev "DIRECT-R4-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols)
 (text "REV DIRECT-R3 / ENGINEERING PROTOTYPE" (at 20 20 0) (effects (font (size 2 2)) (justify left)) (uuid "f698f033-4ac1-5c03-8704-61a1d12bbda3"))
 (text "J30 / K1 = A. J35 / K2 = B. Programming controls and USB recovery are on the MCU sheet." (at 20 27 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "74a70b94-8e60-5ec6-b56d-75e661c2d373"))

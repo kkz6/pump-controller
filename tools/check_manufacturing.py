@@ -71,7 +71,7 @@ def review(board):
 
 
 def main():
-    output = ROOT/'verification/dfm-review-2026-11-24'
+    output = ROOT/'verification/dfm-review-2026-11-24/R4'
     output.mkdir(exist_ok=True)
     results = {}
     for name, stem in [('main','pump-direct'), ('panel','pump-panel-rev-f')]:

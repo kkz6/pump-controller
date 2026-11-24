@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "549b47f0-7965-59aa-9ba7-1dff52db5f9d")
 (paper "A3")
-(title_block (title "ESP32-C6 Matter controller and service interface") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "ESP32-C6 Matter controller and service interface") (rev "DIRECT-R4-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:SW60"
 (pin_names (offset 0.508))

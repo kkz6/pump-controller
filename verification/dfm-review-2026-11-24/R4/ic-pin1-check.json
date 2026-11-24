@@ -1,0 +1,236 @@
+{
+  "board_sha256": "aa42bb44df6f596b3816f96efeb5fa558c9cb4cb15f2258c126ab0f74a67228f",
+  "marked_IC_count": 19,
+  "all_ICs_marked": true,
+  "parts": {
+    "U3": {
+      "mpn": "ESP32-C6-MINI-1U-H4",
+      "side": "F",
+      "pin1_xy_mm": [
+        62.5,
+        34.9
+      ],
+      "arrow_tip_xy_mm": [
+        61.956868,
+        35.85656
+      ]
+    },
+    "U21": {
+      "mpn": "TMUX1208PWR",
+      "side": "F",
+      "pin1_xy_mm": [
+        82.1375,
+        50.725
+      ],
+      "arrow_tip_xy_mm": [
+        81.631151,
+        50.241667
+      ]
+    },
+    "U40": {
+      "mpn": "TPS22919DCKR",
+      "side": "F",
+      "pin1_xy_mm": [
+        80.3375,
+        11.15
+      ],
+      "arrow_tip_xy_mm": [
+        81.116279,
+        11.33304
+      ]
+    },
+    "U1": {
+      "mpn": "RACM06E-05SK/277",
+      "side": "F",
+      "pin1_xy_mm": [
+        30.0,
+        15.08
+      ],
+      "arrow_tip_xy_mm": [
+        27.367377,
+        14.777022
+      ]
+    },
+    "U33": {
+      "mpn": "MCP23017-E/SS",
+      "side": "F",
+      "pin1_xy_mm": [
+        55.0,
+        40.775
+      ],
+      "arrow_tip_xy_mm": [
+        54.554585,
+        40.234995
+      ]
+    },
+    "U41": {
+      "mpn": "TS3USB30EDGSR",
+      "side": "F",
+      "pin1_xy_mm": [
+        86.3,
+        27.5
+      ],
+      "arrow_tip_xy_mm": [
+        85.859982,
+        28.107359
+      ]
+    },
+    "U22": {
+      "mpn": "ADS1115IDGSR",
+      "side": "F",
+      "pin1_xy_mm": [
+        75.85,
+        46.0
+      ],
+      "arrow_tip_xy_mm": [
+        75.316971,
+        45.54626
+      ]
+    },
+    "U2": {
+      "mpn": "TPS62162DSGR",
+      "side": "F",
+      "pin1_xy_mm": [
+        59.8,
+        18.75
+      ],
+      "arrow_tip_xy_mm": [
+        59.842662,
+        18.051301
+      ]
+    },
+    "U36": {
+      "mpn": "SN74LVC1G17DBVR",
+      "side": "B",
+      "pin1_xy_mm": [
+        80.8625,
+        38.45
+      ],
+      "arrow_tip_xy_mm": [
+        80.46357,
+        39.0252
+      ]
+    },
+    "U31": {
+      "mpn": "SN74LVC1G74DCUR",
+      "side": "B",
+      "pin1_xy_mm": [
+        78.75,
+        31.05
+      ],
+      "arrow_tip_xy_mm": [
+        78.763611,
+        31.749868
+      ]
+    },
+    "U30": {
+      "mpn": "STWD100NYWY3F",
+      "side": "B",
+      "pin1_xy_mm": [
+        70.8625,
+        29.95
+      ],
+      "arrow_tip_xy_mm": [
+        70.46357,
+        30.5252
+      ]
+    },
+    "U35": {
+      "mpn": "SN74LVC1G17DBVR",
+      "side": "B",
+      "pin1_xy_mm": [
+        57.3625,
+        45.95
+      ],
+      "arrow_tip_xy_mm": [
+        56.96357,
+        46.5252
+      ]
+    },
+    "U37": {
+      "mpn": "74LVC3G17DC,125",
+      "side": "B",
+      "pin1_xy_mm": [
+        54.75,
+        44.55
+      ],
+      "arrow_tip_xy_mm": [
+        54.763611,
+        45.249868
+      ]
+    },
+    "U11": {
+      "mpn": "CA-IS3641HW",
+      "side": "B",
+      "pin1_xy_mm": [
+        45.95,
+        18.555
+      ],
+      "arrow_tip_xy_mm": [
+        46.055375,
+        17.81244
+      ]
+    },
+    "U34": {
+      "mpn": "74LVC1G08GV,125",
+      "side": "B",
+      "pin1_xy_mm": [
+        70.8625,
+        33.95
+      ],
+      "arrow_tip_xy_mm": [
+        70.46357,
+        34.5252
+      ]
+    },
+    "U42": {
+      "mpn": "TPS2553DBVR",
+      "side": "B",
+      "pin1_xy_mm": [
+        97.05,
+        37.4625
+      ],
+      "arrow_tip_xy_mm": [
+        96.546124,
+        36.598724
+      ]
+    },
+    "U20": {
+      "mpn": "TLV9004IPWR",
+      "side": "B",
+      "pin1_xy_mm": [
+        69.1375,
+        54.95
+      ],
+      "arrow_tip_xy_mm": [
+        68.892847,
+        55.605854
+      ]
+    },
+    "U32": {
+      "mpn": "MCP120T-300I/TT",
+      "side": "B",
+      "pin1_xy_mm": [
+        74.0625,
+        25.95
+      ],
+      "arrow_tip_xy_mm": [
+        73.668176,
+        26.528367
+      ]
+    },
+    "U10": {
+      "mpn": "ADE7953ACPZ",
+      "side": "B",
+      "pin1_xy_mm": [
+        20.6125,
+        48.0
+      ],
+      "arrow_tip_xy_mm": [
+        20.288375,
+        48.620438
+      ]
+    }
+  },
+  "supplier_model_orientation_approved": false
+}

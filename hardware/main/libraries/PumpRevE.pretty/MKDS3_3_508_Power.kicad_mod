@@ -9,7 +9,7 @@
 		(at 5.08 -7.02 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "8dcc06b0-67f7-4184-908b-ce1021cd5837")
+		(uuid "1881be99-5a0b-421c-a0df-d09a2a83deeb")
 		(effects
 			(font
 				(size 1 1)
@@ -20,7 +20,7 @@
 	(property "Value" "OUT A / NO-COM-NC"
 		(at 5.08 6.42 0)
 		(layer "F.Fab")
-		(uuid "924997fc-bd04-4d8d-b3fd-7352a367d6bc")
+		(uuid "0a30798d-ee7c-4b3f-8ecf-55dc253b42cc")
 		(effects
 			(font
 				(size 1 1)
@@ -32,18 +32,18 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "318007de-f245-4150-b17c-eb447f130500")
+		(uuid "f76251be-5ebf-4a48-bd8a-31fd9acea373")
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 	)
-	(property "Description" "Phoenix Contact 1711738, 24 A component rating. Top-edge screw terminal with wire entry facing OUT of the board. Pin 1 NO, 2 COM, 3 NC; follow printed labels. Output current is limited by the complete assembly and load duty."
+	(property "Description" "Phoenix Contact 1711738, 24 A component rating. Bottom-edge screw terminal with wire entry facing OUT of the board. Pin 1 NO, 2 COM, 3 NC; follow printed labels. Output current is limited by the complete assembly and load duty."
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f2751809-0940-4695-9989-9c20eb8ced9f")
+		(uuid "2da3b32c-634a-44b8-a95d-d272d6a74355")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -128,7 +128,7 @@
 	)
 	(fp_poly
 		(pts
-			(xy 0 5.42) (xy 0.44 6.03) (xy -0.44 6.03)
+			(xy 0 4.42) (xy 0.44 5.03) (xy -0.44 5.03)
 		)
 		(stroke
 			(width 0.12)

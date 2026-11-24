@@ -1,0 +1,42 @@
+R4 relay and PCBA correction revision - 2026-11-24
+
+IMPLEMENTED IN NATIVE SCHEMATIC AND PCB
+- K1/K2: Omron G5RL-1-E-HR DC5 high-inrush SPDT, JLC C1563288; 5 V / 80 mA nominal coils.
+- Both output blocks have outward-facing wire entry at the bottom edge, with unobstructed screw access. The former inward-facing bay positions are superseded.
+- Both physical terminals of each contact are wired: 2/7 NC, 3/6 COM, 4/5 NO. Coil 1 negative and 8 positive in this circuit (relay coil itself non-polarized).
+- J30/J35: Phoenix Contact 1711738 / JLC C91156, fixed three-way screw terminals. Pin 1 NO, 2 COM, 3 NC. Old two-way plugs are obsolete.
+- All six field nets use 2.8 mm copper on BOTH outer layers. The routes connect through the actual through-hole pads and do not rely on the previous small vias.
+- Q50 AO3401A P-MOSFET and Q51 MMBT3904LT1G provide STOP-controlled K1 coil power from +5V_CMD. R246/R247/R248 provide default-off bias and base current limiting. STOP_RETURN carries sensing/base current, not relay coil current; U42 retains its 110-150 mA panel current limit.
+- D31 flyback cathode is now K1_5V, with anode K1_LOW. A discrete MOSFET was used so high-side coil interruption can tolerate the negative flyback excursion at the drain.
+- Original low-side arm/watchdog gate, hardware STOP permissive sensing, USB inhibit, native USB-C J40, BOOT/EN buttons and J41 isolated bench supply remain.
+- L1 remains Sunlord SWPA4030S2R2MT / C36409 on the corrected 1.10 x 3.70 mm lands, 3.00 mm centre pitch, 1.90 mm gap.
+- Printed pin-1/cathode markers cover both supplier query lists: six top-side and seven bottom-side parts.
+- Main board is now 100 x 118.5 mm (20.5 mm shorter than R3). All four corner mounts and their exclusion zones match the compact outline. Tank J20 and inlet J21 moved to the top; the USB edge and door-panel design are retained. Enclosure fit must use the revised outline.
+- Both relays and output terminals are now in the JLC BOM/CPL: 226 factory placements on 63 BOM lines; 11 remaining main-board hand-fitted parts.
+- Final DFM review: R246's +5V_CMD via moved from the resistor paste pad to (55.175,-6.600) mm with a short top-layer escape. R2 remains DNP on an identical-copper no-paste land variant. Main schematic and board revision metadata are aligned to DIRECT-R4-PROTOTYPE.
+- The four new through-hole parts use nominal package-centre CPL positions rather than the coil/first-pin datum. The relay centres are K1 (29.90,-84.95), K2 (74.90,-84.75) mm in CPL coordinates; terminal centres are J30 (22.08,-98.10), J35 (67.08,-98.10) mm. R4 native relay poses are 180 degrees and output terminal poses are 0 degrees.
+- All 21 historical JLC placement-viewer angle corrections recorded at commit a4e8bbc are now encoded in tools/data/jlc-placement-corrections.json and automatically applied by prepare_jlc_assembly.py with exact MPN, footprint and side guards. Native physical pad orientation is unchanged. Do not apply the old manual corrections a second time after uploading this CPL.
+
+COMPONENT RATINGS AND APPLICATION LIMITS
+The relay NO contact is rated 16 A and NC 5 A at 250 V AC resistive. The manufacturer's high-inrush tests specify peak current, RMS current and endurance conditions. The terminal's 24 A rating is also a component rating. No 16 A continuous board rating or blanket capacitor/motor rating is claimed from trace width or relay markings.
+
+User application: 1.5 HP, 220 V capacitor-start starter. An external suitably rated starter interface/contactor is now allowed if the actual START contacts carry capacitor current; external interface design is deferred. Direct capacitor switching is not approved by this PCB review. The redesign is complete as an engineering prototype; qualify the selected interface's load, bounded start pulse, first-article temperature rise, STOP/overload and power-loss behavior before pump service. A larger relay and NC terminal do not create an independent cutoff for a welded capacitor contact.
+
+Coil budget: 160 mA nominal for both relays versus the former 80 mA. With 5.25 V, -10% coil resistance and a copper-temperature estimate at -40 C, both coils together are about 248 mA. This is a screening estimate, not a manufacturer operating guarantee. Verify the complete 5 V rail peak/thermal budget on the 1.2 A RECOM supply. PMOS drain flyback and STOP-release waveforms need bench measurements.
+
+SOURCE AND ASSEMBLY STATUS
+Native interface, geometry, ERC, DRC/parity, creepage and CAM results are recorded in manufacturing/verification.json and relay-check.json. These software checks do not establish physical endurance, insulation certification or capacitor suitability.
+JLC lists the exact relay as C1563288, but its public page did not expose reserved stock/lead time. Request reservation/confirmation for the revised order. Terminal C91156 showed 646 listed units during this review; availability can change.
+The link supplied with the latest email contains only an attachment-list screenshot. Actual Top/Bottom DFM placements still need comparison with the supplied physical orientation sheets, especially the new relay/transistor models. This does not prevent producing revised files, but it prevents approval of unseen supplier placements.
+No email, payment, part purchase, order cancellation or supplier upload has been performed.
+
+PRIMARY REFERENCES
+https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5rl.pdf
+https://jlcpcb.com/partdetail/OmronElectronics-G5RL_1_E_HRDC5/C1563288
+https://www.phoenixcontact.com/en-in/products/printed-circuit-board-terminal-mkds-3-3-508-1711738
+https://jlcpcb.com/partdetail/PhoenixContact-1711738/C91156
+https://www.aosmd.com/sites/default/files/res/datasheets/AO3401A.pdf
+https://www.onsemi.com/pdf/datasheet/mmbt3904lt1-d.pdf
+https://jlcpcb.com/help/article/pick-place-file-for-pcb-assembly
+
+MAINS ISOLATION: all six relay-contact nets are classified LIVE/HV/STARTER_FIELD, including NC. The project requires 8 mm clearance and surface creepage to isolated control nets on every copper layer, and 8 mm from field-contact copper to the separate mains/meter area. Each field net is connected only to the corresponding two relay terminals and its output screw terminal. The physical relay provides coil/contact separation; the controller ground, ESP32, USB, panel and probe nets have no intentional connection to the field contacts. The separate mains input/meter/CT side remains intentionally mains-referenced. Use the specified nylon mounts and an appropriate insulated enclosure, ferrules and segregated field wiring; PCB DRC is not an installation insulation certification.

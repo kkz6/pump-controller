@@ -1,7 +1,7 @@
 (kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
 (uuid "ad24408a-aa70-5791-b45f-13be8c38ec45")
 (paper "A3")
-(title_block (title "Relay drivers and independent watchdog / 1") (rev "DIRECT-R3-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
+(title_block (title "Relay drivers and independent watchdog / 1") (rev "DIRECT-R4-PROTOTYPE") (company "Single-phase pump starter controller") (comment 1 "Engineering prototype; mains review and bench tests pending"))
 (lib_symbols
 (symbol "Pump:U30"
 (pin_names (offset 0.508))

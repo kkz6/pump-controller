@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-24",
+  "revision": "DIRECT-R4-PROTOTYPE",
+  "board_sha256": "aa42bb44df6f596b3816f96efeb5fa558c9cb4cb15f2258c126ab0f74a67228f",
+  "board_dimensions_mm": [
+    100,
+    118.5
+  ],
+  "release_source_and_output_hashes_match": true,
+  "release_source_and_output_hashes_checked": 132,
+  "main_erc_drc_parity_creepage": "PASS",
+  "panel_erc_drc_parity": "PASS",
+  "gerber_drill_connectivity": "PASS",
+  "cam_injected_fault_controls": "PASS",
+  "named_interface_checks": {
+    "main_copper_nets_with_isolation_domain": 190,
+    "main_named_terminals": 291,
+    "panel_named_terminals": 45,
+    "physical_usb_and_starter_tested": false
+  },
+  "hardware_redesign_implemented": true,
+  "relay": "G5RL-1-E-HR DC5",
+  "relay_JLC_code": "C1563288",
+  "relay_reserved_stock_and_lead_time": "UNCONFIRMED",
+  "terminal_pin_map": {
+    "1": "NO",
+    "2": "COM",
+    "3": "NC"
+  },
+  "terminal_wire_entry": "OUTWARD / bottom edge",
+  "L1_manufacturer_land_corrected": true,
+  "orientation_pin_maps_checked": 13,
+  "printed_IC_pin1_arrows": 19,
+  "other_printed_pin1_arrows": 16,
+  "LED_and_single_diode_cathode_marks": 10,
+  "polarized_capacitor_positive_mark": [
+    "C1"
+  ],
+  "supplier_rotation_corrections_automated": 21,
+  "manufacturing_paste_via_and_DNP_screen": "PASS; both injected controls detected",
+  "assembler_images_reviewed": false,
+  "supplier_production_approval": "PENDING actual revised DFM, lead fit, stencil/tooling acceptance and relay sourcing",
+  "usb_c_J40_in_JLC_BOM": true,
+  "external_starter_interface": "Deferred; direct capacitor switching not qualified by PCB checks",
+  "internal_motor_feed_CT_integrated_in_this_release": false,
+  "external_supplier_message_purchase_or_upload_performed": false,
+  "main_JLC_placements": 226,
+  "main_JLC_BOM_lines": 63,
+  "main_hand_fitted_parts": 11,
+  "firmware_profile_host_tests": "PASS (simulated hardware only)"
+}

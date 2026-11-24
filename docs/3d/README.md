@@ -4,7 +4,7 @@ Rendered from the released KiCad layouts with `kicad-cli pcb render`. GitHub sho
 
 U1, U3, K1, K2, L1, R1, F1 and RV1 use simplified body models sized from their datasheets (`hardware/main/models/*-envelope.wrl`). They show position and height only and are not mechanical references. The other parts use KiCad library models or the project's STEP models.
 
-## Main board R3, 100 × 139 mm
+## Main board R4, 100 × 118.5 mm
 
 | Top | Bottom |
 | --- | --- |

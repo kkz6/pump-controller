@@ -1,4 +1,4 @@
-"""Verify R3 relay lands, field routing, STOP supply and JLC procurement.
+"""Verify R4 relay lands, field routing, STOP supply and JLC procurement.
 
 Run with KiCad's Python after tools/export_boards.py completes. CAM connectivity,
 physical temperature rise and actual starter waveforms are separate checks.
@@ -19,7 +19,7 @@ def mm(point):
 def near(a, b):
     return abs(a-b) < 0.00001
 errors = []
-for ref, channel, x, y in [('K1','A',42.5,-5), ('K2','B',78,-2)]:
+for ref, channel, x, y in [('K1','A',42,81.2), ('K2','B',87,81)]:
     fp = fps[ref]
     if fp.GetFieldText('MPN') != 'G5RL-1-E-HR DC5':
         errors.append(ref+': wrong relay variant (SPST is not acceptable)')
@@ -29,8 +29,8 @@ for ref, channel, x, y in [('K1','A',42.5,-5), ('K2','B',78,-2)]:
     pads = {p.GetNumber(): p for p in fp.Pads()}
     if set(pads) != set(expected):
         errors.append(ref+': all eight physical terminals must be populated')
-    positions = {'1': [x,y], '8':[x-7.5,y], '2':[x,y-15], '7':[x-7.5,y-15],
-                 '3':[x,y-20], '6':[x-7.5,y-20], '4':[x,y-25], '5':[x-7.5,y-25]}
+    positions = {'1': [x,y], '8':[x,y+7.5], '2':[x-15,y], '7':[x-15,y+7.5],
+                 '3':[x-20,y], '6':[x-20,y+7.5], '4':[x-25,y], '5':[x-25,y+7.5]}
     for number, net in expected.items():
         p = pads[number]
         if p.GetNetname() != net or not all(near(a,b) for a,b in zip(mm(p.GetPosition()), positions[number])):
@@ -45,6 +45,20 @@ for ref, channel in [('J30','A'), ('J35','B')]:
         suffix = {'1':'NO', '2':'COM', '3':'NC'}[p.GetNumber()]
         if p.GetNetname() != 'CTRL_'+channel+'_'+suffix:
             errors.append(ref+': expected pin 1 NO, 2 COM, 3 NC')
+# Physical edge access and the compact outline are intentional release requirements.
+for ref, expected in {'J30':(17,98.4,0), 'J35':(62,98.4,0),
+                       'J20':(83,-5.5,180), 'J21':(25,-3.5,180),
+                       'H1':(4,-10.5,0), 'H2':(96,-10.5,0),
+                       'H3':(96,100,0), 'H4':(4,100,0)}.items():
+    fp=fps[ref]
+    if not all(near(a,b) for a,b in zip(mm(fp.GetPosition())+[fp.GetOrientationDegrees()],expected)):
+        errors.append(ref+': unexpected compact-layout pose or wire-entry orientation')
+edges=[d for d in board.GetDrawings() if d.GetLayer()==pcbnew.Edge_Cuts]
+points=[mm(p) for d in edges for p in [d.GetStart(),d.GetEnd()]]
+width=max(p[0] for p in points)-min(p[0] for p in points)
+height=max(p[1] for p in points)-min(p[1] for p in points)
+if not near(width,100) or not near(height,118.5) or board.GetCopperLayerCount()!=6:
+    errors.append('Expected 100 x 118.5 mm, six-layer compact main board')
 field = {}
 for channel in ['A','B']:
     for suffix in ['NC','COM','NO']:
@@ -81,21 +95,21 @@ with (ROOT/'manufacturing/main-BOM.csv').open() as stream:
 with (ROOT/'manufacturing/main-CPL.csv').open() as stream:
     cpl = {r['Designator']:r for r in csv.DictReader(stream)}
 # Independently calculated nominal package centres, not coil/first-pin datums.
-for ref, centre in {'K1':(38.75,17.1), 'K2':(74.25,14.1), 'J30':(23.42,35.7), 'J35':(58.92,35.7)}.items():
+for ref, centre in {'K1':(29.9,-84.95), 'K2':(74.9,-84.75), 'J30':(22.08,-98.1), 'J35':(67.08,-98.1)}.items():
     row = cpl.get(ref)
-    expected_rotation = 180 if ref.startswith('J') else 90
+    expected_rotation = 0 if ref.startswith('J') else 180
     if row is None or row['Layer'] != 'Top' or not near(float(row['Mid X']),centre[0]) or not near(float(row['Mid Y']),centre[1]) or not near(float(row['Rotation']),expected_rotation):
         errors.append(ref+': JLC CPL must use the package centre and expected native pose')
 for mpn, code, refs in [('G5RL-1-E-HR DC5','C1563288',{'K1','K2'}), ('1711738','C91156',{'J30','J35'})]:
     rows = [r for r in bom if r['Manufacturer Part Number'] == mpn]
     if len(rows) != 1 or rows[0]['JLCPCB Part #'] != code or set(rows[0]['Designator'].split(',')) != refs or rows[0]['Quantity'] != '2':
         errors.append(mpn+': missing/wrong JLC BOM selection')
-result = {'board_sha256':hashlib.sha256(path.read_bytes()).hexdigest(), 'errors':errors,
+result = {'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), 'board_dimensions_mm':[100,118.5], 'terminal_wire_entry':'outward bottom edge', 'board_sha256':hashlib.sha256(path.read_bytes()).hexdigest(), 'errors':errors,
           'relays':'G5RL-1-E-HR DC5 / C1563288', 'terminal_order':{'1':'NO','2':'COM','3':'NC'},
           'field_routes':field, 'STOP_loop_carries_relay_coil_current':False,
           'nominal_total_coil_current_mA':160, 'physical_load_and_thermal_qualification':'PENDING',
           'supplier_reservation_and_DFM_approval':'PENDING'}
-out = ROOT/'verification/relay-upgrade-2026-11-24/relay-check.json'
+out = ROOT/'verification/relay-upgrade-2026-11-24/R4/relay-check.json'
 out.write_text(json.dumps(result,indent=2)+'\n')
 if errors:
     raise SystemExit('\n'.join(errors))

@@ -1,4 +1,4 @@
-# Order checklist — R3 prototype
+# Order checklist — R4 prototype
 
 This list is for two complete controllers. That is the JLCPCB assembly minimum. JLC makes five bare boards of each design and assembles two of each.
 
@@ -10,14 +10,14 @@ The enclosure, the USB cable, board standoffs and the panel front are left for l
 
 | Board | Upload | Options |
 | --- | --- | --- |
-| Main R3, 100 × 139 mm | [Gerbers](main-gerbers.zip) · [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | 6 layers, FR-4 1.6 mm, 1 oz outer copper, 5 pcs. **Standard PCBA, both sides**, 2 boards. 226 placements on 63 BOM lines, with relays and output terminals factory-fitted. Confirm the new relay reservation/lead time. |
+| Main R4, 100 × 118.5 mm | [Gerbers](main-gerbers.zip) · [BOM](main-BOM.csv) · [Placement](main-CPL.csv) | 6 layers, FR-4 1.6 mm, 1 oz outer copper, 5 pcs. **Standard PCBA, both sides**, 2 boards. 226 placements on 63 BOM lines, with relays and output terminals factory-fitted. Confirm the new relay reservation/lead time. |
 | OLED panel F, 60 × 45 mm | [Gerbers](panel-gerbers.zip) · [BOM](panel-BOM.csv) · [Placement](panel-CPL.csv) | 2 layers, FR-4 1.6 mm, 5 pcs. **Economic PCBA, bottom side only**, 2 boards. 19 parts on 11 lines. |
 
-Check the layer count, size and part placement on JLC's preview before paying. R3 is 22 mm taller, with relocated upper mounting holes. Relays are G5RL-1-E-HR DC5 / C1563288 (4 pieces for two boards); terminal blocks are 1711738 / C91156 (4 pieces). The old two-position output plugs are obsolete.
+Check the layer count, size and part placement on JLC's preview before paying. R4 is 20.5 mm shorter than R3. All four corner mounting holes moved to suit the compact outline. Relay outputs face out of the bottom edge; tank and inlet ports face out of the top edge. Relays are G5RL-1-E-HR DC5 / C1563288 (4 pieces for two boards); terminal blocks are 1711738 / C91156 (4 pieces). The old two-position output plugs are obsolete.
 
 ### Rotation corrections made in JLC's placement viewer (order of 2026-11-21)
 
-JLC's library models for these parts are rotated against KiCad's footprints. With the uploaded `main-CPL.csv`, they would be soldered sideways or back to front. Each one was corrected in the viewer by checking JLC's pin-1 dot against the silkscreen pin-1 mark and the copper pads. The saved order carries the corrections. R3 now applies all 21 exact-part corrections automatically in `tools/prepare_jlc_assembly.py`, using `tools/data/jlc-placement-corrections.json`. Do not apply this table a second time to the revised CPL. The native footprints and pads retain their physical orientation; these are supplier-library angle offsets. Reconfirm the revised DFM preview, particularly the new relay and transistor models.
+JLC's library models for these parts are rotated against KiCad's footprints. With the uploaded `main-CPL.csv`, they would be soldered sideways or back to front. Each one was corrected in the viewer by checking JLC's pin-1 dot against the silkscreen pin-1 mark and the copper pads. The saved order carries the corrections. R4 retains all 21 exact-part corrections automatically in `tools/prepare_jlc_assembly.py`, using `tools/data/jlc-placement-corrections.json`. Do not apply this table a second time to the revised CPL. The native footprints and pads retain their physical orientation; these are supplier-library angle offsets. Reconfirm the revised DFM preview, particularly the new relay and transistor models.
 
 | Side | Parts | Correction in the viewer |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ The panel uses Economic PCBA, which does not accept OSP finish, so the panel is 
 
 ### Assembly tooling and stencil
 
-For the main board's Standard PCBA, select **Edge Rails/Fiducials: Added by JLCPCB** and have JLC provide suitable tooling holes. The supplied Gerbers describe the finished 100 × 139 mm board, not a manufacturing panel. Request at least 5 mm process rails and ask JLC to keep panel tabs/rails clear of the outward-facing J30/J35 bodies, USB-C J40 and the other edge connectors. Confirm the panel/depaneling arrangement in the engineering preview. These corner mounting holes are for nylon enclosure hardware, not a substitute for assembly fiducials.
+For the main board's Standard PCBA, select **Edge Rails/Fiducials: Added by JLCPCB** and have JLC provide suitable tooling holes. The supplied Gerbers describe the finished 100 × 118.5 mm board, not a manufacturing panel. Request at least 5 mm process rails and ask JLC to keep panel tabs/rails clear of the outward-facing J30/J35 bodies, USB-C J40 and the other edge connectors. Confirm the panel/depaneling arrangement in the engineering preview. These corner mounting holes are for nylon enclosure hardware, not a substitute for assembly fiducials.
 
 Use the supplied paste layers as the stencil basis. Main-board minimum paste aperture width is 0.25 mm; a 0.12 mm stencil gives a minimum rectangular area-ratio screening estimate of 0.735. Have JLC finalize stencil thickness/aperture treatment for the exact process, including the exposed pads at U2 and U10. Do not add paste to the through-hole-only components or DNP R2. R246's supply via is now outside its solder land, avoiding an unfilled via beneath that paste aperture.
 

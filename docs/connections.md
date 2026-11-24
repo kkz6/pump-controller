@@ -1,6 +1,6 @@
 # Connectors and relay selection
 
-R3 exposes two independent changeover relay contacts at fixed screw terminals J30 and J35. Both terminal blocks sit at the top edge with wire-entry openings facing out of the board, clear of the relay bodies. Each terminal block is **1 NO, 2 COM, 3 NC**, matching the printed labels. The former two-way plugs do not fit. NC connects to COM while the relay coil is de-energized; NO connects to COM while energized. Use COM/NO for the existing firmware profiles below. Exposing NC does not establish power-loss STOP behavior for an undocumented starter. The factory starter retains motor overload protection and its capacitor-disconnect function.
+R4 exposes two independent changeover relay contacts at fixed screw terminals J30 and J35. Both terminal blocks sit at the bottom edge with wire-entry openings facing out of the board, clear of the relay bodies. Each terminal block is **1 NO, 2 COM, 3 NC**, matching the printed labels. The former two-way plugs do not fit. NC connects to COM while the relay coil is de-energized; NO connects to COM while energized. Use COM/NO for the existing firmware profiles below. Exposing NC does not establish power-loss STOP behavior for an undocumented starter. The factory starter retains motor overload protection and its capacitor-disconnect function.
 
 | Verified starter interface | K1 → J30, channel A | K2 → J35, channel B |
 | --- | --- | --- |
@@ -69,4 +69,6 @@ An internal CT can remove the installer-fitted external sensor. A possible enclo
 
 For the first version, an insulated internal conductor or suitable busbar through the CT is preferable to carrying the motor current through this controller's supply traces. PCB-mount CTs also exist, including [Talema's AC family](https://talema.com/products/low-cost-current-transformers-ac/); a board-mounted secondary still needs an appropriately designed primary conductor. Choose the CT ratio, permanent burden, input scaling and insulation for the motor nameplate current, startup behavior and metering range. Rate terminals, wiring, protection and thermal performance for that complete power path.
 
-This is a proposed next architecture, **not implemented in the R3 Gerbers**. J1 remains the controller's own AC supply input, and J10 remains an external CT-secondary input. Do not route the motor feed through either existing input.
+This is a proposed next architecture, **not implemented in the R4 Gerbers**. J1 remains the controller's own AC supply input, and J10 remains an external CT-secondary input. Do not route the motor feed through either existing input.
+
+R4 placement: J30/J35 face out of the bottom edge. J20/J21 face out of the top edge; their pinout is unchanged. Use the printed individual pin labels, since rotating the headers changes their apparent left-to-right order.
