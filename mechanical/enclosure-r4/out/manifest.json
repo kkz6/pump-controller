@@ -1,7 +1,7 @@
 {
  "base": {
   "material": "Both versions. PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters",
-  "volume_cm3": 91.5,
+  "volume_cm3": 91.7,
   "size_mm": [
    117.8,
    125.0,

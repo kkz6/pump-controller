@@ -44,9 +44,9 @@ STEP files with the same names are in `out/`. `button_caps_buttons` and `button_
 
 | Qty | Item | Use |
 | ---: | --- | --- |
-| 4 | M3 heat-set insert, Ø4 × 5 mm | Base bosses |
-| 4 | **M3 male-female hex spacer, 35 mm** | Clamp the main board; the lid screws into them |
-| 4 | M3 × 6 pan-head screw | Lid to spacers |
+| — | M3 hand tap | Tap the four 2.5 mm base boss holes; no metal insert under the live board |
+| 4 | **Nylon M3 male-female hex standoff, 35 mm** (JLCMC ECSD-P-M3-L35) | Clamp the main board; the lid screws into them |
+| 4 | Nylon M3 × 6 pan-head screw (JLCMC ECSE-P-M3-L6) | Lid to standoffs |
 | 4 | M2.5 heat-set insert, Ø3.5 × 4 mm | Lid panel bosses |
 | 4 | M2.5 × 5 screw | Panel F to the lid |
 | 2 | M4 countersunk screw | Box to the starter back plate, fitted before the board |
@@ -55,9 +55,9 @@ STEP files with the same names are in `out/`. `button_caps_buttons` and `button_
 
 ## How it fits together
 
-1. Press the M3 inserts into the base bosses and the M2.5 inserts into the lid bosses.
+1. Tap the four base boss holes M3. Press the M2.5 heat-set inserts into the lid bosses.
 2. Screw the empty base to the starter back plate with the two M4 countersunk screws. The heads sit flush under the board.
-3. Drop the main board in and fit the four 35 mm hex spacers through its corner holes into the base.
+3. Drop the main board in and fit the four 35 mm nylon hex standoffs through its corner holes into the base.
 4. Mount panel F on the lid bosses with the five caps in their holes. Each cap's flange keeps it from falling out, and the panel holds it in place.
    - Version B: glue the lens into the pocket inside the lid first. Fix the OLED module to the front of panel F so its glass lines up behind the window.
 5. Version A only: cut the door using the template. Fit the bezel and lens outside and the OLED in the holder inside, clamped through the door with two M3 screws. Run the long PH lead from panel J7 through the slot at the top of the right wall.

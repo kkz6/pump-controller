@@ -47,7 +47,9 @@ GAP = 0.75                      # board edge to wall on the three tight sides
 RIGHT_BAY = 12.0                # room for the J32 panel loom plug and display lead
 R_OUT = 4.0
 STANDOFF_H, STANDOFF_D = 6.5, 7.0
-M3_INSERT_D, M3_INSERT_DEPTH = 4.0, 5.0
+# M3 tap-drill holes: tapped M3 by JLC3DP (Thread option) or by hand, so the nylon
+# standoffs screw straight into the plastic with no metal under the live board.
+M3_INSERT_D, M3_INSERT_DEPTH = 2.5, 5.0
 SPACERS = [20, 25, 30, 35]      # standard M3 male-female hex spacers
 MIN_PANEL_CLEARANCE = 3.0       # panel rear (incl. connectors) above any main-board part
 MOUNT_HOLES = [(50.0, -5.0), (50.0, 95.0)]   # M4 countersunk, fitted before the PCB
