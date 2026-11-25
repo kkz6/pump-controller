@@ -75,7 +75,15 @@ dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-n
   <aside class="rail">
     <div>
       <h1>In-starter box, R4</h1>
-      <p class="sub">Main board in the base, button panel under the lid, OLED in a separate door bezel.</p>
+      <p class="sub">Main board in the base, panel F under the lid. Two lids share the same base.</p>
+    </div>
+    <div class="group">
+      <span class="label">Version</span>
+      <div class="views">
+        <button id="ver-A" data-ver="A" aria-pressed="true">A · Buttons</button>
+        <button id="ver-B" data-ver="B" aria-pressed="false">B · Display</button>
+      </div>
+      <p class="sub" id="ver-note">Buttons on the lid; the display sits in a bezel in the starter door.</p>
     </div>
     <div class="group">
       <span class="label">View</span>
@@ -97,10 +105,11 @@ dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-n
     <div class="group">
       <span class="label">Key dimensions</span>
       <dl>
-        <dt>Box outside</dt><dd>117.8 × 125.0 × 43.6 mm</dd>
-        <dt>Board spacers</dt><dd>M3 M-F, 30 mm</dd>
-        <dt>Panel to main board</dt><dd>3.2 mm min</dd>
-        <dt>Lid to tallest part</dt><dd>8.0 mm</dd>
+        <dt>Box outside</dt><dd>117.8 × 125.0 × 48.6 mm</dd>
+        <dt>Board spacers</dt><dd>M3 M-F, 35 mm</dd>
+        <dt>Panel PCB to main board</dt><dd>8.2 mm min</dd>
+        <dt>Panel plugs to main board</dt><dd>3.9 mm min</dd>
+        <dt>Lid to tallest part</dt><dd>13.0 mm</dd>
         <dt>Door cut-out</dt><dd>31 × 12 mm</dd>
         <dt>Bezel screws</dt><dd>2 × Ø3.4, 45 mm</dd>
       </dl>
@@ -114,17 +123,25 @@ dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-n
 <script>
 (function () {
   const PARTS = [
-    { key: 'base', label: 'Base', color: '#c7cfd6' },
-    { key: 'main_board', label: 'Main board R4', color: '#296b3a' },
-    { key: 'panel', label: 'Button panel F', color: '#296b3a' },
-    { key: 'lid', label: 'Lid', color: '#546673' },
-    { key: 'button_caps', label: 'Button caps', color: '#bf3829' },
-    { key: 'door_bezel', label: 'Door bezel', color: '#546673' },
-    { key: 'door_lens', label: 'Door lens', color: '#9fd3e6' },
-    { key: 'door_holder', label: 'Door holder', color: '#c7cfd6' },
+    { key: 'base', label: 'Base', color: '#c7cfd6', ver: 'AB' },
+    { key: 'main_board', label: 'Main board R4', color: '#296b3a', ver: 'AB' },
+    { key: 'panel_buttons', label: 'Panel F', color: '#296b3a', ver: 'A' },
+    { key: 'lid_buttons', label: 'Lid', color: '#546673', ver: 'A' },
+    { key: 'button_caps_buttons', label: 'Button caps', color: '#bf3829', ver: 'A' },
+    { key: 'door_bezel', label: 'Door bezel', color: '#546673', ver: 'A' },
+    { key: 'door_lens', label: 'Door lens', color: '#9fd3e6', ver: 'A' },
+    { key: 'door_holder', label: 'Door holder', color: '#c7cfd6', ver: 'A' },
+    { key: 'panel_display', label: 'Panel F with OLED', color: '#296b3a', ver: 'B' },
+    { key: 'lid_display', label: 'Lid with window', color: '#546673', ver: 'B' },
+    { key: 'lid_lens', label: 'Window lens', color: '#9fd3e6', ver: 'B' },
+    { key: 'button_caps_display', label: 'Button caps', color: '#bf3829', ver: 'B' },
   ];
   // explode offsets along the box axis (mm) at slider 100 %
-  const LIFT = { main_board: 22, panel: 70, lid: 80, button_caps: 80, door_bezel: 16, door_lens: 8, door_holder: -12 };
+  const LIFT = { main_board: 22, panel_buttons: 70, lid_buttons: 80, button_caps_buttons: 80,
+                 panel_display: 70, lid_display: 80, button_caps_display: 80, lid_lens: 76,
+                 door_bezel: 16, door_lens: 8, door_holder: -12 };
+  let version = 'A';
+  const hidden = new Set();
 
   const canvas = document.getElementById('view');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -156,20 +173,36 @@ dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-n
     camera.position.set(...pos); controls.target.set(...target); controls.update();
   }
   const VIEWS = {
-    closed: { e: 0, cam: [190, 170, 230], t: [20, 10, 0], show: { door_bezel: true, door_lens: true, door_holder: true } },
+    closed: { e: 0, cam: [190, 170, 230], t: [20, 10, 0] },
     exploded: { e: 0.7, cam: [230, 230, 260], t: [20, 40, 0] },
-    open: { e: 0, cam: [40, 260, 150], t: [0, 0, 0], hide: ['lid', 'button_caps', 'panel'] },
-    door: { e: 0.8, cam: [210, 60, 150], t: [114, 20, 0] },
+    open: { e: 0, cam: [40, 260, 150], t: [0, 0, 0], hide: ['lid_', 'button_caps_', 'panel_', 'lid_lens'] },
+    door: { e: 0.8, cam: [210, 60, 150], t: [114, 20, 0], ver: 'A' },
   };
+  function refresh() {
+    PARTS.forEach(p => {
+      const inVer = p.ver.includes(version);
+      const row = document.getElementById('row-' + p.key); if (row) row.hidden = !inVer;
+      if (nodes[p.key]) nodes[p.key].visible = inVer && !hidden.has(p.key);
+      const cb = document.getElementById('part-' + p.key); if (cb) cb.checked = !hidden.has(p.key);
+    });
+  }
+  function setVersion(v) {
+    version = v;
+    document.querySelectorAll('[data-ver]').forEach(b => b.setAttribute('aria-pressed', b.dataset.ver === v));
+    document.getElementById('v-door').hidden = v !== 'A';
+    document.getElementById('ver-note').textContent = v === 'A'
+      ? 'Buttons on the lid; the display sits in a bezel in the starter door.'
+      : 'Display window and buttons on the lid; no door cut-out needed.';
+    refresh();
+  }
   function applyView(name) {
     const v = VIEWS[name];
+    if (v.ver && v.ver !== version) setVersion(v.ver);
     document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === name));
     targetExplode = v.e; document.getElementById('explode').value = Math.round(v.e * 100);
-    PARTS.forEach(p => {
-      const visible = !(v.hide || []).includes(p.key);
-      if (nodes[p.key]) nodes[p.key].visible = visible;
-      const cb = document.getElementById('part-' + p.key); if (cb) cb.checked = visible;
-    });
+    hidden.clear();
+    PARTS.forEach(p => { if ((v.hide || []).some(h => p.key.startsWith(h))) hidden.add(p.key); });
+    refresh();
     setCam(v.cam, v.t);
   }
 
@@ -177,11 +210,16 @@ dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-n
   PARTS.forEach(p => {
     const id = 'part-' + p.key;
     const row = document.createElement('label');
+    row.id = 'row-' + p.key;
     row.innerHTML = `<input type="checkbox" id="${id}" checked><span class="swatch" style="background:${p.color}"></span>${p.label}`;
-    row.querySelector('input').addEventListener('change', e => { if (nodes[p.key]) nodes[p.key].visible = e.target.checked; });
+    row.querySelector('input').addEventListener('change', e => {
+      if (e.target.checked) hidden.delete(p.key); else hidden.add(p.key);
+      refresh();
+    });
     list.appendChild(row);
   });
   document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => applyView(b.dataset.view)));
+  document.querySelectorAll('[data-ver]').forEach(b => b.addEventListener('click', () => setVersion(b.dataset.ver)));
   document.getElementById('explode').addEventListener('input', e => {
     targetExplode = e.target.value / 100;
     document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', 'false'));
@@ -209,7 +247,7 @@ dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-n
     root.add(gltf.scene);
     Object.entries(nodes).forEach(([k, o]) => { home[k] = o.position.clone(); });
     document.getElementById('loading').hidden = true;
-    resize(); applyView('exploded');
+    resize(); setVersion('A'); applyView('exploded');
   }
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

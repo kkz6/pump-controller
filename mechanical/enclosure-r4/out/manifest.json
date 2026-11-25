@@ -1,15 +1,15 @@
 {
  "base": {
-  "material": "PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters",
-  "volume_cm3": 85.6,
+  "material": "Both versions. PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters",
+  "volume_cm3": 91.5,
   "size_mm": [
    117.8,
    125.0,
-   41.1
+   46.1
   ]
  },
- "lid": {
-  "material": "same as base; print front face down",
+ "lid_buttons": {
+  "material": "Version A, buttons only; print front face down",
   "volume_cm3": 38.6,
   "size_mm": [
    117.8,
@@ -17,8 +17,8 @@
    11.0
   ]
  },
- "button_caps": {
-  "material": "PETG, five caps; print stems up. Colour STOP red if possible",
+ "button_caps_buttons": {
+  "material": "Version A, five caps; print stems up",
   "volume_cm3": 1.8,
   "size_mm": [
    56.3,
@@ -27,16 +27,16 @@
   ]
  },
  "door_bezel": {
-  "material": "PETG or ASA, outside the starter door",
-  "volume_cm3": 2.5,
+  "material": "Version A, outside the starter door",
+  "volume_cm3": 2.4,
   "size_mm": [
    54.0,
    26.0,
-   3.5
+   2.5
   ]
  },
  "door_holder": {
-  "material": "PETG, inside the door; takes two M3 nuts",
+  "material": "Version A, inside the door; takes two M3 nuts",
   "volume_cm3": 3.7,
   "size_mm": [
    50.0,
@@ -45,7 +45,7 @@
   ]
  },
  "door_lens": {
-  "material": "1.5 mm clear acrylic or polycarbonate, cut to outline",
+  "material": "Version A, 1.5 mm clear acrylic or polycarbonate",
   "volume_cm3": 0.8,
   "size_mm": [
    34.0,
@@ -53,11 +53,82 @@
    1.5
   ]
  },
+ "lid_display": {
+  "material": "Version B, display window + buttons; print front face down",
+  "volume_cm3": 37.7,
+  "size_mm": [
+   117.8,
+   125.0,
+   11.0
+  ]
+ },
+ "button_caps_display": {
+  "material": "Version B, five caps; print stems up",
+  "volume_cm3": 1.8,
+  "size_mm": [
+   56.3,
+   12.8,
+   11.1
+  ]
+ },
+ "lid_lens": {
+  "material": "Version B, 1.5 mm clear acrylic or polycarbonate in the lid pocket",
+  "volume_cm3": 0.7,
+  "size_mm": [
+   36.0,
+   13.0,
+   1.5
+  ]
+ },
+ "cap_START": {
+  "material": "Both versions, START button cap; print stems up",
+  "volume_cm3": 0.4,
+  "size_mm": [
+   10.8,
+   10.8,
+   11.1
+  ]
+ },
+ "cap_STOP": {
+  "material": "Both versions, STOP button cap; print stems up",
+  "volume_cm3": 0.5,
+  "size_mm": [
+   12.8,
+   12.8,
+   5.5
+  ]
+ },
+ "cap_MODE": {
+  "material": "Both versions, MODE button cap; print stems up",
+  "volume_cm3": 0.3,
+  "size_mm": [
+   8.8,
+   8.8,
+   11.1
+  ]
+ },
+ "cap_SET": {
+  "material": "Both versions, SET button cap; print stems up",
+  "volume_cm3": 0.3,
+  "size_mm": [
+   8.8,
+   8.8,
+   11.1
+  ]
+ },
+ "cap_NEXT": {
+  "material": "Both versions, NEXT button cap; print stems up",
+  "volume_cm3": 0.3,
+  "size_mm": [
+   8.8,
+   8.8,
+   11.1
+  ]
+ },
  "_layout": {
   "tallest_part_above_underside": 23.59,
-  "worst_part_under_panel": 18.29,
-  "spacer_mm": 30,
-  "lid_inner_z": 41.1,
+  "spacer_mm": 35,
+  "lid_inner_z": 46.1,
   "ports": [
    {
     "ref": "J1",
@@ -151,15 +222,30 @@
     "label": "USB"
    }
   ],
-  "panel_front_z": 32.6,
-  "panel_rear_lowest_z": 26.7,
-  "clearance_panel_pcb_to_parts": 3.21,
-  "clearance_panel_plugs_to_parts": 11.36,
-  "clearance_lid_to_tallest": 8.01,
+  "panel_front_z": 37.6,
+  "variants": {
+   "buttons": {
+    "panel_at": [
+     25.5,
+     14.75
+    ],
+    "panel_pcb_to_parts": 8.21,
+    "panel_plugs_to_parts": 3.91
+   },
+   "display": {
+    "panel_at": [
+     25.5,
+     24.75
+    ],
+    "panel_pcb_to_parts": 8.21,
+    "panel_plugs_to_parts": 3.91
+   }
+  },
+  "clearance_lid_to_tallest": 13.01,
   "outer_mm": [
    117.8,
    125.0,
-   43.6
+   48.6
   ],
   "board_to_box": {
    "inner_x0": -0.75,

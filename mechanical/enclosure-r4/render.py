@@ -45,16 +45,17 @@ def main_board(dz=0.0):
                lambda v: np.c_[v[:, 0] - CX, CY - v[:, 2], v[:, 1] + b.BOARD_UNDERSIDE + dz])
 
 
-def panel(dz=0.0):
-    px, py = b.PANEL_AT
+def panel(variant='buttons', dz=0.0):
+    px, py = b.VARIANTS[variant]['panel_at']
     front = LZ - b.PANEL_DEPTH
     m = glb(REPO / 'mechanical/panel/pump-panel-rev-f-with-display.glb',
             lambda v: np.c_[px + v[:, 0] - CX, CY - (py + v[:, 2]), front - 1.6 + v[:, 1] + dz])
-    # the OLED module moves to the door bezel
-    c = m.triangles_center
-    pxs, pys = c[:, 0] + CX - px, CY - c[:, 1] - py
-    keep = ~((pxs > 11.9) & (pxs < 48.1) & (pys > 3.9) & (pys < 16.6) & (c[:, 2] > front + 0.9 + dz))
-    m.update_faces(keep)
+    if not b.VARIANTS[variant]['display']:
+        # the OLED module moves to the door bezel
+        c = m.triangles_center
+        pxs, pys = c[:, 0] + CX - px, CY - c[:, 1] - py
+        keep = ~((pxs > 11.9) & (pxs < 48.1) & (pys > 3.9) & (pys < 16.6) & (c[:, 2] > front + 0.9 + dz))
+        m.update_faces(keep)
     return m
 
 
@@ -98,17 +99,20 @@ PCB = '#2f6b3a'
 
 
 def main():
-    base, lid, caps = load('base'), load('lid', LZ), load('button_caps', LZ)
-    mb, pn = main_board(), panel()
+    base = load('base')
+    mb = main_board()
     lift = 55.0
-    render('assembly-exploded', [(base, BOX, 1), (mb, PCB, 1), (pn.copy().apply_translation([0, 0, lift]), PCB, 1),
-                                 (load('lid', LZ + lift), LID, 1), (load('button_caps', LZ + lift), '#c0392b', 1)],
-           24, -58, 'In-starter box: base, main board, panel, lid (exploded)')
-    render('assembly-closed', [(base, BOX, 1), (lid, LID, 1), (caps, '#c0392b', 1)],
-           32, -55, f"Closed box  {lay['outer_mm'][0]} x {lay['outer_mm'][1]} x {lay['outer_mm'][2]} mm")
+    size = f"{lay['outer_mm'][0]} x {lay['outer_mm'][1]} x {lay['outer_mm'][2]} mm"
+    for v, title in [('buttons', 'A: buttons lid, display in the door'), ('display', 'B: display + buttons lid')]:
+        pn = panel(v)
+        render(f'assembly-exploded-{v}', [(base, BOX, 1), (mb, PCB, 1), (pn.copy().apply_translation([0, 0, lift]), PCB, 1),
+                                         (load(f'lid_{v}', LZ + lift), LID, 1), (load(f'button_caps_{v}', LZ + lift), '#c0392b', 1)],
+               24, -58, f'{title} (exploded)')
+        render(f'assembly-closed-{v}', [(base, BOX, 1), (load(f'lid_{v}', LZ), LID, 1), (load(f'button_caps_{v}', LZ), '#c0392b', 1)],
+               32, -55, f'{title}  ·  {size}')
     render('base-with-board', [(base, BOX, 1), (mb, PCB, 1)], 58, -70, 'Base with R4 board: wall openings at each connector')
-    render('lid-inside', [(load('lid'), LID, 1), (pn.copy().apply_translation([0, 0, -LZ]), PCB, 0.9),
-                          (load('button_caps'), '#c0392b', 1)], -60, -60, 'Lid underside with panel F and caps')
+    render('lid-inside', [(load('lid_display'), LID, 1), (panel('display').apply_translation([0, 0, -LZ]), PCB, 0.9),
+                          (load('button_caps_display'), '#c0392b', 1)], -60, -60, 'Display lid underside with panel F and caps')
     bez, hol, lens = load('door_bezel'), load('door_holder'), load('door_lens')
     render('door-bezel', [(bez.copy().apply_translation([0, 0, 14]), LID, 1), (lens.copy().apply_translation([0, 0, 8]), '#9fd3e6', 0.7),
                           (hol.copy().apply_translation([0, 0, -6]), BOX, 1)], 28, -60, 'Door display bezel (exploded): bezel, lens, holder', (8, 6))
@@ -121,17 +125,26 @@ def section_polys(mesh, z):
     return [np.c_[p, np.zeros(len(p)), np.ones(len(p))] @ T.T for p in planar.discrete]
 
 
-def lid_drawing():
+def lid_drawing(variant):
     from matplotlib.patches import PathPatch
     from matplotlib.path import Path as MPath
-    lid = load('lid')
+    lid = load(f'lid_{variant}')
     loops = section_polys(lid, b.LID_T - 0.25)
     verts, codes = [], []
     for p in loops:
         verts += p[:, :2].tolist(); codes += [MPath.MOVETO] + [MPath.LINETO] * (len(p) - 2) + [MPath.CLOSEPOLY]
     fig, ax = plt.subplots(figsize=(8, 8.6), dpi=140)
     ax.add_patch(PathPatch(MPath(verts, codes), facecolor='#5b6b78', edgecolor='#2c3a45', lw=0.6))
-    px, py = b.PANEL_AT
+    ow0, oh0, _ = lay['outer_mm']
+    ax.plot([0, 0], [-oh0 / 2, oh0 / 2], ls=(0, (4, 3)), lw=0.5, c='#e8eef2')
+    ax.plot([-ow0 / 2, ow0 / 2], [0, 0], ls=(0, (4, 3)), lw=0.5, c='#e8eef2')
+    if b.VARIANTS[variant]['display']:
+        (ax0, ay0), (ax1, ay1) = b.PANEL_OLED_ACTIVE
+        qx, qy = b.VARIANTS[variant]['panel_at']
+        ax.add_patch(plt.Rectangle((qx + ax0 - CX, CY - (qy + ay1)), ax1 - ax0, ay1 - ay0, color='#0d1b24'))
+        ax.text(qx + (ax0 + ax1) / 2 - CX, CY - (qy + (ay0 + ay1) / 2), 'AUTO  TANK 75%', color='#8fd3ff',
+                ha='center', va='center', fontsize=6, family='monospace')
+    px, py = b.VARIANTS[variant]['panel_at']
     for label, kx, ky, d, _ in b.KEYS:
         x, y = px + kx - CX, CY - (py + ky)
         ax.add_patch(plt.Circle((x, y), d / 2, color='#c0392b' if label == 'STOP' else '#2e8b57' if label == 'START' else '#d0d6db'))
@@ -142,8 +155,9 @@ def lid_drawing():
     ax.text(ow / 2 + 9, 0, f'{oh} mm', va='center', rotation=90, fontsize=9)
     ax.set_xlim(-ow / 2 - 8, ow / 2 + 16); ax.set_ylim(-oh / 2 - 14, oh / 2 + 6)
     ax.set_aspect('equal'); ax.axis('off')
-    ax.set_title(f'Lid front  ·  box {ow} × {oh} × {oz} mm  ·  buttons used with the starter door open', fontsize=10)
-    fig.savefig(OUT / 'lid-front.png', bbox_inches='tight', facecolor='white')
+    what = 'A: buttons only, display in the door' if variant == 'buttons' else 'B: display window + buttons'
+    ax.set_title(f'Lid {what}  ·  box {ow} × {oh} × {oz} mm  ·  dashed lines: lid centre', fontsize=10)
+    fig.savefig(OUT / f'lid-front-{variant}.png', bbox_inches='tight', facecolor='white')
     plt.close(fig)
 
 
@@ -172,5 +186,6 @@ def door_template():
 
 if __name__ == '__main__':
     main()
-    lid_drawing()
+    lid_drawing('buttons')
+    lid_drawing('display')
     door_template()

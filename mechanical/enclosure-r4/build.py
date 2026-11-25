@@ -58,7 +58,13 @@ IN_X0, IN_X1 = BOARD_X0 - GAP, BOARD_X1 + RIGHT_BAY
 IN_Y0, IN_Y1 = BOARD_Y0 - GAP, BOARD_Y1 + GAP
 
 # ------------------------------------------------------------------ panel F under the lid
-PANEL_AT = (32.25, 22.25)       # panel (0, 0) in board coordinates; lowest central spot
+# Two lid variants share the base. Panel (0, 0) in board coordinates for each,
+# chosen so the visible controls sit at the centre of the lid (within 0.7 mm)
+# while the panel and its plugs keep >= 3 mm above every main-board part.
+VARIANTS = {
+    'buttons': dict(panel_at=(25.5, 14.75), display=False),   # button row centred; OLED in the door
+    'display': dict(panel_at=(25.5, 24.75), display=True),    # display + buttons group centred
+}
 PANEL_W, PANEL_H = 60.0, 45.0
 PANEL_HOLES = [(3, 3), (57, 3), (3, 42), (57, 42)]
 PANEL_REAR_DEPTH = 3.3 + 1.0    # rear SMD connectors 3.3 mm + 1 mm plug lip
@@ -84,6 +90,11 @@ BEZEL_WINDOW = (25.0, 8.0)
 LENS = (34.0, 15.0, 1.5)
 BEZEL_SCREW_X = 22.5
 HOLDER_DEPTH = 7.0
+# display lid: OLED module on the panel front (panel coordinates)
+PANEL_OLED_ACTIVE = ((18.8, 7.5), (41.2, 13.0))
+PANEL_OLED_GLASS = ((15.5, 5.8), (44.5, 14.8))
+LID_WINDOW = (25.0, 8.0)
+LID_LENS = (36.0, 13.0, 1.5)     # clear lens in a pocket on the lid's inner face
 
 
 def load_main_heights():
@@ -122,19 +133,31 @@ def place(x, y, z=0.0):
     return Pos(x - cx, cy - y, z)
 
 
+def panel_heights(v, panel_at):
+    px0, py0 = panel_at
+    slab = height_in(v, px0, px0 + PANEL_W, py0, py0 + PANEL_H)
+    plugs = max(height_in(v, px0 + a, px0 + c, py0 + b, py0 + d) for a, b, c, d in PANEL_PLUGS)
+    return slab, plugs
+
+
 def layout():
     v = load_main_heights()
     tallest = float(v[:, 4].max())
-    px0, py0 = PANEL_AT
-    slab = height_in(v, px0, px0 + PANEL_W, py0, py0 + PANEL_H)
-    plugs = max(height_in(v, px0 + a, px0 + c, py0 + b, py0 + d) for a, b, c, d in PANEL_PLUGS)
-    need = max(tallest + 2.0,
-               slab + MIN_PANEL_CLEARANCE + BOARD_T + PANEL_DEPTH,
-               plugs + MIN_PANEL_CLEARANCE + PANEL_REAR_DEPTH + BOARD_T + PANEL_DEPTH)
-    under_panel = max(slab, plugs)
+    need = tallest + 2.0
+    for var in VARIANTS.values():
+        slab, plugs = panel_heights(v, var['panel_at'])
+        need = max(need, slab + MIN_PANEL_CLEARANCE + BOARD_T + PANEL_DEPTH,
+                   plugs + MIN_PANEL_CLEARANCE + PANEL_REAR_DEPTH + BOARD_T + PANEL_DEPTH)
     need_lid_inner = BOARD_UNDERSIDE + need
     spacer = next(s for s in SPACERS if BOARD_TOP + s >= need_lid_inner)
     lid_inner = BOARD_TOP + spacer
+    clear = {}
+    for name, var in VARIANTS.items():
+        slab, plugs = panel_heights(v, var['panel_at'])
+        clear[name] = dict(
+            panel_at=list(var['panel_at']),
+            panel_pcb_to_parts=round(lid_inner - PANEL_DEPTH - BOARD_T - (BOARD_UNDERSIDE + slab), 2),
+            panel_plugs_to_parts=round(lid_inner - PANEL_DEPTH - BOARD_T - PANEL_REAR_DEPTH - (BOARD_UNDERSIDE + plugs), 2))
     ports = []
     for ref, wall, (lo, hi), margin, label in PORTS:
         if wall in ('left', 'right'):
@@ -145,13 +168,9 @@ def layout():
             h = height_in(v, lo, hi, ys[0], ys[1])
         ports.append(dict(ref=ref, wall=wall, span=[lo - margin, hi + margin],
                           z=[BOARD_TOP - 0.8, min(BOARD_UNDERSIDE + h + 1.0, lid_inner - 0.01)], label=label))
-    return dict(tallest_part_above_underside=round(tallest, 2), worst_part_under_panel=round(under_panel, 2),
+    return dict(tallest_part_above_underside=round(tallest, 2),
                 spacer_mm=spacer, lid_inner_z=round(lid_inner, 2), ports=ports,
-                panel_front_z=round(lid_inner - PANEL_DEPTH, 2),
-                panel_rear_lowest_z=round(lid_inner - PANEL_DEPTH - BOARD_T - PANEL_REAR_DEPTH, 2),
-                clearance_panel_pcb_to_parts=round(lid_inner - PANEL_DEPTH - BOARD_T - (BOARD_UNDERSIDE + slab), 2),
-                clearance_panel_plugs_to_parts=round(lid_inner - PANEL_DEPTH - BOARD_T - PANEL_REAR_DEPTH
-                                                     - (BOARD_UNDERSIDE + plugs), 2),
+                panel_front_z=round(lid_inner - PANEL_DEPTH, 2), variants=clear,
                 clearance_lid_to_tallest=round(lid_inner - BOARD_UNDERSIDE - tallest, 2))
 
 
@@ -186,8 +205,9 @@ def build_base(lay):
 
 
 # ================================================================== lid (z = 0 inner face)
-def build_lid(lay, outer):
+def build_lid(lay, outer, variant):
     ow, oh = outer
+    var = VARIANTS[variant]
     lid = extrude(RectangleRounded(ow, oh, R_OUT), LID_T)
     lid = fillet(lid.edges().group_by(Axis.Z)[-1], 1.0)
     # locating skirt just inside the walls; open at the display-lead slot
@@ -198,24 +218,39 @@ def build_lid(lay, outer):
     for hx, hy in BOARD_HOLES:   # screws into the M3 spacers
         lid -= place(hx, hy, -5) * Cylinder(1.7, LID_T + 10, align=C)
         lid -= place(hx, hy, LID_T - 1.7) * Cylinder(3.1, 2, align=C)
-    px0, py0 = PANEL_AT
+    px0, py0 = var['panel_at']
     for hx, hy in PANEL_HOLES:   # panel bosses, M2.5 heat-set from below
         x, y = px0 + hx, py0 + hy
         lid += place(x, y, 0) * Cylinder(3.3, PANEL_DEPTH, align=(Align.CENTER, Align.CENTER, Align.MAX))
         lid -= place(x, y, -PANEL_DEPTH) * Cylinder(1.75, 6.0, align=C)
+    key_y = py0 + KEYS[0][2]
     for label, kx, ky, d, _ in KEYS:
         x, y = px0 + kx, py0 + ky
         lid -= place(x, y, -1) * Cylinder((d + KEY_CLEAR) / 2, LID_T + 2, align=C)
         lid -= place(x, y + 8.2, LID_T - 0.5) * extrude(Text(label, 2.6), 1)
     cx = (IN_X0 + IN_X1) / 2
-    lid -= place(cx - 1, py0 - 12, LID_T - 0.5) * extrude(Text('PUMP CONTROLLER R4', 5.0), 1)
-    lid -= place(cx - 1, py0 + PANEL_H + 7, LID_T - 0.5) * extrude(Text('ISOLATE SUPPLY BEFORE OPENING', 2.6), 1)
+    top_of_group = key_y - 8
+    if var['display']:
+        (ax0, ay0), (ax1, ay1) = PANEL_OLED_ACTIVE
+        (gx0, gy0), (gx1, gy1) = PANEL_OLED_GLASS
+        wx, wy = px0 + (ax0 + ax1) / 2, py0 + (ay0 + ay1) / 2
+        lid -= place(wx, wy, -1) * extrude(Rectangle(*LID_WINDOW), LID_T + 2)
+        lid -= place(wx, wy, LID_T + 0.001) * extrude(Rectangle(LID_WINDOW[0] + 1.6, LID_WINDOW[1] + 1.6), -0.8, taper=45)
+        lid -= place(px0 + (gx0 + gx1) / 2, py0 + (gy0 + gy1) / 2, -0.01) * \
+            extrude(RectangleRounded(LID_LENS[0] + 0.3, LID_LENS[1] + 0.3, 1.5), LID_LENS[2] + 0.01)
+        top_of_group = wy - LID_WINDOW[1] / 2
+    lid -= place(cx, top_of_group - 12, LID_T - 0.5) * extrude(Text('PUMP CONTROLLER R4', 5.0), 1)
+    lid -= place(cx, key_y + 22, LID_T - 0.5) * extrude(Text('ISOLATE SUPPLY BEFORE OPENING', 2.6), 1)
     return lid
 
 
-def build_caps():
+def build_lid_lens():
+    return extrude(RectangleRounded(*LID_LENS[:2], 1.5), LID_LENS[2])
+
+
+def build_caps(variant):
     caps = None
-    px0, py0 = PANEL_AT
+    px0, py0 = VARIANTS[variant]['panel_at']
     for label, kx, ky, d, sw_top in KEYS:
         x, y = px0 + kx, py0 + ky
         hole = d + KEY_CLEAR
@@ -238,8 +273,7 @@ def build_bezel():
     front -= Pos(0, 0, -1) * extrude(Rectangle(*BEZEL_WINDOW), bt + 2)
     front -= Pos(0, 0, bt + 0.001) * extrude(Rectangle(BEZEL_WINDOW[0] + 1.6, BEZEL_WINDOW[1] + 1.6), -0.8, taper=45)
     front -= Pos(0, 0, -0.01) * extrude(RectangleRounded(LENS[0] + 0.3, LENS[1] + 0.3, 1.5), LENS[2] + 0.01)
-    spigot = extrude(Rectangle(DOOR_CUTOUT[0] - 0.6, DOOR_CUTOUT[1] - 0.6) - Rectangle(LENS[0] - 4, LENS[1] - 6), -1.0)
-    front += spigot
+    # located by its two screws; the lens covers the door cut-out with 1.5 mm overlap all round
     for sx in (-BEZEL_SCREW_X, BEZEL_SCREW_X):
         front -= Pos(sx, 0, -2) * Cylinder(1.7, bt + 4, align=C)
         front -= Pos(sx, 0, bt - 1.7) * extrude(__import__('build123d').Circle(1.7), 1.71, taper=-45)
@@ -261,17 +295,27 @@ def build_bezel():
 def main():
     lay = layout()
     base, outer = build_base(lay)
-    lid = build_lid(lay, outer)
-    caps = build_caps()
     bezel, holder, lens = build_bezel()
     parts = {
-        'base': (base, 'PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters'),
-        'lid': (lid, 'same as base; print front face down'),
-        'button_caps': (caps, 'PETG, five caps; print stems up. Colour STOP red if possible'),
-        'door_bezel': (bezel, 'PETG or ASA, outside the starter door'),
-        'door_holder': (holder, 'PETG, inside the door; takes two M3 nuts'),
-        'door_lens': (lens, '1.5 mm clear acrylic or polycarbonate, cut to outline'),
+        'base': (base, 'Both versions. PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters'),
+        'lid_buttons': (build_lid(lay, outer, 'buttons'), 'Version A, buttons only; print front face down'),
+        'button_caps_buttons': (build_caps('buttons'), 'Version A, five caps; print stems up'),
+        'door_bezel': (bezel, 'Version A, outside the starter door'),
+        'door_holder': (holder, 'Version A, inside the door; takes two M3 nuts'),
+        'door_lens': (lens, 'Version A, 1.5 mm clear acrylic or polycarbonate'),
+        'lid_display': (build_lid(lay, outer, 'display'), 'Version B, display window + buttons; print front face down'),
+        'button_caps_display': (build_caps('display'), 'Version B, five caps; print stems up'),
+        'lid_lens': (build_lid_lens(), 'Version B, 1.5 mm clear acrylic or polycarbonate in the lid pocket'),
     }
+    # one printable file per cap; the caps are identical for both lids
+    for label, kx, ky, d, sw_top in KEYS:
+        cap = Cylinder(d / 2, LID_T + CAP_PROUD, align=C)
+        cap = fillet(cap.edges().group_by(Axis.Z)[-1], min(1.0, d / 6))
+        cap += Pos(0, 0, -FLANGE_T) * Cylinder((d + KEY_CLEAR) / 2 + FLANGE_LIP, FLANGE_T, align=C)
+        stem_bottom = -PANEL_DEPTH + sw_top + STEM_GAP
+        if -FLANGE_T - stem_bottom > 0.05:
+            cap += Pos(0, 0, stem_bottom) * Cylinder(1.5, -FLANGE_T - stem_bottom, align=C)
+        parts[f'cap_{label}'] = (cap, f'Both versions, {label} button cap; print stems up')
     manifest = {}
     for name, (shape, material) in parts.items():
         export_step(shape, OUT / f'{name}.step')
