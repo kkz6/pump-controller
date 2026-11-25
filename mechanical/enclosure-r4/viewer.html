@@ -1,0 +1,227 @@
+<title>In-Starter Enclosure</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a large orbit viewport with a narrow instrument rail beside it; the rail drops below on phones. */
+:root {
+  --bg: #eef1f3;
+  --surface: #ffffff;
+  --ink: #1d2a33;
+  --muted: #5c6b76;
+  --line: #d3dae0;
+  --accent: #1f7a57;
+  --stop: #b8392b;
+  --stage: #dfe5ea;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12181c; --surface: #1a2328; --ink: #e3e9ed; --muted: #95a4ae; --line: #2c3a42;
+    --accent: #48b98a; --stop: #e0675a; --stage: #182126; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12181c; --surface: #1a2328; --ink: #e3e9ed; --muted: #95a4ae; --line: #2c3a42;
+  --accent: #48b98a; --stop: #e0675a; --stage: #182126; color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 14px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 16px; box-sizing: border-box;
+}
+.app { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; height: 100%; min-height: 520px; }
+.stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 0; }
+#view { width: 100%; height: 100%; display: block; touch-action: none; }
+.hint { position: absolute; left: 12px; bottom: 10px; font-size: 12px; color: var(--muted); pointer-events: none; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-family: var(--font-data); font-size: 13px; }
+.rail { display: flex; flex-direction: column; gap: 16px; min-width: 0; overflow-y: auto; }
+h1 { font-size: 18px; font-weight: 600; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); margin: 4px 0 0; line-height: 1.45; }
+.group { display: flex; flex-direction: column; gap: 8px; }
+.label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.views { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+button {
+  font: inherit; font-size: 13px; padding: 7px 8px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.parts { display: flex; flex-direction: column; gap: 4px; }
+.parts label { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 3px 0; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line); flex: none; }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 0; }
+dt { color: var(--muted); }
+dd { margin: 0; font-family: var(--font-data); font-size: 12.5px; font-variant-numeric: tabular-nums; text-align: right; }
+@media (max-width: 760px) {
+  html, body { height: auto; }
+  .app { grid-template-columns: 1fr; height: auto; }
+  .stage { height: 62vh; min-height: 360px; }
+  .rail { overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="app">
+  <div class="stage">
+    <canvas id="view" aria-label="3D view of the enclosure"></canvas>
+    <div class="loading" id="loading">Loading model…</div>
+    <div class="hint">Drag to rotate · scroll or pinch to zoom · right-drag to pan</div>
+  </div>
+  <aside class="rail">
+    <div>
+      <h1>In-starter box, R4</h1>
+      <p class="sub">Main board in the base, button panel under the lid, OLED in a separate door bezel.</p>
+    </div>
+    <div class="group">
+      <span class="label">View</span>
+      <div class="views">
+        <button id="v-closed" data-view="closed" aria-pressed="false">Closed</button>
+        <button id="v-exploded" data-view="exploded" aria-pressed="true">Exploded</button>
+        <button id="v-open" data-view="open" aria-pressed="false">Lid off</button>
+        <button id="v-door" data-view="door" aria-pressed="false">Door bezel</button>
+      </div>
+    </div>
+    <div class="group">
+      <label class="label" for="explode">Explode</label>
+      <input type="range" id="explode" min="0" max="100" value="70">
+    </div>
+    <div class="group">
+      <span class="label">Parts</span>
+      <div class="parts" id="parts"></div>
+    </div>
+    <div class="group">
+      <span class="label">Key dimensions</span>
+      <dl>
+        <dt>Box outside</dt><dd>117.8 × 125.0 × 43.6 mm</dd>
+        <dt>Board spacers</dt><dd>M3 M-F, 30 mm</dd>
+        <dt>Panel to main board</dt><dd>3.2 mm min</dd>
+        <dt>Lid to tallest part</dt><dd>8.0 mm</dd>
+        <dt>Door cut-out</dt><dd>31 × 12 mm</dd>
+        <dt>Bezel screws</dt><dd>2 × Ø3.4, 45 mm</dd>
+      </dl>
+    </div>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+(function () {
+  const PARTS = [
+    { key: 'base', label: 'Base', color: '#c7cfd6' },
+    { key: 'main_board', label: 'Main board R4', color: '#296b3a' },
+    { key: 'panel', label: 'Button panel F', color: '#296b3a' },
+    { key: 'lid', label: 'Lid', color: '#546673' },
+    { key: 'button_caps', label: 'Button caps', color: '#bf3829' },
+    { key: 'door_bezel', label: 'Door bezel', color: '#546673' },
+    { key: 'door_lens', label: 'Door lens', color: '#9fd3e6' },
+    { key: 'door_holder', label: 'Door holder', color: '#c7cfd6' },
+  ];
+  // explode offsets along the box axis (mm) at slider 100 %
+  const LIFT = { main_board: 22, panel: 70, lid: 80, button_caps: 80, door_bezel: 16, door_lens: 8, door_holder: -12 };
+
+  const canvas = document.getElementById('view');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, 1, 1, 5000);
+  const controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a949c, 0.85));
+  const key = new THREE.DirectionalLight(0xffffff, 0.75); key.position.set(150, 260, 200); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.3); fill.position.set(-200, 80, -150); scene.add(fill);
+
+  const root = new THREE.Group();
+  root.rotation.x = -Math.PI / 2;          // model is z-up
+  scene.add(root);
+  const nodes = {}, home = {};
+  let explode = 0.7, targetExplode = 0.7;
+
+  function resize() {
+    const r = canvas.parentElement.getBoundingClientRect();
+    renderer.setSize(r.width, r.height, false);
+    camera.aspect = r.width / Math.max(r.height, 1);
+    camera.updateProjectionMatrix();
+  }
+  new ResizeObserver(resize).observe(canvas.parentElement);
+
+  function setCam(pos, target) {
+    camera.position.set(...pos); controls.target.set(...target); controls.update();
+  }
+  const VIEWS = {
+    closed: { e: 0, cam: [190, 170, 230], t: [20, 10, 0], show: { door_bezel: true, door_lens: true, door_holder: true } },
+    exploded: { e: 0.7, cam: [230, 230, 260], t: [20, 40, 0] },
+    open: { e: 0, cam: [40, 260, 150], t: [0, 0, 0], hide: ['lid', 'button_caps', 'panel'] },
+    door: { e: 0.8, cam: [210, 60, 150], t: [114, 20, 0] },
+  };
+  function applyView(name) {
+    const v = VIEWS[name];
+    document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === name));
+    targetExplode = v.e; document.getElementById('explode').value = Math.round(v.e * 100);
+    PARTS.forEach(p => {
+      const visible = !(v.hide || []).includes(p.key);
+      if (nodes[p.key]) nodes[p.key].visible = visible;
+      const cb = document.getElementById('part-' + p.key); if (cb) cb.checked = visible;
+    });
+    setCam(v.cam, v.t);
+  }
+
+  const list = document.getElementById('parts');
+  PARTS.forEach(p => {
+    const id = 'part-' + p.key;
+    const row = document.createElement('label');
+    row.innerHTML = `<input type="checkbox" id="${id}" checked><span class="swatch" style="background:${p.color}"></span>${p.label}`;
+    row.querySelector('input').addEventListener('change', e => { if (nodes[p.key]) nodes[p.key].visible = e.target.checked; });
+    list.appendChild(row);
+  });
+  document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => applyView(b.dataset.view)));
+  document.getElementById('explode').addEventListener('input', e => {
+    targetExplode = e.target.value / 100;
+    document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', 'false'));
+  });
+
+  function onError() {
+    document.getElementById('loading').textContent = 'The 3D model did not load. Reload the page to try again.';
+  }
+  fetch('enclosure-assembly.txt').then(r => { if (!r.ok) throw new Error(r.status); return r.text(); }).then(b64 => {
+    const bin = atob(b64.replace(/\s+/g, ''));
+    const buf = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+    new THREE.GLTFLoader().parse(buf.buffer, '', onLoad, onError);
+  }).catch(onError);
+
+  function onLoad(gltf) {
+    gltf.scene.traverse(o => {
+      if (o.isMesh) {
+        o.material.side = THREE.DoubleSide;
+        const name = (o.name || '').replace(/_\d+$/, '');
+        const hit = PARTS.find(p => o.name === p.key || o.parent && o.parent.name === p.key || name === p.key);
+        if (hit) { nodes[hit.key] = o; }
+      }
+    });
+    root.add(gltf.scene);
+    Object.entries(nodes).forEach(([k, o]) => { home[k] = o.position.clone(); });
+    document.getElementById('loading').hidden = true;
+    resize(); applyView('exploded');
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function tick() {
+    explode += (targetExplode - explode) * (reduce ? 1 : 0.15);
+    Object.entries(nodes).forEach(([k, o]) => {
+      if (home[k] && LIFT[k] !== undefined) o.position.z = home[k].z + LIFT[k] * explode;
+    });
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
+  resize(); tick();
+})();
+</script>
