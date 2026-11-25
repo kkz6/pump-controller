@@ -1,0 +1,186 @@
+{
+ "base": {
+  "material": "PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters",
+  "volume_cm3": 85.6,
+  "size_mm": [
+   117.8,
+   125.0,
+   41.1
+  ]
+ },
+ "lid": {
+  "material": "same as base; print front face down",
+  "volume_cm3": 38.6,
+  "size_mm": [
+   117.8,
+   125.0,
+   11.0
+  ]
+ },
+ "button_caps": {
+  "material": "PETG, five caps; print stems up. Colour STOP red if possible",
+  "volume_cm3": 1.8,
+  "size_mm": [
+   56.3,
+   12.8,
+   11.1
+  ]
+ },
+ "door_bezel": {
+  "material": "PETG or ASA, outside the starter door",
+  "volume_cm3": 2.5,
+  "size_mm": [
+   54.0,
+   26.0,
+   3.5
+  ]
+ },
+ "door_holder": {
+  "material": "PETG, inside the door; takes two M3 nuts",
+  "volume_cm3": 3.7,
+  "size_mm": [
+   50.0,
+   20.0,
+   7.0
+  ]
+ },
+ "door_lens": {
+  "material": "1.5 mm clear acrylic or polycarbonate, cut to outline",
+  "volume_cm3": 0.8,
+  "size_mm": [
+   34.0,
+   15.0,
+   1.5
+  ]
+ },
+ "_layout": {
+  "tallest_part_above_underside": 23.59,
+  "worst_part_under_panel": 18.29,
+  "spacer_mm": 30,
+  "lid_inner_z": 41.1,
+  "ports": [
+   {
+    "ref": "J1",
+    "wall": "left",
+    "span": [
+     4.7,
+     22.8
+    ],
+    "z": [
+     10.299999999999999,
+     24.79499984651804
+    ],
+    "label": "AC IN  L / N"
+   },
+   {
+    "ref": "J10",
+    "wall": "left",
+    "span": [
+     67.8,
+     78.4
+    ],
+    "z": [
+     10.299999999999999,
+     20.595000461935996
+    ],
+    "label": "CT"
+   },
+   {
+    "ref": "J21",
+    "wall": "top",
+    "span": [
+     18.5,
+     29.0
+    ],
+    "z": [
+     10.299999999999999,
+     18.194999882280825
+    ],
+    "label": "INLET"
+   },
+   {
+    "ref": "J20",
+    "wall": "top",
+    "span": [
+     63.599999999999994,
+     87.2
+    ],
+    "z": [
+     10.299999999999999,
+     19.645000213086604
+    ],
+    "label": "TANK  C 1 2 3 4"
+   },
+   {
+    "ref": "J30",
+    "wall": "bottom",
+    "span": [
+     12.9,
+     31.2
+    ],
+    "z": [
+     10.299999999999999,
+     30.094999225139617
+    ],
+    "label": "A: NO COM NC"
+   },
+   {
+    "ref": "J35",
+    "wall": "bottom",
+    "span": [
+     57.9,
+     76.2
+    ],
+    "z": [
+     10.299999999999999,
+     30.094999225139617
+    ],
+    "label": "B: NO COM NC"
+   },
+   {
+    "ref": "J40",
+    "wall": "right",
+    "span": [
+     11.8,
+     28.2
+    ],
+    "z": [
+     10.299999999999999,
+     15.354999910369514
+    ],
+    "label": "USB"
+   }
+  ],
+  "panel_front_z": 32.6,
+  "panel_rear_lowest_z": 26.7,
+  "clearance_panel_pcb_to_parts": 3.21,
+  "clearance_panel_plugs_to_parts": 11.36,
+  "clearance_lid_to_tallest": 8.01,
+  "outer_mm": [
+   117.8,
+   125.0,
+   43.6
+  ],
+  "board_to_box": {
+   "inner_x0": -0.75,
+   "inner_y0": -15.25,
+   "centre": [
+    55.625,
+    44.75
+   ]
+  },
+  "board_underside_z": 9.5,
+  "door_cutout_mm": [
+   31.0,
+   12.0
+  ],
+  "door_screw_holes": {
+   "diameter": 3.4,
+   "centres_x": [
+    -22.5,
+    22.5
+   ],
+   "centre_y": 0
+  }
+ }
+}
