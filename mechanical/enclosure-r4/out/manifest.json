@@ -1,7 +1,7 @@
 {
  "base": {
   "material": "Both versions. PETG or ASA (PC-FR or ABS-FR preferred for mains), 4 perimeters",
-  "volume_cm3": 91.7,
+  "volume_cm3": 91.8,
   "size_mm": [
    117.8,
    125.0,
@@ -10,7 +10,7 @@
  },
  "lid_buttons": {
   "material": "Version A, buttons only; print front face down",
-  "volume_cm3": 38.6,
+  "volume_cm3": 38.8,
   "size_mm": [
    117.8,
    125.0,
@@ -28,7 +28,7 @@
  },
  "door_bezel": {
   "material": "Version A, outside the starter door",
-  "volume_cm3": 2.4,
+  "volume_cm3": 2.5,
   "size_mm": [
    54.0,
    26.0,
@@ -37,9 +37,9 @@
  },
  "door_holder": {
   "material": "Version A, inside the door; takes two M3 nuts",
-  "volume_cm3": 3.7,
+  "volume_cm3": 4.3,
   "size_mm": [
-   50.0,
+   54.6,
    20.0,
    7.0
   ]
@@ -55,7 +55,7 @@
  },
  "lid_display": {
   "material": "Version B, display window + buttons; print front face down",
-  "volume_cm3": 37.7,
+  "volume_cm3": 37.9,
   "size_mm": [
    117.8,
    125.0,

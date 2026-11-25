@@ -96,7 +96,10 @@ HOLDER_DEPTH = 7.0
 PANEL_OLED_ACTIVE = ((18.8, 7.5), (41.2, 13.0))
 PANEL_OLED_GLASS = ((15.5, 5.8), (44.5, 14.8))
 LID_WINDOW = (25.0, 8.0)
-LID_LENS = (36.0, 13.0, 1.5)     # clear lens in a pocket on the lid's inner face
+LID_LENS = (36.0, 13.0, 1.5)
+# Debossed lettering prints with sub-0.8 mm ridges between strokes (JLC3DP flags it);
+# label the lid with a sticker or label-maker tape instead.
+LID_TEXT = False     # clear lens in a pocket on the lid's inner face
 
 
 def load_main_heights():
@@ -188,8 +191,8 @@ def build_base(lay):
         base -= place(hx, hy, BOARD_UNDERSIDE - M3_INSERT_DEPTH) * Cylinder(M3_INSERT_D / 2, M3_INSERT_DEPTH + 1, align=C)
     for hx, hy in MOUNT_HOLES:   # M4 countersunk, flush with the floor
         base -= place(hx, hy, -1) * Cylinder(2.25, FLOOR + 2, align=C)
-        base -= place(hx, hy, FLOOR - 2.3) * Cylinder(4.1, 2.31, align=C)
-        base -= place(hx, hy, FLOOR - 2.3) * extrude(Rot(0, 0, 0) * __import__('build123d').Circle(2.25), 2.3, taper=-41)
+        # 90-degree countersink for an M4 flat head; starts 1.0 mm above the outside face
+        base -= place(hx, hy, 1.0) * extrude(__import__('build123d').Circle(2.25), FLOOR - 1.0 + 0.01, taper=-45)
     for p in lay['ports']:
         lo, hi = p['span']
         z0, z1 = p['z']
@@ -216,10 +219,10 @@ def build_lid(lay, outer, variant):
     iw, ih = IN_X1 - IN_X0, IN_Y1 - IN_Y0
     lid += extrude(RectangleRounded(iw - 0.4, ih - 0.4, 1.0) - RectangleRounded(iw - 3.6, ih - 3.6, 0.5), -3.0)
     y, w = LOOM_SLOT
-    lid -= place(IN_X1 - 1, y, -4) * Box(6, w + 1, 5, align=C)
+    lid -= place(IN_X1 - 1, y, -4) * Box(6, w + 1, 4, align=C)   # skirt only, not the lid plate
     for hx, hy in BOARD_HOLES:   # screws into the M3 spacers
         lid -= place(hx, hy, -5) * Cylinder(1.7, LID_T + 10, align=C)
-        lid -= place(hx, hy, LID_T - 1.7) * Cylinder(3.1, 2, align=C)
+        lid -= place(hx, hy, LID_T - 1.2) * Cylinder(3.1, 2, align=C)   # leaves 1.3 mm under the head
     px0, py0 = var['panel_at']
     for hx, hy in PANEL_HOLES:   # panel bosses, M2.5 heat-set from below
         x, y = px0 + hx, py0 + hy
@@ -229,7 +232,8 @@ def build_lid(lay, outer, variant):
     for label, kx, ky, d, _ in KEYS:
         x, y = px0 + kx, py0 + ky
         lid -= place(x, y, -1) * Cylinder((d + KEY_CLEAR) / 2, LID_T + 2, align=C)
-        lid -= place(x, y + 8.2, LID_T - 0.5) * extrude(Text(label, 2.6), 1)
+        if LID_TEXT:
+            lid -= place(x, y + 8.2, LID_T - 0.5) * extrude(Text(label, 2.6), 1)
     cx = (IN_X0 + IN_X1) / 2
     top_of_group = key_y - 8
     if var['display']:
@@ -237,12 +241,12 @@ def build_lid(lay, outer, variant):
         (gx0, gy0), (gx1, gy1) = PANEL_OLED_GLASS
         wx, wy = px0 + (ax0 + ax1) / 2, py0 + (ay0 + ay1) / 2
         lid -= place(wx, wy, -1) * extrude(Rectangle(*LID_WINDOW), LID_T + 2)
-        lid -= place(wx, wy, LID_T + 0.001) * extrude(Rectangle(LID_WINDOW[0] + 1.6, LID_WINDOW[1] + 1.6), -0.8, taper=45)
         lid -= place(px0 + (gx0 + gx1) / 2, py0 + (gy0 + gy1) / 2, -0.01) * \
             extrude(RectangleRounded(LID_LENS[0] + 0.3, LID_LENS[1] + 0.3, 1.5), LID_LENS[2] + 0.01)
         top_of_group = wy - LID_WINDOW[1] / 2
-    lid -= place(cx, top_of_group - 12, LID_T - 0.5) * extrude(Text('PUMP CONTROLLER R4', 5.0), 1)
-    lid -= place(cx, key_y + 22, LID_T - 0.5) * extrude(Text('ISOLATE SUPPLY BEFORE OPENING', 2.6), 1)
+    if LID_TEXT:
+        lid -= place(cx, top_of_group - 12, LID_T - 0.5) * extrude(Text('PUMP CONTROLLER R4', 5.0), 1)
+        lid -= place(cx, key_y + 22, LID_T - 0.5) * extrude(Text('ISOLATE SUPPLY BEFORE OPENING', 2.6), 1)
     return lid
 
 
@@ -273,15 +277,15 @@ def build_bezel():
     front = extrude(RectangleRounded(bw, bh, 3), bt)
     front = fillet(front.edges().group_by(Axis.Z)[-1], 0.8)
     front -= Pos(0, 0, -1) * extrude(Rectangle(*BEZEL_WINDOW), bt + 2)
-    front -= Pos(0, 0, bt + 0.001) * extrude(Rectangle(BEZEL_WINDOW[0] + 1.6, BEZEL_WINDOW[1] + 1.6), -0.8, taper=45)
-    front -= Pos(0, 0, -0.01) * extrude(RectangleRounded(LENS[0] + 0.3, LENS[1] + 0.3, 1.5), LENS[2] + 0.01)
+    front -= Pos(0, 0, -0.01) * extrude(RectangleRounded(LENS[0] + 0.3, LENS[1] + 0.3, 1.5), LENS[2] - 0.3)   # lens stands 0.3 mm proud and is clamped by the door
     # located by its two screws; the lens covers the door cut-out with 1.5 mm overlap all round
     for sx in (-BEZEL_SCREW_X, BEZEL_SCREW_X):
         front -= Pos(sx, 0, -2) * Cylinder(1.7, bt + 4, align=C)
         front -= Pos(sx, 0, bt - 1.7) * extrude(__import__('build123d').Circle(1.7), 1.71, taper=-45)
     # rear holder: pocket for the module, captive M3 nuts, cable exit
     pw, ph, pt = OLED_PCB
-    holder = Pos(0, 0, -HOLDER_DEPTH) * extrude(RectangleRounded(bw - 4, bh - 6, 2.5), HOLDER_DEPTH)
+    # long enough to keep >= 1.5 mm of wall outside the M3 nut pockets at +/-22.5 mm
+    holder = Pos(0, 0, -HOLDER_DEPTH) * extrude(RectangleRounded(2 * (BEZEL_SCREW_X + 3.3 + 1.5), bh - 6, 2.5), HOLDER_DEPTH)
     holder -= Pos(0, 0, -HOLDER_DEPTH + 2.0) * extrude(Rectangle(pw + 0.6, ph + 0.6), HOLDER_DEPTH)
     holder -= Pos(OLED_GLASS_OFFSET[0], 0, -2) * extrude(Rectangle(OLED_GLASS[0] + 1, OLED_GLASS[1] + 1), 3)
     holder -= Pos(-pw / 2 - 2, 0, -HOLDER_DEPTH + 2.0) * Box(6, 8, HOLDER_DEPTH, align=C)
